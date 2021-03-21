@@ -1,4 +1,4 @@
-# SIMS_IS_Bolnica 2021
+# SIMS_IS_Bolnica 2021 (sims, hci)
 
 Uloge:
 	Upravnik: 	Rastislav Kukucka 	RA129/2018

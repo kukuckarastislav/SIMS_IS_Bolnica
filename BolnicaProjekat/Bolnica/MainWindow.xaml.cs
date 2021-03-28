@@ -22,8 +22,9 @@ namespace Bolnica
     {
         public MainWindow()
         {
-            Model.Bolnica bolnica = new Model.Bolnica("Zdravo bolnica","4", Model.Mesto.NoviSad);
+            //Model.Bolnica bolnica = new Model.Bolnica("Zdravo bolnica","4", Model.Mesto.NoviSad);
             InitializeComponent();
+            Model.Bolnica.GetInstance();
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)

@@ -10,8 +10,13 @@ namespace Model
 {
    public class BolesnickaSoba : Prostorija
    {
-      private int BrojKreveta;
-      private int BrojSlobodnihKreveta;
-   
-   }
+        private int BrojKreveta;
+        private int BrojSlobodnihKreveta;
+
+        public BolesnickaSoba(int brojKreveta, int brojSlobodnihKreveta, int id, int sprat, double povrsina, int idInventara) : base(id, sprat, povrsina, idInventara)
+        {
+            BrojKreveta = brojKreveta;
+            BrojSlobodnihKreveta = brojSlobodnihKreveta;
+        }
+    }
 }

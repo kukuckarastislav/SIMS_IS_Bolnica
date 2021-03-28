@@ -10,7 +10,15 @@ namespace Model
 {
    public class Inventar
    {
-      public System.Collections.ArrayList potrosnaOprema;
+
+        public Inventar(int idInventara)
+        {
+            IdInventara = idInventara;
+        }
+
+
+
+        public System.Collections.ArrayList potrosnaOprema;
       
       /// <pdGenerated>default getter</pdGenerated>
       public System.Collections.ArrayList GetPotrosnaOprema()
@@ -132,8 +140,9 @@ namespace Model
       private int IdInventara;
       
       private System.Collections.ArrayList lekovi;
-      
-      /// <pdGenerated>default getter</pdGenerated>
+
+
+        /// <pdGenerated>default getter</pdGenerated>
       public System.Collections.ArrayList GetLekovi()
       {
          if (lekovi == null)

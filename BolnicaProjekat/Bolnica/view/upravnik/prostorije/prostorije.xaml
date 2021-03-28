@@ -8,7 +8,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="prostorije">
 
-    <Grid Background="Red">
-        <TextBlock FontSize="50">HEHE</TextBlock>
+    <Grid Background="White">
+        <DockPanel>
+            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal">
+                <Button Width="100" Margin="30 10">Dodaj</Button>
+                <Button Width="100" Margin="30 10">Izmeni</Button>
+                <Button Width="100" Margin="30 10">Obrisi</Button>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Background="Gold">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+            </Grid>
+        </DockPanel>
     </Grid>
 </Page>

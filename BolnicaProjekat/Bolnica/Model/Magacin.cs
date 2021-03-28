@@ -8,7 +8,11 @@ using System;
 
 namespace Model
 {
-   public class Magacin : Inventar
-   {
-   }
+    public class Magacin : Inventar
+    {
+        public Magacin(int idInventara) : base(idInventara)
+        { 
+
+        }
+    }
 }

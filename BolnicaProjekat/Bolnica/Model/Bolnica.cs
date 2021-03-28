@@ -9,7 +9,7 @@ using System;
 
 namespace Model
 {
-    public class Bolnica
+    public sealed class Bolnica
     {
         private string NazivBolnice;
         private string IdBolnice;
@@ -17,13 +17,23 @@ namespace Model
         private Magacin Magacin;
 
 
-        public Bolnica(string naziv, string id, Mesto mesto)
+        private static Bolnica instance = null;
+        public static Bolnica GetInstance()
+        {
+            if(instance == null)
+            {
+                return new Bolnica("Zdravo Bolnica", "bolnica", Model.Mesto.NoviSad);
+            }
+            return instance;
+        }
+
+        private Bolnica(string naziv, string id, Mesto mesto)
         {
             NazivBolnice = naziv;
             IdBolnice = id;
             MestoBolnice = mesto;
 
-            Magacin = new Magacin();
+            Magacin = new Magacin(99);
         }
 
 
@@ -215,6 +225,18 @@ namespace Model
             if (prostorije == null)
                 prostorije = new System.Collections.ArrayList();
             return prostorije;
+        }
+
+        public Prostorija GetProstorijaByID(int idProstorije)
+        {
+            foreach(Prostorija prostroija in prostorije)
+            {
+                if(prostroija.Id == idProstorije)
+                {
+                    return prostroija;
+                }
+            }
+            return null;
         }
 
         /// <pdGenerated>default setter</pdGenerated>

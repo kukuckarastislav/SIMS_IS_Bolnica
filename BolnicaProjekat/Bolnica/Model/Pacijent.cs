@@ -10,6 +10,23 @@ namespace Model
 {
    public class Pacijent : Korisnik
    {
+
+        private string IdPacijenta;
+        private bool PacijentGost = false;
+        private bool Hospitalizovan;
+        private bool SpamUser = false;
+
+        public Pacijent(string idPacijenta, bool pacijentGost, bool hospitalizovan, bool spamUser, string korisnickoIme, string sifra, string ime,
+            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
+            string jmbg, string drzavljanstvo, string adresaStanovanja) : base(korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
+                adresaStanovanja)
+        {
+            this.IdPacijenta = idPacijenta;
+            this.PacijentGost = pacijentGost;
+            this.Hospitalizovan = hospitalizovan;
+            this.SpamUser = spamUser;
+        }
+
       public Pregled ZakazivanjePregleda()
       {
          // TODO: implement
@@ -92,10 +109,7 @@ namespace Model
          }
       }
    
-      private String IdPacijenta;
-      private bool PacijentGost = false;
-      private bool Hospitalizovan;
-      private bool SpamUser = false;
+
    
    }
 }

@@ -10,7 +10,16 @@ namespace Model
 {
    public class Sekretar : Osoblje
    {
-      public Pacijent RegistracijaNovogPacijenata()
+
+        public Sekretar(RadnoVreme radnoVreme, RadniStatus radniStatus, string korisnickoIme, string sifra, string ime,
+            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
+            string jmbg, string drzavljanstvo, string adresaStanovanja) : base(radnoVreme, radniStatus, korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
+            adresaStanovanja)
+        {
+
+        }
+
+        public Pacijent RegistracijaNovogPacijenata()
       {
          // TODO: implement
          return null;

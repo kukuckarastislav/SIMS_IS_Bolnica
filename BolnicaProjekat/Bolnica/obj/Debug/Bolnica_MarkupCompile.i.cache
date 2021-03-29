@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\
+D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\
 Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\App.xaml
-7778136581
+D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\App.xaml
+8211865785
 
-46-1688084074
+47-1887644428
 13-1505183044
-MainWindow.xaml;view\lekar\LekarHome.xaml;view\pacijent\PacijentHome.xaml;view\pacijent\RaspoloziviPregledi.xaml;view\sekretar\SekretarHome.xaml;view\upravnik\prostorije\prostorije.xaml;view\upravnik\UpravnikHome.xaml;
+MainWindow.xaml;view\lekar\LekarHome.xaml;view\lekar\pacijenti\PrikazPacijenata.xaml;view\pacijent\PacijentHome.xaml;view\pacijent\RaspoloziviPregledi.xaml;view\sekretar\SekretarHome.xaml;view\upravnik\prostorije\prostorije.xaml;view\upravnik\UpravnikHome.xaml;
 
-False
+True
 

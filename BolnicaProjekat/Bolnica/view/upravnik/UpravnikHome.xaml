@@ -8,9 +8,13 @@
         Title="UpravnikHome" Height="720" Width="1280">
     <Grid>
         <DockPanel>
-            <Grid DockPanel.Dock="Left" Background="Aqua" Width="Auto">
+            <Grid DockPanel.Dock="Left" Background="#031e46" Width="Auto">
                 <StackPanel Orientation="Vertical">
-                    <Button Margin="6" Click="Prostorije_Click">Ras sa prostorijama</Button>
+                    <Border Margin="10 10 10 0" Width="60" Height="60" Background="White" CornerRadius="450">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="upravnik" />
+                    </Border>
+                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Text="Ime" />
+                    <Button Margin="6 6 6 6" Click="Prostorije_Click">Rad sa Prostorijama</Button>
                     <Button Margin="6">ToDO</Button>
                     <Button Margin="6">ToDO</Button>
                     <Button Margin="6">ToDO</Button>
@@ -18,7 +22,7 @@
                 </StackPanel>
             </Grid>
             <DockPanel DockPanel.Dock="Right">
-                <StackPanel DockPanel.Dock="Top" Height="60" Background="DeepPink"></StackPanel>
+                <StackPanel DockPanel.Dock="Top" Height="60" Background="#043987"></StackPanel>
                 <Frame DockPanel.Dock="Bottom" x:Name="RadnaPovrsina" NavigationUIVisibility="Hidden"></Frame>
             </DockPanel>
           

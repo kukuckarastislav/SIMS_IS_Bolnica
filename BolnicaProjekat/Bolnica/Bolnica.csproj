@@ -58,6 +58,9 @@
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\pacijenti\PrikazPacijenata.xaml.cs">
+      <DependentUpon>PrikazPacijenata.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
     </Compile>
@@ -86,8 +89,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="view\lekar\LekarHome.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\lekar\pacijenti\PrikazPacijenata.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\pacijent\PacijentHome.xaml">
       <SubType>Designer</SubType>

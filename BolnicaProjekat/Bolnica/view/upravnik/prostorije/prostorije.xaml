@@ -15,18 +15,18 @@
                 <Button Width="100" Margin="30 10">Izmeni</Button>
                 <Button Width="100" Margin="30 10">Obrisi</Button>
             </StackPanel>
-            <Grid DockPanel.Dock="Bottom" Background="Gold">
+            <Grid DockPanel.Dock="Bottom" Background="#f0f0f0">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition />
                     <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <DataGrid x:Name="datagrid1" ItemsSource="{Binding Path=Prostorijee}" 
                           Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"

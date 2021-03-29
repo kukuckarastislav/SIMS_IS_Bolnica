@@ -5,8 +5,76 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.lekar"
         mc:Ignorable="d"
-        Title="LekarHome" Height="450" Width="800">
+        Title="LekarHome" Height="750" Width="430" Background="FloralWhite" FontFamily="Century Gothic" FontSize="8">
     <Grid>
-        <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">HELLO LASLO</TextBlock>
+        <DockPanel>
+            <Grid DockPanel.Dock="Top" VerticalAlignment="Top" 
+                  Background="IndianRed" Height="75">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Zdravo Bolnica" 
+                               VerticalAlignment="Top" HorizontalAlignment="Center" 
+                               FontWeight="Bold" TextDecorations="Underline"
+                               Foreground="DarkRed"
+                               FontSize="11"
+                               Grid.Row="0" Grid.RowSpan="2"
+                               Grid.Column="0" Grid.ColumnSpan="4"    
+                               />
+
+
+                        <Button Grid.Column="5" Grid.ColumnSpan="2"
+                                Grid.Row="1" Grid.RowSpan="2"
+                                Content="Pacijenti" FontWeight="DemiBold"
+                                Background="FloralWhite"
+                                Click="Pacijenti_Click"
+                                />
+
+                        <Button Grid.Column="9" Grid.ColumnSpan="3"
+                                Grid.Row="1" Grid.RowSpan="2"
+                                Content="Radni Kalendar" FontWeight="DemiBold"
+                                Background="FloralWhite"
+                                />
+
+                        <Button Grid.Column="14" Grid.ColumnSpan="2"
+                                Grid.Row="1" Grid.RowSpan="2"
+                                Content="Zakazivanje" FontWeight="DemiBold"
+                                Background="FloralWhite"
+                                />
+                    </Grid>
+                </StackPanel>
+            </Grid>
+            <Frame DockPanel.Dock="Bottom" x:Name="RadnaPovrsinaLekar" NavigationUIVisibility="Hidden"></Frame>
+
+
+        </DockPanel>
     </Grid>
 </Window>

@@ -34,6 +34,18 @@ namespace Model
             MestoBolnice = mesto;
 
             Magacin = new Magacin(99);
+
+            /* OBRISI OVAJ DEO */
+            // int id, int sprat, double povrsina, int idInventara
+            Model.Prostorija p1 = new Model.Prostorija(10,1,10*10,77);
+            Model.Prostorija p2 = new Model.Prostorija(11, 2, 10 * 10, 88);
+            Model.Prostorija p3 = new Model.Prostorija(20, 1, 10 * 10, 99);
+            Model.Prostorija p4 = new Model.Prostorija(30, 4, 15 * 10, 100);
+            AddProstorije(p1);
+            AddProstorije(p2);
+            AddProstorije(p3);
+            AddProstorije(p4);
+
         }
 
 
@@ -219,6 +231,14 @@ namespace Model
         }
         public System.Collections.ArrayList prostorije;
 
+        public int GetBrojProstorija()
+        {
+            if (prostorije == null)
+                prostorije = new System.Collections.ArrayList();
+
+            return prostorije.Count;
+        }
+
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetProstorije()
         {
@@ -229,7 +249,10 @@ namespace Model
 
         public Prostorija GetProstorijaByID(int idProstorije)
         {
-            foreach(Prostorija prostroija in prostorije)
+            if (prostorije == null)
+                prostorije = new System.Collections.ArrayList();
+
+            foreach (Prostorija prostroija in prostorije)
             {
                 if(prostroija.Id == idProstorije)
                 {

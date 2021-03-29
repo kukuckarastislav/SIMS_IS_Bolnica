@@ -29,5 +29,12 @@ namespace Bolnica.view.pacijent
             var varr = new view.pacijent.RaspoloziviPregledi();
             varr.Show();
         }
+
+        private void prikazi_vlastite_preglede(object sender, RoutedEventArgs e)
+        {
+            var varr = new view.pacijent.SopstveniPregledi();
+            varr.Show();
+
+        }
     }
 }

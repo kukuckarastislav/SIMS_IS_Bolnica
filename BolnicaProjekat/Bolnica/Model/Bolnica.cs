@@ -21,15 +21,15 @@ namespace Model
         private Magacin Magacin;
 
 
-        public ObservableCollection<Pregled> Pregledi { get; set;  }
-
+        public ObservableCollection<Pregled> Pregledi { get; set; }
+        public Pacijent KT2Pacijent { get; set; }
 
 
 
         private static Bolnica instance = null;
         public static Bolnica GetInstance()
         {
-            if(instance == null)
+            if (instance == null)
             {
                 return new Bolnica("Zdravo Bolnica", "bolnica", Model.Mesto.NoviSad);
             }
@@ -46,7 +46,7 @@ namespace Model
 
             /* OBRISI OVAJ DEO */
             // int id, int sprat, double povrsina, int idInventara
-            Model.Prostorija p1 = new Model.Prostorija(10,1,10*10,77);
+            Model.Prostorija p1 = new Model.Prostorija(10, 1, 10 * 10, 77);
             Model.Prostorija p2 = new Model.Prostorija(11, 2, 10 * 10, 88);
             Model.Prostorija p3 = new Model.Prostorija(20, 1, 10 * 10, 99);
             Model.Prostorija p4 = new Model.Prostorija(30, 4, 15 * 10, 100);
@@ -56,22 +56,29 @@ namespace Model
             AddProstorije(p4);
 
 
+
+            KT2Pacijent = new Pacijent("idPacijenta", false, false, false, "korisnickoIme", "sifra", "ime", "prezime", Pol.Zensko, " email", " telefon", new DateTime(2020, 1, 1), "jmbg", "drzavljanstvo",
+                "adresaStanovanja");
+           
+
+
             this.Pregledi = new ObservableCollection<Pregled>();
 
-            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 1)), "tip 1", "...", "id22", "egjf", false, "no comment");
-            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 5, 1)), "tip 1", "...", "id22", "egjf", false, "no comment");
-            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 3, 3)), "tip 1", "...", "id22", "egjf", false, "no comment");
-            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 9, 1)), "tip 1", "...", "id22", "egjf", false, "no comment");
-            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 2)), "tip 1", "...", "id22", "egjf", false, "no comment");
-            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 4)), "tip 1", "...", "id22", "egjf", false, "no comment");
+            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 1)), "tip 1", "...", "id22", "egjf", false, "cfv","no comment");
+            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 5, 1)), "tip 1", "...", "id22", "egjf", false, "gg","no comment");
+            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 3, 3)), "tip 1", "...", "id22", "egjf", false, "g","no comment");
+            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 9, 1)), "tip 1", "...", "id22", "egjf", false, "yy","no comment");
+            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 2)), "tip 1", "...", "id22", "egjf", false, "uu","no comment");
+            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 4)), "tip 1", "...", "id22", "egjf", false, "yy","no comment");
 
             Pregledi.Add(p11);
             Pregledi.Add(p22);
             Pregledi.Add(p33);
             Pregledi.Add(p44);
             Pregledi.Add(p55);
-            Pregledi.Add(p66);
 
+
+            KT2Pacijent.MedicinskiKarton.AddPregled(p66);
 
         }
 
@@ -281,7 +288,7 @@ namespace Model
 
             foreach (Prostorija prostroija in prostorije)
             {
-                if(prostroija.Id == idProstorije)
+                if (prostroija.Id == idProstorije)
                 {
                     return prostroija;
                 }
@@ -415,7 +422,7 @@ namespace Model
                 sobeZaPreglede.Clear();
         }
         public System.Collections.ArrayList operacioneSale;
-       
+
 
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetOperacioneSale()
@@ -462,12 +469,12 @@ namespace Model
         }
 
 
-        
 
 
 
 
- 
+
+
 
 
     }

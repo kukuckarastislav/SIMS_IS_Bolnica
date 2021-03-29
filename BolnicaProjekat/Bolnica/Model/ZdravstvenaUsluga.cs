@@ -16,15 +16,18 @@ namespace Model
 
         public string ZakazivacUsluge { get; set; }
         public bool Obavljena { get; set; }
+
+        public string IdUsluge { get; set; }
         public string Komentar { get; set; } 
 
-        protected ZdravstvenaUsluga(string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara,string zakazivacUsluge, bool obavljena, string komentar)
+        protected ZdravstvenaUsluga(string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara,string zakazivacUsluge, bool obavljena,string idUsluge, string komentar)
         {
             NazivZdrastveneUstanove = nazivZdrastveneUstanove;
             LokacijaZdravsteveUstanove = lokacijaZdravsteveUstanove;
             IdLekara = idLekara;
             ZakazivacUsluge = zakazivacUsluge;
             Obavljena = obavljena;
+            idUsluge = idUsluge;
             Komentar = komentar;
         }
     }

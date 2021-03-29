@@ -10,7 +10,7 @@ namespace Model
 {
     public class Pregled : ZdravstvenaUsluga
     {
-        public Termin termin;
+        public Termin Termin { get; set; }
         // public Racun racun;
 
         public string TipPregleda { get; set; }
@@ -18,16 +18,16 @@ namespace Model
 
         // private SobaZaPreglede SobaZaPregled;
 
-        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena, string komentar) : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, komentar)
+        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena, string id,string komentar) : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena,id, komentar)
         {
-            this.termin = termin;
+            this.Termin = termin;
             TipPregleda = tipPregleda;
             RezultatPregleda = rezultatPregleda;
         }
 
-        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string idLekara, string zakazivacUsluge, bool obavljena, string komentar) : base("Zdravo bolnica", "Novi Sad", idLekara, zakazivacUsluge, obavljena, komentar)
+        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string idLekara, string zakazivacUsluge, bool obavljena, string id,string komentar) : base("Zdravo bolnica", "Novi Sad", idLekara, zakazivacUsluge, obavljena, id,komentar)
         {
-            this.termin = termin;
+            this.Termin = termin;
             TipPregleda = tipPregleda;
             RezultatPregleda = rezultatPregleda;
         }

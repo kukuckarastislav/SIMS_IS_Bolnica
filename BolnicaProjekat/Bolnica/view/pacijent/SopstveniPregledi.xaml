@@ -1,13 +1,13 @@
-﻿<Window x:Class="Bolnica.view.pacijent.RaspoloziviPregledi"
+﻿<Window x:Class="Bolnica.view.pacijent.SopstveniPregledi"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="pregledi" Height="450" Width="800">
+        Title="SopstveniPregledi" Height="450" Width="800">
     <Grid>
-        <ListView ListViewItem.MouseDoubleClick="zakazi_pregled" ItemsSource="{Binding Pregledi}" x:Name="listaPregleda" >
+        <ListView ListViewItem.MouseDoubleClick="pregled_odabran" ItemsSource="{Binding PreglediPacijenta}" x:Name="listaPregledaPacijenta" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
@@ -18,6 +18,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Click="pregled_odabran" Margin="319,364,332,23" RenderTransformOrigin="0.984,0.646">Zakazi</Button>
+        <Button Click="otkazi_pregled" Margin="231,364,420,23" RenderTransformOrigin="0.097,0.562">Otkazi</Button>
+        <Button Margin="429,364,222,23" RenderTransformOrigin="0.667,0.361">Modifikuj</Button>
     </Grid>
 </Window>

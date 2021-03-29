@@ -18,8 +18,8 @@ namespace Model
 
         // private OperacionaSala OperacionaSala;
 
-        public Operacija(Termin termin, string tipOperacije, string rezultatOperacije, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena, string komentar)
-            : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, komentar)
+        public Operacija(Termin termin, string tipOperacije, string rezultatOperacije, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena,string id, string komentar)
+            : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, id,komentar)
         {
             this.termin = termin;
             TipOperacije = tipOperacije;

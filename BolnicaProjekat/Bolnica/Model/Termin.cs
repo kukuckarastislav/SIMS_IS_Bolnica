@@ -11,8 +11,8 @@ namespace Model
     public class Termin
     {
         public DateTime Pocetak { get; set; }
-        private double Trajanje { get; set; }
-        private DateTime Kraj{ get; set; }
+        public double Trajanje { get; set; }
+        public DateTime Kraj{ get; set; }
 
         public Termin(DateTime pocetak, double trajanje, DateTime kraj)
         {

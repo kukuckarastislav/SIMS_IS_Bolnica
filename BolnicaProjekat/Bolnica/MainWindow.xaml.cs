@@ -24,7 +24,7 @@ namespace Bolnica
         {
             //Model.Bolnica bolnica = new Model.Bolnica("Zdravo bolnica","4", Model.Mesto.NoviSad);
             InitializeComponent();
-            Model.Bolnica.GetInstance();
+            System.Collections.ArrayList a =  Model.Bolnica.GetInstance.GetLekari();
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)

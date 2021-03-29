@@ -6,14 +6,16 @@
 
 using System;
 using System.Collections;
+using System.ComponentModel;
 
 namespace Model
 {
    public class Prostorija
-   {
+    {
 
-
+        
         public int Id { get; set; }
+
         public int Sprat { get; set; }
         public double Povrsina { get; set; }
         private Inventar inventar;

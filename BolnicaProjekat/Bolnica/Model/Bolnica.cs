@@ -6,6 +6,7 @@
 
 using Bolnica.view.pacijent;
 using System;
+using Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,13 +28,17 @@ namespace Model
 
 
         private static Bolnica instance = null;
-        public static Bolnica GetInstance()
+        public static Bolnica GetInstance
         {
-            if (instance == null)
+            get
             {
-                return new Bolnica("Zdravo Bolnica", "bolnica", Model.Mesto.NoviSad);
+                if (instance == null)
+                {
+                    instance = new Bolnica("Zdravo Bolnica", "bolnica", Model.Mesto.NoviSad);
+                }
+                return instance;
             }
-            return instance;
+            
         }
 
         private Bolnica(string naziv, string id, Mesto mesto)
@@ -50,6 +55,7 @@ namespace Model
             Model.Prostorija p2 = new Model.Prostorija(11, 2, 10 * 10, 88);
             Model.Prostorija p3 = new Model.Prostorija(20, 1, 10 * 10, 99);
             Model.Prostorija p4 = new Model.Prostorija(30, 4, 15 * 10, 100);
+            System.Windows.MessageBox.Show("POZIV KONSTRUTKROA");
             AddProstorije(p1);
             AddProstorije(p2);
             AddProstorije(p3);
@@ -263,28 +269,28 @@ namespace Model
             if (lekari != null)
                 lekari.Clear();
         }
-        public System.Collections.ArrayList prostorije;
+        public System.Collections.ObjectModel.ObservableCollection<Model.Prostorija> prostorije;
 
         public int GetBrojProstorija()
         {
             if (prostorije == null)
-                prostorije = new System.Collections.ArrayList();
+                prostorije = new System.Collections.ObjectModel.ObservableCollection<Model.Prostorija>();
 
             return prostorije.Count;
         }
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetProstorije()
+        public System.Collections.ObjectModel.ObservableCollection<Model.Prostorija> GetProstorije()
         {
             if (prostorije == null)
-                prostorije = new System.Collections.ArrayList();
+                prostorije = new System.Collections.ObjectModel.ObservableCollection<Model.Prostorija>();
             return prostorije;
         }
 
         public Prostorija GetProstorijaByID(int idProstorije)
         {
             if (prostorije == null)
-                prostorije = new System.Collections.ArrayList();
+                prostorije = new System.Collections.ObjectModel.ObservableCollection<Model.Prostorija>();
 
             foreach (Prostorija prostroija in prostorije)
             {
@@ -297,7 +303,7 @@ namespace Model
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetProstorije(System.Collections.ArrayList newProstorije)
+        public void SetProstorije(System.Collections.ObjectModel.ObservableCollection<Model.Prostorija> newProstorije)
         {
             RemoveAllProstorije();
             foreach (Prostorija oProstorija in newProstorije)
@@ -310,7 +316,7 @@ namespace Model
             if (newProstorija == null)
                 return;
             if (this.prostorije == null)
-                this.prostorije = new System.Collections.ArrayList();
+                this.prostorije = new System.Collections.ObjectModel.ObservableCollection<Model.Prostorija>();
             if (!this.prostorije.Contains(newProstorija))
                 this.prostorije.Add(newProstorija);
         }
@@ -322,7 +328,35 @@ namespace Model
                 return;
             if (this.prostorije != null)
                 if (this.prostorije.Contains(oldProstorija))
+                {
                     this.prostorije.Remove(oldProstorija);
+                }
+        }
+
+        public void RemoveProstorijeByID(int idProstorije)
+        {
+            if (this.prostorije == null)
+                prostorije = new System.Collections.ObjectModel.ObservableCollection<Model.Prostorija>();
+            System.Windows.MessageBox.Show("OCES DA BRISES " + Convert.ToString(idProstorije));
+            System.Windows.MessageBox.Show("PRE BRISANJA");
+            foreach (Prostorija pro in prostorije)
+            {
+                System.Windows.MessageBox.Show(Convert.ToString(pro.Id));
+            }
+            foreach (Prostorija pro in prostorije)
+            {
+                if(pro.Id == idProstorije)
+                {
+                    System.Windows.MessageBox.Show("YESSSS");
+                    this.prostorije.Remove(pro);
+                    break;
+                }
+            }
+            System.Windows.MessageBox.Show("POSLE BRISANJA");
+            foreach (Prostorija pro in prostorije)
+            {
+                System.Windows.MessageBox.Show(Convert.ToString(pro.Id));
+            }
         }
 
         /// <pdGenerated>default removeAll</pdGenerated>

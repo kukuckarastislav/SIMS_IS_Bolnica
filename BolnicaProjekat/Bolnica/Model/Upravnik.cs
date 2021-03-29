@@ -47,7 +47,7 @@ namespace Model
       public bool ObrisiProstoriju(int idProstorije)        // (Prostorija prostorija)
       {
             //Model.Bolnica.GetProstorijaByID(idProstorije);
-            Prostorija pro = Model.Bolnica.GetInstance().GetProstorijaByID(idProstorije);
+            Prostorija pro = Model.Bolnica.GetInstance.GetProstorijaByID(idProstorije);
             if(pro == null)
             {
                 return false;

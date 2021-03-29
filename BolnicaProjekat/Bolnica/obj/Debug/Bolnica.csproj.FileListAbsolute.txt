@@ -54,3 +54,7 @@ D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\RaspoloziviPregledi.baml
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\PrikazPacijenata.g.cs
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\PrikazPacijenata.baml
+D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\SopstveniPregledi.g.cs
+D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\SopstveniPregledi.baml
+D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajProstorijuForma.g.cs
+D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajProstorijuForma.baml

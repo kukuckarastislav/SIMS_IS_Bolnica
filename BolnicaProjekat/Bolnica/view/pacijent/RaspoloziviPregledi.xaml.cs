@@ -28,7 +28,7 @@ namespace Bolnica.view.pacijent
         public RaspoloziviPregledi()
         {
             InitializeComponent();
-            Pregledi = Model.Bolnica.GetInstance().Pregledi;
+            Pregledi = Model.Bolnica.GetInstance.Pregledi;
             this.listaPregleda.
                 ItemsSource = Pregledi;
         }
@@ -40,9 +40,9 @@ namespace Bolnica.view.pacijent
 
         private void pregled_odabran(object sender, RoutedEventArgs e)
         {
-            Model.Bolnica.GetInstance().KT2Pacijent.ZakazivanjePregleda(odabraniPregled);
+            Model.Bolnica.GetInstance.KT2Pacijent.ZakazivanjePregleda(odabraniPregled);
             Pregledi.Remove(odabraniPregled);
-            Model.Bolnica.GetInstance().Pregledi.Remove(odabraniPregled);
+            Model.Bolnica.GetInstance.Pregledi.Remove(odabraniPregled);
         }
     }
 }

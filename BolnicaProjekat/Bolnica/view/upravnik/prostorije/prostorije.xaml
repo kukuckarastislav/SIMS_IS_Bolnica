@@ -11,9 +11,9 @@
     <Grid Background="White">
         <DockPanel>
             <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal">
-                <Button Width="100" Margin="30 10">Dodaj</Button>
-                <Button Width="100" Margin="30 10">Izmeni</Button>
-                <Button Width="100" Margin="30 10">Obrisi</Button>
+                <Button Width="100" Margin="30 10" Click="Dodaj_Prostoriju">Dodaj</Button>
+                <Button Width="100" Margin="30 10" Click="Izmeni_Prostoriju">Izmeni</Button>
+                <Button Width="100" Margin="30 10" Click="Obrisi_Prostoriju">Obrisi</Button>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom" Background="#f0f0f0">
                 <Grid.ColumnDefinitions>
@@ -28,9 +28,13 @@
                     <RowDefinition />
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <DataGrid x:Name="datagrid1" ItemsSource="{Binding Path=Prostorijee}" 
+                <DataGrid x:Name="DataGridPrikazProstorija" 
+                          ItemsSource="{Binding Path=KolekcijaProstorija}" 
                           Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"
-                          SelectionMode="Single" IsReadOnly="True" AutoGenerateColumns="False">
+                          IsReadOnly="False"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID Prostorije" Binding="{Binding Id}" Width="*" />
                         <DataGridTextColumn Header="Sprat Prostorije" Binding="{Binding Sprat}" Width="*" />

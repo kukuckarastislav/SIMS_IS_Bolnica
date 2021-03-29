@@ -26,7 +26,7 @@ namespace Bolnica.view.pacijent
         public RaspoloziviPregledi()
         {
             InitializeComponent();
-            Pregledi = Model.Bolnica.GetInstance().Pregledi;
+            Pregledi = Model.Bolnica.GetInstance.Pregledi;
             this.listaPregleda.
                 ItemsSource = Pregledi;
         }

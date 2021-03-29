@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="PacijentHome" Height="450" Width="800">
     <Grid>
-        <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">HELLO MILICA</TextBlock>
+
+        <Button Click="prikazi_preglede" Margin="55,26,607,354">Zakazi pregled</Button>
+        <Button Click="prikazi_preglede" Margin="590,26,58,354" Content="Prikaz vlastitih pregleda" RenderTransformOrigin="1.847,1.103"/>
+        <Button Click="prikazi_preglede" Margin="217,26,431,354" Content="Otkazi pregled"/>
+        <Button Click="prikazi_preglede" Margin="417,26,231,354" Content="Izmjeni pregled"/>
     </Grid>
+    
 </Window>

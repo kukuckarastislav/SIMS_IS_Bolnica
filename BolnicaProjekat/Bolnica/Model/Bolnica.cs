@@ -4,7 +4,11 @@
  * Purpose: Definition of the Class Bolnica
  ***********************************************************************/
 
+using Bolnica.view.pacijent;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 //using System.Collections;
 
 namespace Model
@@ -15,6 +19,11 @@ namespace Model
         private string IdBolnice;
         private Mesto MestoBolnice;
         private Magacin Magacin;
+
+
+        public ObservableCollection<Pregled> Pregledi { get; set;  }
+
+
 
 
         private static Bolnica instance = null;
@@ -45,6 +54,24 @@ namespace Model
             AddProstorije(p2);
             AddProstorije(p3);
             AddProstorije(p4);
+
+
+            this.Pregledi = new ObservableCollection<Pregled>();
+
+            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 1)), "tip 1", "...", "id22", "egjf", false, "no comment");
+            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 5, 1)), "tip 1", "...", "id22", "egjf", false, "no comment");
+            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 3, 3)), "tip 1", "...", "id22", "egjf", false, "no comment");
+            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 9, 1)), "tip 1", "...", "id22", "egjf", false, "no comment");
+            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 2)), "tip 1", "...", "id22", "egjf", false, "no comment");
+            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 4)), "tip 1", "...", "id22", "egjf", false, "no comment");
+
+            Pregledi.Add(p11);
+            Pregledi.Add(p22);
+            Pregledi.Add(p33);
+            Pregledi.Add(p44);
+            Pregledi.Add(p55);
+            Pregledi.Add(p66);
+
 
         }
 
@@ -388,6 +415,7 @@ namespace Model
                 sobeZaPreglede.Clear();
         }
         public System.Collections.ArrayList operacioneSale;
+       
 
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetOperacioneSale()
@@ -433,6 +461,13 @@ namespace Model
                 operacioneSale.Clear();
         }
 
+
+        
+
+
+
+
+ 
 
 
     }

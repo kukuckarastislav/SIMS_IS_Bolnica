@@ -1,0 +1,21 @@
+﻿<Window x:Class="Bolnica.view.pacijent.RaspoloziviPregledi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        mc:Ignorable="d"
+        Title="pregledi" Height="450" Width="800">
+    <Grid>
+        <ListView ItemsSource="{Binding Pregledi}" x:Name="listaPregleda" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
+                    <GridViewColumn Header="ID lekara" DisplayMemberBinding="{Binding IdLekara}" />
+                    <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding TipPregleda}"/>
+               
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

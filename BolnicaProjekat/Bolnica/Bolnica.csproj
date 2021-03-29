@@ -61,6 +61,9 @@
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\RaspoloziviPregledi.xaml.cs">
+      <DependentUpon>RaspoloziviPregledi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\SekretarHome.xaml.cs">
       <DependentUpon>SekretarHome.xaml</DependentUpon>
     </Compile>
@@ -87,6 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\PacijentHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\RaspoloziviPregledi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

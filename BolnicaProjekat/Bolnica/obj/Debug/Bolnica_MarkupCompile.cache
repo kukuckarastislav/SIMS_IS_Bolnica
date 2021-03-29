@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\
 Bolnica
 none
 false
 DEBUG;TRACE
-D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\App.xaml
-10-414891639
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\App.xaml
+1185236561
 
-48317903951
+49966590426
 13-1505183044
-MainWindow.xaml;view\lekar\LekarHome.xaml;view\lekar\pacijenti\PrikazPacijenata.xaml;view\pacijent\PacijentHome.xaml;view\pacijent\RaspoloziviPregledi.xaml;view\pacijent\SopstveniPregledi.xaml;view\sekretar\SekretarHome.xaml;view\upravnik\prostorije\DodajProstorijuForma.xaml;view\upravnik\prostorije\prostorije.xaml;view\upravnik\UpravnikHome.xaml;
+MainWindow.xaml;view\lekar\LekarHome.xaml;view\lekar\pacijenti\PrikazPacijenata.xaml;view\pacijent\PacijentHome.xaml;view\pacijent\RaspoloziviPregledi.xaml;view\pacijent\SopstveniPregledi.xaml;view\sekretar\registracija\PageRegistracija.xaml;view\sekretar\SekretarHome.xaml;view\upravnik\prostorije\DodajProstorijuForma.xaml;view\upravnik\prostorije\prostorije.xaml;view\upravnik\UpravnikHome.xaml;
 
 False
 

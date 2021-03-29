@@ -23,5 +23,15 @@ namespace Bolnica.view.sekretar
         {
             InitializeComponent();
         }
+
+        private void Registracija_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.registracija.PageRegistracija();
+        }
+
+        private void ListPacijenti_Click(object sender, RoutedEventArgs e)
+        {
+           // RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
+        }
     }
 }

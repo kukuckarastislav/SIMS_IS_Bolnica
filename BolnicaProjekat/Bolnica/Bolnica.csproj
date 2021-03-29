@@ -70,6 +70,9 @@
     <Compile Include="view\pacijent\SopstveniPregledi.xaml.cs">
       <DependentUpon>SopstveniPregledi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\registracija\PageRegistracija.xaml.cs">
+      <DependentUpon>PageRegistracija.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\SekretarHome.xaml.cs">
       <DependentUpon>SekretarHome.xaml</DependentUpon>
     </Compile>
@@ -113,6 +116,10 @@
     <Page Include="view\pacijent\SopstveniPregledi.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\registracija\PageRegistracija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\SekretarHome.xaml">
       <SubType>Designer</SubType>

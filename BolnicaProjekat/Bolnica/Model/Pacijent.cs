@@ -16,6 +16,9 @@ namespace Model
         private bool Hospitalizovan;
         private bool SpamUser = false;
 
+
+        public MedicinskiKarton MedicinskiKarton;
+
         public Pacijent(string idPacijenta, bool pacijentGost, bool hospitalizovan, bool spamUser, string korisnickoIme, string sifra, string ime,
             string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
             string jmbg, string drzavljanstvo, string adresaStanovanja) : base(korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
@@ -25,30 +28,34 @@ namespace Model
             this.PacijentGost = pacijentGost;
             this.Hospitalizovan = hospitalizovan;
             this.SpamUser = spamUser;
+            this.MedicinskiKarton = new MedicinskiKarton(idPacijenta,false,KategorijaPacijenta.IiiIntermedijalnaNega);
+   
         }
 
-      public Pregled ZakazivanjePregleda()
+
+        public void ZakazivanjePregleda(Pregled pregled)
       {
-         // TODO: implement
-         return null;
+            this.MedicinskiKarton.AddPregled(pregled);
       }
       
       public void IzmenaPregleda()
       {
-         // TODO: implement
+        
       }
       
-      public void OtkazivanjePregleda()
+      public void OtkazivanjePregleda(Pregled pregled)
       {
-         // TODO: implement
-      }
+            this.MedicinskiKarton.RemovePregled(pregled);
+        }
       
       public void PrikazSvojihPregleda()
       {
          // TODO: implement
       }
    
-      public MedicinskiKarton medicinskiKarton;
+
+
+
       public System.Collections.ArrayList ocene;
       
       /// <pdGenerated>default getter</pdGenerated>

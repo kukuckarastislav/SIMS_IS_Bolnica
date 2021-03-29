@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace Bolnica.view.pacijent
     {
 
         public ObservableCollection<Model.Pregled> Pregledi { get; set; }
+        public Pregled odabraniPregled;
 
         public RaspoloziviPregledi()
         {
@@ -29,6 +31,18 @@ namespace Bolnica.view.pacijent
             Pregledi = Model.Bolnica.GetInstance().Pregledi;
             this.listaPregleda.
                 ItemsSource = Pregledi;
+        }
+
+        private void zakazi_pregled(object sender, MouseButtonEventArgs e)
+        {
+            odabraniPregled = listaPregleda.SelectedItem as Pregled;
+        }
+
+        private void pregled_odabran(object sender, RoutedEventArgs e)
+        {
+            Model.Bolnica.GetInstance().KT2Pacijent.ZakazivanjePregleda(odabraniPregled);
+            Pregledi.Remove(odabraniPregled);
+            Model.Bolnica.GetInstance().Pregledi.Remove(odabraniPregled);
         }
     }
 }

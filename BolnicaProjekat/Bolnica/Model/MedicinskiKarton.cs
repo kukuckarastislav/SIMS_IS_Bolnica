@@ -8,9 +8,21 @@ using System;
 
 namespace Model
 {
-   public class MedicinskiKarton
-   {
-      public System.Collections.ArrayList recept;
+    public class MedicinskiKarton
+    {
+
+        public string IdPacijenta { get; set; }
+        public bool Osiguran { get; set; }
+        public KategorijaPacijenta Kategorija { get; set; }
+
+        public MedicinskiKarton(string idPacijenta, bool osiguran, KategorijaPacijenta kategorija)
+        {
+            IdPacijenta = idPacijenta;
+            Osiguran = osiguran;
+            Kategorija = kategorija;
+        }
+
+        public System.Collections.ArrayList recept;
       
       /// <pdGenerated>default getter</pdGenerated>
       public System.Collections.ArrayList GetRecept()
@@ -192,9 +204,7 @@ namespace Model
             terapija.Clear();
       }
    
-      private string IdPacijenta;
-      private bool Osiguran;
-      private KategorijaPacijenta Kategorija;
+     
    
    }
 }

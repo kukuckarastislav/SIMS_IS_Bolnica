@@ -14,8 +14,8 @@ namespace Model
 
 
         public int Id { get; set; }
-        private int Sprat { get; set; }
-        private double Povrsina { get; set; }
+        public int Sprat { get; set; }
+        public double Povrsina { get; set; }
         private Inventar inventar;
 
         public Prostorija(int id, int sprat, double povrsina, int idInventara)

@@ -23,3 +23,30 @@ D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.csprojAssemblyReference.cache
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\prostorije.g.cs
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\prostorije.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\bin\Debug\Bolnica.exe.config
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\bin\Debug\Bolnica.exe
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\bin\Debug\Bolnica.pdb
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.csprojAssemblyReference.cache
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\MainWindow.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\LekarHome.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\PacijentHome.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\SekretarHome.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\prostorije.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\UpravnikHome.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\App.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica_MarkupCompile.cache
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica_MarkupCompile.lref
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\MainWindow.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\LekarHome.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\PacijentHome.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\SekretarHome.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\prostorije.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\UpravnikHome.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.g.resources
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.Properties.Resources.resources
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.csproj.GenerateResource.cache
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.csproj.CoreCompileInputs.cache
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.exe
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.pdb
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\RaspoloziviPregledi.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\RaspoloziviPregledi.baml

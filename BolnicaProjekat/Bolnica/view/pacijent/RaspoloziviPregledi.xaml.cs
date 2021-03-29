@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,19 +16,19 @@ using System.Windows.Shapes;
 namespace Bolnica.view.pacijent
 {
     /// <summary>
-    /// Interaction logic for PacijentHome.xaml
+    /// Interaction logic for pregledi.xaml
     /// </summary>
-    public partial class PacijentHome : Window
+    public partial class RaspoloziviPregledi : Window
     {
-        public PacijentHome()
+
+        public ObservableCollection<Model.Pregled> Pregledi { get; set; }
+
+        public RaspoloziviPregledi()
         {
             InitializeComponent();
-        }
-
-        private void prikazi_preglede(object sender, RoutedEventArgs e)
-        {
-            var varr = new view.pacijent.RaspoloziviPregledi();
-            varr.Show();
+            Pregledi = Model.Bolnica.GetInstance().Pregledi;
+            this.listaPregleda.
+                ItemsSource = Pregledi;
         }
     }
 }

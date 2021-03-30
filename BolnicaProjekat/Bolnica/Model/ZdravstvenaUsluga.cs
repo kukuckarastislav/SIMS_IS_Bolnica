@@ -10,6 +10,8 @@ namespace Model
 {
     public abstract class ZdravstvenaUsluga
     {
+
+
         public string NazivZdrastveneUstanove { get; set; }
         public string LokacijaZdravsteveUstanove { get; set; }
         public Model.Lekar IdLekara { get; set; }
@@ -29,6 +31,10 @@ namespace Model
             Obavljena = obavljena;
             idUsluge = idUsluge;
             Komentar = komentar;
+        }
+
+        protected ZdravstvenaUsluga()
+        {
         }
     }
 }

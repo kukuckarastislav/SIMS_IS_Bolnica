@@ -12,6 +12,7 @@ namespace Model
    {
       public Inventar inventar;
       
+
       /// <pdGenerated>default parent getter</pdGenerated>
       public Inventar GetInventar()
       {
@@ -43,6 +44,9 @@ namespace Model
       private int Id;
       private int Kolicina;
       private double Cena;
-   
-   }
+
+        public StatickaOprema()
+        {
+        }
+    }
 }

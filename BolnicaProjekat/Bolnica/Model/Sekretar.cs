@@ -19,6 +19,10 @@ namespace Model
 
         }
 
+        public Sekretar()
+        {
+        }
+
         public Pacijent RegistracijaNovogPacijenata()
       {
          // TODO: implement
@@ -42,6 +46,8 @@ namespace Model
          // TODO: implement
          return false;
       }
+
+
    
    }
 }

@@ -13,6 +13,9 @@ namespace Model
         public Termin Termin { get; set; }
         // public Racun racun;
 
+
+
+
         public string TipPregleda { get; set; }
         public string RezultatPregleda { get; set; }
 
@@ -34,6 +37,10 @@ namespace Model
             TipPregleda = tipPregleda;
             RezultatPregleda = rezultatPregleda;
             SobaZaPregled = sobaZaPregled;
+        }
+
+        public Pregled()
+        {
         }
     }
 }

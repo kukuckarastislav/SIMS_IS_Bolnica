@@ -11,9 +11,13 @@ namespace Model
    public class PotrosnaOprema
    {
       public Inventar inventar;
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Inventar GetInventar()
+
+        public PotrosnaOprema()
+        {
+        }
+
+        /// <pdGenerated>default parent getter</pdGenerated>
+        public Inventar GetInventar()
       {
          return inventar;
       }

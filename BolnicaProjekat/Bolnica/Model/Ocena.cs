@@ -14,9 +14,13 @@ namespace Model
       public VrijednostOcjene OdabranaOcena;
       
       public Pacijent pacijent;
-      
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Pacijent GetPacijent()
+
+        public Ocena()
+        {
+        }
+
+        /// <pdGenerated>default parent getter</pdGenerated>
+        public Pacijent GetPacijent()
       {
          return pacijent;
       }

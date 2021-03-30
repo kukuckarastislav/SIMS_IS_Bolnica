@@ -32,6 +32,9 @@ namespace Model
    
         }
 
+        public Pacijent()
+        {
+        }
 
         public void ZakazivanjePregleda(Pregled pregled)
       {

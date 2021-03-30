@@ -23,10 +23,14 @@ namespace Model
       {
          return inventar;
       }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newInventar</param>
-      public void SetInventar(Inventar newInventar)
+
+        public Lek()
+        {
+        }
+
+        /// <pdGenerated>default parent setter</pdGenerated>
+        /// <param>newInventar</param>
+        public void SetInventar(Inventar newInventar)
       {
          if (this.inventar != newInventar)
          {

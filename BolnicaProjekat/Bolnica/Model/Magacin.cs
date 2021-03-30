@@ -10,9 +10,15 @@ namespace Model
 {
     public class Magacin : Inventar
     {
+        public Magacin()
+        {
+        }
+
         public Magacin(int idInventara) : base(idInventara)
         { 
 
         }
+
     }
+
 }

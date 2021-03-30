@@ -10,6 +10,7 @@ namespace Model
 {
     public class Operacija : ZdravstvenaUsluga
     {
+
         public Termin termin;
         // public Racun racun;
 
@@ -28,8 +29,8 @@ namespace Model
             RezultatOperacije = rezultatOperacije;
         }
 
-
-
-
+        public Operacija()
+        {
+        }
     }
 }

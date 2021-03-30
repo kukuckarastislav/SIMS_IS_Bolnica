@@ -13,6 +13,9 @@ namespace Model
       private DateTime DatumPlacanja;
       private double Iznos;
       private bool Placeno;
-   
-   }
+
+        public Racun()
+        {
+        }
+    }
 }

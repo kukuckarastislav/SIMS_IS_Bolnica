@@ -19,8 +19,11 @@ namespace Model
 
         }
 
+        public Upravnik()
+        {
+        }
 
-      public Prostorija KreirajProstoriju()
+        public Prostorija KreirajProstoriju()
       {
             Model.Prostorija prostorija = new Prostorija(1, 3, 10*10, 1);
             return prostorija;

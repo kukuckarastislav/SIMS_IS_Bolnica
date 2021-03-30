@@ -17,7 +17,9 @@ namespace Model
             IdInventara = idInventara;
         }
 
-
+        public Inventar()
+        {
+        }
 
         public System.Collections.ArrayList potrosnaOprema;
       

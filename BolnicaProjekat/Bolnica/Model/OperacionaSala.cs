@@ -10,9 +10,19 @@ namespace Model
 {
     public class OperacionaSala : Prostorija
     {
+
+
         public OperacionaSala(int id, int sprat, double povrsina, int idInventara) : base(id, sprat, povrsina, idInventara)
         {
 
         }
+
+
+
+        public OperacionaSala()
+        {
+
+        }
+
     }
 }

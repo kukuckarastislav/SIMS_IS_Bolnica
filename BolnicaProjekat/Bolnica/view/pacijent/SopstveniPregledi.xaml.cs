@@ -29,7 +29,7 @@ namespace Bolnica.view.pacijent
         public SopstveniPregledi()
         {
             InitializeComponent();
-            pac = Model.Bolnica.GetInstance.KT2Pacijent;
+            pac = Model.Bolnica.GetInstance.GetPacijent("jmbg");
             PreglediPacijentaa=pac.MedicinskiKarton.GetPregled();
             PreglediPacijenta = new ObservableCollection<Pregled>();
 

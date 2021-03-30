@@ -10,6 +10,8 @@ namespace Model
 {
     public class Termin
     {
+
+
         public DateTime Pocetak { get; set; }
         public double Trajanje { get; set; }
         public DateTime Kraj{ get; set; }
@@ -26,6 +28,10 @@ namespace Model
             Pocetak = pocetak;
             Trajanje = 10.00 ;
             Kraj = kraj;
+        }
+
+        public Termin()
+        {
         }
     }
 }

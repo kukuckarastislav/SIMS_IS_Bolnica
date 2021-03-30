@@ -22,6 +22,10 @@ namespace Model
             Kategorija = kategorija;
         }
 
+        public MedicinskiKarton()
+        {
+        }
+
         public System.Collections.ArrayList recept;
       
       /// <pdGenerated>default getter</pdGenerated>

@@ -28,6 +28,10 @@ namespace Model
             this.Inventar = new Inventar(idInventara);
         }
 
+        public Prostorija()
+        {
+        }
+
         public System.Collections.ArrayList terminiZauzetosti;
       
         /// <pdGenerated>default getter</pdGenerated>

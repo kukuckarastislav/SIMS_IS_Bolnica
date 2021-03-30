@@ -10,11 +10,16 @@ namespace Model
 {
    public class Terapija
    {
+
+
       private string Naziv;
       private DateTime DatumPocetka;
       private DateTime DatumZavrsetka;
       private bool Zavrsena;
       private int IdLekara;
-    
-   }
+
+        public Terapija()
+        {
+        }
+    }
 }

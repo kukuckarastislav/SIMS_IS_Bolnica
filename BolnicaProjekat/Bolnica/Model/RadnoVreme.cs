@@ -24,11 +24,16 @@ namespace Model
         private double PocetakRadnogVremena;
         private double KrajRadnogVremena;
 
+
+
         public RadnoVreme(double pocetakRadnogVremena, double krajRadnogVremena)
         {
             PocetakRadnogVremena = pocetakRadnogVremena;
             KrajRadnogVremena = krajRadnogVremena;
         }
 
+        public RadnoVreme()
+        {
+        }
     }
 }

@@ -22,7 +22,11 @@ namespace Model
             // TODO: implement
             return false;
         }
-      
+
+        protected Korisnik()
+        {
+        }
+
         public bool PromeniSifru(string novaSifra)
         {
             // TODO: implement

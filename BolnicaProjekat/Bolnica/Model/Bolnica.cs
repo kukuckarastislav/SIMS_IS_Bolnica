@@ -21,6 +21,10 @@ namespace Model
         private Mesto MestoBolnice;
         private Magacin Magacin;
 
+        public Bolnica()
+        {
+            
+        }
 
         public ObservableCollection<Pregled> Pregledi { get; set; }
         public ObservableCollection<Operacija> Operacije { get; set; }
@@ -39,6 +43,10 @@ namespace Model
                     instance = new Bolnica("Zdravo Bolnica", "bolnica", Model.Mesto.NoviSad);
                 }
                 return instance;
+            }
+            set
+            {
+                instance = value;
             }
             
         }
@@ -224,6 +232,29 @@ namespace Model
             return false;
 
         }
+
+        public Pacijent GetPacijent(string jmbg)
+        {
+           
+            if (this.pacijenti != null)
+            {
+                foreach (Pacijent p in pacijenti)
+                {
+                    if (p.Jmbg.Equals(jmbg))
+                    {
+                        
+                        return p;
+                    }
+                }
+            }
+            return null;
+
+        }
+
+
+
+
+
 
         public System.Collections.ArrayList sekretari;
 

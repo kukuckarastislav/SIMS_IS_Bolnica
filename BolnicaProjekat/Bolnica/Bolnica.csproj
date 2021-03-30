@@ -64,6 +64,9 @@
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\PrikazPregleda.xaml.cs">
+      <DependentUpon>PrikazPregleda.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\RaspoloziviPregledi.xaml.cs">
       <DependentUpon>RaspoloziviPregledi.xaml</DependentUpon>
     </Compile>
@@ -73,8 +76,29 @@
     <Compile Include="view\sekretar\SekretarHome.xaml.cs">
       <DependentUpon>SekretarHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml.cs">
+      <DependentUpon>DodajBolesnickuProstorijuForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\DodajOperacionuSaluForma.xaml.cs">
+      <DependentUpon>DodajOperacionuSaluForma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\prostorije\DodajProstorijuForma.xaml.cs">
       <DependentUpon>DodajProstorijuForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\DodajSobuZaPregled.xaml.cs">
+      <DependentUpon>DodajSobuZaPregled.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazBolesnickihProstorija.xaml.cs">
+      <DependentUpon>PrikazBolesnickihProstorija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazOperacionihSala.xaml.cs">
+      <DependentUpon>PrikazOperacionihSala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazProstorija.xaml.cs">
+      <DependentUpon>PrikazProstorija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazSobaZaPregled.xaml.cs">
+      <DependentUpon>PrikazSobaZaPregled.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\prostorije\prostorije.xaml.cs">
       <DependentUpon>prostorije.xaml</DependentUpon>
@@ -106,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\pacijent\PrikazPregleda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\pacijent\RaspoloziviPregledi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,7 +146,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\DodajOperacionuSaluForma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\upravnik\prostorije\DodajProstorijuForma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\DodajSobuZaPregled.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazBolesnickihProstorija.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazOperacionihSala.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazProstorija.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazSobaZaPregled.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

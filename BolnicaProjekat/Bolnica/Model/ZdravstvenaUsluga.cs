@@ -12,7 +12,7 @@ namespace Model
     {
         public string NazivZdrastveneUstanove { get; set; }
         public string LokacijaZdravsteveUstanove { get; set; }
-        public string IdLekara { get; set; }
+        public Model.Lekar IdLekara { get; set; }
 
         public string ZakazivacUsluge { get; set; }
         public bool Obavljena { get; set; }
@@ -20,7 +20,7 @@ namespace Model
         public string IdUsluge { get; set; }
         public string Komentar { get; set; } 
 
-        protected ZdravstvenaUsluga(string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara,string zakazivacUsluge, bool obavljena,string idUsluge, string komentar)
+        protected ZdravstvenaUsluga(string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, Model.Lekar idLekara,string zakazivacUsluge, bool obavljena,string idUsluge, string komentar)
         {
             NazivZdrastveneUstanove = nazivZdrastveneUstanove;
             LokacijaZdravsteveUstanove = lokacijaZdravsteveUstanove;

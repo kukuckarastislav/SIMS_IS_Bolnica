@@ -31,6 +31,7 @@ namespace Bolnica.view.pacijent
             kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
             idlekara.Text = Convert.ToString(Pregled.IdLekara);
             komentar.Text = Convert.ToString(Pregled.Komentar);
+            soba.Text = Convert.ToString(Pregled.SobaZaPregled.Id);
 
             // this.prikazPregleda.ItemSource = Pregled;
         }

@@ -12,9 +12,9 @@
                 <GridView>
                     <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
                     <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
-                    <GridViewColumn Header="ID lekara" DisplayMemberBinding="{Binding IdLekara}" />
-                    <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding TipPregleda}"/>
-                    <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding Komentar}"/>
+                    <GridViewColumn Header="TipPregleda" DisplayMemberBinding="{Binding TipPregleda}" />
+                    <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding SobaZaPregled.Id}"/>
+                    <GridViewColumn Header="Komentar" DisplayMemberBinding="{Binding Komentar}"/>
                 </GridView>
             </ListView.View>
         </ListView>

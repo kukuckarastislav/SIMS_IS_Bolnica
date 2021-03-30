@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\
 Bolnica
 none
 false
 DEBUG;TRACE
-C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\App.xaml
-22-653984712
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\App.xaml
+232014005500
 
-60-64916245
+61-1226992694
 13-1505183044
-MainWindow.xaml;view\lekar\LekarHome.xaml;view\lekar\pacijenti\PrikazMedicinskiKarton.xaml;view\lekar\pacijenti\PrikazPacijenata.xaml;view\pacijent\PacijentHome.xaml;view\pacijent\PrikazPregleda.xaml;view\pacijent\RaspoloziviPregledi.xaml;view\pacijent\SopstveniPregledi.xaml;view\sekretar\PagePacijenti.xaml;view\sekretar\registracija\PageRegistracija.xaml;view\sekretar\SekretarHome.xaml;view\sekretar\WindowIzmenaPodataka.xaml;view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml;view\upravnik\prostorije\DodajOperacionuSaluForma.xaml;view\upravnik\prostorije\DodajProstorijuForma.xaml;view\upravnik\prostorije\DodajSobuZaPregled.xaml;view\upravnik\prostorije\PrikazBolesnickihProstorija.xaml;view\upravnik\prostorije\PrikazOperacionihSala.xaml;view\upravnik\prostorije\PrikazProstorija.xaml;view\upravnik\prostorije\PrikazSobaZaPregled.xaml;view\upravnik\prostorije\prostorije.xaml;view\upravnik\UpravnikHome.xaml;
+MainWindow.xaml;view\lekar\LekarHome.xaml;view\lekar\pacijenti\KreiranjePregledaForma.xaml;view\lekar\pacijenti\PrikazMedicinskiKarton.xaml;view\lekar\pacijenti\PrikazPacijenata.xaml;view\pacijent\PacijentHome.xaml;view\pacijent\PrikazPregleda.xaml;view\pacijent\RaspoloziviPregledi.xaml;view\pacijent\SopstveniPregledi.xaml;view\sekretar\PagePacijenti.xaml;view\sekretar\registracija\PageRegistracija.xaml;view\sekretar\SekretarHome.xaml;view\sekretar\WindowIzmenaPodataka.xaml;view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml;view\upravnik\prostorije\DodajOperacionuSaluForma.xaml;view\upravnik\prostorije\DodajProstorijuForma.xaml;view\upravnik\prostorije\DodajSobuZaPregled.xaml;view\upravnik\prostorije\PrikazBolesnickihProstorija.xaml;view\upravnik\prostorije\PrikazOperacionihSala.xaml;view\upravnik\prostorije\PrikazProstorija.xaml;view\upravnik\prostorije\PrikazSobaZaPregled.xaml;view\upravnik\prostorije\prostorije.xaml;view\upravnik\UpravnikHome.xaml;
 
 False
 

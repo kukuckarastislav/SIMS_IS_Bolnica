@@ -13,12 +13,14 @@ namespace Model
         public Termin termin;
         // public Racun racun;
 
+        public OperacionaSala OperacionaSala { get; set; }
+
         private string TipOperacije;
         private string RezultatOperacije;
 
         // private OperacionaSala OperacionaSala;
 
-        public Operacija(Termin termin, string tipOperacije, string rezultatOperacije, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena,string id, string komentar)
+        public Operacija(Termin termin, string tipOperacije, string rezultatOperacije, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, Model.Lekar idLekara, string zakazivacUsluge, bool obavljena,string id, string komentar, OperacionaSala operacionaSala)
             : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, id,komentar)
         {
             this.termin = termin;

@@ -84,13 +84,11 @@
                                 />
 
 
-
-
-
-
-                <DataGrid x:Name="dataGridPrikazPacijenata" 
+                <DataGrid x:Name="DataGridPrikazPacijenataZaLekar" 
                           IsReadOnly="True" 
                           AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          ItemsSource="{Binding Path=KolekcijaPacijenata}"
                           Grid.Column="1" Grid.ColumnSpan="10"
                           Grid.Row="1" Grid.RowSpan="23" 
                           Background="#9E222F"
@@ -101,7 +99,7 @@
                           FontSize="12"
                           >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="  Id Pacijenta"  Binding="{Binding Id}">
+                        <DataGridTextColumn Header="  Id Pacijenta"  Binding="{Binding IdPacijenta}">
                             <DataGridColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="Background" Value="#9E222F"/>
@@ -130,7 +128,7 @@
                             </DataGridColumn.HeaderStyle>
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Header="  Kategorija" Binding="{Binding Kategorija}">
+                        <DataGridTextColumn Header="  Hospitalizovan" Binding="{Binding Hospitalizovan}">
                             <DataGridColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="Background" Value="#9E222F"/>

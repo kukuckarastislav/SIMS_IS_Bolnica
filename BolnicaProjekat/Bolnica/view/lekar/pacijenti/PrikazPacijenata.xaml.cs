@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,23 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class PrikazPacijenata : Page
     {
+        public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
         public PrikazPacijenata()
         {
+            KolekcijaPacijenata = Model.Bolnica.GetInstance.GetPacijenti();
             InitializeComponent();
+            this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
+  
         }
 
         private void OtvoriMedicinskiKarton(object sender, RoutedEventArgs e)
         {
-           // RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazMedicinskiKarton();
+          //  RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazMedicinskiKarton();
+        }
+
+        public Model.Pacijent GetSelectedPacijentZaLekar() {
+            Model.Pacijent pacijent = DataGridPrikazPacijenataZaLekar.SelectedItem as Model.Pacijent;
+            return pacijent;
         }
 
   

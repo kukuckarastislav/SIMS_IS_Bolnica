@@ -16,20 +16,24 @@ namespace Model
         public string TipPregleda { get; set; }
         public string RezultatPregleda { get; set; }
 
-        // private SobaZaPreglede SobaZaPregled;
+        public Lekar Lekar { get; set; } 
+        public SobaZaPreglede SobaZaPregled { get; set; }
 
-        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena, string id,string komentar) : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena,id, komentar)
+
+        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, Model.Lekar idLekara, string zakazivacUsluge, bool obavljena, string id,string komentar, SobaZaPreglede sobaZaPregled) : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena,id, komentar)
         {
             this.Termin = termin;
             TipPregleda = tipPregleda;
             RezultatPregleda = rezultatPregleda;
+            SobaZaPregled = sobaZaPregled;
         }
 
-        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string idLekara, string zakazivacUsluge, bool obavljena, string id,string komentar) : base("Zdravo bolnica", "Novi Sad", idLekara, zakazivacUsluge, obavljena, id,komentar)
+        public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, Model.Lekar idLekara, string zakazivacUsluge, bool obavljena, string id,string komentar, SobaZaPreglede sobaZaPregled) : base("Zdravo bolnica", "Novi Sad", idLekara, zakazivacUsluge, obavljena, id,komentar)
         {
             this.Termin = termin;
             TipPregleda = tipPregleda;
             RezultatPregleda = rezultatPregleda;
+            SobaZaPregled = sobaZaPregled;
         }
     }
 }

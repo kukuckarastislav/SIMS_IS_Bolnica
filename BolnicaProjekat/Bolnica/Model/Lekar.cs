@@ -26,6 +26,9 @@ namespace Model
         }
 
 
+
+
+
         public Pregled KreiranjePregleda()
       {
          // TODO: implement

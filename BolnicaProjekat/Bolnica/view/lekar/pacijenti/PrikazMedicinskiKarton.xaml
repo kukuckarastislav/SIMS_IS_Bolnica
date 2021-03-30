@@ -61,25 +61,98 @@
                     <RowDefinition Height="20" />
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Zakazane zdrastvene usluge:"
+                <TextBlock Text="Zakazane preglede:"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="15"
                            Margin="0,0,0,25"
-                           Grid.Column="3" Grid.ColumnSpan="8"
+                           Grid.Column="1" Grid.ColumnSpan="10"
                            Grid.Row="0" Grid.RowSpan="2"
                            />
-
-                <DataGrid x:Name="dataGridZakazaneUsluge" 
+                
+                <DataGrid x:Name="listaPregledaPacijenta" 
+                          ItemsSource="{Binding preglediKolekcija}"
                           IsReadOnly="True" 
                           AutoGenerateColumns="False"
-                          Grid.Column="3" Grid.ColumnSpan="8"
-                          Grid.Row="1" Grid.RowSpan="10" 
+                          Grid.Column="3" Grid.ColumnSpan="6"
+                          Grid.Row="1" Grid.RowSpan="4" 
+                          Background="#9E222F"
+                          BorderBrush="White"
+                          BorderThickness="2"
+                          Margin="0,0,10,0"
+                          ColumnWidth="57"
+                          FontSize="8" SelectionChanged="listaPregledaPacijenta_SelectionChanged" 
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header=" Pocetak termina"  Binding="{Binding Termin.Pocetak}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="  Tip Pregleda" Binding="{Binding TipPregleda}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="  Naziv Sobe" Binding="{Binding SobaZaPregled.Id}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+
+
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="  Komentar" Binding="{Binding Komentar}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+
+
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+
+                        </DataGridTextColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Rectangle 
+                    Grid.Row="6" Grid.ColumnSpan="12" 
+                    Fill="#9E222F"  Height="2"
+                    VerticalAlignment="Bottom"/>
+
+                <TextBlock Text="Zakazane operacije:"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="15"
+                           Margin="0,0,0,25"
+                           Grid.Column="1" Grid.ColumnSpan="10"
+                           Grid.Row="7" Grid.RowSpan="2"
+                           />
+
+                <DataGrid x:Name="dataGridZakazaneOperacije" 
+                          IsReadOnly="True" 
+                          AutoGenerateColumns="False"
+                          Grid.Column="3" Grid.ColumnSpan="6"
+                          Grid.Row="8" Grid.RowSpan="4" 
                           Background="#9E222F"
                           BorderBrush="White"
                           ColumnWidth="80"
                           BorderThickness="2"
-                          Margin="0,0,10,0"
+                          Margin="0,0,0,10"
                           FontSize="12"
                           >
                     <DataGrid.Columns>
@@ -128,6 +201,12 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
+
+
+
+
+
+
                 <Button Grid.Column="1" Grid.ColumnSpan="2"
                                 Grid.Row="1" Grid.RowSpan="2"
                               
@@ -137,7 +216,7 @@
                                 Background="#9E222F"
                                 Foreground="White"
                                 BorderBrush="white"
-                                BorderThickness="2"
+                                BorderThickness="2" Click="Kreiranje_Pregleda" 
                                 >
                     <Image Source="/images/doctor-new-appointments.png" Width="auto"/>
                 </Button>
@@ -159,7 +238,7 @@
 
 
                 <Button Grid.Column="1" Grid.ColumnSpan="2"
-                                Grid.Row="4" Grid.RowSpan="2"
+                                Grid.Row="8" Grid.RowSpan="2"
                               
                                 FontWeight="DemiBold"
                                 FontSize="20"
@@ -173,13 +252,13 @@
                 </Button>
                 <Image Source="/images/appointment-operation.png"
                             Grid.Column="2" Grid.ColumnSpan="2"
-                            Grid.Row="5" Grid.RowSpan="2"
+                            Grid.Row="9" Grid.RowSpan="2"
         
                             Margin="-5,0,45,20"
                        />
                 <TextBlock Text="Kreiranje operacija"
                            Grid.Column="1" Grid.ColumnSpan="2"
-                            Grid.Row="6" Grid.RowSpan="1"
+                            Grid.Row="10" Grid.RowSpan="1"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
                            FontSize="9"
@@ -188,9 +267,8 @@
                            />
 
 
-                <Button Grid.ColumnSpan="3"
-                                Grid.Row="7" Grid.RowSpan="3"
-                              
+                <Button Grid.Column="9" Grid.ColumnSpan="3" 
+                                Grid.Row="2" Grid.RowSpan="3"
                                 FontWeight="DemiBold"
                                 FontSize="20"
                                 Margin="10,0.6,10,23.8"
@@ -202,35 +280,47 @@
                     <Image Source="/images/appointment-update.png"/>
                 </Button>
 
-                <TextBlock Text="Azuriranje usluge"
-                           Grid.Column="1" Grid.ColumnSpan="2"
-                            Grid.Row="9" Grid.RowSpan="1"
+                <Image Source="/images/appointment-exam.png"
+                            Grid.Column="9" Grid.ColumnSpan="2"
+                            Grid.Row="2" Grid.RowSpan="2"
+        
+                            Margin="-5,0,45,20"
+                            />
+
+                <TextBlock Text="Azuriranje pregleda"
+                           Grid.Column="9" Grid.ColumnSpan="2"
+                            Grid.Row="4" Grid.RowSpan="1"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
                            FontSize="9"
-                           Margin="-5,0,-5,5"
+                           Margin="-5,0,-15,5"
                            FontWeight="ExtraBold"
                            />
-                
-                
-                
+
                 <Button Grid.ColumnSpan="3"
-                                Grid.Row="10" Grid.RowSpan="3"
+                                Grid.Row="4" Grid.RowSpan="2"
                               
                                 FontWeight="DemiBold"
                                 FontSize="20"
-                               Margin="10,0.6,10,23.8"
+                               Margin="10,1.2,10,2"
                                 Background="#9E222F"
                                 Foreground="White"
                                 BorderBrush="white"
-                                BorderThickness="2"
+                                BorderThickness="2" Click="BrisanjePregleda"
                                 >
                     <Image Source="/images/appointment-delete.png"/>
                 </Button>
+                <Image Source="/images/appointment-exam.png"
+                            Grid.Column="2" Grid.ColumnSpan="2"
+                            Grid.Row="5" Grid.RowSpan="2"
+        
+                            Margin="-5,0,45,20"
+                            />
 
-                <TextBlock Text="Brisanje usluge"
+
+                <TextBlock Text="Brisanje pregleda"
                            Grid.Column="1" Grid.ColumnSpan="2"
-                            Grid.Row="12" Grid.RowSpan="1"
+                            Grid.Row="6" Grid.RowSpan="1"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
                            FontSize="9"
@@ -238,12 +328,12 @@
                            FontWeight="ExtraBold"
                            />
 
-                <Button Grid.Column="3" Grid.ColumnSpan="4"
-                                Grid.Row="11" Grid.RowSpan="2"
+                <Button Grid.Column="3" Grid.ColumnSpan="8"
+                                Grid.Row="5" Grid.RowSpan="2"
                               
                                 FontWeight="DemiBold"
                                 FontSize="20"
-                                Margin="0,5,10,0"
+                                Margin="10,5,10,10"
                                 Background="#9E222F"
                                 Foreground="White"
                                 BorderBrush="white"
@@ -255,18 +345,15 @@
                 <Image Source="/images/appointment-exam.png"
                             Grid.Column="6" Grid.ColumnSpan="2"
                             Grid.Row="12" Grid.RowSpan="2"
-        
                             Margin="-5,5,30,10"
                             />
-                
-                
 
-                <Button Grid.Column="7" Grid.ColumnSpan="4"
-                                Grid.Row="11" Grid.RowSpan="2"
+                <Button Grid.Column="3" Grid.ColumnSpan="8"
+                                Grid.Row="12" Grid.RowSpan="2"
                               
                                 FontWeight="DemiBold"
                                 FontSize="20"
-                                Margin="0,5,10,0"
+                                Margin="10,5,10,10"
                                 Background="#9E222F"
                                 Foreground="White"
                                 BorderBrush="white"
@@ -274,19 +361,76 @@
                                >
                     <TextBlock Text="Evidentiranje operacija" FontSize="13"/>
                 </Button>
+
+
+                <Button Grid.Column="9" Grid.ColumnSpan="3" 
+                                Grid.Row="9" Grid.RowSpan="3"
+                                FontWeight="DemiBold"
+                                FontSize="20"
+                                Margin="10,0.6,10,23.8"
+                                Background="#9E222F"
+                                Foreground="White"
+                                BorderBrush="white"
+                                BorderThickness="2" Click="Button_Click"
+                                >
+                    <Image Source="/images/appointment-update.png"/>
+                </Button>
+
                 <Image Source="/images/appointment-operation.png"
-                            Grid.Column="10" Grid.ColumnSpan="2"
-                            Grid.Row="12" Grid.RowSpan="2"
+                            Grid.Column="9" Grid.ColumnSpan="2"
+                            Grid.Row="9" Grid.RowSpan="2"
         
-                            Margin="-5,5,0,10"
+                            Margin="-5,0,45,20"
                             />
+
+
+                <TextBlock Text="Azuriranje operacije"
+                           Grid.Column="9" Grid.ColumnSpan="2"
+                            Grid.Row="11" Grid.RowSpan="1"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           FontSize="9"
+                           Margin="-5,0,-15,5"
+                           FontWeight="ExtraBold"
+                           />
+
+                <Button Grid.ColumnSpan="3"
+                                Grid.Row="11" Grid.RowSpan="2"
+                              
+                                FontWeight="DemiBold"
+                                FontSize="20"
+                               Margin="10,1.2,10,2"
+                                Background="#9E222F"
+                                Foreground="White"
+                                BorderBrush="white"
+                                BorderThickness="2"
+                                >
+                    <Image Source="/images/appointment-delete.png"/>
+                </Button>
+
+                <Image Source="/images/appointment-operation.png"
+                            Grid.Column="1" Grid.ColumnSpan="2"
+                            Grid.Row="11" Grid.RowSpan="3"
+        
+                            Margin="35.6,24.6,4,21.4"
+                            />
+
+                <TextBlock Text="Brisanje pregleda"
+                           Grid.Column="1" Grid.ColumnSpan="2"
+                            Grid.Row="13" Grid.RowSpan="1"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           FontSize="9"
+                           Margin="-5,0,-5,5"
+                           FontWeight="ExtraBold"
+                           />
 
                 <Rectangle 
                     Grid.Row="13" Grid.ColumnSpan="12" 
                     Fill="#9E222F"  Height="2"
                     VerticalAlignment="Bottom"/>
 
-                <TextBlock Text="Prethodne zdrastvene usluge:"
+                <TextBlock Text="Prethodni pregledi:"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="15"
@@ -296,11 +440,114 @@
                            />
 
 
-                <DataGrid x:Name="dataGridMedicinskaIstorija" 
+                <DataGrid x:Name="listaaaPregledaPacijenta" 
+                          ItemsSource="{Binding preglediKolekcija}"
                           IsReadOnly="True" 
                           AutoGenerateColumns="False"
                           Grid.Column="1" Grid.ColumnSpan="8"
-                          Grid.Row="15" Grid.RowSpan="9" 
+                          Grid.Row="15" Grid.RowSpan="4" 
+                          Background="#9E222F"
+                          BorderBrush="White"
+                          BorderThickness="2"
+                          Margin="0,0,10,0"
+                          FontSize="12" SelectionChanged="listaPregledaPacijenta_SelectionChanged" 
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header=" Pocetak termina"  Binding="{Binding Termin.Pocetak}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="  Tip Pregleda" Binding="{Binding TipPregleda}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="  Naziv Sobe" Binding="{Binding SobaZaPregled.Id}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+
+
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="  Komentar" Binding="{Binding Komentar}">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Foreground" Value="White"/>
+
+
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+
+                        </DataGridTextColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Button Grid.Column="9" Grid.ColumnSpan="2"
+                                Grid.Row="15" Grid.RowSpan="2"
+                              
+                                FontWeight="DemiBold"
+                                FontSize="20"
+                                Margin="0,5,10,0"
+                                Background="#9E222F"
+                                Foreground="White"
+                                BorderBrush="white"
+                                BorderThickness="2"
+                                >
+                    <Image Source="/images/doctor-see.jpg"/>
+                </Button>
+
+                <Image Source="/images/appointment-exam.png"
+                            Grid.Column="9" Grid.ColumnSpan="2"
+                            Grid.Row="15" Grid.RowSpan="2"
+        
+                            Margin="-5,0,45,20"
+                            />
+
+                <TextBlock Text="Uvid u prethodni pregled"
+                           Grid.Column="9" Grid.ColumnSpan="2"
+                            Grid.Row="17" Grid.RowSpan="2"
+                           TextWrapping="Wrap"
+                           TextAlignment="Center"
+                           FontSize="9"
+                           Margin="-5,0,5,5"
+                           FontWeight="ExtraBold"
+                           />
+
+                <Rectangle 
+                    Grid.Row="19" Grid.ColumnSpan="12" 
+                    Fill="#9E222F"  Height="2"
+                    VerticalAlignment="Bottom"/>
+
+                <TextBlock Text="Prethodne operacije:"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="15"
+                           Margin="0,0,0,15"
+                           Grid.Column="1" Grid.ColumnSpan="8"
+                           Grid.Row="20" Grid.RowSpan="2"
+                           />
+
+                <DataGrid x:Name="dataGridPrethodneOperacije" 
+                          IsReadOnly="True" 
+                          AutoGenerateColumns="False"
+                          Grid.Column="1" Grid.ColumnSpan="8"
+                          Grid.Row="21" Grid.RowSpan="4" 
                           Background="#9E222F"
                           BorderBrush="White"
                           ColumnWidth="80"
@@ -355,7 +602,7 @@
                 </DataGrid>
 
                 <Button Grid.Column="9" Grid.ColumnSpan="2"
-                                Grid.Row="20" Grid.RowSpan="2"
+                                Grid.Row="21" Grid.RowSpan="2"
                               
                                 FontWeight="DemiBold"
                                 FontSize="20"
@@ -367,16 +614,24 @@
                                 >
                     <Image Source="/images/doctor-see.jpg"/>
                 </Button>
-                
-                <TextBlock Text="Uvid u prethodne dijagnoze"
+
+                <Image Source="/images/appointment-operation.png"
+                            Grid.Column="9" Grid.ColumnSpan="2"
+                            Grid.Row="21" Grid.RowSpan="2"
+        
+                            Margin="-5,0,45,20"
+                            />
+
+                <TextBlock Text="Uvid u prethodnu operaciju"
                            Grid.Column="9" Grid.ColumnSpan="2"
-                            Grid.Row="22" Grid.RowSpan="2"
+                            Grid.Row="23" Grid.RowSpan="2"
                            TextWrapping="Wrap"
                            TextAlignment="Center"
                            FontSize="9"
-                           Margin="-5,0,-5,5"
+                           Margin="-5,0,5,5"
                            FontWeight="ExtraBold"
                            />
+
 
 
             </Grid>

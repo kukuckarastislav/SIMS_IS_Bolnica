@@ -23,7 +23,9 @@ namespace Model
 
 
         public ObservableCollection<Pregled> Pregledi { get; set; }
+        public ObservableCollection<Operacija> Operacije { get; set; }
         public Pacijent KT2Pacijent { get; set; }
+        public Lekar KT2Lekar { get; set; }
 
 
 
@@ -82,23 +84,52 @@ namespace Model
             AddBolesnickeSobe(bs1);
             AddBolesnickeSobe(bs2);
 
+            this.Pregledi = new ObservableCollection<Pregled>();
 
-
-
-            KT2Pacijent = new Pacijent("idPacijenta", false, false, false, "korisnickoIme", "sifra", "ime", "prezime", Pol.Zensko, " email", " telefon", new DateTime(2020, 1, 1), "jmbg", "drzavljanstvo",
+            KT2Pacijent = new Pacijent("pac001", false, false, false, "korisnickoIme", "sifra", "Milica", "Vucinic", Pol.Zensko, " email", " telefon", new DateTime(2020, 1, 1), "jmbg", "drzavljanstvo",
                 "adresaStanovanja");
-           
+            AddPacijenti(KT2Pacijent);
 
 
             this.Pregledi = new ObservableCollection<Pregled>();
 
-            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 1)), "tip 1", "...", "id22", "egjf", false, "cfv","no comment");
-            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 5, 1)), "tip 1", "...", "id22", "egjf", false, "gg","no comment");
-            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 3, 3)), "tip 1", "...", "id22", "egjf", false, "g","no comment");
-            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 9, 1)), "tip 1", "...", "id22", "egjf", false, "yy","no comment");
-            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 2)), "tip 1", "...", "id22", "egjf", false, "uu","no comment");
-            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2020, 1, 1), new DateTime(2021, 2, 4)), "tip 1", "...", "id22", "egjf", false, "yy","no comment");
+            Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8.00, 14.00);
+            KT2Lekar = new Lekar(1, true, Odeljenje.OpstaHirurgija, radnoVreme, RadniStatus.Aktivan,
+                        "laslouri99", "sifra123", "Laslo", "Uri", Pol.Musko, "laslou@gmail.com", "066-666-666",
+                        new DateTime(1999, 7, 16), "1111111", "Srpsko", "Novi Sad");
+            /*
+            public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string nazivZdrastveneUstanove, 
+            string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena, string id, string komentar)
+            : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, id, komentar)
+           
+            
 
+            public Operacija(Termin termin, string tipOperacije, string rezultatOperacije, string nazivZdrastveneUstanove, 
+                string lokacijaZdravsteveUstanove, Model.Lekar idLekara, string zakazivacUsluge, bool obavljena, string id, 
+                string komentar, OperacionaSala operacionaSala)
+            : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, id, komentar)
+            */
+            Model.Operacija o1 = new Operacija(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-O-1", "Rez-O-1", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "erdf", "no comment", op1);
+            Model.Operacija o2 = new Operacija(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 4, 1, 8, 00, 00)), "Tip-O-2", "Rez-O-2", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "sdf", "no comment", op2);
+            Model.Operacija o3 = new Operacija(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 4, 2, 8, 00, 00)), "Tip-O-3", "Rez-O-3", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "rty", "no comment", op3);
+            Model.Operacija o4 = new Operacija(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 4, 3, 8, 00, 00)), "Tip-O-4", "Rez-O-4", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "fh", "no comment", op2);
+
+            KT2Pacijent.MedicinskiKarton.AddOperacija(o1);
+            KT2Pacijent.MedicinskiKarton.AddOperacija(o2);
+            KT2Pacijent.MedicinskiKarton.AddOperacija(o3);
+            KT2Pacijent.MedicinskiKarton.AddOperacija(o4);
+
+           
+
+
+
+            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "cfv", "no comment", sp1);
+            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 3, 4, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "gg", "no comment", sp2);
+            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 3, 5, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "g", "no comment", sp2);
+            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 3, 6, 8, 00, 00)), "Tip-1", "...", KT2Lekar , "egjf", false, "yy", "no comment", sp3);
+            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2021, 4, 4, 7, 30, 00), new DateTime(2021, 3, 7, 8, 00, 00)), "Tip-1", "...", KT2Lekar , "egjf", false, "uu", "no comment", sp3);
+            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2021, 4, 5, 7, 30, 00), new DateTime(2021, 3, 8, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "yy", "no comment", sp3);
+            
             Pregledi.Add(p11);
             Pregledi.Add(p22);
             Pregledi.Add(p33);
@@ -109,7 +140,15 @@ namespace Model
             KT2Pacijent.MedicinskiKarton.AddPregled(p66);
 
         }
+/*
+        public string GetImeByID(string IdLekara)
+        {
+            if (IdLekara)
+                return Ime;
+        }
 
+
+*/
 
         public System.Collections.ObjectModel.ObservableCollection<Model.Pacijent> pacijenti;
 

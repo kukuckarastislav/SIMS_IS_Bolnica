@@ -11,7 +11,7 @@ namespace Model
    public class Pacijent : Korisnik
    {
 
-        private string IdPacijenta;
+        public string IdPacijenta { get; set; }
         private bool PacijentGost = false;
         private bool Hospitalizovan;
         private bool SpamUser = false;

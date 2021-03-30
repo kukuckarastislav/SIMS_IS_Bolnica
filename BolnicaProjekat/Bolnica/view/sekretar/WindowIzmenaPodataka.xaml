@@ -1,0 +1,71 @@
+﻿<Window x:Class="Bolnica.view.sekretar.WindowIzmenaPodataka"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.sekretar"
+        mc:Ignorable="d"
+        Title="WindowIzmenaPodataka" Height="768" Width="1024">
+    <Grid Background="#ccffbd">
+        <DockPanel>
+            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
+                <Button Margin="30 10" ToolTip="Izmena podatak pacijenta" Background="white" Click="IzmeniPacijenta_Click">Izmeni podatke</Button>
+                <Button Margin="30 10" ToolTip="Odustani od izmene" Background="white" Click="Odustani_Click">Odustani</Button>
+                <Button Margin="30 10" ToolTip="Ocisti polja" Background="white" Click="OcistiPolja_Click">Ocisti polja</Button>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Ime:</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputIme"></TextBox>
+                <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Prezime:</TextBlock>
+                <TextBox Grid.Row="2" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputPrezime"></TextBox>
+                <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >JMBG:</TextBlock>
+                <TextBox Grid.Row="3" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputJmbg"></TextBox>
+                <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Telefon:</TextBlock>
+                <TextBox Grid.Row="4" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputTelefon"></TextBox>
+                <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Pol:</TextBlock>
+                <RadioButton Content="Musko" Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="5" VerticalAlignment="Top" Name="rbMusko"/>
+                <RadioButton Content="Zensko" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="5" VerticalAlignment="Bottom" Name="rbZensko"/>
+                <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-50 0 0 0">Adresa stanovanja:</TextBlock>
+                <TextBox Grid.Row="6" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputAdresa"></TextBox>
+
+                <TextBlock Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-25 0 0 0">Korisnicko ime:</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputKorisnickoIme"></TextBox>
+                <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Sifra:</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >ID:</TextBlock>
+                <TextBox Grid.Row="3" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputId"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputSifra"></TextBox>
+                <TextBlock Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Email:</TextBlock>
+                <TextBox Grid.Row="4" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputEmail"></TextBox>
+                <TextBlock Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-30 0 0 0" >Datum rodjenja:</TextBlock>
+                <TextBox Grid.Row="5" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDatum"></TextBox>
+                <TextBlock Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-20 0 0 0">Drzavljanstvo:</TextBlock>
+                <TextBox Grid.Row="6" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDrzavljanstvo"></TextBox>
+
+
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

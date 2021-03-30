@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="SekretarHome" Height="450" Width="800">
     <Grid>
-        <TextBlock FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center">HELLO MIHAJLO</TextBlock>
+        <DockPanel>
+            <Grid DockPanel.Dock="Left" Background="#1c1427" Width="Auto">
+                <StackPanel Orientation="Vertical">
+
+                    <Button Margin="0 100 0 0" Click="Registracija_Click" Background="#7eca9c" Height="50">Registracija pacijenata</Button>
+                    <Button Click="ListPacijenti_Click" Background="#7eca9c" Height="50">Lista pacijenata</Button>
+                    <Button Background="#7eca9c" Height="50">ToDO</Button>
+                    <Button Background="#7eca9c" Height="50">ToDO</Button>
+                    <Button Background="#7eca9c" Height="50">ToDO</Button>
+                </StackPanel>
+            </Grid>
+            <DockPanel DockPanel.Dock="Right">
+                <StackPanel DockPanel.Dock="Top" Height="60" Background="#7eca9c"></StackPanel>
+                <Frame DockPanel.Dock="Bottom" x:Name="RadnaPovrsina" NavigationUIVisibility="Hidden"></Frame>
+            </DockPanel>
+
+        </DockPanel>
     </Grid>
 </Window>

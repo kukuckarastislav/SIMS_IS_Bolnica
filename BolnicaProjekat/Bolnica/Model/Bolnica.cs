@@ -111,18 +111,18 @@ namespace Model
         }
 
 
-        public System.Collections.ArrayList pacijenti;
+        public ObservableCollection<Model.Pacijent> pacijenti;
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetPacijenti()
+        public ObservableCollection<Model.Pacijent> GetPacijenti()
         {
             if (pacijenti == null)
-                pacijenti = new System.Collections.ArrayList();
+                pacijenti = new ObservableCollection<Model.Pacijent>();
             return pacijenti;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetPacijenti(System.Collections.ArrayList newPacijenti)
+        public void SetPacijenti(ObservableCollection<Model.Pacijent> newPacijenti)
         {
             RemoveAllPacijenti();
             foreach (Pacijent oPacijent in newPacijenti)
@@ -135,7 +135,7 @@ namespace Model
             if (newPacijent == null)
                 return;
             if (this.pacijenti == null)
-                this.pacijenti = new System.Collections.ArrayList();
+                this.pacijenti = new ObservableCollection<Model.Pacijent>();
             if (!this.pacijenti.Contains(newPacijent))
                 this.pacijenti.Add(newPacijent);
         }
@@ -148,6 +148,35 @@ namespace Model
             if (this.pacijenti != null)
                 if (this.pacijenti.Contains(oldPacijent))
                     this.pacijenti.Remove(oldPacijent);
+        }
+
+        public bool EditPacijent(Pacijent oldPacijent)
+        {
+            if (oldPacijent == null)
+                return false;
+            if (this.pacijenti != null)
+            {
+                foreach(Pacijent p in pacijenti)
+                { 
+                    if(p.Jmbg.Equals(oldPacijent.Jmbg))
+                    {
+                        p.Ime = oldPacijent.Ime;
+                        p.Prezime = oldPacijent.Prezime;
+                        p.IdPacijenta = oldPacijent.IdPacijenta;
+                        p.KorisnickoIme = oldPacijent.KorisnickoIme;
+                        p.Sifra = oldPacijent.Sifra;
+                        p.Telefon = oldPacijent.Telefon;
+                        p.DatumRodjenja = oldPacijent.DatumRodjenja;
+                        p.Drzavljanstvo = oldPacijent.Drzavljanstvo;
+                        p.AdresaStanovanja = oldPacijent.AdresaStanovanja;
+                        p.Jmbg = oldPacijent.Jmbg;
+                        p.Email = oldPacijent.Email;
+                        return true;
+                    }
+                }
+            }
+            return false;
+                    
         }
 
         /// <pdGenerated>default removeAll</pdGenerated>

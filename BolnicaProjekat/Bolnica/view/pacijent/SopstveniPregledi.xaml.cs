@@ -21,8 +21,8 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class SopstveniPregledi : Window
     {
-
-        public System.Collections.ArrayList PreglediPacijenta { get; set; }
+        public ObservableCollection<Pregled> PreglediPacijenta { get; set; }
+        public System.Collections.ArrayList PreglediPacijentaa { get; set; }
         public Pacijent pac;
         public Pregled odabraniPregled;
 
@@ -30,8 +30,10 @@ namespace Bolnica.view.pacijent
         {
             InitializeComponent();
             pac = Model.Bolnica.GetInstance.KT2Pacijent;
-            PreglediPacijenta = pac.MedicinskiKarton.GetPregled();
+            PreglediPacijentaa=pac.MedicinskiKarton.GetPregled();
+            PreglediPacijenta = new ObservableCollection<Pregled>();
 
+            foreach(Pregled p in PreglediPacijentaa) { PreglediPacijenta.Add(p); }
             this.listaPregledaPacijenta.
                 ItemsSource = PreglediPacijenta;
         }
@@ -45,7 +47,30 @@ namespace Bolnica.view.pacijent
 
         private void otkazi_pregled(object sender, RoutedEventArgs e)
         {
+            if (odabraniPregled == null)
+            {
+                MessageBox.Show("Odaberite pregled");
+                return;
+            }
+            PreglediPacijenta.Remove(odabraniPregled);
+            PreglediPacijentaa.Remove(odabraniPregled);
             pac.OtkazivanjePregleda(odabraniPregled);
+            Model.Bolnica.GetInstance.Pregledi.Add(odabraniPregled);
+        }
+
+        private void modifikuj_pregled(object sender, RoutedEventArgs e)
+        {
+            if (odabraniPregled == null)
+            {
+                MessageBox.Show("Odaberite pregled");
+                return;
+            }
+
+            var varr = new view.pacijent.PrikazPregleda(odabraniPregled);
+            varr.Show();
+
+            listaPregledaPacijenta.Items.Refresh();
+
         }
     }
 }

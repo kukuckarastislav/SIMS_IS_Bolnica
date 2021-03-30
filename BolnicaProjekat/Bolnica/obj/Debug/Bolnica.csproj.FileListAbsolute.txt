@@ -192,3 +192,35 @@ D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\S
 D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.pdb
 D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\KreiranjePregledaForma.g.cs
 D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\KreiranjePregledaForma.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\KreiranjePregledaForma.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\PrikazMedicinskiKarton.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\PrikazPacijenata.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\PrikazPregleda.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\SopstveniPregledi.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\PagePacijenti.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\registracija\PageRegistracija.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\WindowIzmenaPodataka.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajBolesnickuProstorijuForma.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajOperacionuSaluForma.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajProstorijuForma.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajSobuZaPregled.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazBolesnickihProstorija.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazOperacionihSala.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazProstorija.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazSobaZaPregled.g.cs
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\KreiranjePregledaForma.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\PrikazMedicinskiKarton.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\lekar\pacijenti\PrikazPacijenata.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\PrikazPregleda.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\pacijent\SopstveniPregledi.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\PagePacijenti.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\registracija\PageRegistracija.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\sekretar\WindowIzmenaPodataka.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajBolesnickuProstorijuForma.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajOperacionuSaluForma.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajProstorijuForma.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\DodajSobuZaPregled.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazBolesnickihProstorija.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazOperacionihSala.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazProstorija.baml
+C:\Users\Milica\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\view\upravnik\prostorije\PrikazSobaZaPregled.baml

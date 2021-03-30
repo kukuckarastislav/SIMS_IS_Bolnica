@@ -251,6 +251,42 @@ namespace Model
 
         }
 
+        public SobaZaPreglede GetSobaZaPregledeByID(int id)
+        {
+
+            if (this.sobeZaPreglede != null)
+            {
+                foreach (SobaZaPreglede s in sobeZaPreglede)
+                {
+                    if (s.Id==id)
+                    {
+
+                        return s;
+                    }
+                }
+            }
+            return null;
+
+        }
+        public Lekar getLekarByI(int id)
+        {
+
+            if (this.lekari != null)
+            {
+                foreach (Lekar s in lekari)
+                {
+                    if (s.IdLekara==id)
+                    {
+                        return s;
+                    }
+                }
+            }
+
+            return null;
+
+        }
+
+
 
 
 

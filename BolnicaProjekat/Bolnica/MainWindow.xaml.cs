@@ -35,6 +35,11 @@ namespace Bolnica
             //Model.Bolnica.GetInstance.SetPacijenti(bolnica.GetPacijenti());
             reader.Close();
 
+          //  Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8.00, 14.00);
+           // Model.Lekar l = new Model.Lekar(1, true,Model.Odeljenje.OpstaHirurgija,radnoVreme, Model.RadniStatus.Aktivan,
+             // "laslouri99", "sifra123", "Laslo", "Uri", Model.Pol.Musko, "laslou@gmail.com", "066-666-666",
+            //  new DateTime(1999, 7, 16), "1111111", "Srpsko", "Novi Sad");
+          //  Model.Bolnica.GetInstance.AddLekari(l);
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {

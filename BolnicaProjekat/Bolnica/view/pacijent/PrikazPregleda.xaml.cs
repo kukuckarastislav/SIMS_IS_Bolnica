@@ -29,7 +29,7 @@ namespace Bolnica.view.pacijent
             datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
             pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
             kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
-            idlekara.Text = Convert.ToString(Pregled.IdLekara);
+           // idlekara.Text = Convert.ToString(Pregled.Lekar.Ime);
             komentar.Text = Convert.ToString(Pregled.Komentar);
             soba.Text = Convert.ToString(Pregled.SobaZaPregled.Id);
 

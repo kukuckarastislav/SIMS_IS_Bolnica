@@ -11,7 +11,7 @@ namespace Model
    public class Lekar : Osoblje
    {
 
-        private int IdLekara;
+        public int IdLekara { get; set; }
         private bool Specijalista;
         private Odeljenje Odeljenje;
 

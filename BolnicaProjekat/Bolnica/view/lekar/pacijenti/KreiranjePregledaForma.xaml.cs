@@ -66,11 +66,12 @@ namespace Bolnica.view.lekar.pacijenti
 
             */
 
-
-            Model.SobaZaPreglede soba = new Model.SobaZaPreglede(200, 2, 1130, 1997);
+            // ComboBoxSobeZaPregled.SelectedItem as Model.SobaZaPreglede
+            //Model.SobaZaPreglede soba = new Model.SobaZaPreglede(200, 2, 1130, 1997);
+            int id = Convert.ToInt32(ComboBoxSobeZaPregled.SelectedItem.ToString());
 
             KreiranPregled = new Model.Pregled(new Model.Termin(pocetak, kraj), inputTipPregleda.Text, "", 
-                                        "Zdravo Bolnica", "Novi Sad",Model.Bolnica.GetInstance.KT2Lekar,"",false,inputIDPregleda.Text,"", ComboBoxSobeZaPregled.SelectedItem as Model.SobaZaPreglede);
+                                        "Zdravo Bolnica", "Novi Sad",Model.Bolnica.GetInstance.getLekarByI(1),"",false,inputIDPregleda.Text,"",Model.Bolnica.GetInstance.GetSobaZaPregledeByID(id));
 
             izabraniPacijent.MedicinskiKarton.AddPregled(KreiranPregled);
             this.Close();

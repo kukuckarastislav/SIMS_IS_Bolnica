@@ -1,11 +1,11 @@
-﻿<Window x:Class="Bolnica.view.upravnik.prostorije.DodajProstorijuForma"
+﻿<Window x:Class="Bolnica.view.upravnik.prostorije.DodajOperacionuSaluForma"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.upravnik.prostorije"
         mc:Ignorable="d"
-        Title="DodajProstorijuForma" Height="450" Width="800">
+        Title="DodajOperacionuSaluForma" Height="450" Width="800">
     <Grid>
         <DockPanel Background="White">
             <Grid>
@@ -51,7 +51,7 @@
                 <Button  Grid.Row="5" Grid.Column="2" Margin="40 15 40 0" Click="Potvrdi_btn">Potvrdi</Button>
 
             </Grid>
-            
+
         </DockPanel>
     </Grid>
 </Window>

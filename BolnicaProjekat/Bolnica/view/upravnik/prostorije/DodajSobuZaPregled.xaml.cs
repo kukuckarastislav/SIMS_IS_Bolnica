@@ -15,26 +15,25 @@ using System.Windows.Shapes;
 namespace Bolnica.view.upravnik.prostorije
 {
     /// <summary>
-    /// Interaction logic for DodajProstorijuForma.xaml
+    /// Interaction logic for DodajSobuZaPregled.xaml
     /// </summary>
-    public partial class DodajProstorijuForma : Window
+    public partial class DodajSobuZaPregledForma : Window
     {
-
-        public DodajProstorijuForma()
+        public DodajSobuZaPregledForma()
         {
             InitializeComponent();
         }
 
-        private Model.Prostorija editProstorija;
-        public DodajProstorijuForma(Model.Prostorija editProstorija)
+        private Model.SobaZaPreglede editSobaZaPregled;
+        public DodajSobuZaPregledForma(Model.SobaZaPreglede editSobaZaPregled)
         {
             InitializeComponent();
-            this.editProstorija = editProstorija;
+            this.editSobaZaPregled = editSobaZaPregled;
 
-            inputIDprostorije.Text = Convert.ToString(editProstorija.Id);
-            inputSprat.Text = Convert.ToString(editProstorija.Sprat);
-            inputPovrsina.Text = Convert.ToString(editProstorija.Povrsina);
-            inputIDInventara.Text = Convert.ToString(editProstorija.Inventar.IdInventara);
+            inputIDprostorije.Text = Convert.ToString(editSobaZaPregled.Id);
+            inputSprat.Text = Convert.ToString(editSobaZaPregled.Sprat);
+            inputPovrsina.Text = Convert.ToString(editSobaZaPregled.Povrsina);
+            inputIDInventara.Text = Convert.ToString(editSobaZaPregled.Inventar.IdInventara);
         }
 
         private void close_win(object sender, RoutedEventArgs e)
@@ -46,28 +45,29 @@ namespace Bolnica.view.upravnik.prostorije
         private void Potvrdi_btn(object sender, RoutedEventArgs e)
         {
 
-            if(editProstorija == null) 
+            if (editSobaZaPregled == null)
             {
                 // pravimo novu
-                Model.Prostorija novaProstorija = new Model.Prostorija(
+                Model.SobaZaPreglede novaSobaZaPregled = new Model.SobaZaPreglede(
                                     Convert.ToInt32(inputIDprostorije.Text),
                                     Convert.ToInt32(inputSprat.Text),
                                     Convert.ToDouble(inputPovrsina.Text),
                                     Convert.ToInt32(inputIDInventara.Text));
 
-                Model.Bolnica.GetInstance.AddProstorije(novaProstorija);
+                Model.Bolnica.GetInstance.AddSobeZaPreglede(novaSobaZaPregled);
             }
             else
             {
                 // editujemo postojecu
 
-                editProstorija.Id = Convert.ToInt32(inputIDprostorije.Text);
-                editProstorija.Sprat = Convert.ToInt32(inputSprat.Text);
-                editProstorija.Povrsina = Convert.ToDouble(inputPovrsina.Text);
-                editProstorija.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
+                editSobaZaPregled.Id = Convert.ToInt32(inputIDprostorije.Text);
+                editSobaZaPregled.Sprat = Convert.ToInt32(inputSprat.Text);
+                editSobaZaPregled.Povrsina = Convert.ToDouble(inputPovrsina.Text);
+                editSobaZaPregled.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
             }
-            
+
             this.Close();
         }
+
     }
 }

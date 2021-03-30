@@ -18,14 +18,14 @@ namespace Model
 
         public int Sprat { get; set; }
         public double Povrsina { get; set; }
-        private Inventar inventar;
+        public Inventar Inventar;
 
         public Prostorija(int id, int sprat, double povrsina, int idInventara)
         {
             Id = id;
             Sprat = sprat;
             Povrsina = povrsina;
-            this.inventar = new Inventar(idInventara);
+            this.Inventar = new Inventar(idInventara);
         }
 
         public System.Collections.ArrayList terminiZauzetosti;

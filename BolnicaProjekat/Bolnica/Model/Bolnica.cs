@@ -61,6 +61,28 @@ namespace Model
             AddProstorije(p3);
             AddProstorije(p4);
 
+            Model.OperacionaSala op1 = new Model.OperacionaSala(100, 1, 230, 997);
+            Model.OperacionaSala op2 = new Model.OperacionaSala(104, 1, 430, 998);
+            Model.OperacionaSala op3 = new Model.OperacionaSala(125, 1, 520, 999);
+            AddOperacioneSale(op1);
+            AddOperacioneSale(op2);
+            AddOperacioneSale(op3);
+
+
+            Model.SobaZaPreglede sp1 = new Model.SobaZaPreglede(200, 2, 1130, 1997);
+            Model.SobaZaPreglede sp2 = new Model.SobaZaPreglede(205, 2, 1430, 1998);
+            Model.SobaZaPreglede sp3 = new Model.SobaZaPreglede(235, 2, 1520, 1999);
+            AddSobeZaPreglede(sp1);
+            AddSobeZaPreglede(sp2);
+            AddSobeZaPreglede(sp3);
+
+            // broj kreveta i broj slobodnih kreveta
+            Model.BolesnickaSoba bs1 = new Model.BolesnickaSoba(4, 2, 302, 3, 2130, 2997);
+            Model.BolesnickaSoba bs2 = new Model.BolesnickaSoba(2, 2, 321, 3, 2430, 2998);
+            AddBolesnickeSobe(bs1);
+            AddBolesnickeSobe(bs2);
+
+
 
 
             KT2Pacijent = new Pacijent("idPacijenta", false, false, false, "korisnickoIme", "sifra", "ime", "prezime", Pol.Zensko, " email", " telefon", new DateTime(2020, 1, 1), "jmbg", "drzavljanstvo",
@@ -270,7 +292,7 @@ namespace Model
                 lekari.Clear();
         }
         public System.Collections.ObjectModel.ObservableCollection<Model.Prostorija> prostorije;
-
+        
         public int GetBrojProstorija()
         {
             if (prostorije == null)
@@ -365,18 +387,18 @@ namespace Model
             if (prostorije != null)
                 prostorije.Clear();
         }
-        public System.Collections.ArrayList bolesnickeSobe;
+        public System.Collections.ObjectModel.ObservableCollection<Model.BolesnickaSoba> bolesnickeSobe;
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetBolesnickeSobe()
+        public System.Collections.ObjectModel.ObservableCollection<Model.BolesnickaSoba> GetBolesnickeSobe()
         {
             if (bolesnickeSobe == null)
-                bolesnickeSobe = new System.Collections.ArrayList();
+                bolesnickeSobe = new System.Collections.ObjectModel.ObservableCollection<Model.BolesnickaSoba>();
             return bolesnickeSobe;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetBolesnickeSobe(System.Collections.ArrayList newBolesnickeSobe)
+        public void SetBolesnickeSobe(System.Collections.ObjectModel.ObservableCollection<Model.BolesnickaSoba> newBolesnickeSobe)
         {
             RemoveAllBolesnickeSobe();
             foreach (BolesnickaSoba oBolesnickaSoba in newBolesnickeSobe)
@@ -389,7 +411,7 @@ namespace Model
             if (newBolesnickaSoba == null)
                 return;
             if (this.bolesnickeSobe == null)
-                this.bolesnickeSobe = new System.Collections.ArrayList();
+                this.bolesnickeSobe = new System.Collections.ObjectModel.ObservableCollection<Model.BolesnickaSoba>();
             if (!this.bolesnickeSobe.Contains(newBolesnickaSoba))
                 this.bolesnickeSobe.Add(newBolesnickaSoba);
         }
@@ -410,18 +432,19 @@ namespace Model
             if (bolesnickeSobe != null)
                 bolesnickeSobe.Clear();
         }
-        public System.Collections.ArrayList sobeZaPreglede;
+        
+        public System.Collections.ObjectModel.ObservableCollection<Model.SobaZaPreglede> sobeZaPreglede;
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetSobeZaPreglede()
+        public System.Collections.ObjectModel.ObservableCollection<Model.SobaZaPreglede> GetSobeZaPreglede()
         {
             if (sobeZaPreglede == null)
-                sobeZaPreglede = new System.Collections.ArrayList();
+                sobeZaPreglede = new System.Collections.ObjectModel.ObservableCollection<Model.SobaZaPreglede>();
             return sobeZaPreglede;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetSobeZaPreglede(System.Collections.ArrayList newSobeZaPreglede)
+        public void SetSobeZaPreglede(System.Collections.ObjectModel.ObservableCollection<Model.SobaZaPreglede> newSobeZaPreglede)
         {
             RemoveAllSobeZaPreglede();
             foreach (SobaZaPreglede oSobaZaPreglede in newSobeZaPreglede)
@@ -434,7 +457,7 @@ namespace Model
             if (newSobaZaPreglede == null)
                 return;
             if (this.sobeZaPreglede == null)
-                this.sobeZaPreglede = new System.Collections.ArrayList();
+                this.sobeZaPreglede = new System.Collections.ObjectModel.ObservableCollection<Model.SobaZaPreglede>();
             if (!this.sobeZaPreglede.Contains(newSobaZaPreglede))
                 this.sobeZaPreglede.Add(newSobaZaPreglede);
         }
@@ -455,19 +478,20 @@ namespace Model
             if (sobeZaPreglede != null)
                 sobeZaPreglede.Clear();
         }
-        public System.Collections.ArrayList operacioneSale;
+        
+        public System.Collections.ObjectModel.ObservableCollection<Model.OperacionaSala> operacioneSale;
 
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetOperacioneSale()
+        public System.Collections.ObjectModel.ObservableCollection<Model.OperacionaSala> GetOperacioneSale()
         {
             if (operacioneSale == null)
-                operacioneSale = new System.Collections.ArrayList();
+                operacioneSale = new System.Collections.ObjectModel.ObservableCollection<Model.OperacionaSala>();
             return operacioneSale;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetOperacioneSale(System.Collections.ArrayList newOperacioneSale)
+        public void SetOperacioneSale(System.Collections.ObjectModel.ObservableCollection<Model.OperacionaSala> newOperacioneSale)
         {
             RemoveAllOperacioneSale();
             foreach (OperacionaSala oOperacionaSala in newOperacioneSale)
@@ -480,7 +504,7 @@ namespace Model
             if (newOperacionaSala == null)
                 return;
             if (this.operacioneSale == null)
-                this.operacioneSale = new System.Collections.ArrayList();
+                this.operacioneSale = new System.Collections.ObjectModel.ObservableCollection<Model.OperacionaSala>();
             if (!this.operacioneSale.Contains(newOperacionaSala))
                 this.operacioneSale.Add(newOperacionaSala);
         }

@@ -26,8 +26,9 @@ namespace Bolnica.view.pacijent
             InitializeComponent();
             Pregled = OdabraniPregled;
 
-            pocetak.Text = Convert.ToString(Pregled.Termin.Pocetak); ;
-            kraj.Text = Convert.ToString(Pregled.Termin.Kraj);
+            datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
+            pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
+            kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
             idlekara.Text = Convert.ToString(Pregled.IdLekara);
             komentar.Text = Convert.ToString(Pregled.Komentar);
 
@@ -39,11 +40,6 @@ namespace Bolnica.view.pacijent
            this. Close();
            Pregled.Komentar = komentar.Text;
 
-        }
-
-        internal Pregled promjenjenPregled()
-        {
-            return Pregled;
         }
     }
 }

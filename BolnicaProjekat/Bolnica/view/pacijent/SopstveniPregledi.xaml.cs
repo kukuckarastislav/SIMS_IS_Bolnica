@@ -68,7 +68,7 @@ namespace Bolnica.view.pacijent
 
             var varr = new view.pacijent.PrikazPregleda(odabraniPregled);
             varr.Show();
-            odabraniPregled = varr.promjenjenPregled();
+
             listaPregledaPacijenta.Items.Refresh();
 
         }

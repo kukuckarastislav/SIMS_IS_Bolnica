@@ -33,6 +33,12 @@ namespace Bolnica.view.lekar
         private void Pacijenti_Click(object sender, RoutedEventArgs e)
         {
             RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazPacijenata();
+            
+        }
+
+        private void MedicinskiKarton_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazMedicinskiKarton();
         }
     }
 }

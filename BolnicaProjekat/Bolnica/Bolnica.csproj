@@ -58,11 +58,17 @@
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\pacijenti\PrikazMedicinskiKarton.xaml.cs">
+      <DependentUpon>PrikazMedicinskiKarton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\pacijenti\PrikazPacijenata.xaml.cs">
       <DependentUpon>PrikazPacijenata.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\PrikazPregleda.xaml.cs">
+      <DependentUpon>PrikazPregleda.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\RaspoloziviPregledi.xaml.cs">
       <DependentUpon>RaspoloziviPregledi.xaml</DependentUpon>
@@ -73,8 +79,29 @@
     <Compile Include="view\sekretar\SekretarHome.xaml.cs">
       <DependentUpon>SekretarHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml.cs">
+      <DependentUpon>DodajBolesnickuProstorijuForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\DodajOperacionuSaluForma.xaml.cs">
+      <DependentUpon>DodajOperacionuSaluForma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\prostorije\DodajProstorijuForma.xaml.cs">
       <DependentUpon>DodajProstorijuForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\DodajSobuZaPregled.xaml.cs">
+      <DependentUpon>DodajSobuZaPregled.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazBolesnickihProstorija.xaml.cs">
+      <DependentUpon>PrikazBolesnickihProstorija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazOperacionihSala.xaml.cs">
+      <DependentUpon>PrikazOperacionihSala.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazProstorija.xaml.cs">
+      <DependentUpon>PrikazProstorija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\PrikazSobaZaPregled.xaml.cs">
+      <DependentUpon>PrikazSobaZaPregled.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\prostorije\prostorije.xaml.cs">
       <DependentUpon>prostorije.xaml</DependentUpon>
@@ -98,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\lekar\pacijenti\PrikazMedicinskiKarton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\lekar\pacijenti\PrikazPacijenata.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,6 +136,10 @@
     <Page Include="view\pacijent\PacijentHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\PrikazPregleda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\pacijent\RaspoloziviPregledi.xaml">
       <SubType>Designer</SubType>
@@ -118,7 +153,35 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\DodajOperacionuSaluForma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\upravnik\prostorije\DodajProstorijuForma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\DodajSobuZaPregled.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazBolesnickihProstorija.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazOperacionihSala.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazProstorija.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\prostorije\PrikazSobaZaPregled.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -190,6 +253,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\appointment-delete.png" />
+    <Resource Include="images\appointment-exam.png" />
+    <Resource Include="images\appointment-operation.png" />
+    <Resource Include="images\appointment-update.png" />
+    <Resource Include="images\doctor-female-to-left.png" />
+    <Resource Include="images\doctor-female-to-right.png" />
+    <Resource Include="images\doctor-male-to-left.png" />
+    <Resource Include="images\doctor-male-to-right.png" />
+    <Resource Include="images\doctor-menu-title.png" />
+    <Resource Include="images\doctor-new-appointments.png" />
+    <Resource Include="images\doctor-see.jpg" />
+    <Resource Include="images\lekar-window-button.jpg" />
+    <Resource Include="images\main-window-background.jpg" />
+    <Resource Include="images\pacijent-window-button.jpg" />
+    <Resource Include="images\patient-female-to-right.png" />
+    <Resource Include="images\patient-male-to-right.png" />
+    <Resource Include="images\sekretar-window-button.jpg" />
+    <Resource Include="images\upravnik-window-button.jpg" />
+    <Resource Include="images\zdravo-bolnica.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

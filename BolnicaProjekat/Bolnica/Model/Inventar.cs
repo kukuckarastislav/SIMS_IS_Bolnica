@@ -7,10 +7,11 @@
 using System;
 
 namespace Model
-{
+{   
    public class Inventar
    {
 
+        public int IdInventara { get; set; }
         public Inventar(int idInventara)
         {
             IdInventara = idInventara;
@@ -137,7 +138,7 @@ namespace Model
          }
       }
    
-      private int IdInventara;
+
       
       private System.Collections.ArrayList lekovi;
 

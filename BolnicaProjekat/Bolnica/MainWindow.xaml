@@ -5,13 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="524" Width="505">
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Margin="10" Click="Sekretar_Home_Click">SEKRETAR</Button>
-            <Button Margin="10" Click="Upravnik_Home_Click">UPRAVNIK</Button>
-            <Button Margin="10" Click="Lekar_Home_Click">LEKAR</Button>
-            <Button Margin="10" Click="Pacijent_Home_Click">PACIJENT</Button>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="247"/>
+            <ColumnDefinition Width="247"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="247" />
+            <RowDefinition Height="247" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Column="0" Grid.Row="0"
+                Click="Pacijent_Home_Click">
+            <Image HorizontalAlignment="Center" Source="/images/pacijent-window-button.jpg"/>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="0" 
+                Click="Lekar_Home_Click">
+            <Image HorizontalAlignment="Center" Source="/images/lekar-window-button.jpg"/>
+
+        </Button>
+
+        <Button Grid.Column="0" Grid.Row="1" 
+                Click="Upravnik_Home_Click">
+            <Image HorizontalAlignment="Center" Source="/images/upravnik-window-button.jpg"/>
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="1" 
+                Click="Sekretar_Home_Click">
+            <Image HorizontalAlignment="Center" Source="/images/sekretar-window-button.jpg"/>
+        </Button>
     </Grid>
 </Window>

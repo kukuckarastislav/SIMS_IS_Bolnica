@@ -28,20 +28,19 @@
                     <RowDefinition />
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <DataGrid x:Name="DataGridPrikazProstorija" 
-                          ItemsSource="{Binding Path=KolekcijaProstorija}" 
-                          Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"
-                          IsReadOnly="False"
-                          SelectionMode="Single" 
-                          AutoGenerateColumns="False"
-                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID Prostorije" Binding="{Binding Id}" Width="*" />
-                        <DataGridTextColumn Header="Sprat Prostorije" Binding="{Binding Sprat}" Width="*" />
-                        <DataGridTextColumn Header="Povrsina Prostorije" Binding="{Binding Povrsina}" Width="*" />
+                <StackPanel Orientation="Horizontal" Background="#f0f0f0" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                    <Button x:Name="Btn_P_prosotrija" Background="White" Width="100" Margin="5 25 0 0" Click="Btn_prikazi_prosotrije">Prostorije</Button>
+                    <Button x:Name="Btn_P_op_s" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_op_sale">Operacione Sale</Button>
+                    <Button x:Name="Btn_P_sobPreg" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_sobe_za_pregled">Sobe za pregled</Button>
+                    <Button x:Name="Btn_P_bolSob" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_bolesnicke_sobe">Bolesnicke sobe</Button>
+                </StackPanel>
 
-                    </DataGrid.Columns>
-                </DataGrid>
+
+                <Frame x:Name="PovrsinaPrikazRaznihProstorija" 
+                       NavigationUIVisibility="Hidden"
+                       Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                       Background="red"
+                       ></Frame>
 
             </Grid>
         </DockPanel>

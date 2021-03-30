@@ -12,6 +12,7 @@ namespace Model
     {
         public OperacionaSala(int id, int sprat, double povrsina, int idInventara) : base(id, sprat, povrsina, idInventara)
         {
+
         }
     }
 }

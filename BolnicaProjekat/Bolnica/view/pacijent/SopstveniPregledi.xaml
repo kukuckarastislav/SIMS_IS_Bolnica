@@ -14,11 +14,11 @@
                     <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
                     <GridViewColumn Header="ID lekara" DisplayMemberBinding="{Binding IdLekara}" />
                     <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding TipPregleda}"/>
-                    <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding Komentar}"/>
+                    <GridViewColumn Header="Komentar" DisplayMemberBinding="{Binding Komentar}"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Button Click="otkazi_pregled" Margin="231,364,420,23" RenderTransformOrigin="0.097,0.562">Otkazi</Button>
-        <Button Margin="429,364,222,23" RenderTransformOrigin="0.667,0.361">Modifikuj</Button>
+        <Button Click="modifikuj_pregled" Margin="429,364,222,23" RenderTransformOrigin="0.667,0.361">Modifikuj</Button>
     </Grid>
 </Window>

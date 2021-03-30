@@ -1,0 +1,28 @@
+﻿<Page x:Class="Bolnica.view.upravnik.prostorije.PrikazBolesnickihProstorija"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.upravnik.prostorije"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PrikazBolesnickihProstorija">
+
+    <Grid>
+        <DataGrid x:Name="DataGridPrikazBolesnickihProstorija" 
+                          ItemsSource="{Binding Path=KolekcijaProstorija}" 
+                          IsReadOnly="False"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID Prostorije" Binding="{Binding Id}" Width="*" />
+                <DataGridTextColumn Header="Sprat Prostorije" Binding="{Binding Sprat}" Width="*" />
+                <DataGridTextColumn Header="Povrsina Prostorije" Binding="{Binding Povrsina}" Width="*" />
+                <DataGridTextColumn Header="Broj kreveta" Binding="{Binding BrojKreveta}" Width="*" />
+                <DataGridTextColumn Header="Broj Slobodnih Kreveta" Binding="{Binding BrojSlobodnihKreveta}" Width="*" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

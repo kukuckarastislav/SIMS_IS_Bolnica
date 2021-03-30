@@ -128,6 +128,35 @@ namespace Model
                     this.pacijenti.Remove(oldPacijent);
         }
 
+        public bool EditPacijent(Pacijent oldPacijent)
+        {
+            if (oldPacijent == null)
+                return false;
+            if (this.pacijenti != null)
+            {
+                foreach(Pacijent p in pacijenti)
+                { 
+                    if(p.Jmbg.Equals(oldPacijent.Jmbg))
+                    {
+                        p.Ime = oldPacijent.Ime;
+                        p.Prezime = oldPacijent.Prezime;
+                        p.IdPacijenta = oldPacijent.IdPacijenta;
+                        p.KorisnickoIme = oldPacijent.KorisnickoIme;
+                        p.Sifra = oldPacijent.Sifra;
+                        p.Telefon = oldPacijent.Telefon;
+                        p.DatumRodjenja = oldPacijent.DatumRodjenja;
+                        p.Drzavljanstvo = oldPacijent.Drzavljanstvo;
+                        p.AdresaStanovanja = oldPacijent.AdresaStanovanja;
+                        p.Jmbg = oldPacijent.Jmbg;
+                        p.Email = oldPacijent.Email;
+                        return true;
+                    }
+                }
+            }
+            return false;
+                    
+        }
+
         /// <pdGenerated>default removeAll</pdGenerated>
         public void RemoveAllPacijenti()
         {

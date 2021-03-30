@@ -96,3 +96,4 @@ C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\o
 C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.csproj.CoreCompileInputs.cache
 C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.exe
 C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.pdb
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Bolnica\obj\Debug\Bolnica.csprojAssemblyReference.cache

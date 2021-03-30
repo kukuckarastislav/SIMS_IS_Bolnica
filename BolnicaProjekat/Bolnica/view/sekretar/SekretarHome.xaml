@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.sekretar"
         mc:Ignorable="d"
-        Title="SekretarHome" Height="768" Width="1024">
+        Title="SekretarHome" FontFamily="Century Gothic" Height="768" Width="1024">
     <Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Left" Background="#1c1427" Width="Auto">

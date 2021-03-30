@@ -11,7 +11,7 @@
     <Grid Background="#ccffbd">
         <DockPanel>
             <StackPanel Height="60" HorizontalAlignment="Left" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
-                <Button Margin="30 10" Background="white">Izmeni podatke pacijenta</Button>
+                <Button Margin="30 10" Background="white" Click="IzmeniPacijenta_Click">Izmeni podatke pacijenta</Button>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom" Background="#ccffbd">
                 <Grid.ColumnDefinitions>
@@ -35,7 +35,7 @@
                 </Grid.RowDefinitions>
                 <DataGrid x:Name="DataGridPrikazPacijenata"
                           ItemsSource="{Binding Path=KolekcijaPacijenata}" 
-                          Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="7"
+                          Grid.Row="1" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="7"
                           IsReadOnly="False"
                           SelectionMode="Single" 
                           AutoGenerateColumns="False"

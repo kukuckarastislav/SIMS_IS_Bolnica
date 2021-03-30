@@ -32,5 +32,22 @@ namespace Bolnica.view.sekretar
             this.DataGridPrikazPacijenata.ItemsSource = KolekcijaPacijenata;
         }
 
+        private void IzmeniPacijenta_Click(object sender, RoutedEventArgs e)
+        {
+
+            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            if (pacijent == null) return;
+
+            var izmeniPacijentaWindow = new Bolnica.view.sekretar.WindowIzmenaPodataka(pacijent, DataGridPrikazPacijenata);
+            izmeniPacijentaWindow.Show();
+
+        }
+
+        private void Odustani_Click(object sender, RoutedEventArgs e)
+        {
+
+            
+        }
+
     }
 }

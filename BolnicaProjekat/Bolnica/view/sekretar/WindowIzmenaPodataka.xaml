@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.sekretar"
         mc:Ignorable="d"
-        Title="WindowIzmenaPodataka" Height="450" Width="800">
+        Title="WindowIzmenaPodataka" Height="768" Width="1024">
     <Grid Background="#ccffbd">
         <DockPanel>
             <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
-                <Button Margin="30 10" ToolTip="Izmena podatak pacijenta" Background="white" >Izmeni podatke</Button>
-                <Button Margin="30 10" ToolTip="Odustani od izmene" Background="white">Odustani</Button>
-                <Button Margin="30 10" ToolTip="Ocisti polja" Background="white" >Ocisti polja</Button>
+                <Button Margin="30 10" ToolTip="Izmena podatak pacijenta" Background="white" Click="IzmeniPacijenta_Click">Izmeni podatke</Button>
+                <Button Margin="30 10" ToolTip="Odustani od izmene" Background="white" Click="Odustani_Click">Odustani</Button>
+                <Button Margin="30 10" ToolTip="Ocisti polja" Background="white" Click="OcistiPolja_Click">Ocisti polja</Button>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
                 <Grid.ColumnDefinitions >

@@ -58,6 +58,9 @@
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\pacijenti\PrikazMedicinskiKarton.xaml.cs">
+      <DependentUpon>PrikazMedicinskiKarton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\pacijenti\PrikazPacijenata.xaml.cs">
       <DependentUpon>PrikazPacijenata.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="view\lekar\LekarHome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\lekar\pacijenti\PrikazMedicinskiKarton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -246,6 +253,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\appointment-delete.png" />
+    <Resource Include="images\appointment-exam.png" />
+    <Resource Include="images\appointment-operation.png" />
+    <Resource Include="images\appointment-update.png" />
+    <Resource Include="images\doctor-female-to-left.png" />
+    <Resource Include="images\doctor-female-to-right.png" />
+    <Resource Include="images\doctor-male-to-left.png" />
+    <Resource Include="images\doctor-male-to-right.png" />
+    <Resource Include="images\doctor-menu-title.png" />
+    <Resource Include="images\doctor-new-appointments.png" />
+    <Resource Include="images\doctor-see.jpg" />
+    <Resource Include="images\lekar-window-button.jpg" />
+    <Resource Include="images\main-window-background.jpg" />
+    <Resource Include="images\pacijent-window-button.jpg" />
+    <Resource Include="images\patient-female-to-right.png" />
+    <Resource Include="images\patient-male-to-right.png" />
+    <Resource Include="images\sekretar-window-button.jpg" />
+    <Resource Include="images\upravnik-window-button.jpg" />
+    <Resource Include="images\zdravo-bolnica.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

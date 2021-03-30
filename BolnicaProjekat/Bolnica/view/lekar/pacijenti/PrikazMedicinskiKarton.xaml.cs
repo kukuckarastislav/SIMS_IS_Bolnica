@@ -16,20 +16,14 @@ using System.Windows.Shapes;
 namespace Bolnica.view.lekar.pacijenti
 {
     /// <summary>
-    /// Interaction logic for PrikazPacijenata.xaml
+    /// Interaction logic for PrikazMedicinskiKarton.xaml
     /// </summary>
-    public partial class PrikazPacijenata : Page
+    public partial class PrikazMedicinskiKarton : Page
     {
-        public PrikazPacijenata()
+        public PrikazMedicinskiKarton()
         {
             InitializeComponent();
         }
 
-        private void OtvoriMedicinskiKarton(object sender, RoutedEventArgs e)
-        {
-           // RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazMedicinskiKarton();
-        }
-
-  
     }
 }

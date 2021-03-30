@@ -70,11 +70,17 @@
     <Compile Include="view\pacijent\SopstveniPregledi.xaml.cs">
       <DependentUpon>SopstveniPregledi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
+      <DependentUpon>PagePacijenti.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\registracija\PageRegistracija.xaml.cs">
       <DependentUpon>PageRegistracija.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\SekretarHome.xaml.cs">
       <DependentUpon>SekretarHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\WindowIzmenaPodataka.xaml.cs">
+      <DependentUpon>WindowIzmenaPodataka.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\prostorije\DodajProstorijuForma.xaml.cs">
       <DependentUpon>DodajProstorijuForma.xaml</DependentUpon>
@@ -117,11 +123,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\sekretar\PagePacijenti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\registracija\PageRegistracija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\SekretarHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\WindowIzmenaPodataka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

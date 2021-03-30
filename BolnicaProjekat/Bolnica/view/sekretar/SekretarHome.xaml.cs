@@ -22,6 +22,7 @@ namespace Bolnica.view.sekretar
         public SekretarHome()
         {
             InitializeComponent();
+            RadnaPovrsina.Content = new view.sekretar.PagePacijenti();
         }
 
         private void Registracija_Click(object sender, RoutedEventArgs e)
@@ -31,7 +32,7 @@ namespace Bolnica.view.sekretar
 
         private void ListPacijenti_Click(object sender, RoutedEventArgs e)
         {
-           // RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
+            RadnaPovrsina.Content = new view.sekretar.PagePacijenti();
         }
     }
 }

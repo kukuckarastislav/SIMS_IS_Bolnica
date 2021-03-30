@@ -89,18 +89,18 @@ namespace Model
         }
 
 
-        public System.Collections.ArrayList pacijenti;
+        public ObservableCollection<Model.Pacijent> pacijenti;
 
         /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetPacijenti()
+        public ObservableCollection<Model.Pacijent> GetPacijenti()
         {
             if (pacijenti == null)
-                pacijenti = new System.Collections.ArrayList();
+                pacijenti = new ObservableCollection<Model.Pacijent>();
             return pacijenti;
         }
 
         /// <pdGenerated>default setter</pdGenerated>
-        public void SetPacijenti(System.Collections.ArrayList newPacijenti)
+        public void SetPacijenti(ObservableCollection<Model.Pacijent> newPacijenti)
         {
             RemoveAllPacijenti();
             foreach (Pacijent oPacijent in newPacijenti)
@@ -113,7 +113,7 @@ namespace Model
             if (newPacijent == null)
                 return;
             if (this.pacijenti == null)
-                this.pacijenti = new System.Collections.ArrayList();
+                this.pacijenti = new ObservableCollection<Model.Pacijent>();
             if (!this.pacijenti.Contains(newPacijent))
                 this.pacijenti.Add(newPacijent);
         }

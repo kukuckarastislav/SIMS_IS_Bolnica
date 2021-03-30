@@ -29,17 +29,17 @@ namespace Model
             return false;
         }
 
-        private string KorisnickoIme;
-        private string Sifra;
-        private string Ime;
-        private string Prezime;
-        private Pol Pol;
-        private string Email;
-        private string Telefon;
-        private DateTime DatumRodjenja;
-        private string Jmbg;
-        private string Drzavljanstvo;
-        private string AdresaStanovanja;
+        public string KorisnickoIme { get; set; }
+        public string Sifra { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public Pol Pol { get; set; }
+        public string Email { get; set; }
+        public string Telefon { get; set; }
+        public DateTime DatumRodjenja { get; set; }
+        public string Jmbg { get; set; }
+        public string Drzavljanstvo { get; set; }
+        public string AdresaStanovanja { get; set; }
 
         public Korisnik(string korisnickoIme, string sifra, string ime, 
             string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja, 

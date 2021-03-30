@@ -30,5 +30,10 @@ namespace Model
             KrajRadnogVremena = krajRadnogVremena;
         }
 
+        public RadnoVreme()
+        {
+            
+        }
+
     }
 }

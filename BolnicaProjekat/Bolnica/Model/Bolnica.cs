@@ -38,9 +38,19 @@ namespace Model
                 }
                 return instance;
             }
-            
+            set
+            {
+                instance = value;
+
+            }
         }
 
+        
+
+        public Bolnica()
+        {
+
+        }
         private Bolnica(string naziv, string id, Mesto mesto)
         {
             NazivBolnice = naziv;

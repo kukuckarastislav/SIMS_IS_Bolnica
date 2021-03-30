@@ -30,5 +30,9 @@ namespace Model
             idUsluge = idUsluge;
             Komentar = komentar;
         }
+
+        protected ZdravstvenaUsluga()
+        {
+        }
     }
 }

@@ -26,7 +26,10 @@ namespace Model
             RezultatOperacije = rezultatOperacije;
         }
 
+        public Operacija()
+        {
 
+        }
 
 
     }

@@ -15,6 +15,9 @@ namespace Model
       private DateTime DatumZavrsetka;
       private bool Zavrsena;
       private int IdLekara;
-    
-   }
+
+        public Terapija()
+        {
+        }
+    }
 }

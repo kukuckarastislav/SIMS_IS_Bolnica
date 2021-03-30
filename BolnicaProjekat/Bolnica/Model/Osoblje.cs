@@ -23,7 +23,10 @@ namespace Model
             this.radniStatus = radniStatus;
         }
 
-        
+        public Osoblje()
+        {
+        }
+
 
     }
 }

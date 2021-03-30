@@ -22,6 +22,9 @@ namespace Model
             this.VrstaSpecijalista = vrstaSpecijalista;
         }
 
+        public Specijalista()
+        {
+        }
 
         public Operacija KreiranjeOperacije()
       {

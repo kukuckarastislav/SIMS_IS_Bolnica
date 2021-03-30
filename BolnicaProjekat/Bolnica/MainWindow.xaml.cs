@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Serialization;
 
 namespace Bolnica
 {
@@ -25,6 +27,13 @@ namespace Bolnica
             //Model.Bolnica bolnica = new Model.Bolnica("Zdravo bolnica","4", Model.Mesto.NoviSad);
             InitializeComponent();
             System.Collections.ArrayList a =  Model.Bolnica.GetInstance.GetLekari();
+            
+            XmlSerializer serializer = new XmlSerializer(typeof(Model.Bolnica));
+            StreamReader reader = new StreamReader("Serialization.xml");
+            Model.Bolnica bolnica = (Model.Bolnica)serializer.Deserialize(reader);
+            Model.Bolnica.GetInstance = bolnica;
+            //Model.Bolnica.GetInstance.SetPacijenti(bolnica.GetPacijenti());
+            reader.Close();
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)
@@ -50,6 +59,19 @@ namespace Bolnica
         {
             var pacijent_home = new Bolnica.view.pacijent.PacijentHome();
             pacijent_home.Show();
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Model.Bolnica b = Model.Bolnica.GetInstance;
+            XmlSerializer xs = new XmlSerializer(typeof(Model.Bolnica));
+
+            TextWriter txtWriter = new StreamWriter("Serialization.xml");
+
+            xs.Serialize(txtWriter, b);
+
+            txtWriter.Close();
         }
     }
 }

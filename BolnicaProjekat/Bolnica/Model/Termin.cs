@@ -27,5 +27,9 @@ namespace Model
             Trajanje = 10.00 ;
             Kraj = kraj;
         }
+
+        public Termin()
+        {
+        }
     }
 }

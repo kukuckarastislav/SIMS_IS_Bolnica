@@ -31,6 +31,11 @@ namespace Model
             this.MedicinskiKarton = new MedicinskiKarton(idPacijenta,false,KategorijaPacijenta.IiiIntermedijalnaNega);
    
         }
+        public Pacijent()
+        {
+            
+        }
+
 
 
         public void ZakazivanjePregleda(Pregled pregled)

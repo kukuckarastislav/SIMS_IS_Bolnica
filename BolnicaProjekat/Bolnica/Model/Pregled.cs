@@ -31,5 +31,9 @@ namespace Model
             TipPregleda = tipPregleda;
             RezultatPregleda = rezultatPregleda;
         }
+        public Pregled()
+        {
+            
+        }
     }
 }

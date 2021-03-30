@@ -25,6 +25,11 @@ namespace Model
             this.Odeljenje = odeljenje;
         }
 
+        public Lekar()
+        {
+            
+        }
+
 
         public Pregled KreiranjePregleda()
       {

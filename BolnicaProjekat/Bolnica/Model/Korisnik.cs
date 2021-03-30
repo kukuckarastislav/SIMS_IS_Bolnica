@@ -58,8 +58,13 @@ namespace Model
             AdresaStanovanja = adresaStanovanja;
         }
 
+        public Korisnik()
+        {
+
+        }
 
 
-        
+
+
     }
 }

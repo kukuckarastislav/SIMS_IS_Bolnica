@@ -14,5 +14,9 @@ namespace Model
         public SobaZaPreglede(int id, int sprat, double povrsina, int idInventara) : base(id, sprat, povrsina, idInventara)
         {
         }
+
+        public SobaZaPreglede()
+        {
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace Model
       private DateTime DatumPropisivanja;
       private Boolean OslobodjenOdParticipacije;
       private string OpisKoriscenja;
-   
+
+        public Recept()
+        { }
    }
 }

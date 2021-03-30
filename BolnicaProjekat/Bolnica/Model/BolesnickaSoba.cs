@@ -18,5 +18,10 @@ namespace Model
             BrojKreveta = brojKreveta;
             BrojSlobodnihKreveta = brojSlobodnihKreveta;
         }
+
+        public BolesnickaSoba()
+        {
+
+        }
     }
 }

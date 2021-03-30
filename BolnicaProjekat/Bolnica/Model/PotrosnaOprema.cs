@@ -17,7 +17,12 @@ namespace Model
       {
          return inventar;
       }
-      
+
+        public PotrosnaOprema()
+        {
+            
+        }
+
       /// <pdGenerated>default parent setter</pdGenerated>
       /// <param>newInventar</param>
       public void SetInventar(Inventar newInventar)

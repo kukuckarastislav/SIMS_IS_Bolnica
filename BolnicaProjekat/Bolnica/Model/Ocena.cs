@@ -20,6 +20,11 @@ namespace Model
       {
          return pacijent;
       }
+
+      public Ocena()
+      {
+        
+      }
       
       /// <pdGenerated>default parent setter</pdGenerated>
       /// <param>newPacijent</param>

@@ -14,5 +14,10 @@ namespace Model
         { 
 
         }
+
+        public Magacin()
+        {
+
+        }
     }
 }

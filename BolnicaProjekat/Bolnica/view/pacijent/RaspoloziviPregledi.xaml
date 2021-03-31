@@ -14,7 +14,8 @@
                     <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
                     <GridViewColumn Header="TipPregleda" DisplayMemberBinding="{Binding TipPregleda}" />
                     <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding SobaZaPregled.Id}"/>
-                    <GridViewColumn Header="Komentar" DisplayMemberBinding="{Binding Komentar}"/>
+                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding IdLekara.Ime}"/>
+                    <GridViewColumn Header="Prezime lekara" DisplayMemberBinding="{Binding IdLekara.Prezime}"/>
                 </GridView>
             </ListView.View>
         </ListView>

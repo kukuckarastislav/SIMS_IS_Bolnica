@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="PacijentHome" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="305*"/>
+            <ColumnDefinition Width="91*"/>
+        </Grid.ColumnDefinitions>
 
-        <Button Click="prikazi_preglede" Margin="220,26,420,354">Zakazi pregled</Button>
-        <Button Click="prikazi_vlastite_preglede" Margin="429,26,219,354" Content="Prikaz vlastitih pregleda" RenderTransformOrigin="1.847,1.103"/>
+        <Button Click="prikazi_preglede" Margin="98,49,304,304" RenderTransformOrigin="0.125,2.436">Zakazi pregled</Button>
+        <Button Click="prikazi_vlastite_preglede" Margin="98,146,304,204" Content="Prikaz vlastitih pregleda" RenderTransformOrigin="1.847,1.103"/>
     </Grid>
-    
+
 </Window>

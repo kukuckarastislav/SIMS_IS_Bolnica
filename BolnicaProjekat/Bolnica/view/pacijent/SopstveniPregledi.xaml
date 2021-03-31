@@ -10,10 +10,9 @@
         <ListView ListViewItem.MouseDoubleClick="pregled_odabran" ItemsSource="{Binding PreglediPacijenta}" x:Name="listaPregledaPacijenta" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
-                    <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
-                    <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding SobaZaPreglede.ID}" />
-                    <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding TipPregleda}"/>
+                    <GridViewColumn Header="Ustanova" DisplayMemberBinding="{Binding NazivZdrastveneUstanove }"/>
+                    <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding TipPregleda }"/>
+
                     <GridViewColumn Header="Komentar" DisplayMemberBinding="{Binding Komentar}"/>
                 </GridView>
             </ListView.View>

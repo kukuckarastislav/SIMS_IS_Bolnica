@@ -62,6 +62,7 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void BrisanjePregleda(object sender, RoutedEventArgs e)
         {
+            
             this.IzabraniPacijent.MedicinskiKarton.GetPregled().Remove(listaPregledaPacijenta.SelectedItem as Pregled);
                 
         }

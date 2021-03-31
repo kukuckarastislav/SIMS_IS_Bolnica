@@ -70,6 +70,8 @@ namespace Model
             AddProstorije(p2);
             AddProstorije(p3);
             AddProstorije(p4);
+            
+
 
             Model.OperacionaSala op1 = new Model.OperacionaSala(100, 1, 230, 997);
             Model.OperacionaSala op2 = new Model.OperacionaSala(104, 1, 430, 998);
@@ -105,6 +107,7 @@ namespace Model
             KT2Lekar = new Lekar(1, true, Odeljenje.OpstaHirurgija, radnoVreme, RadniStatus.Aktivan,
                         "laslouri99", "sifra123", "Laslo", "Uri", Pol.Musko, "laslou@gmail.com", "066-666-666",
                         new DateTime(1999, 7, 16), "1111111", "Srpsko", "Novi Sad");
+            
             /*
             public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string nazivZdrastveneUstanove, 
             string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena, string id, string komentar)
@@ -117,10 +120,10 @@ namespace Model
                 string komentar, OperacionaSala operacionaSala)
             : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, id, komentar)
             */
-            Model.Operacija o1 = new Operacija(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-O-1", "Rez-O-1", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "erdf", "no comment", op1);
-            Model.Operacija o2 = new Operacija(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 4, 1, 8, 00, 00)), "Tip-O-2", "Rez-O-2", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "sdf", "no comment", op2);
-            Model.Operacija o3 = new Operacija(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 4, 2, 8, 00, 00)), "Tip-O-3", "Rez-O-3", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "rty", "no comment", op3);
-            Model.Operacija o4 = new Operacija(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 4, 3, 8, 00, 00)), "Tip-O-4", "Rez-O-4", "Zdravo Bolnica", "Novi Sad", KT2Lekar, null, false, "fh", "no comment", op2);
+            Model.Operacija o1 = new Operacija(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-O-1", "Rez-O-1", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "erdf", "no comment", op1);
+            Model.Operacija o2 = new Operacija(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 4, 1, 8, 00, 00)), "Tip-O-2", "Rez-O-2", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "sdf", "no comment", op2);
+            Model.Operacija o3 = new Operacija(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 4, 2, 8, 00, 00)), "Tip-O-3", "Rez-O-3", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "rty", "no comment", op3);
+            Model.Operacija o4 = new Operacija(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 4, 3, 8, 00, 00)), "Tip-O-4", "Rez-O-4", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "fh", "no comment", op2);
 
             KT2Pacijent.MedicinskiKarton.AddOperacija(o1);
             KT2Pacijent.MedicinskiKarton.AddOperacija(o2);
@@ -131,12 +134,12 @@ namespace Model
 
 
 
-            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "cfv", "no comment", sp1);
-            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 3, 4, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "gg", "no comment", sp2);
-            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 3, 5, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "g", "no comment", sp2);
-            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 3, 6, 8, 00, 00)), "Tip-1", "...", KT2Lekar , "egjf", false, "yy", "no comment", sp3);
-            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2021, 4, 4, 7, 30, 00), new DateTime(2021, 3, 7, 8, 00, 00)), "Tip-1", "...", KT2Lekar , "egjf", false, "uu", "no comment", sp3);
-            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2021, 4, 5, 7, 30, 00), new DateTime(2021, 3, 8, 8, 00, 00)), "Tip-1", "...", KT2Lekar, "egjf", false, "yy", "no comment", sp3);
+            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "cfv", "no comment", sp1);
+            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 3, 4, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "gg", "no comment", sp2);
+            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 3, 5, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "g", "no comment", sp2);
+            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 3, 6, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "yy", "no comment", sp3);
+            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2021, 4, 4, 7, 30, 00), new DateTime(2021, 3, 7, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "uu", "no comment", sp3);
+            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2021, 4, 5, 7, 30, 00), new DateTime(2021, 3, 8, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "yy", "no comment", sp3);
             
             Pregledi.Add(p11);
             Pregledi.Add(p22);
@@ -148,15 +151,7 @@ namespace Model
             KT2Pacijent.MedicinskiKarton.AddPregled(p66);
 
         }
-/*
-        public string GetImeByID(string IdLekara)
-        {
-            if (IdLekara)
-                return Ime;
-        }
 
-
-*/
 
         public System.Collections.ObjectModel.ObservableCollection<Model.Pacijent> pacijenti;
 
@@ -275,7 +270,7 @@ namespace Model
             {
                 foreach (Lekar s in lekari)
                 {
-                    if (s.IdLekara==id)
+                    if (s.IdLekara == id)
                     {
                         return s;
                     }

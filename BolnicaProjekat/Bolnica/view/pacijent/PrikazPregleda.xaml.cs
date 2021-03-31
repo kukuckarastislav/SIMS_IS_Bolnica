@@ -23,17 +23,19 @@ namespace Bolnica.view.pacijent
         public Pregled Pregled;
         public PrikazPregleda(Pregled OdabraniPregled)
         {
+
             InitializeComponent();
             Pregled = OdabraniPregled;
 
             datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
             pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
             kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
-           // idlekara.Text = Convert.ToString(Pregled.Lekar.Ime);
+
+
+            idlekara.Text = Convert.ToString(Pregled.IdLekara.Ime)+" "+ Convert.ToString(Pregled.IdLekara.Ime);
             komentar.Text = Convert.ToString(Pregled.Komentar);
             soba.Text = Convert.ToString(Pregled.SobaZaPregled.Id);
 
-            // this.prikazPregleda.ItemSource = Pregled;
         }
 
         private void izmjena_pregleda(object sender, RoutedEventArgs e)

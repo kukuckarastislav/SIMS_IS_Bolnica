@@ -57,46 +57,6 @@
             </SobaZaPregled>
           </anyType>
           <anyType xsi:type="Pregled">
-            <NazivZdrastveneUstanove>Zdravo Bolnica</NazivZdrastveneUstanove>
-            <LokacijaZdravsteveUstanove>Novi Sad</LokacijaZdravsteveUstanove>
-            <IdLekara>
-              <KorisnickoIme>laslouri99</KorisnickoIme>
-              <Sifra>sifra123</Sifra>
-              <Ime>Laslo</Ime>
-              <Prezime>Uri</Prezime>
-              <Pol>Musko</Pol>
-              <Email>laslou@gmail.com</Email>
-              <Telefon>066-666-666</Telefon>
-              <DatumRodjenja>1999-07-16T00:00:00</DatumRodjenja>
-              <Jmbg>1111111</Jmbg>
-              <Drzavljanstvo>Srpsko</Drzavljanstvo>
-              <AdresaStanovanja>Novi Sad</AdresaStanovanja>
-              <radnoVreme />
-              <IdLekara>0</IdLekara>
-            </IdLekara>
-            <ZakazivacUsluge />
-            <Obavljena>false</Obavljena>
-            <Komentar>hkjdfgvfu</Komentar>
-            <Termin>
-              <Pocetak>2021-03-18T00:00:00</Pocetak>
-              <Trajanje>10</Trajanje>
-              <Kraj>2021-03-19T06:00:00</Kraj>
-            </Termin>
-            <TipPregleda>55hh</TipPregleda>
-            <RezultatPregleda />
-            <SobaZaPregled>
-              <Inventar>
-                <potrosnaOprema />
-                <statickaOprema />
-                <IdInventara>1999</IdInventara>
-              </Inventar>
-              <terminiZauzetosti />
-              <Id>235</Id>
-              <Sprat>2</Sprat>
-              <Povrsina>1520</Povrsina>
-            </SobaZaPregled>
-          </anyType>
-          <anyType xsi:type="Pregled">
             <NazivZdrastveneUstanove>Zdravo bolnica</NazivZdrastveneUstanove>
             <LokacijaZdravsteveUstanove>Novi Sad</LokacijaZdravsteveUstanove>
             <IdLekara>
@@ -118,9 +78,9 @@
             <Obavljena>false</Obavljena>
             <Komentar>no comment</Komentar>
             <Termin>
-              <Pocetak>2021-04-04T07:30:00</Pocetak>
+              <Pocetak>2021-04-03T07:30:00</Pocetak>
               <Trajanje>10</Trajanje>
-              <Kraj>2021-03-07T08:00:00</Kraj>
+              <Kraj>2021-03-06T08:00:00</Kraj>
             </Termin>
             <TipPregleda>Tip-1</TipPregleda>
             <RezultatPregleda>...</RezultatPregleda>
@@ -134,6 +94,86 @@
               <Id>235</Id>
               <Sprat>2</Sprat>
               <Povrsina>1520</Povrsina>
+            </SobaZaPregled>
+          </anyType>
+          <anyType xsi:type="Pregled">
+            <NazivZdrastveneUstanove>Zdravo Bolnica</NazivZdrastveneUstanove>
+            <LokacijaZdravsteveUstanove>Novi Sad</LokacijaZdravsteveUstanove>
+            <IdLekara>
+              <KorisnickoIme>laslouri99</KorisnickoIme>
+              <Sifra>sifra123</Sifra>
+              <Ime>Laslo</Ime>
+              <Prezime>Uri</Prezime>
+              <Pol>Musko</Pol>
+              <Email>laslou@gmail.com</Email>
+              <Telefon>066-666-666</Telefon>
+              <DatumRodjenja>1999-07-16T00:00:00</DatumRodjenja>
+              <Jmbg>1111111</Jmbg>
+              <Drzavljanstvo>Srpsko</Drzavljanstvo>
+              <AdresaStanovanja>Novi Sad</AdresaStanovanja>
+              <radnoVreme />
+              <IdLekara>1</IdLekara>
+            </IdLekara>
+            <ZakazivacUsluge />
+            <Obavljena>false</Obavljena>
+            <Komentar />
+            <Termin>
+              <Pocetak>2021-04-01T00:00:00</Pocetak>
+              <Trajanje>10</Trajanje>
+              <Kraj>2021-04-02T06:00:00</Kraj>
+            </Termin>
+            <TipPregleda>Tip-2</TipPregleda>
+            <RezultatPregleda />
+            <SobaZaPregled>
+              <Inventar>
+                <potrosnaOprema />
+                <statickaOprema />
+                <IdInventara>1997</IdInventara>
+              </Inventar>
+              <terminiZauzetosti />
+              <Id>200</Id>
+              <Sprat>2</Sprat>
+              <Povrsina>1130</Povrsina>
+            </SobaZaPregled>
+          </anyType>
+          <anyType xsi:type="Pregled">
+            <NazivZdrastveneUstanove>Zdravo Bolnica</NazivZdrastveneUstanove>
+            <LokacijaZdravsteveUstanove>Novi Sad</LokacijaZdravsteveUstanove>
+            <IdLekara>
+              <KorisnickoIme>laslouri99</KorisnickoIme>
+              <Sifra>sifra123</Sifra>
+              <Ime>Laslo</Ime>
+              <Prezime>Uri</Prezime>
+              <Pol>Musko</Pol>
+              <Email>laslou@gmail.com</Email>
+              <Telefon>066-666-666</Telefon>
+              <DatumRodjenja>1999-07-16T00:00:00</DatumRodjenja>
+              <Jmbg>1111111</Jmbg>
+              <Drzavljanstvo>Srpsko</Drzavljanstvo>
+              <AdresaStanovanja>Novi Sad</AdresaStanovanja>
+              <radnoVreme />
+              <IdLekara>0</IdLekara>
+            </IdLekara>
+            <ZakazivacUsluge />
+            <Obavljena>false</Obavljena>
+            <Komentar>no comment</Komentar>
+            <Termin>
+              <Pocetak>2021-03-01T00:00:00</Pocetak>
+              <Trajanje>10</Trajanje>
+              <Kraj>2021-03-02T06:00:00</Kraj>
+            </Termin>
+            <TipPregleda>proba</TipPregleda>
+            <RezultatPregleda />
+            <SobaZaPregled>
+              <Inventar>
+                <potrosnaOprema />
+                <statickaOprema />
+                <IdInventara>1998</IdInventara>
+              </Inventar>
+              <terminiZauzetosti />
+              <Id>205</Id>
+              <Sprat>2</Sprat>
+              <Povrsina>1430</Povrsina>
             </SobaZaPregled>
           </anyType>
           <anyType xsi:type="Pregled">
@@ -174,46 +214,6 @@
               <Id>235</Id>
               <Sprat>2</Sprat>
               <Povrsina>1520</Povrsina>
-            </SobaZaPregled>
-          </anyType>
-          <anyType xsi:type="Pregled">
-            <NazivZdrastveneUstanove>Zdravo Bolnica</NazivZdrastveneUstanove>
-            <LokacijaZdravsteveUstanove>Novi Sad</LokacijaZdravsteveUstanove>
-            <IdLekara>
-              <KorisnickoIme>laslouri99</KorisnickoIme>
-              <Sifra>sifra123</Sifra>
-              <Ime>Laslo</Ime>
-              <Prezime>Uri</Prezime>
-              <Pol>Musko</Pol>
-              <Email>laslou@gmail.com</Email>
-              <Telefon>066-666-666</Telefon>
-              <DatumRodjenja>1999-07-16T00:00:00</DatumRodjenja>
-              <Jmbg>1111111</Jmbg>
-              <Drzavljanstvo>Srpsko</Drzavljanstvo>
-              <AdresaStanovanja>Novi Sad</AdresaStanovanja>
-              <radnoVreme />
-              <IdLekara>0</IdLekara>
-            </IdLekara>
-            <ZakazivacUsluge />
-            <Obavljena>false</Obavljena>
-            <Komentar />
-            <Termin>
-              <Pocetak>2021-03-01T00:00:00</Pocetak>
-              <Trajanje>10</Trajanje>
-              <Kraj>2021-03-02T06:00:00</Kraj>
-            </Termin>
-            <TipPregleda>proba</TipPregleda>
-            <RezultatPregleda />
-            <SobaZaPregled>
-              <Inventar>
-                <potrosnaOprema />
-                <statickaOprema />
-                <IdInventara>1998</IdInventara>
-              </Inventar>
-              <terminiZauzetosti />
-              <Id>205</Id>
-              <Sprat>2</Sprat>
-              <Povrsina>1430</Povrsina>
             </SobaZaPregled>
           </anyType>
         </pregled>
@@ -394,8 +394,19 @@
         <IdInventara>88</IdInventara>
       </Inventar>
       <terminiZauzetosti />
-      <Id>25</Id>
-      <Sprat>10</Sprat>
+      <Id>11</Id>
+      <Sprat>2</Sprat>
+      <Povrsina>100</Povrsina>
+    </Prostorija>
+    <Prostorija>
+      <Inventar>
+        <potrosnaOprema />
+        <statickaOprema />
+        <IdInventara>99</IdInventara>
+      </Inventar>
+      <terminiZauzetosti />
+      <Id>20</Id>
+      <Sprat>1</Sprat>
       <Povrsina>100</Povrsina>
     </Prostorija>
     <Prostorija>
@@ -408,28 +419,6 @@
       <Id>30</Id>
       <Sprat>4</Sprat>
       <Povrsina>150</Povrsina>
-    </Prostorija>
-    <Prostorija>
-      <Inventar>
-        <potrosnaOprema />
-        <statickaOprema />
-        <IdInventara>50</IdInventara>
-      </Inventar>
-      <terminiZauzetosti />
-      <Id>999</Id>
-      <Sprat>100</Sprat>
-      <Povrsina>50</Povrsina>
-    </Prostorija>
-    <Prostorija>
-      <Inventar>
-        <potrosnaOprema />
-        <statickaOprema />
-        <IdInventara>21</IdInventara>
-      </Inventar>
-      <terminiZauzetosti />
-      <Id>21</Id>
-      <Sprat>21</Sprat>
-      <Povrsina>21</Povrsina>
     </Prostorija>
   </prostorije>
   <bolesnickeSobe>
@@ -459,21 +448,19 @@
       <BrojKreveta>2</BrojKreveta>
       <BrojSlobodnihKreveta>2</BrojSlobodnihKreveta>
     </BolesnickaSoba>
-    <BolesnickaSoba>
+  </bolesnickeSobe>
+  <sobeZaPreglede>
+    <SobaZaPreglede>
       <Inventar>
         <potrosnaOprema />
         <statickaOprema />
-        <IdInventara>-9</IdInventara>
+        <IdInventara>1997</IdInventara>
       </Inventar>
       <terminiZauzetosti />
-      <Id>-9</Id>
-      <Sprat>-9</Sprat>
-      <Povrsina>-9</Povrsina>
-      <BrojKreveta>-9</BrojKreveta>
-      <BrojSlobodnihKreveta>-9</BrojSlobodnihKreveta>
-    </BolesnickaSoba>
-  </bolesnickeSobe>
-  <sobeZaPreglede>
+      <Id>200</Id>
+      <Sprat>2</Sprat>
+      <Povrsina>1130</Povrsina>
+    </SobaZaPreglede>
     <SobaZaPreglede>
       <Inventar>
         <potrosnaOprema />
@@ -484,6 +471,17 @@
       <Id>205</Id>
       <Sprat>2</Sprat>
       <Povrsina>1430</Povrsina>
+    </SobaZaPreglede>
+    <SobaZaPreglede>
+      <Inventar>
+        <potrosnaOprema />
+        <statickaOprema />
+        <IdInventara>1999</IdInventara>
+      </Inventar>
+      <terminiZauzetosti />
+      <Id>235</Id>
+      <Sprat>2</Sprat>
+      <Povrsina>1520</Povrsina>
     </SobaZaPreglede>
     <SobaZaPreglede>
       <Inventar>
@@ -530,28 +528,6 @@
       <Id>125</Id>
       <Sprat>1</Sprat>
       <Povrsina>520</Povrsina>
-    </OperacionaSala>
-    <OperacionaSala>
-      <Inventar>
-        <potrosnaOprema />
-        <statickaOprema />
-        <IdInventara>314</IdInventara>
-      </Inventar>
-      <terminiZauzetosti />
-      <Id>180</Id>
-      <Sprat>2</Sprat>
-      <Povrsina>65</Povrsina>
-    </OperacionaSala>
-    <OperacionaSala>
-      <Inventar>
-        <potrosnaOprema />
-        <statickaOprema />
-        <IdInventara>1</IdInventara>
-      </Inventar>
-      <terminiZauzetosti />
-      <Id>1</Id>
-      <Sprat>1</Sprat>
-      <Povrsina>1</Povrsina>
     </OperacionaSala>
   </operacioneSale>
   <Pregledi>
@@ -617,9 +593,9 @@
       <Obavljena>false</Obavljena>
       <Komentar>no comment</Komentar>
       <Termin>
-        <Pocetak>2021-04-03T07:30:00</Pocetak>
+        <Pocetak>2021-04-01T07:30:00</Pocetak>
         <Trajanje>10</Trajanje>
-        <Kraj>2021-03-06T08:00:00</Kraj>
+        <Kraj>2021-03-04T08:00:00</Kraj>
       </Termin>
       <TipPregleda>Tip-1</TipPregleda>
       <RezultatPregleda>...</RezultatPregleda>
@@ -627,12 +603,12 @@
         <Inventar>
           <potrosnaOprema />
           <statickaOprema />
-          <IdInventara>1999</IdInventara>
+          <IdInventara>1998</IdInventara>
         </Inventar>
         <terminiZauzetosti />
-        <Id>235</Id>
+        <Id>205</Id>
         <Sprat>2</Sprat>
-        <Povrsina>1520</Povrsina>
+        <Povrsina>1430</Povrsina>
       </SobaZaPregled>
     </Pregled>
     <Pregled>
@@ -657,9 +633,9 @@
       <Obavljena>false</Obavljena>
       <Komentar>no comment</Komentar>
       <Termin>
-        <Pocetak>2021-04-01T07:30:00</Pocetak>
+        <Pocetak>2021-04-04T07:30:00</Pocetak>
         <Trajanje>10</Trajanje>
-        <Kraj>2021-03-04T08:00:00</Kraj>
+        <Kraj>2021-03-07T08:00:00</Kraj>
       </Termin>
       <TipPregleda>Tip-1</TipPregleda>
       <RezultatPregleda>...</RezultatPregleda>
@@ -667,12 +643,12 @@
         <Inventar>
           <potrosnaOprema />
           <statickaOprema />
-          <IdInventara>1998</IdInventara>
+          <IdInventara>1999</IdInventara>
         </Inventar>
         <terminiZauzetosti />
-        <Id>205</Id>
+        <Id>235</Id>
         <Sprat>2</Sprat>
-        <Povrsina>1430</Povrsina>
+        <Povrsina>1520</Povrsina>
       </SobaZaPregled>
     </Pregled>
     <Pregled>
@@ -695,43 +671,25 @@
       </IdLekara>
       <ZakazivacUsluge />
       <Obavljena>false</Obavljena>
-      <Komentar> cej,vbd,bv</Komentar>
+      <Komentar>no comment</Komentar>
       <Termin>
-        <Pocetak>2021-03-09T00:00:00</Pocetak>
+        <Pocetak>2021-03-18T00:00:00</Pocetak>
         <Trajanje>10</Trajanje>
-        <Kraj>2021-03-10T06:00:00</Kraj>
+        <Kraj>2021-03-19T06:00:00</Kraj>
       </Termin>
-      <TipPregleda>1232345</TipPregleda>
+      <TipPregleda>55hh</TipPregleda>
       <RezultatPregleda />
-    </Pregled>
-    <Pregled>
-      <NazivZdrastveneUstanove>Zdravo Bolnica</NazivZdrastveneUstanove>
-      <LokacijaZdravsteveUstanove>Novi Sad</LokacijaZdravsteveUstanove>
-      <IdLekara>
-        <KorisnickoIme>laslouri99</KorisnickoIme>
-        <Sifra>sifra123</Sifra>
-        <Ime>Laslo</Ime>
-        <Prezime>Uri</Prezime>
-        <Pol>Musko</Pol>
-        <Email>laslou@gmail.com</Email>
-        <Telefon>066-666-666</Telefon>
-        <DatumRodjenja>1999-07-16T00:00:00</DatumRodjenja>
-        <Jmbg>1111111</Jmbg>
-        <Drzavljanstvo>Srpsko</Drzavljanstvo>
-        <AdresaStanovanja>Novi Sad</AdresaStanovanja>
-        <radnoVreme />
-        <IdLekara>0</IdLekara>
-      </IdLekara>
-      <ZakazivacUsluge />
-      <Obavljena>false</Obavljena>
-      <Komentar>jkdgvidv</Komentar>
-      <Termin>
-        <Pocetak>2021-03-29T00:00:00</Pocetak>
-        <Trajanje>10</Trajanje>
-        <Kraj>2021-03-30T06:00:00</Kraj>
-      </Termin>
-      <TipPregleda>1121</TipPregleda>
-      <RezultatPregleda />
+      <SobaZaPregled>
+        <Inventar>
+          <potrosnaOprema />
+          <statickaOprema />
+          <IdInventara>1999</IdInventara>
+        </Inventar>
+        <terminiZauzetosti />
+        <Id>235</Id>
+        <Sprat>2</Sprat>
+        <Povrsina>1520</Povrsina>
+      </SobaZaPregled>
     </Pregled>
   </Pregledi>
   <Operacije />

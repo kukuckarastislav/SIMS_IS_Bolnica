@@ -72,5 +72,12 @@ namespace Bolnica.view.pacijent
             listaPregledaPacijenta.Items.Refresh();
 
         }
+
+        private void zakazi_novi_pregled(object sender, RoutedEventArgs e)
+        {
+            var varr = new view.pacijent.RaspoloziviPregledi();
+            varr.Show();
+
+        }
     }
 }

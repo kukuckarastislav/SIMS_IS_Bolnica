@@ -5,19 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="SopstveniPregledi" Height="450" Width="800">
+        Title="SopstveniPregledi" Height="448.864" Width="817.045"
+        Background="WhiteSmoke"
+        ResizeMode="NoResize">
     <Grid>
-        <ListView ListViewItem.MouseDoubleClick="pregled_odabran" ItemsSource="{Binding PreglediPacijenta}" x:Name="listaPregledaPacijenta" >
+        <DockPanel Grid.RowSpan="2">
+            <Menu DockPanel.Dock="Top" Height="21" Background="#e5e5e5" Margin="2,0,0,0">
+                <MenuItem Header="Prikaz">
+                    <RadioButton GroupName="Group2" IsChecked="True">Aktuelni termini</RadioButton>
+                    <RadioButton GroupName="Group2">Prosli termini</RadioButton>
+                    <Separator />
+                    <RadioButton GroupName="Group2">Aktuelni pregledi</RadioButton>
+                    <RadioButton GroupName="Group2">Prosli Pregledi</RadioButton>
+                    <Separator />
+                    <RadioButton GroupName="Group2">Aktuelne operacije</RadioButton>
+                    <RadioButton GroupName="Group2">Prosle operacije</RadioButton>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <ListView ListViewItem.MouseDoubleClick="pregled_odabran" ItemsSource="{Binding PreglediPacijenta}" x:Name="listaPregledaPacijenta" Margin="185,22,185,0" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Ustanova" DisplayMemberBinding="{Binding NazivZdrastveneUstanove }"/>
-                    <GridViewColumn Header="Tip pregleda" DisplayMemberBinding="{Binding TipPregleda }"/>
-
-                    <GridViewColumn Header="Komentar" DisplayMemberBinding="{Binding Komentar}"/>
+                    <GridViewColumn Header="Tip termina" DisplayMemberBinding="{Binding TipPregleda }"/>
+                    <GridViewColumn Header="Datum i vrijeme" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
+                    <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding SobaZaPregled.Id}"/>
+                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding IdLekara.Ime }"/>
+                    <GridViewColumn Header="Prezime lekara" DisplayMemberBinding="{Binding IdLekara.Prezime }"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Click="otkazi_pregled" Margin="231,364,420,23" RenderTransformOrigin="0.097,0.562">Otkazi</Button>
-        <Button Click="modifikuj_pregled" Margin="429,364,222,23" RenderTransformOrigin="0.667,0.361">Modifikuj</Button>
+        <Button Click="otkazi_pregled" Margin="15,365,636,22" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5">Otkazi pregled</Button>
+        <Button Click="modifikuj_pregled" Margin="15,322,636,64" RenderTransformOrigin="0.667,0.361" Background="#e5e5e5">Prikazi pregled</Button>
+        <Button Click="zakazi_novi_pregled" Margin="639,365,12,22" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5" Content="Zakazi novi pregled"/>
     </Grid>
 </Window>

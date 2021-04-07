@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,18 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class PacijentHome : Window
     {
-        public PacijentHome()
+        public PacijentHome(Pacijent p)
         {
+
             InitializeComponent();
+            ime.Text = p.Ime;
+            prezime.Text = p.Prezime;
+            pol.Text = p.Pol.ToString();
+            adresa.Text = p.AdresaStanovanja;
+            email.Text = p.Email;
+            jmbg.Text = p.Jmbg;
+            telefon.Text = p.Telefon;
+            korisnickoime.Text = p.KorisnickoIme;
         }
 
         private void prikazi_preglede(object sender, RoutedEventArgs e)

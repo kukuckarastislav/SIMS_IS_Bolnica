@@ -25,14 +25,22 @@ namespace Bolnica.view.pacijent
         {
 
             InitializeComponent();
+
             Pregled = OdabraniPregled;
+
+            TimeSpan period = new TimeSpan(1,0,0,0);
+
+            if (Pregled.Termin.Pocetak.Subtract(DateTime.Now)< period )
+            {
+               dugmePomjeriPregled.IsEnabled = false;
+            }
 
             datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
             pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
             kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
 
 
-            idlekara.Text = Convert.ToString(Pregled.IdLekara.Ime)+" "+ Convert.ToString(Pregled.IdLekara.Ime);
+            idlekara.Text = Convert.ToString(Pregled.IdLekara.Ime)+" "+ Convert.ToString(Pregled.IdLekara.Prezime);
             komentar.Text = Convert.ToString(Pregled.Komentar);
             soba.Text = Convert.ToString(Pregled.SobaZaPregled.Id);
 
@@ -42,6 +50,11 @@ namespace Bolnica.view.pacijent
         {
            this. Close();
            Pregled.Komentar = komentar.Text;
+
+        }
+
+        private void pomjeri_pregled(object sender, RoutedEventArgs e)
+        {
 
         }
     }

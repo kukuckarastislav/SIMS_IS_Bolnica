@@ -5,20 +5,122 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="pregledi" Height="450" Width="800">
-    <Grid>
-        <ListView ListViewItem.MouseDoubleClick="zakazi_pregled" ItemsSource="{Binding Pregledi}" x:Name="listaPregleda" >
+        Title="Zakazivanje pregleda" Height="448.534" Width="804.397"
+        ResizeMode="NoResize"
+        Background="WhiteSmoke">
+    <Grid Margin="0,0,-6,-6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="81*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.RowSpan="2">
+            <Menu DockPanel.Dock="Top" Height="21" Background="WhiteSmoke" Margin="2,0,8,0">
+                <MenuItem Header="Pomoc">
+                    <MenuItem Header="..."/>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <DatePicker Name="datum" Margin="3,42,637,110" SelectedDateChanged="datum_SelectedDateChanged" Background="White"/>
+        <ComboBox x:Name="vrijeme_pocetak_sati" Margin="162,42,583,110" Background="#32ccff">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >1</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >2</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >3</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >4</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >5</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >6</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">7</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >8</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >9</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >10</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >11</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
+
+
+        </ComboBox>
+
+
+        <ListView ListViewItem.MouseDoubleClick="zakazi_pregled" ItemsSource="{Binding Pregledi}" x:Name="listaPregleda" Margin="-1,100,6,0" RenderTransformOrigin="0.5,0.5" Height="263" VerticalAlignment="Top" Grid.RowSpan="2" >
+            <ListView.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.168"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListView.RenderTransform>
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
                     <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
-                    <GridViewColumn Header="TipPregleda" DisplayMemberBinding="{Binding TipPregleda}" />
-                    <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding SobaZaPregled.Id}"/>
                     <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding IdLekara.Ime}"/>
                     <GridViewColumn Header="Prezime lekara" DisplayMemberBinding="{Binding IdLekara.Prezime}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Click="pregled_odabran" Margin="319,364,332,23" RenderTransformOrigin="0.984,0.646">Zakazi</Button>
+        <Button  Click="pregled_odabran" Margin="640,189.121,11,15" RenderTransformOrigin="0.984,0.646" Grid.Row="1" Background="#e5e5e5" FontFamily="Arial">Potvrdi</Button>
+        <ComboBox x:Name="vrijeme_pocetak_ap" Margin="258,42,486,110" RenderTransformOrigin="1.23,0.361">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />
+
+        </ComboBox>
+        <ComboBox x:Name="vrijeme_kraj_sati" Margin="331,42,412,110" RenderTransformOrigin="0.607,2.438">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="1" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="2" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="3" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="4" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="5" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="6" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="7" IsSelected="True"/>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="8" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="9" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="11" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="12" />
+
+
+        </ComboBox>
+        <ComboBox x:Name="vrijeme_kraj_minute" Margin="382,42,363,110" RenderTransformOrigin="1.23,0.361">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="15" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="20" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="25" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="35" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="40" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="45" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="55" />
+        </ComboBox>
+        <ComboBox x:Name="vrijeme_kraj_ap" Margin="431,42,314,110" RenderTransformOrigin="1.23,0.361">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" IsSelected="True" />
+
+        </ComboBox>
+        <ComboBox x:Name="vrijeme_pocetak_minute" Margin="209,42,536,110" RenderTransformOrigin="1.23,0.361">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="15" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="20" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="25" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="35" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="40" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="45" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="55" />
+        </ComboBox>
+
+        <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Margin="487,42,159,110"/>
+        <Button  Margin="640,42,11,110" Content="Pretraga" Background="#e5e5e5"/>
+
+        <RadioButton Name="Lekar" GroupName="Prioritet"  Content="Lekar" Margin="331,200,372,20" Grid.Row="1"/>
+        <RadioButton Name="Datum"  IsChecked="True"  GroupName="Prioritet"  Content="Datum" Margin="177,200,536,21" Grid.Row="1"/>
+        <TextBlock  Margin="28,200,667,21" Grid.Row="1">Prioritet pretrage: </TextBlock>
+
+
     </Grid>
 </Window>

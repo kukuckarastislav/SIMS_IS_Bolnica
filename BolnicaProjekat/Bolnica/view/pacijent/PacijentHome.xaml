@@ -5,15 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="PacijentHome" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="305*"/>
-            <ColumnDefinition Width="91*"/>
-        </Grid.ColumnDefinitions>
+        Title="PacijentHome" Height="609.448" Width="1166.982">
+    <Grid Margin="0,0,2,0">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Height="21" Background="WhiteSmoke">
+                <MenuItem Header="Nalog">
+                    <MenuItem Header="Izmjena informacija"/>
+                    <MenuItem Header="Promjena lozinke"/>
+                    <MenuItem Header="Odjava"/>
+                </MenuItem>
+                <MenuItem Header="Termini">
+                    <MenuItem Header="Zakazani termini"/>
+                    <MenuItem Header="Zakazivanje pregleda"/>
+                    <MenuItem Header=".."/>
+                </MenuItem>
+                <MenuItem Header="Notifikacije">
+                    <MenuItem Header="Uzimanje lijekova"/>
+                    <MenuItem Header=".."/>
+                </MenuItem>
+                <MenuItem Header="Podesavanja">
+                    <MenuItem Header="Jezik">
+                        <RadioButton GroupName="Group1" IsChecked="True">Srpski</RadioButton>
+                        <RadioButton GroupName="Group1">Engleski</RadioButton>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <StackPanel></StackPanel>
+        </DockPanel>
+        <Grid Margin="0,-10,0,0">
+            <Grid.ColumnDefinitions>
 
-        <Button Click="prikazi_preglede" Margin="98,49,304,304" RenderTransformOrigin="0.125,2.436">Zakazi pregled</Button>
-        <Button Click="prikazi_vlastite_preglede" Margin="98,146,304,204" Content="Prikaz vlastitih pregleda" RenderTransformOrigin="1.847,1.103"/>
+                <ColumnDefinition Width="327"/>
+                <ColumnDefinition Width="125"/>
+                <ColumnDefinition Width="165"/>
+                <ColumnDefinition Width="156"/>
+                <ColumnDefinition Width="152"/>
+                <ColumnDefinition Width="0"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="138"/>
+                <RowDefinition Height="338"/>
+            </Grid.RowDefinitions>
+            <Button Foreground="Orange" Background="White" Click="prikazi_preglede" Margin="123,0,25,285" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="1">
+                Zakazi pregled
+            </Button>
+            <Button Foreground="Orange" Background="White" Click="prikazi_vlastite_preglede" Margin="123,78,25,10" Content="Termini" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.ColumnSpan="2" Grid.Column="3"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,157,60,144" Content="Notifikacije" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1"/>
+
+            <Image Source="/images/call.png" Margin="273,0,39,-110" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4"/>
+
+            <Image Source="/images/mm.png" Margin="-46,97,112,187" RenderTransformOrigin="0.45,0.414" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+            <Image Source="/images/krug.png" Margin="209,195,30,78" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
+
+            <Image Source="/images/folder1.png" Margin="53,43,-226,-100" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="1"/>
+
+            <Label Margin="156,132,92,174" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.673,0.578" Grid.ColumnSpan="2">Ime:</Label>
+            <Label Margin="118,165,91,141" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Prezime:" Grid.ColumnSpan="2"/>
+            <Label Margin="144,198,91,103" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Jmbg:" Grid.ColumnSpan="2"/>
+            <Label Margin="0,229,91,72" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content=" Pol:"/>
+            <Label Margin="130,251,91,50" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Adresa:" Grid.ColumnSpan="2"/>
+            <Label Margin="130,282,91,19" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Telefon:" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
+            <Label Margin="144,312,92,-11" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Email:" Grid.ColumnSpan="2" RenderTransformOrigin="0.551,1.069"/>
+
+            <TextBlock x:Name="ime" Margin="82,132,-102,174" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.525,0.163" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="prezime" Margin="81,165,-102,141" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="jmbg" Margin="81,202,-102,99" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="pol" Margin="81,231,-102,70" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="adresa" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.392,1.793" Grid.ColumnSpan="2" Grid.Column="4" Margin="79,257,-100,44" Grid.Row="1"/>
+            <TextBlock x:Name="telefon" Margin="81,287,-102,14" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
+            <TextBlock x:Name="email" Margin="82,318,-102,-17" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="korisnickoime" Margin="91,350,34,-49" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+
+
+        </Grid>
+
     </Grid>
 
 </Window>

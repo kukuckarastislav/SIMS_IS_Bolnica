@@ -24,6 +24,7 @@ namespace Bolnica.view.pacijent
 
         public ObservableCollection<Model.Pregled> Pregledi { get; set; }
         public Pregled odabraniPregled;
+        public List<Lekar> listaLekari { get; set; }
 
         public RaspoloziviPregledi()
         {
@@ -31,6 +32,12 @@ namespace Bolnica.view.pacijent
             Pregledi = Model.Bolnica.GetInstance.Pregledi;
             this.listaPregleda.
                 ItemsSource = Pregledi;
+
+
+
+            listaLekari = new List<Lekar>();
+            listaLekari.Add(Model.Bolnica.GetInstance.getLekarByI(1));  //ovo naravno treba biti lista svih lekara
+            this.ComboBoxLekari.ItemsSource = listaLekari;
         }
 
         private void zakazi_pregled(object sender, MouseButtonEventArgs e)
@@ -43,6 +50,34 @@ namespace Bolnica.view.pacijent
             Model.Bolnica.GetInstance.GetPacijent("jmbg").ZakazivanjePregleda(odabraniPregled);
             Pregledi.Remove(odabraniPregled);
             Model.Bolnica.GetInstance.Pregledi.Remove(odabraniPregled);
+        }
+
+        private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime date = datum.SelectedDate.Value;
+            /*
+            int pocetakSati = Convert.ToInt32(vrijeme_pocetak_sati.SelectedItem.ToString());
+            int pocetakMinute = Convert.ToInt32(vrijeme_pocetak_minute.SelectedItem.ToString());
+            string pocetakAP = vrijeme_pocetak_ap.SelectedItem.ToString();
+
+            int krajSati = Convert.ToInt32(vrijeme_kraj_sati.SelectedItem.ToString());
+            int krajkMinute = Convert.ToInt32(vrijeme_kraj_minute.SelectedItem.ToString());
+            string krajkAP = vrijeme_kraj_ap.SelectedItem.ToString();
+
+            if (pocetakAP.Equals("PM"))
+            {
+                pocetakSati += 12;
+            }
+            */
+
+           // DateTime poc = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute,00);
+            DateTime poc = new DateTime(date.Year, date.Month, date.Day);
+
+            MessageBox.Show(poc.ToString());
+
+
+            //DateTime dtpocetak = DateTime.Parse();
+
         }
     }
 }

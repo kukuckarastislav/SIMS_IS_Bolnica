@@ -4,7 +4,13 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{4A42D706-E2C1-4B41-AA7C-CF77B7A97812}" Name="ZdravoBolnica" Selected="Yes" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ClassDiagram/ZdravoBolnica.oom"/>
+		<Model Expanded="Yes" ID="{4A42D706-E2C1-4B41-AA7C-CF77B7A97812}" Loaded="No" Name="ZdravoBolnica" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ClassDiagram/ZdravoBolnica.oom"/>
+		<Model Expanded="Yes" ID="{4A42D706-E2C1-4B41-AA7C-CF77B7A97812}" Loaded="No" Name="ZdravoBolnica" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ClassDiagram/ZdravoBolnica.oom"/>
+		<Model Expanded="Yes" ID="{F1FCEC67-C63F-43BC-90C2-62C0F5074227}" Loaded="No" Name="ZdravoBolnicaClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ZdravoBolnicaProj/ZdravoBolnicaClassDiagram.oom"/>
+		<Model Expanded="Yes" ID="{F1FCEC67-C63F-43BC-90C2-62C0F5074227}" Loaded="No" Name="ZdravoBolnicaClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ZdravoBolnicaProj/ZdravoBolnicaClassDiagram.oom"/>
+		<Model Expanded="Yes" ID="{F1FCEC67-C63F-43BC-90C2-62C0F5074227}" Loaded="No" Name="ZdravoBolnicaClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ZdravoBolnicaProj/ZdravoBolnicaClassDiagram.oom"/>
+		<Model Expanded="Yes" ID="{F1FCEC67-C63F-43BC-90C2-62C0F5074227}" Loaded="No" Name="ZdravoBolnicaClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ZdravoBolnicaProj/ZdravoBolnicaClassDiagram.oom"/>
+		<Model Expanded="Yes" ID="{F1FCEC67-C63F-43BC-90C2-62C0F5074227}" Name="ZdravoBolnicaClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ZdravoBolnicaProj/ZdravoBolnicaClassDiagram.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

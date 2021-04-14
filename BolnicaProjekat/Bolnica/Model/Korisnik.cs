@@ -11,6 +11,10 @@ namespace Model
    public abstract class Korisnik
    {
 
+        protected Korisnik()
+        {
+        }
+/*
         public bool PrijaviSe()
         {
             // TODO: implement
@@ -23,16 +27,12 @@ namespace Model
             return false;
         }
 
-        protected Korisnik()
-        {
-        }
-
         public bool PromeniSifru(string novaSifra)
         {
             // TODO: implement
             return false;
         }
-
+*/
         public string KorisnickoIme { get; set; }
         public string Sifra { get; set; }
         public string Ime { get; set; }

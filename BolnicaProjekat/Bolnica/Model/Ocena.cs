@@ -10,14 +10,10 @@ namespace Model
 {
    public class Ocena
    {
-      public string Komentar;
-      public VrijednostOcjene OdabranaOcena;
-      
-      public Pacijent pacijent;
+      public string Komentar { get; set; }
+        public VrijednostOcjene OdabranaOcena { get; set; }
 
-        public Ocena()
-        {
-        }
+        public Pacijent pacijent { get; set; }
 
         /// <pdGenerated>default parent getter</pdGenerated>
         public Pacijent GetPacijent()
@@ -45,5 +41,7 @@ namespace Model
          }
       }
    
-   }
+      public int Id { get; set; }
+
+    }
 }

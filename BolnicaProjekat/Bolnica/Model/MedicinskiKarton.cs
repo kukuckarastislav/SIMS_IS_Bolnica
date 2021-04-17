@@ -5,161 +5,73 @@
  ***********************************************************************/
 
 using System;
-
+using System.Text.Json;
+using System.Text.Json.Serialization;
 namespace Model
 {
-    public class MedicinskiKarton
-    {
+   public class MedicinskiKarton
+   {
 
-        public string IdPacijenta { get; set; }
-        public bool Osiguran { get; set; }
-        public KategorijaPacijenta Kategorija { get; set; }
-
-        public MedicinskiKarton(string idPacijenta, bool osiguran, KategorijaPacijenta kategorija)
+        public MedicinskiKarton(int idPacijenta, bool osiguran)
         {
-            IdPacijenta = idPacijenta;
+            IdPacijent = idPacijenta;
             Osiguran = osiguran;
-            Kategorija = kategorija;
+
         }
 
         public MedicinskiKarton()
         {
         }
 
-        public System.Collections.ArrayList recept;
+        [JsonInclude]
+        public int IdPacijent { get; set; }
+        [JsonInclude]
+        public bool Osiguran { get; set; }
+
+        public System.Collections.ArrayList zdravstvenaUsluga;
       
       /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetRecept()
+      public System.Collections.ArrayList GetZdravstvenaUsluga()
       {
-         if (recept == null)
-            recept = new System.Collections.ArrayList();
-         return recept;
+         if (zdravstvenaUsluga == null)
+            zdravstvenaUsluga = new System.Collections.ArrayList();
+         return zdravstvenaUsluga;
       }
       
       /// <pdGenerated>default setter</pdGenerated>
-      public void SetRecept(System.Collections.ArrayList newRecept)
+      public void SetZdravstvenaUsluga(System.Collections.ArrayList newZdravstvenaUsluga)
       {
-         RemoveAllRecept();
-         foreach (Recept oRecept in newRecept)
-            AddRecept(oRecept);
+         RemoveAllZdravstvenaUsluga();
+         foreach (ZdravstvenaUsluga oZdravstvenaUsluga in newZdravstvenaUsluga)
+            AddZdravstvenaUsluga(oZdravstvenaUsluga);
       }
       
       /// <pdGenerated>default Add</pdGenerated>
-      public void AddRecept(Recept newRecept)
+      public void AddZdravstvenaUsluga(ZdravstvenaUsluga newZdravstvenaUsluga)
       {
-         if (newRecept == null)
+         if (newZdravstvenaUsluga == null)
             return;
-         if (this.recept == null)
-            this.recept = new System.Collections.ArrayList();
-         if (!this.recept.Contains(newRecept))
-            this.recept.Add(newRecept);
+         if (this.zdravstvenaUsluga == null)
+            this.zdravstvenaUsluga = new System.Collections.ArrayList();
+         if (!this.zdravstvenaUsluga.Contains(newZdravstvenaUsluga))
+            this.zdravstvenaUsluga.Add(newZdravstvenaUsluga);
       }
       
       /// <pdGenerated>default Remove</pdGenerated>
-      public void RemoveRecept(Recept oldRecept)
+      public void RemoveZdravstvenaUsluga(ZdravstvenaUsluga oldZdravstvenaUsluga)
       {
-         if (oldRecept == null)
+         if (oldZdravstvenaUsluga == null)
             return;
-         if (this.recept != null)
-            if (this.recept.Contains(oldRecept))
-               this.recept.Remove(oldRecept);
+         if (this.zdravstvenaUsluga != null)
+            if (this.zdravstvenaUsluga.Contains(oldZdravstvenaUsluga))
+               this.zdravstvenaUsluga.Remove(oldZdravstvenaUsluga);
       }
       
       /// <pdGenerated>default removeAll</pdGenerated>
-      public void RemoveAllRecept()
+      public void RemoveAllZdravstvenaUsluga()
       {
-         if (recept != null)
-            recept.Clear();
-      }
-      public System.Collections.ArrayList pregled;
-      
-      /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetPregled()
-      {
-         if (pregled == null)
-            pregled = new System.Collections.ArrayList();
-         return pregled;
-      }
-      
-      /// <pdGenerated>default setter</pdGenerated>
-      public void SetPregled(System.Collections.ArrayList newPregled)
-      {
-         RemoveAllPregled();
-         foreach (Pregled oPregled in newPregled)
-            AddPregled(oPregled);
-      }
-      
-      /// <pdGenerated>default Add</pdGenerated>
-      public void AddPregled(Pregled newPregled)
-      {
-         if (newPregled == null)
-            return;
-         if (this.pregled == null)
-            this.pregled = new System.Collections.ArrayList();
-         if (!this.pregled.Contains(newPregled))
-            this.pregled.Add(newPregled);
-      }
-      
-      /// <pdGenerated>default Remove</pdGenerated>
-      public void RemovePregled(Pregled oldPregled)
-      {
-         if (oldPregled == null)
-            return;
-         if (this.pregled != null)
-            if (this.pregled.Contains(oldPregled))
-               this.pregled.Remove(oldPregled);
-      }
-      
-      /// <pdGenerated>default removeAll</pdGenerated>
-      public void RemoveAllPregled()
-      {
-         if (pregled != null)
-            pregled.Clear();
-      }
-      public System.Collections.ArrayList operacija;
-      
-      /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetOperacija()
-      {
-         if (operacija == null)
-            operacija = new System.Collections.ArrayList();
-         return operacija;
-      }
-      
-      /// <pdGenerated>default setter</pdGenerated>
-      public void SetOperacija(System.Collections.ArrayList newOperacija)
-      {
-         RemoveAllOperacija();
-         foreach (Operacija oOperacija in newOperacija)
-            AddOperacija(oOperacija);
-      }
-      
-      /// <pdGenerated>default Add</pdGenerated>
-      public void AddOperacija(Operacija newOperacija)
-      {
-         if (newOperacija == null)
-            return;
-         if (this.operacija == null)
-            this.operacija = new System.Collections.ArrayList();
-         if (!this.operacija.Contains(newOperacija))
-            this.operacija.Add(newOperacija);
-      }
-      
-      /// <pdGenerated>default Remove</pdGenerated>
-      public void RemoveOperacija(Operacija oldOperacija)
-      {
-         if (oldOperacija == null)
-            return;
-         if (this.operacija != null)
-            if (this.operacija.Contains(oldOperacija))
-               this.operacija.Remove(oldOperacija);
-      }
-      
-      /// <pdGenerated>default removeAll</pdGenerated>
-      public void RemoveAllOperacija()
-      {
-         if (operacija != null)
-            operacija.Clear();
+         if (zdravstvenaUsluga != null)
+            zdravstvenaUsluga.Clear();
       }
       public Pacijent pacijent;
       public System.Collections.ArrayList terapija;
@@ -207,8 +119,7 @@ namespace Model
          if (terapija != null)
             terapija.Clear();
       }
-   
-     
-   
-   }
+        
+
+    }
 }

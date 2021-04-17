@@ -5,68 +5,57 @@
  ***********************************************************************/
 
 using System;
+using System.Text.Json.Serialization;
+using System.Collections;
 
 namespace Model
 {
    public class Pacijent : Korisnik
    {
 
-        public string IdPacijenta { get; set; }
-        private bool PacijentGost = false;
-        private bool Hospitalizovan;
-        private bool SpamUser = false;
+        
+        [JsonInclude]
+        public MedicinskiKarton MedicinskiKarton { get; set; }
+        [JsonInclude]
+        public System.Collections.ArrayList Ocene { get; set; }
 
-
-        public MedicinskiKarton MedicinskiKarton;
-
-        public Pacijent(string idPacijenta, bool pacijentGost, bool hospitalizovan, bool spamUser, string korisnickoIme, string sifra, string ime,
+        /*
+        public Pacijent(int idPacijenta, bool pacijentGost, bool hospitalizovan, bool spamUser, string korisnickoIme, string sifra, string ime,
             string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
             string jmbg, string drzavljanstvo, string adresaStanovanja) : base(korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
                 adresaStanovanja)
         {
-            this.IdPacijenta = idPacijenta;
+            this.Id = idPacijenta;
             this.PacijentGost = pacijentGost;
             this.Hospitalizovan = hospitalizovan;
             this.SpamUser = spamUser;
-            this.MedicinskiKarton = new MedicinskiKarton(idPacijenta,false,KategorijaPacijenta.IiiIntermedijalnaNega);
-   
-        }
+            this.MedicinskiKarton = new MedicinskiKarton(idPacijenta, false);
 
-        public Pacijent()
+        }*/
+
+        public Pacijent(MedicinskiKarton medicinskiKarton, ArrayList ocene, int Id, bool pacijentGost, bool hospitalizovan, bool spamUser, string korisnickoIme, string sifra, string ime,
+            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
+            string jmbg, string drzavljanstvo, string adresaStanovanja) : base(korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
+                adresaStanovanja)
         {
+
+            this.MedicinskiKarton = medicinskiKarton;
+            this.Ocene = ocene;
+            this.Id = Id;
+            this.PacijentGost = pacijentGost;
+            this.Hospitalizovan = hospitalizovan;
+            this.SpamUser = spamUser;
+            //this.medicinskiKarton = new MedicinskiKarton(idPacijenta, false);
+
         }
 
-        public void ZakazivanjePregleda(Pregled pregled)
-      {
-            this.MedicinskiKarton.AddPregled(pregled);
-      }
-      
-      public void IzmenaPregleda()
-      {
-        
-      }
-      
-      public void OtkazivanjePregleda(Pregled pregled)
-      {
-            this.MedicinskiKarton.RemovePregled(pregled);
-        }
-      
-      public void PrikazSvojihPregleda()
-      {
-         // TODO: implement
-      }
-   
 
-
-
-      public System.Collections.ArrayList ocene;
-      
-      /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetOcene()
+        /// <pdGenerated>default getter</pdGenerated>
+        public System.Collections.ArrayList GetOcene()
       {
-         if (ocene == null)
-            ocene = new System.Collections.ArrayList();
-         return ocene;
+         if (Ocene == null)
+            Ocene = new System.Collections.ArrayList();
+         return Ocene;
       }
       
       /// <pdGenerated>default setter</pdGenerated>
@@ -82,11 +71,11 @@ namespace Model
       {
          if (newOcena == null)
             return;
-         if (this.ocene == null)
-            this.ocene = new System.Collections.ArrayList();
-         if (!this.ocene.Contains(newOcena))
+         if (this.Ocene == null)
+            this.Ocene = new System.Collections.ArrayList();
+         if (!this.Ocene.Contains(newOcena))
          {
-            this.ocene.Add(newOcena);
+            this.Ocene.Add(newOcena);
             newOcena.SetPacijent(this);      
          }
       }
@@ -96,10 +85,10 @@ namespace Model
       {
          if (oldOcena == null)
             return;
-         if (this.ocene != null)
-            if (this.ocene.Contains(oldOcena))
+         if (this.Ocene != null)
+            if (this.Ocene.Contains(oldOcena))
             {
-               this.ocene.Remove(oldOcena);
+               this.Ocene.Remove(oldOcena);
                oldOcena.SetPacijent((Pacijent)null);
             }
       }
@@ -107,19 +96,25 @@ namespace Model
       /// <pdGenerated>default removeAll</pdGenerated>
       public void RemoveAllOcene()
       {
-         if (ocene != null)
+         if (Ocene != null)
          {
             System.Collections.ArrayList tmpOcene = new System.Collections.ArrayList();
-            foreach (Ocena oldOcena in ocene)
+            foreach (Ocena oldOcena in Ocene)
                tmpOcene.Add(oldOcena);
-            ocene.Clear();
+            Ocene.Clear();
             foreach (Ocena oldOcena in tmpOcene)
                oldOcena.SetPacijent((Pacijent)null);
             tmpOcene.Clear();
          }
       }
-   
+        [JsonInclude]
+        public int Id { get; set; }
+        [JsonInclude]
+        public Boolean PacijentGost { get; set; }
+        [JsonInclude]
+        public Boolean Hospitalizovan { get; set; }
+        [JsonInclude]
+        public Boolean SpamUser { get; set; }
 
-   
-   }
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Bolnica.view.sekretar.registracija
 {
@@ -46,11 +48,13 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-                Model.Pacijent noviPacijent = new Model.Pacijent(inputId.Text, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
+                Model.Pacijent noviPacijent = new Model.Pacijent(null,null,Convert.ToInt32(inputId.Text), false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
                 inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, Convert.ToDateTime(inputDatum.Text),
                 inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
 
-                Model.Bolnica.GetInstance.AddPacijenti(noviPacijent);
+                PacijentRepozitorijum.GetInstance.DodajPacijenta(noviPacijent);
+
+                //Model.Bolnica.GetInstance.AddPacijenti(noviPacijent);
                 MessageBox.Show("Pacijent je uspesno dodat.");
             }catch(Exception ee)
             {
@@ -70,11 +74,11 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-                Model.Pacijent noviPacijent = new Model.Pacijent(inputJmbg.Text, false, false, false, inputJmbg.Text, inputJmbg.Text, inputIme.Text,
-                inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, new DateTime(),
-                inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
+               // Model.Pacijent noviPacijent = new Model.Pacijent(inputJmbg.Text, false, false, false, inputJmbg.Text, inputJmbg.Text, inputIme.Text,
+                //inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, new DateTime(),
+                //inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
 
-                Model.Bolnica.GetInstance.AddPacijenti(noviPacijent);
+                //Model.Bolnica.GetInstance.AddPacijenti(noviPacijent);
                 MessageBox.Show("Pacijent je uspesno dodat.");
             }
             catch (Exception ee)

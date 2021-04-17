@@ -21,53 +21,53 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class SopstveniPregledi : Window
     {
-        public ObservableCollection<Pregled> PreglediPacijenta { get; set; }
-        public System.Collections.ArrayList PreglediPacijentaa { get; set; }
+       // public ObservableCollection<Pregled> PreglediPacijenta { get; set; }
+      //  public System.Collections.ArrayList PreglediPacijentaa { get; set; }
         public Pacijent pac;
-        public Pregled odabraniPregled;
+        //public Pregled odabraniPregled;
 
         public SopstveniPregledi()
         {
             InitializeComponent();
-            pac = Model.Bolnica.GetInstance.GetPacijent("jmbg");
-            PreglediPacijentaa=pac.MedicinskiKarton.GetPregled();
-            PreglediPacijenta = new ObservableCollection<Pregled>();
+           // pac = Model.Bolnica.GetInstance.GetPacijent("jmbg");
+          //  PreglediPacijentaa=pac.MedicinskiKarton.GetPregled();
+          //  PreglediPacijenta = new ObservableCollection<Pregled>();
 
-            foreach(Pregled p in PreglediPacijentaa) { PreglediPacijenta.Add(p); }
-            this.listaPregledaPacijenta.
-                ItemsSource = PreglediPacijenta;
+           // foreach(Pregled p in PreglediPacijentaa) { PreglediPacijenta.Add(p); }
+           // this.listaPregledaPacijenta.
+          //      ItemsSource = PreglediPacijenta;
         }
 
 
         private void pregled_odabran(object sender, MouseButtonEventArgs e)
         {
-            odabraniPregled = listaPregledaPacijenta.SelectedItem as Pregled;
+         //   odabraniPregled = listaPregledaPacijenta.SelectedItem as Pregled;
         }
 
 
         private void otkazi_pregled(object sender, RoutedEventArgs e)
         {
-            if (odabraniPregled == null)
-            {
-                MessageBox.Show("Odaberite pregled");
-                return;
-            }
-            PreglediPacijenta.Remove(odabraniPregled);
-            PreglediPacijentaa.Remove(odabraniPregled);
-            pac.OtkazivanjePregleda(odabraniPregled);
-            Model.Bolnica.GetInstance.Pregledi.Add(odabraniPregled);
+          //  if (odabraniPregled == null)
+           // {
+             //   MessageBox.Show("Odaberite pregled");
+             //   return;
+           // }
+           // PreglediPacijenta.Remove(odabraniPregled);
+           // PreglediPacijentaa.Remove(odabraniPregled);
+           // pac.OtkazivanjePregleda(odabraniPregled);
+           // Model.Bolnica.GetInstance.Pregledi.Add(odabraniPregled);
         }
 
         private void modifikuj_pregled(object sender, RoutedEventArgs e)
         {
-            if (odabraniPregled == null)
-            {
-                MessageBox.Show("Odaberite pregled");
-                return;
-            }
+           // if (odabraniPregled == null)
+           // {
+           //     MessageBox.Show("Odaberite pregled");
+           //     return;
+          //  }
 
-            var varr = new view.pacijent.PrikazPregleda(odabraniPregled);
-            varr.Show();
+           // var varr = new view.pacijent.PrikazPregleda(odabraniPregled);
+           // varr.Show();
 
             listaPregledaPacijenta.Items.Refresh();
 

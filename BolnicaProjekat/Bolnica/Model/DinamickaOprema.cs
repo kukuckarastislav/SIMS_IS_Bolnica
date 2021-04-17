@@ -8,13 +8,9 @@ using System;
 
 namespace Model
 {
-   public class PotrosnaOprema
+   public class DinamickaOprema
    {
-      public Inventar inventar;
-
-        public PotrosnaOprema()
-        {
-        }
+      public Inventar inventar { get; set; }
 
         /// <pdGenerated>default parent getter</pdGenerated>
         public Inventar GetInventar()
@@ -32,21 +28,21 @@ namespace Model
             {
                Inventar oldInventar = this.inventar;
                this.inventar = null;
-               oldInventar.RemovePotrosnaOprema(this);
+               oldInventar.RemoveDinamickaOprema(this);
             }
             if (newInventar != null)
             {
                this.inventar = newInventar;
-               this.inventar.AddPotrosnaOprema(this);
+               this.inventar.AddDinamickaOprema(this);
             }
          }
       }
    
-      private string Naziv;
-      private string Opis;
-      private int Id;
-      private int Kolicina;
-      private double Cena;
-   
-   }
+      public string Naziv { get; set; }
+        public string Opis { get; set; }
+        public int Id { get; set; }
+        public int Kolicina { get; set; }
+        public double Cena { get; set; }
+
+    }
 }

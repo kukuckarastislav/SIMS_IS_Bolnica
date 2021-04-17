@@ -34,7 +34,7 @@ namespace Bolnica.view.sekretar
         {
             inputIme.Text = p.Ime;
             inputPrezime.Text = p.Prezime;
-            inputId.Text = p.IdPacijenta;
+            //inputId.Text = p.IdPacijenta;
             inputKorisnickoIme.Text = p.KorisnickoIme;
             inputSifra.Text = p.Sifra;
             inputTelefon.Text = p.Telefon;
@@ -57,7 +57,7 @@ namespace Bolnica.view.sekretar
         {
             pacijent.Ime = inputIme.Text;
             pacijent.Prezime = inputPrezime.Text;
-            pacijent.IdPacijenta = inputId.Text;
+            //pacijent.IdPacijenta = inputId.Text;
             pacijent.KorisnickoIme = inputKorisnickoIme.Text;
             pacijent.Sifra = inputSifra.Text;
             pacijent.Telefon = inputTelefon.Text;
@@ -76,7 +76,7 @@ namespace Bolnica.view.sekretar
             pacijent.Drzavljanstvo = inputDrzavljanstvo.Text;
             pacijent.AdresaStanovanja = inputAdresa.Text;
             pacijent.Email = inputEmail.Text;
-            bool ret = Model.Bolnica.GetInstance.EditPacijent(pacijent);
+            bool ret = false;//Model.Bolnica.GetInstance.EditPacijent(pacijent);
 
             if(ret == true)
             { 

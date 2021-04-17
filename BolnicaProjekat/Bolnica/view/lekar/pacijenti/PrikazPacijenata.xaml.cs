@@ -24,9 +24,9 @@ namespace Bolnica.view.lekar.pacijenti
         public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
         public PrikazPacijenata()
         {
-            KolekcijaPacijenata = Model.Bolnica.GetInstance.GetPacijenti();
+           // KolekcijaPacijenata = Model.Bolnica.GetInstance.GetPacijenti();
             InitializeComponent();
-            this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
+            //this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
   
         }
 

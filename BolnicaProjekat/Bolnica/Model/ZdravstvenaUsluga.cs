@@ -8,33 +8,17 @@ using System;
 
 namespace Model
 {
-    public abstract class ZdravstvenaUsluga
-    {
-
-
-        public string NazivZdrastveneUstanove { get; set; }
-        public string LokacijaZdravsteveUstanove { get; set; }
-        public Model.Lekar IdLekara { get; set; }
-
-        public string ZakazivacUsluge { get; set; }
+   public class ZdravstvenaUsluga
+   {
+      public Termin termin;
+   
+      public int Id { get; set; }
+        public int IdLekara { get; set; }
+        public TipUsluge TipUsluge { get; set; }
+        public int IdProstorije { get; set; }
         public bool Obavljena { get; set; }
+        public string RazlogZakazivanja { get; set; }
+        public string RezultatUsluge { get; set; }
 
-        public string IdUsluge { get; set; }
-        public string Komentar { get; set; } 
-
-        protected ZdravstvenaUsluga(string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, Model.Lekar idLekara,string zakazivacUsluge, bool obavljena,string idUsluge, string komentar)
-        {
-            NazivZdrastveneUstanove = nazivZdrastveneUstanove;
-            LokacijaZdravsteveUstanove = lokacijaZdravsteveUstanove;
-            IdLekara = idLekara;
-            ZakazivacUsluge = zakazivacUsluge;
-            Obavljena = obavljena;
-            idUsluge = idUsluge;
-            Komentar = komentar;
-        }
-
-        protected ZdravstvenaUsluga()
-        {
-        }
     }
 }

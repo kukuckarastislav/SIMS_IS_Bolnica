@@ -8,14 +8,7 @@ using System;
 
 namespace Model
 {
-    public class SobaZaPreglede : Prostorija
-    {
-        public SobaZaPreglede()
-        {
-        }
-
-        public SobaZaPreglede(int id, int sprat, double povrsina, int idInventara) : base(id, sprat, povrsina, idInventara)
-        {
-        }
-    }
+   public class SobaZaPreglede : Prostorija
+   {
+   }
 }

@@ -5,22 +5,15 @@
  ***********************************************************************/
 
 using System;
+using System.Collections.Generic;
+
 
 namespace Model
 {
    public class BolesnickaSoba : Prostorija
    {
-        public int BrojKreveta { get; set; }
-        public int BrojSlobodnihKreveta { get; set; }
+      public int BrojKreveta { get; set; }
+      public int BrojSlobodnihKreveta { get; set; }
 
-        public BolesnickaSoba()
-        {
-        }
-
-        public BolesnickaSoba(int brojKreveta, int brojSlobodnihKreveta, int id, int sprat, double povrsina, int idInventara) : base(id, sprat, povrsina, idInventara)
-        {
-            BrojKreveta = brojKreveta;
-            BrojSlobodnihKreveta = brojSlobodnihKreveta;
-        }
     }
 }

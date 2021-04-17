@@ -23,14 +23,14 @@ namespace Bolnica.view.lekar.pacijenti
         public ObservableCollection<Model.SobaZaPreglede> KolekcijaSobeZaPregled { get; set; }
         public ObservableCollection<String> KolekcijaIDSobeZaPregled{ get; set; }
 
-        public Model.Pregled KreiranPregled { get; set; }
+        //public Model.Pregled KreiranPregled { get; set; }
 
         private Model.Pacijent izabraniPacijent;
 
         public KreiranjePregledaForma(Model.Pacijent izabraniPacijent)
         {
             this.izabraniPacijent = izabraniPacijent;
-            KolekcijaSobeZaPregled = Model.Bolnica.GetInstance.GetSobeZaPreglede();
+           // KolekcijaSobeZaPregled = Model.Bolnica.GetInstance.GetSobeZaPreglede();
             KolekcijaIDSobeZaPregled = new ObservableCollection<String>();
             foreach(Model.SobaZaPreglede s in KolekcijaSobeZaPregled)
             {
@@ -70,10 +70,10 @@ namespace Bolnica.view.lekar.pacijenti
             //Model.SobaZaPreglede soba = new Model.SobaZaPreglede(200, 2, 1130, 1997);
             int id = Convert.ToInt32(ComboBoxSobeZaPregled.SelectedItem.ToString());
 
-            KreiranPregled = new Model.Pregled(new Model.Termin(pocetak, kraj), inputTipPregleda.Text, "", 
-                                        "Zdravo Bolnica", "Novi Sad",Model.Bolnica.GetInstance.getLekarByI(1),"",false,inputIDPregleda.Text,"",Model.Bolnica.GetInstance.GetSobaZaPregledeByID(id));
+            //KreiranPregled = new Model.Pregled(new Model.Termin(pocetak, kraj), inputTipPregleda.Text, "", 
+              //                          "Zdravo Bolnica", "Novi Sad",Model.Bolnica.GetInstance.getLekarByI(1),"",false,inputIDPregleda.Text,"",Model.Bolnica.GetInstance.GetSobaZaPregledeByID(id));
 
-            izabraniPacijent.MedicinskiKarton.AddPregled(KreiranPregled);
+            //izabraniPacijent.MedicinskiKarton.AddPregled(KreiranPregled);
             this.Close();
 
         }

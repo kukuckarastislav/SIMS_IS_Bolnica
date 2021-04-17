@@ -25,48 +25,27 @@ namespace Bolnica
     {
         public MainWindow()
         {
-            //Model.Bolnica bolnica = new Model.Bolnica("Zdravo bolnica","4", Model.Mesto.NoviSad);
             InitializeComponent();
             System.Collections.ArrayList a = Model.Bolnica.GetInstance.GetLekari();
-
-            // XmlSerializer serializer = new XmlSerializer(typeof(Model.Bolnica));
-            // StreamReader reader = new StreamReader("Serialization.xml");
-            // Model.Bolnica bolnica = (Model.Bolnica)serializer.Deserialize(reader);
-            // Model.Bolnica.GetInstance = bolnica;
-            //Model.Bolnica.GetInstance.SetPacijenti(bolnica.GetPacijenti());
-            // reader.Close();
-  
             try
             {
                 System.Collections.ObjectModel.ObservableCollection < Model.Pacijent >p = JsonSerializer.Deserialize<System.Collections.ObjectModel.ObservableCollection<Model.Pacijent>>(File.ReadAllText("../../Data/sve.txt"));
                 Model.Bolnica.GetInstance.SetPacijenti(p);
-                //Model.Bolnica.GetInstance.SetPacijenti(b.GetPacijenti());
             }catch(Exception e)
             {
                 MessageBox.Show("greska");
             }
-
-          //  Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8.00, 14.00);
-          // Model.Lekar l = new Model.Lekar(1, true,Model.Odeljenje.OpstaHirurgija,radnoVreme, Model.RadniStatus.Aktivan,
-          // "laslouri99", "sifra123", "Laslo", "Uri", Model.Pol.Musko, "laslou@gmail.com", "066-666-666",
-          //  new DateTime(1999, 7, 16), "1111111", "Srpsko", "Novi Sad");
-          //  Model.Bolnica.GetInstance.AddLekari(l);
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             Model.Bolnica b = Model.Bolnica.GetInstance;
-            //XmlSerializer xs = new XmlSerializer(typeof(Model.Bolnica));
-
-            //TextWriter txtWriter = new StreamWriter("Serialization.xml");
-
-            //xs.Serialize(txtWriter, b);
+  
             var formatiranje = new JsonSerializerOptions
             {
                 WriteIndented = true,
             };
             string jsonString = JsonSerializer.Serialize(b.GetPacijenti(), formatiranje);
             File.WriteAllText("../../Data/sve.txt", jsonString);
-           // txtWriter.Close();
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)

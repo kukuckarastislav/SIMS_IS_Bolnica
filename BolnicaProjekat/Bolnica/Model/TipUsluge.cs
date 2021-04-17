@@ -8,12 +8,9 @@ using System;
 
 namespace Model
 {
-   public enum KategorijaPacijenta
+   public enum TipUsluge
    {
-      ISamonega,
-      IiMinimalnaNega,
-      IiiIntermedijalnaNega,
-      IvIntenzivnaNega
-   
+      Operacija,
+      Pregled
    }
 }

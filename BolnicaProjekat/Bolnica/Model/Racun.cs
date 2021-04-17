@@ -10,12 +10,10 @@ namespace Model
 {
    public class Racun
    {
-      private DateTime DatumPlacanja;
-      private double Iznos;
-      private bool Placeno;
+      public int IdUsluge { get; set; }
+        public DateTime DatumPlacanja { get; set; }
+        public double Iznos { get; set; }
+        public bool Placeno { get; set; }
 
-        public Racun()
-        {
-        }
     }
 }

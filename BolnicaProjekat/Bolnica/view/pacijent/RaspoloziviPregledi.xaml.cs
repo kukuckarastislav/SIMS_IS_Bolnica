@@ -22,34 +22,34 @@ namespace Bolnica.view.pacijent
     public partial class RaspoloziviPregledi : Window
     {
 
-        public ObservableCollection<Model.Pregled> Pregledi { get; set; }
-        public Pregled odabraniPregled;
+       // public ObservableCollection<Model.Pregled> Pregledi { get; set; }
+       // public Pregled odabraniPregled;
         public List<Lekar> listaLekari { get; set; }
 
         public RaspoloziviPregledi()
         {
             InitializeComponent();
-            Pregledi = Model.Bolnica.GetInstance.Pregledi;
-            this.listaPregleda.
-                ItemsSource = Pregledi;
+           // Pregledi = Model.Bolnica.GetInstance.Pregledi;
+           // this.listaPregleda.
+            //    ItemsSource = Pregledi;
 
 
 
-            listaLekari = new List<Lekar>();
-            listaLekari.Add(Model.Bolnica.GetInstance.getLekarByI(1));  //ovo naravno treba biti lista svih lekara
+          //  listaLekari = new List<Lekar>();
+           // listaLekari.Add(Model.Bolnica.GetInstance.getLekarByI(1));  //ovo naravno treba biti lista svih lekara
             this.ComboBoxLekari.ItemsSource = listaLekari;
         }
 
         private void zakazi_pregled(object sender, MouseButtonEventArgs e)
         {
-            odabraniPregled = listaPregleda.SelectedItem as Pregled;
+            //odabraniPregled = listaPregleda.SelectedItem as Pregled;
         }
 
         private void pregled_odabran(object sender, RoutedEventArgs e)
         {
-            Model.Bolnica.GetInstance.GetPacijent("jmbg").ZakazivanjePregleda(odabraniPregled);
-            Pregledi.Remove(odabraniPregled);
-            Model.Bolnica.GetInstance.Pregledi.Remove(odabraniPregled);
+           // Model.Bolnica.GetInstance.GetPacijent("jmbg").ZakazivanjePregleda(odabraniPregled);
+           // Pregledi.Remove(odabraniPregled);
+           // Model.Bolnica.GetInstance.Pregledi.Remove(odabraniPregled);
         }
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

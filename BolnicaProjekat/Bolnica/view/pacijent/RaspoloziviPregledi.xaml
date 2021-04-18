@@ -115,7 +115,7 @@
         </ComboBox>
 
         <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Margin="487,42,159,110"/>
-        <Button  Margin="640,42,11,110" Content="Pretraga" Background="#e5e5e5"/>
+        <Button  Click="pretrazi_termine" Margin="640,42,11,110" Content="Pretraga" Background="#e5e5e5"/>
 
         <RadioButton Name="Lekar" GroupName="Prioritet"  Content="Lekar" Margin="331,200,372,20" Grid.Row="1"/>
         <RadioButton Name="Datum"  IsChecked="True"  GroupName="Prioritet"  Content="Datum" Margin="177,200,536,21" Grid.Row="1"/>

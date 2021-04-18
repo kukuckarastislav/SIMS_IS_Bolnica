@@ -24,6 +24,7 @@ namespace Bolnica.view.pacijent
         {
 
             InitializeComponent();
+
             ime.Text = p.Ime;
             prezime.Text = p.Prezime;
             pol.Text = p.Pol.ToString();

@@ -14,12 +14,12 @@ namespace Servis
    public class ZdravstvenaUslugaServis
     {
       public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
-      public Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
+      public static Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
       public Repozitorijum.ProstorijeRepozitorijum prostorijeRepozitorijum;
-      public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
+      public static Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
 
             
-        public List<ZdravstvenaUsluga> getAvailableAppointments(Lekar OdabraniLekar,DateTime pocetak,DateTime kraj,int prioritet)
+        public static List<ZdravstvenaUsluga> getAvailableAppointments(Lekar OdabraniLekar,DateTime pocetak,DateTime kraj,int prioritet)
         {
             List<ZdravstvenaUsluga> pregledi = getAppointments(OdabraniLekar, pocetak, kraj);
 
@@ -31,7 +31,7 @@ namespace Servis
         }
 
 
-        public List<ZdravstvenaUsluga> getAppointments(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        public static List<ZdravstvenaUsluga> getAppointments(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>(); //ret value
 
@@ -46,7 +46,7 @@ namespace Servis
             TimeSpan period = new TimeSpan(0, 0, 30, 0, 0); //fiksan period od 30 minuta
 
             //redom generise listu slobodnih termina lekara 
-            while (pocetakRadnogVremena + period < krajkRadnogVremena_)
+            while (pocetakRadnogVremena + period <= krajkRadnogVremena_)
             {
                 ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(pocetakRadnogVremena, pocetakRadnogVremena + period), OdabraniLekar.Id);
                 if (terminiLekara.Contains(pregled))
@@ -59,7 +59,7 @@ namespace Servis
             return pregledi;
         }
 
-        public List<ZdravstvenaUsluga> getCloseAppointmentsByTime(DateTime pocetak, DateTime kraj)
+        public static List<ZdravstvenaUsluga> getCloseAppointmentsByTime(DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
 
@@ -75,7 +75,7 @@ namespace Servis
             }
             return pregledi;
         }
-        public List<ZdravstvenaUsluga> getCloseAppointmentsByDoctor(Lekar OdabraniLekar,DateTime pocetak,DateTime kraj)
+        public static List<ZdravstvenaUsluga> getCloseAppointmentsByDoctor(Lekar OdabraniLekar,DateTime pocetak,DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
 

@@ -103,7 +103,11 @@ namespace Repozitorijum
       
       public Model.Lekar GetById(long id)
       {
-         // TODO: implement
+         foreach(Lekar l in Lekari)
+            {
+                if (l.Id == id)
+                    return l;
+            }
          return null;
       }
    

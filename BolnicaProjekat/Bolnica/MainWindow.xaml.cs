@@ -63,7 +63,7 @@ namespace Bolnica
 
         private void Pacijent_Home_Click(object sender, RoutedEventArgs e)
         {
-            var pacijent_home = new Bolnica.view.pacijent.PacijentHome(Model.Bolnica.GetInstance.GetPacijent("jmbg"));
+            var pacijent_home = new Bolnica.view.pacijent.PacijentHome(Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(3));
             pacijent_home.Show();
         }
     }

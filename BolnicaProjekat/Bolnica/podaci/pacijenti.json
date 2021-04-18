@@ -1,7 +1,7 @@
 [
   {
     "MedicinskiKarton": {
-      "IdPacijent": 0,
+      "IdPacijent": 1,
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null
@@ -26,13 +26,13 @@
   },
   {
     "MedicinskiKarton": {
-      "IdPacijent": 0,
+      "IdPacijent": 2,
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null
     },
     "Ocene": null,
-    "Id": 1,
+    "Id": 2,
     "PacijentGost": false,
     "Hospitalizovan": false,
     "SpamUser": false,

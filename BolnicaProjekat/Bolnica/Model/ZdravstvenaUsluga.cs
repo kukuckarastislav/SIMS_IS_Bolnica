@@ -13,7 +13,7 @@ namespace Model
    public class ZdravstvenaUsluga
    {
         [JsonInclude]
-        public Termin termin { get; set; }
+        public Termin Termin { get; set; }
         [JsonInclude]
         public int Id { get; set; }
         [JsonInclude]
@@ -33,7 +33,7 @@ namespace Model
 
         public ZdravstvenaUsluga(Termin termin, int id, int idLekara, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUsluge)
         {
-            this.termin = termin;
+            Termin = termin;
             Id = id;
             IdLekara = idLekara;
             IdPacijenta = idPacijenta;
@@ -44,10 +44,10 @@ namespace Model
             RezultatUsluge = rezultatUsluge;
         }
 
-        public ZdravstvenaUsluga(Termin termin, int id)
-        {
-            this.termin = termin;
-            IdLekara = id;
-        }
+       // public ZdravstvenaUsluga(Termin termin, int id)
+      //  {
+        //    this.termin = termin;
+       //     IdLekara = id;
+      //  }
     }
 }

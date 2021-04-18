@@ -35,7 +35,8 @@ namespace Servis
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>(); //ret value
 
-            List<ZdravstvenaUsluga> terminiLekara = terminiRepozitorijum.getTerminiBylekarId(OdabraniLekar.Id); //dobavi zauzete termine iz repoz
+            List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(OdabraniLekar.Id);
+            //List<ZdravstvenaUsluga> terminiLekara = terminiRepozitorijum.getTerminiBylekarId(OdabraniLekar.Id); //dobavi zauzete termine iz repoz
 
             int krajSati = Convert.ToInt32(OdabraniLekar.radnoVreme.KrajRadnogVremena);
             int pocetakSati = Convert.ToInt32(OdabraniLekar.radnoVreme.PocetakRadnogVremena);
@@ -48,7 +49,7 @@ namespace Servis
             //redom generise listu slobodnih termina lekara 
             while (pocetakRadnogVremena + period <= krajkRadnogVremena_)
             {
-                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(pocetakRadnogVremena, pocetakRadnogVremena + period), OdabraniLekar.Id);
+                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(pocetakRadnogVremena, pocetakRadnogVremena + period), 1, OdabraniLekar.Id, -1,TipUsluge.Pregled, -1, false, "", "");
                 if (terminiLekara.Contains(pregled))
                     continue;
 

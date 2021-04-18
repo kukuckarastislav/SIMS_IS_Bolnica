@@ -168,6 +168,12 @@
     <Compile Include="view\sekretar\WindowIzmenaPodataka.xaml.cs">
       <DependentUpon>WindowIzmenaPodataka.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\WindowZakazivanjeTermina.xaml.cs">
+      <DependentUpon>WindowZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\ZakazivanjeTermina.xaml.cs">
+      <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml.cs">
       <DependentUpon>DodajBolesnickuProstorijuForma.xaml</DependentUpon>
     </Compile>
@@ -257,6 +263,14 @@
     <Page Include="view\sekretar\WindowIzmenaPodataka.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\WindowZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\ZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml">
       <Generator>MSBuild:Compile</Generator>

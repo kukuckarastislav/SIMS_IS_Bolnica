@@ -16,9 +16,10 @@ namespace Model
         public string Specijalizacija { get; set; }
 
         
-        public Lekar(RadnoVreme radnoVreme, RadniStatus radniStatus, int id, bool specijalista, string specijalizacija, string korisnickoIme, string sifra, string ime,
-            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
-            string jmbg, string drzavljanstvo, string adresaStanovanja) : base(korisnickoIme,sifra,ime,
+        public Lekar(int id,bool specijalista,string specijalizacija,RadnoVreme radnoVreme, RadniStatus radniStatus,string korisnickoIme,
+            string sifra,string ime,string prezime,Pol pol,string email,string telefon, DateTime datumRodjenja,string jmbg,
+            string drzavljanstvo, string adresaStanovanja
+            ) : base(korisnickoIme,sifra,ime,
             prezime,pol,email,telefon, datumRodjenja,
            jmbg,drzavljanstvo,adresaStanovanja,radnoVreme,radniStatus)
         {
@@ -27,7 +28,10 @@ namespace Model
             Specijalizacija = specijalizacija;
         }
         
-
+        public string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
 
 
     }

@@ -48,7 +48,7 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-                int newId = 1;//PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
+                int newId = PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
                 Model.Pacijent noviPacijent = new Model.Pacijent(new MedicinskiKarton(),null, newId, false, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
                 inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, Convert.ToDateTime(inputDatum.Text),
                 inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);

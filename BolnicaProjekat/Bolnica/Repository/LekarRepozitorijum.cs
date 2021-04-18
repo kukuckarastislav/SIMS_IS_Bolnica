@@ -37,8 +37,8 @@ namespace Repozitorijum
 
         public LekarRepozitorijum()
         {
-            //loadData();
-            Lekari = new ObservableCollection<Model.Lekar>();
+            loadData();
+            //Lekari = new ObservableCollection<Model.Lekar>();
         }
 
         public ObservableCollection<Model.Lekar> Lekari { get; set; }
@@ -97,11 +97,15 @@ namespace Repozitorijum
       
       public List<Lekar> GetAll()
       {
-         // TODO: implement
          return null;
       }
-      
-      public Model.Lekar GetById(long id)
+
+        public ObservableCollection<Model.Lekar> GetAllObs()
+        {
+            return Lekari;
+        }
+
+        public Model.Lekar GetById(long id)
       {
          foreach(Lekar l in Lekari)
             {

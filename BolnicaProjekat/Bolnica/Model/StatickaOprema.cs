@@ -10,11 +10,10 @@ namespace Model
 {
    public class StatickaOprema
    {
-      public Inventar inventar;
-      
+      public Inventar inventar { get; set; }
 
-      /// <pdGenerated>default parent getter</pdGenerated>
-      public Inventar GetInventar()
+        /// <pdGenerated>default parent getter</pdGenerated>
+        public Inventar GetInventar()
       {
          return inventar;
       }
@@ -39,14 +38,11 @@ namespace Model
          }
       }
    
-      private string Naziv;
-      private string Opis;
-      private int Id;
-      private int Kolicina;
-      private double Cena;
+      public string Naziv { get; set; }
+        public string Opis { get; set; }
+        public int Id { get; set; }
+        public int Kolicina { get; set; }
+        public double Cena { get; set; }
 
-        public StatickaOprema()
-        {
-        }
     }
 }

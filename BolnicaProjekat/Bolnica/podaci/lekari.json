@@ -1,0 +1,23 @@
+[
+  {
+    "Id": 1,
+    "Specijalista": false,
+    "Specijalizacija": "",
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 14
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "LasloUri",
+    "Sifra": "laci",
+    "Ime": "Laslo",
+    "Prezime": "Uri",
+    "Pol": 0,
+    "Email": "laci@gmail.com",
+    "Telefon": "0621010909",
+    "DatumRodjenja": "1999-10-10T00:00:00",
+    "Jmbg": "1234123412341",
+    "Drzavljanstvo": "madjarsko",
+    "AdresaStanovanja": "blizu hotela park"
+  }
+]

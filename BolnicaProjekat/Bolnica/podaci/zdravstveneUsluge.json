@@ -1,0 +1,16 @@
+[
+  {
+    "termin": {
+      "Pocetak": "0001-01-01T00:00:00",
+      "Kraj": "0001-01-01T00:00:00"
+    },
+    "Id": 1,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "nebitan",
+    "RezultatUsluge": "nebitan"
+  }
+]

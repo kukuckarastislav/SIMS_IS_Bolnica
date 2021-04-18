@@ -33,7 +33,7 @@ namespace Bolnica.view.upravnik.prostorije
             inputIDprostorije.Text = Convert.ToString(editSobaZaPregled.Id);
             inputSprat.Text = Convert.ToString(editSobaZaPregled.Sprat);
             inputPovrsina.Text = Convert.ToString(editSobaZaPregled.Povrsina);
-            inputIDInventara.Text = Convert.ToString(editSobaZaPregled.Inventar.IdInventara);
+            //inputIDInventara.Text = Convert.ToString(editSobaZaPregled.Inventar.IdInventara);
         }
 
         private void close_win(object sender, RoutedEventArgs e)
@@ -48,13 +48,13 @@ namespace Bolnica.view.upravnik.prostorije
             if (editSobaZaPregled == null)
             {
                 // pravimo novu
-                Model.SobaZaPreglede novaSobaZaPregled = new Model.SobaZaPreglede(
-                                    Convert.ToInt32(inputIDprostorije.Text),
-                                    Convert.ToInt32(inputSprat.Text),
-                                    Convert.ToDouble(inputPovrsina.Text),
-                                    Convert.ToInt32(inputIDInventara.Text));
+               // Model.SobaZaPreglede novaSobaZaPregled = new Model.SobaZaPreglede(
+                //                    Convert.ToInt32(inputIDprostorije.Text),
+               //                     Convert.ToInt32(inputSprat.Text),
+               //                     Convert.ToDouble(inputPovrsina.Text),
+                //                    Convert.ToInt32(inputIDInventara.Text));
 
-                Model.Bolnica.GetInstance.AddSobeZaPreglede(novaSobaZaPregled);
+               // Model.Bolnica.GetInstance.AddSobeZaPreglede(novaSobaZaPregled);
             }
             else
             {
@@ -63,7 +63,7 @@ namespace Bolnica.view.upravnik.prostorije
                 editSobaZaPregled.Id = Convert.ToInt32(inputIDprostorije.Text);
                 editSobaZaPregled.Sprat = Convert.ToInt32(inputSprat.Text);
                 editSobaZaPregled.Povrsina = Convert.ToDouble(inputPovrsina.Text);
-                editSobaZaPregled.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
+              //  editSobaZaPregled.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
             }
 
             this.Close();

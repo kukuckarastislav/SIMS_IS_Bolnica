@@ -5,34 +5,13 @@
  ***********************************************************************/
 
 using System;
+using System.Text.Json;
 
 namespace Model
 {
    public abstract class Korisnik
    {
-
-        protected Korisnik()
-        {
-        }
-/*
-        public bool PrijaviSe()
-        {
-            // TODO: implement
-            return false;
-        }
-      
-        public bool OdjaviSe()
-        {
-            // TODO: implement
-            return false;
-        }
-
-        public bool PromeniSifru(string novaSifra)
-        {
-            // TODO: implement
-            return false;
-        }
-*/
+        
         public string KorisnickoIme { get; set; }
         public string Sifra { get; set; }
         public string Ime { get; set; }
@@ -45,9 +24,9 @@ namespace Model
         public string Drzavljanstvo { get; set; }
         public string AdresaStanovanja { get; set; }
 
-        public Korisnik(string korisnickoIme, string sifra, string ime, 
-            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja, 
-            string jmbg, string drzavljanstvo, string adresaStanovanja)
+        public Korisnik(string korisnickoIme, string sifra, string ime,
+           string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
+           string jmbg, string drzavljanstvo, string adresaStanovanja)
         {
             Ime = ime;
             Sifra = sifra;
@@ -62,8 +41,7 @@ namespace Model
             AdresaStanovanja = adresaStanovanja;
         }
 
-
-
-        
+        public Korisnik()
+        { }
     }
 }

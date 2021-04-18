@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repozitorijum;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Bolnica.view.sekretar
         
         public PagePacijenti()
         {
-            KolekcijaPacijenata = Model.Bolnica.GetInstance.GetPacijenti();
+            KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             
             InitializeComponent();
            

@@ -35,8 +35,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.5.0.1\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.5.0.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +83,55 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\LekarKontroler.cs" />
+    <Compile Include="Controller\PacijentKontroler.cs" />
+    <Compile Include="Controller\ProstorijeKontroler.cs" />
+    <Compile Include="Controller\SekretarKontroler.cs" />
+    <Compile Include="Controller\UpravnikKontroler.cs" />
+    <Compile Include="Model\BolesnickaSoba.cs" />
+    <Compile Include="Model\Bolnica.cs" />
+    <Compile Include="Model\DinamickaOprema.cs" />
+    <Compile Include="Model\Inventar.cs" />
+    <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="Model\Lek.cs" />
+    <Compile Include="Model\Lekar.cs" />
+    <Compile Include="Model\MedicinskiKarton.cs" />
+    <Compile Include="Model\Nadzornik.cs" />
+    <Compile Include="Model\Notifikacija.cs" />
+    <Compile Include="Model\Ocena.cs" />
+    <Compile Include="Model\OperacionaSala.cs" />
+    <Compile Include="Model\Osoblje.cs" />
+    <Compile Include="Model\Pacijent.cs" />
+    <Compile Include="Model\Pol.cs" />
+    <Compile Include="Model\Prostorija.cs" />
+    <Compile Include="Model\Racun.cs" />
+    <Compile Include="Model\RadniStatus.cs" />
+    <Compile Include="Model\RadnoVreme.cs" />
+    <Compile Include="Model\Recept.cs" />
+    <Compile Include="Model\Sekretar.cs" />
+    <Compile Include="Model\SobaZaPreglede.cs" />
+    <Compile Include="Model\StatickaOprema.cs" />
+    <Compile Include="Model\Terapija.cs" />
+    <Compile Include="Model\Termin.cs" />
+    <Compile Include="Model\TipUsluge.cs" />
+    <Compile Include="Model\Upravnik.cs" />
+    <Compile Include="Model\VrijednostOcjene.cs" />
+    <Compile Include="Model\ZdravstvenaUsluga.cs" />
+    <Compile Include="Repository\InventariRepozitorijum.cs" />
+    <Compile Include="Repository\LekarRepozitorijum.cs" />
+    <Compile Include="Repository\PacijentRepozitorijum.cs" />
+    <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
+    <Compile Include="Repository\SekretarRepozitorijum.cs" />
+    <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
+    <Compile Include="Repository\UpravnikRepozitorijum.cs" />
+    <Compile Include="Service\LekarServis.cs" />
+    <Compile Include="Service\NotifikacijeServis.cs" />
+    <Compile Include="Service\PacijentServis.cs" />
+    <Compile Include="Service\ProstorijeServis.cs" />
+    <Compile Include="Service\ReceptiServis.cs" />
+    <Compile Include="Service\SekretarServis.cs" />
+    <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
+    <Compile Include="Service\UpravnikServis.cs" />
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
@@ -223,40 +300,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\BolesnickaSoba.cs" />
-    <Compile Include="Model\Bolnica.cs" />
-    <Compile Include="Model\Inventar.cs" />
-    <Compile Include="Model\KategorijaPacijenta.cs" />
-    <Compile Include="Model\Korisnik.cs" />
-    <Compile Include="Model\Lek.cs" />
-    <Compile Include="Model\Lekar.cs" />
-    <Compile Include="Model\Magacin.cs" />
-    <Compile Include="Model\MedicinskiKarton.cs" />
-    <Compile Include="Model\Mesto.cs" />
-    <Compile Include="Model\Ocena.cs" />
-    <Compile Include="Model\Odeljenje.cs" />
-    <Compile Include="Model\Operacija.cs" />
-    <Compile Include="Model\OperacionaSala.cs" />
-    <Compile Include="Model\Osoblje.cs" />
-    <Compile Include="Model\Pacijent.cs" />
-    <Compile Include="Model\Pol.cs" />
-    <Compile Include="Model\PotrosnaOprema.cs" />
-    <Compile Include="Model\Pregled.cs" />
-    <Compile Include="Model\Prostorija.cs" />
-    <Compile Include="Model\Racun.cs" />
-    <Compile Include="Model\RadniStatus.cs" />
-    <Compile Include="Model\RadnoVreme.cs" />
-    <Compile Include="Model\Recept.cs" />
-    <Compile Include="Model\Sekretar.cs" />
-    <Compile Include="Model\SobaZaPreglede.cs" />
-    <Compile Include="Model\Specijalista.cs" />
-    <Compile Include="Model\StatickaOprema.cs" />
-    <Compile Include="Model\Terapija.cs" />
-    <Compile Include="Model\Termin.cs" />
-    <Compile Include="Model\Upravnik.cs" />
-    <Compile Include="Model\VrijednostOcjene.cs" />
-    <Compile Include="Model\VrstaSpecijaliste.cs" />
-    <Compile Include="Model\ZdravstvenaUsluga.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -274,6 +317,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="podaci\pacijenti.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -303,6 +348,9 @@
     <Resource Include="images\sekretar-window-button.jpg" />
     <Resource Include="images\upravnik-window-button.jpg" />
     <Resource Include="images\zdravo-bolnica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="data\sve.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,16 +10,13 @@ namespace Model
 {
    public class Terapija
    {
+      public Recept[] recept;
+   
+      public int Id { get; set; }
+        public String Naziv { get; set; }
+        public DateTime DatumPocetka { get; set; }
+        public DateTime DatumZavrsetka { get; set; }
+        public string Anamneza { get; set; }
 
-
-      private string Naziv;
-      private DateTime DatumPocetka;
-      private DateTime DatumZavrsetka;
-      private bool Zavrsena;
-      private int IdLekara;
-
-        public Terapija()
-        {
-        }
     }
 }

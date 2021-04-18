@@ -7,77 +7,66 @@
 using System;
 
 namespace Model
-{   
+{
    public class Inventar
    {
+        public System.Collections.ArrayList dinamickaOprema;
 
-        public int IdInventara { get; set; }
-        public Inventar(int idInventara)
-        {
-            IdInventara = idInventara;
-        }
-
-        public Inventar()
-        {
-        }
-
-        public System.Collections.ArrayList potrosnaOprema;
-      
-      /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetPotrosnaOprema()
+        /// <pdGenerated>default getter</pdGenerated>
+        public System.Collections.ArrayList GetDinamickaOprema()
       {
-         if (potrosnaOprema == null)
-            potrosnaOprema = new System.Collections.ArrayList();
-         return potrosnaOprema;
+         if (dinamickaOprema == null)
+            dinamickaOprema = new System.Collections.ArrayList();
+         return dinamickaOprema;
       }
       
       /// <pdGenerated>default setter</pdGenerated>
-      public void SetPotrosnaOprema(System.Collections.ArrayList newPotrosnaOprema)
+      public void SetDinamickaOprema(System.Collections.ArrayList newDinamickaOprema)
       {
-         RemoveAllPotrosnaOprema();
-         foreach (PotrosnaOprema oPotrosnaOprema in newPotrosnaOprema)
-            AddPotrosnaOprema(oPotrosnaOprema);
+         RemoveAllDinamickaOprema();
+         foreach (DinamickaOprema oDinamickaOprema in newDinamickaOprema)
+            AddDinamickaOprema(oDinamickaOprema);
       }
       
       /// <pdGenerated>default Add</pdGenerated>
-      public void AddPotrosnaOprema(PotrosnaOprema newPotrosnaOprema)
+      public void AddDinamickaOprema(DinamickaOprema newDinamickaOprema)
       {
-         if (newPotrosnaOprema == null)
+         if (newDinamickaOprema == null)
             return;
-         if (this.potrosnaOprema == null)
-            this.potrosnaOprema = new System.Collections.ArrayList();
-         if (!this.potrosnaOprema.Contains(newPotrosnaOprema))
+         if (this.dinamickaOprema == null)
+            this.dinamickaOprema = new System.Collections.ArrayList();
+         if (!this.dinamickaOprema.Contains(newDinamickaOprema))
          {
-            this.potrosnaOprema.Add(newPotrosnaOprema);
-            newPotrosnaOprema.SetInventar(this);      
+            this.dinamickaOprema.Add(newDinamickaOprema);
+            newDinamickaOprema.SetInventar(this);      
          }
       }
       
       /// <pdGenerated>default Remove</pdGenerated>
-      public void RemovePotrosnaOprema(PotrosnaOprema oldPotrosnaOprema)
+      public void RemoveDinamickaOprema(DinamickaOprema oldDinamickaOprema)
       {
-         if (oldPotrosnaOprema == null)
+         if (oldDinamickaOprema == null)
             return;
-         if (this.potrosnaOprema != null)
-            if (this.potrosnaOprema.Contains(oldPotrosnaOprema))
+         if (this.dinamickaOprema != null)
+            if (this.dinamickaOprema.Contains(oldDinamickaOprema))
             {
-               this.potrosnaOprema.Remove(oldPotrosnaOprema);
-               oldPotrosnaOprema.SetInventar((Inventar)null);
+               this.dinamickaOprema.Remove(oldDinamickaOprema);
+               oldDinamickaOprema.SetInventar((Inventar)null);
             }
       }
       
       /// <pdGenerated>default removeAll</pdGenerated>
-      public void RemoveAllPotrosnaOprema()
+      public void RemoveAllDinamickaOprema()
       {
-         if (potrosnaOprema != null)
+         if (dinamickaOprema != null)
          {
-            System.Collections.ArrayList tmpPotrosnaOprema = new System.Collections.ArrayList();
-            foreach (PotrosnaOprema oldPotrosnaOprema in potrosnaOprema)
-               tmpPotrosnaOprema.Add(oldPotrosnaOprema);
-            potrosnaOprema.Clear();
-            foreach (PotrosnaOprema oldPotrosnaOprema in tmpPotrosnaOprema)
-               oldPotrosnaOprema.SetInventar((Inventar)null);
-            tmpPotrosnaOprema.Clear();
+            System.Collections.ArrayList tmpDinamickaOprema = new System.Collections.ArrayList();
+            foreach (DinamickaOprema oldDinamickaOprema in dinamickaOprema)
+               tmpDinamickaOprema.Add(oldDinamickaOprema);
+            dinamickaOprema.Clear();
+            foreach (DinamickaOprema oldDinamickaOprema in tmpDinamickaOprema)
+               oldDinamickaOprema.SetInventar((Inventar)null);
+            tmpDinamickaOprema.Clear();
          }
       }
       public System.Collections.ArrayList statickaOprema;
@@ -140,12 +129,11 @@ namespace Model
          }
       }
    
-
+      private int IdProstorije;
       
       private System.Collections.ArrayList lekovi;
-
-
-        /// <pdGenerated>default getter</pdGenerated>
+      
+      /// <pdGenerated>default getter</pdGenerated>
       public System.Collections.ArrayList GetLekovi()
       {
          if (lekovi == null)

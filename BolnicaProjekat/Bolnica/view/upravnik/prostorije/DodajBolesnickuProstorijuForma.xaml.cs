@@ -36,7 +36,7 @@ namespace Bolnica.view.upravnik.prostorije
             inputPovrsina.Text = Convert.ToString(editBolesnickaSoba.Povrsina);
             inputBrKreveta.Text = Convert.ToString(editBolesnickaSoba.BrojKreveta);
             inputBrSlobKreveta.Text = Convert.ToString(editBolesnickaSoba.BrojSlobodnihKreveta);
-            inputIDInventara.Text = Convert.ToString(editBolesnickaSoba.Inventar.IdInventara);
+            //inputIDInventara.Text = Convert.ToString(editBolesnickaSoba.Inventar.IdInventara);
         }
 
         private void close_win(object sender, RoutedEventArgs e)
@@ -51,15 +51,15 @@ namespace Bolnica.view.upravnik.prostorije
             if (editBolesnickaSoba == null)
             {
                 // pravimo novu
-                Model.BolesnickaSoba novaBolesnickaSoba = new Model.BolesnickaSoba(
-                                    Convert.ToInt32(inputBrKreveta.Text),
-                                    Convert.ToInt32(inputBrSlobKreveta.Text),
-                                    Convert.ToInt32(inputIDprostorije.Text),
-                                    Convert.ToInt32(inputSprat.Text),
-                                    Convert.ToDouble(inputPovrsina.Text),
-                                    Convert.ToInt32(inputIDInventara.Text));
+              //  Model.BolesnickaSoba novaBolesnickaSoba = new Model.BolesnickaSoba(
+            //                        Convert.ToInt32(inputBrKreveta.Text),
+            //                        Convert.ToInt32(inputBrSlobKreveta.Text),
+            //                        Convert.ToInt32(inputIDprostorije.Text),
+            //                        Convert.ToInt32(inputSprat.Text),
+            //                        Convert.ToDouble(inputPovrsina.Text),
+            //                        Convert.ToInt32(inputIDInventara.Text));
 
-                Model.Bolnica.GetInstance.AddBolesnickeSobe(novaBolesnickaSoba);
+              //  Model.Bolnica.GetInstance.AddBolesnickeSobe(novaBolesnickaSoba);
             }
             else
             {
@@ -70,7 +70,7 @@ namespace Bolnica.view.upravnik.prostorije
                 editBolesnickaSoba.Povrsina = Convert.ToDouble(inputPovrsina.Text);
                 editBolesnickaSoba.BrojSlobodnihKreveta = Convert.ToInt32(inputBrSlobKreveta.Text);
                 editBolesnickaSoba.BrojKreveta = Convert.ToInt32(inputBrKreveta.Text);
-                editBolesnickaSoba.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
+              //  editBolesnickaSoba.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
             }
 
             this.Close();

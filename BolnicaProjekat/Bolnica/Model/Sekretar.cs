@@ -10,44 +10,11 @@ namespace Model
 {
    public class Sekretar : Osoblje
    {
+      public int Id { get; set; }
 
-        public Sekretar(RadnoVreme radnoVreme, RadniStatus radniStatus, string korisnickoIme, string sifra, string ime,
-            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
-            string jmbg, string drzavljanstvo, string adresaStanovanja) : base(radnoVreme, radniStatus, korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
-            adresaStanovanja)
+        public Sekretar(RadnoVreme radnoVreme, RadniStatus radniStatus,int id):base(radnoVreme,radniStatus)
         {
-
+            Id = id;
         }
-
-        public Sekretar()
-        {
-        }
-
-        public Pacijent RegistracijaNovogPacijenata()
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Pacijent RegistracijaGostPacijenta()
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public bool AzuriranjePacijenta()
-      {
-         // TODO: implement
-         return false;
-      }
-      
-      public bool BrisanjePacijenta(Pacijent pacijent)
-      {
-         // TODO: implement
-         return false;
-      }
-
-
-   
-   }
+    }
 }

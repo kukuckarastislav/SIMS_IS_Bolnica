@@ -20,36 +20,36 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class PrikazPregleda : Window
     {
-        public Pregled Pregled;
-        public PrikazPregleda(Pregled OdabraniPregled)
+        //public Pregled Pregled;
+        public PrikazPregleda()//Pregled OdabraniPregled
         {
 
             InitializeComponent();
 
-            Pregled = OdabraniPregled;
+            //Pregled = OdabraniPregled;
 
             TimeSpan period = new TimeSpan(1,0,0,0);
 
-            if (Pregled.Termin.Pocetak.Subtract(DateTime.Now)< period )
-            {
-               dugmePomjeriPregled.IsEnabled = false;
-            }
+           // if (Pregled.Termin.Pocetak.Subtract(DateTime.Now)< period )
+            //{
+            //   dugmePomjeriPregled.IsEnabled = false;
+           // }
 
-            datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
-            pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
-            kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
+           // datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
+           // pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
+           // kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
 
 
-            idlekara.Text = Convert.ToString(Pregled.IdLekara.Ime)+" "+ Convert.ToString(Pregled.IdLekara.Prezime);
-            komentar.Text = Convert.ToString(Pregled.Komentar);
-            soba.Text = Convert.ToString(Pregled.SobaZaPregled.Id);
+          //  idlekara.Text = Convert.ToString(Pregled.IdLekara.Ime)+" "+ Convert.ToString(Pregled.IdLekara.Prezime);
+          //  komentar.Text = Convert.ToString(Pregled.Komentar);
+          //  soba.Text = Convert.ToString(Pregled.SobaZaPregled.Id);
 
         }
 
         private void izmjena_pregleda(object sender, RoutedEventArgs e)
         {
            this. Close();
-           Pregled.Komentar = komentar.Text;
+          // Pregled.Komentar = komentar.Text;
 
         }
 

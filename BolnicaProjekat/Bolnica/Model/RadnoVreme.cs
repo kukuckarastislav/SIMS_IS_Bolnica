@@ -10,30 +10,14 @@ namespace Model
 {
    public class RadnoVreme
    {
-        /*
-        private DateTime PocetakRadnogVremena;
-        private DateTime KrajRadnogVremena;
+      public int PocetakRadnogVremena { get; set; }
+        public int KrajRadnogVremena { get; set; }
 
-        public RadnoVreme(DateTime pocetakRadnogVremena, DateTime krajRadnogVremena)
+
+        public RadnoVreme(int pocetak, int kraj)
         {
-            PocetakRadnogVremena = pocetakRadnogVremena;
-            KrajRadnogVremena = krajRadnogVremena;
-        }
-        */
-
-        private double PocetakRadnogVremena;
-        private double KrajRadnogVremena;
-
-
-
-        public RadnoVreme(double pocetakRadnogVremena, double krajRadnogVremena)
-        {
-            PocetakRadnogVremena = pocetakRadnogVremena;
-            KrajRadnogVremena = krajRadnogVremena;
-        }
-
-        public RadnoVreme()
-        {
+            PocetakRadnogVremena = pocetak;
+            KrajRadnogVremena = kraj;
         }
     }
 }

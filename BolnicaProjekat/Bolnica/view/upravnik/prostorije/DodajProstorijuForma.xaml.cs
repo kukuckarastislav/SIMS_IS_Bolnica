@@ -34,7 +34,7 @@ namespace Bolnica.view.upravnik.prostorije
             inputIDprostorije.Text = Convert.ToString(editProstorija.Id);
             inputSprat.Text = Convert.ToString(editProstorija.Sprat);
             inputPovrsina.Text = Convert.ToString(editProstorija.Povrsina);
-            inputIDInventara.Text = Convert.ToString(editProstorija.Inventar.IdInventara);
+           // inputIDInventara.Text = Convert.ToString(editProstorija.Inventar.IdInventara);
         }
 
         private void close_win(object sender, RoutedEventArgs e)
@@ -49,13 +49,13 @@ namespace Bolnica.view.upravnik.prostorije
             if(editProstorija == null) 
             {
                 // pravimo novu
-                Model.Prostorija novaProstorija = new Model.Prostorija(
-                                    Convert.ToInt32(inputIDprostorije.Text),
-                                    Convert.ToInt32(inputSprat.Text),
-                                    Convert.ToDouble(inputPovrsina.Text),
-                                    Convert.ToInt32(inputIDInventara.Text));
+              //  Model.Prostorija novaProstorija = new Model.Prostorija(
+              //                      Convert.ToInt32(inputIDprostorije.Text),
+             //                       Convert.ToInt32(inputSprat.Text),
+             //                       Convert.ToDouble(inputPovrsina.Text),
+             //                       Convert.ToInt32(inputIDInventara.Text));
 
-                Model.Bolnica.GetInstance.AddProstorije(novaProstorija);
+             //   Model.Bolnica.GetInstance.AddProstorije(novaProstorija);
             }
             else
             {
@@ -64,7 +64,7 @@ namespace Bolnica.view.upravnik.prostorije
                 editProstorija.Id = Convert.ToInt32(inputIDprostorije.Text);
                 editProstorija.Sprat = Convert.ToInt32(inputSprat.Text);
                 editProstorija.Povrsina = Convert.ToDouble(inputPovrsina.Text);
-                editProstorija.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
+               // editProstorija.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
             }
             
             this.Close();

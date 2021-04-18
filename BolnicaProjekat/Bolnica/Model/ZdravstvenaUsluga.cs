@@ -5,36 +5,49 @@
  ***********************************************************************/
 
 using System;
+using System.Text.Json.Serialization;
+using System.Collections;
 
 namespace Model
 {
-    public abstract class ZdravstvenaUsluga
-    {
-
-
-        public string NazivZdrastveneUstanove { get; set; }
-        public string LokacijaZdravsteveUstanove { get; set; }
-        public Model.Lekar IdLekara { get; set; }
-
-        public string ZakazivacUsluge { get; set; }
+   public class ZdravstvenaUsluga
+   {
+        [JsonInclude]
+        public Termin termin { get; set; }
+        [JsonInclude]
+        public int Id { get; set; }
+        [JsonInclude]
+        public int IdLekara { get; set; }
+        [JsonInclude]
+        public int IdPacijenta { get; set; }
+        [JsonInclude]
+        public TipUsluge TipUsluge { get; set; }
+        [JsonInclude]
+        public int IdProstorije { get; set; }
+        [JsonInclude]
         public bool Obavljena { get; set; }
+        [JsonInclude]
+        public string RazlogZakazivanja { get; set; }
+        [JsonInclude]
+        public string RezultatUsluge { get; set; }
 
-        public string IdUsluge { get; set; }
-        public string Komentar { get; set; } 
-
-        protected ZdravstvenaUsluga(string nazivZdrastveneUstanove, string lokacijaZdravsteveUstanove, Model.Lekar idLekara,string zakazivacUsluge, bool obavljena,string idUsluge, string komentar)
+        public ZdravstvenaUsluga(Termin termin, int id, int idLekara, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUsluge)
         {
-            NazivZdrastveneUstanove = nazivZdrastveneUstanove;
-            LokacijaZdravsteveUstanove = lokacijaZdravsteveUstanove;
+            this.termin = termin;
+            Id = id;
             IdLekara = idLekara;
-            ZakazivacUsluge = zakazivacUsluge;
+            IdPacijenta = idPacijenta;
+            TipUsluge = tipUsluge;
+            IdProstorije = idProstorije;
             Obavljena = obavljena;
-            idUsluge = idUsluge;
-            Komentar = komentar;
+            RazlogZakazivanja = razlogZakazivanja;
+            RezultatUsluge = rezultatUsluge;
         }
 
-        protected ZdravstvenaUsluga()
+        public ZdravstvenaUsluga(Termin termin, int id)
         {
+            this.termin = termin;
+            IdLekara = id;
         }
     }
 }

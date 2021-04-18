@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
+using System.Text.Json;
+using Model;
+using Repozitorijum;
 
 namespace Bolnica
 {
@@ -24,33 +27,19 @@ namespace Bolnica
     {
         public MainWindow()
         {
-            //Model.Bolnica bolnica = new Model.Bolnica("Zdravo bolnica","4", Model.Mesto.NoviSad);
-            InitializeComponent();
-            System.Collections.ArrayList a = Model.Bolnica.GetInstance.GetLekari();
-
-            XmlSerializer serializer = new XmlSerializer(typeof(Model.Bolnica));
-            StreamReader reader = new StreamReader("Serialization.xml");
-            Model.Bolnica bolnica = (Model.Bolnica)serializer.Deserialize(reader);
-            Model.Bolnica.GetInstance = bolnica;
-            //Model.Bolnica.GetInstance.SetPacijenti(bolnica.GetPacijenti());
-            reader.Close();
-
-          //  Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8.00, 14.00);
-           // Model.Lekar l = new Model.Lekar(1, true,Model.Odeljenje.OpstaHirurgija,radnoVreme, Model.RadniStatus.Aktivan,
-             // "laslouri99", "sifra123", "Laslo", "Uri", Model.Pol.Musko, "laslou@gmail.com", "066-666-666",
-            //  new DateTime(1999, 7, 16), "1111111", "Srpsko", "Novi Sad");
-          //  Model.Bolnica.GetInstance.AddLekari(l);
+            
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Model.Bolnica b = Model.Bolnica.GetInstance;
-            XmlSerializer xs = new XmlSerializer(typeof(Model.Bolnica));
+            //Termin termin = new Termin();
+            //ZdravstvenaUsluga test = new ZdravstvenaUsluga(termin, 1, 1,1, TipUsluge.Pregled, 1, false, "nebitan", "nebitan");
+            //ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(test);
+            //Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8, 14);
+            //Lekar l = new Lekar(radnoVreme, RadniStatus.Aktivan, 1, false, "", "LasloUri", "laci", "Laslo",
+            //"Uri", Pol.Musko, "laci@gmail.com", "0621010909",new DateTime(1999,10,10),
+            //"1234123412341", "madjarsko", "blizu hotela park");
+            //LekarRepozitorijum.GetInstance.DodajLekara(l);
 
-            TextWriter txtWriter = new StreamWriter("Serialization.xml");
-
-            xs.Serialize(txtWriter, b);
-
-            txtWriter.Close();
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)

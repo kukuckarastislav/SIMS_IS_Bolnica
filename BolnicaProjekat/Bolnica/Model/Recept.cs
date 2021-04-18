@@ -10,14 +10,13 @@ namespace Model
 {
    public class Recept
    {
-      private string IdLekara;
-      private string IdLeka;
-      private DateTime DatumPropisivanja;
-      private Boolean OslobodjenOdParticipacije;
-      private string OpisKoriscenja;
+      public int Id { get; set; }
+        public int IdLekara { get; set; }
+        public int IdLeka { get; set; }
+        public DateTime DatumPropisivanja { get; set; }
+        public DateTime DatumIsteka { get; set; }
+        public bool OslobodjenOdParticipacije { get; set; }
+        public string OpisKoriscenja { get; set; }
 
-        public Recept()
-        {
-        }
     }
 }

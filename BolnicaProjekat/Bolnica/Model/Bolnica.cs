@@ -4,35 +4,13 @@
  * Purpose: Definition of the Class Bolnica
  ***********************************************************************/
 
-using Bolnica.view.pacijent;
 using System;
-using Model;
 using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-//using System.Collections;
 
 namespace Model
 {
-    public sealed class Bolnica
-    {
-        private string NazivBolnice;
-        private string IdBolnice;
-        private Mesto MestoBolnice;
-        private Magacin Magacin;
-
-        public Bolnica()
-        {
-            
-        }
-
-        public ObservableCollection<Pregled> Pregledi { get; set; }
-        public ObservableCollection<Operacija> Operacije { get; set; }
-        public Pacijent KT2Pacijent { get; set; }
-        public Lekar KT2Lekar { get; set; }
-
-
-
+   public class Bolnica
+   {
         private static Bolnica instance = null;
         public static Bolnica GetInstance
         {
@@ -40,7 +18,7 @@ namespace Model
             {
                 if (instance == null)
                 {
-                    instance = new Bolnica("Zdravo Bolnica", "bolnica", Model.Mesto.NoviSad);
+                    instance = new Bolnica();
                 }
                 return instance;
             }
@@ -48,111 +26,23 @@ namespace Model
             {
                 instance = value;
             }
-            
-        }
-
-        private Bolnica(string naziv, string id, Mesto mesto)
-        {
-            NazivBolnice = naziv;
-            IdBolnice = id;
-            MestoBolnice = mesto;
-
-            Magacin = new Magacin(99);
-
-            /* OBRISI OVAJ DEO */
-            // int id, int sprat, double povrsina, int idInventara
-            Model.Prostorija p1 = new Model.Prostorija(10, 1, 10 * 10, 77);
-            Model.Prostorija p2 = new Model.Prostorija(11, 2, 10 * 10, 88);
-            Model.Prostorija p3 = new Model.Prostorija(20, 1, 10 * 10, 99);
-            Model.Prostorija p4 = new Model.Prostorija(30, 4, 15 * 10, 100);
-            System.Windows.MessageBox.Show("POZIV KONSTRUTKROA");
-            AddProstorije(p1);
-            AddProstorije(p2);
-            AddProstorije(p3);
-            AddProstorije(p4);
-            
-
-
-            Model.OperacionaSala op1 = new Model.OperacionaSala(100, 1, 230, 997);
-            Model.OperacionaSala op2 = new Model.OperacionaSala(104, 1, 430, 998);
-            Model.OperacionaSala op3 = new Model.OperacionaSala(125, 1, 520, 999);
-            AddOperacioneSale(op1);
-            AddOperacioneSale(op2);
-            AddOperacioneSale(op3);
-
-
-            Model.SobaZaPreglede sp1 = new Model.SobaZaPreglede(200, 2, 1130, 1997);
-            Model.SobaZaPreglede sp2 = new Model.SobaZaPreglede(205, 2, 1430, 1998);
-            Model.SobaZaPreglede sp3 = new Model.SobaZaPreglede(235, 2, 1520, 1999);
-            AddSobeZaPreglede(sp1);
-            AddSobeZaPreglede(sp2);
-            AddSobeZaPreglede(sp3);
-
-            // broj kreveta i broj slobodnih kreveta
-            Model.BolesnickaSoba bs1 = new Model.BolesnickaSoba(4, 2, 302, 3, 2130, 2997);
-            Model.BolesnickaSoba bs2 = new Model.BolesnickaSoba(2, 2, 321, 3, 2430, 2998);
-            AddBolesnickeSobe(bs1);
-            AddBolesnickeSobe(bs2);
-
-            this.Pregledi = new ObservableCollection<Pregled>();
-
-            KT2Pacijent = new Pacijent("pac001", false, false, false, "korisnickoIme", "sifra", "Milica", "Vucinic", Pol.Zensko, " email", " telefon", new DateTime(2020, 1, 1), "jmbg", "drzavljanstvo",
-                "adresaStanovanja");
-            AddPacijenti(KT2Pacijent);
-
-
-            this.Pregledi = new ObservableCollection<Pregled>();
-
-            Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8.00, 14.00);
-            KT2Lekar = new Lekar(1, true, Odeljenje.OpstaHirurgija, radnoVreme, RadniStatus.Aktivan,
-                        "laslouri99", "sifra123", "Laslo", "Uri", Pol.Musko, "laslou@gmail.com", "066-666-666",
-                        new DateTime(1999, 7, 16), "1111111", "Srpsko", "Novi Sad");
-            
-            /*
-            public Pregled(Termin termin, string tipPregleda, string rezultatPregleda, string nazivZdrastveneUstanove, 
-            string lokacijaZdravsteveUstanove, string idLekara, string zakazivacUsluge, bool obavljena, string id, string komentar)
-            : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, id, komentar)
-           
-            
-
-            public Operacija(Termin termin, string tipOperacije, string rezultatOperacije, string nazivZdrastveneUstanove, 
-                string lokacijaZdravsteveUstanove, Model.Lekar idLekara, string zakazivacUsluge, bool obavljena, string id, 
-                string komentar, OperacionaSala operacionaSala)
-            : base(nazivZdrastveneUstanove, lokacijaZdravsteveUstanove, idLekara, zakazivacUsluge, obavljena, id, komentar)
-            */
-            Model.Operacija o1 = new Operacija(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-O-1", "Rez-O-1", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "erdf", "no comment", op1);
-            Model.Operacija o2 = new Operacija(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 4, 1, 8, 00, 00)), "Tip-O-2", "Rez-O-2", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "sdf", "no comment", op2);
-            Model.Operacija o3 = new Operacija(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 4, 2, 8, 00, 00)), "Tip-O-3", "Rez-O-3", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "rty", "no comment", op3);
-            Model.Operacija o4 = new Operacija(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 4, 3, 8, 00, 00)), "Tip-O-4", "Rez-O-4", "Zdravo Bolnica", "Novi Sad", this.getLekarByI(1), null, false, "fh", "no comment", op2);
-
-            KT2Pacijent.MedicinskiKarton.AddOperacija(o1);
-            KT2Pacijent.MedicinskiKarton.AddOperacija(o2);
-            KT2Pacijent.MedicinskiKarton.AddOperacija(o3);
-            KT2Pacijent.MedicinskiKarton.AddOperacija(o4);
-
-           
-
-
-
-            Model.Pregled p11 = new Pregled(new Termin(new DateTime(2021, 3, 31, 7, 30, 00), new DateTime(2021, 3, 31, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "cfv", "no comment", sp1);
-            Model.Pregled p22 = new Pregled(new Termin(new DateTime(2021, 4, 1, 7, 30, 00), new DateTime(2021, 3, 4, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "gg", "no comment", sp2);
-            Model.Pregled p33 = new Pregled(new Termin(new DateTime(2021, 4, 2, 7, 30, 00), new DateTime(2021, 3, 5, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "g", "no comment", sp2);
-            Model.Pregled p44 = new Pregled(new Termin(new DateTime(2021, 4, 3, 7, 30, 00), new DateTime(2021, 3, 6, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "yy", "no comment", sp3);
-            Model.Pregled p55 = new Pregled(new Termin(new DateTime(2021, 4, 4, 7, 30, 00), new DateTime(2021, 3, 7, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "uu", "no comment", sp3);
-            Model.Pregled p66 = new Pregled(new Termin(new DateTime(2021, 4, 5, 7, 30, 00), new DateTime(2021, 3, 8, 8, 00, 00)), "Tip-1", "...", this.getLekarByI(1), "egjf", false, "yy", "no comment", sp3);
-            
-            Pregledi.Add(p11);
-            Pregledi.Add(p22);
-            Pregledi.Add(p33);
-            Pregledi.Add(p44);
-            Pregledi.Add(p55);
-
-
-            KT2Pacijent.MedicinskiKarton.AddPregled(p66);
 
         }
 
+        public Bolnica()
+        { }
 
+        public int Id { get; set; }
+        public string MestoBolnice { get; set; }
+        public string NazivBolnice { get; set; }
+        // public ArrayList Lekari { get; set; }
+        // public ArrayList Upravnici { get; set; }
+        //  public ArrayList Sekretari { get; set; }
+        //  public ArrayList Pacijenti { get; set; }
+        // public ArrayList Prostorije { get; set; }
+        // public ArrayList OperacioneSale { get; set; }
+        // public ArrayList BolesnickeSobe { get; set; }
+        //  public ArrayList SobeZaPregled { get; set; }
         public System.Collections.ObjectModel.ObservableCollection<Model.Pacijent> pacijenti;
 
         /// <pdGenerated>default getter</pdGenerated>
@@ -211,7 +101,6 @@ namespace Model
                     {
                         p.Ime = oldPacijent.Ime;
                         p.Prezime = oldPacijent.Prezime;
-                        p.IdPacijenta = oldPacijent.IdPacijenta;
                         p.KorisnickoIme = oldPacijent.KorisnickoIme;
                         p.Sifra = oldPacijent.Sifra;
                         p.Telefon = oldPacijent.Telefon;
@@ -230,14 +119,14 @@ namespace Model
 
         public Pacijent GetPacijent(string jmbg)
         {
-           
+
             if (this.pacijenti != null)
             {
                 foreach (Pacijent p in pacijenti)
                 {
                     if (p.Jmbg.Equals(jmbg))
                     {
-                        
+
                         return p;
                     }
                 }
@@ -253,7 +142,7 @@ namespace Model
             {
                 foreach (SobaZaPreglede s in sobeZaPreglede)
                 {
-                    if (s.Id==id)
+                    if (s.Id == id)
                     {
 
                         return s;
@@ -270,7 +159,7 @@ namespace Model
             {
                 foreach (Lekar s in lekari)
                 {
-                    if (s.IdLekara == id)
+                    if (s.Id== id)
                     {
                         return s;
                     }
@@ -423,7 +312,7 @@ namespace Model
                 lekari.Clear();
         }
         public System.Collections.ObjectModel.ObservableCollection<Model.Prostorija> prostorije;
-        
+
         public int GetBrojProstorija()
         {
             if (prostorije == null)
@@ -498,7 +387,7 @@ namespace Model
             }
             foreach (Prostorija pro in prostorije)
             {
-                if(pro.Id == idProstorije)
+                if (pro.Id == idProstorije)
                 {
                     System.Windows.MessageBox.Show("YESSSS");
                     this.prostorije.Remove(pro);
@@ -563,7 +452,7 @@ namespace Model
             if (bolesnickeSobe != null)
                 bolesnickeSobe.Clear();
         }
-        
+
         public System.Collections.ObjectModel.ObservableCollection<Model.SobaZaPreglede> sobeZaPreglede;
 
         /// <pdGenerated>default getter</pdGenerated>
@@ -609,7 +498,7 @@ namespace Model
             if (sobeZaPreglede != null)
                 sobeZaPreglede.Clear();
         }
-        
+
         public System.Collections.ObjectModel.ObservableCollection<Model.OperacionaSala> operacioneSale;
 
 
@@ -656,12 +545,6 @@ namespace Model
             if (operacioneSale != null)
                 operacioneSale.Clear();
         }
-
-
-
-
-
-
 
 
 

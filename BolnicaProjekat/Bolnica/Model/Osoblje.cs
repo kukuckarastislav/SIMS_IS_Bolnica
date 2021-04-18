@@ -10,21 +10,25 @@ namespace Model
 {
    public abstract class Osoblje : Korisnik
    {
-        public RadnoVreme radnoVreme;
-        private RadniStatus radniStatus;
+      public RadnoVreme radnoVreme { get; set; }
 
-        public Osoblje(RadnoVreme radnoVreme, RadniStatus radniStatus, string korisnickoIme, string sifra, string ime,
+        public RadniStatus RadniStatus { get; set; }
+
+        protected Osoblje(RadnoVreme radnoVreme, RadniStatus radniStatus)
+        {
+            this.radnoVreme = radnoVreme;
+            RadniStatus = radniStatus;
+        }
+
+        protected Osoblje(string korisnickoIme, string sifra, string ime,
             string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
-            string jmbg, string drzavljanstvo, string adresaStanovanja) : 
-            base(korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo, 
+            string jmbg, string drzavljanstvo, string adresaStanovanja, RadnoVreme radnoVreme, RadniStatus radniStatus) : base(korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
                 adresaStanovanja)
         {
             this.radnoVreme = radnoVreme;
-            this.radniStatus = radniStatus;
+            RadniStatus = radniStatus;
         }
 
-        protected Osoblje()
-        {
-        }
+
     }
 }

@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Servis;
 
 namespace Bolnica.view.pacijent
 {
@@ -22,21 +23,21 @@ namespace Bolnica.view.pacijent
     public partial class RaspoloziviPregledi : Window
     {
 
-       // public ObservableCollection<Model.Pregled> Pregledi { get; set; }
-       // public Pregled odabraniPregled;
+         public List<Model.ZdravstvenaUsluga> Pregledi { get; set; }
+         public ZdravstvenaUsluga odabraniPregled;
+
         public List<Lekar> listaLekari { get; set; }
 
         public RaspoloziviPregledi()
         {
             InitializeComponent();
-           // Pregledi = Model.Bolnica.GetInstance.Pregledi;
-           // this.listaPregleda.
-            //    ItemsSource = Pregledi;
+            Pregledi = TerminiServis.getFirstAvailableAppointments();
+             this.listaPregleda.ItemsSource = Pregledi;
 
 
 
-          //  listaLekari = new List<Lekar>();
-           // listaLekari.Add(Model.Bolnica.GetInstance.getLekarByI(1));  //ovo naravno treba biti lista svih lekara
+            //  listaLekari = new List<Lekar>();
+            // listaLekari.Add(Model.Bolnica.GetInstance.getLekarByI(1));  //ovo naravno treba biti lista svih lekara
             this.ComboBoxLekari.ItemsSource = listaLekari;
         }
 
@@ -54,8 +55,9 @@ namespace Bolnica.view.pacijent
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            DateTime date = datum.SelectedDate.Value;
             /*
+            DateTime date = datum.SelectedDate.Value;
+            
             int pocetakSati = Convert.ToInt32(vrijeme_pocetak_sati.SelectedItem.ToString());
             int pocetakMinute = Convert.ToInt32(vrijeme_pocetak_minute.SelectedItem.ToString());
             string pocetakAP = vrijeme_pocetak_ap.SelectedItem.ToString();
@@ -69,11 +71,12 @@ namespace Bolnica.view.pacijent
                 pocetakSati += 12;
             }
             */
+            
 
            // DateTime poc = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute,00);
-            DateTime poc = new DateTime(date.Year, date.Month, date.Day);
+           // DateTime poc = new DateTime(date.Year, date.Month, date.Day);
 
-            MessageBox.Show(poc.ToString());
+           // MessageBox.Show(poc.ToString());
 
 
             //DateTime dtpocetak = DateTime.Parse();

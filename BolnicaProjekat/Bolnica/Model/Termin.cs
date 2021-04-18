@@ -13,5 +13,14 @@ namespace Model
       public DateTime Pocetak { get; set; }
         public DateTime Kraj { get; set; }
 
+        public Termin(DateTime pocetak, DateTime kraj)
+        {
+            Pocetak = pocetak;
+            Kraj = kraj;
+        }
+
+        public Termin()
+        {
+        }
     }
 }

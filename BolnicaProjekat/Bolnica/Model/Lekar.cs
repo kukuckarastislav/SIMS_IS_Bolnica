@@ -5,6 +5,7 @@
  ***********************************************************************/
 
 using System;
+using System.Text.Json.Serialization;
 
 namespace Model
 {
@@ -13,6 +14,21 @@ namespace Model
       public int Id { get; set; }
         public Boolean Specijalista { get; set; }
         public string Specijalizacija { get; set; }
+
+        
+        public Lekar(RadnoVreme radnoVreme, RadniStatus radniStatus, int id, bool specijalista, string specijalizacija, string korisnickoIme, string sifra, string ime,
+            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
+            string jmbg, string drzavljanstvo, string adresaStanovanja) : base(korisnickoIme,sifra,ime,
+            prezime,pol,email,telefon, datumRodjenja,
+           jmbg,drzavljanstvo,adresaStanovanja,radnoVreme,radniStatus)
+        {
+            Id = id;
+            Specijalista = specijalista;
+            Specijalizacija = specijalizacija;
+        }
+        
+
+
 
     }
 }

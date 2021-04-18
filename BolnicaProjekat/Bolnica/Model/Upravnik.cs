@@ -12,5 +12,10 @@ namespace Model
    {
       public int Id { get; set; }
 
+        public Upravnik(RadnoVreme radnoVreme, RadniStatus radniStatus, int id) : base(radnoVreme, radniStatus)
+        {
+            Id = id;
+        }
+
     }
 }

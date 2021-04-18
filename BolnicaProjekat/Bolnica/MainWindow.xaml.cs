@@ -45,7 +45,7 @@ namespace Bolnica
                 WriteIndented = true,
             };
             string jsonString = JsonSerializer.Serialize(b.GetPacijenti(), formatiranje);
-            File.WriteAllText("../../Data/sve.txt", jsonString);
+            //File.WriteAllText("../../Data/sve.txt", jsonString);
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)

@@ -31,7 +31,7 @@ namespace Bolnica.view.pacijent
         public RaspoloziviPregledi()
         {
             InitializeComponent();
-            Pregledi = TerminiServis.getFirstAvailableAppointments();
+            Pregledi = ZdravstvenaUslugaServis.getFirstAvailableAppointments();
              this.listaPregleda.ItemsSource = Pregledi;
 
 

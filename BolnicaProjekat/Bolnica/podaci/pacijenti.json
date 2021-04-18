@@ -36,5 +36,29 @@
     "Jmbg": "12312321",
     "Drzavljanstvo": "asda",
     "AdresaStanovanja": "aasdasd"
+  },
+  {
+    "MedicinskiKarton": {
+      "IdPacijent": 3,
+      "Osiguran": true,
+      "ZdravstvenaUsluga": null,
+      "Terapija": null
+    },
+    "Ocene": null,
+    "Id": 3,
+    "PacijentGost": false,
+    "Hospitalizovan": false,
+    "SpamUser": false,
+    "KorisnickoIme": "MilicaVucinic",
+    "Sifra": "milica123",
+    "Ime": "Milica",
+    "Prezime": "Vucinic",
+    "Pol": 1,
+    "Email": "milicavucinic@gmail.com",
+    "Telefon": "0634235129",
+    "DatumRodjenja": "1999-10-10T00:00:00",
+    "Jmbg": "6534826321312",
+    "Drzavljanstvo": "srpsko",
+    "AdresaStanovanja": "dom a"
   }
 ]

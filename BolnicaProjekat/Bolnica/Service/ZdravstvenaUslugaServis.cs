@@ -11,12 +11,12 @@ using Repozitorijum;
 
 namespace Servis
 {
-   public class TerminiServis
-   {
+   public class ZdravstvenaUslugaServis
+    {
       public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
       public Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
       public Repozitorijum.ProstorijeRepozitorijum prostorijeRepozitorijum;
-      public Repozitorijum.TerminiRepozitorijum terminiRepozitorijum;
+      public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
 
             
         public List<ZdravstvenaUsluga> getAvailableAppointments(Lekar OdabraniLekar,DateTime pocetak,DateTime kraj,int prioritet)

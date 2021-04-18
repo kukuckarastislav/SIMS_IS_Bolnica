@@ -10,8 +10,14 @@ namespace Model
 {
    public class RadnoVreme
    {
-      public DateTime PocetakRadnogVremena { get; set; }
-        public DateTime KrajRadnogVremena { get; set; }
+      public int PocetakRadnogVremena { get; set; }
+        public int KrajRadnogVremena { get; set; }
 
+
+        public RadnoVreme(int pocetak, int kraj)
+        {
+            PocetakRadnogVremena = pocetak;
+            KrajRadnogVremena = kraj;
+        }
     }
 }

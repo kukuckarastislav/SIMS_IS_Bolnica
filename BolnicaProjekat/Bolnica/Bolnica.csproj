@@ -122,7 +122,7 @@
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
-    <Compile Include="Repository\TerminiRepozitorijum.cs" />
+    <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
     <Compile Include="Repository\UpravnikRepozitorijum.cs" />
     <Compile Include="Service\LekarServis.cs" />
     <Compile Include="Service\NotifikacijeServis.cs" />
@@ -130,7 +130,7 @@
     <Compile Include="Service\ProstorijeServis.cs" />
     <Compile Include="Service\ReceptiServis.cs" />
     <Compile Include="Service\SekretarServis.cs" />
-    <Compile Include="Service\TerminiServis.cs" />
+    <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>

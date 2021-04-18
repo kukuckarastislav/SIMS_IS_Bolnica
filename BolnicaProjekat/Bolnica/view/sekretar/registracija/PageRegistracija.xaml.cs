@@ -48,7 +48,7 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-                Model.Pacijent noviPacijent = new Model.Pacijent(null,null,Convert.ToInt32(inputId.Text), false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
+                Model.Pacijent noviPacijent = new Model.Pacijent(new MedicinskiKarton(),null,Convert.ToInt32(inputId.Text), false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
                 inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, Convert.ToDateTime(inputDatum.Text),
                 inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
 

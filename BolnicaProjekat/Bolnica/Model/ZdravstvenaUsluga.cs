@@ -12,11 +12,14 @@ namespace Model
 {
    public class ZdravstvenaUsluga
    {
-      public Termin termin;
+        [JsonInclude]
+        public Termin termin { get; set; }
         [JsonInclude]
         public int Id { get; set; }
         [JsonInclude]
         public int IdLekara { get; set; }
+        [JsonInclude]
+        public int IdPacijenta { get; set; }
         [JsonInclude]
         public TipUsluge TipUsluge { get; set; }
         [JsonInclude]
@@ -28,11 +31,12 @@ namespace Model
         [JsonInclude]
         public string RezultatUsluge { get; set; }
 
-        public ZdravstvenaUsluga(Termin termin, int id, int idLekara, TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUsluge)
+        public ZdravstvenaUsluga(Termin termin, int id, int idLekara, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUsluge)
         {
             this.termin = termin;
             Id = id;
             IdLekara = idLekara;
+            IdPacijenta = idPacijenta;
             TipUsluge = tipUsluge;
             IdProstorije = idProstorije;
             Obavljena = obavljena;

@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
 using System.Text.Json;
+using Model;
+using Repozitorijum;
 
 namespace Bolnica
 {
@@ -25,27 +27,19 @@ namespace Bolnica
     {
         public MainWindow()
         {
-            InitializeComponent();
-            System.Collections.ArrayList a = Model.Bolnica.GetInstance.GetLekari();
-            try
-            {
-                System.Collections.ObjectModel.ObservableCollection < Model.Pacijent >p = JsonSerializer.Deserialize<System.Collections.ObjectModel.ObservableCollection<Model.Pacijent>>(File.ReadAllText("../../Data/sve.txt"));
-                Model.Bolnica.GetInstance.SetPacijenti(p);
-            }catch(Exception e)
-            {
-                MessageBox.Show("greska");
-            }
+            
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Model.Bolnica b = Model.Bolnica.GetInstance;
-  
-            var formatiranje = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-            };
-            string jsonString = JsonSerializer.Serialize(b.GetPacijenti(), formatiranje);
-            //File.WriteAllText("../../Data/sve.txt", jsonString);
+            //Termin termin = new Termin();
+            //ZdravstvenaUsluga test = new ZdravstvenaUsluga(termin, 1, 1,1, TipUsluge.Pregled, 1, false, "nebitan", "nebitan");
+            //ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(test);
+            //Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8, 14);
+            //Lekar l = new Lekar(radnoVreme, RadniStatus.Aktivan, 1, false, "", "LasloUri", "laci", "Laslo",
+            //"Uri", Pol.Musko, "laci@gmail.com", "0621010909",new DateTime(1999,10,10),
+            //"1234123412341", "madjarsko", "blizu hotela park");
+            //LekarRepozitorijum.GetInstance.DodajLekara(l);
+
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)

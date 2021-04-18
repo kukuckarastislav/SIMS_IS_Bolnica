@@ -37,21 +37,22 @@ namespace Repozitorijum
 
         public LekarRepozitorijum()
         {
-            loadData();
+            //loadData();
+            Lekari = new ObservableCollection<Model.Lekar>();
         }
 
-        public ObservableCollection<Model.Lekar> lekari;
+        public ObservableCollection<Model.Lekar> Lekari { get; set; }
 
 
         private void loadData()
         {
             try
             {
-                if (lekari == null)
+                if (Lekari == null)
                 {
 
                     ObservableCollection<Model.Lekar> p = JsonSerializer.Deserialize<ObservableCollection<Model.Lekar>>(File.ReadAllText("../../podaci/" + imeFajla));
-                    lekari = p;
+                    Lekari = p;
                 }
             }
             catch (Exception e)
@@ -66,21 +67,23 @@ namespace Repozitorijum
             {
                 WriteIndented = true,
             };
-            string json = JsonSerializer.Serialize(lekari, format);
+            string json = JsonSerializer.Serialize(Lekari, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
 
 
+        public Model.Lekar DodajLekara(Lekar lekar)
+        {
+            //loadData();
 
+            if (!this.Lekari.Contains(lekar))
+                this.Lekari.Add(lekar);
 
+            SaveData();
+            return lekar;
+        }
 
-        public Lekar DodajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.Lekar AzurirajLekara(Model.Lekar lekar)
+        public Model.Lekar AzurirajLekara(Model.Lekar lekar)
       {
          // TODO: implement
          return null;

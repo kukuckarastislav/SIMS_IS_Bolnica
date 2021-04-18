@@ -7,15 +7,18 @@
 using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Collections;
 namespace Model
 {
    public class MedicinskiKarton
    {
 
-        public MedicinskiKarton(int idPacijenta, bool osiguran)
+        public MedicinskiKarton(int idPacijenta, bool osiguran, ArrayList zdravstvenaUsluga, Terapija terapija)
         {
             IdPacijent = idPacijenta;
             Osiguran = osiguran;
+            ZdravstvenaUsluga = zdravstvenaUsluga;
+            Terapija = terapija;
 
         }
 
@@ -27,11 +30,15 @@ namespace Model
         public int IdPacijent { get; set; }
         [JsonInclude]
         public bool Osiguran { get; set; }
+        [JsonInclude]
+        public ArrayList ZdravstvenaUsluga { get; set; }
+        [JsonInclude]
+        public Terapija Terapija { get; set; }
 
-        public System.Collections.ArrayList zdravstvenaUsluga;
-      
-      /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetZdravstvenaUsluga()
+
+        /*
+        /// <pdGenerated>default getter</pdGenerated>
+        public System.Collections.ArrayList GetZdravstvenaUsluga()
       {
          if (zdravstvenaUsluga == null)
             zdravstvenaUsluga = new System.Collections.ArrayList();
@@ -73,17 +80,17 @@ namespace Model
          if (zdravstvenaUsluga != null)
             zdravstvenaUsluga.Clear();
       }
-      public Pacijent pacijent;
-      public System.Collections.ArrayList terapija;
       
-      /// <pdGenerated>default getter</pdGenerated>
-      public System.Collections.ArrayList GetTerapija()
-      {
-         if (terapija == null)
-            terapija = new System.Collections.ArrayList();
-         return terapija;
-      }
       
+
+        /// <pdGenerated>default getter</pdGenerated>
+       // public System.Collections.ArrayList GetTerapija()
+    //  {
+       //  if (terapija == null)
+        //    terapija = new System.Collections.ArrayList();
+      //   return terapija;
+    //  }
+      /*
       /// <pdGenerated>default setter</pdGenerated>
       public void SetTerapija(System.Collections.ArrayList newTerapija)
       {
@@ -120,6 +127,6 @@ namespace Model
             terapija.Clear();
       }
         
-
+    */
     }
 }

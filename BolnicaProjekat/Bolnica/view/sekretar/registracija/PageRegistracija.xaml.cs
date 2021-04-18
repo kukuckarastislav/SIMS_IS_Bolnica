@@ -48,7 +48,8 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-                Model.Pacijent noviPacijent = new Model.Pacijent(new MedicinskiKarton(),null,Convert.ToInt32(inputId.Text), false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
+                int newId = 1;//PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
+                Model.Pacijent noviPacijent = new Model.Pacijent(new MedicinskiKarton(),null, newId, false, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
                 inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, Convert.ToDateTime(inputDatum.Text),
                 inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
 
@@ -74,11 +75,14 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-               // Model.Pacijent noviPacijent = new Model.Pacijent(inputJmbg.Text, false, false, false, inputJmbg.Text, inputJmbg.Text, inputIme.Text,
-                //inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, new DateTime(),
-                //inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
+               
+                int newId = PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
+                Model.Pacijent noviPacijent = new Model.Pacijent(new MedicinskiKarton(), null, newId, true, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
+                inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, new DateTime(),
+                inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
 
-                //Model.Bolnica.GetInstance.AddPacijenti(noviPacijent);
+                PacijentRepozitorijum.GetInstance.DodajPacijenta(noviPacijent);
+
                 MessageBox.Show("Pacijent je uspesno dodat.");
             }
             catch (Exception ee)
@@ -91,7 +95,6 @@ namespace Bolnica.view.sekretar.registracija
         {
             inputIme.Clear();
             inputPrezime.Clear();
-            inputId.Clear();
             inputKorisnickoIme.Clear();
             inputSifra.Clear();
             inputTelefon.Clear();

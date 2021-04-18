@@ -50,5 +50,15 @@ namespace Bolnica.view.sekretar
             
         }
 
+        private void ObrisiPacijenta_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            if (pacijent == null) return;
+
+            PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
+            MessageBox.Show("Pacijent je uspesno obrisan.");
+        }
+        
+
     }
 }

@@ -25,6 +25,8 @@ namespace Bolnica.view.pacijent
 
          public List<Model.ZdravstvenaUsluga> Pregledi { get; set; }
          public ZdravstvenaUsluga odabraniPregled;
+        public DateTime date;
+        public  Lekar OdabraniLekar;
 
         public List<Lekar> listaLekari { get; set; }
 
@@ -34,53 +36,55 @@ namespace Bolnica.view.pacijent
             Pregledi = ZdravstvenaUslugaServis.getFirstAvailableAppointments();
              this.listaPregleda.ItemsSource = Pregledi;
 
-
-
-            //  listaLekari = new List<Lekar>();
-            // listaLekari.Add(Model.Bolnica.GetInstance.getLekarByI(1));  //ovo naravno treba biti lista svih lekara
+            date = DateTime.Now;
+            listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAll();
             this.ComboBoxLekari.ItemsSource = listaLekari;
         }
 
         private void zakazi_pregled(object sender, MouseButtonEventArgs e)
         {
-            //odabraniPregled = listaPregleda.SelectedItem as Pregled;
+            odabraniPregled = listaPregleda.SelectedItem as ZdravstvenaUsluga;
         }
 
         private void pregled_odabran(object sender, RoutedEventArgs e)
         {
-           // Model.Bolnica.GetInstance.GetPacijent("jmbg").ZakazivanjePregleda(odabraniPregled);
-           // Pregledi.Remove(odabraniPregled);
-           // Model.Bolnica.GetInstance.Pregledi.Remove(odabraniPregled);
+
         }
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            /*
-            DateTime date = datum.SelectedDate.Value;
-            
-            int pocetakSati = Convert.ToInt32(vrijeme_pocetak_sati.SelectedItem.ToString());
-            int pocetakMinute = Convert.ToInt32(vrijeme_pocetak_minute.SelectedItem.ToString());
+            date = datum.SelectedDate.Value;
+
+           // MessageBox.Show(poc.ToString());
+
+        }
+
+        private void pretrazi_termine(object sender, RoutedEventArgs e)
+        {
+            int pocetakSati = Convert.ToInt32(vrijeme_pocetak_sati.SelectedItem as String);
+            int pocetakMinute = Convert.ToInt32(vrijeme_pocetak_minute.SelectedItem as String);
             string pocetakAP = vrijeme_pocetak_ap.SelectedItem.ToString();
 
-            int krajSati = Convert.ToInt32(vrijeme_kraj_sati.SelectedItem.ToString());
-            int krajkMinute = Convert.ToInt32(vrijeme_kraj_minute.SelectedItem.ToString());
-            string krajkAP = vrijeme_kraj_ap.SelectedItem.ToString();
+            int krajSati = Convert.ToInt32(vrijeme_kraj_sati.SelectedItem as String);
+            int krajkMinute = Convert.ToInt32(vrijeme_kraj_minute.SelectedItem as String);
+            string krajAP = vrijeme_kraj_ap.SelectedItem.ToString();
 
             if (pocetakAP.Equals("PM"))
             {
                 pocetakSati += 12;
             }
-            */
-            
+            if (krajAP.Equals("PM"))
+            {
+                krajSati += 12;
+            }
 
-           // DateTime poc = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute,00);
-           // DateTime poc = new DateTime(date.Year, date.Month, date.Day);
+            DateTime pocetak = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute,00);
+            DateTime kraj = new DateTime(date.Year, date.Month, date.Day,krajSati,krajkMinute,00);
 
-           // MessageBox.Show(poc.ToString());
+            // OdabraniLekar = ComboBoxLekari.SelectedItem as Lekar;
+            OdabraniLekar = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(1);
 
-
-            //DateTime dtpocetak = DateTime.Parse();
-
+            Pregledi = ZdravstvenaUslugaServis.getAvailableAppointments(OdabraniLekar, pocetak, kraj, 0);
         }
     }
 }

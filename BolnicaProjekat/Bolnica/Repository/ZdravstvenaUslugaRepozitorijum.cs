@@ -33,7 +33,7 @@ namespace Repozitorijum
 
         public ZdravstvenaUslugaRepozitorijum()
         {
-            //loadData();
+            loadData();
             if (Usluge == null)
             {
 
@@ -82,8 +82,24 @@ namespace Repozitorijum
 
         public List<ZdravstvenaUsluga> getTerminiBylekarId(int id)
         {
-            return null;
+            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+            /*
+            foreach (ZdravstvenaUsluga u in Usluge)
+            {
+                if(u.Id == id)
+                {
+                    usluge.Add(u);
+                }
+
+            }
+            */
+            foreach (ZdravstvenaUsluga u in Usluge)
+                usluge.Add(u);
+
+            return usluge;
         }
+
+
 
 
     }

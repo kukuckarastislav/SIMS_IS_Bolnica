@@ -99,9 +99,13 @@ namespace Repozitorijum
          return pacijenti;
       }
       
-      public Model.Pacijent GetById(long id)
+      public Model.Pacijent GetById(int id)
       {
-         // TODO: implement
+         foreach(Pacijent p in pacijenti)
+            {
+                if (p.Id == id)
+                    return p;
+            }        
          return null;
       }
   

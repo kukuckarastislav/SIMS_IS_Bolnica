@@ -64,6 +64,14 @@ namespace Bolnica.view.sekretar
             MessageBox.Show("Pacijent je uspesno obrisan.");
         }
         
+        private void PogledajTermine_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            if (pacijent == null) return;
+
+            var zakazaniTerminiPage = new ZakazaniTermini(pacijent);
+            zakazaniTerminiPage.Show();
+        }
 
     }
 }

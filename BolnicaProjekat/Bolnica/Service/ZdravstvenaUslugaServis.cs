@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Model;
 using Repozitorijum;
 
@@ -148,7 +149,18 @@ namespace Servis
             return null;
         }
 
+        public static ObservableCollection<DTOUslugaLekar> getUslugePacijenta(Pacijent p)
+        {
+            ObservableCollection < DTOUslugaLekar > lista = new ObservableCollection<DTOUslugaLekar>();
+            ObservableCollection<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(p.Id);
+            foreach(ZdravstvenaUsluga zu in usluge)
+            {
+                lista.Add(new DTOUslugaLekar(zu, LekarRepozitorijum.GetInstance.GetById(zu.IdLekara)));
+            }
 
+
+            return lista;
+        }
 
    
    }

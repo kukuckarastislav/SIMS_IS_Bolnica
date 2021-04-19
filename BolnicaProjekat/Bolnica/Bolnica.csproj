@@ -340,7 +340,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\call.png" />
+    <Resource Include="images\folder1.png" />
+    <Resource Include="images\krug.png" />
+    <Resource Include="images\mm.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\appointment-delete.png" />
     <Resource Include="images\appointment-exam.png" />

@@ -1,16 +1,128 @@
 [
   {
-    "termin": {
-      "Pocetak": "0001-01-01T00:00:00",
-      "Kraj": "0001-01-01T00:00:00"
+    "Termin": {
+      "Pocetak": "2021-04-19T13:30:00",
+      "Kraj": "2021-04-19T14:00:00"
+    },
+    "Id": 1,
+    "IdLekara": 1,
+    "IdPacijenta": -1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-19T12:00:00",
+      "Kraj": "2021-04-19T12:30:00"
+    },
+    "Id": 2,
+    "IdLekara": 1,
+    "IdPacijenta": -1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-19T11:30:00",
+      "Kraj": "2021-04-19T12:00:00"
+    },
+    "Id": 3,
+    "IdLekara": 1,
+    "IdPacijenta": -1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-19T08:00:00",
+      "Kraj": "2021-04-19T08:30:00"
+    },
+    "Id": 4,
+    "IdLekara": 1,
+    "IdPacijenta": -1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-19T08:00:00",
+      "Kraj": "2021-04-19T08:30:00"
+    },
+    "Id": 5,
+    "IdLekara": 1,
+    "IdPacijenta": -1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-19T10:00:00",
+      "Kraj": "2021-04-19T10:30:00"
+    },
+    "Id": 6,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-20T08:00:00",
+      "Kraj": "2021-04-20T08:30:00"
+    },
+    "Id": 7,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-22T10:00:00",
+      "Kraj": "2021-04-22T10:30:00"
     },
     "Id": 1,
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 1,
+    "IdProstorije": -1,
     "Obavljena": false,
-    "RazlogZakazivanja": "nebitan",
-    "RezultatUsluge": "nebitan"
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-30T08:00:00",
+      "Kraj": "2021-04-30T08:30:00"
+    },
+    "Id": 1,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
   }
 ]

@@ -27,10 +27,10 @@ namespace Model
             Specijalista = specijalista;
             Specijalizacija = specijalizacija;
         }
-        
-        public string ToString()
+
+        public override string ToString()
         {
-            return Ime + " " + Prezime;
+            return Ime +" "+ Prezime;
         }
 
 

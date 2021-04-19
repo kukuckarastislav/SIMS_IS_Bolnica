@@ -22,6 +22,8 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                     <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -34,16 +36,28 @@
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
-                <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17px" Margin="-30 0 0 0" >Odabir lekara:</TextBlock>
+                <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Grid.Row="1" Grid.Column="2"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17px" Margin="-30 0 0 0" >Odabir datuma:</TextBlock>
+                <Button  Background="white" Grid.Row="9" Grid.Column="4" Click="ZakaziTermin_Click">Zakazi termin</Button>
+                <Button  Background="white" Grid.Row="9" Grid.Column="6" Click="Odustani_Click">Odustani</Button>
+                <DatePicker Grid.Row="3" Grid.Column="2" x:Name="datePicker"/>
+                <Button Background="white" Grid.Row="5" Grid.Column="2" Click="UcitajTermine_Click">Ucitaj termine</Button>
 
+                <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17px" Margin="-5 0 0 0" >Tip usluge:</TextBlock>
+                <RadioButton Content="Pregled" Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="7" VerticalAlignment="Top" Name="rbPregled"/>
+                <RadioButton Content="Operacija" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,-5" Grid.Row="7" VerticalAlignment="Bottom" Name="rbOperacija"/>
 
+                <TextBlock Grid.Row="0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17px" Margin="-50 0 0 0" >Slobodni termini:</TextBlock>
                 <ListView 
                           ItemsSource="{Binding Pregledi}"
                           x:Name="listaPregleda"
-                          Margin="-1,100,6,0"
-                          RenderTransformOrigin="0.5,0.5" Height="263" VerticalAlignment="Top" 
-                          Grid.Row="1" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="2"
+                          
+                          RenderTransformOrigin="0.5,0.5" Height="200" VerticalAlignment="Top" 
+                          Grid.Row="1" Grid.RowSpan="8" Grid.Column="4" Grid.ColumnSpan="3"
                           
                           >
                     <ListView.RenderTransform>
@@ -58,7 +72,7 @@
                         <GridView>
                             <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
                             <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
-                            
+
                         </GridView>
                     </ListView.View>
                 </ListView>

@@ -332,7 +332,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="podaci\lekari.json" />
     <None Include="podaci\pacijenti.json" />
+    <None Include="podaci\zdravstveneUsluge.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

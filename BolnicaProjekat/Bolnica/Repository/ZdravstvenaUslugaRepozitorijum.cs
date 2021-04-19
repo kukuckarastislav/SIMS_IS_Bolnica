@@ -97,7 +97,10 @@ namespace Repozitorijum
             return usluge;
         }
 
-
+        public ObservableCollection<Model.ZdravstvenaUsluga> getAll()
+        {
+            return Usluge;
+        }
 
 
     }

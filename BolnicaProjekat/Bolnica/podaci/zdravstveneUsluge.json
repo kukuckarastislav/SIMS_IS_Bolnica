@@ -1,9 +1,6 @@
 [
   {
-    "termin": {
-      "Pocetak": "0001-01-01T00:00:00",
-      "Kraj": "0001-01-01T00:00:00"
-    },
+    "Termin": null,
     "Id": 1,
     "IdLekara": 1,
     "IdPacijenta": 1,
@@ -12,5 +9,33 @@
     "Obavljena": false,
     "RazlogZakazivanja": "nebitan",
     "RezultatUsluge": "nebitan"
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-19T08:00:00",
+      "Kraj": "2021-04-19T08:30:00"
+    },
+    "Id": 2,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-19T08:30:00",
+      "Kraj": "2021-04-19T09:00:00"
+    },
+    "Id": 3,
+    "IdLekara": 1,
+    "IdPacijenta": 2,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
   }
 ]

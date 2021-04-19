@@ -88,7 +88,6 @@
     <Compile Include="Controller\ProstorijeKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
-    <Compile Include="Model\BolesnickaSoba.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="Model\DinamickaOprema.cs" />
     <Compile Include="Model\Inventar.cs" />
@@ -99,7 +98,6 @@
     <Compile Include="Model\Nadzornik.cs" />
     <Compile Include="Model\Notifikacija.cs" />
     <Compile Include="Model\Ocena.cs" />
-    <Compile Include="Model\OperacionaSala.cs" />
     <Compile Include="Model\Osoblje.cs" />
     <Compile Include="Model\Pacijent.cs" />
     <Compile Include="Model\Pol.cs" />
@@ -109,10 +107,10 @@
     <Compile Include="Model\RadnoVreme.cs" />
     <Compile Include="Model\Recept.cs" />
     <Compile Include="Model\Sekretar.cs" />
-    <Compile Include="Model\SobaZaPreglede.cs" />
     <Compile Include="Model\StatickaOprema.cs" />
     <Compile Include="Model\Terapija.cs" />
     <Compile Include="Model\Termin.cs" />
+    <Compile Include="Model\TipProstorije.cs" />
     <Compile Include="Model\TipUsluge.cs" />
     <Compile Include="Model\Upravnik.cs" />
     <Compile Include="Model\VrijednostOcjene.cs" />
@@ -333,6 +331,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="podaci\pacijenti.json" />
+    <None Include="podaci\prostorije.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

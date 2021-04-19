@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -20,22 +22,51 @@ namespace Bolnica.view.upravnik.prostorije
     public partial class DodajProstorijuForma : Window
     {
 
-        public DodajProstorijuForma()
+        public ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
+        private TipProstorije tipProstorije;
+
+        private PrikazProstorija refPrikazProstorija = null;
+        private PrikazOperacionihSala refPrikazOperacionihSala = null;
+        private PrikazSobaZaPregled refPrikazSobaZaPregled = null;
+
+        public DodajProstorijuForma(PrikazProstorija refPrikazProstorija,
+                                    PrikazOperacionihSala refPrikazOperacionihSala,
+                                    PrikazSobaZaPregled refPrikazSobaZaPregled,
+                                    TipProstorije tipProstorije)
         {
+            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
+            this.refPrikazProstorija = refPrikazProstorija;
+            this.refPrikazOperacionihSala = refPrikazOperacionihSala;
+            this.refPrikazSobaZaPregled = refPrikazSobaZaPregled;
+            this.editProstorija = null;
+            this.tipProstorije = tipProstorije;
+
             InitializeComponent();
         }
 
-        private Model.Prostorija editProstorija;
-        public DodajProstorijuForma(Model.Prostorija editProstorija)
+        private Prostorija editProstorija;
+        public DodajProstorijuForma(PrikazProstorija refPrikazProstorija,
+                                    PrikazOperacionihSala refPrikazOperacionihSala,
+                                    PrikazSobaZaPregled refPrikazSobaZaPregled, 
+                                    Prostorija editProstorija)
         {
-            InitializeComponent();
+            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
+            this.refPrikazProstorija = refPrikazProstorija;
+            this.refPrikazOperacionihSala = refPrikazOperacionihSala;
+            this.refPrikazSobaZaPregled = refPrikazSobaZaPregled;
             this.editProstorija = editProstorija;
+            this.tipProstorije = editProstorija.TipProstorije;
 
-            inputIDprostorije.Text = Convert.ToString(editProstorija.Id);
+            InitializeComponent();
+            initEdit();
+        }
+        private void initEdit()
+        {
+            inputIDprostorije.Text = Convert.ToString(editProstorija.Broj);
             inputSprat.Text = Convert.ToString(editProstorija.Sprat);
             inputPovrsina.Text = Convert.ToString(editProstorija.Povrsina);
-           // inputIDInventara.Text = Convert.ToString(editProstorija.Inventar.IdInventara);
         }
+
 
         private void close_win(object sender, RoutedEventArgs e)
         {
@@ -48,25 +79,27 @@ namespace Bolnica.view.upravnik.prostorije
 
             if(editProstorija == null) 
             {
-                // pravimo novu
-              //  Model.Prostorija novaProstorija = new Model.Prostorija(
-              //                      Convert.ToInt32(inputIDprostorije.Text),
-             //                       Convert.ToInt32(inputSprat.Text),
-             //                       Convert.ToDouble(inputPovrsina.Text),
-             //                       Convert.ToInt32(inputIDInventara.Text));
-
-             //   Model.Bolnica.GetInstance.AddProstorije(novaProstorija);
+                ProstorijeKontrolerObjekat.DodajProstoriju(tipProstorije,
+                                                           Convert.ToString(inputIDprostorije.Text), // ovo je broj
+                                                           Convert.ToInt32(inputSprat.Text),
+                                                           Convert.ToDouble(inputPovrsina.Text));
             }
             else
             {
                 // editujemo postojecu
+                ProstorijeKontrolerObjekat.AzurirajProstoriju(editProstorija,
+                                                              Convert.ToString(inputIDprostorije.Text), // ovo je broj
+                                                              Convert.ToInt32(inputSprat.Text),
+                                                              Convert.ToDouble(inputPovrsina.Text));
 
-                editProstorija.Id = Convert.ToInt32(inputIDprostorije.Text);
-                editProstorija.Sprat = Convert.ToInt32(inputSprat.Text);
-                editProstorija.Povrsina = Convert.ToDouble(inputPovrsina.Text);
-               // editProstorija.Inventar.IdInventara = Convert.ToInt32(inputIDInventara.Text);
+
             }
-            
+
+            if (refPrikazProstorija != null) refPrikazProstorija.azurirajPrikaz();
+            if (refPrikazOperacionihSala != null) refPrikazOperacionihSala.azurirajPrikaz();
+            if (refPrikazSobaZaPregled != null) refPrikazSobaZaPregled.azurirajPrikaz();
+
+
             this.Close();
         }
     }

@@ -134,7 +134,7 @@ namespace Model
             return null;
 
         }
-
+        /*
         public SobaZaPreglede GetSobaZaPregledeByID(int id)
         {
 
@@ -152,6 +152,7 @@ namespace Model
             return null;
 
         }
+        */
         public Lekar getLekarByI(int id)
         {
 
@@ -407,6 +408,8 @@ namespace Model
             if (prostorije != null)
                 prostorije.Clear();
         }
+
+        /*
         public System.Collections.ObjectModel.ObservableCollection<Model.BolesnickaSoba> bolesnickeSobe;
 
         /// <pdGenerated>default getter</pdGenerated>
@@ -547,7 +550,7 @@ namespace Model
         }
 
 
-
+        */
 
     }
 }

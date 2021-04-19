@@ -5,137 +5,162 @@
  ***********************************************************************/
 
 using System;
+using System.IO;
 using System.Collections.Generic;
 using Model;
+using System.Text.Json;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace Repozitorijum
 {
-   public class ProstorijeRepozitorijum
-   {
-      public Model.Prostorija DodajProstoriju(Model.Prostorija novaProstorija)
-      {
-         // TODO: implement
-         return null;
-      }
+    public class ProstorijeRepozitorijum
+    {
+        private const string imeFajla = "prostorije.json";
+
+        public List<Prostorija> lProstorije;
+
+        private static ProstorijeRepozitorijum instance = null;
+        public static ProstorijeRepozitorijum GetInstance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new ProstorijeRepozitorijum();
+                }
+                return instance;
+            }
+            set
+            {
+                instance = value;
+            }
+        }
+
+        private ProstorijeRepozitorijum()
+        {
+            UcitajPodatke();
+        }
+
+        private void UcitajPodatke()
+        {
+            try
+            {
+                if (lProstorije == null)    // dal je ovo potrebno ?
+                {
+
+                    List<Prostorija> p = JsonSerializer.Deserialize<List<Prostorija>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    lProstorije = p;
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                lProstorije = new List<Prostorija>();
+                Console.WriteLine(e.ToString());
+            }
+        }
+
+        private void SacuvajPodatke()
+        {
+            var format = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+            };
+            string json = JsonSerializer.Serialize(lProstorije, format);
+            File.WriteAllText("../../podaci/" + imeFajla, json);
+        }
+
+        private int GetFirstFitID()
+        {
+            UcitajPodatke();
+            int najveciID = 0;
+            foreach (Prostorija p in lProstorije)
+            {
+                if (p.Id > najveciID)
+                {
+                    najveciID = p.Id;
+                }
+            }
+            return najveciID + 1;
+        }
+
+        public Prostorija DodajProstoriju(Prostorija novaProstorija)
+        {
+            MessageBox.Show("1");
+            UcitajPodatke();
+            //generisati novi id?
+            int firstFitID = GetFirstFitID();
+            novaProstorija.Id = firstFitID;
+            lProstorije.Add(novaProstorija);
+            SacuvajPodatke();
+            return novaProstorija;
+        }
+
+
+
+
+        public Prostorija ObrisiProstoriju(Prostorija prostorija)
+        {
+            Prostorija retVal = null;
+            foreach(Prostorija p in lProstorije)
+            {
+                if(p.Id == prostorija.Id)
+                {
+                    lProstorije.Remove(p);
+                    retVal = p;
+                    break;
+                }
+            }
+
+            SacuvajPodatke();
+
+            return retVal;
+        }
+
+        public Prostorija ObrisiProstorijuByID(int id)
+        {
+            Prostorija retVal = null;
+            foreach (Prostorija p in lProstorije)
+            {
+                if (p.Id == id)
+                {
+                    lProstorije.Remove(p);
+                    retVal = p;
+                    break;
+                }
+            }
+
+            SacuvajPodatke();
+
+            return retVal;
+        }
+
+
+        public Prostorija AzurirajProstoriju(Prostorija editProstorija)
+        {
+            SacuvajPodatke();
+            return editProstorija;
+        }
+
       
-      public Model.OperacionaSala DodajOperacionuSalu(Model.OperacionaSala novaOperacionaSala)
-      {
-         // TODO: implement
-         return null;
-      }
+        public Prostorija GetProstorijaById(int id)
+        {
+            // TODO: implement
+            return null;
+        }
+
       
-      public Model.SobaZaPreglede DodajSobuZaPreglede(Model.SobaZaPreglede novaSobaZaPreglede)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.BolesnickaSoba DodajBolesnickuSobu(Model.BolesnickaSoba novaBolesnickaSoba)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Prostorija ObrisiProstoriju(Model.Prostorija prostorija)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public OperacionaSala ObrisiOperacionuSalu(Model.OperacionaSala operacionaSala)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public SobaZaPreglede ObrisiSobuZaPreglede(Model.SobaZaPreglede sobaZaPreglede)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public BolesnickaSoba ObrisiBolesnickuSobu(Model.BolesnickaSoba bolesnickaSoba)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Prostorija AzurirajProstoriju(Model.Prostorija editProstorija)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public OperacionaSala AzurirajOperacionuSalu(Model.OperacionaSala editOperacionaSala)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public SobaZaPreglede AzurirajSobuZaPreglede(Model.SobaZaPreglede editSobuZaPregled)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public BolesnickaSoba AzurirajBolesnickuSobu(Model.BolesnickaSoba editBolesnickaSoba)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Prostorija GetProstorijaById(int id)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public OperacionaSala GetOperacionaSalaById(int id)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public SobaZaPreglede GetSobaZaPregledeById(int id)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public BolesnickaSoba GetBolesnickaSobaById(int id)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<Prostorija> GetProstorijeAll()
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<OperacionaSala> GetOperacioneSaleAll()
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<SobaZaPreglede> GetSobeZaPregledeAll()
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<BolesnickaSoba> GetBolesnickeSobeAll()
-      {
-         // TODO: implement
-         return null;
-      }
-   
-      private string PutanjaFajlaProstorije;
-      private string PutanjaFajlaSobeZaPregled;
-      private string PutanjaFajlaOperacioneSale;
-      private string PutanjaFajlaBolesnickeSobe;
-   
-   }
+
+        public List<Prostorija> GetProstorijeAll()
+        {
+            UcitajPodatke();
+            return lProstorije;
+        }
+
+
+
+
+    }
 }

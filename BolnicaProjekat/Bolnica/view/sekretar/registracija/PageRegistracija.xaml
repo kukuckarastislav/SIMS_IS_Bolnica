@@ -55,15 +55,13 @@
                 <TextBlock Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-25 0 0 0">Korisnicko ime:</TextBlock>
                 <TextBox Grid.Row="1" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputKorisnickoIme"></TextBox>
                 <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Sifra:</TextBlock>
-                <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >ID:</TextBlock>
-                <TextBox Grid.Row="3" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputId"></TextBox>
                 <TextBox Grid.Row="2" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputSifra"></TextBox>
-                <TextBlock Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Email:</TextBlock>
-                <TextBox Grid.Row="4" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputEmail"></TextBox>
-                <TextBlock Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-30 0 0 0" >Datum rodjenja:</TextBlock>
-                <TextBox Grid.Row="5" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDatum"></TextBox>
-                <TextBlock Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-20 0 0 0">Drzavljanstvo:</TextBlock>
-                <TextBox Grid.Row="6" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDrzavljanstvo"></TextBox>
+                <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Email:</TextBlock>
+                <TextBox Grid.Row="3" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputEmail"></TextBox>
+                <TextBlock Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-30 0 0 0" >Datum rodjenja:</TextBlock>
+                <TextBox Grid.Row="4" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDatum"></TextBox>
+                <TextBlock Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-20 0 0 0">Drzavljanstvo:</TextBlock>
+                <TextBox Grid.Row="5" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDrzavljanstvo"></TextBox>
                 
 
 

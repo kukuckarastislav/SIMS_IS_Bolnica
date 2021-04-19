@@ -40,7 +40,7 @@
         </ComboBox>
 
 
-        <ListView ListViewItem.MouseDoubleClick="zakazi_pregled" ItemsSource="{Binding Pregledi}" x:Name="listaPregleda" Margin="-1,100,6,0" RenderTransformOrigin="0.5,0.5" Height="263" VerticalAlignment="Top" Grid.RowSpan="2" >
+        <ListView ListViewItem.MouseDoubleClick="odabran_je_pregled" ItemsSource="{Binding Pregledi}" x:Name="listaPregleda" Margin="-1,100,6,0" RenderTransformOrigin="0.5,0.5" Height="263" VerticalAlignment="Top" Grid.RowSpan="2" >
             <ListView.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -53,12 +53,11 @@
                 <GridView>
                     <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
                     <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
-                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding IdLekara.Ime}"/>
-                    <GridViewColumn Header="Prezime lekara" DisplayMemberBinding="{Binding IdLekara.Prezime}"/>
+                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding lekarId}"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button  Click="pregled_odabran" Margin="640,189.121,11,15" RenderTransformOrigin="0.984,0.646" Grid.Row="1" Background="#e5e5e5" FontFamily="Arial">Potvrdi</Button>
+        <Button  Click="zakazi_pregled" Margin="640,189.121,11,15" RenderTransformOrigin="0.984,0.646" Grid.Row="1" Background="#e5e5e5" FontFamily="Arial">Potvrdi</Button>
         <ComboBox x:Name="vrijeme_pocetak_ap" Margin="258,42,486,110" RenderTransformOrigin="1.23,0.361">
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />

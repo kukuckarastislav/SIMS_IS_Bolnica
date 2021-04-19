@@ -168,6 +168,12 @@
     <Compile Include="view\sekretar\WindowIzmenaPodataka.xaml.cs">
       <DependentUpon>WindowIzmenaPodataka.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\WindowZakazivanjeTermina.xaml.cs">
+      <DependentUpon>WindowZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\ZakazivanjeTermina.xaml.cs">
+      <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml.cs">
       <DependentUpon>DodajBolesnickuProstorijuForma.xaml</DependentUpon>
     </Compile>
@@ -258,6 +264,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\sekretar\WindowZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\ZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -327,7 +341,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\call.png" />
+    <Resource Include="images\folder1.png" />
+    <Resource Include="images\krug.png" />
+    <Resource Include="images\mm.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="images\appointment-delete.png" />
     <Resource Include="images\appointment-exam.png" />

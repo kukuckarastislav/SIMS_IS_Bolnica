@@ -14,10 +14,10 @@ namespace Model
         public int KrajRadnogVremena { get; set; }
 
 
-        public RadnoVreme(int pocetak, int kraj)
+        public RadnoVreme(int pocetakRadnogVremena, int krajRadnogVremena)
         {
-            PocetakRadnogVremena = pocetak;
-            KrajRadnogVremena = kraj;
+            PocetakRadnogVremena = pocetakRadnogVremena;
+            KrajRadnogVremena = krajRadnogVremena;
         }
     }
 }

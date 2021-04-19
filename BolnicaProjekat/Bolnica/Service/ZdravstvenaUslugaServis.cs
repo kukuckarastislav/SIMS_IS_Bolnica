@@ -25,7 +25,7 @@ namespace Servis
 
             if (pregledi == null && prioritet == 0)
                 pregledi = getCloseAppointmentsByTime(pocetak, kraj);
-            else
+            else if(pregledi == null && prioritet == 1)
                 pregledi = getCloseAppointmentsByDoctor(OdabraniLekar,pocetak,kraj);
             return pregledi;
         }
@@ -35,29 +35,39 @@ namespace Servis
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>(); //ret value
 
-            List<ZdravstvenaUsluga> terminiLekara = terminiRepozitorijum.getTerminiBylekarId(OdabraniLekar.Id); //dobavi zauzete termine iz repoz
+            List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(OdabraniLekar.Id);  //Mozda treba samo termine za taj dan da dobavimo, a ne sve bezveze
+            //List<ZdravstvenaUsluga> terminiLekara = terminiRepozitorijum.getTerminiBylekarId(OdabraniLekar.Id); //dobavi zauzete termine iz repoz
 
-            int krajSati = Convert.ToInt32(OdabraniLekar.radnoVreme.KrajRadnogVremena);
-            int pocetakSati = Convert.ToInt32(OdabraniLekar.radnoVreme.PocetakRadnogVremena);
+            int krajSati = OdabraniLekar.radnoVreme.KrajRadnogVremena;
+            int pocetakSati = OdabraniLekar.radnoVreme.PocetakRadnogVremena;
+
+            
+            if (pocetak.Hour > pocetakSati)
+                pocetakSati = pocetak.Hour;
+            if (kraj.Hour < krajSati)
+                krajSati = kraj.Hour;
+            
 
             DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetakSati, 0, 0);
             DateTime krajkRadnogVremena_ = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, krajSati, 0, 0);
 
-            TimeSpan period = new TimeSpan(0, 0, 30, 0, 0); //fiksan period od 30 minuta
+            TimeSpan period = new TimeSpan(0, 0, 30, 0, 0); //ovo izvuci kao konstantu na nivou klase, ali neka ga zasad
 
             //redom generise listu slobodnih termina lekara 
             while (pocetakRadnogVremena + period <= krajkRadnogVremena_)
             {
-                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(pocetakRadnogVremena, pocetakRadnogVremena + period), OdabraniLekar.Id);
+                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(pocetakRadnogVremena, pocetakRadnogVremena + period), 1, OdabraniLekar.Id, -1,TipUsluge.Pregled, -1, false, "", "");
+
                 if (terminiLekara.Contains(pregled))
                     continue;
-
+        
                 pregledi.Add(pregled);
                 pocetakRadnogVremena += period;
             }
 
             return pregledi;
         }
+
 
         public static List<ZdravstvenaUsluga> getCloseAppointmentsByTime(DateTime pocetak, DateTime kraj)
         {
@@ -82,11 +92,55 @@ namespace Servis
             int krajSati = Convert.ToInt32(OdabraniLekar.radnoVreme.KrajRadnogVremena);
             int pocetakSati = Convert.ToInt32(OdabraniLekar.radnoVreme.PocetakRadnogVremena);
 
-            DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetak.Hour, 0, 0);
+            DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetak.Hour, 0, 0); //posto sam stavila d=DateTime u construktor pa ne mogu samo int
             DateTime krajkRadnogVremena_ = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, kraj.Hour, 0, 0);
 
             pregledi = getAppointments(OdabraniLekar, pocetakRadnogVremena, krajkRadnogVremena_);
             return pregledi;
+        }
+
+
+        internal static bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga pregled, DateTime noviPocetak)
+        {
+            List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(pregled.IdLekara);
+
+
+            bool zavrsio = false;
+            while(!zavrsio)
+            {
+                zavrsio = true;
+                foreach(var p in terminiLekara)
+                {
+                    if (p.Termin.Pocetak.Year != noviPocetak.Year || p.Termin.Pocetak.Month != noviPocetak.Month || p.Termin.Pocetak.Day != noviPocetak.Day)
+                    {
+                        terminiLekara.Remove(p);
+                        zavrsio = false;
+                        break;
+                    }
+                }
+            }
+
+            //provjera poklapanja sati, ako je izabrao recimo 4 i 15 zaokruzi na 4, ako je posle 30 zaokruzi na 5, ima smisla
+            bool afterHalf=false;
+
+            if (noviPocetak.Minute > 30)
+                afterHalf = true;
+
+            //jako primitivno znam, ali radi posao
+            foreach (var v in terminiLekara)
+            {
+                if (afterHalf)
+                {
+                 if (v.Termin.Kraj.Hour == noviPocetak.Hour)
+                    return false;
+                }
+                else
+                { 
+                if (v.Termin.Pocetak.Hour == noviPocetak.Hour)
+                    return false;
+                }
+            }
+            return true;
         }
 
         public static List<ZdravstvenaUsluga> getFirstAvailableAppointments()

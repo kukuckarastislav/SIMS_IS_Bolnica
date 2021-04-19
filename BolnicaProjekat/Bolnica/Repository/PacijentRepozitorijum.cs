@@ -55,11 +55,12 @@ namespace Repozitorijum
             }
             catch (Exception e)
             {
+                pacijenti = new ObservableCollection<Model.Pacijent>();
                 Console.WriteLine(e.ToString());
             }
         }
 
-        private void SaveData()
+        public void SaveData()
         {
             var format = new JsonSerializerOptions
             {
@@ -87,11 +88,19 @@ namespace Repozitorijum
          return null;
       }
       
-      public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
-      {
-         // TODO: implement
-         return null;
-      }
+        //logicko brisanje
+        public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Jmbg.Equals(pacijent.Jmbg))
+                {
+                    p.LogickiObrisan = true;
+                }
+            }
+            SaveData();
+            return pacijent;
+        }
       
       public ObservableCollection<Model.Pacijent> GetAll()
       {

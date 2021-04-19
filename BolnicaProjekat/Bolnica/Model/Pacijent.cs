@@ -33,7 +33,7 @@ namespace Model
 
         }*/
 
-        public Pacijent(MedicinskiKarton medicinskiKarton, ArrayList ocene, int Id, bool pacijentGost, bool hospitalizovan, bool spamUser, string korisnickoIme, string sifra, string ime,
+        public Pacijent(MedicinskiKarton medicinskiKarton, ArrayList ocene, int id, bool pacijentGost, bool hospitalizovan, bool spamUser, bool logickiObrisan, string korisnickoIme, string sifra, string ime,
             string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
             string jmbg, string drzavljanstvo, string adresaStanovanja) : base(korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
                 adresaStanovanja)
@@ -41,10 +41,11 @@ namespace Model
 
             this.MedicinskiKarton = medicinskiKarton;
             this.Ocene = ocene;
-            this.Id = Id;
+            this.Id = id;
             this.PacijentGost = pacijentGost;
             this.Hospitalizovan = hospitalizovan;
             this.SpamUser = spamUser;
+            this.LogickiObrisan = logickiObrisan;
             //this.medicinskiKarton = new MedicinskiKarton(idPacijenta, false);
 
         }
@@ -115,6 +116,8 @@ namespace Model
         public Boolean Hospitalizovan { get; set; }
         [JsonInclude]
         public Boolean SpamUser { get; set; }
+        [JsonInclude]
+        public bool LogickiObrisan { get; set; }
 
     }
 }

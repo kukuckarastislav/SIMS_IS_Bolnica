@@ -1,4 +1,5 @@
 ﻿using Model;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +36,7 @@ namespace Bolnica.view.sekretar
             inputIme.Text = p.Ime;
             inputPrezime.Text = p.Prezime;
             //inputId.Text = p.IdPacijenta;
-            inputKorisnickoIme.Text = p.KorisnickoIme;
-            inputSifra.Text = p.Sifra;
+            
             inputTelefon.Text = p.Telefon;
             inputDatum.Text = p.DatumRodjenja.Date.ToShortDateString();
             inputDrzavljanstvo.Text = p.Drzavljanstvo;
@@ -51,6 +51,8 @@ namespace Bolnica.view.sekretar
 
                 rbZensko.IsChecked = true;
             }
+            inputGestNalog.IsChecked = p.PacijentGost;
+            inputLogickoBrisanje.IsChecked = p.LogickiObrisan;
         }
 
         private void IzmeniPacijenta_Click(object sender, RoutedEventArgs e)
@@ -58,8 +60,9 @@ namespace Bolnica.view.sekretar
             pacijent.Ime = inputIme.Text;
             pacijent.Prezime = inputPrezime.Text;
             //pacijent.IdPacijenta = inputId.Text;
-            pacijent.KorisnickoIme = inputKorisnickoIme.Text;
-            pacijent.Sifra = inputSifra.Text;
+            pacijent.PacijentGost = (bool)inputGestNalog.IsChecked;
+            pacijent.LogickiObrisan = (bool)inputLogickoBrisanje.IsChecked;
+
             pacijent.Telefon = inputTelefon.Text;
             pacijent.DatumRodjenja = Convert.ToDateTime(inputDatum.Text);
 
@@ -78,15 +81,16 @@ namespace Bolnica.view.sekretar
             pacijent.Email = inputEmail.Text;
             bool ret = false;//Model.Bolnica.GetInstance.EditPacijent(pacijent);
 
-            if(ret == true)
-            { 
+           // if(ret == true)
+           // { 
                 MessageBox.Show("Pacijent je uspesno izmenjen!");
-                
-            }
-            else
-            {
-                MessageBox.Show("Pacijent nije izmenjen");
-            }
+
+            //  }
+            // else
+            //  {
+            //  MessageBox.Show("Pacijent nije izmenjen");
+            //  }
+            PacijentRepozitorijum.GetInstance.SaveData();
             dg.Items.Refresh();
         }
 
@@ -99,9 +103,7 @@ namespace Bolnica.view.sekretar
         {
             inputIme.Clear();
             inputPrezime.Clear();
-            inputId.Clear();
-            inputKorisnickoIme.Clear();
-            inputSifra.Clear();
+            
             inputTelefon.Clear();
             inputDrzavljanstvo.Clear();
             inputAdresa.Clear();

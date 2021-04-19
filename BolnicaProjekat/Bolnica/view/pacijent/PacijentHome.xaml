@@ -75,7 +75,7 @@
             <TextBlock x:Name="adresa" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.392,1.793" Grid.ColumnSpan="2" Grid.Column="4" Margin="79,257,-100,44" Grid.Row="1"/>
             <TextBlock x:Name="telefon" Margin="81,287,-161,14" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
             <TextBlock x:Name="email" Margin="82,318,-161,-17" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="korisnickoime" Margin="91,350,34,-49" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="korisnickoime" Margin="107,89,67,212" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
 
 
         </Grid>

@@ -44,11 +44,26 @@ namespace Bolnica.view.sekretar
 
         }
 
-        private void Odustani_Click(object sender, RoutedEventArgs e)
+        private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
         {
+            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            if (pacijent == null) return;
 
-            
+            var zakaziTerminPage = new WindowZakazivanjeTermina(pacijent);
+            zakaziTerminPage.Show();
+
+
         }
+
+        private void ObrisiPacijenta_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            if (pacijent == null) return;
+
+            PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
+            MessageBox.Show("Pacijent je uspesno obrisan.");
+        }
+        
 
     }
 }

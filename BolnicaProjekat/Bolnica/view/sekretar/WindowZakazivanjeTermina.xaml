@@ -1,0 +1,69 @@
+﻿<Window x:Class="Bolnica.view.sekretar.WindowZakazivanjeTermina"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.sekretar"
+        mc:Ignorable="d"
+        Title="WindowZakazivanjeTermina" Height="450" Width="800">
+
+
+    <Grid Background="#ccffbd">
+        <DockPanel>
+            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
+
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Grid.Row="1" Grid.Column="1"/>
+
+
+                <ListView 
+                          ItemsSource="{Binding Pregledi}"
+                          x:Name="listaPregleda"
+                          Margin="-1,100,6,0"
+                          RenderTransformOrigin="0.5,0.5" Height="263" VerticalAlignment="Top" 
+                          Grid.Row="1" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="2"
+                          
+                          >
+                    <ListView.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.168"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListView.RenderTransform>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
+                            <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
+                            
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

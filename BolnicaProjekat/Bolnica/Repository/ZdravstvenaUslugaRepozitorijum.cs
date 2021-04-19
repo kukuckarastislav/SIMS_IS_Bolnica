@@ -33,11 +33,11 @@ namespace Repozitorijum
 
         public ZdravstvenaUslugaRepozitorijum()
         {
-            loadData();
+           
             if (Usluge == null)
             {
 
-                Usluge = new ObservableCollection<Model.ZdravstvenaUsluga>();
+                loadData();
             }
         }
 
@@ -60,7 +60,7 @@ namespace Repozitorijum
 
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
-            //loadData();
+            loadData();
 
             if (!this.Usluge.Contains(usluga))
                 this.Usluge.Add(usluga);
@@ -82,21 +82,44 @@ namespace Repozitorijum
 
         public List<ZdravstvenaUsluga> getTerminiBylekarId(int id)
         {
+            loadData();
             List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
-            /*
+           
             foreach (ZdravstvenaUsluga u in Usluge)
             {
-                if(u.Id == id)
+                if(u.IdLekara == id)
                 {
                     usluge.Add(u);
                 }
 
             }
-            */
-            foreach (ZdravstvenaUsluga u in Usluge)
-                usluge.Add(u);
-
+            
             return usluge;
+        }
+
+       public ObservableCollection<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
+        {
+            loadData();
+            ObservableCollection<ZdravstvenaUsluga> ret = new ObservableCollection<ZdravstvenaUsluga>();
+            foreach(ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.IdPacijenta == id)
+                { 
+                    ret.Add(z);
+                }
+            }
+            return ret;
+        }
+        public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
+        {
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.IdPacijenta == usluga.Id)
+                    Usluge.Remove(z);
+                break;
+            }
+            SaveData();
+            return usluga;
         }
 
 

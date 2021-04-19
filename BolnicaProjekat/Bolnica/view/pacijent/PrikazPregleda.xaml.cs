@@ -20,27 +20,21 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class PrikazPregleda : Window
     {
-        //public Pregled Pregled;
-        public PrikazPregleda()//Pregled OdabraniPregled
+        public ZdravstvenaUsluga Pregled;
+        public DateTime NoviPocetak;
+        public PrikazPregleda(ZdravstvenaUsluga usluga)
         {
 
             InitializeComponent();
-
-            //Pregled = OdabraniPregled;
-
-            TimeSpan period = new TimeSpan(1,0,0,0);
-
-           // if (Pregled.Termin.Pocetak.Subtract(DateTime.Now)< period )
-            //{
-            //   dugmePomjeriPregled.IsEnabled = false;
-           // }
-
-           // datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
-           // pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
-           // kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
+            Pregled = usluga;
 
 
-          //  idlekara.Text = Convert.ToString(Pregled.IdLekara.Ime)+" "+ Convert.ToString(Pregled.IdLekara.Prezime);
+            datum.Text = (Pregled.Termin.Pocetak).ToString("dddd, dd MMMM yyyy");
+            pocetak.Text = (Pregled.Termin.Pocetak).ToString("hh:mm tt");
+            kraj.Text = (Pregled.Termin.Kraj).ToString("hh:mm tt");
+
+
+            idlekara.Text = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(Pregled.IdLekara).Ime+" "+ Repozitorijum.LekarRepozitorijum.GetInstance.GetById(Pregled.IdLekara).Prezime;
           //  komentar.Text = Convert.ToString(Pregled.Komentar);
           //  soba.Text = Convert.ToString(Pregled.SobaZaPregled.Id);
 
@@ -49,12 +43,44 @@ namespace Bolnica.view.pacijent
         private void izmjena_pregleda(object sender, RoutedEventArgs e)
         {
            this. Close();
-          // Pregled.Komentar = komentar.Text;
-
+           Pregled.RazlogZakazivanja = komentar.Text;
+            //vrv treba i repozitorijum izmjena da se pozove
         }
 
         private void pomjeri_pregled(object sender, RoutedEventArgs e)
         {
+            if (!Servis.ZdravstvenaUslugaServis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak))
+            {
+                MessageBox.Show("Izabrani termin je zauzet");
+            }
+            else
+            {
+                Pregled.Termin = new Termin(NoviPocetak, NoviPocetak + new TimeSpan(0, 0, 30, 0, 0));
+                MessageBox.Show("Vas pregled je uspjesno pomjeren");
+            }
+        }
+
+        private void SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime date = novi_datum.SelectedDate.Value;
+            int pocetakSati = Convert.ToInt32(vrijeme_pocetak_sati.Text);
+            int pocetakMinute = Convert.ToInt32(vrijeme_pocetak_minute.Text);
+            string pocetakAP = vrijeme_pocetak_ap.Text;
+            if (pocetakAP.Equals("PM"))
+                pocetakSati += 12;
+
+            NoviPocetak = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute, 00);
+            TimeSpan period = new TimeSpan(2, 0, 0, 0, 0);  // 2 dana
+
+            if (DateTime.Compare(Pregled.Termin.Pocetak + period,NoviPocetak) < 0)
+            {
+                dugmePomjeriPregled.IsEnabled = false;
+                MessageBox.Show("Maksimalno pomjeranje je 2 dana od originalnog termina --->" + NoviPocetak.ToString() +" izlazi iz tog okvira");
+            }
+            else
+            {
+                dugmePomjeriPregled.IsEnabled = true;
+            }
 
         }
     }

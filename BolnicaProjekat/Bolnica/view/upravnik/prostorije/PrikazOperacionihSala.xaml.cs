@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -22,19 +24,27 @@ namespace Bolnica.view.upravnik.prostorije
     public partial class PrikazOperacionihSala : Page
     {
 
-        public ObservableCollection<Model.OperacionaSala> KolekcijaOperacionihSala { get; set; }
+        public ObservableCollection<Prostorija> KolekcijaOperacionihSala { get; set; }
+        public ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
 
         public PrikazOperacionihSala()
         {
-            KolekcijaOperacionihSala = Model.Bolnica.GetInstance.GetOperacioneSale();
+            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
+            KolekcijaOperacionihSala = ProstorijeKontrolerObjekat.getProstorijeTipObservable(TipProstorije.OpracionaSala);
             InitializeComponent();
             this.DataGridPrikazOperacionihSala.ItemsSource = KolekcijaOperacionihSala;
         }
 
-        public Model.OperacionaSala GetSelectedOperacionaSala()
+        public void azurirajPrikaz()
+        {
+            KolekcijaOperacionihSala = ProstorijeKontrolerObjekat.getProstorijeTipObservable(TipProstorije.OpracionaSala);
+            this.DataGridPrikazOperacionihSala.ItemsSource = KolekcijaOperacionihSala;
+        }
+
+        public Prostorija GetSelectedOperacionaSala()
         {
 
-            return (DataGridPrikazOperacionihSala.SelectedItem as Model.OperacionaSala);
+            return (DataGridPrikazOperacionihSala.SelectedItem as Prostorija);
         }
 
     }

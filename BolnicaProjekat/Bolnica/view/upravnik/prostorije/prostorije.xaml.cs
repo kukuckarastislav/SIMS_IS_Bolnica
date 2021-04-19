@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -24,13 +26,16 @@ namespace Bolnica.view.upravnik.prostorije
     {
 
         private int aktivanPrikaz = 1;
+        private TipProstorije tipProstorije;
         private view.upravnik.prostorije.PrikazProstorija refPrikazProstorija; // obicne prostorije
         private view.upravnik.prostorije.PrikazOperacionihSala refPrikazOperacionihSala;
         private view.upravnik.prostorije.PrikazSobaZaPregled refPrikazSobaZaPregled;
         private view.upravnik.prostorije.PrikazBolesnickihProstorija refPrikazBolesnickihProstorija;
 
+        private ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
         public Prostorije()
         {
+            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
             InitializeComponent();
             aktiviraj(1);
             refPrikazProstorija = new view.upravnik.prostorije.PrikazProstorija();
@@ -41,15 +46,6 @@ namespace Bolnica.view.upravnik.prostorije
         private void Izmeni_Prostoriju(object sender, RoutedEventArgs e)
         {
             /*
-            Model.Prostorija pro = DataGridPrikazProstorija.SelectedItem as Model.Prostorija;
-            if (pro == null) return;
-
-            var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(pro);
-            dodajProstorijuForma.Show();
-
-            DataGridPrikazProstorija.Items.Refresh();
-            */
-
             if (aktivanPrikaz == 1)
             {
                 Model.Prostorija editProstorija = refPrikazProstorija.GetSelectedProstorija();
@@ -74,88 +70,112 @@ namespace Bolnica.view.upravnik.prostorije
                 var dodajBolesnickuSobu = new Bolnica.view.upravnik.prostorije.DodajBolesnickuProstorijuForma(editBolesnickaSoba);
                 dodajBolesnickuSobu.Show();
             }
-        }
-
-        private void Dodaj_Prostoriju(object sender, RoutedEventArgs e)
-        {
-
+            */
+            Prostorija pro = null;
             if (aktivanPrikaz == 1)
             {
-                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma();
+                pro = refPrikazProstorija.GetSelectedProstorija();
+                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(refPrikazProstorija,
+                                                                                                     null,
+                                                                                                     null,
+                                                                                                     pro);
                 dodajProstorijuForma.Show();
             }
             else if (aktivanPrikaz == 2)
             {
-                var dodajOperacionuSaluForma = new Bolnica.view.upravnik.prostorije.DodajOperacionuSaluForma();
-                dodajOperacionuSaluForma.Show();
+                pro = refPrikazOperacionihSala.GetSelectedOperacionaSala();
+                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(null,
+                                                                                                     refPrikazOperacionihSala,
+                                                                                                     null,
+                                                                                                     pro);
+                dodajProstorijuForma.Show();
             }
+
             else if (aktivanPrikaz == 3)
             {
-                var dodajSobuZaPregledForma = new Bolnica.view.upravnik.prostorije.DodajSobuZaPregledForma();
-                dodajSobuZaPregledForma.Show();
+                pro = refPrikazSobaZaPregled.GetSelectedSobaZaPregled();
+                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(null,
+                                                                                                     null,
+                                                                                                     refPrikazSobaZaPregled,
+                                                                                                     pro);
+                dodajProstorijuForma.Show();
             }
             else if (aktivanPrikaz == 4)
             {
-                var dodajBolesnickuSobu = new Bolnica.view.upravnik.prostorije.DodajBolesnickuProstorijuForma();
+                pro = refPrikazBolesnickihProstorija.GetSelectedBolesnickaSoba();
+                var dodajBolesnickuSobu = new Bolnica.view.upravnik.prostorije.DodajBolesnickuProstorijuForma(refPrikazBolesnickihProstorija,
+                                                                                                              pro);
                 dodajBolesnickuSobu.Show();
             }
+        }
+
+        private void Dodaj_Prostoriju(object sender, RoutedEventArgs e)
+        {
+            
+            if (aktivanPrikaz == 1)
+            {
+                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(refPrikazProstorija,
+                                                                                                     null, 
+                                                                                                     null,
+                                                                                                     tipProstorije);
+                dodajProstorijuForma.Show();
+            }
+            else if (aktivanPrikaz == 2)
+            {
+                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(null,
+                                                                                                     refPrikazOperacionihSala,
+                                                                                                     null,
+                                                                                                     tipProstorije);
+                dodajProstorijuForma.Show();
+            }
+            
+            else if (aktivanPrikaz == 3)
+            {
+                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(null,
+                                                                                                     null,
+                                                                                                     refPrikazSobaZaPregled,
+                                                                                                     tipProstorije);
+                dodajProstorijuForma.Show();
+            }
+            else if (aktivanPrikaz == 4)
+            {
+                var dodajBolesnickuSobu = new Bolnica.view.upravnik.prostorije.DodajBolesnickuProstorijuForma(refPrikazBolesnickihProstorija,
+                                                                                                              tipProstorije);
+                dodajBolesnickuSobu.Show();
+            }
+           
+            
+
         }
 
 
         private void Obrisi_Prostoriju(object sender, RoutedEventArgs e)
         {
+            Prostorija pro = null;
+            if (aktivanPrikaz == 1) pro = refPrikazProstorija.GetSelectedProstorija();
+            else if (aktivanPrikaz == 2) pro = refPrikazOperacionihSala.GetSelectedOperacionaSala();
+            else if (aktivanPrikaz == 3) pro = refPrikazSobaZaPregled.GetSelectedSobaZaPregled();
+            else if (aktivanPrikaz == 4) pro = refPrikazBolesnickihProstorija.GetSelectedBolesnickaSoba();
 
-            if(aktivanPrikaz == 1)
+
+
+            if (pro == null)
             {
-                Model.Prostorija pro = refPrikazProstorija.GetSelectedProstorija();
-                if (pro != null)
-                { 
-                    Model.Bolnica.GetInstance.RemoveProstorije(pro);
-                }
-
+                MessageBox.Show("Niste selektovali ni jednu Prostoriju");
             }
-            else if(aktivanPrikaz == 2)
+            else
             {
-                Model.OperacionaSala opSala = refPrikazOperacionihSala.GetSelectedOperacionaSala();
-                if (opSala != null)
+                var rezultat = MessageBox.Show("Zelite da obrisete prostoriju " + pro.BrojSprat, "Brisanje Prostorije", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (rezultat == MessageBoxResult.Yes)
                 {
-                    Model.Bolnica.GetInstance.RemoveOperacioneSale(opSala);
+                    ProstorijeKontrolerObjekat.ObrisiProstoriju(pro);
                 }
             }
-            else if(aktivanPrikaz == 3)
-            {
-                Model.SobaZaPreglede SzP = refPrikazSobaZaPregled.GetSelectedSobaZaPregled();
-                if (SzP != null)
-                {
-                    Model.Bolnica.GetInstance.RemoveSobeZaPreglede(SzP);
-                }
-            }
-            else if(aktivanPrikaz == 4)
-            {
-                Model.BolesnickaSoba bs = refPrikazBolesnickihProstorija.GetSelectedBolesnickaSoba();
-                if (bs != null)
-                {
-                    Model.Bolnica.GetInstance.RemoveBolesnickeSobe(bs);
-                }
-            }
-            
-            /*
-            Model.Prostorija pro = DataGridPrikazProstorija.SelectedItem as Model.Prostorija;
-            if(pro != null)
-            {
-                //Model.Bolnica.GetInstance.RemoveProstorijeByID(pro.Id);
-                Model.Bolnica.GetInstance.RemoveProstorije(pro);
-            }
-            
-            /* 
-            var selektovanaProstorija = DataGridPrikazProstorija.SelectedItem;
-            if (selektovanaProstorija != null)
-            {
-                KolekcijaProstorija.Remove((Model.Prostorija)selektovanaProstorija);
-            }
-            */
 
-
+            if (aktivanPrikaz == 1) refPrikazProstorija.azurirajPrikaz();
+            else if (aktivanPrikaz == 2) refPrikazOperacionihSala.azurirajPrikaz();
+            else if (aktivanPrikaz == 3) refPrikazSobaZaPregled.azurirajPrikaz();
+            else if (aktivanPrikaz == 4) refPrikazBolesnickihProstorija.azurirajPrikaz();
 
 
         }
@@ -163,6 +183,7 @@ namespace Bolnica.view.upravnik.prostorije
         private void aktiviraj(int akt)
         {
             aktivanPrikaz = akt;
+            tipProstorije = TipProstorije.Bolnicka;
             Btn_P_prosotrija.Background = Brushes.White;
             Btn_P_op_s.Background = Brushes.White;
             Btn_P_sobPreg.Background = Brushes.White;
@@ -170,15 +191,19 @@ namespace Bolnica.view.upravnik.prostorije
             switch (aktivanPrikaz)
             {
                 case 1:
+                    tipProstorije = TipProstorije.Bolnicka;
                     Btn_P_prosotrija.Background = Brushes.LightGray;
                     break;
                 case 2:
+                    tipProstorije = TipProstorije.OpracionaSala;
                     Btn_P_op_s.Background = Brushes.LightGray;
                     break;
                 case 3:
+                    tipProstorije = TipProstorije.SobaZaPreglede;
                     Btn_P_sobPreg.Background = Brushes.LightGray;
                     break;
                 case 4:
+                    tipProstorije = TipProstorije.BolesnickaSoba;
                     Btn_P_bolSob.Background = Brushes.LightGray;
                     break;
             }

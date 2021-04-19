@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -21,18 +23,25 @@ namespace Bolnica.view.upravnik.prostorije
     /// </summary>
     public partial class PrikazSobaZaPregled : Page
     {
-        public ObservableCollection<Model.SobaZaPreglede> KolekcijaSobeZaPregled { get; set; }
+        public ObservableCollection<Prostorija> KolekcijaSobeZaPregled { get; set; }
+        public ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
         public PrikazSobaZaPregled()
         {
-            KolekcijaSobeZaPregled = Model.Bolnica.GetInstance.GetSobeZaPreglede();
+            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
+            KolekcijaSobeZaPregled = ProstorijeKontrolerObjekat.getProstorijeTipObservable(TipProstorije.SobaZaPreglede);
             InitializeComponent();
             this.DataGridPrikazSobaZaPregled.ItemsSource = KolekcijaSobeZaPregled;
         }
 
-        public Model.SobaZaPreglede GetSelectedSobaZaPregled()
+        public void azurirajPrikaz()
+        {
+            KolekcijaSobeZaPregled = ProstorijeKontrolerObjekat.getProstorijeTipObservable(TipProstorije.SobaZaPreglede);
+            this.DataGridPrikazSobaZaPregled.ItemsSource = KolekcijaSobeZaPregled;
+        }
+        public Prostorija GetSelectedSobaZaPregled()
         {
 
-            return (DataGridPrikazSobaZaPregled.SelectedItem as Model.SobaZaPreglede);
+            return (DataGridPrikazSobaZaPregled.SelectedItem as Prostorija);
         }
     }
 }

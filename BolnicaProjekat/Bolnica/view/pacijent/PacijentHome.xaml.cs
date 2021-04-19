@@ -20,6 +20,7 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class PacijentHome : Window
     {
+        public Pacijent Pacijent;
         public PacijentHome(Pacijent p)
         {
 
@@ -33,6 +34,8 @@ namespace Bolnica.view.pacijent
             jmbg.Text = p.Jmbg;
             telefon.Text = p.Telefon;
             korisnickoime.Text = p.KorisnickoIme;
+
+            Pacijent = p;
         }
 
         private void prikazi_preglede(object sender, RoutedEventArgs e)
@@ -43,7 +46,7 @@ namespace Bolnica.view.pacijent
 
         private void prikazi_vlastite_preglede(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.SopstveniPregledi();
+            var varr = new view.pacijent.SopstveniPregledi(Pacijent);
             varr.Show();
 
         }

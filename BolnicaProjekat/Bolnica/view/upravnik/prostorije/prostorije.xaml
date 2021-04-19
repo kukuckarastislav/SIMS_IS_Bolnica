@@ -10,12 +10,18 @@
 
     <Grid Background="White">
         <DockPanel>
-            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal">
-                <Button Width="100" Margin="30 10" Click="Dodaj_Prostoriju">Dodaj</Button>
-                <Button Width="100" Margin="30 10" Click="Izmeni_Prostoriju">Izmeni</Button>
-                <Button Width="100" Margin="30 10" Click="Obrisi_Prostoriju">Obrisi</Button>
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+                <StackPanel>
+                    <Label Margin="10 0 0 0" FontSize="24">Prostorije</Label>
+                </StackPanel>
+                <StackPanel Height="60" HorizontalAlignment="Center"  Orientation="Horizontal">
+                    <Button Width="100" Margin="30 10" Click="Dodaj_Prostoriju">Dodaj</Button>
+                    <Button Width="100" Margin="30 10" Click="Izmeni_Prostoriju">Izmeni</Button>
+                    <Button Width="100" Margin="30 10" Click="Obrisi_Prostoriju">Obrisi</Button>
+                </StackPanel>
             </StackPanel>
-            <Grid DockPanel.Dock="Bottom" Background="#f0f0f0">
+            
+            <Grid DockPanel.Dock="Bottom" Background="White">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition />
@@ -28,7 +34,7 @@
                     <RowDefinition />
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Background="#f0f0f0" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" Background="White" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
                     <Button x:Name="Btn_P_prosotrija" Background="White" Width="100" Margin="5 25 0 0" Click="Btn_prikazi_prosotrije">Prostorije</Button>
                     <Button x:Name="Btn_P_op_s" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_op_sale">Operacione Sale</Button>
                     <Button x:Name="Btn_P_sobPreg" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_sobe_za_pregled">Sobe za pregled</Button>

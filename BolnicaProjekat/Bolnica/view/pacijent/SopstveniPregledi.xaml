@@ -27,15 +27,13 @@
         <ListView ListViewItem.MouseDoubleClick="pregled_odabran" ItemsSource="{Binding PreglediPacijenta}" x:Name="listaPregledaPacijenta" Margin="185,22,185,0" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Tip termina" DisplayMemberBinding="{Binding TipPregleda }"/>
-                    <GridViewColumn Header="Datum i vrijeme" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
-                    <GridViewColumn Header="Soba" DisplayMemberBinding="{Binding SobaZaPregled.Id}"/>
-                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding IdLekara.Ime }"/>
-                    <GridViewColumn Header="Prezime lekara" DisplayMemberBinding="{Binding IdLekara.Prezime }"/>
+                    <GridViewColumn Header="Datum i vrijeme pocetak" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
+                    <GridViewColumn Header="Datum i vrijeme kraj" DisplayMemberBinding="{Binding Termin.Kraj}"/>
+                    <GridViewColumn Header="Id lekara" DisplayMemberBinding="{Binding IdLekara }"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Click="otkazi_pregled" Margin="15,365,636,22" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5">Otkazi pregled</Button>
+        <Button x:Name="dugme_otkazi" Click="otkazi_pregled" Margin="15,365,636,22" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5">Otkazi pregled</Button>
         <Button Click="modifikuj_pregled" Margin="15,322,636,64" RenderTransformOrigin="0.667,0.361" Background="#e5e5e5">Prikazi pregled</Button>
         <Button Click="zakazi_novi_pregled" Margin="639,365,12,22" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5" Content="Zakazi novi pregled"/>
     </Grid>

@@ -22,69 +22,80 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class RaspoloziviPregledi : Window
     {
-
-         public List<Model.ZdravstvenaUsluga> Pregledi { get; set; }
-         public ZdravstvenaUsluga odabraniPregled;
+        public ObservableCollection<ZdravstvenaUsluga> Pregledi;
+        public List<ZdravstvenaUsluga> PreglediList { get; set; }
+        public ZdravstvenaUsluga odabraniPregled;
         public DateTime date;
         public  Lekar OdabraniLekar;
-
-        public List<Lekar> listaLekari { get; set; }
+        public ObservableCollection<Lekar> listaLekari { get; set; }
 
         public RaspoloziviPregledi()
         {
             InitializeComponent();
-            Pregledi = ZdravstvenaUslugaServis.getFirstAvailableAppointments();
+
+            //Pregledi = ZdravstvenaUslugaServis.getFirstAvailableAppointments();
              this.listaPregleda.ItemsSource = Pregledi;
 
             date = DateTime.Now;
-            listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAll();
+            listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
             this.ComboBoxLekari.ItemsSource = listaLekari;
         }
 
-        private void zakazi_pregled(object sender, MouseButtonEventArgs e)
+        private void odabran_je_pregled(object sender, MouseButtonEventArgs e)
         {
             odabraniPregled = listaPregleda.SelectedItem as ZdravstvenaUsluga;
+            MessageBox.Show(odabraniPregled.Termin.Pocetak.ToString());
         }
 
-        private void pregled_odabran(object sender, RoutedEventArgs e)
+        private void zakazi_pregled(object sender, RoutedEventArgs e)
         {
+            if (odabraniPregled == null)
+                MessageBox.Show("Niste odabrali pregled");
 
+            odabraniPregled.IdPacijenta = 1;
+            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(odabraniPregled);
+            Pregledi.Remove(odabraniPregled);
         }
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             date = datum.SelectedDate.Value;
 
-           // MessageBox.Show(poc.ToString());
+            if (DateTime.Compare(date, DateTime.Now) < 0)
+            {
+                MessageBox.Show("Moguce je izabrati samo buduce datume");
+                date = DateTime.Now;
+            }
+
 
         }
 
         private void pretrazi_termine(object sender, RoutedEventArgs e)
-        {
-            int pocetakSati = Convert.ToInt32(vrijeme_pocetak_sati.SelectedItem as String);
-            int pocetakMinute = Convert.ToInt32(vrijeme_pocetak_minute.SelectedItem as String);
-            string pocetakAP = vrijeme_pocetak_ap.SelectedItem.ToString();
+        {          
+            int pocetakSati = Convert.ToInt32(vrijeme_pocetak_sati.Text);
+            int pocetakMinute = Convert.ToInt32(vrijeme_pocetak_minute.Text);
+            string pocetakAP = vrijeme_pocetak_ap.Text;
 
-            int krajSati = Convert.ToInt32(vrijeme_kraj_sati.SelectedItem as String);
-            int krajkMinute = Convert.ToInt32(vrijeme_kraj_minute.SelectedItem as String);
-            string krajAP = vrijeme_kraj_ap.SelectedItem.ToString();
+            int krajSati = Convert.ToInt32(vrijeme_kraj_sati.Text);
+            int krajkMinute = Convert.ToInt32(vrijeme_kraj_minute.Text);
+            string krajAP = vrijeme_kraj_ap.Text;
 
             if (pocetakAP.Equals("PM"))
-            {
                 pocetakSati += 12;
-            }
             if (krajAP.Equals("PM"))
-            {
                 krajSati += 12;
-            }
 
             DateTime pocetak = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute,00);
             DateTime kraj = new DateTime(date.Year, date.Month, date.Day,krajSati,krajkMinute,00);
 
-            // OdabraniLekar = ComboBoxLekari.SelectedItem as Lekar;
-            OdabraniLekar = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(1);
+            OdabraniLekar = ComboBoxLekari.SelectedItem as Lekar;
 
-            Pregledi = ZdravstvenaUslugaServis.getAvailableAppointments(OdabraniLekar, pocetak, kraj, 0);
+            Pregledi = new ObservableCollection<ZdravstvenaUsluga>();
+            PreglediList = ZdravstvenaUslugaServis.getAvailableAppointments(OdabraniLekar, pocetak, kraj,0);
+            foreach (var v in PreglediList)
+                Pregledi.Add(v);
+
+            this.listaPregleda.ItemsSource = Pregledi;
         }
     }
 }

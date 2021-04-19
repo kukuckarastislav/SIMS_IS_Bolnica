@@ -60,7 +60,7 @@ namespace Repozitorijum
 
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
-            //loadData();
+            loadData();
 
             if (!this.Usluge.Contains(usluga))
                 this.Usluge.Add(usluga);
@@ -102,6 +102,30 @@ namespace Repozitorijum
             return Usluge;
         }
 
+       public ObservableCollection<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
+        {
+            loadData();
+            ObservableCollection<ZdravstvenaUsluga> ret = new ObservableCollection<ZdravstvenaUsluga>();
+            foreach(ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.IdPacijenta == id)
+                { 
+                    ret.Add(z);
+                }
+            }
+            return ret;
+        }
+        public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
+        {
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.IdPacijenta == usluga.Id)
+                    Usluge.Remove(z);
+                break;
+            }
+            SaveData();
+            return usluga;
+        }
 
     }
 }

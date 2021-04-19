@@ -28,17 +28,16 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
-                           Grid.Row="1" Grid.Column="1">ID Prostorije</TextBlock>
+                           Grid.Row="1" Grid.Column="1">Broj Prostorije</TextBlock>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="2" Grid.Column="1">Sprat Prostorije</TextBlock>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="3" Grid.Column="1">Povrsina Prostorije</TextBlock>
+
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
-                           Grid.Row="4" Grid.Column="1">ID Inventara</TextBlock>
+                           Grid.Row="4" Grid.Column="1">Broj kreveta</TextBlock>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
-                           Grid.Row="5" Grid.Column="1">Broj kreveta</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
-                           Grid.Row="6" Grid.Column="1">Broj slobodnih kreveta</TextBlock>
+                           Grid.Row="5" Grid.Column="1">Broj slobodnih kreveta</TextBlock>
 
                 <TextBox x:Name="inputIDprostorije" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="1" Grid.Column="2" Width="160"></TextBox>
@@ -49,14 +48,11 @@
                 <TextBox x:Name="inputPovrsina" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="3" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputIDInventara" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox x:Name="inputBrKreveta" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="4" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputBrKreveta" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
-                           Grid.Row="5" Grid.Column="2" Width="160"></TextBox>
-
                 <TextBox x:Name="inputBrSlobKreveta" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
-                           Grid.Row="6" Grid.Column="2" Width="160"></TextBox>
+                           Grid.Row="5" Grid.Column="2" Width="160"></TextBox>
                 
                 <Button  Grid.Row="7" Grid.Column="1" Margin="40 15 40 0" Click="close_win">Odustani</Button>
 

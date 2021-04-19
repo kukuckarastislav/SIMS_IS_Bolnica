@@ -8,21 +8,20 @@
         Title="UpravnikHome" Height="720" Width="1280">
     <Grid>
         <DockPanel>
-            <Grid DockPanel.Dock="Left" Background="#031e46" Width="Auto">
+            <Grid DockPanel.Dock="Left" Background="#008fe8" Width="160">
                 <StackPanel Orientation="Vertical">
                     <Border Margin="10 10 10 0" Width="60" Height="60" Background="White" CornerRadius="450">
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="upravnik" />
                     </Border>
                     <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Text="Ime" />
-                    <Button Foreground="Black" Margin="0 15 0 2" Click="Prostorije_Click">Rad sa Prostorijama</Button>
-                    <Button Foreground="Black" Margin="0 2">ToDO</Button>
-                    <Button Foreground="Black" Margin="0 2">ToDO</Button>
-                    <Button Foreground="Black" Margin="0 2">ToDO</Button>
-                    <Button Foreground="Black" Margin="0 2">ToDO</Button>
+                    <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 40 0 2" Click="Prostorije_Click">Rad sa Prostorijama</Button>
+                    <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2">ToDO</Button>
+                    <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2">ToDO</Button>
+                    <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2">ToDO</Button>
+                    <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2">ToDO</Button>
                 </StackPanel>
             </Grid>
             <DockPanel DockPanel.Dock="Right">
-                <StackPanel DockPanel.Dock="Top" Height="60" Background="#043987"></StackPanel>
                 <Frame DockPanel.Dock="Bottom" x:Name="RadnaPovrsina" NavigationUIVisibility="Hidden"></Frame>
             </DockPanel>
           

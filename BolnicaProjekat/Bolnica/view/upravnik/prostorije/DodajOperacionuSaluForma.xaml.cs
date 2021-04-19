@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -24,8 +26,8 @@ namespace Bolnica.view.upravnik.prostorije
             InitializeComponent();
         }
 
-        private Model.OperacionaSala editOperacionaSala;
-        public DodajOperacionuSaluForma(Model.OperacionaSala editOperacionaSala)
+        private Prostorija editOperacionaSala;
+        public DodajOperacionuSaluForma(Prostorija editOperacionaSala)
         {
             InitializeComponent();
             this.editOperacionaSala = editOperacionaSala;

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -24,8 +26,8 @@ namespace Bolnica.view.upravnik.prostorije
             InitializeComponent();
         }
 
-        private Model.SobaZaPreglede editSobaZaPregled;
-        public DodajSobuZaPregledForma(Model.SobaZaPreglede editSobaZaPregled)
+        private Prostorija editSobaZaPregled;
+        public DodajSobuZaPregledForma(Prostorija editSobaZaPregled)
         {
             InitializeComponent();
             this.editSobaZaPregled = editSobaZaPregled;

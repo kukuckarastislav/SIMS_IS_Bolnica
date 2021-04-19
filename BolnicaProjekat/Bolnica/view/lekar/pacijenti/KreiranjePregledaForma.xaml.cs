@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Kontroler;
+using Model;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -20,7 +22,8 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class KreiranjePregledaForma : Window
     {
-        public ObservableCollection<Model.SobaZaPreglede> KolekcijaSobeZaPregled { get; set; }
+        public ObservableCollection<Prostorija> KolekcijaSobeZaPregled { get; set; }
+        public ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
         public ObservableCollection<String> KolekcijaIDSobeZaPregled{ get; set; }
 
         //public Model.Pregled KreiranPregled { get; set; }
@@ -29,12 +32,14 @@ namespace Bolnica.view.lekar.pacijenti
 
         public KreiranjePregledaForma(Model.Pacijent izabraniPacijent)
         {
+            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
             this.izabraniPacijent = izabraniPacijent;
-           // KolekcijaSobeZaPregled = Model.Bolnica.GetInstance.GetSobeZaPreglede();
+            KolekcijaSobeZaPregled = ProstorijeKontrolerObjekat.getProstorijeTipObservable(TipProstorije.SobaZaPreglede);
             KolekcijaIDSobeZaPregled = new ObservableCollection<String>();
-            foreach(Model.SobaZaPreglede s in KolekcijaSobeZaPregled)
+            foreach(Prostorija s in KolekcijaSobeZaPregled)
             {
-                KolekcijaIDSobeZaPregled.Add(s.Id.ToString());
+                //KolekcijaIDSobeZaPregled.Add(s.Id.ToString());
+                KolekcijaIDSobeZaPregled.Add(s.BrojSprat);
             }
 
             InitializeComponent();

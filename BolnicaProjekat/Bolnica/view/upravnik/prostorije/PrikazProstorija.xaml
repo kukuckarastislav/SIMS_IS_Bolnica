@@ -10,13 +10,13 @@
 
     <Grid>
         <DataGrid x:Name="DataGridPrikazProstorija" 
-                          ItemsSource="{Binding Path=KolekcijaBolesnickeSobe}" 
+                          ItemsSource="{Binding Path=KolekcijaProstorija}" 
                           IsReadOnly="False"
                           SelectionMode="Single" 
                           AutoGenerateColumns="False"
                           SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID Prostorije" Binding="{Binding Id}" Width="*" />
+                <DataGridTextColumn Header="Broj Prostorije" Binding="{Binding Broj}" Width="*" />
                 <DataGridTextColumn Header="Sprat Prostorije" Binding="{Binding Sprat}" Width="*" />
                 <DataGridTextColumn Header="Povrsina Prostorije" Binding="{Binding Povrsina}" Width="*" />
                 <!--<DataGridTextColumn Header="ID Inventara" Binding="{Binding Inventar.IdInventara}" Width="*" /> -->

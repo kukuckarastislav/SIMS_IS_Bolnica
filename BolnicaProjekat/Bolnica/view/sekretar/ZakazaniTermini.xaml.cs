@@ -1,4 +1,6 @@
-﻿using Model;
+﻿using Bolnica.Controller;
+using Model;
+using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;
@@ -30,6 +32,20 @@ namespace Bolnica.view.sekretar
             odabraniPacijent = pacijent;
             termini = ZdravstvenaUslugaServis.getUslugePacijenta(pacijent);
             this.DataGridPrikazTermina.ItemsSource = termini;
+        }
+
+        private void OtkaziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
+            if (ul == null) return;
+
+            ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(ul.Usluga);
+
+            NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
+            kontroler.NotifikujOtkazaniTermin(ul.Usluga);
+            MessageBox.Show("Termin je uspesno otkazan.");
+            //NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
+            //  kontroler.NotifikujZakazaniTermin(usluga);
         }
     }
 }

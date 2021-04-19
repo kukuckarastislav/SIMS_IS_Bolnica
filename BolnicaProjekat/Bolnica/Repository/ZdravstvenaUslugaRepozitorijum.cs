@@ -117,11 +117,15 @@ namespace Repozitorijum
         }
         public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
         {
+            int i = 0;
             foreach (ZdravstvenaUsluga z in Usluge)
             {
-                if (z.IdPacijenta == usluga.Id)
-                    Usluge.Remove(z);
-                break;
+                if (z.Id == usluga.Id)
+                {
+                    Usluge.RemoveAt(i);
+                    break;
+                }
+                i++;
             }
             SaveData();
             return usluga;

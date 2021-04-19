@@ -15,6 +15,15 @@
     "IdLekara": 1,
     "PacijentProcitao": false,
     "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 4/19/2021, sa pocetkom u 11:00 AM."
+    "Opis": null
+  },
+  {
+    "Id": 3,
+    "IdZdravstveneUsluge": 11,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazana vam je operacija,  dana 4/15/2021, sa pocetkom u 9:30 AM."
   }
 ]

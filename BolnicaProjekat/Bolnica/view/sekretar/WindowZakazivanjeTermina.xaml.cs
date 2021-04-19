@@ -15,6 +15,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Bolnica;
+using Bolnica.Controller;
 
 namespace Bolnica.view.sekretar
 {
@@ -35,17 +37,6 @@ namespace Bolnica.view.sekretar
         public WindowZakazivanjeTermina(Pacijent pacijent)
         {
             InitializeComponent();
-            /*
-            Pregledi = new ObservableCollection<ZdravstvenaUsluga>();
-            DateTime pocetak = new DateTime(2021, 4, 19, 8, 0, 00);
-            DateTime kraj = new DateTime(2021, 4, 19, 16, 0, 00);
-            PreglediList = ZdravstvenaUslugaServis.getAppointments(LekarRepozitorijum.GetInstance.GetById(1),pocetak,kraj);
-            foreach(var usluga in PreglediList)
-            {
-                Pregledi.Add(usluga);
-            }
-            this.listaPregleda.ItemsSource = Pregledi;
-            */
             datePicker.SelectedDate = DateTime.Now;
             listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
             this.ComboBoxLekari.ItemsSource = listaLekari;
@@ -91,6 +82,9 @@ namespace Bolnica.view.sekretar
             usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getAll().Count + 1;
             MessageBox.Show("Termin je uspesno zauzet.");
             ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
+
+            NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
+            kontroler.NotifikujZakazaniTermin(usluga);
         }
     }
 }

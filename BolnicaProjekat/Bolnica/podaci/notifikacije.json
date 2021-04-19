@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "IdZdravstveneUsluge": 4,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": null
+  },
+  {
+    "Id": 2,
+    "IdZdravstveneUsluge": 5,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazan vam je pregled, dana 4/19/2021, sa pocetkom u 11:00 AM."
+  }
+]

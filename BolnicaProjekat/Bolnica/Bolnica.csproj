@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\LekarKontroler.cs" />
+    <Compile Include="Controller\NotifikacijaKontroler.cs" />
     <Compile Include="Controller\PacijentKontroler.cs" />
     <Compile Include="Controller\ProstorijeKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
@@ -119,6 +120,7 @@
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
+    <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
@@ -333,6 +335,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="podaci\lekari.json" />
+    <None Include="podaci\notifikacije.json" />
     <None Include="podaci\pacijenti.json" />
     <None Include="podaci\zdravstveneUsluge.json" />
     <None Include="Properties\Settings.settings">

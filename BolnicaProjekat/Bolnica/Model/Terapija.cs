@@ -12,7 +12,7 @@ namespace Model
    {
       public Recept[] recept;
    
-      public int Id { get; set; }
+        public int Id { get; set; }
         public String Naziv { get; set; }
         public DateTime DatumPocetka { get; set; }
         public DateTime DatumZavrsetka { get; set; }

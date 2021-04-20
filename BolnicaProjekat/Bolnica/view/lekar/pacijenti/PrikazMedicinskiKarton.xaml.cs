@@ -22,6 +22,12 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class PrikazMedicinskiKarton : Page
     {
+
+        private view.lekar.pacijenti.ZakazivanjeUsluge refZakazivanjeUsluge;
+        private view.lekar.pacijenti.IzdavanjeRecepta refIzdavanjeRecepta;
+        private view.lekar.pacijenti.OsnovniPodaci refOsnovniPodaci;
+        private view.lekar.pacijenti.TerapijaPacijenta refTerapijaPacijenta;
+
         //public ObservableCollection<Pregled> preglediKolekcija { get; set; }
         public System.Collections.ArrayList preglediLista { get; set; }
         public Pacijent IzabraniPacijent { get; set; }
@@ -43,10 +49,6 @@ namespace Bolnica.view.lekar.pacijenti
 
         public Pacijent GetIzabraniPacijenta { get; set; }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void listaPregledaPacijenta_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -65,6 +67,51 @@ namespace Bolnica.view.lekar.pacijenti
             
           //  this.IzabraniPacijent.MedicinskiKarton.GetPregled().Remove(listaPregledaPacijenta.SelectedItem as Pregled);
                 
+        }
+
+
+        // dobar kod
+
+        private void IzdavanjeReceptaButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(IzabraniPacijent);
+                NavigationService.Navigate(refIzdavanjeRecepta);
+            }
+
+
+        }
+
+        
+
+        private void ZakazivanjeUslugeButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refZakazivanjeUsluge = new view.lekar.pacijenti.ZakazivanjeUsluge(IzabraniPacijent);
+                NavigationService.Navigate(refZakazivanjeUsluge);
+            }
+
+        }
+
+        private void OsnovniPodaciButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refOsnovniPodaci = new view.lekar.pacijenti.OsnovniPodaci(IzabraniPacijent);
+                NavigationService.Navigate(refOsnovniPodaci);
+            }
+        }
+
+        private void TerapijaButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refTerapijaPacijenta = new view.lekar.pacijenti.TerapijaPacijenta(IzabraniPacijent);
+                NavigationService.Navigate(refTerapijaPacijenta);
+            }
+
         }
     }
 }

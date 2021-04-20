@@ -23,6 +23,7 @@ namespace Servis
         public void ZakaziTermin(ZdravstvenaUsluga usluga)
         {
             int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
+            // public Notifikacija(int id, int idZdravstveneUsluge, int idPacijenta, int idLekara,bool pacijentProcitao, bool lekarProcitao, string opis)
             Notifikacija novaNotifikacija = new Notifikacija(id + 1, usluga.Id, usluga.IdPacijenta, usluga.IdLekara, false, false, "");
             if (usluga.TipUsluge == TipUsluge.Pregled)
                 novaNotifikacija.Opis = "Zakazan vam je pregled,";
@@ -30,6 +31,15 @@ namespace Servis
                 novaNotifikacija.Opis = "Zakazana vam je operacija, ";
             novaNotifikacija.Opis = novaNotifikacija.Opis + " dana " + usluga.Termin.Pocetak.ToShortDateString() + ", sa pocetkom u " + usluga.Termin.Pocetak.ToShortTimeString()+".";
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
+        }
+
+        public void ReceptNotifikacija(Recept recept, DateTime VremeUzimanja)
+        {
+            int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
+            Notifikacija novaNotifikacija = new Notifikacija(0 - id, recept.Id, recept.IdPacijenta, recept.IdLekara, false, true, "");
+            novaNotifikacija.Opis = "Popij lek Ibuprofen u " + VremeUzimanja.ToString();
+            NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
+        
         }
    
    }

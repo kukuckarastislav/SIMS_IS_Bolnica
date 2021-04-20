@@ -23,8 +23,11 @@ namespace Bolnica.view.lekar.pacijenti
     public partial class KreiranjePregledaForma : Window
     {
         public ObservableCollection<Prostorija> KolekcijaSobeZaPregled { get; set; }
+       // public ObservableCollection<Prostorija> KolekcijaOperacionaSala { get; set; }
         public ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
+
         public ObservableCollection<String> KolekcijaIDSobeZaPregled{ get; set; }
+      //public ObservableCollection<String> KolekcijaIDOperacionaSala { get; set; }
 
         //public Model.Pregled KreiranPregled { get; set; }
 

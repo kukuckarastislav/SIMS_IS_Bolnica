@@ -106,6 +106,29 @@ namespace Bolnica.Repository
             return null;
         }
 
+        public ObservableCollection<Notifikacija> GetByIdLekara(int id)
+        {
+            loadData();
+            ObservableCollection<Notifikacija> ListaNot = new ObservableCollection<Notifikacija>();
+            foreach (Notifikacija n in Notifikacije)
+            {
+                if (n.IdLekara == id)
+                    ListaNot.Add(n);
+            }
+            return ListaNot;
+        }
+
+        public ObservableCollection<Notifikacija> GetByIdPacijenta(int id)
+        {
+            loadData();
+            ObservableCollection<Notifikacija> ListaNot = new ObservableCollection<Notifikacija>();
+            foreach (Notifikacija n in Notifikacije)
+            {
+                if (n.IdPacijenta == id)
+                    ListaNot.Add(n);
+            }
+            return ListaNot;
+        }
 
 
     }

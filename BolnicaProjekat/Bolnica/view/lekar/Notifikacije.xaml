@@ -1,0 +1,29 @@
+﻿<Page x:Class="Bolnica.view.lekar.Notifikacije"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.lekar"
+      mc:Ignorable="d" 
+            d:DesignHeight="510" d:DesignWidth="400" Background="#810000"
+      Title="Notifikacije">
+
+    <Grid>
+        <Border BorderThickness="1" Grid.Row="0" Grid.ColumnSpan="2"
+                Width="300" Height="300"
+                CornerRadius="50,50,50,50"  Background="#630000">
+        </Border>
+
+        <Image Source="/images/lekar-icons/forum-icon.png" Width="98"
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,370"/>
+        <TextBlock Text="Notifikacije:" FontSize="20" Foreground="#eeebdd"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,200"/>
+        <ListView Width="250" Height="190" Margin="0,60,0,0"  ItemsSource="{Binding KolekcijaNotifikacija}"  x:Name="listaNotifikacija">
+            <GridView>
+                <GridViewColumn Header="Vrijeme pocetka"  DisplayMemberBinding="{Binding Opis}"/>
+            </GridView>
+
+        </ListView>
+
+    </Grid>
+</Page>

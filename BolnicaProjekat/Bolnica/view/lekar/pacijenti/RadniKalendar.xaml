@@ -1,0 +1,117 @@
+﻿<Page x:Class="Bolnica.view.lekar.pacijenti.RadniKalendar"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.lekar.pacijenti"
+      mc:Ignorable="d" 
+      d:DesignHeight="510" d:DesignWidth="390" Background="#630000"
+      Title="RadniKalendar">
+
+    <Grid HorizontalAlignment="Center">
+        <DockPanel HorizontalAlignment="Center">
+
+            <Grid DockPanel.Dock="Bottom">
+
+                <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                    <Button Height="20" Width="60" VerticalAlignment="Center" 
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                     Margin="20,0,5,-30">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Današnji</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Height="20" Width="60" VerticalAlignment="Center" 
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                     Margin="0,0,5,-30">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Nedeljni</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button Height="20" Width="60" VerticalAlignment="Center" 
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                     Margin="0,0,5,-30">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Mesečni</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+
+                    <Button Height="35" Width="100" VerticalAlignment="Center" 
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                    Margin="50,0,5,0">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/lekar-icons/potvrdi-icon.png" Width="20" />
+                            <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Potvrdi izbor</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+
+
+
+                <DataGrid x:Name="DataGridRadniKalendar" 
+                          IsReadOnly="True" 
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          ItemsSource="{Binding Path=KolekcijaPacijenata}"
+                          Grid.Column="1" 
+                          Grid.Row="1"
+                          Background="#630000"
+                          BorderBrush="White"
+                          BorderThickness="2"
+                          Margin="20,50,20,20"
+                          FontSize="12"
+                          >
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="  Ime" Binding="{Binding Ime}" Width="*">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#810000"/>
+                                    <Setter Property="Foreground" Value="White"/>
+
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="  Prezime" Binding="{Binding Prezime}"  Width="*">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#810000"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="  Pol" Binding="{Binding Pol}"  Width="*">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#810000"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="  Hospitalizovan" Binding="{Binding Hospitalizovan}" Width="*">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#810000"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Page>

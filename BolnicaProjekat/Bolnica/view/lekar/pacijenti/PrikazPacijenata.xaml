@@ -5,83 +5,50 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.lekar.pacijenti"
       mc:Ignorable="d" 
-      d:DesignHeight="675" d:DesignWidth="430" FontFamily="Century Gothic" 
+      d:DesignHeight="510" d:DesignWidth="390" Background="#630000"
       Title="PrikazPacijenata">
 
-    <Grid Background="#9E222F">
-        <DockPanel>
-            <StackPanel Height="60" HorizontalAlignment="Center"
-                        DockPanel.Dock="Top" Orientation="Horizontal">
-                <Button Content="Izaberite pacijenta iz liste, zatim potvdrite Vaš izbor!" FontFamily="Century Gothic" 
-                        Margin="10,10,10,10" Width="400" FontSize="15"
-                        Background="#9E222F" Foreground="White"
-                        BorderBrush="white" BorderThickness="2"
-                        IsHitTestVisible="False"/>
-            </StackPanel>
-            <Grid DockPanel.Dock="Bottom" Background="FloralWhite">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="10"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="25" />
-                </Grid.RowDefinitions>
+    <Grid HorizontalAlignment="Center">
+        <DockPanel HorizontalAlignment="Center">
+       
+            <Grid DockPanel.Dock="Bottom">
 
-                <TextBlock Text="Lista pacijenata:"
+                <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <TextBlock Text="Pretraži pacijenta:"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           FontSize="15"
-                           Margin="0,0,0,15"
-                           Grid.Column="1" Grid.ColumnSpan="6"
-                           Grid.Row="0" Grid.RowSpan="2"
+                           FontSize="12"
+                           Margin="20,0,8,0"
+                           Foreground="AntiqueWhite"
+                           TextWrapping="Wrap"
+                           Width="55"
                            />
+                    <TextBox Width="170" Height="30"
+                 VerticalAlignment="Center" HorizontalAlignment="Center" 
+                 Text="Ime, prezime ili JMBG pacijenta" VerticalContentAlignment="Center" FontStyle="Italic">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="3"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
 
-                <Button Grid.Column="8" Grid.ColumnSpan="3"
-                                Grid.Row="0" Grid.RowSpan="1"
-                                Content="Potvrdi izbor"
-                                FontWeight="DemiBold"
-                                FontSize="15"
-                                Background="#9E222F"
-                                Foreground="White"
-                                BorderBrush="white"
-                                BorderThickness="2"
-                                Margin="1" 
-                                Click="OtvoriMedicinskiKarton"
-                                />
+                    <Button Height="35" Width="100" VerticalAlignment="Center" 
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                    Click="MedicinskiKarton_Click" Margin="15,0,5,0">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/lekar-icons/potvrdi-icon.png" Width="20" />
+                            <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Potvrdi izbor</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+     
 
 
                 <DataGrid x:Name="DataGridPrikazPacijenataZaLekar" 
@@ -89,57 +56,52 @@
                           AutoGenerateColumns="False"
                           SelectionMode="Single"
                           ItemsSource="{Binding Path=KolekcijaPacijenata}"
-                          Grid.Column="1" Grid.ColumnSpan="10"
-                          Grid.Row="1" Grid.RowSpan="23" 
-                          Background="#9E222F"
+                          Grid.Column="1" 
+                          Grid.Row="1"
+                          Background="#630000"
                           BorderBrush="White"
-                          ColumnWidth="98"
                           BorderThickness="2"
-                          Margin="0,0,0,0"
+                          Margin="20,50,20,20"
                           FontSize="12"
                           >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="  Id Pacijenta"  Binding="{Binding IdPacijenta}">
+                       
+                        <DataGridTextColumn Header="  Ime" Binding="{Binding Ime}" Width="*">
                             <DataGridColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#9E222F"/>
+                                    <Setter Property="Background" Value="#810000"/>
                                     <Setter Property="Foreground" Value="White"/>
-                                </Style>
-                            </DataGridColumn.HeaderStyle>
-                        </DataGridTextColumn>
-
-                        <DataGridTextColumn Header="  Ime" Binding="{Binding Ime}">
-                            <DataGridColumn.HeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#9E222F"/>
-                                    <Setter Property="Foreground" Value="White"/>
-                                </Style>
-                            </DataGridColumn.HeaderStyle>
-
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="  Prezime" Binding="{Binding Prezime}">
-                            <DataGridColumn.HeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#9E222F"/>
-                                    <Setter Property="Foreground" Value="White"/>
-
-
-                                </Style>
-                            </DataGridColumn.HeaderStyle>
-                        </DataGridTextColumn>
-
-                        <DataGridTextColumn Header="  Hospitalizovan" Binding="{Binding Hospitalizovan}">
-                            <DataGridColumn.HeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#9E222F"/>
-                                    <Setter Property="Foreground" Value="White"/>
-
 
                                 </Style>
                             </DataGridColumn.HeaderStyle>
 
                         </DataGridTextColumn>
+                        <DataGridTextColumn Header="  Prezime" Binding="{Binding Prezime}"  Width="*">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#810000"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
 
+                        <DataGridTextColumn Header="  Pol" Binding="{Binding Pol}"  Width="*">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#810000"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+                        <DataGridTextColumn Header="  Hospitalizovan" Binding="{Binding Hospitalizovan}" Width="*">
+                            <DataGridColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Background" Value="#810000"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                </Style>
+                            </DataGridColumn.HeaderStyle>
+                        </DataGridTextColumn>
 
                     </DataGrid.Columns>
                 </DataGrid>

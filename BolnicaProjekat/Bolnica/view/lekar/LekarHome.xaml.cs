@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,13 @@ namespace Bolnica.view.lekar
     public partial class LekarHome : Window
     {
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
-
-        public LekarHome()
+        public Lekar Lekar;
+        public LekarHome(Lekar l)
         {
             InitializeComponent();
+            Lekar = l;
+            RadnaPovrsinaLekar.Navigate(new LoginPage(this));
+
 
         }
 
@@ -31,15 +35,15 @@ namespace Bolnica.view.lekar
         {
             refPrikazPacijenataZaLekar = new view.lekar.pacijenti.PrikazPacijenata();
             RadnaPovrsinaLekar.Content = refPrikazPacijenataZaLekar;
-            
-        }
 
+        }
+/*
         private void MedicinskiKarton_Click(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent izabranPacijent= refPrikazPacijenataZaLekar.GetSelectedPacijentZaLekar();
-            if(izabranPacijent!=null)
+            Model.Pacijent izabranPacijent = refPrikazPacijenataZaLekar.GetSelectedPacijentZaLekar();
+            if (izabranPacijent != null)
                 RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazMedicinskiKarton(izabranPacijent);
 
-        }
+        }*/
     }
 }

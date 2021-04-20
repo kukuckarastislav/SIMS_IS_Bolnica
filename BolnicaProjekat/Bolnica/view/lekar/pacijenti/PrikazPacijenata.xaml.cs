@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Repozitorijum;
+
 namespace Bolnica.view.lekar.pacijenti
 {
     /// <summary>
@@ -22,11 +24,12 @@ namespace Bolnica.view.lekar.pacijenti
     public partial class PrikazPacijenata : Page
     {
         public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
+        private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         public PrikazPacijenata()
         {
-           // KolekcijaPacijenata = Model.Bolnica.GetInstance.GetPacijenti();
+            KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             InitializeComponent();
-            //this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
+            this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
   
         }
 
@@ -40,6 +43,16 @@ namespace Bolnica.view.lekar.pacijenti
             return pacijent;
         }
 
-  
+        private void MedicinskiKarton_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Pacijent izabranPacijent = GetSelectedPacijentZaLekar();
+            if (izabranPacijent != null)
+            {
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(izabranPacijent);
+                NavigationService.Navigate(refPrikazMedicinskiKarton);
+            }
+        }
+
+
     }
 }

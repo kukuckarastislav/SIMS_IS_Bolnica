@@ -57,7 +57,7 @@ namespace Bolnica
 
         private void Lekar_Home_Click(object sender, RoutedEventArgs e)
         {
-            var lekar_home = new Bolnica.view.lekar.LekarHome();
+            var lekar_home = new Bolnica.view.lekar.LekarHome(Repozitorijum.LekarRepozitorijum.GetInstance.GetById(1));
             lekar_home.Show();
         }
 

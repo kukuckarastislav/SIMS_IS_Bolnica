@@ -5,7 +5,7 @@
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null,
-      "Alergeni": " alergen 1"
+      "Alergeni": " alergen 1,2"
     },
     "Ocene": null,
     "Id": 1,
@@ -76,5 +76,57 @@
     "Jmbg": "12312312321",
     "Drzavljanstvo": "ima",
     "AdresaStanovanja": "asdasdasd"
+  },
+  {
+    "MedicinskiKarton": {
+      "IdPacijent": 0,
+      "Osiguran": false,
+      "ZdravstvenaUsluga": null,
+      "Terapija": null,
+      "Alergeni": null
+    },
+    "Ocene": null,
+    "Id": 4,
+    "PacijentGost": false,
+    "Hospitalizovan": false,
+    "SpamUser": false,
+    "LogickiObrisan": true,
+    "KorisnickoIme": "dsadasd",
+    "Sifra": "asdasd",
+    "Ime": "Marko",
+    "Prezime": "Markovic",
+    "Pol": 0,
+    "Email": "mejl",
+    "Telefon": "12312313",
+    "DatumRodjenja": "2000-10-10T00:00:00",
+    "Jmbg": "1231231",
+    "Drzavljanstvo": "ima2",
+    "AdresaStanovanja": "asdasd"
+  },
+  {
+    "MedicinskiKarton": {
+      "IdPacijent": 0,
+      "Osiguran": false,
+      "ZdravstvenaUsluga": null,
+      "Terapija": null,
+      "Alergeni": null
+    },
+    "Ocene": null,
+    "Id": 5,
+    "PacijentGost": false,
+    "Hospitalizovan": false,
+    "SpamUser": false,
+    "LogickiObrisan": true,
+    "KorisnickoIme": "asdascas",
+    "Sifra": "adsc2",
+    "Ime": "asdas",
+    "Prezime": "asdasd",
+    "Pol": 0,
+    "Email": "dsadsa",
+    "Telefon": "312312312",
+    "DatumRodjenja": "2000-10-10T00:00:00",
+    "Jmbg": "2321312",
+    "Drzavljanstvo": "dasdsa",
+    "AdresaStanovanja": "sadasdas"
   }
 ]

@@ -19,5 +19,26 @@
     "Jmbg": "1234123412341",
     "Drzavljanstvo": "madjarsko",
     "AdresaStanovanja": "blizu hotela park"
+  },
+  {
+    "Id": 2,
+    "Specijalista": false,
+    "Specijalizacija": "",
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 14
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "JovanaJovanovic",
+    "Sifra": "joka",
+    "Ime": "Jovana",
+    "Prezime": "Jovanovic",
+    "Pol": 1,
+    "Email": "joka@gmail.com",
+    "Telefon": "0621010910",
+    "DatumRodjenja": "1999-10-10T00:00:00",
+    "Jmbg": "1234123412342",
+    "Drzavljanstvo": "srpsko",
+    "AdresaStanovanja": "dom a"
   }
 ]

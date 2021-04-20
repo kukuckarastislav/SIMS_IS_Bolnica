@@ -1,4 +1,6 @@
-﻿using Model;
+﻿using Bolnica.view.pacijent;
+using Kontroler;
+using Model;
 using Repozitorijum;
 using System;
 using System.Collections.Generic;
@@ -90,7 +92,8 @@ namespace Bolnica.view.sekretar
             //  {
             //  MessageBox.Show("Pacijent nije izmenjen");
             //  }
-            PacijentRepozitorijum.GetInstance.SaveData();
+            PacijentKontroler kontroler = new PacijentKontroler();
+            kontroler.SaveData();
             dg.Items.Refresh();
         }
 

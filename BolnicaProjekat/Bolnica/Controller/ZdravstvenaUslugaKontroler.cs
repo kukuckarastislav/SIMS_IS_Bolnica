@@ -36,32 +36,17 @@ namespace Controller
             kontroler.NotifikujOtkazaniTermin(usluga);
         }
 
-        public ZdravstvenaUsluga OdloziUslugu(DTOUslugaLekar ul)
+        public DTOUslugaLekar OdloziUslugu(DTOUslugaLekar ul)
         {
-            ZdravstvenaUsluga usluga = ul.Usluga;
-            int maxDanaOdlaganja = 3;
-            DateTime datum = usluga.Termin.Pocetak;
-            bool odlozeno = false;
-            for(int i=1;i <= maxDanaOdlaganja; i++)
+            ZdravstvenaUsluga usluga = servis.OdloziUslugu(ul.Usluga);
+            if (usluga != null)
             {
-                for (int j = 0; j < 8; j++) {
-                    DateTime d = new DateTime(datum.Year, datum.Month, datum.Day+i, datum.Hour+j, datum.Minute, datum.Second);
-                    if (servis.OdloziUslugu(usluga, d))
-                    {
-                        odlozeno = true;
-                        DateTime dk = new DateTime(d.Year, d.Month, d.Day, d.Hour, d.Minute, d.Second);
-                        dk.AddMinutes(30);
-                        usluga.Termin.Pocetak = d;
-                        usluga.Termin.Kraj = dk;
-                    }
-                }
-            }
-            //NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            // kontroler.NotifikujOtkazaniTermin(usluga);
-            if (odlozeno)
-            {
-                ZdravstvenaUslugaRepozitorijum.GetInstance.SaveData();
-                return usluga;
+                OtkaziUslugu(ul.Usluga);
+                usluga.IdPacijenta = ul.Usluga.IdPacijenta;
+                ul.Usluga = usluga;
+                DodajUslugu(usluga);
+
+                return new DTOUslugaLekar(usluga,ul.Lekar);
             }
             return null;
         }

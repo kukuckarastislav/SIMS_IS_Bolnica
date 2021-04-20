@@ -34,5 +34,77 @@
     "BrojSlobodnihKreveta": 0,
     "BrojSprat": "OP1/2",
     "IdInventar": 3
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 4,
+    "TipProstorije": 2,
+    "Broj": "6",
+    "Sprat": 4,
+    "Povrsina": 120,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "6/4",
+    "IdInventar": 4
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 5,
+    "TipProstorije": 2,
+    "Broj": "o9",
+    "Sprat": 8,
+    "Povrsina": 90,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "o9/8",
+    "IdInventar": 5
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 6,
+    "TipProstorije": 3,
+    "Broj": "1",
+    "Sprat": 1,
+    "Povrsina": 60,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "1/1",
+    "IdInventar": 6
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 7,
+    "TipProstorije": 3,
+    "Broj": "sp2",
+    "Sprat": 3,
+    "Povrsina": 80,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "sp2/3",
+    "IdInventar": 7
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 8,
+    "TipProstorije": 1,
+    "Broj": "B1",
+    "Sprat": 7,
+    "Povrsina": 140,
+    "BrojKreveta": 20,
+    "BrojSlobodnihKreveta": 14,
+    "BrojSprat": "B1/7",
+    "IdInventar": 8
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 9,
+    "TipProstorije": 1,
+    "Broj": "3",
+    "Sprat": 6,
+    "Povrsina": 129,
+    "BrojKreveta": 15,
+    "BrojSlobodnihKreveta": 7,
+    "BrojSprat": "3/6",
+    "IdInventar": 9
   }
 ]

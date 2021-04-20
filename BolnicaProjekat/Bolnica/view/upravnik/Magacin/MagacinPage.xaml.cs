@@ -47,7 +47,7 @@ namespace Bolnica.view.upravnik.Magacin
             Btn_prikaz_staticku.Background = Brushes.White;
             Btn_prikaz_dinamicku.Background = Brushes.White;
             Btn_prikaz_lekovi.Background = Brushes.White;
-            
+
             switch (aktivnaGrupa)
             {
                 case 0:
@@ -67,14 +67,15 @@ namespace Bolnica.view.upravnik.Magacin
 
         private void Dodaj_u_mag(object sender, RoutedEventArgs e)
         {
-            
+
 
             if (aktivnaGrupa == 0)
             {
                 // dodaj staticke opreme
                 var dodajOpremu = new DodajOpremuUMagForma(refPrikazStaticke, null, tipOpreme);
                 dodajOpremu.Show();
-            }else if(aktivnaGrupa == 1)
+            }
+            else if (aktivnaGrupa == 1)
             {
                 // dodaj dinamicku opremu
                 var dodajOpremu = new DodajOpremuUMagForma(null, refPrikazDinamiceke, tipOpreme);
@@ -103,7 +104,7 @@ namespace Bolnica.view.upravnik.Magacin
                 if (rezultat == MessageBoxResult.Yes)
                 {
                     inventarKontroler.ObrisiOpremuInvetara(0, op, false);  // brisanje opreme op u invetaru 0 to je magacin
-                    
+
                 }
             }
 
@@ -129,7 +130,7 @@ namespace Bolnica.view.upravnik.Magacin
         private void Btn_prikazi_lekove(object sender, RoutedEventArgs e)
         {
             aktiviraj(2);
-            
+
         }
     }
 }

@@ -41,7 +41,7 @@
 
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="5" Grid.Column="1">Tip Opreme</TextBlock>
-                
+
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="6" Grid.Column="1">Opis</TextBlock>
 
@@ -73,7 +73,7 @@
 
                 <Button  Grid.Row="10" Grid.Column="2" Width="120" Height="50" Click="Potvrdi_btn">Potvrdi</Button>
 
-                
+
 
             </Grid>
 

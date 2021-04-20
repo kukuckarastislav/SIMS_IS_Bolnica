@@ -42,6 +42,26 @@
         "Kolicina": 250,
         "Cena": 5,
         "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "tvsamsung",
+        "Naziv": "TV",
+        "Tip": 0,
+        "Opis": "TV za zabavu",
+        "Kolicina": 10,
+        "Cena": 56000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "inf1L",
+        "Naziv": "Infuzija",
+        "Tip": 1,
+        "Opis": "Infuzija natrijum hlorid ",
+        "Kolicina": 48,
+        "Cena": 60,
+        "IdInventar": 0
       }
     ],
     "LLekovi": []
@@ -61,6 +81,42 @@
   {
     "Id": 3,
     "IdProstorije": 3,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 4,
+    "IdProstorije": 4,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 5,
+    "IdProstorije": 5,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 6,
+    "IdProstorije": 6,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 7,
+    "IdProstorije": 7,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 8,
+    "IdProstorije": 8,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 9,
+    "IdProstorije": 9,
     "LOprema": [],
     "LLekovi": []
   }

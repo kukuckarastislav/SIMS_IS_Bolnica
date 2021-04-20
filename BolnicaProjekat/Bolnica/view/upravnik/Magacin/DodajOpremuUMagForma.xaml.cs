@@ -39,7 +39,7 @@ namespace Bolnica.view.upravnik.Magacin
             editOprema = null;
             InitializeComponent();
 
-            inputTip.Text = (tipOpreme == TipOpreme.Staticka) ? "Staticka":"Dinamicka";
+            inputTip.Text = (tipOpreme == TipOpreme.Staticka) ? "Staticka" : "Dinamicka";
 
 
         }
@@ -52,7 +52,7 @@ namespace Bolnica.view.upravnik.Magacin
 
         private void Potvrdi_btn(object sender, RoutedEventArgs e)
         {
-            if(editOprema == null)
+            if (editOprema == null)
             {
                 // dodajemo novi
                 InventarKontrolerObjekat.DodajOpremuUInventarById(0,  // magacin 
@@ -62,8 +62,8 @@ namespace Bolnica.view.upravnik.Magacin
                                                                  Convert.ToInt32(inputKolicina.Text),
                                                                  Convert.ToDouble(inputCena.Text),
                                                                  Convert.ToString(inputOpis.Text));
-                                                     
-                    
+
+
             }
             else
             {

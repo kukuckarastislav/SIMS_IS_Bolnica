@@ -50,13 +50,14 @@
                 Zakazi pregled
             </Button>
             <Button Foreground="Orange" Background="White" Click="prikazi_vlastite_preglede" Margin="123,78,25,10" Content="Termini" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.ColumnSpan="2" Grid.Column="3"/>
-            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,157,60,144" Content="Notifikacije" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,157,60,144" Content="Notifikacije" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_notifikacije"/>
 
             <Image Source="/images/call.png" Margin="273,0,39,-110" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4"/>
 
             <Image Source="/images/mm.png" Margin="-46,97,112,187" RenderTransformOrigin="0.45,0.414" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
             <Image Source="/images/krug.png" Margin="209,195,30,78" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
+            <TextBlock  x:Name="broj_notifikacija" Margin="245,211,37,83" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Arial" FontSize="27" Foreground="Orange" />
 
             <Image Source="/images/folder1.png" Margin="53,43,-226,-100" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="1"/>
 
@@ -72,7 +73,7 @@
             <TextBlock x:Name="prezime" Margin="81,165,-102,141" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="jmbg" Margin="81,202,-102,99" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="pol" Margin="81,231,-102,70" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="adresa" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.392,1.793" Grid.ColumnSpan="2" Grid.Column="4" Margin="79,257,-100,44" Grid.Row="1"/>
+            <TextBlock x:Name="adresa" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.392,1.793" Grid.ColumnSpan="2" Grid.Column="4" Margin="79,257,-161,44" Grid.Row="1"/>
             <TextBlock x:Name="telefon" Margin="81,287,-161,14" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
             <TextBlock x:Name="email" Margin="82,318,-161,-17" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="korisnickoime" Margin="107,89,67,212" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>

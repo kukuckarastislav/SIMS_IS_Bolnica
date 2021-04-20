@@ -1,17 +1,8 @@
 [
   {
-    "Id": 1,
-    "IdZdravstveneUsluge": -1,
+    "Id": 4,
+    "IdZdravstveneUsluge": 2,
     "IdPacijenta": 2,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": null
-  },
-  {
-    "Id": 2,
-    "IdZdravstveneUsluge": 4,
-    "IdPacijenta": 1,
     "IdLekara": 1,
     "PacijentProcitao": false,
     "LekarProcitao": false,
@@ -19,20 +10,20 @@
   },
   {
     "Id": 3,
-    "IdZdravstveneUsluge": 12,
+    "IdZdravstveneUsluge": 2,
     "IdPacijenta": 1,
     "IdLekara": 1,
     "PacijentProcitao": false,
     "LekarProcitao": false,
-    "Opis": null
+    "Opis": "Zakazan vam je pregled, dana 4/20/2021, sa pocetkom u 11:00 AM."
   },
   {
-    "Id": 4,
+    "Id": -3,
     "IdZdravstveneUsluge": 2,
-    "IdPacijenta": 2,
-    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "IdLekara": 2,
     "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 4/20/2021, sa pocetkom u 8:00 AM."
+    "LekarProcitao": true,
+    "Opis": "2021-04-20 18:00 PM*   Podsjecamo vas da danas, u 21:00 PM treba da popijete vas lijek."
   }
 ]

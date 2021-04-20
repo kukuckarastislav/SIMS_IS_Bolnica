@@ -69,8 +69,7 @@ namespace Servis
                         break;
                     }
 
-                }
-        
+                }        
                 if(fleg==false)pregledi.Add(pregled);
                 pocetakRadnogVremena += period;
                 fleg = false;

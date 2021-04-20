@@ -35,6 +35,8 @@ namespace Bolnica.view.pacijent
             telefon.Text = p.Telefon;
             korisnickoime.Text = p.KorisnickoIme;
 
+            broj_notifikacija.Text = Repository.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(p.Id).Count.ToString();
+
             Pacijent = p;
         }
 
@@ -49,6 +51,11 @@ namespace Bolnica.view.pacijent
             var varr = new view.pacijent.SopstveniPregledi(Pacijent);
             varr.Show();
 
+        }
+        private void prikazi_notifikacije(object sender, RoutedEventArgs e)
+        {
+            var varr = new view.pacijent.NotifikacijePacijent();
+            varr.Show();
         }
     }
 }

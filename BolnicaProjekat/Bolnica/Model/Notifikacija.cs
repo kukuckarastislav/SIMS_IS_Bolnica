@@ -16,7 +16,6 @@ namespace Model
         public int IdLekara { get; set; }
         public bool PacijentProcitao { get; set; }
         public bool LekarProcitao { get; set; }
-
         public string Opis { get; set; }
 
         public Notifikacija(int id, int idZdravstveneUsluge, int idPacijenta, int idLekara,bool pacijentProcitao, bool lekarProcitao, string opis)
@@ -27,6 +26,7 @@ namespace Model
             IdLekara = idLekara;
             PacijentProcitao = pacijentProcitao;
             LekarProcitao = lekarProcitao;
+            Opis = opis;
         }
     }
 }

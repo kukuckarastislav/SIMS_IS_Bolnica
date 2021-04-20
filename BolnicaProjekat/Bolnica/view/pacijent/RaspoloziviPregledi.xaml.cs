@@ -90,8 +90,11 @@ namespace Bolnica.view.pacijent
 
             OdabraniLekar = ComboBoxLekari.SelectedItem as Lekar;
 
+            int prioritet = 0;
+            if (Lekar.IsChecked == true) prioritet = 1;
+
             Pregledi = new ObservableCollection<ZdravstvenaUsluga>();
-            PreglediList = ZdravstvenaUslugaServis.getAvailableAppointments(OdabraniLekar, pocetak, kraj,0);
+            PreglediList = ZdravstvenaUslugaServis.getAvailableAppointments(OdabraniLekar, pocetak, kraj,prioritet);
             foreach (var v in PreglediList)
                 Pregledi.Add(v);
 

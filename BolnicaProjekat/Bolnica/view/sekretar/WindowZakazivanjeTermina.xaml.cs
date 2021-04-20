@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Bolnica;
 using Bolnica.Controller;
+using Controller;
 
 namespace Bolnica.view.sekretar
 {
@@ -28,13 +29,14 @@ namespace Bolnica.view.sekretar
 
         private List<Model.ZdravstvenaUsluga> PreglediList { get; set; }
         private ObservableCollection<ZdravstvenaUsluga> Pregledi { get; set; }
-        private ZdravstvenaUsluga odabranaUsluga;
+        private DTOUslugaLekar StaraUsluga;
         private DateTime date;
         //private Lekar OdabraniLekar;
 
         private ObservableCollection<Model.Lekar> listaLekari;
+        private ObservableCollection<DTOUslugaLekar> stariTermini;
         private Pacijent pacijent;
-        public WindowZakazivanjeTermina(Pacijent pacijent)
+        public WindowZakazivanjeTermina(Pacijent pacijent, DTOUslugaLekar ul, ObservableCollection<DTOUslugaLekar> termini)
         {
             InitializeComponent();
             datePicker.SelectedDate = DateTime.Now;
@@ -42,6 +44,8 @@ namespace Bolnica.view.sekretar
             this.ComboBoxLekari.ItemsSource = listaLekari;
             this.pacijent = pacijent;
             rbPregled.IsChecked = true;
+            StaraUsluga = ul;
+            stariTermini = termini;
         }
 
         private void UcitajTermine_Click(object sender, RoutedEventArgs e)
@@ -79,12 +83,17 @@ namespace Bolnica.view.sekretar
                 usluga.TipUsluge = TipUsluge.Pregled;
             else
                 usluga.TipUsluge = TipUsluge.Operacija;
-            usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getAll().Count + 1;
-            MessageBox.Show("Termin je uspesno zauzet.");
-            ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
 
-            NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            kontroler.NotifikujZakazaniTermin(usluga);
+            ZdravstvenaUslugaKontroler zkontroler = new ZdravstvenaUslugaKontroler();
+            if (StaraUsluga != null) {
+                zkontroler.OtkaziUslugu(StaraUsluga.Usluga);
+                if (stariTermini != null) stariTermini.Remove(StaraUsluga);
+                ZdravstvenaUsluga novau = zkontroler.DodajUslugu(usluga);
+                Lekar novil = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(novau.IdLekara);
+                this.stariTermini.Add(new DTOUslugaLekar(novau, novil));
+            }
+            MessageBox.Show("Termin je uspesno zauzet.");
+            this.Close();
         }
     }
 }

@@ -41,11 +41,16 @@ namespace Bolnica.view.sekretar
 
             ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(ul.Usluga);
 
-            NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            kontroler.NotifikujOtkazaniTermin(ul.Usluga);
+            termini.Remove(ul);
             MessageBox.Show("Termin je uspesno otkazan.");
-            //NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            //  kontroler.NotifikujZakazaniTermin(usluga);
+        }
+        
+        private void AzurirajTermin_Click(object sender, RoutedEventArgs e)
+        {
+            DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
+            if (ul == null) return;
+            var zakaziTerminPage = new WindowZakazivanjeTermina(odabraniPacijent, ul,termini);
+            zakaziTerminPage.Show();
         }
     }
 }

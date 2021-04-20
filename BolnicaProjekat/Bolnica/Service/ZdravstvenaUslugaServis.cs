@@ -162,6 +162,16 @@ namespace Servis
             return lista;
         }
 
-   
-   }
+        public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
+        {
+
+            usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getLastId() + 1;
+            return ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
+        }
+        public void OtkaziUslugu(ZdravstvenaUsluga usluga)
+        {
+            ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(usluga);
+        }
+
+    }
 }

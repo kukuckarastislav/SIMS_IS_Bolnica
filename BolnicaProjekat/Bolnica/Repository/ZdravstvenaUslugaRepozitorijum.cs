@@ -4,6 +4,7 @@ using Model;
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.IO;
+using System.Linq;
 
 namespace Repozitorijum
 {
@@ -54,6 +55,7 @@ namespace Repozitorijum
             }
             catch (Exception e)
             {
+                Usluge = new ObservableCollection<Model.ZdravstvenaUsluga>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -129,6 +131,18 @@ namespace Repozitorijum
             }
             SaveData();
             return usluga;
+        }
+
+
+        public int getLastId()
+        {
+            int id = 1;
+            loadData();
+            int brUsluga = Usluge.Count;
+            if (brUsluga == 0)
+                return id;
+            
+            return Usluge.ElementAt(brUsluga-1).Id;
         }
 
     }

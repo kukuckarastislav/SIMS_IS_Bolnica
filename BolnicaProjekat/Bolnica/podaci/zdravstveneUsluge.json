@@ -1,24 +1,10 @@
 [
   {
     "Termin": {
-      "Pocetak": "2021-04-19T12:00:00",
-      "Kraj": "2021-04-19T12:30:00"
+      "Pocetak": "2021-04-16T10:00:00",
+      "Kraj": "2021-04-16T10:30:00"
     },
     "Id": 2,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": -1,
-    "Obavljena": false,
-    "RazlogZakazivanja": "",
-    "RezultatUsluge": ""
-  },
-  {
-    "Termin": {
-      "Pocetak": "2021-04-19T08:00:00",
-      "Kraj": "2021-04-19T08:30:00"
-    },
-    "Id": 4,
     "IdLekara": 1,
     "IdPacijenta": 2,
     "TipUsluge": 1,

@@ -49,7 +49,7 @@ namespace Bolnica.view.sekretar
             Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
             if (pacijent == null) return;
 
-            var zakaziTerminPage = new WindowZakazivanjeTermina(pacijent);
+            var zakaziTerminPage = new WindowZakazivanjeTermina(pacijent,null,null);
             zakaziTerminPage.Show();
 
 
@@ -61,6 +61,7 @@ namespace Bolnica.view.sekretar
             if (pacijent == null) return;
 
             PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
+            KolekcijaPacijenata.Remove(pacijent);
             MessageBox.Show("Pacijent je uspesno obrisan.");
         }
         

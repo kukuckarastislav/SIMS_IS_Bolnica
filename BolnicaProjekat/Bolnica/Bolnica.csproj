@@ -89,6 +89,7 @@
     <Compile Include="Controller\ProstorijeKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
+    <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="Model\DinamickaOprema.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />

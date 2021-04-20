@@ -38,7 +38,13 @@ namespace Bolnica.view.upravnik
 
         private void Prostorije_Click(object sender, RoutedEventArgs e)
         {
+
             RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
+        }
+
+        private void Inventari_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.upravnik.Inventari.InventariPage();
         }
 
         private void Magacin_Click(object sender, RoutedEventArgs e)

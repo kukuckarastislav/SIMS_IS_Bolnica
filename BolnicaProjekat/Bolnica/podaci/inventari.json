@@ -9,17 +9,17 @@
         "Naziv": "Stolica",
         "Tip": 0,
         "Opis": "Stolica za sedenje",
-        "Kolicina": 20,
+        "Kolicina": 10,
         "Cena": 2500,
         "IdInventar": 0
       },
       {
         "Id": -1,
-        "Sifra": "kr9VET",
+        "Sifra": "kr9VETR",
         "Naziv": "Krevet",
         "Tip": 0,
         "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 30,
+        "Kolicina": 17,
         "Cena": 12000,
         "IdInventar": 0
       },
@@ -29,7 +29,7 @@
         "Naziv": "CT skener",
         "Tip": 0,
         "Opis": "CT skener za analizu ljudskog tela, poprecnog preseka",
-        "Kolicina": 3,
+        "Kolicina": 1,
         "Cena": 14900000,
         "IdInventar": 0
       },
@@ -39,7 +39,7 @@
         "Naziv": "Hanzaplast",
         "Tip": 1,
         "Opis": "Zaustavlja spoljasnje krvarenje",
-        "Kolicina": 250,
+        "Kolicina": 248,
         "Cena": 5,
         "IdInventar": 0
       },
@@ -49,7 +49,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 10,
+        "Kolicina": 5,
         "Cena": 56000,
         "IdInventar": 0
       },
@@ -59,7 +59,7 @@
         "Naziv": "Infuzija",
         "Tip": 1,
         "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 48,
+        "Kolicina": 24,
         "Cena": 60,
         "IdInventar": 0
       },
@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 25,
+        "Kolicina": 22,
         "Cena": 125,
         "IdInventar": 0
       }
@@ -79,19 +79,142 @@
   {
     "Id": 1,
     "IdProstorije": 1,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "ctS559",
+        "Naziv": "CT skener",
+        "Tip": 0,
+        "Opis": "CT skener za analizu ljudskog tela, poprecnog preseka",
+        "Kolicina": 2,
+        "Cena": 14900000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "kr9VETR",
+        "Naziv": "Krevet",
+        "Tip": 0,
+        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Kolicina": 27,
+        "Cena": 12000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "tvsamsung",
+        "Naziv": "TV",
+        "Tip": 0,
+        "Opis": "TV za zabavu",
+        "Kolicina": 5,
+        "Cena": 56000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "inf1L",
+        "Naziv": "Infuzija",
+        "Tip": 1,
+        "Opis": "Infuzija natrijum hlorid ",
+        "Kolicina": 6,
+        "Cena": 60,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {
     "Id": 2,
     "IdProstorije": 2,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "sto",
+        "Naziv": "Stolica",
+        "Tip": 0,
+        "Opis": "Stolica za sedenje",
+        "Kolicina": 4,
+        "Cena": 2500,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "HANz00",
+        "Naziv": "Hanzaplast",
+        "Tip": 1,
+        "Opis": "Zaustavlja spoljasnje krvarenje",
+        "Kolicina": 2,
+        "Cena": 5,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "inf1L",
+        "Naziv": "Infuzija",
+        "Tip": 1,
+        "Opis": "Infuzija natrijum hlorid ",
+        "Kolicina": 10,
+        "Cena": 60,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {
     "Id": 3,
     "IdProstorije": 3,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "ctS559",
+        "Naziv": "CT skener",
+        "Tip": 0,
+        "Opis": "CT skener za analizu ljudskog tela, poprecnog preseka",
+        "Kolicina": 1,
+        "Cena": 14900000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "kr9VETR",
+        "Naziv": "Krevet",
+        "Tip": 0,
+        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Kolicina": 2,
+        "Cena": 12000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "sto",
+        "Naziv": "Stolica",
+        "Tip": 0,
+        "Opis": "Stolica za sedenje",
+        "Kolicina": 4,
+        "Cena": 2500,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "inf1L",
+        "Naziv": "Infuzija",
+        "Tip": 1,
+        "Opis": "Infuzija natrijum hlorid ",
+        "Kolicina": 8,
+        "Cena": 60,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "mak",
+        "Naziv": "Makaze",
+        "Tip": 1,
+        "Opis": "Medicinske makaze",
+        "Kolicina": 2,
+        "Cena": 125,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {
@@ -109,7 +232,38 @@
   {
     "Id": 6,
     "IdProstorije": 6,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "sto",
+        "Naziv": "Stolica",
+        "Tip": 0,
+        "Opis": "Stolica za sedenje",
+        "Kolicina": 2,
+        "Cena": 2500,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "kr9VETR",
+        "Naziv": "Krevet",
+        "Tip": 0,
+        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Kolicina": 1,
+        "Cena": 12000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "mak",
+        "Naziv": "Makaze",
+        "Tip": 1,
+        "Opis": "Medicinske makaze",
+        "Kolicina": 1,
+        "Cena": 125,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {
@@ -121,7 +275,18 @@
   {
     "Id": 8,
     "IdProstorije": 8,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "kr9VETR",
+        "Naziv": "Krevet",
+        "Tip": 0,
+        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Kolicina": 5,
+        "Cena": 12000,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {

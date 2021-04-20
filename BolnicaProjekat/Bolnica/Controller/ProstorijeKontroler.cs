@@ -76,8 +76,7 @@ namespace Kontroler
 
         public Prostorija GetProstorijaById(int id)
         {
-            // TODO: implement
-            return null;
+            return ProstorijeServisObjekat.GetProstorijaById(id);
         }
 
 

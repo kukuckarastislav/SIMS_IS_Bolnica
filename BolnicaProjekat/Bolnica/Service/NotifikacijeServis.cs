@@ -32,7 +32,6 @@ namespace Servis
             novaNotifikacija.Opis = novaNotifikacija.Opis + " dana " + usluga.Termin.Pocetak.ToShortDateString() + ", sa pocetkom u " + usluga.Termin.Pocetak.ToShortTimeString()+".";
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
         }
-
         public void ReceptNotifikacija(Recept recept, DateTime VremeUzimanja)
         {
             int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
@@ -41,6 +40,18 @@ namespace Servis
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
         
         }
-   
-   }
+  
+        public void OtkaziTermin(ZdravstvenaUsluga usluga)
+        {
+            int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
+            Notifikacija novaNotifikacija = new Notifikacija(id + 1, -1, usluga.IdPacijenta, usluga.IdLekara, false, false, "");
+            if (usluga.TipUsluge == TipUsluge.Pregled)
+                novaNotifikacija.Opis = "Otkazan vam je pregled,";
+            else
+                novaNotifikacija.Opis = "Otkazana vam je operacija, ";
+            novaNotifikacija.Opis = novaNotifikacija.Opis + " dana " + usluga.Termin.Pocetak.ToShortDateString() + ", sa pocetkom u " + usluga.Termin.Pocetak.ToShortTimeString() + ".";
+            NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
+        }
+
+    }
 }

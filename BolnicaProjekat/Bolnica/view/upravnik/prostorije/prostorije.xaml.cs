@@ -45,32 +45,7 @@ namespace Bolnica.view.upravnik.prostorije
 
         private void Izmeni_Prostoriju(object sender, RoutedEventArgs e)
         {
-            /*
-            if (aktivanPrikaz == 1)
-            {
-                Model.Prostorija editProstorija = refPrikazProstorija.GetSelectedProstorija();
-                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(editProstorija);
-                dodajProstorijuForma.Show();
-            }
-            else if (aktivanPrikaz == 2)
-            {
-                Model.OperacionaSala editOperacionaSala = refPrikazOperacionihSala.GetSelectedOperacionaSala();
-                var dodajOperacionuSaluForma = new Bolnica.view.upravnik.prostorije.DodajOperacionuSaluForma(editOperacionaSala);
-                dodajOperacionuSaluForma.Show();
-            }
-            else if (aktivanPrikaz == 3)
-            {
-                Model.SobaZaPreglede editSobaZaPregled = refPrikazSobaZaPregled.GetSelectedSobaZaPregled();
-                var dodajSobuZaPregledForma = new Bolnica.view.upravnik.prostorije.DodajSobuZaPregledForma(editSobaZaPregled);
-                dodajSobuZaPregledForma.Show();
-            }
-            else if (aktivanPrikaz == 4)
-            {
-                Model.BolesnickaSoba editBolesnickaSoba = refPrikazBolesnickihProstorija.GetSelectedBolesnickaSoba();
-                var dodajBolesnickuSobu = new Bolnica.view.upravnik.prostorije.DodajBolesnickuProstorijuForma(editBolesnickaSoba);
-                dodajBolesnickuSobu.Show();
-            }
-            */
+          
             Prostorija pro = null;
             if (aktivanPrikaz == 1)
             {

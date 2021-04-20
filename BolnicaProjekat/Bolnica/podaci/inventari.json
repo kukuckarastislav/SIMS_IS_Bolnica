@@ -35,12 +35,12 @@
       },
       {
         "Id": -1,
-        "Sifra": "HANz00",
+        "Sifra": "hanZaPlast",
         "Naziv": "Hanzaplast",
         "Tip": 1,
         "Opis": "Zaustavlja spoljasnje krvarenje",
         "Kolicina": 250,
-        "Cena": 5,
+        "Cena": 6,
         "IdInventar": 0
       },
       {
@@ -48,9 +48,9 @@
         "Sifra": "tvsamsung",
         "Naziv": "TV",
         "Tip": 0,
-        "Opis": "TV za zabavu",
+        "Opis": "TV za zabavu za pacijente",
         "Kolicina": 10,
-        "Cena": 56000,
+        "Cena": 57000,
         "IdInventar": 0
       },
       {

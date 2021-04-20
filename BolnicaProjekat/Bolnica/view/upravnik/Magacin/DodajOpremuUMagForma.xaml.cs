@@ -43,6 +43,29 @@ namespace Bolnica.view.upravnik.Magacin
 
 
         }
+        public DodajOpremuUMagForma(PrikazStaticke prikazStaticke,
+                            PrikazDinamicke prikazDinamicke,
+                            Oprema editOprema)
+        {
+            InventarKontrolerObjekat = new InventariKontroler();
+            this.prikazStaticke = prikazStaticke;
+            this.prikazDinamicke = prikazDinamicke;
+            this.editOprema = editOprema;
+            InitializeComponent();
+
+            if (editOprema == null)
+            {
+                MessageBox.Show("editOprema je null!");
+            }
+
+            inputTip.Text = (tipOpreme == TipOpreme.Staticka) ? "Staticka" : "Dinamicka";
+            inputCena.Text = Convert.ToString(editOprema.Cena);
+            inputNaziv.Text = Convert.ToString(editOprema.Naziv);
+            inputSifra.Text = Convert.ToString(editOprema.Sifra);
+            inputKolicina.Text = Convert.ToString(editOprema.Kolicina);
+            inputOpis.Text = Convert.ToString(editOprema.Opis);
+
+        }
 
         private void close_win(object sender, RoutedEventArgs e)
         {
@@ -68,6 +91,13 @@ namespace Bolnica.view.upravnik.Magacin
             else
             {
                 // menjamo postojeci
+                InventarKontrolerObjekat.IzmeniOpremuUInventarById(0,  // magacin 
+                                                                 editOprema,
+                                                                 Convert.ToString(inputNaziv.Text),
+                                                                 Convert.ToString(inputSifra.Text),
+                                                                 Convert.ToInt32(inputKolicina.Text),
+                                                                 Convert.ToDouble(inputCena.Text),
+                                                                 Convert.ToString(inputOpis.Text));
 
             }
 

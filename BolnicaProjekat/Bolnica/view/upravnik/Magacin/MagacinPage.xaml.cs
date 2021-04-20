@@ -85,7 +85,21 @@ namespace Bolnica.view.upravnik.Magacin
 
         private void Izmeni_u_mag(object sender, RoutedEventArgs e)
         {
-
+            Oprema oprema = null;
+            if (aktivnaGrupa == 0)
+            {
+                // izmeni staticke opreme
+                oprema = refPrikazStaticke.GetSelectedOprema();
+                var dodajOpremu = new DodajOpremuUMagForma(refPrikazStaticke, null, oprema);
+                dodajOpremu.Show();
+            }
+            else if (aktivnaGrupa == 1)
+            {
+                // izmena dinamicku opremu
+                oprema = refPrikazDinamiceke.GetSelectedOprema();
+                var dodajOpremu = new DodajOpremuUMagForma(null, refPrikazDinamiceke, oprema);
+                dodajOpremu.Show();
+            }
         }
 
         private void Obrisi_u_mag(object sender, RoutedEventArgs e)

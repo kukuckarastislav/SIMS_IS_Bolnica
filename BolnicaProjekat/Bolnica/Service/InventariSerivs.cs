@@ -77,6 +77,32 @@ namespace Servis
             return oprema;
         }
 
+
+
+        public Oprema IzmeniOpremuUInventarById(int idInventara,
+                                                Oprema editOprema,
+                                                string naziv,
+                                                string sifra,
+                                                int kolicina,
+                                                double cena,
+                                                string opis)
+        {
+            Inventar inv = GetInventarById(idInventara);
+            if (inv == null)
+            {
+                MessageBox.Show("Ne postoji inventar sa tim ID");
+                return null;
+            }
+            editOprema.Naziv = naziv;
+            editOprema.Sifra = sifra;
+            editOprema.Cena = cena;
+            editOprema.Kolicina = kolicina;
+            editOprema.Opis = opis;
+
+            InventarRepozitorijumRef.AzurirajInventar(inv);
+            return editOprema;
+        }
+
         /*
          * parametar skroz nam sluzi ako zelimo obrisati neku opremu na nivou celog sistema
          * */

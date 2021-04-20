@@ -6,24 +6,14 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Model
 {
     public class Prostorija
     {
-        /*
-         *     "terminiZauzetosti": null,
-    "Id": 1,
-    "TipProstorije": 0,
-    "Broj": "2",
-    "Sprat": 3,
-    "Povrsina": 100,
-    "BrojKreveta": 0,
-    "BrojSlobodnihKreveta": 0,
-    "BrojSprat": "2/3",
-    "inventar": null
-         * */
-        public Prostorija(ArrayList terminiZauzetosti, int id, TipProstorije tipProstorije, string broj, int sprat, double povrsina, int brojKreveta, int brojSlobodnihKreveta, Inventar inventar)
+
+        public Prostorija(List<int> idZdravstveneUsluge, int id, TipProstorije tipProstorije, string broj, int sprat, double povrsina, int brojKreveta, int brojSlobodnihKreveta, int idInventar)
         {
             Id = id;
             TipProstorije = tipProstorije;
@@ -32,14 +22,14 @@ namespace Model
             Povrsina = povrsina;
             BrojKreveta = brojKreveta;
             BrojSlobodnihKreveta = brojSlobodnihKreveta;
-            TerminiZauzetosti = terminiZauzetosti;
-            Inventar = inventar;
+            IdZdravstveneUsluge = idZdravstveneUsluge;
+            IdInventar = idInventar;
 
         }
 
+        public List<int> IdZdravstveneUsluge { get; set; }
 
-
-        public System.Collections.ArrayList TerminiZauzetosti { get; set; }
+       // public System.Collections.ArrayList TerminiZauzetosti { get; set; }
         /*
         /// <pdGenerated>default getter</pdGenerated>
         public System.Collections.ArrayList GetTerminiZauzetosti()
@@ -105,7 +95,7 @@ namespace Model
             }
         }
 
-        public Inventar Inventar { get; set; }
+        public int IdInventar { get; set; }
 
     }
 }

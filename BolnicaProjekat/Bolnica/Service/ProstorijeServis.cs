@@ -9,15 +9,20 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using Model;
+using Repozitorijum;
 
 namespace Servis
 {
     public class ProstorijeServis
     {
-        public Repozitorijum.ProstorijeRepozitorijum ProstorijeRepozitorijumRef { get; set; }
+        public ProstorijeRepozitorijum ProstorijeRepozitorijumRef { get; set; }
+        private InventariRepozitorijum InventariRepozitorijumRef { get; set; }
+        private InventariSerivs InventariSerivsObjekat { get; set; }
         public ProstorijeServis()
         {
-            ProstorijeRepozitorijumRef = Repozitorijum.ProstorijeRepozitorijum.GetInstance;
+            ProstorijeRepozitorijumRef = ProstorijeRepozitorijum.GetInstance;
+            InventariRepozitorijumRef = InventariRepozitorijum.GetInstance;
+            InventariSerivsObjekat = new InventariSerivs();
         }
 
         
@@ -30,16 +35,25 @@ namespace Servis
 
         public Model.Prostorija DodajProstoriju(TipProstorije tipProstorije, string broj, int sprat, double povrsina)
         {
-            Prostorija novaProstorija = new Prostorija(null, -2, tipProstorije, broj, sprat, povrsina, 0, 0, new Inventar());
+            int idNoveProstorije = ProstorijeRepozitorijumRef.GetFirstFitID();
+            int idNovInventar = InventariRepozitorijumRef.GetFirstFitID();
+            Inventar noviInventar = new Inventar(idNovInventar, idNoveProstorije, new List<Oprema>(), new List<Lek>());
+            InventariRepozitorijumRef.DodajInventar(noviInventar);
+
+            Prostorija novaProstorija = new Prostorija(null, idNoveProstorije, tipProstorije, broj, sprat, povrsina, 0, 0, idNovInventar);
             return ProstorijeRepozitorijumRef.DodajProstoriju(novaProstorija);
             
         }
 
         public Model.Prostorija DodajProstoriju(TipProstorije tipProstorije, string broj, int sprat, double povrsina, int brojKreveta, int brojSlobodnihKreveta)
         {
-            // ovde bi bilo dobro napraviti poziv nekog servisa za pravljenje inventara da nam lepo dobavi ID inventara a ne da saljem praznu listu
-            Prostorija novaProstorija = new Prostorija(null, -2, tipProstorije, broj, sprat, povrsina, brojKreveta, brojSlobodnihKreveta, new Inventar());
-            return Repozitorijum.ProstorijeRepozitorijum.GetInstance.DodajProstoriju(novaProstorija);
+            int idNoveProstorije = ProstorijeRepozitorijumRef.GetFirstFitID();
+            int idNovInventar = InventariRepozitorijumRef.GetFirstFitID();
+            Inventar noviInventar = new Inventar(idNovInventar, idNoveProstorije, new List<Oprema>(), new List<Lek>());
+            InventariRepozitorijumRef.DodajInventar(noviInventar);
+           
+            Prostorija novaProstorija = new Prostorija(null, idNoveProstorije, tipProstorije, broj, sprat, povrsina, brojKreveta, brojSlobodnihKreveta, idNovInventar);
+            return ProstorijeRepozitorijumRef.DodajProstoriju(novaProstorija);
         }
 
 

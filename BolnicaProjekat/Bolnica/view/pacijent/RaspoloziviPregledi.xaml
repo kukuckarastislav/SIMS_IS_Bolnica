@@ -53,7 +53,6 @@
                 <GridView>
                     <GridViewColumn x:Name="pocetak_termina" Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:hh:mm tt}}"/>
                     <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj,StringFormat={}{0:hh:mm tt}}"/>
-                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding IdLekara}"/>
                 </GridView>
             </ListView.View>
         </ListView>

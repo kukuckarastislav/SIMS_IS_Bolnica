@@ -35,7 +35,7 @@ namespace Bolnica.view.pacijent
             telefon.Text = p.Telefon;
             korisnickoime.Text = p.KorisnickoIme;
 
-            broj_notifikacija.Text = Repository.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(p.Id).Count.ToString();
+            //broj_notifikacija.Text = Repository.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(p.Id).Count.ToString();
 
             Pacijent = p;
         }

@@ -86,13 +86,10 @@ namespace Servis
 
             foreach (Lekar lekar in lekarRepozitorijum.GetAll())
             {
-                int krajSati = Convert.ToInt32(lekar.radnoVreme.KrajRadnogVremena);
-                int pocetakSati = Convert.ToInt32(lekar.radnoVreme.PocetakRadnogVremena); 
-
                 DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetak.Hour, 0, 0);
                 DateTime krajkRadnogVremena_ = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, kraj.Hour, 0, 0);
 
-               // pregledi.AddRange(getAppointments(lekar, pocetakRadnogVremena, krajkRadnogVremena_);
+                pregledi.AddRange(getAppointments(lekar, pocetakRadnogVremena, krajkRadnogVremena_));
             }
             return pregledi;
         }
@@ -103,8 +100,8 @@ namespace Servis
             int krajSati = Convert.ToInt32(OdabraniLekar.radnoVreme.KrajRadnogVremena);
             int pocetakSati = Convert.ToInt32(OdabraniLekar.radnoVreme.PocetakRadnogVremena);
 
-            DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetak.Hour, 0, 0); //posto sam stavila d=DateTime u construktor pa ne mogu samo int
-            DateTime krajkRadnogVremena_ = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, kraj.Hour, 0, 0);
+            DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetakSati, 0, 0); //posto sam stavila d=DateTime u construktor pa ne mogu samo int
+            DateTime krajkRadnogVremena_ = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, krajSati, 0, 0);
 
             pregledi = getAppointments(OdabraniLekar, pocetakRadnogVremena, krajkRadnogVremena_);
             return pregledi;

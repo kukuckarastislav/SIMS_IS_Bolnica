@@ -40,5 +40,19 @@
     "Obavljena": false,
     "RazlogZakazivanja": "",
     "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-04-20T08:00:00",
+      "Kraj": "2021-04-20T08:30:00"
+    },
+    "Id": 7,
+    "IdLekara": 2,
+    "IdPacijenta": 2,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
   }
 ]

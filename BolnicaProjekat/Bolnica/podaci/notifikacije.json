@@ -124,5 +124,50 @@
     "PacijentProcitao": false,
     "LekarProcitao": false,
     "Opis": "Zakazan vam je pregled, dana 4/20/2021, sa pocetkom u 8:30 AM."
+  },
+  {
+    "Id": 15,
+    "IdZdravstveneUsluge": 6,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazan vam je pregled, dana 4/20/2021, sa pocetkom u 10:00 AM."
+  },
+  {
+    "Id": 16,
+    "IdZdravstveneUsluge": -1,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Otkazan vam je pregled, dana 4/20/2021, sa pocetkom u 10:00 AM."
+  },
+  {
+    "Id": 17,
+    "IdZdravstveneUsluge": 6,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazan vam je pregled, dana 4/21/2021, sa pocetkom u 8:00 AM."
+  },
+  {
+    "Id": 18,
+    "IdZdravstveneUsluge": 7,
+    "IdPacijenta": 2,
+    "IdLekara": 2,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazan vam je pregled, dana 4/20/2021, sa pocetkom u 8:00 AM."
+  },
+  {
+    "Id": 19,
+    "IdZdravstveneUsluge": -1,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Otkazan vam je pregled, dana 4/21/2021, sa pocetkom u 8:00 AM."
   }
 ]

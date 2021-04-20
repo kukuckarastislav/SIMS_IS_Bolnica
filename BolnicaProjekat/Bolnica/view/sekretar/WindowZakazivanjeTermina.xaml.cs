@@ -18,6 +18,7 @@ using System.Windows.Shapes;
 using Bolnica;
 using Bolnica.Controller;
 using Controller;
+using Kontroler;
 
 namespace Bolnica.view.sekretar
 {
@@ -40,7 +41,9 @@ namespace Bolnica.view.sekretar
         {
             InitializeComponent();
             datePicker.SelectedDate = DateTime.Now;
-            listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
+            LekarKontroler kontroler = new LekarKontroler();
+            listaLekari = kontroler.GetAllObs();
+            //listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
             this.ComboBoxLekari.ItemsSource = listaLekari;
             this.pacijent = pacijent;
             rbPregled.IsChecked = true;
@@ -57,9 +60,9 @@ namespace Bolnica.view.sekretar
             if (datePicker.SelectedDate == null) return;
             DateTime temp = (DateTime)datePicker.SelectedDate;
             if (temp == null) return;
-            DateTime pocetak = new DateTime(temp.Year, temp.Month, temp.Day, 0, 0, 00);
-            DateTime kraj = new DateTime(temp.Year, temp.Month, temp.Day, 23, 59, 00);
-            PreglediList = ZdravstvenaUslugaServis.getAppointments(odabraniLekar, pocetak, kraj);
+ 
+            ZdravstvenaUslugaKontroler kontroler = new ZdravstvenaUslugaKontroler();
+            PreglediList = kontroler.getAppointments(odabraniLekar,temp);
             foreach (var usluga in PreglediList)
             {
                 Pregledi.Add(usluga);

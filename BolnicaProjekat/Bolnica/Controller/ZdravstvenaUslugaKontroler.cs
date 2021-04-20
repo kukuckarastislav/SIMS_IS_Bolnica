@@ -46,9 +46,16 @@ namespace Controller
                 ul.Usluga = usluga;
                 DodajUslugu(usluga);
 
-                return new DTOUslugaLekar(usluga,ul.Lekar);
+                return new DTOUslugaLekar(usluga, ul.Lekar);
             }
             return null;
+        }
+
+        public List<ZdravstvenaUsluga> getAppointments(Lekar OdabraniLekar, DateTime datum)
+        {
+            DateTime pocetak = new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 00);
+            DateTime kraj = new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 00);
+            return ZdravstvenaUslugaServis.getAppointments(OdabraniLekar,pocetak,kraj);
         }
     }
 }

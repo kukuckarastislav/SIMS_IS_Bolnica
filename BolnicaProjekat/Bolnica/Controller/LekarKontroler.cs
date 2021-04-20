@@ -6,12 +6,19 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Model;
+using Servis;
 
 namespace Kontroler
 {
    public class LekarKontroler
    {
+
+        public LekarKontroler()
+        {
+            lekarServis = new LekarServis();
+        }
       public Lekar DodajLekara(Model.Lekar lekar)
       {
          // TODO: implement
@@ -35,8 +42,13 @@ namespace Kontroler
          // TODO: implement
          return null;
       }
-      
-      public Model.Lekar GetById(long id)
+
+        public ObservableCollection<Model.Lekar> GetAllObs()
+        {
+            return lekarServis.GetAllObs();
+        }
+
+        public Model.Lekar GetById(long id)
       {
          // TODO: implement
          return null;

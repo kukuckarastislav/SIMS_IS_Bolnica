@@ -6,7 +6,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Model;
+using Repozitorijum;
 
 namespace Servis
 {
@@ -35,8 +37,13 @@ namespace Servis
          // TODO: implement
          return null;
       }
-      
-      public Model.Lekar GetById(long id)
+
+        public ObservableCollection<Model.Lekar> GetAllObs()
+        {
+            return LekarRepozitorijum.GetInstance.GetAllObs();
+        }
+
+        public Model.Lekar GetById(long id)
       {
          // TODO: implement
          return null;

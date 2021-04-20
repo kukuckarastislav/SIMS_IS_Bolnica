@@ -10,7 +10,7 @@
         <DockPanel>
             <StackPanel Margin="30 10" Height="60" HorizontalAlignment="Left" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
                 <Button Margin="30 10" Background="white" Click="OtkaziTermin_Click">Otkazi termin</Button>
-                <Button Margin="30 10" Background="white" >Odlozi termin</Button>
+                <Button Margin="30 10" Background="white" Click="OdloziTermin_Click">Odlozi termin</Button>
                 <Button Margin="30 10" Background="white" Click="AzurirajTermin_Click">Azuriraj termin</Button>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom" Background="#ccffbd">

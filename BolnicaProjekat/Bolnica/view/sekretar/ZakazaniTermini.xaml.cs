@@ -1,4 +1,5 @@
 ﻿using Bolnica.Controller;
+using Controller;
 using Model;
 using Repozitorijum;
 using Servis;
@@ -51,6 +52,14 @@ namespace Bolnica.view.sekretar
             if (ul == null) return;
             var zakaziTerminPage = new WindowZakazivanjeTermina(odabraniPacijent, ul,termini);
             zakaziTerminPage.Show();
+        }
+
+        private void OdloziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
+            if (ul == null) return;
+            ZdravstvenaUslugaKontroler zkontroler = new ZdravstvenaUslugaKontroler();
+            zkontroler.OdloziUslugu(ul);
         }
     }
 }

@@ -71,7 +71,7 @@ namespace Repozitorijum
             return usluga;
         }
 
-        private void SaveData()
+        public void SaveData()
         {
             var format = new JsonSerializerOptions
             {

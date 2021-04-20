@@ -10,29 +10,11 @@
   },
   {
     "Id": 2,
-    "IdZdravstveneUsluge": 2,
-    "IdPacijenta": 2,
+    "IdZdravstveneUsluge": 4,
+    "IdPacijenta": 1,
     "IdLekara": 1,
     "PacijentProcitao": false,
     "LekarProcitao": false,
-    "Opis": null
-  },
-  {
-    "Id": 3,
-    "IdZdravstveneUsluge": -1,
-    "IdPacijenta": 2,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Otkazana vam je operacija,  dana 4/21/2021, sa pocetkom u 9:00 AM."
-  },
-  {
-    "Id": 4,
-    "IdZdravstveneUsluge": 2,
-    "IdPacijenta": 2,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 4/16/2021, sa pocetkom u 10:00 AM."
+    "Opis": "Zakazan vam je pregled, dana 4/20/2021, sa pocetkom u 9:30 AM."
   }
 ]

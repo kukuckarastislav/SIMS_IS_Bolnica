@@ -85,10 +85,10 @@ namespace Bolnica.view.sekretar
                 usluga.TipUsluge = TipUsluge.Operacija;
 
             ZdravstvenaUslugaKontroler zkontroler = new ZdravstvenaUslugaKontroler();
+            ZdravstvenaUsluga novau = zkontroler.DodajUslugu(usluga);
             if (StaraUsluga != null) {
                 zkontroler.OtkaziUslugu(StaraUsluga.Usluga);
                 if (stariTermini != null) stariTermini.Remove(StaraUsluga);
-                ZdravstvenaUsluga novau = zkontroler.DodajUslugu(usluga);
                 Lekar novil = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(novau.IdLekara);
                 this.stariTermini.Add(new DTOUslugaLekar(novau, novil));
             }

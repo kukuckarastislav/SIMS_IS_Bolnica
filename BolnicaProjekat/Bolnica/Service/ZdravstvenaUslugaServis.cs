@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Windows.Media;
 using Model;
 using Repozitorijum;
 
@@ -52,17 +53,27 @@ namespace Servis
             DateTime krajkRadnogVremena_ = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, krajSati, 0, 0);
 
             TimeSpan period = new TimeSpan(0, 0, 30, 0, 0); //ovo izvuci kao konstantu na nivou klase, ali neka ga zasad
-
+            bool fleg = false;
             //redom generise listu slobodnih termina lekara 
             while (pocetakRadnogVremena + period <= krajkRadnogVremena_)
             {
                 ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(pocetakRadnogVremena, pocetakRadnogVremena + period), 1, OdabraniLekar.Id, -1,TipUsluge.Pregled, -1, false, "", "");
 
-                if (terminiLekara.Contains(pregled))
-                    continue;
+                //if (terminiLekara.Contains(pregled))
+                    //continue;
+                foreach(ZdravstvenaUsluga zu in terminiLekara)
+                {
+                    if(zu.Termin.Pocetak.Equals(pregled.Termin.Pocetak))
+                    {
+                        fleg = true;
+                        break;
+                    }
+
+                }
         
-                pregledi.Add(pregled);
+                if(fleg==false)pregledi.Add(pregled);
                 pocetakRadnogVremena += period;
+                fleg = false;
             }
 
             return pregledi;
@@ -100,7 +111,7 @@ namespace Servis
         }
 
 
-        internal static bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga pregled, DateTime noviPocetak)
+        public static bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga pregled, DateTime noviPocetak)
         {
             List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(pregled.IdLekara);
 
@@ -171,6 +182,49 @@ namespace Servis
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(usluga);
+        }
+
+        public bool OdloziUslugu(ZdravstvenaUsluga pregled, DateTime noviPocetak)
+        {
+            List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(pregled.IdLekara);
+
+
+            bool zavrsio = false;
+            while (!zavrsio)
+            {
+                zavrsio = true;
+                foreach (var p in terminiLekara)
+                {
+                    if (p.Termin.Pocetak.Year != noviPocetak.Year || p.Termin.Pocetak.Month != noviPocetak.Month || p.Termin.Pocetak.Day != noviPocetak.Day)
+                    {
+                        terminiLekara.Remove(p);
+                        zavrsio = false;
+                        break;
+                    }
+                }
+            }
+
+            //provjera poklapanja sati, ako je izabrao recimo 4 i 15 zaokruzi na 4, ako je posle 30 zaokruzi na 5, ima smisla
+            bool afterHalf = false;
+
+            if (noviPocetak.Minute > 30)
+                afterHalf = true;
+
+            //jako primitivno znam, ali radi posao
+            foreach (var v in terminiLekara)
+            {
+                if (afterHalf)
+                {
+                    if (v.Termin.Kraj.Hour == noviPocetak.Hour)
+                        return false;
+                }
+                else
+                {
+                    if (v.Termin.Pocetak.Hour == noviPocetak.Hour)
+                        return false;
+                }
+            }
+            return true;
         }
 
     }

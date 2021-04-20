@@ -99,6 +99,7 @@ namespace Repozitorijum
             return usluge;
         }
 
+
         public List<ZdravstvenaUsluga> GetUslugeByProstorijaId(int id)
         {
             // metodu dodao rastislav, 20/4/2021 7:30
@@ -108,6 +109,23 @@ namespace Repozitorijum
             foreach (ZdravstvenaUsluga u in Usluge)
             {
                 if (u.IdProstorije == id)
+                {
+                    usluge.Add(u);
+                }
+
+            }
+
+            return usluge;
+        }
+
+        public List<ZdravstvenaUsluga> getTerminiByLekarAndDatum(int id, DateTime datum)
+        {
+            loadData();
+            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+
+            foreach (ZdravstvenaUsluga u in Usluge)
+            {
+                if (u.IdLekara == id && u.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
                 {
                     usluge.Add(u);
                 }

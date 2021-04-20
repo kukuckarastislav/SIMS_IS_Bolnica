@@ -20,5 +20,16 @@ namespace Model
         public bool OslobodjenOdParticipacije { get; set; }
         public string OpisKoriscenja { get; set; }
 
+        public Recept(int id, int idLekara, int idPacijenta, int idLeka, DateTime datumPropisivanja, DateTime datumIsteka, bool oslobodjenOdParticipacije, string opisKoriscenja)
+        {
+            Id = id;
+            IdLekara = idLekara;
+            IdPacijenta = idPacijenta;
+            IdLeka = idLeka;
+            DatumPropisivanja = datumPropisivanja;
+            DatumIsteka = datumIsteka;
+            OslobodjenOdParticipacije = oslobodjenOdParticipacije;
+            OpisKoriscenja = opisKoriscenja;
+        }
     }
 }

@@ -25,11 +25,19 @@
             <StackPanel></StackPanel>
         </DockPanel>
         <ListView ListViewItem.MouseDoubleClick="pregled_odabran" ItemsSource="{Binding PreglediPacijenta}" x:Name="listaPregledaPacijenta" Margin="185,22,185,0" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="55" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Datum i vrijeme pocetak" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
-                    <GridViewColumn Header="Datum i vrijeme kraj" DisplayMemberBinding="{Binding Termin.Kraj}"/>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:mm/dd/yyy}}"/>
+                    <GridViewColumn Header="Pocetak" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:hh:mm tt}}"/>
+                    <GridViewColumn Header="Kraj" DisplayMemberBinding="{Binding Termin.Kraj,StringFormat={}{0:hh:mm tt}}"/>
                     <GridViewColumn Header="Id lekara" DisplayMemberBinding="{Binding IdLekara }"/>
+                    <GridViewColumn Header="Tip termina" DisplayMemberBinding="{Binding TipUsluge }"/>
+
                 </GridView>
             </ListView.View>
         </ListView>

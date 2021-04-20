@@ -181,6 +181,9 @@
     <Compile Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml.cs">
       <DependentUpon>ZakazivanjeUsluge.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
+      <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
     </Compile>
@@ -325,6 +328,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\NotifikacijePacijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

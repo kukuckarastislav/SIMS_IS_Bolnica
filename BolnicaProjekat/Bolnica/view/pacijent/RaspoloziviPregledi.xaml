@@ -51,9 +51,9 @@
             </ListView.RenderTransform>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
-                    <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
-                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding lekarId}"/>
+                    <GridViewColumn x:Name="pocetak_termina" Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:hh:mm tt}}"/>
+                    <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj,StringFormat={}{0:hh:mm tt}}"/>
+                    <GridViewColumn Header="Ime lekara" DisplayMemberBinding="{Binding IdLekara}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -118,7 +118,7 @@
 
         <RadioButton Name="Lekar" GroupName="Prioritet"  Content="Lekar" Margin="331,200,372,20" Grid.Row="1"/>
         <RadioButton Name="Datum"  IsChecked="True"  GroupName="Prioritet"  Content="Datum" Margin="177,200,536,21" Grid.Row="1"/>
-        <TextBlock  Margin="28,200,667,21" Grid.Row="1">Prioritet pretrage: </TextBlock>
+        <TextBlock  Margin="28,200,667,21" Grid.Row="1">Prioritet pretrage:</TextBlock>
 
 
     </Grid>

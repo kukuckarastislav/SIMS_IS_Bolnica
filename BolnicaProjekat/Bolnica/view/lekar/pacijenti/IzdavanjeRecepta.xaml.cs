@@ -38,17 +38,26 @@ namespace Bolnica.view.lekar.pacijenti
             int VremeMinute = Convert.ToInt32(Vreme_Minute.Text);
             string Vreme_AP = Vreme_AM_PM.Text;
 
-
-            if (Vreme_AM_PM.Equals("PM"))
+            if (Vreme_AP.Equals("PM"))
                 VremeSati += 12;
 
+
+
+            DateTime vrijemeUzimanja= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, VremeSati, VremeMinute, 00);
+            MessageBox.Show(vrijemeUzimanja.ToString());
+
+
+
             DateTime DatumPropisivanja = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-            DateTime DatumIsteka = (DateTime)datePicker.SelectedDate;
+            //DateTime DatumIsteka = datum_isteka.SelectedDate.Value; //iz nekog razl ne radi
 
-           // OdabraniLek = ComboBoxLek.SelectedItem as Lek;
+            // OdabraniLek = ComboBoxLek.SelectedItem as Lek;
 
-            Recepti = new ObservableCollection<Recept>();
-   
+            Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
+            Servis.NotifikacijeServis.ReceptNotifikacija(r,vrijemeUzimanja);
+
+            //Recepti = new ObservableCollection<Recept>();
+
         }
     }
 }

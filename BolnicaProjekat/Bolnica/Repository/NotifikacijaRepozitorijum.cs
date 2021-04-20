@@ -118,16 +118,16 @@ namespace Bolnica.Repository
             return ListaNot;
         }
 
-        public ObservableCollection<Notifikacija> GetByIdPacijenta(int id)
+        internal ObservableCollection<Notifikacija> GetByPatientId(int v)
         {
             loadData();
-            ObservableCollection<Notifikacija> ListaNot = new ObservableCollection<Notifikacija>();
+            ObservableCollection<Notifikacija> ret = new ObservableCollection<Notifikacija>();
             foreach (Notifikacija n in Notifikacije)
             {
-                if (n.IdPacijenta == id)
-                    ListaNot.Add(n);
+                if (n.IdPacijenta == v)
+                    ret.Add(n);
             }
-            return ListaNot;
+            return ret;
         }
 
 

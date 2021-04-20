@@ -102,7 +102,7 @@
                     Foreground="#eeebdd"
                     Grid.Row="4" Grid.RowSpan="1"
                     Grid.Column="1" Grid.ColumnSpan="5"/>
-                <DatePicker Grid.Row="3" Grid.Column="2" x:Name="datePicker"/>
+                <DatePicker Grid.Row="3" Grid.Column="2" x:Name="datum_isteka"/>
 
                 <TextBlock Text="Vreme uzimanja:" Margin="0,0,0,0" Padding="2"
                     VerticalAlignment="Top" HorizontalAlignment="left" 
@@ -119,20 +119,28 @@
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >4</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >5</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >6</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">7</ComboBoxItem>
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >7</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >8</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >9</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >10</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >11</ComboBoxItem>
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">11 </ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
                     </ComboBox>
                     <ComboBox x:Name="Vreme_Minute"  Width="45" Background="#32ccff">
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="15" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="20" />
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="35" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="40" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="45" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
                     </ComboBox>
                     <ComboBox x:Name="Vreme_AM_PM"  Width="45" Background="#32ccff">
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM"/>
                     </ComboBox>
 
                 </StackPanel>

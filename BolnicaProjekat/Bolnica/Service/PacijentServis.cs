@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Model;
 using Repozitorijum;
 
@@ -15,8 +16,10 @@ namespace Servis
    {
       public Model.Pacijent DodajPacijenta(Model.Pacijent pacijent)
       {
-         // TODO: implement
-         return null;
+            int newId = PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
+            pacijent.Id = newId;
+            PacijentRepozitorijum.GetInstance.DodajPacijenta(pacijent);
+            return pacijent;
       }
       
       public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
@@ -27,14 +30,14 @@ namespace Servis
       
       public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
       {
-         // TODO: implement
-         return null;
+            PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
+         return pacijent;
       }
       
-      public List<Pacijent> GetAll()
+      public ObservableCollection<Model.Pacijent> GetAll()
       {
-         // TODO: implement
-         return null;
+          
+         return PacijentRepozitorijum.GetInstance.GetAll();
       }
       
       public Model.Pacijent GetById(long id)
@@ -44,6 +47,10 @@ namespace Servis
       }
    
       public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
-   
-   }
+
+        public void SaveData()
+        {
+            PacijentRepozitorijum.GetInstance.SaveData();
+        }
+    }
 }

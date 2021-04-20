@@ -1,4 +1,5 @@
-﻿using Repozitorijum;
+﻿using Kontroler;
+using Repozitorijum;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
 
 namespace Bolnica.view.sekretar
 {
@@ -23,13 +25,23 @@ namespace Bolnica.view.sekretar
     public partial class PagePacijenti : Page
     {
         public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
+        public ObservableCollection<Model.Pacijent> listaPacijenata;
         
         public PagePacijenti()
         {
-            KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
-            
+           //KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             InitializeComponent();
-           
+
+            KolekcijaPacijenata = new ObservableCollection<Model.Pacijent>();
+            PacijentKontroler kontorler = new PacijentKontroler();
+            listaPacijenata = kontorler.GetAll();
+
+            foreach(Pacijent p in listaPacijenata)
+            {
+
+                if(!p.LogickiObrisan) KolekcijaPacijenata.Add(p);
+            }
+
             this.DataGridPrikazPacijenata.ItemsSource = KolekcijaPacijenata;
         }
 
@@ -60,7 +72,8 @@ namespace Bolnica.view.sekretar
             Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
             if (pacijent == null) return;
 
-            PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
+            PacijentKontroler kontroler = new PacijentKontroler();
+            kontroler.ObrisiPacijenta(pacijent);
             KolekcijaPacijenata.Remove(pacijent);
             MessageBox.Show("Pacijent je uspesno obrisan.");
         }

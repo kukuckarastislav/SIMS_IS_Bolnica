@@ -107,8 +107,8 @@ namespace Repozitorijum
          loadData();
          return pacijenti;
       }
-      
-      public Model.Pacijent GetById(int id)
+
+        public Model.Pacijent GetById(int id)
       {
          foreach(Pacijent p in pacijenti)
             {

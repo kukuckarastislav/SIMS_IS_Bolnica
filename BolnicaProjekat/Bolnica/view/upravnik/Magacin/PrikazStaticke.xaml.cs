@@ -26,11 +26,13 @@ namespace Bolnica.view.upravnik.Magacin
 
         private InventariKontroler InventariKontrolerObjekat { get; set; }
         public ObservableCollection<Oprema> KolekcijaOpreme { get; set; }
-        public PrikazStaticke()
+        private int idInventara;
+        public PrikazStaticke(int idInventara)
         {
+            this.idInventara = idInventara;
             InventariKontrolerObjekat = new InventariKontroler();
             InitializeComponent();                                                      //  0 to je magacin
-            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(0, TipOpreme.Staticka);
+            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(idInventara, TipOpreme.Staticka);
             this.DataGridPrikazStatickeOpreme.ItemsSource = KolekcijaOpreme;
         }
 
@@ -38,7 +40,7 @@ namespace Bolnica.view.upravnik.Magacin
 
         public void azurirajPrikaz()
         {
-            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(0, TipOpreme.Staticka);
+            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(idInventara, TipOpreme.Staticka);
             this.DataGridPrikazStatickeOpreme.ItemsSource = KolekcijaOpreme;
         }
 

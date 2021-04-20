@@ -36,7 +36,7 @@ namespace Bolnica.view.upravnik.Magacin
             inventarKontroler = new InventariKontroler();
             InitializeComponent();
             aktiviraj(0); // staitkcu
-            refPrikazStaticke = new PrikazStaticke();
+            refPrikazStaticke = new PrikazStaticke(0);
             PovrsinaPrikazMagacina.Content = refPrikazStaticke;
         }
 
@@ -90,6 +90,7 @@ namespace Bolnica.view.upravnik.Magacin
             {
                 // izmeni staticke opreme
                 oprema = refPrikazStaticke.GetSelectedOprema();
+                if(oprema == null) { MessageBox.Show("Niste selektovali Opremu"); return; }
                 var dodajOpremu = new DodajOpremuUMagForma(refPrikazStaticke, null, oprema);
                 dodajOpremu.Show();
             }
@@ -97,6 +98,7 @@ namespace Bolnica.view.upravnik.Magacin
             {
                 // izmena dinamicku opremu
                 oprema = refPrikazDinamiceke.GetSelectedOprema();
+                if (oprema == null) { MessageBox.Show("Niste selektovali Opremu"); return; }
                 var dodajOpremu = new DodajOpremuUMagForma(null, refPrikazDinamiceke, oprema);
                 dodajOpremu.Show();
             }
@@ -130,14 +132,14 @@ namespace Bolnica.view.upravnik.Magacin
         private void Btn_prikazi_staticku(object sender, RoutedEventArgs e)
         {
             aktiviraj(0);
-            refPrikazStaticke = new PrikazStaticke();
+            refPrikazStaticke = new PrikazStaticke(0);
             PovrsinaPrikazMagacina.Content = refPrikazStaticke;
         }
 
         private void Btn_prikazi_dinamicku(object sender, RoutedEventArgs e)
         {
             aktiviraj(1);
-            refPrikazDinamiceke = new PrikazDinamicke();
+            refPrikazDinamiceke = new PrikazDinamicke(0);
             PovrsinaPrikazMagacina.Content = refPrikazDinamiceke;
         }
 

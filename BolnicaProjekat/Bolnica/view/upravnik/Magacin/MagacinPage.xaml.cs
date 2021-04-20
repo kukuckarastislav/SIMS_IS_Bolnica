@@ -36,7 +36,7 @@ namespace Bolnica.view.upravnik.Magacin
             inventarKontroler = new InventariKontroler();
             InitializeComponent();
             aktiviraj(0); // staitkcu
-            refPrikazStaticke = new PrikazStaticke(0);
+            refPrikazStaticke = new PrikazStaticke(0, null);
             PovrsinaPrikazMagacina.Content = refPrikazStaticke;
         }
 
@@ -132,14 +132,14 @@ namespace Bolnica.view.upravnik.Magacin
         private void Btn_prikazi_staticku(object sender, RoutedEventArgs e)
         {
             aktiviraj(0);
-            refPrikazStaticke = new PrikazStaticke(0);
+            refPrikazStaticke = new PrikazStaticke(0, null);
             PovrsinaPrikazMagacina.Content = refPrikazStaticke;
         }
 
         private void Btn_prikazi_dinamicku(object sender, RoutedEventArgs e)
         {
             aktiviraj(1);
-            refPrikazDinamiceke = new PrikazDinamicke(0);
+            refPrikazDinamiceke = new PrikazDinamicke(0, null);
             PovrsinaPrikazMagacina.Content = refPrikazDinamiceke;
         }
 

@@ -50,22 +50,24 @@ namespace Bolnica.view.upravnik.Inventari
                 prostorija = KolekcijaProstorija[0];
                 comboProstorija.SelectedValue = KolekcijaProstorija[0];
                 aktiviraj(0);
-                refPrikazStaticke = new Magacin.PrikazStaticke(prostorija.Id);
+                refPrikazStaticke = new Magacin.PrikazStaticke(prostorija.Id, null);
                 PovrsinaPrikazInventara.Content = refPrikazStaticke;
             }
-                
+            
+
+
         }
 
         private void Btn_prikazi_staticku(object sender, RoutedEventArgs e)
         {
             aktiviraj(0);
-            refPrikazStaticke = new Magacin.PrikazStaticke(prostorija.Id);
+            refPrikazStaticke = new Magacin.PrikazStaticke(prostorija.Id, null);
             PovrsinaPrikazInventara.Content = refPrikazStaticke;
         }
         private void Btn_prikazi_dinamicku(object sender, RoutedEventArgs e)
         {
             aktiviraj(1);
-            refPrikazDinamicke = new Magacin.PrikazDinamicke(prostorija.Id);
+            refPrikazDinamicke = new Magacin.PrikazDinamicke(prostorija.Id, null);
             PovrsinaPrikazInventara.Content = refPrikazDinamicke;
         }
 
@@ -76,12 +78,18 @@ namespace Bolnica.view.upravnik.Inventari
 
         private void Preraspodela_click(object sender, RoutedEventArgs e)
         {
+            // treba new windows
+            // treba da posaljem inventare koje treba da rasporedjujem
+            // trebam poslati referencu za azuriranje prikaza na frontedu
 
+            var preraspodelaInventara = new PreraspodelaInventara(refPrikazStaticke, refPrikazDinamicke,
+                                                                    tipOpreme, 0, prostorija.IdInventar);
+            preraspodelaInventara.Show();
         }
 
         private void Termini_click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("ToDo termini");
         }
 
         private void aktiviraj(int akt)
@@ -96,14 +104,17 @@ namespace Bolnica.view.upravnik.Inventari
             {
                 case 0:
                     tipOpreme = TipOpreme.Staticka;
+                    btn_termin.IsEnabled = true;
                     Btn_prikaz_staticku.Background = Brushes.LightGray;
                     break;
                 case 1:
                     tipOpreme = TipOpreme.Dinamicka;
+                    btn_termin.IsEnabled = false;
                     Btn_prikaz_dinamicku.Background = Brushes.LightGray;
                     break;
                 case 2:
                     Btn_prikaz_lekovi.Background = Brushes.LightGray;
+                    btn_termin.IsEnabled = false;
                     break;
 
             }

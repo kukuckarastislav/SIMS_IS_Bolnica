@@ -10,6 +10,7 @@
 
     <Grid>
         <DataGrid x:Name="DataGridPrikazStatickeOpreme" 
+                  SelectionChanged="DataGridPrikazStatickeOpreme_SelectionChanged"
                           ItemsSource="{Binding Path=KolekcijaOpreme}" 
                           IsReadOnly="False"
                           SelectionMode="Single" 
@@ -20,7 +21,7 @@
                 <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="0.5*" />
                 <DataGridTextColumn Header="Cena jed." Binding="{Binding Cena}" Width="0.5*" />
                 <DataGridTextColumn Header="Kolicina" Binding="{Binding Kolicina}" Width="0.5*" />
-                <DataGridTextColumn Header="Opis Opreme" Binding="{Binding Opis}" Width="2*" />
+                <DataGridTextColumn x:Name="polje_opis" Header="Opis Opreme" Binding="{Binding Opis}" Width="2*" />
 
             </DataGrid.Columns>
         </DataGrid>

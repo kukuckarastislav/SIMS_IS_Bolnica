@@ -53,5 +53,10 @@ namespace Kontroler
             return InventariSerivsObjekat.GetTipOpremeByIdInventaraObservable(id, tipOpreme);
         }
 
+        public Inventar GetInventarById(int id)
+        {
+            return InventariSerivsObjekat.GetInventarById(id);
+        }
+
     }
 }

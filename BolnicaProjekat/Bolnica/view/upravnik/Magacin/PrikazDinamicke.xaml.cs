@@ -27,12 +27,18 @@ namespace Bolnica.view.upravnik.Magacin
         public ObservableCollection<Oprema> KolekcijaOpreme { get; set; }
 
         private int idInventara;
-        public PrikazDinamicke(int idInventara)
+        private TextBlock prikazSelekcije;
+        public PrikazDinamicke(int idInventara, TextBlock prikazSelekcije, bool prikaziOpis=true)
         {
+            this.prikazSelekcije = prikazSelekcije;
             this.idInventara = idInventara; 
             InventariKontrolerObjekat = new InventariKontroler();
             InitializeComponent();
             KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(idInventara, TipOpreme.Dinamicka);
+            if (!prikaziOpis)
+            {
+                polje_opis.Visibility = Visibility.Collapsed;
+            }
             this.DataGridPrikazStatickeOpreme.ItemsSource = KolekcijaOpreme;
         }
 
@@ -48,7 +54,13 @@ namespace Bolnica.view.upravnik.Magacin
         }
 
 
-
-
+        private void DataGridPrikazStatickeOpreme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (prikazSelekcije != null)
+            {
+                Oprema op = (DataGridPrikazStatickeOpreme.SelectedItem as Oprema);
+                prikazSelekcije.Text = op.Naziv;
+            }
+        }
     }
 }

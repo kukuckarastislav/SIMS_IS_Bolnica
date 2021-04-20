@@ -146,7 +146,14 @@ namespace Repozitorijum
       
         public Prostorija GetProstorijaById(int id)
         {
-            // TODO: implement
+            foreach (Prostorija p in lProstorije)
+            {
+                if (p.Id == id)
+                {
+                    return p;
+                }
+            }
+
             return null;
         }
 

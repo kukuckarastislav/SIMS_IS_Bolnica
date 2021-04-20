@@ -15,7 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.sekretar.registracija
 {
@@ -48,14 +49,13 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-                int newId = PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
-                Model.Pacijent noviPacijent = new Model.Pacijent(new MedicinskiKarton(),null, newId, false, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
+                
+                
+                PacijentKontroler kontroler = new PacijentKontroler();
+                kontroler.DodajPacijenta(new MedicinskiKarton(), null, 0, false, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
                 inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, Convert.ToDateTime(inputDatum.Text),
                 inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
-
-                PacijentRepozitorijum.GetInstance.DodajPacijenta(noviPacijent);
-
-                //Model.Bolnica.GetInstance.AddPacijenti(noviPacijent);
+ 
                 MessageBox.Show("Pacijent je uspesno dodat.");
             }catch(Exception ee)
             {
@@ -75,13 +75,12 @@ namespace Bolnica.view.sekretar.registracija
                 {
                     pol = Pol.Zensko;
                 }
-               
-                int newId = PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
-                Model.Pacijent noviPacijent = new Model.Pacijent(new MedicinskiKarton(), null, newId, true, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
-                inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, new DateTime(),
+
+                PacijentKontroler kontroler = new PacijentKontroler();
+                kontroler.DodajPacijenta(new MedicinskiKarton(), null, 0, true, false, false, false, inputKorisnickoIme.Text, inputSifra.Text, inputIme.Text,
+                inputPrezime.Text, pol, inputEmail.Text, inputTelefon.Text, Convert.ToDateTime(inputDatum.Text),
                 inputJmbg.Text, inputDrzavljanstvo.Text, inputAdresa.Text);
 
-                PacijentRepozitorijum.GetInstance.DodajPacijenta(noviPacijent);
 
                 MessageBox.Show("Pacijent je uspesno dodat.");
             }

@@ -42,5 +42,17 @@ namespace Servis
         
         }
    
-   }
+        public void OtkaziTermin(ZdravstvenaUsluga usluga)
+        {
+            int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
+            Notifikacija novaNotifikacija = new Notifikacija(id + 1, -1, usluga.IdPacijenta, usluga.IdLekara, false, false, "");
+            if (usluga.TipUsluge == TipUsluge.Pregled)
+                novaNotifikacija.Opis = "Otkazan vam je pregled,";
+            else
+                novaNotifikacija.Opis = "Otkazana vam je operacija, ";
+            novaNotifikacija.Opis = novaNotifikacija.Opis + " dana " + usluga.Termin.Pocetak.ToShortDateString() + ", sa pocetkom u " + usluga.Termin.Pocetak.ToShortTimeString() + ".";
+            NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
+        }
+
+    }
 }

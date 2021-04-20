@@ -1,4 +1,7 @@
-﻿using Model;
+﻿using Bolnica.Controller;
+using Controller;
+using Model;
+using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;
@@ -30,6 +33,33 @@ namespace Bolnica.view.sekretar
             odabraniPacijent = pacijent;
             termini = ZdravstvenaUslugaServis.getUslugePacijenta(pacijent);
             this.DataGridPrikazTermina.ItemsSource = termini;
+        }
+
+        private void OtkaziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
+            if (ul == null) return;
+
+            ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(ul.Usluga);
+
+            termini.Remove(ul);
+            MessageBox.Show("Termin je uspesno otkazan.");
+        }
+        
+        private void AzurirajTermin_Click(object sender, RoutedEventArgs e)
+        {
+            DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
+            if (ul == null) return;
+            var zakaziTerminPage = new WindowZakazivanjeTermina(odabraniPacijent, ul,termini);
+            zakaziTerminPage.Show();
+        }
+
+        private void OdloziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
+            if (ul == null) return;
+            ZdravstvenaUslugaKontroler zkontroler = new ZdravstvenaUslugaKontroler();
+            zkontroler.OdloziUslugu(ul);
         }
     }
 }

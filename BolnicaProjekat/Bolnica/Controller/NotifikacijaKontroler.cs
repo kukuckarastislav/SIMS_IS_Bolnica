@@ -23,5 +23,10 @@ namespace Bolnica.Controller
             ServisNotifikacije.ZakaziTermin(usluga);
         }
 
+        public void NotifikujOtkazaniTermin(ZdravstvenaUsluga usluga)
+        {
+            ServisNotifikacije.OtkaziTermin(usluga);
+        }
+
     }
 }

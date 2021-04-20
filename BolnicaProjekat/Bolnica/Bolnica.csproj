@@ -133,17 +133,50 @@
     <Compile Include="Service\SekretarServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
+    <Compile Include="view\lekar\GlavniMeni.xaml.cs">
+      <DependentUpon>GlavniMeni.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\Notifikacije.xaml.cs">
+      <DependentUpon>Notifikacije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\AzuriranjeUsluge.xaml.cs">
+      <DependentUpon>AzuriranjeUsluge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\BrisanjeUsluge.xaml.cs">
+      <DependentUpon>BrisanjeUsluge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\EvidentiranjeUsluge.xaml.cs">
+      <DependentUpon>EvidentiranjeUsluge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\IzdavanjeRecepta.xaml.cs">
+      <DependentUpon>IzdavanjeRecepta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\pacijenti\KreiranjePregledaForma.xaml.cs">
       <DependentUpon>KreiranjePregledaForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\OsnovniPodaci.xaml.cs">
+      <DependentUpon>OsnovniPodaci.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\pacijenti\PrikazMedicinskiKarton.xaml.cs">
       <DependentUpon>PrikazMedicinskiKarton.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\pacijenti\PrikazPacijenata.xaml.cs">
       <DependentUpon>PrikazPacijenata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\RadniKalendar.xaml.cs">
+      <DependentUpon>RadniKalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\TerapijaPacijenta.xaml.cs">
+      <DependentUpon>TerapijaPacijenta.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml.cs">
+      <DependentUpon>ZakazivanjeUsluge.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
@@ -220,11 +253,43 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="view\lekar\GlavniMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\lekar\LekarHome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\lekar\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\lekar\Notifikacije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\AzuriranjeUsluge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\BrisanjeUsluge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\EvidentiranjeUsluge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\IzdavanjeRecepta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\lekar\pacijenti\KreiranjePregledaForma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\OsnovniPodaci.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -235,6 +300,18 @@
     <Page Include="view\lekar\pacijenti\PrikazPacijenata.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\lekar\pacijenti\RadniKalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\TerapijaPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\PacijentHome.xaml">
       <SubType>Designer</SubType>
@@ -382,6 +459,79 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="data\sve.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\potvrdi-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\back-icon.png" />
+    <Resource Include="images\lekar-icons\bolnica-icon.png" />
+    <Resource Include="images\lekar-icons\forum-icon.png" />
+    <Resource Include="images\lekar-icons\lekovi-icon.png" />
+    <Resource Include="images\lekar-icons\login-icon.png" />
+    <Resource Include="images\lekar-icons\logout-icon.png" />
+    <Resource Include="images\lekar-icons\pacijenti-icon.png" />
+    <Resource Include="images\lekar-icons\prostorije-icon.png" />
+    <Resource Include="images\lekar-icons\radni-kalendar-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\folder-dark-icon.png" />
+    <Resource Include="images\lekar-icons\folder-light-icon.png" />
+    <Resource Include="images\lekar-icons\heartbeat-icon.png" />
+    <Resource Include="images\lekar-icons\history-icon.png" />
+    <Resource Include="images\lekar-icons\info-icon.png" />
+    <Resource Include="images\lekar-icons\pacijent-musko-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\medicinski-karton-icon.png" />
+    <Resource Include="images\lekar-icons\phone-icon.png" />
+    <Resource Include="images\lekar-icons\recept-icon.png" />
+    <Resource Include="images\lekar-icons\uput-icon.png" />
+    <Resource Include="images\lekar-icons\zakazivanje-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\mail-icon.png" />
+    <Resource Include="images\lekar-icons\potvrdi-uslugu-icon.png" />
+    <Resource Include="images\lekar-icons\zakazivanje-usluge-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\azuriranje-usluge-icon.png" />
+    <Resource Include="images\lekar-icons\brisanje-usluge-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\azuriranje-usluge-icon.png" />
+    <Resource Include="images\back-icon.png" />
+    <Resource Include="images\bolnica-icon.png" />
+    <Resource Include="images\brisanje-usluge-icon.png" />
+    <Resource Include="images\folder-dark-icon.png" />
+    <Resource Include="images\folder-light-icon.png" />
+    <Resource Include="images\forum-icon.png" />
+    <Resource Include="images\heartbeat-icon.png" />
+    <Resource Include="images\history-icon.png" />
+    <Resource Include="images\info-icon.png" />
+    <Resource Include="images\izdavanje-recepta-icon.png" />
+    <Resource Include="images\lekovi-icon.png" />
+    <Resource Include="images\login-icon.png" />
+    <Resource Include="images\logout-icon.png" />
+    <Resource Include="images\mail-icon.png" />
+    <Resource Include="images\medicinski-karton-icon.png" />
+    <Resource Include="images\pacijent-musko-icon.png" />
+    <Resource Include="images\pacijenti-icon.png" />
+    <Resource Include="images\phone-icon.png" />
+    <Resource Include="images\potvrdi-icon.png" />
+    <Resource Include="images\potvrdi-uslugu-icon.png" />
+    <Resource Include="images\prostorije-icon.png" />
+    <Resource Include="images\radni-kalendar-icon.png" />
+    <Resource Include="images\recept-icon.png" />
+    <Resource Include="images\uput-icon.png" />
+    <Resource Include="images\zakazivanje-icon.png" />
+    <Resource Include="images\zakazivanje-usluge-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\izdavanje-recepta-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\usluga-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

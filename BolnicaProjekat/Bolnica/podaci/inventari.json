@@ -1,0 +1,67 @@
+[
+  {
+    "Id": 0,
+    "IdProstorije": -1,
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "sto",
+        "Naziv": "Stolica",
+        "Tip": 0,
+        "Opis": "Stolica za sedenje",
+        "Kolicina": 8,
+        "Cena": 2500,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "kr9VET",
+        "Naziv": "Krevet",
+        "Tip": 0,
+        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Kolicina": 25,
+        "Cena": 12000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "ctS559",
+        "Naziv": "CT skener",
+        "Tip": 0,
+        "Opis": "CT skener za analizu ljudskog tela, poprecnog preseka",
+        "Kolicina": 3,
+        "Cena": 14900000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "HANz00",
+        "Naziv": "Hanzaplast",
+        "Tip": 1,
+        "Opis": "Zaustavlja spoljasnje krvarenje",
+        "Kolicina": 250,
+        "Cena": 5,
+        "IdInventar": 0
+      }
+    ],
+    "LLekovi": []
+  },
+  {
+    "Id": 1,
+    "IdProstorije": 1,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 2,
+    "IdProstorije": 2,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 3,
+    "IdProstorije": 3,
+    "LOprema": [],
+    "LLekovi": []
+  }
+]

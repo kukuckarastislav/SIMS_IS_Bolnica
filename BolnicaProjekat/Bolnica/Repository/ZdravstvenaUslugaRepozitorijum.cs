@@ -97,6 +97,24 @@ namespace Repozitorijum
             return usluge;
         }
 
+        public List<ZdravstvenaUsluga> GetUslugeByProstorijaId(int id)
+        {
+            // metodu dodao rastislav, 20/4/2021 7:30
+            loadData();
+            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+
+            foreach (ZdravstvenaUsluga u in Usluge)
+            {
+                if (u.IdProstorije == id)
+                {
+                    usluge.Add(u);
+                }
+
+            }
+
+            return usluge;
+        }
+
         public ObservableCollection<Model.ZdravstvenaUsluga> getAll()
         {
             return Usluge;

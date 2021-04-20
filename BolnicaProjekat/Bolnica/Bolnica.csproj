@@ -214,6 +214,12 @@
     <Compile Include="view\sekretar\ZakazivanjeTermina.xaml.cs">
       <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\Inventari\InventariPage.xaml.cs">
+      <DependentUpon>InventariPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Inventari\PreraspodelaInventara.xaml.cs">
+      <DependentUpon>PreraspodelaInventara.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml.cs">
       <DependentUpon>DodajOpremuUMagForma.xaml</DependentUpon>
     </Compile>
@@ -369,6 +375,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\ZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Inventari\InventariPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Inventari\PreraspodelaInventara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

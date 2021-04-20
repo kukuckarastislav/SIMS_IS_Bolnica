@@ -113,14 +113,58 @@ namespace Bolnica.view.upravnik.Inventari
 
         private void btn_prebaci_Click(object sender, RoutedEventArgs e)
         {
-            if(smerTransfera == 0)
+
+            Oprema oprema = null;
+            if (smerTransfera == 0)
             {
                 // magacin -> inventar
-
-            }else if(smerTransfera == 1)
+                if (tipOpreme == TipOpreme.Staticka)
+                    oprema = prikazStatickeInventar1.GetSelectedOprema();
+                else
+                    oprema = prikazDinamickeInventar1.GetSelectedOprema();
+            }
+            else if (smerTransfera == 1)
             {
                 // inventar -> magacin
+                if (tipOpreme == TipOpreme.Staticka)
+                    oprema = prikazStatickeInventar2.GetSelectedOprema();
+                else
+                    oprema = prikazDinamickeInventar2.GetSelectedOprema();
+            }
+            
 
+            if (oprema == null) return; // neka greska
+
+            int kolicina = Convert.ToInt32(txtBox_kolicina.Text);
+            if (kolicina > oprema.Kolicina)
+            {
+                MessageBox.Show("Uneta kolicina " + kolicina + " nadmasuje aktualnu kolicinu " + oprema.Kolicina);
+                txtBox_kolicina.Text = Convert.ToString(oprema.Kolicina);
+                return;
+            }
+
+
+
+            if (smerTransfera == 0)
+            {
+                // magacin -> inventar
+                inventariKontroler.preraspodelaOpreme(idInventar1, idInventar2, oprema, kolicina);
+            }
+            else if(smerTransfera == 1)
+            {
+                // inventar -> magacin
+                inventariKontroler.preraspodelaOpreme(idInventar2, idInventar1, oprema, kolicina);
+            }
+
+            if (tipOpreme == TipOpreme.Staticka)
+            {
+                prikazStatickeInventar1.azurirajPrikaz();
+                prikazStatickeInventar2.azurirajPrikaz();
+            }
+            else
+            {
+                prikazDinamickeInventar1.azurirajPrikaz();
+                prikazDinamickeInventar2.azurirajPrikaz();
             }
         }
 

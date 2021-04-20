@@ -58,5 +58,10 @@ namespace Kontroler
             return InventariSerivsObjekat.GetInventarById(id);
         }
 
+        public Oprema preraspodelaOpreme(int idInventar1, int idInventar2, Oprema oprema, int kolicina)
+        {
+            return InventariSerivsObjekat.preraspodelaOpreme(idInventar1, idInventar2, oprema, kolicina);
+        }
+
     }
 }

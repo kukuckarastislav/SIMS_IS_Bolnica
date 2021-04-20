@@ -149,6 +149,8 @@ namespace Bolnica.view.upravnik.Inventari
             {
                 prostorija = KolekcijaProstorija[0];
                 comboProstorija.SelectedValue = KolekcijaProstorija[0];
+                refPrikazStaticke = new Magacin.PrikazStaticke(prostorija.Id, null);
+                PovrsinaPrikazInventara.Content = refPrikazStaticke;
             }
         }
 
@@ -157,6 +159,8 @@ namespace Bolnica.view.upravnik.Inventari
             if (KolekcijaProstorija != null && KolekcijaProstorija.Count > 0)
             {
                 prostorija = (Prostorija)comboProstorija.SelectedItem;
+                refPrikazStaticke = new Magacin.PrikazStaticke(prostorija.Id, null);
+                PovrsinaPrikazInventara.Content = refPrikazStaticke;
                 //MessageBox.Show("nova prostorija je " + prostorija.BrojSprat);
             }
         }

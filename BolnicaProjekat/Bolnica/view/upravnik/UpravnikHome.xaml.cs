@@ -40,5 +40,10 @@ namespace Bolnica.view.upravnik
         {
             RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
         }
+
+        private void Magacin_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.upravnik.Magacin.MagacinPage();
+        }
     }
 }

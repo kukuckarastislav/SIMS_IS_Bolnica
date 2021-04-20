@@ -72,7 +72,7 @@ namespace Repozitorijum
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
 
-        private int GetFirstFitID()
+        public int GetFirstFitID()
         {
             UcitajPodatke();
             int najveciID = 0;
@@ -88,7 +88,6 @@ namespace Repozitorijum
 
         public Prostorija DodajProstoriju(Prostorija novaProstorija)
         {
-            MessageBox.Show("1");
             UcitajPodatke();
             //generisati novi id?
             int firstFitID = GetFirstFitID();

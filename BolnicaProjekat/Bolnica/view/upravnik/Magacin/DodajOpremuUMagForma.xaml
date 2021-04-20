@@ -1,0 +1,82 @@
+﻿<Window x:Class="Bolnica.view.upravnik.Magacin.DodajOpremuUMagForma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.upravnik.Magacin"
+        mc:Ignorable="d"
+        Title="DodajOpremuUMagForma" Height="750" Width="800">
+    <Grid>
+        <DockPanel Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="1" Grid.Column="1">Naziv</TextBlock>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="2" Grid.Column="1">Sifra</TextBlock>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="3" Grid.Column="1">Kolicina</TextBlock>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="4" Grid.Column="1">Jedinicna Cena</TextBlock>
+
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="5" Grid.Column="1">Tip Opreme</TextBlock>
+
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="6" Grid.Column="1">Opis</TextBlock>
+
+                <TextBox x:Name="inputNaziv" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="1" Grid.Column="2" Width="160"></TextBox>
+
+                <TextBox x:Name="inputSifra" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="2" Grid.Column="2" Width="160"></TextBox>
+
+                <TextBox x:Name="inputKolicina" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="3" Grid.Column="2" Width="160"></TextBox>
+
+                <TextBox x:Name="inputCena" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="4" Grid.Column="2" Width="160"></TextBox>
+
+                <TextBox x:Name="inputTip" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="5" Grid.Column="2" Width="160" IsEnabled="False" IsReadOnly="True">Tip</TextBox>
+
+
+                <TextBox x:Name="inputOpis" 
+                         TextWrapping="Wrap"
+                        AcceptsReturn="True"
+                        VerticalScrollBarVisibility="Visible"
+                         Grid.Row="7" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2">Opis ...</TextBox>
+
+
+
+                <Button  Grid.Row="10" Grid.Column="1" Width="120" Height="50" Click="close_win">Odustani</Button>
+
+                <Button  Grid.Row="10" Grid.Column="2" Width="120" Height="50" Click="Potvrdi_btn">Potvrdi</Button>
+
+
+
+            </Grid>
+
+        </DockPanel>
+    </Grid>
+</Window>

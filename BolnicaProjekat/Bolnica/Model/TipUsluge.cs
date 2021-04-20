@@ -11,6 +11,8 @@ namespace Model
    public enum TipUsluge
    {
       Operacija,
-      Pregled
+      Pregled,
+      PreraspodelaInventara,
+      Renoviranje
    }
 }

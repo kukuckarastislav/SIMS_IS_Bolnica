@@ -7,41 +7,5 @@
     "PacijentProcitao": false,
     "LekarProcitao": false,
     "Opis": null
-  },
-  {
-    "Id": 2,
-    "IdZdravstveneUsluge": 4,
-    "IdPacijenta": 1,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": null
-  },
-  {
-    "Id": 3,
-    "IdZdravstveneUsluge": 12,
-    "IdPacijenta": 1,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": null
-  },
-  {
-    "Id": 4,
-    "IdZdravstveneUsluge": 2,
-    "IdPacijenta": 2,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": null
-  },
-  {
-    "Id": 5,
-    "IdZdravstveneUsluge": 2,
-    "IdPacijenta": 1,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 4/20/2021, sa pocetkom u 8:00 AM."
   }
 ]

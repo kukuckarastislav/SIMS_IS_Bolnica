@@ -59,7 +59,19 @@ namespace Bolnica.view.sekretar
             DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
             if (ul == null) return;
             ZdravstvenaUslugaKontroler zkontroler = new ZdravstvenaUslugaKontroler();
-            zkontroler.OdloziUslugu(ul);
+            
+            DTOUslugaLekar ret = zkontroler.OdloziUslugu(ul);
+            if(ret != null)
+            {
+                MessageBox.Show("Usloga je uspesno odlozena");
+                termini.Remove(ul);
+                ul = ret;
+                termini.Add(ret);
+            }
+            else
+            {
+                MessageBox.Show("Nije moguce odloziti uslugu u naredna tri dana");
+            }
         }
     }
 }

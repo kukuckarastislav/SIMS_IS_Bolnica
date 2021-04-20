@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Media;
 using Model;
 using Repozitorijum;
@@ -184,47 +185,26 @@ namespace Servis
             ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(usluga);
         }
 
-        public bool OdloziUslugu(ZdravstvenaUsluga pregled, DateTime noviPocetak)
+        public ZdravstvenaUsluga OdloziUslugu(ZdravstvenaUsluga usluga)
         {
-            List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(pregled.IdLekara);
-
-
-            bool zavrsio = false;
-            while (!zavrsio)
+            int maxBrojDanaOdlaganja = 3;
+            DateTime datum = usluga.Termin.Pocetak;
+            for (int i = 1; i < maxBrojDanaOdlaganja; i++)
             {
-                zavrsio = true;
-                foreach (var p in terminiLekara)
+                datum = datum.AddDays(1);
+                List<ZdravstvenaUsluga> slobodniTerminiLekara = getAppointments(LekarRepozitorijum.GetInstance.GetById(usluga.IdLekara),
+                                                                new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 0),
+                                                                new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 0));
+                if (slobodniTerminiLekara.Count>0)
                 {
-                    if (p.Termin.Pocetak.Year != noviPocetak.Year || p.Termin.Pocetak.Month != noviPocetak.Month || p.Termin.Pocetak.Day != noviPocetak.Day)
-                    {
-                        terminiLekara.Remove(p);
-                        zavrsio = false;
-                        break;
-                    }
+                    return slobodniTerminiLekara.ElementAt(0);
                 }
+
             }
 
-            //provjera poklapanja sati, ako je izabrao recimo 4 i 15 zaokruzi na 4, ako je posle 30 zaokruzi na 5, ima smisla
-            bool afterHalf = false;
 
-            if (noviPocetak.Minute > 30)
-                afterHalf = true;
 
-            //jako primitivno znam, ali radi posao
-            foreach (var v in terminiLekara)
-            {
-                if (afterHalf)
-                {
-                    if (v.Termin.Kraj.Hour == noviPocetak.Hour)
-                        return false;
-                }
-                else
-                {
-                    if (v.Termin.Pocetak.Hour == noviPocetak.Hour)
-                        return false;
-                }
-            }
-            return true;
+            return null;
         }
 
     }

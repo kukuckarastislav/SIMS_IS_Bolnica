@@ -99,6 +99,23 @@ namespace Repozitorijum
             return usluge;
         }
 
+        public List<ZdravstvenaUsluga> getTerminiByLekarAndDatum(int id, DateTime datum)
+        {
+            loadData();
+            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+
+            foreach (ZdravstvenaUsluga u in Usluge)
+            {
+                if (u.IdLekara == id && u.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
+                {
+                    usluge.Add(u);
+                }
+
+            }
+
+            return usluge;
+        }
+
         public ObservableCollection<Model.ZdravstvenaUsluga> getAll()
         {
             return Usluge;

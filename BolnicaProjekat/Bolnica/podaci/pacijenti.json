@@ -4,7 +4,8 @@
       "IdPacijent": 1,
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
-      "Terapija": null
+      "Terapija": null,
+      "Alergeni": " alergen 1"
     },
     "Ocene": null,
     "Id": 1,
@@ -29,7 +30,8 @@
       "IdPacijent": 2,
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
-      "Terapija": null
+      "Terapija": null,
+      "Alergeni": null
     },
     "Ocene": null,
     "Id": 2,
@@ -48,5 +50,31 @@
     "Jmbg": "3124215324321",
     "Drzavljanstvo": "Srpsko",
     "AdresaStanovanja": "Novi Sad, Cara Dusana 20"
+  },
+  {
+    "MedicinskiKarton": {
+      "IdPacijent": 0,
+      "Osiguran": false,
+      "ZdravstvenaUsluga": null,
+      "Terapija": null,
+      "Alergeni": " al"
+    },
+    "Ocene": null,
+    "Id": 3,
+    "PacijentGost": false,
+    "Hospitalizovan": false,
+    "SpamUser": false,
+    "LogickiObrisan": false,
+    "KorisnickoIme": "simasima",
+    "Sifra": "sifra",
+    "Ime": "Sima",
+    "Prezime": "Simic",
+    "Pol": 0,
+    "Email": "sima@gmail.com",
+    "Telefon": "4231231231",
+    "DatumRodjenja": "1997-10-10T00:00:00",
+    "Jmbg": "12312312321",
+    "Drzavljanstvo": "ima",
+    "AdresaStanovanja": "asdasdasd"
   }
 ]

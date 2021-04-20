@@ -74,5 +74,13 @@ namespace Bolnica.view.sekretar
             zakazaniTerminiPage.Show();
         }
 
+        private void OtvoriMedicinskiKarton_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            if (pacijent == null) return;
+
+            var medicinskiKartonWindow = new KartonPacijenta(pacijent);
+            medicinskiKartonWindow.Show();
+        }
     }
 }

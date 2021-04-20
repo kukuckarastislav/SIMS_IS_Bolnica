@@ -1,0 +1,46 @@
+﻿<Window x:Class="Bolnica.view.sekretar.KartonPacijenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.sekretar"
+        mc:Ignorable="d"
+        Title="KartonPacijenta" Height="450" Width="800">
+    <Grid Background="#ccffbd">
+        <DockPanel>
+            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
+                <Button Margin="30 10" ToolTip="Registracija sa potpunim unosom podataka" Background="white" Click="SacuvaAlergene_Click">Sacuvaj izmene</Button>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15px" >Alergeni</TextBlock>
+                <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Name="tbAlergeni"
+                TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                VerticalScrollBarVisibility="Visible"/>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

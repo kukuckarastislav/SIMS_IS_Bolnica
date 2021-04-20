@@ -84,8 +84,8 @@ namespace Repozitorijum
       
       public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
       {
-         // TODO: implement
-         return null;
+            SaveData();
+            return pacijent;
       }
       
         //logicko brisanje

@@ -7,11 +7,17 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Servis;
 
 namespace Kontroler
 {
    public class PacijentKontroler
    {
+       
+        public PacijentKontroler()
+        {
+            pacijentServis = new PacijentServis();
+        }
       public Model.Pacijent DodajPacijenta(Model.Pacijent pacijent)
       {
          // TODO: implement
@@ -20,8 +26,8 @@ namespace Kontroler
       
       public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
       {
-         // TODO: implement
-         return null;
+            pacijentServis.AzurirajPacijenta(pacijent);
+         return pacijent;
       }
       
       public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)

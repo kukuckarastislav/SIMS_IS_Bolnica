@@ -196,6 +196,9 @@
     <Compile Include="view\pacijent\SopstveniPregledi.xaml.cs">
       <DependentUpon>SopstveniPregledi.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
+      <DependentUpon>KartonPacijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
       <DependentUpon>PagePacijenti.xaml</DependentUpon>
     </Compile>
@@ -350,6 +353,10 @@
     <Page Include="view\pacijent\SopstveniPregledi.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\KartonPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\PagePacijenti.xaml">
       <Generator>MSBuild:Compile</Generator>

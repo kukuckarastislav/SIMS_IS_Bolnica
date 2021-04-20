@@ -21,6 +21,7 @@
                 <Button Margin="30 10" Background="white" Click="ObrisiPacijenta_Click">Obrisi pacijenta</Button>
                 <Button Margin="30 10" Background="white" Click="ZakaziTermin_Click">Zakazi termin</Button>
                 <Button Margin="30 10" Background="white" Click="PogledajTermine_Click">Pogledaj termine</Button>
+                <Button Margin="30 10" Background="white" Click="OtvoriMedicinskiKarton_Click">Medicinski karton</Button>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom" Background="#ccffbd">
                 <Grid.ColumnDefinitions>

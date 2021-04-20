@@ -13,13 +13,13 @@ namespace Model
    public class MedicinskiKarton
    {
 
-        public MedicinskiKarton(int idPacijenta, bool osiguran, ArrayList zdravstvenaUsluga, Terapija terapija)
+        public MedicinskiKarton(int idPacijenta, bool osiguran, ArrayList zdravstvenaUsluga, Terapija terapija, string alergeni)
         {
             IdPacijent = idPacijenta;
             Osiguran = osiguran;
             ZdravstvenaUsluga = zdravstvenaUsluga;
             Terapija = terapija;
-
+            Alergeni = alergeni;
         }
 
         public MedicinskiKarton()
@@ -34,7 +34,7 @@ namespace Model
         public ArrayList ZdravstvenaUsluga { get; set; }
         [JsonInclude]
         public Terapija Terapija { get; set; }
-
+        public string Alergeni { get; set; }
 
         /*
         /// <pdGenerated>default getter</pdGenerated>

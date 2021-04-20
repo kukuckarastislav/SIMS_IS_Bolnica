@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Repozitorijum;
 
 namespace Servis
 {
@@ -20,8 +21,8 @@ namespace Servis
       
       public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
       {
-         // TODO: implement
-         return null;
+            PacijentRepozitorijum.GetInstance.AzurirajPacijenta(pacijent);
+         return pacijent;
       }
       
       public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)

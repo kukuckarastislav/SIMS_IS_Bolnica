@@ -27,9 +27,9 @@ namespace Servis
         public Inventar GetInventarById(int id)
         {
             List<Inventar> li = GetAllInventar();
-            foreach(Inventar inv in li)
+            foreach (Inventar inv in li)
             {
-                if(inv.Id == id)
+                if (inv.Id == id)
                 {
                     return inv;
                 }
@@ -40,7 +40,7 @@ namespace Servis
         public ObservableCollection<Oprema> GetTipOpremeByIdInventaraObservable(int id, TipOpreme tipOpreme)
         {
             Inventar inv = GetInventarById(id);         // ako ne nadje inventar baca null pa tu puca program
-            if(inv == null)
+            if (inv == null)
             {
                 MessageBox.Show("Nije pronadjen trazeni invetnar/magacin");
                 return new ObservableCollection<Oprema>();
@@ -66,7 +66,7 @@ namespace Servis
                                             string opis)
         {
             Inventar inv = GetInventarById(idInventara);
-            if(inv == null)
+            if (inv == null)
             {
                 MessageBox.Show("Ne postoji inventar sa tim ID");
                 return null;
@@ -77,13 +77,39 @@ namespace Servis
             return oprema;
         }
 
+
+
+        public Oprema IzmeniOpremuUInventarById(int idInventara,
+                                                Oprema editOprema,
+                                                string naziv,
+                                                string sifra,
+                                                int kolicina,
+                                                double cena,
+                                                string opis)
+        {
+            Inventar inv = GetInventarById(idInventara);
+            if (inv == null)
+            {
+                MessageBox.Show("Ne postoji inventar sa tim ID");
+                return null;
+            }
+            editOprema.Naziv = naziv;
+            editOprema.Sifra = sifra;
+            editOprema.Cena = cena;
+            editOprema.Kolicina = kolicina;
+            editOprema.Opis = opis;
+
+            InventarRepozitorijumRef.AzurirajInventar(inv);
+            return editOprema;
+        }
+
         /*
          * parametar skroz nam sluzi ako zelimo obrisati neku opremu na nivou celog sistema
          * */
         public Oprema ObrisiOpremuInvetara(int idInventara, Oprema oprema, bool skroz)
         {
             Inventar inv = GetInventarById(idInventara);
-            if(inv == null)
+            if (inv == null)
             {
                 MessageBox.Show("Ne postoji inventar sa tim ID");
                 return null;
@@ -97,7 +123,7 @@ namespace Servis
             else
             {
                 // brisanje na nivou celog sistema
-                foreach(Inventar inventar in GetAllInventar())
+                foreach (Inventar inventar in GetAllInventar())
                 {
                     inventar.ObrisiOpremuBySifra(oprema.Sifra);
                 }
@@ -105,7 +131,7 @@ namespace Servis
             }
 
 
-            
+
             return oprema;
         }
 

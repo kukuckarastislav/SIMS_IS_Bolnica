@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "Termin": {
+      "Pocetak": "2021-04-20T13:30:00",
+      "Kraj": "2021-04-20T14:00:00"
+    },
+    "Id": 1,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": -1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  }
+]

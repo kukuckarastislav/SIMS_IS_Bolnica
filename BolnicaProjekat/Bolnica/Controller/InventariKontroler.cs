@@ -20,7 +20,7 @@ namespace Kontroler
         }
 
         public Oprema DodajOpremuUInventarById(int idInventara,
-                                              TipOpreme tipOpreme, 
+                                              TipOpreme tipOpreme,
                                               string naziv,
                                               string sifra,
                                               int kolicina,
@@ -29,8 +29,19 @@ namespace Kontroler
         {
 
 
-            return InventariSerivsObjekat.DodajOpremuUInventarById(idInventara ,tipOpreme, naziv, sifra, kolicina, cena, opis);
+            return InventariSerivsObjekat.DodajOpremuUInventarById(idInventara, tipOpreme, naziv, sifra, kolicina, cena, opis);
         }
+        public Oprema IzmeniOpremuUInventarById(int idInventara,
+                                                Oprema editOprema,
+                                                string naziv,
+                                                string sifra,
+                                                int kolicina,
+                                                double cena,
+                                                string opis)
+        {
+            return InventariSerivsObjekat.IzmeniOpremuUInventarById(idInventara, editOprema, naziv, sifra, kolicina, cena, opis);
+        }
+
 
         public Oprema ObrisiOpremuInvetara(int idInventara, Oprema oprema, bool skroz)
         {

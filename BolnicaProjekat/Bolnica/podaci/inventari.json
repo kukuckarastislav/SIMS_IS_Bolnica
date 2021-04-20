@@ -9,7 +9,7 @@
         "Naziv": "Stolica",
         "Tip": 0,
         "Opis": "Stolica za sedenje",
-        "Kolicina": 8,
+        "Kolicina": 20,
         "Cena": 2500,
         "IdInventar": 0
       },
@@ -19,7 +19,7 @@
         "Naziv": "Krevet",
         "Tip": 0,
         "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 25,
+        "Kolicina": 30,
         "Cena": 12000,
         "IdInventar": 0
       },
@@ -61,6 +61,16 @@
         "Opis": "Infuzija natrijum hlorid ",
         "Kolicina": 48,
         "Cena": 60,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "mak",
+        "Naziv": "Makaze",
+        "Tip": 1,
+        "Opis": "Medicinske makaze",
+        "Kolicina": 25,
+        "Cena": 125,
         "IdInventar": 0
       }
     ],
@@ -117,6 +127,18 @@
   {
     "Id": 9,
     "IdProstorije": 9,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 10,
+    "IdProstorije": 10,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 11,
+    "IdProstorije": 11,
     "LOprema": [],
     "LLekovi": []
   }

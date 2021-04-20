@@ -45,36 +45,12 @@ namespace Bolnica.view.upravnik.prostorije
 
         private void Izmeni_Prostoriju(object sender, RoutedEventArgs e)
         {
-            /*
-            if (aktivanPrikaz == 1)
-            {
-                Model.Prostorija editProstorija = refPrikazProstorija.GetSelectedProstorija();
-                var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(editProstorija);
-                dodajProstorijuForma.Show();
-            }
-            else if (aktivanPrikaz == 2)
-            {
-                Model.OperacionaSala editOperacionaSala = refPrikazOperacionihSala.GetSelectedOperacionaSala();
-                var dodajOperacionuSaluForma = new Bolnica.view.upravnik.prostorije.DodajOperacionuSaluForma(editOperacionaSala);
-                dodajOperacionuSaluForma.Show();
-            }
-            else if (aktivanPrikaz == 3)
-            {
-                Model.SobaZaPreglede editSobaZaPregled = refPrikazSobaZaPregled.GetSelectedSobaZaPregled();
-                var dodajSobuZaPregledForma = new Bolnica.view.upravnik.prostorije.DodajSobuZaPregledForma(editSobaZaPregled);
-                dodajSobuZaPregledForma.Show();
-            }
-            else if (aktivanPrikaz == 4)
-            {
-                Model.BolesnickaSoba editBolesnickaSoba = refPrikazBolesnickihProstorija.GetSelectedBolesnickaSoba();
-                var dodajBolesnickuSobu = new Bolnica.view.upravnik.prostorije.DodajBolesnickuProstorijuForma(editBolesnickaSoba);
-                dodajBolesnickuSobu.Show();
-            }
-            */
+
             Prostorija pro = null;
             if (aktivanPrikaz == 1)
             {
                 pro = refPrikazProstorija.GetSelectedProstorija();
+                if (pro == null) { MessageBox.Show("Niste selektovali ni jednu Prostoriju"); return; }
                 var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(refPrikazProstorija,
                                                                                                      null,
                                                                                                      null,
@@ -84,6 +60,7 @@ namespace Bolnica.view.upravnik.prostorije
             else if (aktivanPrikaz == 2)
             {
                 pro = refPrikazOperacionihSala.GetSelectedOperacionaSala();
+                if (pro == null) { MessageBox.Show("Niste selektovali ni jednu Prostoriju"); return; }
                 var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(null,
                                                                                                      refPrikazOperacionihSala,
                                                                                                      null,
@@ -94,6 +71,7 @@ namespace Bolnica.view.upravnik.prostorije
             else if (aktivanPrikaz == 3)
             {
                 pro = refPrikazSobaZaPregled.GetSelectedSobaZaPregled();
+                if (pro == null) { MessageBox.Show("Niste selektovali ni jednu Prostoriju"); return; }
                 var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(null,
                                                                                                      null,
                                                                                                      refPrikazSobaZaPregled,
@@ -103,6 +81,7 @@ namespace Bolnica.view.upravnik.prostorije
             else if (aktivanPrikaz == 4)
             {
                 pro = refPrikazBolesnickihProstorija.GetSelectedBolesnickaSoba();
+                if (pro == null) { MessageBox.Show("Niste selektovali ni jednu Prostoriju"); return; }
                 var dodajBolesnickuSobu = new Bolnica.view.upravnik.prostorije.DodajBolesnickuProstorijuForma(refPrikazBolesnickihProstorija,
                                                                                                               pro);
                 dodajBolesnickuSobu.Show();
@@ -114,6 +93,7 @@ namespace Bolnica.view.upravnik.prostorije
             
             if (aktivanPrikaz == 1)
             {
+                
                 var dodajProstorijuForma = new Bolnica.view.upravnik.prostorije.DodajProstorijuForma(refPrikazProstorija,
                                                                                                      null, 
                                                                                                      null,

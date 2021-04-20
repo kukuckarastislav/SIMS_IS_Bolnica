@@ -83,6 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\InventariKontroler.cs" />
     <Compile Include="Controller\LekarKontroler.cs" />
     <Compile Include="Controller\NotifikacijaKontroler.cs" />
     <Compile Include="Controller\PacijentKontroler.cs" />
@@ -91,7 +92,6 @@
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
     <Compile Include="Model\Bolnica.cs" />
-    <Compile Include="Model\DinamickaOprema.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />
     <Compile Include="Model\Inventar.cs" />
     <Compile Include="Model\Korisnik.cs" />
@@ -101,6 +101,7 @@
     <Compile Include="Model\Nadzornik.cs" />
     <Compile Include="Model\Notifikacija.cs" />
     <Compile Include="Model\Ocena.cs" />
+    <Compile Include="Model\Oprema.cs" />
     <Compile Include="Model\Osoblje.cs" />
     <Compile Include="Model\Pacijent.cs" />
     <Compile Include="Model\Pol.cs" />
@@ -110,9 +111,9 @@
     <Compile Include="Model\RadnoVreme.cs" />
     <Compile Include="Model\Recept.cs" />
     <Compile Include="Model\Sekretar.cs" />
-    <Compile Include="Model\StatickaOprema.cs" />
     <Compile Include="Model\Terapija.cs" />
     <Compile Include="Model\Termin.cs" />
+    <Compile Include="Model\TipOpreme.cs" />
     <Compile Include="Model\TipProstorije.cs" />
     <Compile Include="Model\TipUsluge.cs" />
     <Compile Include="Model\Upravnik.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
     <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
     <Compile Include="Repository\UpravnikRepozitorijum.cs" />
+    <Compile Include="Service\InventariSerivs.cs" />
     <Compile Include="Service\LekarServis.cs" />
     <Compile Include="Service\NotifikacijeServis.cs" />
     <Compile Include="Service\PacijentServis.cs" />
@@ -211,6 +213,18 @@
     </Compile>
     <Compile Include="view\sekretar\ZakazivanjeTermina.xaml.cs">
       <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml.cs">
+      <DependentUpon>DodajOpremuUMagForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Magacin\MagacinPage.xaml.cs">
+      <DependentUpon>MagacinPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Magacin\PrikazDinamicke.xaml.cs">
+      <DependentUpon>PrikazDinamicke.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Magacin\PrikazStaticke.xaml.cs">
+      <DependentUpon>PrikazStaticke.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml.cs">
       <DependentUpon>DodajBolesnickuProstorijuForma.xaml</DependentUpon>
@@ -358,6 +372,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\Magacin\MagacinPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\Magacin\PrikazDinamicke.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\Magacin\PrikazStaticke.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -418,6 +448,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="podaci\inventari.json" />
     <None Include="podaci\lekari.json" />
     <None Include="podaci\notifikacije.json" />
     <None Include="podaci\pacijenti.json" />

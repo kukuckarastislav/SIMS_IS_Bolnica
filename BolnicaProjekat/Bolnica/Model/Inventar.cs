@@ -50,6 +50,44 @@ namespace Model
             return null;
         }
 
+        public bool dodajOpremu(Oprema oprema, int kolicina)
+        {
+
+            // ako postoji ta oprema onda dodamo samo kolicinu
+            foreach(Oprema op in LOprema)
+            {
+                if(op.Sifra == oprema.Sifra)
+                {
+                    op.Kolicina = op.Kolicina + kolicina;
+                    return true;
+                }
+            }
+
+            // ako ne postoji ta oprema onda dodamo tu opremu
+            // int id, string sifra, string naziv, TipOpreme tip, string opis, int kolicina, double cena, int idInventar
+            Oprema opNova = new Oprema(oprema.Id, oprema.Sifra, oprema.Naziv, oprema.Tip, oprema.Opis, kolicina, oprema.Cena, oprema.IdInventar);
+            LOprema.Add(opNova);
+
+            return true;
+        }
+
+        public bool oduzmiOpremu(Oprema oprema, int kolicina)
+        {
+            if (kolicina > oprema.Kolicina) return false;
+
+            // oprema je stvarna referenca 
+            // ako je ovo magacin onda necemo ukloniti objekat opreme nego samo smanjili na 0 ako se istrosi
+            // ako je inventar onda cemo ako smanjimo do 0 uklonicemo to iz liste
+
+            oprema.Kolicina = oprema.Kolicina - kolicina;
+            if(oprema.Kolicina == 0 && Id != 0)
+            {
+                //LOprema.Remove(oprema);
+            }
+
+            return true;
+        }
+
 
         /*
          * 

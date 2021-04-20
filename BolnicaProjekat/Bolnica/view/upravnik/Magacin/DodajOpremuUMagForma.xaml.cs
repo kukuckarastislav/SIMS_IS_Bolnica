@@ -58,7 +58,7 @@ namespace Bolnica.view.upravnik.Magacin
                 MessageBox.Show("editOprema je null!");
             }
 
-            inputTip.Text = (tipOpreme == TipOpreme.Staticka) ? "Staticka" : "Dinamicka";
+            inputTip.Text = (editOprema.Tip == TipOpreme.Staticka) ? "Staticka" : "Dinamicka";
             inputCena.Text = Convert.ToString(editOprema.Cena);
             inputNaziv.Text = Convert.ToString(editOprema.Naziv);
             inputSifra.Text = Convert.ToString(editOprema.Sifra);

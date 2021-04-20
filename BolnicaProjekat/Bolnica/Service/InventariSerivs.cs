@@ -136,6 +136,23 @@ namespace Servis
         }
 
 
+        public Oprema preraspodelaOpreme(int idInventar1, int idInventar2, Oprema oprema, int kolicina)
+        {
+            Inventar inv1 = GetInventarById(idInventar1);
+            Inventar inv2 = GetInventarById(idInventar2);
+
+            if(inv1 == null || inv2 == null)
+            {
+                MessageBox.Show("Inventari su null u servisu metodi preraspodleaOpreme()");
+                return null;
+            }
+
+            inv1.oduzmiOpremu(oprema, kolicina);
+            inv2.dodajOpremu(oprema, kolicina);
+            InventarRepozitorijumRef.AzurirajInventar();
+            return oprema;
+        }
+
 
     }
 }

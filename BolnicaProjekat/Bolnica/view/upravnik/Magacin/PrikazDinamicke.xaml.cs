@@ -25,17 +25,26 @@ namespace Bolnica.view.upravnik.Magacin
     {
         private InventariKontroler InventariKontrolerObjekat { get; set; }
         public ObservableCollection<Oprema> KolekcijaOpreme { get; set; }
-        public PrikazDinamicke()
+
+        private int idInventara;
+        private TextBlock prikazSelekcije;
+        public PrikazDinamicke(int idInventara, TextBlock prikazSelekcije, bool prikaziOpis=true)
         {
+            this.prikazSelekcije = prikazSelekcije;
+            this.idInventara = idInventara; 
             InventariKontrolerObjekat = new InventariKontroler();
             InitializeComponent();
-            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(0, TipOpreme.Dinamicka);
+            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(idInventara, TipOpreme.Dinamicka);
+            if (!prikaziOpis)
+            {
+                polje_opis.Visibility = Visibility.Collapsed;
+            }
             this.DataGridPrikazStatickeOpreme.ItemsSource = KolekcijaOpreme;
         }
 
         public void azurirajPrikaz()
         {
-            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(0, TipOpreme.Dinamicka);
+            KolekcijaOpreme = InventariKontrolerObjekat.GetTipOpremeByIdInventaraObservable(idInventara, TipOpreme.Dinamicka);
             this.DataGridPrikazStatickeOpreme.ItemsSource = KolekcijaOpreme;
         }
 
@@ -45,7 +54,13 @@ namespace Bolnica.view.upravnik.Magacin
         }
 
 
-
-
+        private void DataGridPrikazStatickeOpreme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (prikazSelekcije != null)
+            {
+                Oprema op = (DataGridPrikazStatickeOpreme.SelectedItem as Oprema);
+                prikazSelekcije.Text = op.Naziv;
+            }
+        }
     }
 }

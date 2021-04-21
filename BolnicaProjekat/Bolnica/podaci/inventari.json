@@ -49,7 +49,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 13,
+        "Kolicina": 12,
         "Cena": 56000,
         "IdInventar": 0
       },
@@ -59,7 +59,7 @@
         "Naziv": "Infuzija",
         "Tip": 1,
         "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 27,
+        "Kolicina": 23,
         "Cena": 60,
         "IdInventar": 0
       },
@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 22,
+        "Kolicina": 11,
         "Cena": 125,
         "IdInventar": 0
       }
@@ -96,7 +96,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 3,
+        "Kolicina": 4,
         "Cena": 56000,
         "IdInventar": 0
       },
@@ -108,6 +108,26 @@
         "Opis": "Stolica za sedenje",
         "Kolicina": 1,
         "Cena": 2500,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "mak",
+        "Naziv": "Makaze",
+        "Tip": 1,
+        "Opis": "Medicinske makaze",
+        "Kolicina": 11,
+        "Cena": 125,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "inf1L",
+        "Naziv": "Infuzija",
+        "Tip": 1,
+        "Opis": "Infuzija natrijum hlorid ",
+        "Kolicina": 4,
+        "Cena": 60,
         "IdInventar": 0
       }
     ],

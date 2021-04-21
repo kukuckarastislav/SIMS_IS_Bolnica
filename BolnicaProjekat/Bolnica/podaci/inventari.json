@@ -19,7 +19,7 @@
         "Naziv": "Krevet",
         "Tip": 0,
         "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 37,
+        "Kolicina": 36,
         "Cena": 12000,
         "IdInventar": 0
       },
@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 11,
+        "Kolicina": 17,
         "Cena": 125,
         "IdInventar": 0
       }
@@ -116,7 +116,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 11,
+        "Kolicina": 5,
         "Cena": 125,
         "IdInventar": 0
       },
@@ -128,6 +128,16 @@
         "Opis": "Infuzija natrijum hlorid ",
         "Kolicina": 4,
         "Cena": 60,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "kr9VETR",
+        "Naziv": "Krevet",
+        "Tip": 0,
+        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Kolicina": 1,
+        "Cena": 12000,
         "IdInventar": 0
       }
     ],

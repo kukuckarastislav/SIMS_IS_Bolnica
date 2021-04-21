@@ -17,37 +17,25 @@ using System.Windows.Shapes;
 namespace Bolnica.view.lekar.pacijenti
 {
     /// <summary>
-    /// Interaction logic for OsnovniPodaci.xaml
+    /// Interaction logic for ZakazaneUslugePacijenta.xaml
     /// </summary>
-    public partial class OsnovniPodaci : Page
+    public partial class ZakazaneUslugePacijenta : Page
     {
         public Pacijent IzabraniPacijent { get; set; }
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public OsnovniPodaci(Model.Pacijent IzabraniPacijent)
+        public ZakazaneUslugePacijenta(Lekar Lekar, Model.Pacijent IzabraniPacijent)
         {
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
+           
 
             InitializeComponent();
-
-
 
             headerIme.Text = IzabraniPacijent.Ime;
             headerPrezime.Text = IzabraniPacijent.Prezime;
             headerJMBG.Text = IzabraniPacijent.Jmbg;
-
-
-            ime.Text = IzabraniPacijent.Ime;
-            prezime.Text = IzabraniPacijent.Prezime;
-            pol.Text = IzabraniPacijent.Pol.ToString();
-            adresa.Text = IzabraniPacijent.AdresaStanovanja;
-            email.Text = IzabraniPacijent.Email;
-            jmbg.Text = IzabraniPacijent.Jmbg;
-            telefon.Text = IzabraniPacijent.Telefon;
-            korisnickoime.Text = IzabraniPacijent.KorisnickoIme;
-
         }
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)

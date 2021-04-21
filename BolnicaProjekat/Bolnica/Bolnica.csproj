@@ -178,6 +178,9 @@
     <Compile Include="view\lekar\pacijenti\TerapijaPacijenta.xaml.cs">
       <DependentUpon>TerapijaPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\pacijenti\ZakazaneUslugePacijenta.xaml.cs">
+      <DependentUpon>ZakazaneUslugePacijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml.cs">
       <DependentUpon>ZakazivanjeUsluge.xaml</DependentUpon>
     </Compile>
@@ -344,6 +347,10 @@
     <Page Include="view\lekar\pacijenti\TerapijaPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\pacijenti\ZakazaneUslugePacijenta.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml">
       <SubType>Designer</SubType>

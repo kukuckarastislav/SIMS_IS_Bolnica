@@ -22,27 +22,46 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class PrikazMedicinskiKarton : Page
     {
-
-        private view.lekar.pacijenti.ZakazivanjeUsluge refZakazivanjeUsluge;
-        private view.lekar.pacijenti.IzdavanjeRecepta refIzdavanjeRecepta;
+        // Back - Pages
+        private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenata;
+        // Next - Pages
         private view.lekar.pacijenti.OsnovniPodaci refOsnovniPodaci;
+        private view.lekar.pacijenti.ZakazivanjeUsluge refZakazivanjeUsluge;
         private view.lekar.pacijenti.TerapijaPacijenta refTerapijaPacijenta;
+        private view.lekar.pacijenti.IzdavanjeRecepta refIzdavanjeRecepta;
+        private view.lekar.pacijenti.ZakazaneUslugePacijenta refZakazaneUslugePacijenta;
+        // KORISNICI
+        public Pacijent IzabraniPacijent { get; set; }
+        public Lekar Lekar;
 
+        // KOLEKCIJE
         //public ObservableCollection<Pregled> preglediKolekcija { get; set; }
         public System.Collections.ArrayList preglediLista { get; set; }
-        public Pacijent IzabraniPacijent { get; set; }
-        public PrikazMedicinskiKarton(Model.Pacijent izabranPacijent)
+
+
+
+        public PrikazMedicinskiKarton(Lekar Lekar, Model.Pacijent IzabraniPacijent)
         {
+            this.IzabraniPacijent = IzabraniPacijent;
+            this.Lekar = Lekar;
+
             InitializeComponent();
 
-            this.IzabraniPacijent = izabranPacijent;
-            //preglediLista = IzabraniPacijent.MedicinskiKarton.GetPregled();
-           // preglediKolekcija = new ObservableCollection<Pregled>();
+            headerIme.Text = IzabraniPacijent.Ime;
+            headerPrezime.Text = IzabraniPacijent.Prezime;
+            headerJMBG.Text = IzabraniPacijent.Jmbg;
 
-          //  foreach (Pregled p in preglediLista) { preglediKolekcija.Add(p); }
+
+
+
+
+            //preglediLista = IzabraniPacijent.MedicinskiKarton.GetPregled();
+            // preglediKolekcija = new ObservableCollection<Pregled>();
+
+            //  foreach (Pregled p in preglediLista) { preglediKolekcija.Add(p); }
             //this.listaPregledaPacijenta.ItemsSource = preglediKolekcija;
 
-            
+
 
 
         }
@@ -76,20 +95,16 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(IzabraniPacijent);
+                refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(Lekar,IzabraniPacijent);
                 NavigationService.Navigate(refIzdavanjeRecepta);
             }
-
-
         }
-
-        
 
         private void ZakazivanjeUslugeButton(object sender, RoutedEventArgs e)
         {
             if (IzabraniPacijent != null)
             {
-                refZakazivanjeUsluge = new view.lekar.pacijenti.ZakazivanjeUsluge(IzabraniPacijent);
+                refZakazivanjeUsluge = new view.lekar.pacijenti.ZakazivanjeUsluge(Lekar,IzabraniPacijent);
                 NavigationService.Navigate(refZakazivanjeUsluge);
             }
 
@@ -111,6 +126,22 @@ namespace Bolnica.view.lekar.pacijenti
                 refTerapijaPacijenta = new view.lekar.pacijenti.TerapijaPacijenta(IzabraniPacijent);
                 NavigationService.Navigate(refTerapijaPacijenta);
             }
+
+        }
+
+        private void ZakazaneUslugePacijentaButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refZakazaneUslugePacijenta = new view.lekar.pacijenti.ZakazaneUslugePacijenta(Lekar,IzabraniPacijent);
+                NavigationService.Navigate(refZakazaneUslugePacijenta);
+            }
+        }
+
+        private void PrikazPacijenataButton(object sender, RoutedEventArgs e)
+        {
+            refPrikazPacijenata = new view.lekar.pacijenti.PrikazPacijenata(Lekar);
+            NavigationService.Navigate(refPrikazPacijenata);
 
         }
     }

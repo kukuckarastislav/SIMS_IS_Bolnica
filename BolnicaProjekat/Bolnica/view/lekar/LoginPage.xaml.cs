@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,18 +21,20 @@ namespace Bolnica.view.lekar
     /// </summary>
     public partial class LoginPage : Page
     {
-        private view.lekar.LekarHome refLekarHome;
-        public LoginPage(LekarHome refLekarHome)
+        private view.lekar.GlavniMeni refGlavniMeni;
+        public Lekar Lekar;
+        public LoginPage(Lekar Lekar)
         {
+            this.Lekar = Lekar;
             InitializeComponent();
-            this.refLekarHome = refLekarHome;
+
 
         }
 
-        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        private void LoginButton(object sender, RoutedEventArgs e)
         {
-            GlavniMeni newPage = new GlavniMeni(refLekarHome);
-            NavigationService.Navigate(newPage);
+            refGlavniMeni = new GlavniMeni(Lekar);
+            NavigationService.Navigate(refGlavniMeni);
         }
     }
 }

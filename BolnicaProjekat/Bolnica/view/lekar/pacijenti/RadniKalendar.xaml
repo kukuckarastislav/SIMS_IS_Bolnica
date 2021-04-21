@@ -17,99 +17,108 @@
 
                     <Button Height="20" Width="60" VerticalAlignment="Center" 
                     Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                     Margin="20,0,5,-30">
+                     Margin="20,0,5,-30" IsEnabled="False">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Današnji</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Height="20" Width="60" VerticalAlignment="Center" 
                     Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                     Margin="0,0,5,-30">
+                     Margin="0,0,5,-30" IsEnabled="False">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Nedeljni</TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Height="20" Width="60" VerticalAlignment="Center" 
                     Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                     Margin="0,0,5,-30">
+                     Margin="0,0,5,-30" IsEnabled="False">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Mesečni</TextBlock>
                         </StackPanel>
                     </Button>
 
 
-                    <Button Height="35" Width="100" VerticalAlignment="Center" 
+
+
+                </StackPanel>
+
+                <ListView ListViewItem.MouseDoubleClick="UslugaSelektovana"
+                          ItemsSource="{Binding KolekcijaUsluga}" x:Name="ListaPregledaLekara" 
+                          Width="350"
+                          Margin="10,50,10,70" >
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Height" Value="55" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="100" Header="Datum" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:mm/dd/yyy}}"/>
+                            <GridViewColumn Width="60" Header="Pocetak" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:hh:mm tt}}"/>
+                            <GridViewColumn Width="60" Header="Kraj" DisplayMemberBinding="{Binding Termin.Kraj,StringFormat={}{0:hh:mm tt}}"/>
+                            <GridViewColumn Width="60" Header="Tip" DisplayMemberBinding="{Binding TipUsluge }"/>
+                            <GridViewColumn Width="60" Header="Razlog" DisplayMemberBinding="{Binding RazlogZakazivanja  }"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                    <Button x:Name="BrisanjeUsluge"  Height="35" Width="100" VerticalAlignment="Bottom"  HorizontalAlignment="left"
                     Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                    Margin="50,0,5,0">
+                    Margin="10,0,5,20"
+                            Click="BrisanjeUsluge_Click">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="/images/lekar-icons/potvrdi-icon.png" Width="20" />
-                            <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Potvrdi izbor</TextBlock>
+                            <Image Source="/images/lekar-icons/brisanje-usluge-icon.png" Width="25" />
+                            <TextBlock TextWrapping="Wrap" FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="70"> Brisanje usluge</TextBlock>
                         </StackPanel>
                     </Button>
+
+
+                    <Button x:Name="EvidentiranjeUsluge" Height="35" Width="100" VerticalAlignment="Bottom"  HorizontalAlignment="left"
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                    Margin="10,0,5,20">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/lekar-icons/usluga-icon.png" Width="25" />
+                            <TextBlock TextWrapping="Wrap"  FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="70"> Evidentiranje usluge</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button x:Name="AzuriranjeUsluge" Height="35" Width="100" VerticalAlignment="Bottom"  HorizontalAlignment="left"
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                    Margin="10,0,5,20"
+                            Click="AzuriranjeUsluge_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/images/lekar-icons/azuriranje-usluge-icon.png" Width="25" />
+                            <TextBlock TextWrapping="Wrap"
+                                       FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="74"> Ažuriranje usluge</TextBlock>
+                        </StackPanel>
+                    </Button>
+                    
 
                 </StackPanel>
 
 
 
-                <DataGrid x:Name="DataGridRadniKalendar" 
-                          IsReadOnly="True" 
-                          AutoGenerateColumns="False"
-                          SelectionMode="Single"
-                          ItemsSource="{Binding Path=KolekcijaPacijenata}"
-                          Grid.Column="1" 
-                          Grid.Row="1"
-                          Background="#630000"
-                          BorderBrush="White"
-                          BorderThickness="2"
-                          Margin="20,50,20,20"
-                          FontSize="12"
-                          >
-                    <DataGrid.Columns>
-
-                        <DataGridTextColumn Header="  Ime" Binding="{Binding Ime}" Width="*">
-                            <DataGridColumn.HeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#810000"/>
-                                    <Setter Property="Foreground" Value="White"/>
-
-                                </Style>
-                            </DataGridColumn.HeaderStyle>
-
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="  Prezime" Binding="{Binding Prezime}"  Width="*">
-                            <DataGridColumn.HeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#810000"/>
-                                    <Setter Property="Foreground" Value="White"/>
-                                </Style>
-                            </DataGridColumn.HeaderStyle>
-                        </DataGridTextColumn>
-
-                        <DataGridTextColumn Header="  Pol" Binding="{Binding Pol}"  Width="*">
-                            <DataGridColumn.HeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#810000"/>
-                                    <Setter Property="Foreground" Value="White"/>
-                                </Style>
-                            </DataGridColumn.HeaderStyle>
-                        </DataGridTextColumn>
-
-                        <DataGridTextColumn Header="  Hospitalizovan" Binding="{Binding Hospitalizovan}" Width="*">
-                            <DataGridColumn.HeaderStyle>
-                                <Style TargetType="DataGridColumnHeader">
-                                    <Setter Property="Background" Value="#810000"/>
-                                    <Setter Property="Foreground" Value="White"/>
-                                </Style>
-                            </DataGridColumn.HeaderStyle>
-                        </DataGridTextColumn>
-
-                    </DataGrid.Columns>
-                </DataGrid>
 
             </Grid>
         </DockPanel>

@@ -21,29 +21,17 @@ namespace Bolnica.view.lekar
     public partial class LekarHome : Window
     {
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
+        private view.lekar.LoginPage refLoginPage;
         public Lekar Lekar;
-        public LekarHome(Lekar l)
+        public LekarHome(Lekar Lekar)
         {
+            this.Lekar = Lekar;
             InitializeComponent();
-            Lekar = l;
-            RadnaPovrsinaLekar.Navigate(new LoginPage(this));
 
-
+            refLoginPage = new view.lekar.LoginPage(Lekar);
+            RadnaPovrsinaLekar.Navigate(refLoginPage);
         }
 
-        private void Pacijenti_Click(object sender, RoutedEventArgs e)
-        {
-            refPrikazPacijenataZaLekar = new view.lekar.pacijenti.PrikazPacijenata();
-            RadnaPovrsinaLekar.Content = refPrikazPacijenataZaLekar;
 
-        }
-/*
-        private void MedicinskiKarton_Click(object sender, RoutedEventArgs e)
-        {
-            Model.Pacijent izabranPacijent = refPrikazPacijenataZaLekar.GetSelectedPacijentZaLekar();
-            if (izabranPacijent != null)
-                RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazMedicinskiKarton(izabranPacijent);
-
-        }*/
     }
 }

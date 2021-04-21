@@ -49,7 +49,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 12,
+        "Kolicina": 11,
         "Cena": 56000,
         "IdInventar": 0
       },
@@ -96,7 +96,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 4,
+        "Kolicina": 5,
         "Cena": 56000,
         "IdInventar": 0
       },

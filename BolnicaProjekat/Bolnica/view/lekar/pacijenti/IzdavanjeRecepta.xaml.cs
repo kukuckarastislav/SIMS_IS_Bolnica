@@ -22,13 +22,21 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class IzdavanjeRecepta : Page
     {
-        private Pacijent IzabraniPacijent;
+        public Pacijent IzabraniPacijent { get; set; }
         public ObservableCollection<Recept> Recepti;
         public Lek OdabraniLek;
-        public IzdavanjeRecepta(Model.Pacijent IzabraniPacijent)
+        public Lekar Lekar;
+        private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
+
+        public IzdavanjeRecepta(Lekar Lekar, Model.Pacijent IzabraniPacijent)
         {
+            this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
+
+            headerIme.Text = IzabraniPacijent.Ime;
+            headerPrezime.Text = IzabraniPacijent.Prezime;
+            headerJMBG.Text = IzabraniPacijent.Jmbg;
 
         }
 
@@ -58,6 +66,15 @@ namespace Bolnica.view.lekar.pacijenti
 
             //Recepti = new ObservableCollection<Recept>();
 
+        }
+
+        private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar,IzabraniPacijent);
+                NavigationService.Navigate(refPrikazMedicinskiKarton);
+            }
         }
     }
 }

@@ -52,9 +52,10 @@ namespace Bolnica.view.pacijent
             if (odabraniPregled == null)
                 MessageBox.Show("Niste odabrali pregled");
 
-            odabraniPregled.IdPacijenta = 1;
-            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(odabraniPregled);
-            Pregledi.Remove(odabraniPregled);
+                odabraniPregled.IdPacijenta = 1;
+                Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(odabraniPregled);
+                Pregledi.Remove(odabraniPregled);
+ 
         }
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)

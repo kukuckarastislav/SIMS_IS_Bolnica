@@ -45,7 +45,7 @@
         </TextBox> 
            
         <Button Width="85"  Height="35" Margin="0,200,0,0"
-                Background="#e05b49" BorderThickness="1" BorderBrush="Black" Click="Login_Button_Click">
+                Background="#e05b49" BorderThickness="1" BorderBrush="Black" Click="LoginButton">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

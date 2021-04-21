@@ -72,7 +72,10 @@ namespace Bolnica.view.upravnik.Magacin
             if (prikazSelekcije != null)
             {
                 Oprema op = (DataGridPrikazStatickeOpreme.SelectedItem as Oprema);
-                prikazSelekcije.Text = op.Naziv;
+                if(op != null)
+                {
+                    prikazSelekcije.Text = op.Naziv;
+                }
             }
             
         }

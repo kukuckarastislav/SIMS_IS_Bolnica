@@ -1,0 +1,10 @@
+Milica Vucinic, RA139-2018
+
+Kolega Mihajlo je imao dijagram sekvenece za zakazivanje pregleda.
+
+- Sve funkcije ispracene, bas uredno.
+
+- Pocetak je prikaz pacijenata a toga nema na dijagramu
+
+- Nema povratne informacije direktno na sekretara na kraju.
+

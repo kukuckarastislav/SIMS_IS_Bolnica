@@ -1,20 +1,6 @@
 [
   {
     "Termin": {
-      "Pocetak": "2021-04-20T08:00:00",
-      "Kraj": "2021-04-20T08:30:00"
-    },
-    "Id": 4,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": -1,
-    "Obavljena": false,
-    "RazlogZakazivanja": "",
-    "RezultatUsluge": ""
-  },
-  {
-    "Termin": {
       "Pocetak": "2021-04-20T08:30:00",
       "Kraj": "2021-04-20T09:00:00"
     },
@@ -54,19 +40,5 @@
     "Obavljena": false,
     "RazlogZakazivanja": "",
     "RezultatUsluge": ""
-  },
-  {
-    "Termin": {
-      "Pocetak": "2021-04-23T08:00:00",
-      "Kraj": "2021-04-23T08:30:00"
-    },
-    "Id": 2,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 6,
-    "Obavljena": false,
-    "RazlogZakazivanja": "r1",
-    "RezultatUsluge": " "
   }
 ]

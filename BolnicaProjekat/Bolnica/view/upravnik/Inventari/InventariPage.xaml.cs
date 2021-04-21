@@ -82,14 +82,31 @@ namespace Bolnica.view.upravnik.Inventari
             // treba da posaljem inventare koje treba da rasporedjujem
             // trebam poslati referencu za azuriranje prikaza na frontedu
 
-            var preraspodelaInventara = new PreraspodelaInventara(refPrikazStaticke, refPrikazDinamicke,
-                                                                    tipOpreme, 0, prostorija.IdInventar);
-            preraspodelaInventara.Show();
+            if(tipOpreme == TipOpreme.Dinamicka)
+            {
+                var preraspodelaInventara = new PreraspodelaInventara(refPrikazStaticke, refPrikazDinamicke,
+                                                                        tipOpreme, 0, prostorija.IdInventar);
+                preraspodelaInventara.Show();
+            }
+            else
+            {
+                var odabirTermina = new OdabirTermina(refPrikazStaticke, refPrikazDinamicke,
+                                                                        tipOpreme, 0, prostorija.IdInventar, prostorija);
+                odabirTermina.Show();
+                // staticka zahteva otvaranje prozora za odabir termina
+
+            }
+                
         }
 
         private void Termini_click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("ToDo termini");
+            //MessageBox.Show("ToDo termini");
+            if (tipOpreme == TipOpreme.Dinamicka) return;
+
+            var terminPreraspodele = new TerminPreraspodele();
+            terminPreraspodele.Show();
+
         }
 
         private void aktiviraj(int akt)

@@ -9,7 +9,7 @@
         "Naziv": "Stolica",
         "Tip": 0,
         "Opis": "Stolica za sedenje",
-        "Kolicina": 10,
+        "Kolicina": 23,
         "Cena": 2500,
         "IdInventar": 0
       },
@@ -19,7 +19,7 @@
         "Naziv": "Krevet",
         "Tip": 0,
         "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 17,
+        "Kolicina": 37,
         "Cena": 12000,
         "IdInventar": 0
       },
@@ -29,7 +29,7 @@
         "Naziv": "CT skener",
         "Tip": 0,
         "Opis": "CT skener za analizu ljudskog tela, poprecnog preseka",
-        "Kolicina": 1,
+        "Kolicina": 2,
         "Cena": 14900000,
         "IdInventar": 0
       },
@@ -39,7 +39,7 @@
         "Naziv": "Hanzaplast",
         "Tip": 1,
         "Opis": "Zaustavlja spoljasnje krvarenje",
-        "Kolicina": 248,
+        "Kolicina": 240,
         "Cena": 5,
         "IdInventar": 0
       },
@@ -49,7 +49,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 5,
+        "Kolicina": 12,
         "Cena": 56000,
         "IdInventar": 0
       },
@@ -59,7 +59,7 @@
         "Naziv": "Infuzija",
         "Tip": 1,
         "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 24,
+        "Kolicina": 23,
         "Cena": 60,
         "IdInventar": 0
       },
@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 22,
+        "Kolicina": 11,
         "Cena": 125,
         "IdInventar": 0
       }
@@ -86,18 +86,8 @@
         "Naziv": "CT skener",
         "Tip": 0,
         "Opis": "CT skener za analizu ljudskog tela, poprecnog preseka",
-        "Kolicina": 2,
+        "Kolicina": 1,
         "Cena": 14900000,
-        "IdInventar": 0
-      },
-      {
-        "Id": -1,
-        "Sifra": "kr9VETR",
-        "Naziv": "Krevet",
-        "Tip": 0,
-        "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 27,
-        "Cena": 12000,
         "IdInventar": 0
       },
       {
@@ -106,8 +96,28 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 5,
+        "Kolicina": 4,
         "Cena": 56000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "sto",
+        "Naziv": "Stolica",
+        "Tip": 0,
+        "Opis": "Stolica za sedenje",
+        "Kolicina": 1,
+        "Cena": 2500,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "mak",
+        "Naziv": "Makaze",
+        "Tip": 1,
+        "Opis": "Medicinske makaze",
+        "Kolicina": 11,
+        "Cena": 125,
         "IdInventar": 0
       },
       {
@@ -116,7 +126,7 @@
         "Naziv": "Infuzija",
         "Tip": 1,
         "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 6,
+        "Kolicina": 4,
         "Cena": 60,
         "IdInventar": 0
       }
@@ -139,22 +149,22 @@
       },
       {
         "Id": -1,
-        "Sifra": "HANz00",
-        "Naziv": "Hanzaplast",
-        "Tip": 1,
-        "Opis": "Zaustavlja spoljasnje krvarenje",
-        "Kolicina": 2,
-        "Cena": 5,
-        "IdInventar": 0
-      },
-      {
-        "Id": -1,
         "Sifra": "inf1L",
         "Naziv": "Infuzija",
         "Tip": 1,
         "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 10,
+        "Kolicina": 7,
         "Cena": 60,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "HANz00",
+        "Naziv": "Hanzaplast",
+        "Tip": 1,
+        "Opis": "Zaustavlja spoljasnje krvarenje",
+        "Kolicina": 10,
+        "Cena": 5,
         "IdInventar": 0
       }
     ],
@@ -182,16 +192,6 @@
         "Opis": "Krevet za oporavak pacijenata koji boluju",
         "Kolicina": 2,
         "Cena": 12000,
-        "IdInventar": 0
-      },
-      {
-        "Id": -1,
-        "Sifra": "sto",
-        "Naziv": "Stolica",
-        "Tip": 0,
-        "Opis": "Stolica za sedenje",
-        "Kolicina": 4,
-        "Cena": 2500,
         "IdInventar": 0
       },
       {

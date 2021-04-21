@@ -1,0 +1,12 @@
+Laslo Uri , RA-135/2018
+
+Kolega Rastislav je imao dijagram sekvence rasporedjivanje opreme po salama.
+
+- Izostavljena je povratna informacije upravniku sa GUI (Refresh na ftontu) u poslednjoj sekvenci.
+
+- Fali naziv metode izmedju InventarServis i InventarRepozitorijum (Message_16)
+
+- Diagram prati sekvencu doagadjaja
+
+
+

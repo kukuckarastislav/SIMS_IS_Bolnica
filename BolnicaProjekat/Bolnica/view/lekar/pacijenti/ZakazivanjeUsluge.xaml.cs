@@ -80,7 +80,7 @@ namespace Bolnica.view.lekar.pacijenti
                 pocetakSati += 12;
 
             DateTime pocetak = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute,0);
-            TimeSpan trajanje = new TimeSpan(0, 30, 0);
+            TimeSpan trajanje = new TimeSpan(0, 0, 30, 0);
             DateTime kraj = pocetak + trajanje;
 
             Termin termin = new Termin(pocetak, kraj);

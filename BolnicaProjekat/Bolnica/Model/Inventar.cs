@@ -78,12 +78,23 @@ namespace Model
             // oprema je stvarna referenca 
             // ako je ovo magacin onda necemo ukloniti objekat opreme nego samo smanjili na 0 ako se istrosi
             // ako je inventar onda cemo ako smanjimo do 0 uklonicemo to iz liste
-
+            
             oprema.Kolicina = oprema.Kolicina - kolicina;
             if(oprema.Kolicina == 0 && Id != 0)
             {
                 //LOprema.Remove(oprema);
+                foreach(Oprema op in LOprema)
+                {
+                    if(op.Sifra == oprema.Sifra)
+                    {
+                        return LOprema.Remove(op);
+                    }
+                }
             }
+            
+
+
+            
 
             return true;
         }

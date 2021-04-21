@@ -83,6 +83,36 @@
                 Grid.Column="1" Grid.ColumnSpan="5"
                 Margin="-10,10,-10,-10"/>
 
+        <!-- HEADER(start) - BACK TO: Medicinski Karton -->
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Orientation="Horizontal">
+            <Button  Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                Click="PrikazPacijenataButton">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" Width="140">
+                    <Image Source="/images/lekar-icons/back-icon.png" Width="25" Margin="3,5,10,5"/>
+                    <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Osnovni podaci</TextBlock>
+                </StackPanel>
+            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Content="Lista pacijenata"/>
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Foreground="#eeebdd" Content="Pacijent:" Margin="40,0,0,0"/>
+                <TextBlock x:Name="headerIme"           FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+                <TextBlock x:Name="headerPrezime"       FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5" Orientation="Horizontal">
+            <Label     Content="JMBG:"         FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="25,20,0,0" />
+            <TextBlock x:Name="headerJMBG"   FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="0,20,0,0" Padding="5"/>
+        </StackPanel>
+        <!-- HEADER(end) - BACK TO: Medicinski Karton -->
+
+
+
 
         <!-- Medicinski Karton - Button1.1 - Osnovni podaci -->
         <Button Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="6" Height="36" VerticalAlignment="Bottom" 
@@ -101,7 +131,8 @@
         <!-- Medicinski Karton - Button1.2 - Terapija -->
         <Button Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="7" Height="36" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="TerapijaButton">
+                Click="TerapijaButton"
+                IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -114,7 +145,8 @@
         </Button>
         <!-- Medicinski Karton - Button1.3 - Termini -->
         <Button Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="8" Height="36" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                Click="ZakazaneUslugePacijentaButton">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -128,7 +160,8 @@
         </Button>
         <!-- Medicinski Karton - Button1.4 - Kontaktiranje putem e-mailja -->
         <Button Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="9" Height="36" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -158,7 +191,8 @@
 
         <!-- Medicinski Karton - Button2.2 - Zakazivanje Usluge -->
         <Button Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="7" Height="36" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -188,7 +222,8 @@
 
         <!-- Medicinski Karton - Button2.4 - Kontaktiranje putem telefona -->
         <Button Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="9" Height="36" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="False">
 
             <Button.Resources>
                 <Style TargetType="Border">

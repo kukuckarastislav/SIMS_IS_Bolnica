@@ -99,6 +99,8 @@ namespace Repozitorijum
             return usluge;
         }
 
+
+
         public List<ZdravstvenaUsluga> GetUslugeByProstorijaId(int id)
         {
             // metodu dodao rastislav, 20/4/2021 7:30
@@ -135,6 +137,22 @@ namespace Repozitorijum
             }
             return ret;
         }
+
+        public ObservableCollection<ZdravstvenaUsluga> GetTerminByLekarId(int id)
+        {
+            loadData();
+            ObservableCollection<ZdravstvenaUsluga> ret = new ObservableCollection<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.IdLekara == id)
+                {
+                    ret.Add(z);
+                }
+            }
+            return ret;
+        }
+
+
         public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
         {
             int i = 0;

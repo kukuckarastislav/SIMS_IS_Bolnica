@@ -13,18 +13,24 @@
        
             <Grid DockPanel.Dock="Bottom">
 
-                <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <TextBlock Text="Pretraži pacijenta:"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           FontSize="12"
-                           Margin="20,0,8,0"
-                           Foreground="AntiqueWhite"
-                           TextWrapping="Wrap"
-                           Width="55"
-                           />
+                <StackPanel Orientation="Horizontal" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+                    <Button  Height="36" Width="36" Margin="20,0,30,0"
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                Click="GlavniMeniButton">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel Orientation="Horizontal" Width="140">
+                            <Image Source="/images/lekar-icons/back-icon.png" Width="25" Margin="3,5,10,5"/>
+                            <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Osnovni podaci</TextBlock>
+                        </StackPanel>
+                    </Button>
+
                     <TextBox Width="170" Height="30"
-                 VerticalAlignment="Center" HorizontalAlignment="Center" 
+                 VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="20,0,20,0"
                  Text="Ime, prezime ili JMBG pacijenta" VerticalContentAlignment="Center" FontStyle="Italic">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
@@ -33,17 +39,17 @@
                         </TextBox.Resources>
                     </TextBox>
 
-                    <Button Height="35" Width="100" VerticalAlignment="Center" 
+                    <Button Height="60" Width="60" VerticalAlignment="Center" 
                     Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                    Click="MedicinskiKarton_Click" Margin="15,0,5,0">
+                    Click="MedicinskiKartonButton" Margin="15,0,5,0">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>
                             </Style>
                         </Button.Resources>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
                             <Image Source="/images/lekar-icons/potvrdi-icon.png" Width="20" />
-                            <TextBlock  FontSize="12" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Potvrdi izbor</TextBlock>
+                            <TextBlock TextAlignment="Center" FontSize="12" Padding="2" VerticalAlignment="Center" TextWrapping="Wrap"  FontWeight="SemiBold"> Potvrdi izbor</TextBlock>
                         </StackPanel>
                     </Button>
 
@@ -56,12 +62,11 @@
                           AutoGenerateColumns="False"
                           SelectionMode="Single"
                           ItemsSource="{Binding Path=KolekcijaPacijenata}"
-                          Grid.Column="1" 
-                          Grid.Row="1"
+                          MinRowHeight="20"
                           Background="#630000"
                           BorderBrush="White"
                           BorderThickness="2"
-                          Margin="20,50,20,20"
+                          Margin="20,80,20,20"
                           FontSize="12"
                           >
                     <DataGrid.Columns>

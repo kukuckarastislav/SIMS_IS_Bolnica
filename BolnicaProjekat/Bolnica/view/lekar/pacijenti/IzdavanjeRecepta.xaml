@@ -83,6 +83,35 @@
                 Grid.Column="1" Grid.ColumnSpan="5"
                 Margin="-10,10,-10,-10"/>
 
+        <!-- HEADER(start) - BACK TO: Medicinski Karton -->
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Orientation="Horizontal">
+            <Button  Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                Click="PrikazMedicinskiKartonButton">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" Width="140">
+                    <Image Source="/images/lekar-icons/back-icon.png" Width="25" Margin="3,5,10,5"/>
+                    <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Osnovni podaci</TextBlock>
+                </StackPanel>
+            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Content="Medicinski karton"/>
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Foreground="#eeebdd" Content="Pacijent:" Margin="40,0,0,0"/>
+                <TextBlock x:Name="headerIme"           FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+                <TextBlock x:Name="headerPrezime"       FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5" Orientation="Horizontal">
+            <Label     Content="JMBG:"         FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="25,20,0,0" />
+            <TextBlock x:Name="headerJMBG"   FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="0,20,0,0" Padding="5"/>
+        </StackPanel>
+        <!-- HEADER(end) - BACK TO: Medicinski Karton -->
+
+
         <StackPanel Grid.Row="6" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="-10,10,0,-20">
 
             <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="3">

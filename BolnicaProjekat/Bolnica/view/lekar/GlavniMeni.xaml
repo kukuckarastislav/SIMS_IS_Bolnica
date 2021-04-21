@@ -82,7 +82,8 @@
                 Grid.Column="2" Grid.ColumnSpan="1"/>
         <!-- Meni - Button1 - Radni Kalendar -->
         <Button Grid.Column="2" Grid.Row="4" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                Click="RadniKalendarButton">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -96,7 +97,7 @@
         <!-- Meni - Button2 - Pacijenti -->
         <Button Grid.Column="2" Grid.Row="5" Height="35" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="Pacijenti_Click">
+                Click="PacijentiButton">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -109,7 +110,8 @@
         </Button>
         <!-- Meni - Button3 - Lekovi -->
         <Button Grid.Column="2" Grid.Row="6" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -122,7 +124,8 @@
         </Button>
         <!-- Meni - Button4 - Prostorije -->
         <Button Grid.Column="2" Grid.Row="7" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -135,7 +138,8 @@
         </Button>
         <!-- Meni - Button5 - Forum -->
         <Button Grid.Column="2" Grid.Row="8" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="false">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -149,6 +153,7 @@
         <!-- Meni - Button6 - Notifikacije -->
         <Button Grid.Column="2" Grid.Row="9" Height="35" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="False"
                 Click="NotifikacijeButton">
             <Button.Resources>
                 <Style TargetType="Border">
@@ -156,7 +161,7 @@
                 </Style>
             </Button.Resources>
             <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/forum-icon.png" Width="25" />
+                <Image Source="/images/lekar-icons/notification-icon.png" Width="25" />
                 <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Notifikacije</TextBlock>
             </StackPanel>
         </Button>
@@ -164,7 +169,9 @@
 
         <!-- Meni - Button7 - Logout -->
         <Button Grid.Column="2" Grid.Row="10" Grid.RowSpan="2" Height="35" VerticalAlignment="Center" 
-                Background="#e05b49" BorderThickness="1" BorderBrush="Black">
+                Background="#e05b49" BorderThickness="1" BorderBrush="Black"
+                Click="LogOutButtton"
+                >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

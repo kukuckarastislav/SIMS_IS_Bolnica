@@ -22,10 +22,16 @@ namespace Bolnica.view.lekar
     /// </summary>
     public partial class Notifikacije : Page
     {
+        // BACK - PAGES
+        // NEXT - PAGES
+        // KORISNICI
+        public Lekar Lekar;
+        // KOLEKCIJE
         public ObservableCollection<Notifikacija> KolekcijaNotifikacija;
 
-        public Notifikacije()
+        public Notifikacije(Lekar Lekar)
         {
+            this.Lekar = Lekar;
             InitializeComponent();
             KolekcijaNotifikacija = new ObservableCollection<Notifikacija>();
       //     KolekcijaNotifikacija = Repository.NotifikacijaRepozitorijum.GetInstance.GetByIdLekara(1);

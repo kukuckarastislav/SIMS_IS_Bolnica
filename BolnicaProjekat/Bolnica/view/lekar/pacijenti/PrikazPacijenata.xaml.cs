@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Model;
 using Repozitorijum;
 
 namespace Bolnica.view.lekar.pacijenti
@@ -23,19 +23,24 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class PrikazPacijenata : Page
     {
-        public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
+
+        // BACK - PAGES
+        private view.lekar.GlavniMeni refGlavniMeni;
+        // NEXT - PAGES
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
-        public PrikazPacijenata()
+        // KORISNICI
+        public Lekar Lekar;
+        // KOLEKCIJE
+        public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
+
+
+        public PrikazPacijenata(Lekar Lekar)
         {
+            this.Lekar = Lekar;
             KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             InitializeComponent();
             this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
   
-        }
-
-        private void OtvoriMedicinskiKarton(object sender, RoutedEventArgs e)
-        {
-          //  RadnaPovrsinaLekar.Content = new view.lekar.pacijenti.PrikazMedicinskiKarton();
         }
 
         public Model.Pacijent GetSelectedPacijentZaLekar() {
@@ -43,16 +48,23 @@ namespace Bolnica.view.lekar.pacijenti
             return pacijent;
         }
 
-        private void MedicinskiKarton_Click(object sender, RoutedEventArgs e)
+        private void MedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent izabranPacijent = GetSelectedPacijentZaLekar();
-            if (izabranPacijent != null)
+            Model.Pacijent IzabraniPacijent = GetSelectedPacijentZaLekar();
+            if ( IzabraniPacijent != null & this.Lekar !=null )
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(izabranPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
 
-
+        private void GlavniMeniButton(object sender, RoutedEventArgs e)
+        {
+            if(this.Lekar!=null)
+            {
+                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                NavigationService.Navigate(refGlavniMeni);
+            }
+        }
     }
 }

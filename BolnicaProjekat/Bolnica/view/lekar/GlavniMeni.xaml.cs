@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,27 +21,47 @@ namespace Bolnica.view.lekar
     /// </summary>
     public partial class GlavniMeni : Page
     {
-        private view.lekar.LekarHome refLekarHome;
+        // BACK - PAGES
+        private view.lekar.LoginPage refLoginPage;
+        // NEXT - PAGES
+        private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
         private view.lekar.Notifikacije refNotifikacije;
-        public GlavniMeni(LekarHome refLekarHome)
+
+        // KORISNICI
+        public Lekar Lekar;
+
+        public GlavniMeni(Lekar Lekar)
         {
+            this.Lekar = Lekar;
             InitializeComponent();
-            this.refLekarHome = refLekarHome;
 
         }
 
-        private void Pacijenti_Click(object sender, RoutedEventArgs e)
+        private void RadniKalendarButton(object sender, RoutedEventArgs e)
         {
-            refPrikazPacijenataZaLekar = new view.lekar.pacijenti.PrikazPacijenata();
-            NavigationService.Navigate(refPrikazPacijenataZaLekar);
-          //  refLekarHome.Visibility = Visibility.Visible;
+            refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(Lekar);
+            NavigationService.Navigate(refRadniKalendar);
+
         }
+
+        private void PacijentiButton(object sender, RoutedEventArgs e)
+        {
+            refPrikazPacijenataZaLekar = new view.lekar.pacijenti.PrikazPacijenata(Lekar);
+            NavigationService.Navigate(refPrikazPacijenataZaLekar);
+        }
+
 
         private void NotifikacijeButton(object sender, RoutedEventArgs e)
         {
-            refNotifikacije = new view.lekar.Notifikacije();
+            refNotifikacije = new view.lekar.Notifikacije(Lekar);
             NavigationService.Navigate(refNotifikacije);
+        }
+
+        private void LogOutButtton(object sender, RoutedEventArgs e)
+        {
+            refLoginPage = new view.lekar.LoginPage(Lekar);
+            NavigationService.Navigate(refLoginPage);
         }
     }
 }

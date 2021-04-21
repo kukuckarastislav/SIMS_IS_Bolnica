@@ -1,0 +1,10 @@
+Rastislav Kukučka , RA-129/2018
+
+Kolega Laslo je imao dijagram aktivnosti za izdavanja recepta.
+
+- U suštini ceo Flow je dobro izmišljen.
+
+- Složena aktivnost "Selekcija način koriščenja" ima puno akcije, i možda bolje da to bude poseban dijagram unutar ovog dijagrama
+
+- Na kraju imamo Notifikaciju, Pacijent dobija notifikaciju, ali dodao bih još jedan objekat Recept. Tako da Lekar i Pacijent ima priliku da vidi i Recepte.
+

@@ -74,7 +74,7 @@ namespace Bolnica.view.pacijent
         async Task UseDelay(Notifikacija n, TimeSpan ts)
         {
             await Task.Delay(ts);
-            MessageBox.Show("Nova notifikacija");
+           // MessageBox.Show("Nova notifikacija");
             Notifikacije.Add(n);
             this.listaNotifikacija.ItemsSource = Notifikacije;
         }

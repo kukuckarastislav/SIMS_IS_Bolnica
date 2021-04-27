@@ -232,11 +232,11 @@
     <Compile Include="view\upravnik\Inventari\PreraspodelaInventara.xaml.cs">
       <DependentUpon>PreraspodelaInventara.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\Inventari\PreraspodelaStatickeInventara.xaml.cs">
+      <DependentUpon>PreraspodelaStatickeInventara.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\Inventari\TerminiZauzetosti.xaml.cs">
       <DependentUpon>TerminiZauzetosti.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\upravnik\Inventari\TerminPreraspodele.xaml.cs">
-      <DependentUpon>TerminPreraspodele.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml.cs">
       <DependentUpon>DodajOpremuUMagForma.xaml</DependentUpon>
@@ -420,11 +420,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\upravnik\Inventari\TerminiZauzetosti.xaml">
+    <Page Include="view\upravnik\Inventari\PreraspodelaStatickeInventara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\upravnik\Inventari\TerminPreraspodele.xaml">
+    <Page Include="view\upravnik\Inventari\TerminiZauzetosti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

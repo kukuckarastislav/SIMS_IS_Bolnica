@@ -5,51 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.upravnik.Inventari"
         mc:Ignorable="d"
-        Title="OdabirTermina" Height="550" Width="500">
+        Title="OdabirTermina" Height="650" Width="700">
 
+    <Grid>
         <Grid>
-            <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="80" />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition  Height="30"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="nazivProstorije1" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="15" FontSize="18"></TextBlock>
+            <Grid Background="White" Grid.Column="3" Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="120" />
                     <ColumnDefinition />
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="15" FontSize="18" Text="Prostorija"></TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Tip Prostorije:" VerticalAlignment="Center"></TextBlock>
+                <TextBlock x:Name="txtProstorija" Grid.Row="1" Grid.Column="0" Text="Prostorija:" VerticalAlignment="Center"></TextBlock>
                 
-                <!--
+                
+                <ComboBox x:Name="comboTipProstorije" Grid.Column="1" Grid.Row="0" Height="22" Width="120" HorizontalAlignment="Left" DropDownClosed="comboTipProstorije_DropDownClosed">
+                    <ComboBoxItem Content="Bolnicka" IsSelected="True" />
+                    <ComboBoxItem Content="Operaciona Sala" />
+                    <ComboBoxItem Content="Sobe za pregled" />
+                    <ComboBoxItem Content="Bolesnicke sobe" />
+                    <ComboBoxItem Content="Magacin" />
+                </ComboBox>
+                <ComboBox x:Name="comboProstorija" ItemsSource="{Binding KolekcijaProstorija}" Grid.Column="1" Grid.Row="1" Height="20" Width="120" 
+                                  HorizontalAlignment="Left" DropDownClosed="comboProstorija_DropDownClosed">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding BrojSprat}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+
+            <Button Grid.Row="2" Grid.Column="1" Width="100" Height="40">Zakazi</Button>
+            <Button Grid.Row="2" Grid.Column="3" Width="100" Height="40">Otkazi</Button>
+            <!--
             <Frame x:Name="PovrsinaPrikazTermina" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"
                        Background="blue"
                        ></Frame>
             -->
-                <DataGrid x:Name="DataGridPrikazStatickeOpreme" 
-                Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"
+            
+            
+            <DataGrid x:Name="DataGridPrikazZauzetihTermina" 
+                Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3"
                           ItemsSource="{Binding Path=KolekcijaTermina}" 
                           IsReadOnly="False"
                           SelectionMode="Single" 
                           AutoGenerateColumns="False"
                           SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Pocetak" Binding="{Binding Termin.Pocetak}" Width="0.5*" />
-                        <DataGridTextColumn Header="Kraj" Binding="{Binding Termin.Kraj}" Width="0.5*" />
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Pocetak" Binding="{Binding Termin.Pocetak}" Width="0.5*" />
+                    <DataGridTextColumn Header="Kraj" Binding="{Binding Termin.Kraj}" Width="0.5*" />
 
-                    </DataGrid.Columns>
-                </DataGrid>
-            <Button Grid.Column="1" Grid.Row="5" Grid.RowSpan="2" Width="100" Height="40" Click="btn_nazad">Nazad</Button>
-            <Button Grid.Column="3" Grid.Row="5" Grid.RowSpan="2" Width="100" Height="40" Click="btn_preraspodela">Preraspodela</Button>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Column="1" Grid.Row="6" Width="100" Height="40" Click="btn_nazad">Nazad</Button>
+            <Button Grid.Column="3" Grid.Row="6" Width="100" Height="40" Click="btn_preraspodela">Preraspodela</Button>
         </Grid>
-        </Grid>
+    </Grid>
 
 </Window>

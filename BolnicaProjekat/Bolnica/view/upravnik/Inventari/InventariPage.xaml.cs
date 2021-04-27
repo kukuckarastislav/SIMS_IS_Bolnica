@@ -90,8 +90,7 @@ namespace Bolnica.view.upravnik.Inventari
             }
             else
             {
-                var odabirTermina = new OdabirTermina(refPrikazStaticke, refPrikazDinamicke,
-                                                                        tipOpreme, 0, prostorija.IdInventar, prostorija);
+                var odabirTermina = new OdabirTermina(prostorija, refPrikazStaticke, tipOpreme);
                 odabirTermina.Show();
                 // staticka zahteva otvaranje prozora za odabir termina
 
@@ -104,8 +103,6 @@ namespace Bolnica.view.upravnik.Inventari
             //MessageBox.Show("ToDo termini");
             if (tipOpreme == TipOpreme.Dinamicka) return;
 
-            var terminPreraspodele = new TerminPreraspodele();
-            terminPreraspodele.Show();
 
         }
 

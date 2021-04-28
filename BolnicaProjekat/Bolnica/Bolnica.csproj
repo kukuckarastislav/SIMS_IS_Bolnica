@@ -113,9 +113,12 @@
     <Compile Include="Model\Sekretar.cs" />
     <Compile Include="Model\Terapija.cs" />
     <Compile Include="Model\Termin.cs" />
+    <Compile Include="Model\TerminProstorije.cs" />
     <Compile Include="Model\TipOpreme.cs" />
     <Compile Include="Model\TipProstorije.cs" />
+    <Compile Include="Model\TipTerminaProstorije.cs" />
     <Compile Include="Model\TipUsluge.cs" />
+    <Compile Include="Model\TransferOpreme.cs" />
     <Compile Include="Model\Upravnik.cs" />
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
@@ -125,6 +128,7 @@
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
+    <Compile Include="Repository\TerminProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
     <Compile Include="Repository\UpravnikRepozitorijum.cs" />
     <Compile Include="Service\InventariSerivs.cs" />
@@ -237,6 +241,9 @@
     </Compile>
     <Compile Include="view\upravnik\Inventari\TerminiZauzetosti.xaml.cs">
       <DependentUpon>TerminiZauzetosti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Inventari\ZakazivanjeTerminaForma.xaml.cs">
+      <DependentUpon>ZakazivanjeTerminaForma.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml.cs">
       <DependentUpon>DodajOpremuUMagForma.xaml</DependentUpon>
@@ -425,6 +432,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\upravnik\Inventari\TerminiZauzetosti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Inventari\ZakazivanjeTerminaForma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 17,
+        "Kolicina": 16,
         "Cena": 125,
         "IdInventar": 0
       }
@@ -116,7 +116,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 5,
+        "Kolicina": 6,
         "Cena": 125,
         "IdInventar": 0
       },

@@ -128,7 +128,10 @@ namespace Bolnica.view.upravnik.Inventari
 
         private void Zakazi_click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("HAHAHHAHA");
+            var zakazivanjeTerminaForma = new ZakazivanjeTerminaForma();
+            zakazivanjeTerminaForma.Show();
+
+
         }
     }
 }

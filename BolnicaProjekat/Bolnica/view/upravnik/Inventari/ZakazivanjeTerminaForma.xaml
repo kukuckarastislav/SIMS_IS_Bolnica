@@ -27,19 +27,19 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="18" Text="Prostorija 12/2" VerticalAlignment="Center"></TextBlock>
+            <TextBlock x:Name="txtNaziProstorije" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" FontSize="18" Text="" VerticalAlignment="Center"></TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" Text="Zauzeti Termini" VerticalAlignment="Bottom" Margin="0 10"></TextBlock>
 
-            <DataGrid x:Name="DataGridPrikazTerminaPreraspodele" 
+            <DataGrid x:Name="DataGridPrikazTerminaZauzetosti" 
                 Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"
-                          ItemsSource="{Binding Path=KolekcijaTermina}" 
-                          IsReadOnly="False"
+                          ItemsSource="{Binding Path=KolekcijaZauzetihTermina}" 
+                          IsReadOnly="True"
                           SelectionMode="Single" 
                           AutoGenerateColumns="False"
                           SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Pocetak" Binding="{Binding Termin.Pocetak}" Width="0.5*" />
-                    <DataGridTextColumn Header="Kraj" Binding="{Binding Termin.Kraj}" Width="0.5*" />
+                    <DataGridTextColumn Header="Pocetak" Binding="{Binding Pocetak}" Width="0.5*" />
+                    <DataGridTextColumn Header="Kraj" Binding="{Binding Kraj}" Width="0.5*" />
                 </DataGrid.Columns>
             </DataGrid>
 

@@ -34,26 +34,34 @@ namespace Bolnica.view.upravnik.Inventari
         public ObservableCollection<Prostorija> KolekcijaProstorija { get; set; }
         private ProstorijeKontroler prostorijeKontroler;
 
+        public ObservableCollection<TerminProstorije> KolekcijaTermina { get; set; }
+        private TerminProstorijeKontroler terminProstorijeKontrolerObjekat;
+
         public OdabirTermina(Prostorija prostorija1,
                               Magacin.PrikazStaticke refPrikazStaticke,
                               TipOpreme tipOpreme)
         {
-            prostorijeKontroler = new ProstorijeKontroler();
             InitializeComponent();
-            magacin = false;
+            prostorijeKontroler = new ProstorijeKontroler();
+            terminProstorijeKontrolerObjekat = new TerminProstorijeKontroler();
             
+            magacin = false;
+            this.tipOpreme = tipOpreme;
+            this.refPrikazStaticke = refPrikazStaticke;
+            this.prostorija1 = prostorija1;
+            nazivProstorije1.Text = "Prostorija: " + prostorija1.BrojSprat;
+
             KolekcijaProstorija = prostorijeKontroler.getProstorijeTipObservable(tipProstorije2);
             comboProstorija.ItemsSource = KolekcijaProstorija;
             if (KolekcijaProstorija != null && KolekcijaProstorija.Count > 0)
             {
                 prostorija2 = KolekcijaProstorija[0];
                 comboProstorija.SelectedValue = KolekcijaProstorija[0];
+                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiZauzetostiByProstorijaIdObs(prostorija1.Id, prostorija2.Id);
+                DataGridPrikazZauzetihTermina.ItemsSource = KolekcijaTermina;
             }
 
-            this.tipOpreme = tipOpreme;
-            this.refPrikazStaticke = refPrikazStaticke;
-            this.prostorija1 = prostorija1;
-            nazivProstorije1.Text = "Prostorija: " + prostorija1.BrojSprat;
+
         }
 
         private void btn_preraspodela(object sender, RoutedEventArgs e)
@@ -106,6 +114,7 @@ namespace Bolnica.view.upravnik.Inventari
                 comboProstorija.Visibility = Visibility.Hidden;
                 txtProstorija.Visibility = Visibility.Hidden;
                 prostorija2 = null;
+                azurirajPrikaz();
                 return;
             }
 
@@ -115,6 +124,7 @@ namespace Bolnica.view.upravnik.Inventari
             {
                 prostorija2 = KolekcijaProstorija[0];
                 comboProstorija.SelectedValue = KolekcijaProstorija[0];
+                azurirajPrikaz();
             }
         }
 
@@ -124,14 +134,43 @@ namespace Bolnica.view.upravnik.Inventari
             {
                 prostorija2 = (Prostorija)comboProstorija.SelectedItem;
             }
+            azurirajPrikaz();
         }
 
         private void Zakazi_click(object sender, RoutedEventArgs e)
         {
-            var zakazivanjeTerminaForma = new ZakazivanjeTerminaForma();
+            var zakazivanjeTerminaForma = new ZakazivanjeTerminaForma(this, prostorija1, prostorija2);
             zakazivanjeTerminaForma.Show();
+        }
 
+        public void azurirajPrikaz()
+        {
+            if(prostorija2 == null)
+            {
+                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiZauzetostiByProstorijaIdObs(prostorija1.Id, -1);
+            }
+            else
+            {
+                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiZauzetostiByProstorijaIdObs(prostorija1.Id, prostorija2.Id);
+            }
+            
+            DataGridPrikazZauzetihTermina.ItemsSource = KolekcijaTermina;
+        }
 
+        private void Otkazi_click(object sender, RoutedEventArgs e)
+        {
+            TerminProstorije terminProstorije = (DataGridPrikazZauzetihTermina.SelectedItem as TerminProstorije);
+            if(terminProstorije == null)
+            {
+                MessageBox.Show("Niste selektovali ni jedan termin premestanja");
+                return;
+            }
+
+            var rezultat = MessageBox.Show("Zelite da otkazete Termin premestanja", "Otkazivanje Termina", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (rezultat == MessageBoxResult.Yes)
+            {
+                terminProstorijeKontrolerObjekat.OtkaziTerminProstorije(terminProstorije);
+            }
         }
     }
 }

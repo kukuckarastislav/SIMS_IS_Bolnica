@@ -89,6 +89,7 @@
     <Compile Include="Controller\PacijentKontroler.cs" />
     <Compile Include="Controller\ProstorijeKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
+    <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
     <Compile Include="Model\Bolnica.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Service\ProstorijeServis.cs" />
     <Compile Include="Service\ReceptiServis.cs" />
     <Compile Include="Service\SekretarServis.cs" />
+    <Compile Include="Service\TerminProstorijeServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
     <Compile Include="view\lekar\GlavniMeni.xaml.cs">
@@ -519,6 +521,7 @@
     <None Include="podaci\lekari.json" />
     <None Include="podaci\notifikacije.json" />
     <None Include="podaci\pacijenti.json" />
+    <None Include="podaci\terminProstorije.json" />
     <None Include="podaci\zdravstveneUsluge.json" />
     <None Include="podaci\prostorije.json" />
     <None Include="Properties\Settings.settings">

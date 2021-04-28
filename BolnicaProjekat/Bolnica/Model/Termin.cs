@@ -10,7 +10,7 @@ namespace Model
 {
    public class Termin
    {
-      public DateTime Pocetak { get; set; }
+        public DateTime Pocetak { get; set; }
         public DateTime Kraj { get; set; }
 
         public Termin(DateTime pocetak, DateTime kraj)

@@ -80,5 +80,27 @@ namespace Repozitorijum
 
         // getListTerminProstorijeByIdProstorije(int idProstorije);
 
+        public List<TerminProstorije> GetTerminiProstorijeAll()
+        {
+            UcitajPodatke();
+            return lTerminProstorije;
+        }
+
+        public TerminProstorije DodajTerminProstorije(TerminProstorije terminProstorije)
+        {
+            UcitajPodatke();
+            lTerminProstorije.Add(terminProstorije);
+            SacuvajPodatke();
+            return terminProstorije;
+        }
+
+        public bool OtkaziTerminProstorije(TerminProstorije terminProstorije)
+        {
+            UcitajPodatke();
+            bool flag = lTerminProstorije.Remove(terminProstorije);
+            SacuvajPodatke();
+            return flag;
+        }
+
     }
 }

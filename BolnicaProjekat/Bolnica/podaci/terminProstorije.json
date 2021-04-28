@@ -1,0 +1,24 @@
+[
+  {
+    "Id": 1,
+    "Pocetak": "2021-04-28T09:50:00",
+    "Kraj": "2021-04-28T10:00:00",
+    "IdProstorije1": 1,
+    "IdProstorije2": -1,
+    "IdZdravstveneUsluge": -1,
+    "tipTerminaProstorije": 1,
+    "PreraspodelaIzvrsena": false,
+    "ListaTransferOpreme": []
+  },
+  {
+    "Id": 2,
+    "Pocetak": "2021-04-29T10:00:00",
+    "Kraj": "2021-04-29T12:00:00",
+    "IdProstorije1": 1,
+    "IdProstorije2": 3,
+    "IdZdravstveneUsluge": -1,
+    "tipTerminaProstorije": 2,
+    "PreraspodelaIzvrsena": false,
+    "ListaTransferOpreme": []
+  }
+]

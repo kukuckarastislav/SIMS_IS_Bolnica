@@ -58,7 +58,7 @@
                 </ComboBox>
             </Grid>
 
-            <Button Grid.Row="2" Grid.Column="1" Width="100" Height="40">Zakazi</Button>
+            <Button Grid.Row="2" Grid.Column="1" Width="100" Height="40" Click="Zakazi_click">Zakazi</Button>
             <Button Grid.Row="2" Grid.Column="3" Width="100" Height="40">Otkazi</Button>
             <!--
             <Frame x:Name="PovrsinaPrikazTermina" 

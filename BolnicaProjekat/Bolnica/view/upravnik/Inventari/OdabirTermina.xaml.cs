@@ -58,8 +58,7 @@ namespace Bolnica.view.upravnik.Inventari
 
         private void btn_preraspodela(object sender, RoutedEventArgs e)
         {
-            var preraspodelaInventara = new PreraspodelaStatickeInventara(refPrikazStaticke, null,
-                                                        tipOpreme, 0, prostorija1.IdInventar);
+            var preraspodelaInventara = new PreraspodelaStatickeInventara(refPrikazStaticke, prostorija1, prostorija2);
             preraspodelaInventara.Show();
         }
 
@@ -106,6 +105,7 @@ namespace Bolnica.view.upravnik.Inventari
                 magacin = true;
                 comboProstorija.Visibility = Visibility.Hidden;
                 txtProstorija.Visibility = Visibility.Hidden;
+                prostorija2 = null;
                 return;
             }
 
@@ -126,5 +126,9 @@ namespace Bolnica.view.upravnik.Inventari
             }
         }
 
+        private void Zakazi_click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("HAHAHHAHA");
+        }
     }
 }

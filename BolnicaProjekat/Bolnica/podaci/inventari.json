@@ -49,7 +49,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 11,
+        "Kolicina": 10,
         "Cena": 56000,
         "IdInventar": 0
       },
@@ -222,6 +222,16 @@
         "Opis": "Medicinske makaze",
         "Kolicina": 2,
         "Cena": 125,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "tvsamsung",
+        "Naziv": "TV",
+        "Tip": 0,
+        "Opis": "TV za zabavu",
+        "Kolicina": 1,
+        "Cena": 56000,
         "IdInventar": 0
       }
     ],

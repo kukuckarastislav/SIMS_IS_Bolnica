@@ -60,7 +60,22 @@
             </Grid>
             <Button x:Name="btn_prebaci" Click="btn_prebaci_Click" Grid.Column="2" Grid.Row="4" Height="22" Width="80" VerticalAlignment="Top">Prebaci</Button>
 
-            <Button Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="2" Margin="200 0">INFORMACIJE</Button>
+            
+            <DataGrid x:Name="DataGridPrikazTransfera" Margin="200 0"
+                Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="3" 
+                          ItemsSource="{Binding Path=KolekcijaTransfera}" 
+                          IsReadOnly="True"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Pocetna lokacija" Binding="{Binding IdInventar1}" Width="0.5*" />
+                    <DataGridTextColumn Header="Ciljana lokacija" Binding="{Binding IdInventar2}" Width="0.5*" />
+                    <DataGridTextColumn Header="Sifra opreme" Binding="{Binding SifraOpreme}" Width="0.5*" />
+                    <DataGridTextColumn Header="Kolicina" Binding="{Binding KolicinaOpreme}" Width="0.5*" />
+
+                </DataGrid.Columns>
+            </DataGrid>
             
             <Button Grid.Column="2" Grid.Row="8" 
                     HorizontalAlignment="Center" VerticalAlignment="Bottom"

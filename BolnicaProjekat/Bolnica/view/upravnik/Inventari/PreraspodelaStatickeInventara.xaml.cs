@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 
 using Model;
 using Kontroler;
+using System.Collections.ObjectModel;
 
 namespace Bolnica.view.upravnik.Inventari
 {
@@ -31,26 +32,30 @@ namespace Bolnica.view.upravnik.Inventari
         private Magacin.PrikazStaticke refPrikazStaticke = null;
         private Magacin.PrikazStaticke prikazStatickeInventar1 = null;
         private Magacin.PrikazStaticke prikazStatickeInventar2 = null;
+        private TerminProstorije terminProstorije;
 
-
-
+        public ObservableCollection<TransferOpreme> lTransferOpreme { get; set; }
 
 
         private InventariKontroler inventariKontroler;
         private ProstorijeKontroler prostorijeKontroler;
+        private TerminProstorijeKontroler terminProstorijeKontrolerObjekat;
 
-        public PreraspodelaStatickeInventara(Magacin.PrikazStaticke refPrikazStaticke,
-                                      Prostorija prostorija1,
-                                      Prostorija prostorija2)
+        public PreraspodelaStatickeInventara(TerminProstorije terminProstorije,
+                                        Magacin.PrikazStaticke refPrikazStaticke,
+                                        Prostorija prostorija1,
+                                        Prostorija prostorija2)
         {
             InitializeComponent();
-
+            this.terminProstorije = terminProstorije;
             this.inventariKontroler = new InventariKontroler();
             this.prostorijeKontroler = new ProstorijeKontroler();
+            this.terminProstorijeKontrolerObjekat = new TerminProstorijeKontroler();
             this.refPrikazStaticke = refPrikazStaticke;
             this.prostorija1 = prostorija1;
             this.prostorija2 = prostorija2;
-
+            this.lTransferOpreme = terminProstorijeKontrolerObjekat.GetTransferOpremeObservebleByTerminProstorije(terminProstorije);
+            DataGridPrikazTransfera.ItemsSource = lTransferOpreme;
             this.inventar1 = inventariKontroler.GetInventarById(prostorija1.IdInventar);
             prikazStatickeInventar1 = new Magacin.PrikazStaticke(prostorija1.IdInventar, txt_naziv_opreme, false);
             lblProstorija1.Text = "Prostorija " + prostorija1.BrojSprat;
@@ -117,18 +122,43 @@ namespace Bolnica.view.upravnik.Inventari
             if (smerTransfera == 0)
             {
                 // 1 -> 2
-                inventariKontroler.preraspodelaOpreme(inventar1.Id, inventar2.Id, oprema, kolicina);
+                //inventariKontroler.preraspodelaOpreme(inventar1.Id, inventar2.Id, oprema, kolicina);
+                if(prostorija2 == null)
+                {
+                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(prostorija1.IdInventar, 0, oprema.Sifra, kolicina));
+                }
+                else
+                {
+                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(prostorija1.IdInventar, prostorija2.IdInventar, oprema.Sifra, kolicina));
+                }
+                
             }
             else if (smerTransfera == 1)
             {
                 // 2 -> 1
-                inventariKontroler.preraspodelaOpreme(inventar2.Id, inventar1.Id, oprema, kolicina);
+                //inventariKontroler.preraspodelaOpreme(inventar2.Id, inventar1.Id, oprema, kolicina);
+                if (prostorija2 == null)
+                {
+                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(0, prostorija1.IdInventar, oprema.Sifra, kolicina));
+                }
+                else
+                {
+                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(prostorija2.IdInventar, prostorija1.IdInventar, oprema.Sifra, kolicina));
+                }
             }
-  
+
+            terminProstorijeKontrolerObjekat.AzurirajTransferOpreme(terminProstorije);
+            azurirajListuTransfera();
             prikazStatickeInventar1.azurirajPrikaz();
             prikazStatickeInventar2.azurirajPrikaz();
             
 
+        }
+
+        public void azurirajListuTransfera()
+        {
+            this.lTransferOpreme = terminProstorijeKontrolerObjekat.GetTransferOpremeObservebleByTerminProstorije(terminProstorije);
+            DataGridPrikazTransfera.ItemsSource = lTransferOpreme;
         }
 
         private void Button_Click_zavrsi(object sender, RoutedEventArgs e)

@@ -43,5 +43,15 @@ namespace Kontroler
         {
             return terminProstorijeServisObjekat.OtkaziTerminProstorije(terminProstorije);
         }
+
+        public TerminProstorije AzurirajTransferOpreme(TerminProstorije terminProstorije)
+        {
+            return terminProstorijeServisObjekat.AzurirajTransferOpreme(terminProstorije);
+        }
+
+        public ObservableCollection<TransferOpreme> GetTransferOpremeObservebleByTerminProstorije(TerminProstorije terminProstorije)
+        {
+            return terminProstorijeServisObjekat.GetTransferOpremeObservebleByTerminProstorije(terminProstorije);
+        }
     }
 }

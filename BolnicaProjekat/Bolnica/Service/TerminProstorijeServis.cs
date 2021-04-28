@@ -198,5 +198,24 @@ namespace Servis
             return terminProstorije;
         }
 
+        public TerminProstorije AzurirajTransferOpreme(TerminProstorije terminProstorije)
+        {
+            return TerminProstorijeRepozitorijumRef.AzurirajTransferOpreme(terminProstorije);
+        }
+
+        public ObservableCollection<TransferOpreme> GetTransferOpremeObservebleByTerminProstorije(TerminProstorije terminProstorije)
+        {
+            ObservableCollection<TransferOpreme> obsTransferOpreme = new ObservableCollection<TransferOpreme>();
+            if(terminProstorije != null)
+            {
+                foreach(TransferOpreme top in terminProstorije.ListaTransferOpreme)
+                {
+                    obsTransferOpreme.Add(top);
+                }
+            }
+
+            return obsTransferOpreme;
+        }
+
     }
 }

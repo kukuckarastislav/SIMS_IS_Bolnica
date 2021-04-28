@@ -66,7 +66,14 @@ namespace Bolnica.view.upravnik.Inventari
 
         private void btn_preraspodela(object sender, RoutedEventArgs e)
         {
-            var preraspodelaInventara = new PreraspodelaStatickeInventara(refPrikazStaticke, prostorija1, prostorija2);
+            TerminProstorije terminProstorije = (DataGridPrikazZauzetihTermina.SelectedItem as TerminProstorije);
+            if (terminProstorije == null)
+            {
+                MessageBox.Show("Niste selektovali ni jedan termin premestanja");
+                return;
+            }
+
+            var preraspodelaInventara = new PreraspodelaStatickeInventara(terminProstorije, refPrikazStaticke, prostorija1, prostorija2);
             preraspodelaInventara.Show();
         }
 
@@ -170,6 +177,7 @@ namespace Bolnica.view.upravnik.Inventari
             if (rezultat == MessageBoxResult.Yes)
             {
                 terminProstorijeKontrolerObjekat.OtkaziTerminProstorije(terminProstorije);
+                azurirajPrikaz();
             }
         }
     }

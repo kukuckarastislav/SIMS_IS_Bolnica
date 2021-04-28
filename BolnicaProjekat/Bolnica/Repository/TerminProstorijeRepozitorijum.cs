@@ -102,5 +102,12 @@ namespace Repozitorijum
             return flag;
         }
 
+        public TerminProstorije AzurirajTransferOpreme(TerminProstorije terminProstorije)
+        {
+            UcitajPodatke();
+            SacuvajPodatke();
+            return terminProstorije;
+        }
+
     }
 }

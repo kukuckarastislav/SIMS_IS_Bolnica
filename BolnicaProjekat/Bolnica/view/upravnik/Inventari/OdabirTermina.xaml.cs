@@ -73,6 +73,12 @@ namespace Bolnica.view.upravnik.Inventari
                 return;
             }
 
+            if (terminProstorije.PreraspodelaIzvrsena)
+            {
+                MessageBox.Show("Preraspodela Ovog termina je vec izvresna, Nemate pravo izmene");
+                return;
+            }
+
             var preraspodelaInventara = new PreraspodelaStatickeInventara(terminProstorije, refPrikazStaticke, prostorija1, prostorija2);
             preraspodelaInventara.Show();
         }

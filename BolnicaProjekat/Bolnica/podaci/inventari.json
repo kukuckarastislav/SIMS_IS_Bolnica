@@ -19,7 +19,7 @@
         "Naziv": "Krevet",
         "Tip": 0,
         "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 36,
+        "Kolicina": 31,
         "Cena": 12000,
         "IdInventar": 0
       },
@@ -49,7 +49,7 @@
         "Naziv": "TV",
         "Tip": 0,
         "Opis": "TV za zabavu",
-        "Kolicina": 10,
+        "Kolicina": 7,
         "Cena": 56000,
         "IdInventar": 0
       },
@@ -72,6 +72,46 @@
         "Kolicina": 16,
         "Cena": 125,
         "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "pc",
+        "Naziv": "Racunar",
+        "Tip": 0,
+        "Opis": "Racunar za evidenciju ",
+        "Kolicina": 30,
+        "Cena": 60000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "rengen",
+        "Naziv": "Rengen",
+        "Tip": 0,
+        "Opis": "Rengen masina za rengensko skeniranje",
+        "Kolicina": 4,
+        "Cena": 250000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "air22Ma",
+        "Naziv": "Klima Uredjaj",
+        "Tip": 0,
+        "Opis": "Rashladni uredjaj",
+        "Kolicina": 39,
+        "Cena": 26000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "uv200Lampa",
+        "Naziv": "UV Lampa",
+        "Tip": 0,
+        "Opis": "UV Lampa za ciscenje vazduha",
+        "Kolicina": 22,
+        "Cena": 5499,
+        "IdInventar": 0
       }
     ],
     "LLekovi": []
@@ -88,26 +128,6 @@
         "Opis": "CT skener za analizu ljudskog tela, poprecnog preseka",
         "Kolicina": 1,
         "Cena": 14900000,
-        "IdInventar": 0
-      },
-      {
-        "Id": -1,
-        "Sifra": "tvsamsung",
-        "Naziv": "TV",
-        "Tip": 0,
-        "Opis": "TV za zabavu",
-        "Kolicina": 5,
-        "Cena": 56000,
-        "IdInventar": 0
-      },
-      {
-        "Id": -1,
-        "Sifra": "sto",
-        "Naziv": "Stolica",
-        "Tip": 0,
-        "Opis": "Stolica za sedenje",
-        "Kolicina": 1,
-        "Cena": 2500,
         "IdInventar": 0
       },
       {
@@ -132,12 +152,22 @@
       },
       {
         "Id": -1,
-        "Sifra": "kr9VETR",
-        "Naziv": "Krevet",
+        "Sifra": "tvsamsung",
+        "Naziv": "TV",
         "Tip": 0,
-        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Opis": "TV za zabavu",
+        "Kolicina": 2,
+        "Cena": 56000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "pc",
+        "Naziv": "Racunar",
+        "Tip": 0,
+        "Opis": "Racunar za evidenciju ",
         "Kolicina": 1,
-        "Cena": 12000,
+        "Cena": 60000,
         "IdInventar": 0
       }
     ],
@@ -175,6 +205,16 @@
         "Opis": "Zaustavlja spoljasnje krvarenje",
         "Kolicina": 10,
         "Cena": 5,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "tvsamsung",
+        "Naziv": "TV",
+        "Tip": 0,
+        "Opis": "TV za zabavu",
+        "Kolicina": 2,
+        "Cena": 56000,
         "IdInventar": 0
       }
     ],
@@ -240,7 +280,48 @@
   {
     "Id": 4,
     "IdProstorije": 4,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "air22Ma",
+        "Naziv": "Klima Uredjaj",
+        "Tip": 0,
+        "Opis": "Rashladni uredjaj",
+        "Kolicina": 1,
+        "Cena": 26000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "tvsamsung",
+        "Naziv": "TV",
+        "Tip": 0,
+        "Opis": "TV za zabavu",
+        "Kolicina": 2,
+        "Cena": 56000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "rengen",
+        "Naziv": "Rengen",
+        "Tip": 0,
+        "Opis": "Rengen masina za rengensko skeniranje",
+        "Kolicina": 1,
+        "Cena": 250000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "uv200Lampa",
+        "Naziv": "UV Lampa",
+        "Tip": 0,
+        "Opis": "UV Lampa za ciscenje vazduha",
+        "Kolicina": 3,
+        "Cena": 5499,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {
@@ -289,7 +370,28 @@
   {
     "Id": 7,
     "IdProstorije": 7,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "sto",
+        "Naziv": "Stolica",
+        "Tip": 0,
+        "Opis": "Stolica za sedenje",
+        "Kolicina": 1,
+        "Cena": 2500,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "tvsamsung",
+        "Naziv": "TV",
+        "Tip": 0,
+        "Opis": "TV za zabavu",
+        "Kolicina": 2,
+        "Cena": 56000,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {
@@ -318,7 +420,18 @@
   {
     "Id": 10,
     "IdProstorije": 10,
-    "LOprema": [],
+    "LOprema": [
+      {
+        "Id": -1,
+        "Sifra": "kr9VETR",
+        "Naziv": "Krevet",
+        "Tip": 0,
+        "Opis": "Krevet za oporavak pacijenata koji boluju",
+        "Kolicina": 6,
+        "Cena": 12000,
+        "IdInventar": 0
+      }
+    ],
     "LLekovi": []
   },
   {

@@ -115,6 +115,43 @@ namespace Model
         }
 
 
+        public Oprema oduzmiOpremu(string SifraOpreme, int kolicina)
+        {
+            Oprema oprema = null;
+            foreach(Oprema itOprema in LOprema)
+            {
+                if(itOprema.Sifra == SifraOpreme)
+                {
+                    oprema = itOprema;
+                    break;
+                }
+            }
+
+            if(oprema == null)
+            {
+                // ovu opremu ne mozemo premestiti vise je nema ...
+                return null;  
+            }
+
+            oprema.Kolicina = oprema.Kolicina - kolicina;
+            if (oprema.Kolicina == 0 && Id != 0)
+            {
+                //LOprema.Remove(oprema);
+                foreach (Oprema op in LOprema)
+                {
+                    if (op.Sifra == oprema.Sifra)
+                    {
+                        LOprema.Remove(op);
+                        return oprema;
+                    }
+                }
+            }
+
+
+            return oprema;
+        }
+
+
         /*
          * 
          * private System.Collections.ArrayList lekovi;

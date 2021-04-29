@@ -153,6 +153,29 @@ namespace Servis
             return oprema;
         }
 
+        public bool preraspodelaOpreme(int idInventar1, int idInventar2, string sifraOprema, int kolicina)
+        {
+            Inventar inv1 = GetInventarById(idInventar1);
+            Inventar inv2 = GetInventarById(idInventar2);
+
+            if (inv1 == null || inv2 == null)
+            {
+                MessageBox.Show("Inventari su null u servisu metodi preraspodleaOpreme()");
+                return false;
+            }
+
+            Oprema oprema = inv1.oduzmiOpremu(sifraOprema, kolicina);
+            if (oprema == null) return false;
+            inv2.dodajOpremu(oprema, kolicina);
+            InventarRepozitorijumRef.AzurirajInventar();
+            return true;
+        }
+
+        public bool preraspodelaOpreme(TransferOpreme transferOpreme)
+        {
+            return preraspodelaOpreme(transferOpreme.IdInventar1, transferOpreme.IdInventar2, transferOpreme.SifraOpreme, transferOpreme.KolicinaOpreme);
+        }
+
 
     }
 }

@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
+using Kontroler;
+using Servis;
 
 namespace Bolnica.view.upravnik
 {
@@ -19,6 +22,10 @@ namespace Bolnica.view.upravnik
     /// </summary>
     public partial class UpravnikHome : Window
     {
+
+        Thread preraspodelaInventaraThread;
+        private TerminProstorijeServis terminProstorijeServisObjekat;
+        
         public UpravnikHome()
         {
             InitializeComponent();
@@ -34,6 +41,11 @@ namespace Bolnica.view.upravnik
             //Model.RadnoVreme radnoVreme = new Model.RadnoVreme(new DateTime(2000, 1, 7, 0, 0, 0), new DateTime(2022,1,1));
             //Model.RadnoVreme radnoVreme = new Model.RadnoVreme(7.0, 17.0);
             //Model.Upravnik upravnik = new Model.Upravnik(radnoVreme, Model.RadniStatus.Aktivan, "Pera123", "SIFRA", "Peric", "peric", Model.Pol.Musko, "perica@gmail", "0658499", new DateTime(2000, 1, 7), "4932423", "Srpsko", "Novi Sad");
+
+            terminProstorijeServisObjekat = new TerminProstorijeServis();
+            preraspodelaInventaraThread = new Thread(new ThreadStart(terminProstorijeServisObjekat.ThreadPreraspodelaInventara));
+            preraspodelaInventaraThread.IsBackground = true;
+            preraspodelaInventaraThread.Start();
         }
 
         private void Prostorije_Click(object sender, RoutedEventArgs e)

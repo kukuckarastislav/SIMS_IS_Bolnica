@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using Model;
@@ -271,6 +272,59 @@ namespace Servis
             terminProstorije.ListaTransferOpreme.Add(transferOpreme);
 
             return null;
+        }
+
+        public void ThreadPreraspodelaInventara()
+        {
+            while (true)
+            {
+
+                List<TerminProstorije> listaTerminaProstorije = TerminProstorijeRepozitorijumRef.GetTerminiProstorijeAll();
+                InventariSerivs inventarServiObjekat = new InventariSerivs();
+
+                foreach (TerminProstorije tp in listaTerminaProstorije)
+                {
+                    if(tp.tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiM ||
+                       tp.tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiP)
+                    {
+                        if(tp.Pocetak < DateTime.Now && !tp.PreraspodelaIzvrsena)
+                        {
+                            // izvrsi preraspodelu
+                            string info = "Preraspodela Inventara\n";
+                            foreach(TransferOpreme top in tp.ListaTransferOpreme)
+                            {
+                                if (inventarServiObjekat.preraspodelaOpreme(top))
+                                {
+                                    info += "[" + top.BrojSpratProstorije1 + "] [" + top.BrojSpratProstorije2 + "] - Oprema: " + top.SifraOpreme + "  Kolicina: " + top.KolicinaOpreme + "\n"; 
+                                }
+                            }
+                            
+                            tp.PreraspodelaIzvrsena = true;
+                            TerminProstorijeRepozitorijumRef.AzurirajTransferOpreme(tp);
+                            MessageBox.Show(info);
+                        }
+                    }
+                }
+
+                for(int i = 0; i < listaTerminaProstorije.Count; i++)
+                {
+                    TerminProstorije tp = listaTerminaProstorije[i];
+                    if (tp.tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiM ||
+                       tp.tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiP)
+                    {
+                        if (tp.Kraj < DateTime.Now)
+                        {
+                            // prosao je termin i mozemo obrisati
+                            TerminProstorijeRepozitorijumRef.OtkaziTerminProstorije(tp);  // oprezno
+                            //MessageBox.Show("obrisan je termin ");
+                            i = -1;
+                        }
+                    }
+                }
+
+                Thread.Sleep(60*1000);      // na svkaih 60 sekundi    
+
+            }
         }
 
     }

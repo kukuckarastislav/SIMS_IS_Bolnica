@@ -53,5 +53,14 @@ namespace Kontroler
         {
             return terminProstorijeServisObjekat.GetTransferOpremeObservebleByTerminProstorije(terminProstorije);
         }
+
+        public TransferOpreme DodajTrensferZaTerminProstorije(TerminProstorije terminProstorije, TransferOpreme transferOpreme)
+        {
+            return terminProstorijeServisObjekat.DodajTrensferZaTerminProstorije(terminProstorije, transferOpreme);
+        }
+        
+
+
     }
+
 }

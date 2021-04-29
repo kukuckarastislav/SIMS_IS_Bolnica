@@ -14,10 +14,12 @@ namespace Servis
     {
         
         public TerminProstorijeRepozitorijum TerminProstorijeRepozitorijumRef { get; set; }
+        private InventariSerivs inventariServisObjekat;
 
         public TerminProstorijeServis()
         {
             TerminProstorijeRepozitorijumRef = TerminProstorijeRepozitorijum.GetInstance;
+            inventariServisObjekat = new InventariSerivs();
         }
 
         public void sortirajTermine(ObservableCollection<TerminProstorije> obsTerminiZauzetosti)
@@ -215,6 +217,60 @@ namespace Servis
             }
 
             return obsTransferOpreme;
+        }
+
+
+        public TransferOpreme DodajTrensferZaTerminProstorije(TerminProstorije terminProstorije, TransferOpreme transferOpreme)
+        {
+            if(terminProstorije == null || transferOpreme == null)
+            {
+                return null;
+            }
+
+            Inventar inventar1 = inventariServisObjekat.GetInventarById(transferOpreme.IdInventar1);
+            Inventar inventar2 = inventariServisObjekat.GetInventarById(transferOpreme.IdInventar2);
+
+            // provera dal u inventaru ima toliko opreme koliko zelimo
+            if(transferOpreme.IdInventar1 == inventar1.Id)
+            {
+                if (inventar1.RazlikaUKoliciniOpreme(transferOpreme) < 0)
+                {
+                    // nije u redu
+                    return null;
+                }
+            }
+            else if(transferOpreme.IdInventar1 == inventar2.Id)
+            {
+                if (inventar2.RazlikaUKoliciniOpreme(transferOpreme) < 0)
+                {
+                    // nije u redu
+                    return null;
+                }
+            }
+            
+
+            foreach (TransferOpreme top in terminProstorije.ListaTransferOpreme)
+            {
+                if(top.SifraOpreme == transferOpreme.SifraOpreme && top.IdInventar1 == transferOpreme.IdInventar1 && top.IdInventar2 == transferOpreme.IdInventar2)
+                {
+                    top.KolicinaOpreme = transferOpreme.KolicinaOpreme;         // postoji takav objekat i editujemo
+                    if(top.KolicinaOpreme == 0)
+                    {
+                        // prosledjivanje 0 je zapravo brisanje transfera te opreme 
+                        terminProstorije.ListaTransferOpreme.Remove(top);
+                        return null;
+                    }
+                    else
+                    {
+                        return top;
+                    }
+                }
+            }
+
+            // ako ga nema u toj listi onda treba dodati
+            terminProstorije.ListaTransferOpreme.Add(transferOpreme);
+
+            return null;
         }
 
     }

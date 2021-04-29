@@ -69,8 +69,8 @@
                           AutoGenerateColumns="False"
                           SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Pocetna lokacija" Binding="{Binding IdInventar1}" Width="0.5*" />
-                    <DataGridTextColumn Header="Ciljana lokacija" Binding="{Binding IdInventar2}" Width="0.5*" />
+                    <DataGridTextColumn Header="Pocetna lokacija" Binding="{Binding BrojSpratProstorije1}" Width="0.5*" />
+                    <DataGridTextColumn Header="Ciljana lokacija" Binding="{Binding BrojSpratProstorije2}" Width="0.5*" />
                     <DataGridTextColumn Header="Sifra opreme" Binding="{Binding SifraOpreme}" Width="0.5*" />
                     <DataGridTextColumn Header="Kolicina" Binding="{Binding KolicinaOpreme}" Width="0.5*" />
 

@@ -91,12 +91,27 @@ namespace Model
                     }
                 }
             }
-            
 
-
-            
 
             return true;
+        }
+
+
+        public int RazlikaUKoliciniOpreme(TransferOpreme transferOpreme)
+        {
+            // ako vrati 0 onda je taman isti broj kolicin opreme koju zelimo da premestimo i kolicina opreme
+            // ako vrati pozitivan broj to znaci da te opreme u inventaru ima vise od onog sto zelimo da prebacimo i to je ok
+            // ako vrati negativan broj to znaci da zelimo vise kolicine prebacimo nego sto imamo u ovom inventaru
+            
+            foreach(Oprema op in LOprema)
+            {
+                if(op.Sifra == transferOpreme.SifraOpreme)
+                {
+                    return op.Kolicina - transferOpreme.KolicinaOpreme;
+                }
+            }
+
+            return -transferOpreme.KolicinaOpreme;
         }
 
 

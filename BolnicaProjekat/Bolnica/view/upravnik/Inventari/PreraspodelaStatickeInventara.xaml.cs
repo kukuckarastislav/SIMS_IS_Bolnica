@@ -125,11 +125,13 @@ namespace Bolnica.view.upravnik.Inventari
                 //inventariKontroler.preraspodelaOpreme(inventar1.Id, inventar2.Id, oprema, kolicina);
                 if(prostorija2 == null)
                 {
-                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(prostorija1.IdInventar, 0, oprema.Sifra, kolicina));
+                    terminProstorijeKontrolerObjekat.DodajTrensferZaTerminProstorije(terminProstorije, 
+                        new TransferOpreme(prostorija1.BrojSprat, "Magacin", prostorija1.IdInventar, 0, oprema.Sifra, kolicina));
                 }
                 else
                 {
-                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(prostorija1.IdInventar, prostorija2.IdInventar, oprema.Sifra, kolicina));
+                    terminProstorijeKontrolerObjekat.DodajTrensferZaTerminProstorije(terminProstorije, 
+                        new TransferOpreme(prostorija1.BrojSprat, prostorija2.BrojSprat, prostorija1.IdInventar, prostorija2.IdInventar, oprema.Sifra, kolicina));
                 }
                 
             }
@@ -139,11 +141,13 @@ namespace Bolnica.view.upravnik.Inventari
                 //inventariKontroler.preraspodelaOpreme(inventar2.Id, inventar1.Id, oprema, kolicina);
                 if (prostorija2 == null)
                 {
-                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(0, prostorija1.IdInventar, oprema.Sifra, kolicina));
+                    terminProstorijeKontrolerObjekat.DodajTrensferZaTerminProstorije(terminProstorije, 
+                        new TransferOpreme("Magacin", prostorija1.BrojSprat, 0, prostorija1.IdInventar, oprema.Sifra, kolicina));
                 }
                 else
                 {
-                    terminProstorije.ListaTransferOpreme.Add(new TransferOpreme(prostorija2.IdInventar, prostorija1.IdInventar, oprema.Sifra, kolicina));
+                    terminProstorijeKontrolerObjekat.DodajTrensferZaTerminProstorije(terminProstorije, 
+                        new TransferOpreme(prostorija2.BrojSprat, prostorija1.BrojSprat, prostorija2.IdInventar, prostorija1.IdInventar, oprema.Sifra, kolicina));
                 }
             }
 

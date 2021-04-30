@@ -9,7 +9,6 @@ using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.IO;
 using Model;
-using Bolnica.Repository;
 using Repozitorijum;
 
 namespace Servis

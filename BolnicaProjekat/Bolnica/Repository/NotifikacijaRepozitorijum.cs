@@ -8,7 +8,7 @@ using System.Text.Json;
 using System.IO;
 using Model;
 
-namespace Bolnica.Repository
+namespace Repozitorijum
 {
     class NotifikacijaRepozitorijum
     {

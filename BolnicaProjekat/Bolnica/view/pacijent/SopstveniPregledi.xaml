@@ -36,12 +36,12 @@
                     <GridViewColumn Header="Pocetak" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:hh:mm tt}}"/>
                     <GridViewColumn Header="Kraj" DisplayMemberBinding="{Binding Termin.Kraj,StringFormat={}{0:hh:mm tt}}"/>
                     <GridViewColumn Header="Tip termina" DisplayMemberBinding="{Binding TipUsluge }"/>
-
                 </GridView>
             </ListView.View>
         </ListView>
         <Button x:Name="dugme_otkazi" Click="otkazi_pregled" Margin="15,365,636,22" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5">Otkazi pregled</Button>
         <Button Click="modifikuj_pregled" Margin="15,322,636,64" RenderTransformOrigin="0.667,0.361" Background="#e5e5e5">Prikazi pregled</Button>
         <Button Click="zakazi_novi_pregled" Margin="639,365,12,22" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5" Content="Zakazi novi pregled"/>
+        <Button x:Name="dugme_anketa" Click="popuni_anketu" Margin="639,34,12,353" RenderTransformOrigin="0.097,0.562" Background="#e5e5e5" Content="Popuni anketu" Visibility="Hidden"/>
     </Grid>
 </Window>

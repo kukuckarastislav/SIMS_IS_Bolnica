@@ -16,19 +16,19 @@ using Model;
 
 namespace Bolnica.view.pacijent
 {
-    /// <summary>
-    /// Interaction logic for NotifikacijePacijent.xaml
-    /// </summary>
     public partial class NotifikacijePacijent : Window
     {
         ObservableCollection<Notifikacija> Notifikacije { get; set; }
         ObservableCollection<Notifikacija> Reminders { get; set; }
+        public Notifikacija KliknutaNotifijacija { get; set; }
         public NotifikacijePacijent()
         {
-            Notifikacije = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(1);
+
+            Controller.NotifikacijaKontroler kontroler = new Controller.NotifikacijaKontroler();
+            Notifikacije = kontroler.GetNotifikacijePacijenta(1);
             Reminders = new ObservableCollection<Notifikacija>();
             //prvo cemo prikazati samo normalne notifikacije a remindere u njihovu listu
-
+            
             bool zavrsio = false;
             while(!zavrsio)
             {
@@ -67,6 +67,7 @@ namespace Bolnica.view.pacijent
 
             }
             
+            
             InitializeComponent();
             this.listaNotifikacija.ItemsSource = Notifikacije;
         }
@@ -77,6 +78,22 @@ namespace Bolnica.view.pacijent
            // MessageBox.Show("Nova notifikacija");
             Notifikacije.Add(n);
             this.listaNotifikacija.ItemsSource = Notifikacije;
+        }
+
+        private void kliknuta_notifikacija(object sender, MouseButtonEventArgs e)
+        {
+            KliknutaNotifijacija = listaNotifikacija.SelectedItem as Notifikacija;
+            if (KliknutaNotifijacija.Id == 0) //sve notifikacije o anketi bolnice ce imati id 0
+            {
+                var varr = new view.pacijent.AnketaBolnica(1);
+                varr.Show();
+            }
+
+        }
+
+        private void obrisi_notifikaciju(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

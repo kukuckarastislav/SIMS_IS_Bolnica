@@ -83,6 +83,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\AnketaKontroler.cs" />
     <Compile Include="Controller\InventariKontroler.cs" />
     <Compile Include="Controller\KorisnickaAktivnostKontroler.cs" />
     <Compile Include="Controller\LekarKontroler.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Model\Upravnik.cs" />
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
+    <Compile Include="Repository\AnketaRepozitorijum.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
     <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
@@ -135,6 +137,7 @@
     <Compile Include="Repository\TerminProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
     <Compile Include="Repository\UpravnikRepozitorijum.cs" />
+    <Compile Include="Service\AnketaServis.cs" />
     <Compile Include="Service\InventariSerivs.cs" />
     <Compile Include="Service\KorisnickaAktivnostServis.cs" />
     <Compile Include="Service\LekarServis.cs" />
@@ -193,6 +196,12 @@
     </Compile>
     <Compile Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml.cs">
       <DependentUpon>ZakazivanjeUsluge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\AnketaBolnica.xaml.cs">
+      <DependentUpon>AnketaBolnica.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\AnketaLekar.xaml.cs">
+      <DependentUpon>AnketaLekar.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
       <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
@@ -366,6 +375,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\lekar\pacijenti\ZakazivanjeUsluge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\AnketaBolnica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\AnketaLekar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -47,6 +47,15 @@ namespace Bolnica.view.pacijent
             {
                 dugme_otkazi.IsEnabled = true;
             }
+
+            if (DateTime.Compare(odabraniPregled.Termin.Kraj, DateTime.Now) < 0)
+            {
+                dugme_anketa.Visibility = Visibility.Visible;
+            }else
+            {
+                dugme_anketa.Visibility = Visibility.Hidden;
+            }
+
         }
 
 
@@ -79,6 +88,12 @@ namespace Bolnica.view.pacijent
         private void zakazi_novi_pregled(object sender, RoutedEventArgs e)
         {
             var varr = new view.pacijent.RaspoloziviPregledi();
+            varr.Show();
+        }
+
+        private void popuni_anketu(object sender, RoutedEventArgs e)
+        {
+            var varr = new view.pacijent.AnketaLekar(odabraniPregled);
             varr.Show();
         }
     }

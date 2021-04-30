@@ -18,6 +18,9 @@ namespace Servis
         private PacijentRepozitorijum pacijentRepozitorijum;
         private LekarRepozitorijum lekarRepozitorijum;
         private NotifikacijaRepozitorijum notifikacijaRepozitorijum;
+        private readonly DateTime PrviDanAnkete = new DateTime(2021,1,1);
+        private readonly DateTime DrugiDanAnkete = new DateTime(2021,7,1);
+
 
         public void ZakaziTermin(ZdravstvenaUsluga usluga)
         {
@@ -31,6 +34,18 @@ namespace Servis
             novaNotifikacija.Opis = novaNotifikacija.Opis + " dana " + usluga.Termin.Pocetak.ToShortDateString() + ", sa pocetkom u " + usluga.Termin.Pocetak.ToShortTimeString()+".";
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
         }
+
+        internal ObservableCollection<Notifikacija> GetNotifikacijePacijenta(int idPacijenta)
+        {
+            DateTime now = DateTime.Now;
+            if((now.Day==PrviDanAnkete.Day && now.Month == PrviDanAnkete.Month) || (now.Day == DrugiDanAnkete.Day && now.Month == DrugiDanAnkete.Month))
+            {
+                string text = "Kliknite na ovu notifikaciju da biste popunili anketu o nasoj bolnici!";
+                NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(new Notifikacija(0,0,idPacijenta,0,false,false,text));
+            }
+            return NotifikacijaRepozitorijum.GetInstance.GetByPatientId(idPacijenta); ;
+        }
+
         public static void ReceptNotifikacija(Recept recept, DateTime VremeUzimanja)
         {
             TimeSpan ts = new TimeSpan(0,3,0,0,0);

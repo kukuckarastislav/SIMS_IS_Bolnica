@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 0,
+    "Komentar": "ovo bi trebalo da se serijalizuje",
+    "Vrednost": 0,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "Datum": "2021-04-30T15:45:44.3218748+02:00"
+  },
+  {
+    "Id": 2,
+    "Komentar": "jako dobar, svaka cast za ovog gospodina",
+    "Vrednost": 0,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "Datum": "2021-04-30T16:32:49.2089591+02:00"
+  }
+]

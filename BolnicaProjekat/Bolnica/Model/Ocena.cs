@@ -5,43 +5,33 @@
  ***********************************************************************/
 
 using System;
+using System.Text.Json.Serialization;
 
 namespace Model
 {
-   public class Ocena
-   {
-      public string Komentar { get; set; }
-        public VrijednostOcjene OdabranaOcena { get; set; }
+    public class Ocena
+    {
+        [JsonInclude]
+        public int Id { get; set; }
+        [JsonInclude]
+        public string Komentar { get; set; }
+        [JsonInclude]
+        public int Vrednost { get; set; }
+        [JsonInclude]
+        public int IdPacijenta { get; set; }
+        [JsonInclude]
+        public int IdLekara { get; set; }
+        [JsonInclude]
+        public DateTime Datum { get; set; }
 
-        public Pacijent pacijent { get; set; }
-
-        /// <pdGenerated>default parent getter</pdGenerated>
-        public Pacijent GetPacijent()
-      {
-         return pacijent;
-      }
-      
-      /// <pdGenerated>default parent setter</pdGenerated>
-      /// <param>newPacijent</param>
-      public void SetPacijent(Pacijent newPacijent)
-      {
-         if (this.pacijent != newPacijent)
-         {
-            if (this.pacijent != null)
-            {
-               Pacijent oldPacijent = this.pacijent;
-               this.pacijent = null;
-               oldPacijent.RemoveOcene(this);
-            }
-            if (newPacijent != null)
-            {
-               this.pacijent = newPacijent;
-               this.pacijent.AddOcene(this);
-            }
-         }
-      }
-   
-      public int Id { get; set; }
-
+        public Ocena(int id,string komentar, int vrednost, int idPacijenta, int idLekara, DateTime datum)
+        {
+            Id = id;
+            Komentar = komentar;
+            Vrednost = vrednost;
+            IdPacijenta = idPacijenta;
+            IdLekara = idLekara;
+            Datum = datum;
+        }
     }
 }

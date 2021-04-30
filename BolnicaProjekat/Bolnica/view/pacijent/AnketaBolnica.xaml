@@ -1,0 +1,19 @@
+﻿<Window x:Class="Bolnica.view.pacijent.AnketaBolnica"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        mc:Ignorable="d"
+        Title="AnketaBolnica" Height="330.411" Width="565.753">
+    <Grid>
+        <Label Margin="40,28,44,232">Kakvo je vase iskustvo sa Zdravo Bolnicom? Da li ste zadovoljni pruzenom uslugom?
+        </Label>
+        <TextBox x:Name="sadrzaj" Margin="40,88,44,75">
+        </TextBox>
+        <Button Click="posalji_anketu" Margin="363,232,44,31" Content="Potvrdi"/>
+
+
+
+    </Grid>
+</Window>

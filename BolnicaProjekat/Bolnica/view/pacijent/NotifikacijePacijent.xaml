@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="NotifikacijePacijent" Height="559.615" Width="478.365">
+        Title="NotifikacijePacijent" Height="547.349" Width="769.671">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="131*"/>
             <ColumnDefinition Width="133*"/>
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding Notifikacije}" x:Name="listaNotifikacija" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5" Height="527" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+        <ListView ListViewItem.MouseDoubleClick="kliknuta_notifikacija" ItemsSource="{Binding Notifikacije}" x:Name="listaNotifikacija" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5" Height="527" VerticalAlignment="Top" Grid.ColumnSpan="2" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Height" Value="55" />

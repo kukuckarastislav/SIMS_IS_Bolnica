@@ -50,64 +50,6 @@ namespace Model
 
         }
 
-
-        /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetOcene()
-      {
-         if (Ocene == null)
-            Ocene = new System.Collections.ArrayList();
-         return Ocene;
-      }
-      
-      /// <pdGenerated>default setter</pdGenerated>
-      public void SetOcene(System.Collections.ArrayList newOcene)
-      {
-         RemoveAllOcene();
-         foreach (Ocena oOcena in newOcene)
-            AddOcene(oOcena);
-      }
-      
-      /// <pdGenerated>default Add</pdGenerated>
-      public void AddOcene(Ocena newOcena)
-      {
-         if (newOcena == null)
-            return;
-         if (this.Ocene == null)
-            this.Ocene = new System.Collections.ArrayList();
-         if (!this.Ocene.Contains(newOcena))
-         {
-            this.Ocene.Add(newOcena);
-            newOcena.SetPacijent(this);      
-         }
-      }
-      
-      /// <pdGenerated>default Remove</pdGenerated>
-      public void RemoveOcene(Ocena oldOcena)
-      {
-         if (oldOcena == null)
-            return;
-         if (this.Ocene != null)
-            if (this.Ocene.Contains(oldOcena))
-            {
-               this.Ocene.Remove(oldOcena);
-               oldOcena.SetPacijent((Pacijent)null);
-            }
-      }
-      
-      /// <pdGenerated>default removeAll</pdGenerated>
-      public void RemoveAllOcene()
-      {
-         if (Ocene != null)
-         {
-            System.Collections.ArrayList tmpOcene = new System.Collections.ArrayList();
-            foreach (Ocena oldOcena in Ocene)
-               tmpOcene.Add(oldOcena);
-            Ocene.Clear();
-            foreach (Ocena oldOcena in tmpOcene)
-               oldOcena.SetPacijent((Pacijent)null);
-            tmpOcene.Clear();
-         }
-      }
         [JsonInclude]
         public int Id { get; set; }
         [JsonInclude]

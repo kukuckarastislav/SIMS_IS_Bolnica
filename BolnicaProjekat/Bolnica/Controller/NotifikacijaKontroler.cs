@@ -28,5 +28,10 @@ namespace Bolnica.Controller
             ServisNotifikacije.OtkaziTermin(usluga);
         }
 
+        public ObservableCollection<Notifikacija> GetNotifikacijePacijenta(int idPacijenta)
+        {
+            return ServisNotifikacije.GetNotifikacijePacijenta(idPacijenta);
+        }
+
     }
 }

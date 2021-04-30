@@ -22,9 +22,11 @@ namespace Bolnica.view.pacijent
     {
         public string text { get; set; }
         public ZdravstvenaUsluga pregled { get; set; }
+
         public AnketaLekar(ZdravstvenaUsluga pregled)
         {
             this.pregled = pregled;
+            //lekar.Text = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Ime + " " + Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Prezime;
             InitializeComponent();
         }
 

@@ -9,7 +9,7 @@
     <Grid>
         <Label Margin="40,28,87,298" Content="Kojom ocjenom biste ocjenili naseg lekara                                                    ? "/>
         <TextBlock x:Name="lekar" Margin="273,28,144,298"/>
-        <Label Margin="40,124,87,202" Content="Da li imate neki komentar za naseg lekara "/>
+        <Label Margin="40,124,87,202" Content="Da li imate neki komentar ? "/>
         <TextBox x:Name="sadrzaj" Margin="40,151,62,78"/>
         <Button Click="posalji_anketu" Margin="363,302,62,27" Content="Potvrdi"/>
 

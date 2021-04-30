@@ -24,10 +24,11 @@ namespace Bolnica.view.pacijent
         public NotifikacijePacijent()
         {
 
-            Notifikacije = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetAll();
+            Controller.NotifikacijaKontroler kontroler = new Controller.NotifikacijaKontroler();
+            Notifikacije = kontroler.GetNotifikacijePacijenta(1);
             Reminders = new ObservableCollection<Notifikacija>();
             //prvo cemo prikazati samo normalne notifikacije a remindere u njihovu listu
-
+            
             bool zavrsio = false;
             while(!zavrsio)
             {
@@ -66,6 +67,7 @@ namespace Bolnica.view.pacijent
 
             }
             
+            
             InitializeComponent();
             this.listaNotifikacija.ItemsSource = Notifikacije;
         }
@@ -87,6 +89,11 @@ namespace Bolnica.view.pacijent
                 varr.Show();
             }
 
+        }
+
+        private void obrisi_notifikaciju(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

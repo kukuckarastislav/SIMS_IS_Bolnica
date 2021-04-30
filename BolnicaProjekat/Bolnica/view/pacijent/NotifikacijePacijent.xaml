@@ -11,10 +11,12 @@
             <ColumnDefinition Width="131*"/>
             <ColumnDefinition Width="133*"/>
         </Grid.ColumnDefinitions>
-        <ListView ListViewItem.MouseDoubleClick="kliknuta_notifikacija" ItemsSource="{Binding Notifikacije}" x:Name="listaNotifikacija" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5" Height="527" VerticalAlignment="Top" Grid.ColumnSpan="2" >
+        <ListView ListViewItem.MouseDoubleClick="kliknuta_notifikacija" ItemsSource="{Binding Notifikacije}" x:Name="listaNotifikacija" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5" Height="442" VerticalAlignment="Top" Grid.ColumnSpan="2"  FontSize="20" FontFamily="Arial">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Height" Value="55" />
+                    <Setter Property="BorderBrush" Value="LightGray" />
+                    <Setter Property="BorderThickness" Value="0,0,0,1" />
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.RenderTransform>
@@ -27,10 +29,11 @@
             </ListView.RenderTransform>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Sadrzaj" DisplayMemberBinding="{Binding Opis}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Opis}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="97,460,102,18" Content="Obrisi notifikaciju" FontFamily="Arial" FontSize="17" RenderTransformOrigin="1.449,-0.502" Click="obrisi_notifikaciju"/>
 
     </Grid>
 </Window>

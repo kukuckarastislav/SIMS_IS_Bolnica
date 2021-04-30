@@ -1,0 +1,27 @@
+[
+  {
+    "IdPacijenta": 1,
+    "Datum": "2021-04-30T14:01:58.6424425+02:00",
+    "Vrsta": "ZAKAZIVANJE"
+  },
+  {
+    "IdPacijenta": 1,
+    "Datum": "2021-04-30T14:02:00.1280025+02:00",
+    "Vrsta": "ZAKAZIVANJE"
+  },
+  {
+    "IdPacijenta": 1,
+    "Datum": "2021-04-30T14:02:01.6873662+02:00",
+    "Vrsta": "ZAKAZIVANJE"
+  },
+  {
+    "IdPacijenta": 1,
+    "Datum": "2021-04-30T14:02:04.9073698+02:00",
+    "Vrsta": "ZAKAZIVANJE"
+  },
+  {
+    "IdPacijenta": 1,
+    "Datum": "2021-04-30T14:02:14.8168882+02:00",
+    "Vrsta": "TRENUTNA SUSPENZIJA"
+  }
+]

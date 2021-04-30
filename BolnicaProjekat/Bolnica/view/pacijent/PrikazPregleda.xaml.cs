@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Controller;
 
 namespace Bolnica.view.pacijent
 {
@@ -49,12 +50,15 @@ namespace Bolnica.view.pacijent
 
         private void pomjeri_pregled(object sender, RoutedEventArgs e)
         {
+            KorisnickaAktivnostKontroler kontroler = new KorisnickaAktivnostKontroler();
+
             if (!Servis.ZdravstvenaUslugaServis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak))
             {
                 MessageBox.Show("Izabrani termin je zauzet");
             }
             else
             {
+                kontroler.DodajKorisnickuAktivnostPomjeranja(1);
                 Pregled.Termin = new Termin(NoviPocetak, NoviPocetak + new TimeSpan(0, 0, 30, 0, 0));
                 MessageBox.Show("Vas pregled je uspjesno pomjeren");
             }

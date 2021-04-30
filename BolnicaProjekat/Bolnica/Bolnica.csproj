@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\InventariKontroler.cs" />
+    <Compile Include="Controller\KorisnickaAktivnostKontroler.cs" />
     <Compile Include="Controller\LekarKontroler.cs" />
     <Compile Include="Controller\NotifikacijaKontroler.cs" />
     <Compile Include="Controller\PacijentKontroler.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />
     <Compile Include="Model\Inventar.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
+    <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
     <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
@@ -133,6 +136,7 @@
     <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
     <Compile Include="Repository\UpravnikRepozitorijum.cs" />
     <Compile Include="Service\InventariSerivs.cs" />
+    <Compile Include="Service\KorisnickaAktivnostServis.cs" />
     <Compile Include="Service\LekarServis.cs" />
     <Compile Include="Service\NotifikacijeServis.cs" />
     <Compile Include="Service\PacijentServis.cs" />

@@ -25,7 +25,7 @@ namespace Bolnica.view.pacijent
         ObservableCollection<Notifikacija> Reminders { get; set; }
         public NotifikacijePacijent()
         {
-            Notifikacije = Repository.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(1);
+            Notifikacije = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(1);
             Reminders = new ObservableCollection<Notifikacija>();
             //prvo cemo prikazati samo normalne notifikacije a remindere u njihovu listu
 

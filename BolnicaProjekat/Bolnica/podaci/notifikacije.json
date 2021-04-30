@@ -1,4 +1,11 @@
 [
-
-
+  {
+    "Id": 1,
+    "IdZdravstveneUsluge": -1,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": " Upozoravamo vas da cete bannovani ako uradite jos jedno pomjeranje ili zakazivanje termina!"
+  }
 ]

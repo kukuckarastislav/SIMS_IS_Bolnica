@@ -156,11 +156,28 @@ namespace Servis
             return true;
         }
 
+
+
         public static List<ZdravstvenaUsluga> getFirstAvailableAppointments()
         {
             //ovo zasad nije neophodno rekla bih
             return null;
         }
+
+       public static ObservableCollection<DTORadniKalendar> getUslugeLekara(Lekar l)
+        {
+            ObservableCollection<DTORadniKalendar> lista = new ObservableCollection<DTORadniKalendar>();
+            ObservableCollection<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
+            foreach(ZdravstvenaUsluga zu in usluge)
+            {
+                //DTORadniKalendar(ZdravstvenaUsluga usluga, Pacijent pacijent, Prostorija prostorija)
+                lista.Add(new DTORadniKalendar(zu, PacijentRepozitorijum.GetInstance.GetById(zu.IdPacijenta), ProstorijeRepozitorijum.GetInstance.GetProstorijaById(zu.IdProstorije)));
+            }
+            return lista;
+
+        }
+
+
 
         public static ObservableCollection<DTOUslugaLekar> getUslugePacijenta(Pacijent p)
         {

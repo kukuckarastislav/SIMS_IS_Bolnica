@@ -10,20 +10,20 @@
         Width="400"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#810000">
+        Background="#630000">
 
     <Grid>
 
         <Grid   x:Name="home_grid"
                 HorizontalAlignment="Right"
                 Width="345"
-                Background="#810000">
+                Background="#630000">
 
             <Button x:Name="close_button"
                     Height="40" 
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
-                    Background="#810000"
+                    Background="#630000"
                     BorderThickness="0"
                     Click="close_button_Click">
                     
@@ -45,6 +45,7 @@
 
         <Grid   x:Name="menu_panel"
                     Width="40"
+                    Height="40"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
 
@@ -65,7 +66,7 @@
 
                         <ToggleButton.Triggers>
 
-                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
 
                                 <BeginStoryboard>
 
@@ -93,7 +94,7 @@
 
                             </EventTrigger>
 
-                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
 
                                 <BeginStoryboard>
 
@@ -139,10 +140,12 @@
                         Foreground="#eeebdd"
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
                         Click="RadniKalendarButton">
 
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="30" />
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="38"/>
                         <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Radni kalendar</TextBlock>
                     </StackPanel>
                 </Button>
@@ -155,11 +158,13 @@
                         Foreground="#eeebdd"
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
                         Click="PacijentiButton">
-                    
 
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="30" />
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="38"/>
                         <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Pacijenti</TextBlock>
                     </StackPanel>
                 </Button>
@@ -170,10 +175,12 @@
                         Foreground="#eeebdd"
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
                         Click="PacijentiButton">
                     
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/images/lekar-icons/lekovi-icon.png" Width="30" />
+                        <Image Source="/images/lekar-icons/lekovi-icon.png" Width="38" />
                         <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Radni kalendar</TextBlock>
                     </StackPanel>
                 </Button>
@@ -185,11 +192,13 @@
                         Foreground="#eeebdd"
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
                         Click="PacijentiButton">
 
                     
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/images/lekar-icons/prostorije-icon.png" Width="30" />
+                        <Image Source="/images/lekar-icons/prostorije-icon.png" Width="38" />
                         <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Prostorije</TextBlock>
                     </StackPanel>
                 </Button>
@@ -200,11 +209,13 @@
                             Foreground="#eeebdd"
                             BorderThickness="1" 
                             BorderBrush="Black"
+                            HorizontalContentAlignment="Left"
+                            VerticalContentAlignment="Center"
                             Click="PacijentiButton">
 
 
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/images/lekar-icons/forum-icon.png" Width="30" />
+                        <Image Source="/images/lekar-icons/forum-icon.png" Width="38" />
                         <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Forum</TextBlock>
                     </StackPanel>
                 </Button>
@@ -215,10 +226,12 @@
                             Foreground="#eeebdd"
                             BorderThickness="1" 
                             BorderBrush="Black"
+                            HorizontalContentAlignment="Left"
+                            VerticalContentAlignment="Center"
                             Click="PacijentiButton">
 
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/images/lekar-icons/notification-icon.png" Width="30" />
+                        <Image Source="/images/lekar-icons/notification-icon.png" Width="38" />
                         <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Notifikacije</TextBlock>
                     </StackPanel>
                 </Button>
@@ -230,10 +243,12 @@
                             Foreground="#eeebdd"
                             BorderThickness="1" 
                             BorderBrush="Black"
+                            HorizontalContentAlignment="Left"
+                            VerticalContentAlignment="Center"
                             Click="LogOutButtton">
 
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/images/lekar-icons/logout-icon.png" Width="30" />
+                        <Image Source="/images/lekar-icons/logout-icon.png" Width="38" />
                         <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Odjavi se</TextBlock>
                     </StackPanel>
                 </Button>

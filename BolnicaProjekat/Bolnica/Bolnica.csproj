@@ -96,6 +96,7 @@
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
+    <Compile Include="Model\DTORadniKalendar.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />
     <Compile Include="Model\Inventar.cs" />
     <Compile Include="Model\Korisnik.cs" />

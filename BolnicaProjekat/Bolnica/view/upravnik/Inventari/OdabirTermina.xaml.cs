@@ -57,7 +57,7 @@ namespace Bolnica.view.upravnik.Inventari
             {
                 prostorija2 = KolekcijaProstorija[0];
                 comboProstorija.SelectedValue = KolekcijaProstorija[0];
-                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiZauzetostiByProstorijaIdObs(prostorija1.Id, prostorija2.Id);
+                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiPreraspodeleByProstorijaIdObs(prostorija1.Id, prostorija2.Id);
                 DataGridPrikazZauzetihTermina.ItemsSource = KolekcijaTermina;
             }
 
@@ -160,11 +160,11 @@ namespace Bolnica.view.upravnik.Inventari
         {
             if(prostorija2 == null)
             {
-                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiZauzetostiByProstorijaIdObs(prostorija1.Id, -1);
+                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiPreraspodeleByProstorijaIdObs(prostorija1.Id, -1);
             }
             else
             {
-                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiZauzetostiByProstorijaIdObs(prostorija1.Id, prostorija2.Id);
+                KolekcijaTermina = terminProstorijeKontrolerObjekat.GetTerminiPreraspodeleByProstorijaIdObs(prostorija1.Id, prostorija2.Id);
             }
             
             DataGridPrikazZauzetihTermina.ItemsSource = KolekcijaTermina;

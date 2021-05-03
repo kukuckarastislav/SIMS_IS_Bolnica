@@ -18,6 +18,7 @@
                     <Button Width="100" Margin="30 10" Click="Dodaj_Prostoriju">Dodaj</Button>
                     <Button Width="100" Margin="30 10" Click="Izmeni_Prostoriju">Izmeni</Button>
                     <Button Width="100" Margin="30 10" Click="Obrisi_Prostoriju">Obrisi</Button>
+                    <Button Width="100" Margin="30 10" Click="Termini_Prostorije">Termini</Button>
                 </StackPanel>
             </StackPanel>
             
@@ -45,7 +46,7 @@
                 <Frame x:Name="PovrsinaPrikazRaznihProstorija" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
-                       Background="red"
+                       Background="white"
                        ></Frame>
 
             </Grid>

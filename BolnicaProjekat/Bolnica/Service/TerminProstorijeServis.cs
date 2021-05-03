@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using DTO;
 using Model;
 using Repozitorijum;
 
@@ -71,24 +72,7 @@ namespace Servis
 
         public ObservableCollection<Termin> GetUnijaTerminaByProstorijaIdObs(int idProstorije1, int idProstorije2)
         {
-            /*
-            ObservableCollection<TerminProstorije> obsTerminiZauzetosti = new ObservableCollection<TerminProstorije>();
-            List<TerminProstorije> terminiProstorija = TerminProstorijeRepozitorijumRef.GetTerminiProstorijeAll();
-            //List<TerminProstorije> terminiProstorija = new List<TerminProstorije>();
-            //terminiProstorija.Add(new TerminProstorije(77, new DateTime(2021, 4, 28), new DateTime(2021, 4, 29), 1, 2, -1, TipTerminaProstorije.Renoviranje, false, null));
-
-            foreach (TerminProstorije terminProstorije in terminiProstorija)
-            {
-                if(terminProstorije.IdProstorije1 == idProstorije1 || terminProstorije.IdProstorije2 == idProstorije1)
-                {
-                    obsTerminiZauzetosti.Add(terminProstorije);
-                }
-                else if(terminProstorije.IdProstorije1 == idProstorije2 || terminProstorije.IdProstorije2 == idProstorije2)
-                {
-                    obsTerminiZauzetosti.Add(terminProstorije);
-                }
-            }
-            */
+           
             ObservableCollection<Termin> obsTZPro1= GetTerminiByProstorijaIdObs(idProstorije1);
             ObservableCollection<Termin> obsTZPro2 = GetTerminiByProstorijaIdObs(idProstorije2);
             ObservableCollection<Termin> obsTZPro = new ObservableCollection<Termin>();
@@ -146,6 +130,23 @@ namespace Servis
             return false;
         }
 
+        public bool ZakaziTerminRenoviranjaProstorije(int idProstorije, DateTime pocetak, DateTime kraj)
+        {
+            ObservableCollection<Termin> termini = null;
+
+            termini = GetTerminiByProstorijaIdObs(idProstorije);
+
+            if (ProveraIspravnogNovogZakazivanja(pocetak, kraj, termini))
+            {
+                int id = TerminProstorijeRepozitorijumRef.GetFirstFitID();
+                TerminProstorije tp = new TerminProstorije(id, pocetak, kraj, idProstorije, -1, -1, TipTerminaProstorije.Renoviranje, false, new List<TransferOpreme>());
+                TerminProstorijeRepozitorijumRef.DodajTerminProstorije(tp);
+                return true;
+            }
+
+            return false;
+        }
+
         public bool ProveraIspravnogNovogZakazivanja(DateTime pocetak, DateTime kraj, ObservableCollection<Termin> termini)
         {
             foreach(Termin t in termini)
@@ -186,6 +187,50 @@ namespace Servis
                     else if(tp.IdProstorije1 == idProstorije2 && tp.IdProstorije2 == idProstorije1)
                     {
                         obsTerminiProstorije.Add(tp);
+                    }
+                }
+            }
+
+            return obsTerminiProstorije;
+        }
+
+
+        public ObservableCollection<TerminProstorije> GetTerminiPreraspodeleByProstorijaIdObs(int idProstorije1, int idProstorije2 = -1)
+        {
+            ObservableCollection<TerminProstorije> obsTerminiProstorije = new ObservableCollection<TerminProstorije>();
+            List<TerminProstorije> terminiProstorija = TerminProstorijeRepozitorijumRef.GetTerminiProstorijeAll();
+
+            if (idProstorije2 == -1)    // ako je magacin
+            {
+                foreach (TerminProstorije tp in terminiProstorija)
+                {
+                    if (tp.IdProstorije1 == idProstorije1 || tp.IdProstorije2 == idProstorije1)
+                    {
+                        if (tp.isPreraspodela())
+                        {
+                            obsTerminiProstorije.Add(tp);
+                        }
+                            
+                    }
+                }
+            }
+            else
+            {
+                foreach (TerminProstorije tp in terminiProstorija)
+                {
+                    if (tp.IdProstorije1 == idProstorije1 && tp.IdProstorije2 == idProstorije2)
+                    {
+                        if (tp.isPreraspodela())
+                        {
+                            obsTerminiProstorije.Add(tp);
+                        }
+                    }
+                    else if (tp.IdProstorije1 == idProstorije2 && tp.IdProstorije2 == idProstorije1)
+                    {
+                        if (tp.isPreraspodela())
+                        {
+                            obsTerminiProstorije.Add(tp);
+                        }
                     }
                 }
             }
@@ -274,6 +319,25 @@ namespace Servis
             return null;
         }
 
+
+        public ObservableCollection<TerminProstorijeDTO> GetTerminiProstorijeDTOobsByProstorija(Prostorija prostorija)
+        {
+            ObservableCollection<TerminProstorijeDTO> obsTerminProstorijeDTO = new ObservableCollection<TerminProstorijeDTO>();
+            List<TerminProstorije> terminiProstorije = TerminProstorijeRepozitorijumRef.GetTerminiProstorijeAll();
+
+            foreach(TerminProstorije tp in terminiProstorije)
+            {
+                if(tp.IdProstorije1 == prostorija.Id || tp.IdProstorije2 == prostorija.Id)
+                {
+                    obsTerminProstorijeDTO.Add(new TerminProstorijeDTO(tp));
+                }
+            }
+
+            return obsTerminProstorijeDTO;
+        }
+
+
+
         public void ThreadPreraspodelaInventara()
         {
             while (true)
@@ -310,7 +374,8 @@ namespace Servis
                 {
                     TerminProstorije tp = listaTerminaProstorije[i];
                     if (tp.tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiM ||
-                       tp.tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiP)
+                       tp.tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiP ||
+                       tp.tipTerminaProstorije == TipTerminaProstorije.Renoviranje)
                     {
                         if (tp.Kraj < DateTime.Now)
                         {

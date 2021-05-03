@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Servis;
 using Model;
 using System.Collections.ObjectModel;
+using DTO;
 
 namespace Kontroler
 {
@@ -39,6 +40,11 @@ namespace Kontroler
             return terminProstorijeServisObjekat.GetTerminiZauzetostiByProstorijaIdObs(idProstorije1, idProstorije2);
         }
 
+        public ObservableCollection<TerminProstorije> GetTerminiPreraspodeleByProstorijaIdObs(int idProstorije1, int idProstorije2 = -1)
+        {
+            return terminProstorijeServisObjekat.GetTerminiPreraspodeleByProstorijaIdObs(idProstorije1, idProstorije2);
+        }
+
         public TerminProstorije OtkaziTerminProstorije(TerminProstorije terminProstorije)
         {
             return terminProstorijeServisObjekat.OtkaziTerminProstorije(terminProstorije);
@@ -58,7 +64,16 @@ namespace Kontroler
         {
             return terminProstorijeServisObjekat.DodajTrensferZaTerminProstorije(terminProstorije, transferOpreme);
         }
-        
+
+        public ObservableCollection<TerminProstorijeDTO> GetTerminiProstorijeDTOobsByProstorija(Prostorija prostorija)
+        {
+            return terminProstorijeServisObjekat.GetTerminiProstorijeDTOobsByProstorija(prostorija);
+        }
+
+        public bool ZakaziTerminRenoviranjaProstorije(int idProstorije, DateTime pocetak, DateTime kraj)
+        {
+            return terminProstorijeServisObjekat.ZakaziTerminRenoviranjaProstorije(idProstorije, pocetak, kraj);
+        }
 
 
     }

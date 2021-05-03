@@ -33,12 +33,12 @@
             <Frame x:Name="PovrsinaPrikazInvetar1" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"
-                       Background="blue"
+                       Background="White"
                        ></Frame>
             <Frame x:Name="PovrsinaPrikazInvetar2" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="3" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="1"
-                       Background="blue"
+                       Background="White"
                        ></Frame>
 
             <Grid Grid.Column="2" Grid.Row="3">

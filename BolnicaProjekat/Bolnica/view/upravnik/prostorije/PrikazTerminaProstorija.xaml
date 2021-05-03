@@ -1,0 +1,52 @@
+﻿<Window x:Class="Bolnica.view.upravnik.prostorije.PrikazTerminaProstorija"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.upravnik.prostorije"
+        mc:Ignorable="d"
+        Title="PrikazTerminaProstorija" Height="700" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="80" />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition  Height="30"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="nazivProstorije" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="15" FontSize="18" VerticalAlignment="Center" Text="Prostorija"></TextBlock>
+
+
+            <Button Grid.Row="2" Grid.Column="1" Width="100" Height="40"  Click="Zakazi_Termin" Content="Zakazi"></Button>
+            <Button Grid.Row="2" Grid.Column="3" Width="100" Height="40" Click="Otkazi_Termin">Otkazi</Button>
+
+
+            <DataGrid x:Name="DataGridPrikazZauzetihTermina" 
+                Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3"
+                          ItemsSource="{Binding Path=KolekcijaTermina}" 
+                          IsReadOnly="True"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Pocetak" Binding="{Binding Pocetak}" Width="0.5*" />
+                    <DataGridTextColumn Header="Kraj" Binding="{Binding Kraj}" Width="0.5*" />
+                    <DataGridTextColumn Header="Tip Termina" Binding="{Binding TipTermina}" Width="0.5*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Width="100" Height="40" Click="btn_nazad">Nazad</Button>
+        </Grid>
+    </Grid>
+</Window>

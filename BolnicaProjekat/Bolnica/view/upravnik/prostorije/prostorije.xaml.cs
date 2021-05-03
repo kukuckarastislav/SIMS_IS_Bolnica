@@ -217,5 +217,23 @@ namespace Bolnica.view.upravnik.prostorije
             refPrikazBolesnickihProstorija = new view.upravnik.prostorije.PrikazBolesnickihProstorija();
             PovrsinaPrikazRaznihProstorija.Content = refPrikazBolesnickihProstorija;
         }
+
+        private void Termini_Prostorije(object sender, RoutedEventArgs e)
+        {
+            Prostorija pro = null;
+            if (aktivanPrikaz == 1) pro = refPrikazProstorija.GetSelectedProstorija();
+            else if (aktivanPrikaz == 2) pro = refPrikazOperacionihSala.GetSelectedOperacionaSala();
+            else if (aktivanPrikaz == 3) pro = refPrikazSobaZaPregled.GetSelectedSobaZaPregled();
+            else if (aktivanPrikaz == 4) pro = refPrikazBolesnickihProstorija.GetSelectedBolesnickaSoba();
+
+            if (pro == null)
+            {
+                MessageBox.Show("Niste selektovali ni jednu Prostoriju");
+                return;
+            }
+
+            var prikazTerminaProstorije = new PrikazTerminaProstorija(pro);
+            prikazTerminaProstorije.Show();
+        }
     }
 }

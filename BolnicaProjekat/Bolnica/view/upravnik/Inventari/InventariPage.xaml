@@ -82,7 +82,7 @@
                 <Frame x:Name="PovrsinaPrikazInventara" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
-                       Background="blue"
+                       Background="White"
                        ></Frame>
 
             </Grid>

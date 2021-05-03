@@ -32,5 +32,11 @@ namespace Model
             PreraspodelaIzvrsena = preraspodelaIzvrsena;
             ListaTransferOpreme = listaTransferOpreme;
         }
+
+        public bool isPreraspodela()
+        {
+            return (tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiM ||
+                    tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiP);
+        }
     }
 }

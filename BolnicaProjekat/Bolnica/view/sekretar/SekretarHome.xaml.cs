@@ -34,5 +34,9 @@ namespace Bolnica.view.sekretar
         {
             RadnaPovrsina.Content = new view.sekretar.PagePacijenti();
         }
+        private void ListObavestenja_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.PageObavestenja();
+        }
     }
 }

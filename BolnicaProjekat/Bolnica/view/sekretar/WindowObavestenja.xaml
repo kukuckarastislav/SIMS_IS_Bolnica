@@ -1,0 +1,52 @@
+﻿<Window x:Class="Bolnica.view.sekretar.WindowObavestenja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.sekretar"
+        mc:Ignorable="d"
+        Title="WindowObavestenja" Height="450" Width="800">
+    <Grid Background="#ccffbd">
+        <DockPanel>
+            <StackPanel Height="60" HorizontalAlignment="Left" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
+
+                <Button Margin="30 10" Background="white" Click="DodajObavestenje_Click">Dodaj obavestenje</Button>
+                <Button Margin="30 10" Background="white" Click="Odustani_Click">Odustani</Button>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Background="#ccffbd">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15px" >Naslov</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="1" Name="tbNaslov"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15px" >Poruka</TextBlock>
+                <TextBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="5" Grid.RowSpan="4" Name="tbPoruka"
+                TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                VerticalScrollBarVisibility="Visible"/>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

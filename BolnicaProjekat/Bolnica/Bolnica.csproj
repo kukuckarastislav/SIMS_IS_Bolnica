@@ -88,6 +88,7 @@
     <Compile Include="Controller\KorisnickaAktivnostKontroler.cs" />
     <Compile Include="Controller\LekarKontroler.cs" />
     <Compile Include="Controller\NotifikacijaKontroler.cs" />
+    <Compile Include="Controller\ObavestenjeKontroler.cs" />
     <Compile Include="Controller\PacijentKontroler.cs" />
     <Compile Include="Controller\ProstorijeKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Model\MedicinskiKarton.cs" />
     <Compile Include="Model\Nadzornik.cs" />
     <Compile Include="Model\Notifikacija.cs" />
+    <Compile Include="Model\Obavestenje.cs" />
     <Compile Include="Model\Ocena.cs" />
     <Compile Include="Model\Oprema.cs" />
     <Compile Include="Model\Osoblje.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
     <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />
+    <Compile Include="Repository\ObavestenjeRepozitorijum.cs" />
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="Service\KorisnickaAktivnostServis.cs" />
     <Compile Include="Service\LekarServis.cs" />
     <Compile Include="Service\NotifikacijeServis.cs" />
+    <Compile Include="Service\ObavestenjeServis.cs" />
     <Compile Include="Service\PacijentServis.cs" />
     <Compile Include="Service\ProstorijeServis.cs" />
     <Compile Include="Service\ReceptiServis.cs" />
@@ -218,6 +222,9 @@
     <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
       <DependentUpon>KartonPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageObavestenja.xaml.cs">
+      <DependentUpon>PageObavestenja.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
       <DependentUpon>PagePacijenti.xaml</DependentUpon>
     </Compile>
@@ -229,6 +236,9 @@
     </Compile>
     <Compile Include="view\sekretar\WindowIzmenaPodataka.xaml.cs">
       <DependentUpon>WindowIzmenaPodataka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\WindowObavestenja.xaml.cs">
+      <DependentUpon>WindowObavestenja.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\WindowZakazivanjeTermina.xaml.cs">
       <DependentUpon>WindowZakazivanjeTermina.xaml</DependentUpon>
@@ -403,6 +413,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\PageObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PagePacijenti.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -418,6 +432,10 @@
     <Page Include="view\sekretar\WindowIzmenaPodataka.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\WindowObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\WindowZakazivanjeTermina.xaml">
       <SubType>Designer</SubType>
@@ -534,6 +552,7 @@
     <None Include="podaci\inventari.json" />
     <None Include="podaci\lekari.json" />
     <None Include="podaci\notifikacije.json" />
+    <None Include="podaci\obavestenja.json" />
     <None Include="podaci\pacijenti.json" />
     <None Include="podaci\terminProstorije.json" />
     <None Include="podaci\zdravstveneUsluge.json" />

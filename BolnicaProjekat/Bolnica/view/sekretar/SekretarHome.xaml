@@ -13,7 +13,7 @@
 
                     <Button Margin="0 100 0 0" Click="Registracija_Click" Background="#7eca9c" Height="50">Registracija pacijenata</Button>
                     <Button Click="ListPacijenti_Click" Background="#7eca9c" Height="50">Lista pacijenata</Button>
-                    <Button Background="#7eca9c" Height="50">ToDO</Button>
+                    <Button Click="ListObavestenja_Click" Background="#7eca9c" Height="50">Obavestenja</Button>
                     <Button Background="#7eca9c" Height="50">ToDO</Button>
                     <Button Background="#7eca9c" Height="50">ToDO</Button>
                 </StackPanel>

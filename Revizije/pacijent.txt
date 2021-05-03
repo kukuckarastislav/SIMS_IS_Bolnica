@@ -1,0 +1,7 @@
+Mihajlo Ostojic, izvestaj za dijegram aktivnosti pacijenta
+
+-- jedan korak viska za prikaz zakazanih pregleda
+-- fali u azuriranju pregleda action step
+-- unos parametara fali unos komentara
+-- promeniti imena
+-- ostalo deluje uredu

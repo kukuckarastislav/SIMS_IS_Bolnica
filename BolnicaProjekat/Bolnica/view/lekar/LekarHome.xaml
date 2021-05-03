@@ -14,29 +14,37 @@
 
     <Grid>
 
-
         <Grid   x:Name="home_grid"
                 HorizontalAlignment="Right"
                 Width="345"
-                Background="#9E222F">
-            
-            <Grid.RowDefinitions>
-                <RowDefinition Height="9*"/>
-                <RowDefinition Height="166*"/>
-            </Grid.RowDefinitions>
+                Background="#810000">
+
+            <Button x:Name="close_button"
+                    Height="40" 
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Background="#810000"
+                    BorderThickness="0"
+                    Click="close_button_Click">
+                    
+                    <Image Source="/images/lekar-icons/close_icon.png" Width="40"/>
+
+            </Button>
+
 
             <Frame  x:Name="main_frame"
                     Navigated="main_frame_Navigated"
-                    Height="700"
+                    Height="660"
                     Width="345"
                     HorizontalAlignment="Center"
-                    NavigationUIVisibility="Hidden" Grid.RowSpan="2">
+                    VerticalAlignment="Bottom"
+                    NavigationUIVisibility="Hidden">
             </Frame>
 
         </Grid>
 
         <Grid   x:Name="menu_panel"
-                    Width="55"
+                    Width="40"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
 
@@ -48,12 +56,12 @@
                                         Grid.Row="0"
                                         VerticalAlignment="Center"
                                         HorizontalAlignment="Left"
-                                        Height="55"
-                                        Width="55"
+                                        Height="40"
+                                        Width="40"
                                         BorderThickness="0"
                                         Background="#810000">
 
-                        <Image Source="/images/lekar-icons/menu-icon.png" Width="35"/>
+                        <Image Source="/images/lekar-icons/menu-icon.png" Width="25"/>
 
                         <ToggleButton.Triggers>
 
@@ -63,15 +71,20 @@
 
                                     <Storyboard x:Name="HideMenuPanel">
 
-                                        <DoubleAnimation
-                                                
-                                                Storyboard.TargetName="menu_panel"
-                                                Storyboard.TargetProperty="Height"
-                                                BeginTime="0:0:0"
-                                                From="55" To="700"
-                                                Duration="0:0:0.2"
-                                                >
+                                        <DoubleAnimation    x:Name="menu_height_opening"
+                                                            Storyboard.TargetName="menu_panel"
+                                                            Storyboard.TargetProperty="Height"
+                                                            BeginTime="0:0:0"
+                                                            From="40" To="700"
+                                                            Duration="0:0:0.2">
+                                        </DoubleAnimation>
 
+                                        <DoubleAnimation    x:Name="menu_width_opening"                                          
+                                                            Storyboard.TargetName="menu_panel"
+                                                            Storyboard.TargetProperty="Width"
+                                                            BeginTime="0:0:0"
+                                                            From="40" To="140"
+                                                            Duration="0:0:0.2">
                                         </DoubleAnimation>
 
                                     </Storyboard>
@@ -86,15 +99,20 @@
 
                                     <Storyboard x:Name="ShowMenuPanel">
 
-                                        <DoubleAnimation
-                                                
-                                                Storyboard.TargetName="menu_panel"
-                                                Storyboard.TargetProperty="Height"
-                                                BeginTime="0:0:0"
-                                                From="700" To="55"
-                                                Duration="0:0:0.2"
-                                                >
+                                        <DoubleAnimation    x:Name="menu_height_closing"
+                                                            Storyboard.TargetName="menu_panel"
+                                                            Storyboard.TargetProperty="Height"
+                                                            BeginTime="0:0:0"
+                                                            From="700" To="40"
+                                                            Duration="0:0:0.2">
+                                        </DoubleAnimation>
 
+                                        <DoubleAnimation    x:Name="menu_width_closing"
+                                                            Storyboard.TargetName="menu_panel"
+                                                            Storyboard.TargetProperty="Width"
+                                                            BeginTime="0:0:0"
+                                                            From="140" To="40"
+                                                            Duration="0:0:0.2">
                                         </DoubleAnimation>
 
                                     </Storyboard>
@@ -113,92 +131,110 @@
 
                     </ToggleButton>
 
-                </Grid>
+                </Grid >
 
-                <Button  Height="70" 
-                         Background="#810000" 
-                         BorderThickness="1" 
-                         BorderBrush="Black"
-                         Click="RadniKalendarButton">
- 
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="35"/>
-                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Radni Kalendar</TextBlock>
-                    </StackPanel>
-                </Button>
+                <Button Height="45" 
+                        Width="140"
+                        Background="#810000"
+                        Foreground="#eeebdd"
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="RadniKalendarButton">
 
-                <Button  Height="70" 
-                         Background="#810000"
-                         BorderThickness="1" 
-                         BorderBrush="Black"
-                         Click="PacijentiButton">
-
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="35"/>
-                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Pacijenti</TextBlock>
-                    </StackPanel>
-                </Button>
-
-                <Button  Height="70" 
-                         Background="#810000"
-                         BorderThickness="1" 
-                         BorderBrush="Black"
-                         Click="PacijentiButton">
-
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/images/lekar-icons/lekovi-icon.png" Width="35"/>
-                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Lekovi</TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="30" />
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Radni kalendar</TextBlock>
                     </StackPanel>
                 </Button>
 
 
-                <Button  Height="70" 
-                         Background="#810000"
-                         BorderThickness="1" 
-                         BorderBrush="Black"
-                         Click="PacijentiButton">
 
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/images/lekar-icons/prostorije-icon.png" Width="35"/>
-                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Prostorije</TextBlock>
+                <Button Height="45" 
+                        Width="140"
+                        Background="#810000"
+                        Foreground="#eeebdd"
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="PacijentiButton">
+                    
+
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="30" />
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Pacijenti</TextBlock>
                     </StackPanel>
                 </Button>
 
-                <Button  Height="70" 
-                         Background="#810000"
-                         BorderThickness="1" 
-                         BorderBrush="Black"
-                         Click="PacijentiButton">
-
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/images/lekar-icons/forum-icon.png" Width="35"/>
-                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Forum</TextBlock>
+                <Button Height="45" 
+                        Width="140"
+                        Background="#810000"
+                        Foreground="#eeebdd"
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="PacijentiButton">
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/lekar-icons/lekovi-icon.png" Width="30" />
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Radni kalendar</TextBlock>
                     </StackPanel>
                 </Button>
 
-                <Button  Height="70" 
-                                 Background="#810000"
-                                 BorderThickness="1" 
-                                 BorderBrush="Black"
-                                 Click="PacijentiButton">
 
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/images/lekar-icons/notification-icon.png" Width="35"/>
-                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Notifikacije</TextBlock>
+                <Button Height="45" 
+                        Width="140"
+                        Background="#810000"
+                        Foreground="#eeebdd"
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="PacijentiButton">
+
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/lekar-icons/prostorije-icon.png" Width="30" />
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Prostorije</TextBlock>
                     </StackPanel>
                 </Button>
 
-                
-                   <Button  Height="70" 
-                            Margin="0,50,0,0"
-                                 Background="#810000"
-                                 BorderThickness="1" 
-                                 BorderBrush="Black"
-                                 Click="LogOutButtton">
+                <Button     Height="45" 
+                            Width="140"
+                            Background="#810000"
+                            Foreground="#eeebdd"
+                            BorderThickness="1" 
+                            BorderBrush="Black"
+                            Click="PacijentiButton">
 
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="/images/lekar-icons/logout-icon.png" Width="35"/>
-                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Odjavi se</TextBlock>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/lekar-icons/forum-icon.png" Width="30" />
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Forum</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button     Height="45" 
+                            Width="140"
+                            Background="#810000"
+                            Foreground="#eeebdd"
+                            BorderThickness="1" 
+                            BorderBrush="Black"
+                            Click="PacijentiButton">
+
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/lekar-icons/notification-icon.png" Width="30" />
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Notifikacije</TextBlock>
+                    </StackPanel>
+                </Button>
+
+
+                <Button     Height="45" 
+                            Width="140"
+                            Background="#810000"
+                            Foreground="#eeebdd"
+                            BorderThickness="1" 
+                            BorderBrush="Black"
+                            Click="LogOutButtton">
+
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/lekar-icons/logout-icon.png" Width="30" />
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Odjavi se</TextBlock>
                     </StackPanel>
                 </Button>
 

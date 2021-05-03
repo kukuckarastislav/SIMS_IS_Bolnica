@@ -51,19 +51,6 @@ namespace Bolnica.view.lekar.pacijenti
             headerPrezime.Text = IzabraniPacijent.Prezime;
             headerJMBG.Text = IzabraniPacijent.Jmbg;
 
-
-
-
-
-            //preglediLista = IzabraniPacijent.MedicinskiKarton.GetPregled();
-            // preglediKolekcija = new ObservableCollection<Pregled>();
-
-            //  foreach (Pregled p in preglediLista) { preglediKolekcija.Add(p); }
-            //this.listaPregledaPacijenta.ItemsSource = preglediKolekcija;
-
-
-
-
         }
 
         public Pacijent GetIzabraniPacijenta { get; set; }
@@ -74,12 +61,6 @@ namespace Bolnica.view.lekar.pacijenti
 
         }
 
-        private void Kreiranje_Pregleda(object sender, RoutedEventArgs e)
-        {
-            var kreiranje_pregleda_forma = new Bolnica.view.lekar.pacijenti.KreiranjePregledaForma(IzabraniPacijent);
-            kreiranje_pregleda_forma.Show();
-            //  Model.Pregled kreiraniPregled = new Model.Pregled(; 
-        }
 
         private void BrisanjePregleda(object sender, RoutedEventArgs e)
         {

@@ -33,6 +33,7 @@ namespace Bolnica.view.lekar
             this.Lekar = Lekar;
             InitializeComponent();
 
+            Menu_Btn.IsChecked = true;
             refLoginPage = new view.lekar.LoginPage(Lekar);
             main_frame.Navigate(refLoginPage);
 
@@ -80,14 +81,11 @@ namespace Bolnica.view.lekar
             }
 
 
+        }
 
-
-
-
-
-
-
-
+        private void close_button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

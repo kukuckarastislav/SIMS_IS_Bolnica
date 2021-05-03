@@ -5,129 +5,212 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.lekar"
         mc:Ignorable="d"
-        Title="LekarHome" Height="700" Width="400"
-        Background="#810000" FontFamily="Open Sans" FontSize="12">
+        Title="LekarHome" 
+        Height="700"
+        Width="400"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#810000">
 
     <Grid>
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible">
 
-            <DockPanel x:Name="DockGornji" Visibility="Hidden">
-                <Grid DockPanel.Dock="Bottom" Width="400" Height="80" HorizontalAlignment="Center">
-                    <StackPanel Width="390" Orientation="Horizontal"  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid   x:Name="home_grid"
+                HorizontalAlignment="Right"
+                Width="345"
+                Background="#9E222F">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="166*"/>
+            </Grid.RowDefinitions>
 
-                        <Button  Height="70" Width="70" Margin="5"
-                                  Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5"/>
-                                </Style>
-                            </Button.Resources>
+            <Frame  x:Name="main_frame"
+                    Navigated="main_frame_Navigated"
+                    Height="700"
+                    Width="345"
+                    HorizontalAlignment="Center"
+                    NavigationUIVisibility="Hidden" Grid.RowSpan="2">
+            </Frame>
 
-                            <StackPanel Orientation="Vertical">
-                                <Image Margin ="2" Source="/images/lekar-icons/back-icon.png" Width="25" />
-                                <TextBlock TextWrapping="Wrap" Padding="2" VerticalAlignment="Center" TextAlignment="Center"
-                                           FontWeight="SemiBold" Text="Nazad"/>
-                            </StackPanel>
-                        </Button>
+        </Grid>
 
+        <Grid   x:Name="menu_panel"
+                    Width="55"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top">
+
+            <StackPanel x:Name="menu_items_panel">
+
+                <!-- ToggleButton - HamburgerMenu -->
+                <Grid >
+                    <ToggleButton   x:Name="Menu_Btn"
+                                        Grid.Row="0"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Left"
+                                        Height="55"
+                                        Width="55"
+                                        BorderThickness="0"
+                                        Background="#810000">
+
+                        <Image Source="/images/lekar-icons/menu-icon.png" Width="35"/>
+
+                        <ToggleButton.Triggers>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+
+                                <BeginStoryboard>
+
+                                    <Storyboard x:Name="HideMenuPanel">
+
+                                        <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="menu_panel"
+                                                Storyboard.TargetProperty="Height"
+                                                BeginTime="0:0:0"
+                                                From="55" To="700"
+                                                Duration="0:0:0.2"
+                                                >
+
+                                        </DoubleAnimation>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+                            </EventTrigger>
+
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+
+                                <BeginStoryboard>
+
+                                    <Storyboard x:Name="ShowMenuPanel">
+
+                                        <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="menu_panel"
+                                                Storyboard.TargetProperty="Height"
+                                                BeginTime="0:0:0"
+                                                From="700" To="55"
+                                                Duration="0:0:0.2"
+                                                >
+
+                                        </DoubleAnimation>
+
+                                    </Storyboard>
+
+                                </BeginStoryboard>
+
+
+
+                            </EventTrigger>
+
+
+
+
+                        </ToggleButton.Triggers>
+
+
+                    </ToggleButton>
+
+                </Grid>
+
+                <Button  Height="70" 
+                         Background="#810000" 
+                         BorderThickness="1" 
+                         BorderBrush="Black"
+                         Click="RadniKalendarButton">
+ 
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="35"/>
+                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Radni Kalendar</TextBlock>
                     </StackPanel>
-                </Grid>
-            </DockPanel>
+                </Button>
 
-            <DockPanel x:Name="DockCentar" Margin="0,0,0,0">
+                <Button  Height="70" 
+                         Background="#810000"
+                         BorderThickness="1" 
+                         BorderBrush="Black"
+                         Click="PacijentiButton">
 
-                <Grid Background="#9E222F" Width="400" Height="510" HorizontalAlignment="Center">
-                    <Frame DockPanel.Dock="Bottom" x:Name="RadnaPovrsinaLekar" NavigationUIVisibility="Hidden"></Frame>
-                </Grid>
-
-
-
-               
-            </DockPanel>
-
-            <DockPanel x:Name="DockDonji" Visibility="Hidden">
-                <Grid DockPanel.Dock="Bottom" Width="400" Height="80" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-
-                        <Button  Height="70" Width="70" Margin="4" 
-                                  Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5"/>
-                                </Style>
-                            </Button.Resources>
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="25" />
-                                <TextBlock TextWrapping="Wrap" Padding="2" VerticalAlignment="Center" TextAlignment="Center"
-                                           FontWeight="SemiBold" Text="Radni Kalendar"/>
-                            </StackPanel>
-                        </Button>
-
-                        <Button  Height="70" Width="70" Margin="4" 
-                                  Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5"/>
-                                </Style>
-                            </Button.Resources>
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="25" />
-                                <TextBlock TextWrapping="Wrap" Padding="2" VerticalAlignment="Center" TextAlignment="Center"
-                                           FontWeight="SemiBold" Text="Pacijenti"/>
-                            </StackPanel>
-                        </Button>
-
-                        <Button  Height="70" Width="70" Margin="4" 
-                                  Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5"/>
-                                </Style>
-                            </Button.Resources>
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="/images/lekar-icons/lekovi-icon.png" Width="25" />
-                                <TextBlock TextWrapping="Wrap" Padding="2" VerticalAlignment="Center" TextAlignment="Center"
-                                           FontWeight="SemiBold" Text="Lekovi"/>
-                            </StackPanel>
-                        </Button>
-
-                        <Button  Height="70" Width="70" Margin="4" 
-                                  Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5"/>
-                                </Style>
-                            </Button.Resources>
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="/images/lekar-icons/prostorije-icon.png" Width="25" />
-                                <TextBlock TextWrapping="Wrap" Padding="2" VerticalAlignment="Center" TextAlignment="Center"
-                                           FontWeight="SemiBold" Text="Prostorije"/>
-                            </StackPanel>
-                        </Button>
-
-                        <Button  Height="70" Width="70" Margin="4" 
-                                  Background="#eeebdd" BorderThickness="1" BorderBrush="Black">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="5"/>
-                                </Style>
-                            </Button.Resources>
-                            <StackPanel Orientation="Vertical">
-                                <Image Source="/images/lekar-icons/forum-icon.png" Width="25" />
-                                <TextBlock TextWrapping="Wrap" Padding="2" VerticalAlignment="Center" TextAlignment="Center"
-                                           FontWeight="SemiBold" Text="Forum"/>
-                            </StackPanel>
-                        </Button>
-
-
-
-
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="35"/>
+                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Pacijenti</TextBlock>
                     </StackPanel>
-                </Grid>
-            </DockPanel>
+                </Button>
 
-        </StackPanel>
+                <Button  Height="70" 
+                         Background="#810000"
+                         BorderThickness="1" 
+                         BorderBrush="Black"
+                         Click="PacijentiButton">
+
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/images/lekar-icons/lekovi-icon.png" Width="35"/>
+                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Lekovi</TextBlock>
+                    </StackPanel>
+                </Button>
+
+
+                <Button  Height="70" 
+                         Background="#810000"
+                         BorderThickness="1" 
+                         BorderBrush="Black"
+                         Click="PacijentiButton">
+
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/images/lekar-icons/prostorije-icon.png" Width="35"/>
+                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Prostorije</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button  Height="70" 
+                         Background="#810000"
+                         BorderThickness="1" 
+                         BorderBrush="Black"
+                         Click="PacijentiButton">
+
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/images/lekar-icons/forum-icon.png" Width="35"/>
+                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Forum</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                <Button  Height="70" 
+                                 Background="#810000"
+                                 BorderThickness="1" 
+                                 BorderBrush="Black"
+                                 Click="PacijentiButton">
+
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/images/lekar-icons/notification-icon.png" Width="35"/>
+                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Notifikacije</TextBlock>
+                    </StackPanel>
+                </Button>
+
+                
+                   <Button  Height="70" 
+                            Margin="0,50,0,0"
+                                 Background="#810000"
+                                 BorderThickness="1" 
+                                 BorderBrush="Black"
+                                 Click="LogOutButtton">
+
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="/images/lekar-icons/logout-icon.png" Width="35"/>
+                        <TextBlock FontSize="9" Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold" TextWrapping="Wrap" TextAlignment="Center">Odjavi se</TextBlock>
+                    </StackPanel>
+                </Button>
+
+
+
+
+            </StackPanel>
+
+
+
+
+        </Grid>
 
 
     </Grid>

@@ -20,8 +20,13 @@ namespace Bolnica.view.lekar
     /// </summary>
     public partial class LekarHome : Window
     {
+
+        // MENU - PAGES
+        private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
+        private view.lekar.Notifikacije refNotifikacije;
         private view.lekar.LoginPage refLoginPage;
+
         public Lekar Lekar;
         public LekarHome(Lekar Lekar)
         {
@@ -29,9 +34,60 @@ namespace Bolnica.view.lekar
             InitializeComponent();
 
             refLoginPage = new view.lekar.LoginPage(Lekar);
-            RadnaPovrsinaLekar.Navigate(refLoginPage);
+            main_frame.Navigate(refLoginPage);
+
+
         }
 
 
+        private void RadniKalendarButton(object sender, RoutedEventArgs e)
+        {
+            refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(Lekar);
+            main_frame.Navigate(refRadniKalendar);
+
+        }
+
+        private void PacijentiButton(object sender, RoutedEventArgs e)
+        {
+            refPrikazPacijenataZaLekar = new view.lekar.pacijenti.PrikazPacijenata(Lekar);
+            main_frame.Navigate(refPrikazPacijenataZaLekar);
+        }
+
+
+        private void NotifikacijeButton(object sender, RoutedEventArgs e)
+        {
+            refNotifikacije = new view.lekar.Notifikacije(Lekar);
+            main_frame.Navigate(refNotifikacije);
+        }
+
+        private void LogOutButtton(object sender, RoutedEventArgs e)
+        {
+            refLoginPage = new view.lekar.LoginPage(Lekar);
+            main_frame.Navigate(refLoginPage);
+        }
+
+        private void main_frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            Type pageType = e.Content.GetType();
+
+            if (pageType == typeof(LoginPage))
+            {
+                menu_items_panel.Visibility = System.Windows.Visibility.Hidden;
+            }
+            else
+            {
+                menu_items_panel.Visibility = System.Windows.Visibility.Visible;
+            }
+
+
+
+
+
+
+
+
+
+
+        }
     }
 }

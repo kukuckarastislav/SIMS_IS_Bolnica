@@ -16,8 +16,7 @@
                 <StackPanel Orientation="Horizontal" Height="80" VerticalAlignment="Top" HorizontalAlignment="Left">
 
                     <Button  Height="36" Width="36" Margin="20,0,30,0"
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="GlavniMeniButton">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Click="GlavniMeniButton">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5"/>

@@ -173,9 +173,6 @@
     <Compile Include="view\lekar\pacijenti\IzdavanjeRecepta.xaml.cs">
       <DependentUpon>IzdavanjeRecepta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\lekar\pacijenti\KreiranjePregledaForma.xaml.cs">
-      <DependentUpon>KreiranjePregledaForma.xaml</DependentUpon>
-    </Compile>
     <Compile Include="view\lekar\pacijenti\OsnovniPodaci.xaml.cs">
       <DependentUpon>OsnovniPodaci.xaml</DependentUpon>
     </Compile>
@@ -343,10 +340,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\lekar\pacijenti\IzdavanjeRecepta.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\lekar\pacijenti\KreiranjePregledaForma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -557,6 +550,7 @@
     <Resource Include="images\call.png" />
     <Resource Include="images\folder1.png" />
     <Resource Include="images\krug.png" />
+    <Resource Include="images\lekar-icons\menu-icon.png" />
     <Resource Include="images\mm.png" />
   </ItemGroup>
   <ItemGroup>
@@ -655,6 +649,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\lekar-icons\usluga-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\evidentiranje-usluge-icon.png" />
+    <Resource Include="images\lekar-icons\notification-icon.png" />
+    <Resource Include="images\lekar-icons\prikaz-usluge-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="view\lekar\0_pocetak\" />
+    <Folder Include="view\lekar\1_radni_kalendar\" />
+    <Folder Include="view\lekar\2_pacijenti\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

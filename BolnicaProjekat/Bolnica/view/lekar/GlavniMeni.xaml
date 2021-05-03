@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:Bolnica.view.lekar"
       mc:Ignorable="d" 
  d:DesignHeight="510" d:DesignWidth="400" Background="#630000"
+      Margin="-55,0,0,0"
       Title="GlavniMeni">
     <Grid VerticalAlignment="Center" Name="GlavniMeni_CenterGrid">
 
@@ -170,7 +171,6 @@
         <!-- Meni - Button7 - Logout -->
         <Button Grid.Column="2" Grid.Row="10" Grid.RowSpan="2" Height="35" VerticalAlignment="Center" 
                 Background="#e05b49" BorderThickness="1" BorderBrush="Black"
-                Click="LogOutButtton"
                 >
             <Button.Resources>
                 <Style TargetType="Border">

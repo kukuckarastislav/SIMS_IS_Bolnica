@@ -27,10 +27,7 @@ namespace Bolnica.view.lekar
         {
             this.Lekar = Lekar;
             InitializeComponent();
-
-
         }
-
         private void LoginButton(object sender, RoutedEventArgs e)
         {
             refGlavniMeni = new GlavniMeni(Lekar);

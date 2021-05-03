@@ -58,7 +58,7 @@ namespace Bolnica.view.lekar.pacijenti
             }
         }
 
-        private void GlavniMeniButton(object sender, RoutedEventArgs e)
+      private void GlavniMeniButton(object sender, RoutedEventArgs e)
         {
             if(this.Lekar!=null)
             {

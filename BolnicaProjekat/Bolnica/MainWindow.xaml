@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica"
         mc:Ignorable="d"
-        Title="MainWindow" Height="524" Width="505" Closing="Window_Closing">
+        Title="MainWindow" 
+        Height="524" 
+        Width="505"
+        ResizeMode="NoResize"
+        Closing="Window_Closing"
+        WindowStartupLocation="CenterScreen"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="247"/>

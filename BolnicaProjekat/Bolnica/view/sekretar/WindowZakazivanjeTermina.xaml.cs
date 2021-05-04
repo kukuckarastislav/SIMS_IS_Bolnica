@@ -28,13 +28,13 @@ namespace Bolnica.view.sekretar
     public partial class WindowZakazivanjeTermina : Window
     {
 
-        private List<Model.ZdravstvenaUsluga> PreglediList { get; set; }
+        private List<ZdravstvenaUsluga> PreglediList { get; set; }
         private ObservableCollection<ZdravstvenaUsluga> Pregledi { get; set; }
         private DTOUslugaLekar StaraUsluga;
         private DateTime date;
         //private Lekar OdabraniLekar;
 
-        private ObservableCollection<Model.Lekar> listaLekari;
+        private ObservableCollection<Lekar> listaLekari;
         private ObservableCollection<DTOUslugaLekar> stariTermini;
         private Pacijent pacijent;
         public WindowZakazivanjeTermina(Pacijent pacijent, DTOUslugaLekar ul, ObservableCollection<DTOUslugaLekar> termini)

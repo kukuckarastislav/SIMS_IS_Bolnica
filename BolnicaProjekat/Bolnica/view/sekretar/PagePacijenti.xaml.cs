@@ -24,15 +24,15 @@ namespace Bolnica.view.sekretar
     /// </summary>
     public partial class PagePacijenti : Page
     {
-        public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
-        public ObservableCollection<Model.Pacijent> listaPacijenata;
+        public ObservableCollection<Pacijent> KolekcijaPacijenata { get; set; }
+        public ObservableCollection<Pacijent> listaPacijenata;
         
         public PagePacijenti()
         {
            //KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             InitializeComponent();
 
-            KolekcijaPacijenata = new ObservableCollection<Model.Pacijent>();
+            KolekcijaPacijenata = new ObservableCollection<Pacijent>();
             PacijentKontroler kontorler = new PacijentKontroler();
             listaPacijenata = kontorler.GetAll();
 
@@ -48,7 +48,7 @@ namespace Bolnica.view.sekretar
         private void IzmeniPacijenta_Click(object sender, RoutedEventArgs e)
         {
 
-            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
             if (pacijent == null) return;
 
             var izmeniPacijentaWindow = new Bolnica.view.sekretar.WindowIzmenaPodataka(pacijent, DataGridPrikazPacijenata);
@@ -58,7 +58,7 @@ namespace Bolnica.view.sekretar
 
         private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
             if (pacijent == null) return;
 
             var zakaziTerminPage = new WindowZakazivanjeTermina(pacijent,null,null);
@@ -69,7 +69,7 @@ namespace Bolnica.view.sekretar
 
         private void ObrisiPacijenta_Click(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
             if (pacijent == null) return;
 
             PacijentKontroler kontroler = new PacijentKontroler();
@@ -80,7 +80,7 @@ namespace Bolnica.view.sekretar
         
         private void PogledajTermine_Click(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
             if (pacijent == null) return;
 
             var zakazaniTerminiPage = new ZakazaniTermini(pacijent);
@@ -89,7 +89,7 @@ namespace Bolnica.view.sekretar
 
         private void OtvoriMedicinskiKarton_Click(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
             if (pacijent == null) return;
 
             var medicinskiKartonWindow = new KartonPacijenta(pacijent);

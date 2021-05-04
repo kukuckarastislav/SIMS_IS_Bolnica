@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,7 @@ namespace Bolnica.view.upravnik.Lekovi
         private void potvrdi_Click(object sender, RoutedEventArgs e)
         {
             int id = Repozitorijum.LekoviRepozitorijum.GetInstance.GetAll().Count;
-            Model.Lek lek = new Model.Lek(id+1,inputSifra.Text,inputNaziv.Text,false,inputOpis.Text,Convert.ToInt32(inputKolicina.Text),Convert.ToDouble(inputCena.Text),0);  //ovaj obj se ne pravi ovdje ali neka ga zasad
+            Lek lek = new Lek(id+1,inputSifra.Text,inputNaziv.Text,false,inputOpis.Text,Convert.ToInt32(inputKolicina.Text),Convert.ToDouble(inputCena.Text),0);  //ovaj obj se ne pravi ovdje ali neka ga zasad
             Kontroler.LekoviKontroler Kontroler = new Kontroler.LekoviKontroler();
             Kontroler.DodajLek(lek);
             this.Close();

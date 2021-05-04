@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -23,7 +24,7 @@ namespace Bolnica.view.sekretar
     public partial class ZakazivanjeTermina : Page
     {
 
-        private ObservableCollection<Model.Lekar> listaLekari;
+        private ObservableCollection<Lekar> listaLekari;
         public ZakazivanjeTermina()
         {
             InitializeComponent();

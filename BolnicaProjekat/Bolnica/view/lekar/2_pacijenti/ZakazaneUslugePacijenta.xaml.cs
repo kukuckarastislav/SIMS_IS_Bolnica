@@ -25,7 +25,7 @@ namespace Bolnica.view.lekar.pacijenti
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public ZakazaneUslugePacijenta(Lekar Lekar, Model.Pacijent IzabraniPacijent)
+        public ZakazaneUslugePacijenta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;

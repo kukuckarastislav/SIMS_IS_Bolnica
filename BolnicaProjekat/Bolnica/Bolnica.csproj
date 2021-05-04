@@ -92,6 +92,7 @@
     <Compile Include="Controller\ObavestenjeKontroler.cs" />
     <Compile Include="Controller\PacijentKontroler.cs" />
     <Compile Include="Controller\ProstorijeKontroler.cs" />
+    <Compile Include="Controller\ReceptKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="Model\DTORadniKalendar.cs" />
+    <Compile Include="Model\DTORecept.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />
     <Compile Include="Model\Inventar.cs" />
     <Compile Include="Model\Korisnik.cs" />
@@ -142,6 +144,7 @@
     <Compile Include="Repository\ObavestenjeRepozitorijum.cs" />
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
+    <Compile Include="Repository\ReceptRepozitorijum.cs" />
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
     <Compile Include="Repository\TerminProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
@@ -156,6 +159,7 @@
     <Compile Include="Service\PacijentServis.cs" />
     <Compile Include="Service\ProstorijeServis.cs" />
     <Compile Include="Service\ReceptiServis.cs" />
+    <Compile Include="Service\ReceptServis.cs" />
     <Compile Include="Service\SekretarServis.cs" />
     <Compile Include="Service\TerminProstorijeServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />

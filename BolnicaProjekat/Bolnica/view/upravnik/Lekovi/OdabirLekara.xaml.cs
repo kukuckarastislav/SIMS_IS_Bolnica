@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Model;
 
 namespace Bolnica.view.upravnik.Lekovi
 {
@@ -20,12 +21,12 @@ namespace Bolnica.view.upravnik.Lekovi
     /// </summary>
     public partial class OdabirLekara : Window
     {
-        public Model.Lek Lek { get; set; }
-        public ObservableCollection<Model.Lekar> Lekari { get; set; }
-        public ObservableCollection<Model.Lekar> OdabraniLekari { get; set; }
+        public Lek Lek { get; set; }
+        public ObservableCollection<Lekar> Lekari { get; set; }
+        public ObservableCollection<Lekar> OdabraniLekari { get; set; }
 
 
-        public OdabirLekara(Model.Lek OdabraniLek)
+        public OdabirLekara(Lek OdabraniLek)
         {
             InitializeComponent();
             Lekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
@@ -40,8 +41,8 @@ namespace Bolnica.view.upravnik.Lekovi
 
         private void Posalji_Button_Click(object sender, RoutedEventArgs e)
         {
-            OdabraniLekari = new ObservableCollection<Model.Lekar>();
-            foreach (Model.Lekar l in listaLekara.SelectedItems)
+            OdabraniLekari = new ObservableCollection<Lekar>();
+            foreach (Lekar l in listaLekara.SelectedItems)
             {
                 OdabraniLekari.Add(l);
             }

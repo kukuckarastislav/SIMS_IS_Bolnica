@@ -41,7 +41,7 @@ namespace Bolnica.view.lekar.pacijenti
 
 
 
-        public PrikazMedicinskiKarton(Lekar Lekar, Model.Pacijent IzabraniPacijent)
+        public PrikazMedicinskiKarton(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             this.IzabraniPacijent = IzabraniPacijent;
             this.Lekar = Lekar;
@@ -105,7 +105,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refTerapijaPacijenta = new view.lekar.pacijenti.TerapijaPacijenta(IzabraniPacijent);
+                refTerapijaPacijenta = new view.lekar.pacijenti.TerapijaPacijenta(Lekar,IzabraniPacijent);
                 NavigationService.Navigate(refTerapijaPacijenta);
             }
 

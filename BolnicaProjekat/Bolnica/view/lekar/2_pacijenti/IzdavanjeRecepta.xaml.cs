@@ -23,16 +23,18 @@ namespace Bolnica.view.lekar.pacijenti
     public partial class IzdavanjeRecepta : Page
     {
         public Pacijent IzabraniPacijent { get; set; }
-        public ObservableCollection<Recept> Recepti;
-        public Lek OdabraniLek;
+        public ObservableCollection<Recept> Recepti { get; set; }
+        public ObservableCollection<Lek> Lekovi { get; set; }
+        public Lek OdabraniLek { get; set; }
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public IzdavanjeRecepta(Lekar Lekar, Model.Pacijent IzabraniPacijent)
+        public IzdavanjeRecepta(Lekar Lekar,Pacijent IzabraniPacijent)
         {
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
+
 
             headerIme.Text = IzabraniPacijent.Ime;
             headerPrezime.Text = IzabraniPacijent.Prezime;

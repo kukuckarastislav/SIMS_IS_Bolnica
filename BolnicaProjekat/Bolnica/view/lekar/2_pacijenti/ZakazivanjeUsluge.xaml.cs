@@ -36,7 +36,7 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
 
-        public ZakazivanjeUsluge(Lekar Lekar, Model.Pacijent IzabraniPacijent)
+        public ZakazivanjeUsluge(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             this.Lekar = Lekar;
             ProstorijeKontrolerObjekat = new ProstorijeKontroler();

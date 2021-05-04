@@ -36,7 +36,7 @@ namespace Bolnica.view.sekretar
 
         private void ObrisiObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            Obavestenje obavestenje = this.listObavestenja.SelectedItem as Model.Obavestenje;
+            Obavestenje obavestenje = this.listObavestenja.SelectedItem as Obavestenje;
             if (obavestenje == null) return;
 
             ObavestenjeKontroler kontroler = new ObavestenjeKontroler();

@@ -31,7 +31,7 @@ namespace Bolnica.view.lekar.pacijenti
         // KORISNICI
         public Lekar Lekar;
         // KOLEKCIJE
-        public ObservableCollection<Model.Pacijent> KolekcijaPacijenata { get; set; }
+        public ObservableCollection<Pacijent> KolekcijaPacijenata { get; set; }
 
 
         public PrikazPacijenata(Lekar Lekar)
@@ -43,14 +43,14 @@ namespace Bolnica.view.lekar.pacijenti
   
         }
 
-        public Model.Pacijent GetSelectedPacijentZaLekar() {
-            Model.Pacijent pacijent = DataGridPrikazPacijenataZaLekar.SelectedItem as Model.Pacijent;
+        public Pacijent GetSelectedPacijentZaLekar() {
+            Pacijent pacijent = DataGridPrikazPacijenataZaLekar.SelectedItem as Pacijent;
             return pacijent;
         }
 
         private void MedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent IzabraniPacijent = GetSelectedPacijentZaLekar();
+            Pacijent IzabraniPacijent = GetSelectedPacijentZaLekar();
             if ( IzabraniPacijent != null & this.Lekar !=null )
             {
                 refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);

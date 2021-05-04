@@ -22,8 +22,8 @@ namespace Bolnica.view.upravnik.Lekovi
     /// </summary>
     public partial class PrikazNeodobrenihLekova : Page
     {
-        public ObservableCollection<Model.Lek> KolekcijaLekovi { get; set; }
-        public Model.Lek OdabraniLek { get; set; }
+        public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
+        public Lek OdabraniLek { get; set; }
         public PrikazNeodobrenihLekova()
         {
             InitializeComponent();

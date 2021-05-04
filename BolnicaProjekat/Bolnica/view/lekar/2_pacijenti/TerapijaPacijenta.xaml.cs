@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Model;
+using Servis;
+using Kontroler;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +24,30 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class TerapijaPacijenta : Page
     {
-        public TerapijaPacijenta(Model.Pacijent IzabraniPacijent)
+        public Pacijent IzabraniPacijent { get; set; }
+        public Lekar Lekar { get; set; }
+        public ObservableCollection<Recept> Recepti { get; set; }
+        public TerapijaPacijenta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             InitializeComponent();
+            this.Lekar = Lekar;
+            this.IzabraniPacijent = IzabraniPacijent;
+
+
+
+
+           //    Recepti = KontrolerRecept.GetPacijentovihRecepta(IzabraniPacijent.Id);
+
+            /* Recept(int id, 
+             *        int idLekara, 
+             *        int idPacijenta, 
+             *        int idLeka, 
+             *        DateTime datumPropisivanja, 
+             *        DateTime datumIsteka,
+             *        bool oslobodjenOdParticipacije, 
+             *        string opisKoriscenja)
+             */
+            this.DataGridRecepti.ItemsSource = Recepti;
         }
     }
 }

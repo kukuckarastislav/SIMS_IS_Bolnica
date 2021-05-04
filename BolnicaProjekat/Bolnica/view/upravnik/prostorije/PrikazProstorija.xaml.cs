@@ -41,7 +41,7 @@ namespace Bolnica.view.upravnik.prostorije
             this.DataGridPrikazProstorija.ItemsSource = KolekcijaProstorija;
         }
 
-        public Model.Prostorija GetSelectedProstorija()
+        public Prostorija GetSelectedProstorija()
         {
             
             return (DataGridPrikazProstorija.SelectedItem as Prostorija);

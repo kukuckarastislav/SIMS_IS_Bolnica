@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.Model;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -26,15 +27,17 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public Pacijent IzabraniPacijent { get; set; }
         public Lekar Lekar { get; set; }
-        public ObservableCollection<Recept> Recepti { get; set; }
+        public ObservableCollection<DTORecept> ListaRecepti { get; set; }
+        public MedicinskiKarton MedicinskiKarton { get; set; }
+        public string Alergeni;
+        private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         public TerapijaPacijenta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             InitializeComponent();
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
-
-
-
+            ListaRecepti = ReceptServis.GetPacijentovihReceptaDTO(IzabraniPacijent.Id);
+            Alergeni = Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(IzabraniPacijent.Id).MedicinskiKarton.Alergeni;
 
            //    Recepti = KontrolerRecept.GetPacijentovihRecepta(IzabraniPacijent.Id);
 
@@ -47,7 +50,17 @@ namespace Bolnica.view.lekar.pacijenti
              *        bool oslobodjenOdParticipacije, 
              *        string opisKoriscenja)
              */
-            this.DataGridRecepti.ItemsSource = Recepti;
+            this.DataGridRecepti.ItemsSource = ListaRecepti;
+            this.AlergeniTextBox.Text = Alergeni;
+        }
+
+        private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
+                NavigationService.Navigate(refPrikazMedicinskiKarton);
+            }
         }
     }
 }

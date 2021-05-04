@@ -30,7 +30,7 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.TerapijaPacijenta refTerapijaPacijenta;
         private view.lekar.pacijenti.IzdavanjeRecepta refIzdavanjeRecepta;
         private view.lekar.pacijenti.ZakazaneUslugePacijenta refZakazaneUslugePacijenta;
-        private view.lekar._2_pacijenti.UpucivanjePacijent refUpucivanjePacijenta;
+        private view.lekar.pacijenti.UpucivanjePacijent refUpucivanjePacijenta;
         // KORISNICI
         public Pacijent IzabraniPacijent { get; set; }
         public Lekar Lekar;
@@ -125,6 +125,15 @@ namespace Bolnica.view.lekar.pacijenti
             refPrikazPacijenata = new view.lekar.pacijenti.PrikazPacijenata(Lekar);
             NavigationService.Navigate(refPrikazPacijenata);
 
+        }
+
+        private void UpucivanjeButton(object sender, RoutedEventArgs e)
+        {
+            if (IzabraniPacijent != null)
+            {
+                refUpucivanjePacijenta = new view.lekar.pacijenti.UpucivanjePacijent(Lekar, IzabraniPacijent);
+                NavigationService.Navigate(refUpucivanjePacijenta);
+            }
         }
     }
 }

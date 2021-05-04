@@ -639,9 +639,11 @@
     <None Include="packages.config" />
     <None Include="podaci\inventari.json" />
     <None Include="podaci\lekari.json" />
+    <None Include="podaci\lekovi.json" />
     <None Include="podaci\notifikacije.json" />
     <None Include="podaci\obavestenja.json" />
     <None Include="podaci\pacijenti.json" />
+    <None Include="podaci\recepti.json" />
     <None Include="podaci\terminProstorije.json" />
     <None Include="podaci\zdravstveneUsluge.json" />
     <None Include="podaci\prostorije.json" />

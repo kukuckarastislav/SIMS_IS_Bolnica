@@ -87,6 +87,37 @@
                 Grid.Column="1" Grid.ColumnSpan="5"
                 Margin="-10,10,-10,-10"/>
 
+        <!-- HEADER(start) - BACK TO: Medicinski Karton -->
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Orientation="Horizontal">
+            <Button  Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                Click="PrikazMedicinskiKartonButton">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" Width="140">
+                    <Image Source="/images/lekar-icons/back-icon.png" Width="25" Margin="3,5,10,5"/>
+                    <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Osnovni podaci</TextBlock>
+                </StackPanel>
+            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Content="Medicinski karton"/>
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Foreground="#eeebdd" Content="Pacijent:" Margin="40,0,0,0"/>
+                <TextBlock x:Name="headerIme"           FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+                <TextBlock x:Name="headerPrezime"       FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5" Orientation="Horizontal">
+            <Label     Content="JMBG:"         FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="25,20,0,0" />
+            <TextBlock x:Name="headerJMBG"   FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="0,20,0,0" Padding="5"/>
+        </StackPanel>
+        <!-- HEADER(end) - BACK TO: Medicinski Karton -->
+
+
+
+
         <StackPanel Grid.Row="6" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="-10,10,0,-20">
 
             <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="3">
@@ -98,30 +129,39 @@
                     Grid.Row="4" Grid.RowSpan="1"
                     Grid.Column="1" Grid.ColumnSpan="5"/>
 
-                <DataGrid x:Name="DataGridRecepti" 
-                          ItemsSource="{Binding Path=Recepti}" 
-                          IsReadOnly="True"
-                          SelectionMode="Single" 
-                          AutoGenerateColumns="True">
+                <DataGrid x:Name="DataGridRecepti" Width="160" 
+                          AutoGenerateColumns="False"
+                          Background="#810000">
+
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="0.7*" />
-                        <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="0.5*" />
+
+                        <DataGridTextColumn Header="Naziv Leka" Binding="{Binding NazivLeka}" Width="80"/>
+                        <DataGridTextColumn Header="Ime Lekara" Binding="{Binding ImeLekara}" Width="80" />
 
                     </DataGrid.Columns>
 
                 </DataGrid>
 
             </StackPanel>
-        </StackPanel>
 
+         </StackPanel>
+        
         <StackPanel Grid.Row="6" Grid.RowSpan="3" Grid.Column="3" Grid.ColumnSpan="2" Margin="10,10,5,0">
-            <TextBlock Text="Alergeni:" 
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"
-                    Margin="0,0,0,2"/>
+            <TextBlock  Text="Alergeni:" 
+                        VerticalAlignment="Top" HorizontalAlignment="left" 
+                        FontWeight="Bold" 
+                        Foreground="#eeebdd"
+                        Grid.Row="4" Grid.RowSpan="1"
+                        Grid.Column="1" Grid.ColumnSpan="5"
+                        Margin="0,0,0,2"/>
+
+            <TextBox x:Name="AlergeniTextBox"
+                     MaxLines="6" 
+                     MinLines="3"
+                     IsEnabled="False">
+                
+            </TextBox>
+            
         </StackPanel>
 
        

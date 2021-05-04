@@ -39,6 +39,15 @@ namespace Bolnica.Model
 
         }
 
+        public string NazivLeka
+        {
+            get
+            {
+                return Lek.Naziv;
+            }
+
+        }
+
 
     }
 }

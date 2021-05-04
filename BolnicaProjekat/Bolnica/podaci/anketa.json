@@ -14,5 +14,29 @@
     "IdPacijenta": 1,
     "IdLekara": 1,
     "Datum": "2021-04-30T16:32:49.2089591+02:00"
+  },
+  {
+    "Id": -3,
+    "Komentar": "yy",
+    "Vrednost": 4,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "Datum": "2021-05-04T15:49:33.1806704+02:00"
+  },
+  {
+    "Id": -4,
+    "Komentar": "",
+    "Vrednost": 3,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "Datum": "2021-05-04T16:12:40.5991234+02:00"
+  },
+  {
+    "Id": -5,
+    "Komentar": "tt",
+    "Vrednost": 3,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "Datum": "2021-05-04T16:18:52.724093+02:00"
   }
 ]

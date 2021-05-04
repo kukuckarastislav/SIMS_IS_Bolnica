@@ -4,6 +4,7 @@ using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -24,16 +25,21 @@ namespace Controller
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUsluga ret = servis.DodajUslugu(usluga);
-            NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            kontroler.NotifikujZakazaniTermin(usluga);
+           // NotifikacijaKontroler kontroler = new NotifikacijaKontroler(); //ovo bi bilo dobro da se stavi u notifikacije kontroler
+            //kontroler.NotifikujZakazaniTermin(usluga);
             return ret;
         }
 
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
             servis.OtkaziUslugu(usluga);
-            NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            kontroler.NotifikujOtkazaniTermin(usluga);
+           // NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
+            //kontroler.NotifikujOtkazaniTermin(usluga);
+        }
+
+        internal ObservableCollection<ZdravstvenaUsluga> GetTerminiPacijenta(int id)
+        {
+            return servis.GetTerminiPacijenta(id);
         }
 
         public DTOUslugaLekar OdloziUslugu(DTOUslugaLekar ul)
@@ -55,7 +61,18 @@ namespace Controller
         {
             DateTime pocetak = new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 00);
             DateTime kraj = new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 00);
-            return ZdravstvenaUslugaServis.getAppointments(OdabraniLekar,pocetak,kraj);
+
+            return servis.GetSlobodniTerminiLekara(OdabraniLekar,pocetak,kraj);
+        }
+
+        public List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+        {
+            return servis.GetSlobodniTermini(OdabraniLekar,pocetak,kraj,prioritet);
+        }
+
+        public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga Pregled,DateTime NoviPocetak)
+        {
+            return servis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
         }
     }
 }

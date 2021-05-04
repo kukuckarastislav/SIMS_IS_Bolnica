@@ -11,17 +11,17 @@ namespace Servis
     class AnketaServis
     {
 
-        public Ocena DodajOcenuBolnice(int idPacijenta,string text)
+        public Ocena DodajOcenuBolnice(int idPacijenta,string text,int ocjena)
         {
             int id = AnketaRepozitorijum.GetInstance.GetAll().Count;
-            return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(0-id-1,text,0,idPacijenta,-1,DateTime.Now)); //sve ocjene za bolnicu ce imati negativan id
+            return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(0-id-1,text,ocjena,idPacijenta,-1,DateTime.Now)); //sve ocjene za bolnicu ce imati negativan id
         }
 
-        internal Ocena DodajOcenuLekara(ZdravstvenaUsluga pregled, int idPacijenta, string text)
+        internal Ocena DodajOcenuLekara(ZdravstvenaUsluga pregled, int idPacijenta, string text,int ocjena)
         {
             int id = AnketaRepozitorijum.GetInstance.GetAll().Count;
             int idLekara = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Id;
-            return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(id + 1, text, 0, idPacijenta,idLekara, DateTime.Now)); //sve ocjene za bolnicu ce imati negativan id
+            return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(id + 1, text, ocjena, idPacijenta,idLekara, DateTime.Now)); //sve ocjene za bolnicu ce imati negativan id
         }
     }
 }

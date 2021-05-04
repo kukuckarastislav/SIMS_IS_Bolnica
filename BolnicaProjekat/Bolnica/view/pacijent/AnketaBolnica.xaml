@@ -12,6 +12,15 @@
         <TextBox x:Name="sadrzaj" Margin="40,88,44,75">
         </TextBox>
         <Button Click="posalji_anketu" Margin="363,232,44,31" Content="Potvrdi"/>
+        <Label Margin="40,232,408,28" Content="Odberite ocjenu:"/>
+        <ComboBox x:Name="ocjene" Margin="155,237,343,31">
+            <ComboBoxItem Margin="22,0,724,0" Content="1" />
+            <ComboBoxItem Margin="22,0,724,0" Content="2" />
+            <ComboBoxItem Margin="22,0,724,0" Content="3" />
+            <ComboBoxItem Margin="22,0,724,0" Content="4" />
+            <ComboBoxItem Margin="22,0,724,0" Content="5" />
+        </ComboBox>
+
 
 
 

@@ -17,14 +17,14 @@ namespace Bolnica.Controller
             servis = new AnketaServis();
         }
 
-        public Ocena DodajOcenuBolnice(int idPacijenta,string text)
+        public Ocena DodajOcenuBolnice(int idPacijenta,string text,int ocjena)
         {
-            return servis.DodajOcenuBolnice(idPacijenta,text);
+            return servis.DodajOcenuBolnice(idPacijenta,text,ocjena);
         }
 
-        public Ocena DodajOcenuLekara(ZdravstvenaUsluga pregled,int idPacijenta, string text)
+        public Ocena DodajOcenuLekara(ZdravstvenaUsluga pregled,int idPacijenta, string text,int ocjena)
         {
-            return servis.DodajOcenuLekara(pregled,idPacijenta, text);
+            return servis.DodajOcenuLekara(pregled,idPacijenta, text,ocjena);
         }
     }
 }

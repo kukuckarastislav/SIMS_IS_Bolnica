@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Controller;
 
 namespace Bolnica.view.pacijent
 {
@@ -22,12 +23,16 @@ namespace Bolnica.view.pacijent
         public ZdravstvenaUsluga odabraniPregled;
         public Pacijent Pacijent;
 
+        ZdravstvenaUslugaKontroler Kontroler;
+
         public SopstveniPregledi(Pacijent pacijent)
         {
            InitializeComponent();
            Pacijent = pacijent;
+           Kontroler = new ZdravstvenaUslugaKontroler();
 
-            PreglediPacijenta = Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(Pacijent.Id);
+           // PreglediPacijenta = Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(Pacijent.Id);
+           PreglediPacijenta = Kontroler.GetTerminiPacijenta(Pacijent.Id);
 
             this.listaPregledaPacijenta.
                 ItemsSource = PreglediPacijenta;

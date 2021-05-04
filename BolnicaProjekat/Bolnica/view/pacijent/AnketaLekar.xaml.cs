@@ -25,16 +25,18 @@ namespace Bolnica.view.pacijent
 
         public AnketaLekar(ZdravstvenaUsluga pregled)
         {
-            this.pregled = pregled;
-            //lekar.Text = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Ime + " " + Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Prezime;
             InitializeComponent();
+            this.pregled = pregled;
+            lekar.Text = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Ime + " " + Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Prezime;
+
         }
 
         private void posalji_anketu(object sender, RoutedEventArgs e)
         {
             Controller.AnketaKontroler kontroler = new Controller.AnketaKontroler();
             text = sadrzaj.Text;
-            kontroler.DodajOcenuLekara(pregled,1, text);
+            int ocjena = Convert.ToInt32(ocjene.Text);
+            kontroler.DodajOcenuLekara(pregled,1, text,ocjena);
             this.Close();
         }
     }

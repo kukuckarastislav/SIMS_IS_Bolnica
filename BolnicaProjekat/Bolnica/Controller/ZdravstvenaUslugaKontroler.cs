@@ -15,17 +15,18 @@ namespace Controller
     class ZdravstvenaUslugaKontroler
     {
         private ZdravstvenaUslugaServis servis;
+        private NotifikacijeServis notifikacijaServis;
 
         public ZdravstvenaUslugaKontroler()
         {
             servis = new ZdravstvenaUslugaServis();
+            notifikacijaServis = new NotifikacijeServis();
         }
 
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUsluga ret = servis.DodajUslugu(usluga);
-            NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            kontroler.NotifikujZakazaniTermin(usluga);
+            notifikacijaServis.ZakaziTermin(usluga);
             return ret;
         }
 

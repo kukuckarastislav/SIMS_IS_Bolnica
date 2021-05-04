@@ -5,7 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.lekar.pacijenti"
       mc:Ignorable="d" 
-      d:DesignHeight="510" d:DesignWidth="390" Background="#630000"
+      d:DesignHeight="660"
+      d:DesignWidth="400"
+      Background="#630000" 
+      Margin="-55,0,0,0" 
+      FontSize="12"
       Title="PrikazPacijenata">
 
     <Grid HorizontalAlignment="Center">

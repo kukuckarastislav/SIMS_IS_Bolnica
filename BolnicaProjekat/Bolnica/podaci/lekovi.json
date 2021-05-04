@@ -8,5 +8,15 @@
     "Kolicina": 4,
     "Cena": 44,
     "IdInventar": 0
+  },
+  {
+    "Id": 2,
+    "Sifra": "wer",
+    "Naziv": "Ibuprofen",
+    "Odobren": false,
+    "Opis": "Opis ...",
+    "Kolicina": 2,
+    "Cena": 2000,
+    "IdInventar": 0
   }
 ]

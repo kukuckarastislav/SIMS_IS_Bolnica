@@ -158,6 +158,21 @@ namespace Servis
             return null;
         }
 
+       public static ObservableCollection<DTORadniKalendar> getUslugeLekara(Lekar l)
+        {
+            ObservableCollection<DTORadniKalendar> lista = new ObservableCollection<DTORadniKalendar>();
+            ObservableCollection<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
+            foreach(ZdravstvenaUsluga zu in usluge)
+            {
+                //DTORadniKalendar(ZdravstvenaUsluga usluga, Pacijent pacijent, Prostorija prostorija)
+                lista.Add(new DTORadniKalendar(zu, PacijentRepozitorijum.GetInstance.GetById(zu.IdPacijenta), ProstorijeRepozitorijum.GetInstance.GetProstorijaById(zu.IdProstorije)));
+            }
+            return lista;
+
+        }
+
+
+
         public static ObservableCollection<DTOUslugaLekar> getUslugePacijenta(Pacijent p)
         {
             ObservableCollection<DTOUslugaLekar> lista = new ObservableCollection<DTOUslugaLekar>();
@@ -207,6 +222,15 @@ namespace Servis
         {
             return Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(id);
         }
+
+        public void AzurirajVremeUsluga(DTORadniKalendar usluga, DateTime pocetak, DateTime kraj) 
+        {
+            DTORadniKalendar odabranaUsluga = usluga;
+            odabranaUsluga.Usluga.Termin.Pocetak = pocetak;
+            odabranaUsluga.Usluga.Termin.Kraj = kraj;
+                  
+        }
+
 
     }
 }

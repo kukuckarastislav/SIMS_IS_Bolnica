@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Bolnica.view.lekar.pacijenti;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,6 @@ namespace Bolnica.view.lekar
             this.Lekar = Lekar;
             InitializeComponent();
 
-            Menu_Btn.IsChecked = true;
             refLoginPage = new view.lekar.LoginPage(Lekar);
             main_frame.Navigate(refLoginPage);
 
@@ -71,13 +71,13 @@ namespace Bolnica.view.lekar
         {
             Type pageType = e.Content.GetType();
 
-            if (pageType == typeof(LoginPage))
+            if (pageType == typeof(RadniKalendar) || pageType == typeof(PrikazPacijenata))
             {
-                menu_items_panel.Visibility = System.Windows.Visibility.Hidden;
+                menu_items_panel.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
-                menu_items_panel.Visibility = System.Windows.Visibility.Visible;
+                menu_items_panel.Visibility = System.Windows.Visibility.Hidden;
             }
 
 

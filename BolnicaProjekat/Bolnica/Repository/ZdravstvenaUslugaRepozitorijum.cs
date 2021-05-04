@@ -184,6 +184,40 @@ namespace Repozitorijum
             return usluga;
         }
 
+        public ZdravstvenaUsluga EvidentirajUslugu(ZdravstvenaUsluga usluga, string anamneza)
+        {
+            int i = 0;
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.Id == usluga.Id)
+                {
+                    z.RezultatUsluge = anamneza;
+                    break;
+                }
+                i++;
+            }
+            SaveData();
+            return usluga;
+        }
+
+        public ZdravstvenaUsluga AzurirajVremeUsluga(ZdravstvenaUsluga usluga, DateTime pocetak, DateTime kraj)
+        {
+            int i = 0;
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.Id == usluga.Id)
+                {
+                    z.Termin.Pocetak = pocetak;
+                    z.Termin.Kraj = kraj;
+                    break;
+                }
+                i++;
+            }
+            SaveData();
+            return usluga;
+
+        }
+
 
         public int getLastId()
         {

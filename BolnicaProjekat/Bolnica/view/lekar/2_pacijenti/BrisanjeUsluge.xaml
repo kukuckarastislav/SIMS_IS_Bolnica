@@ -5,161 +5,218 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.lekar.pacijenti"
       mc:Ignorable="d" 
-     d:DesignHeight="510" d:DesignWidth="390" Background="#630000" FontSize="12"
-      Title="AzuriranjeUsluge">
+      d:DesignHeight="660"
+      d:DesignWidth="400"
+      Background="#630000" 
+      Margin="-55,0,0,0" 
+      FontSize="12"
+      Title="BrisanjeUsluge">
 
-    <Grid VerticalAlignment="Center" Name="GlavniMeni_CenterGrid">
+    <Grid VerticalAlignment="Center">
 
         <Grid.ColumnDefinitions>
             <!-- Prazno mesto - LEVO -->
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="10"/>
-            <!-- Meni - Prazno mesto - LEVO -->
-            <ColumnDefinition Width="140"/>
-            <!-- Meni - Dugmici - CENTAR -->
-            <ColumnDefinition Width="10"/>
-            <!-- Meni - Prazno mesto - DESNO -->
-            <ColumnDefinition Width="140"/>
-            <!-- Prazno mesto - DESNO -->
-
+            <ColumnDefinition Width="35"/>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="30"/>
+            <!-- Meni - Prazno mesto - LEVO -->
+            <ColumnDefinition Width="290"/>
+            <!-- Prazno mesto - DESNO -->
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="35"/>
         </Grid.ColumnDefinitions>
-
+        
         <Grid.RowDefinitions>
             <!-- [0] PraznoMesto - GORE -->
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="10"/>
             <!-- [1] Profilna slika (1) - GORE -->
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
             <!-- [2] Profilna slika (2) i Meni (1)- GORE -->
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
             <!-- [3] Meni (2) - GORE -->
             <RowDefinition Height="25"/>
             <!-- [4] Meni (3) - Button1- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [5] Meni (4) - Button2- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [6] Meni (5) - Button3- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [7] Meni (6) - Button4- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [8] Meni (7) - Button5- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [9] Meni (8) - PreLogout- DOLE -->
-            <RowDefinition Height="45"/>
-            <!-- [10] Meni (9) - LogoutButton- DOLE -->
-            <RowDefinition Height="45"/>
-            <!-- [11] Meni (11) - PosleLogout- DOLE -->
-            <RowDefinition Height="22"/>
-            <!-- [12] PraznoMesto(1)- DOLE -->
-            <RowDefinition Height="23"/>
-            <!-- [13] PraznoMesto(2)- DOLE -->
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="320"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
+
         <!-- Profilna Slika-->
-        <Ellipse Width="110" Height="110" Fill="#810000"
-            Canvas.Left="135" Canvas.Top="25"
-            Grid.Row="1" Grid.RowSpan="3"
-            Grid.Column="2" Grid.ColumnSpan="3"/>
-        <Image Source="/images/lekar-icons/brisanje-usluge-icon.png" Width="75"
-                VerticalAlignment="Center" HorizontalAlignment="Center" 
-                Grid.Row="1" Grid.RowSpan="3"
-                Grid.Column="2" Grid.ColumnSpan="3"
-                Margin="0,0,0,5"/>
-
-        <!-- Medicinski Karton -->
-        <TextBlock Text="Brisanje usluge" 
-                               VerticalAlignment="Top" HorizontalAlignment="Center" 
-                FontWeight="Bold" 
-                FontSize="18"
-                Foreground="#eeebdd"
-                Grid.Row="4" Grid.RowSpan="1"
-                Grid.Column="1" Grid.ColumnSpan="5"/>
-
-        <Image Source="/images/lekar-icons/folder-dark-icon.png"
-                VerticalAlignment="Center" HorizontalAlignment="Center" 
-                Grid.Row="3" Grid.RowSpan="10"
-                Grid.Column="1" Grid.ColumnSpan="5"
-                Margin="-10,10,-10,-10"/>
-
-
-        <StackPanel Grid.Row="5" Grid.RowSpan="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="-10,0,0,-20">
-
-            <StackPanel Orientation="Vertical"  Grid.Row="6" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="3">
-
-                <TextBlock Text="Tip usluge:" 
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
+        <Ellipse    Width="110" 
+                    Height="110" 
+                    Fill="#810000"
+                    Grid.Row="1"
+                    Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Image  Source="/images/lekar-icons/brisanje-usluge-icon.png"
+                Width="80" 
+                Grid.Row="1" 
+                Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBlock  Text="Brisanje usluge" 
+                    VerticalAlignment="Top" HorizontalAlignment="Center" 
                     FontWeight="Bold" 
+                    FontSize="18"
                     Foreground="#eeebdd"
-                    Grid.Row="4" Grid.RowSpan="1"
-                Grid.Column="1" Grid.ColumnSpan="5"/>
-                <TextBlock  x:Name="TipUsluge"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    Foreground="Black"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
+                    Grid.Row="2"
+                    Grid.Column="1" Grid.ColumnSpan="3"/>
 
-                <TextBlock Text="Prostorija:" 
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
-                <TextBlock x:Name="Prostorija"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    Foreground="Black"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
+        <!-- Odabrana Usluga -->
 
-                <TextBlock Text="Vreme početka usluge:" Margin="0,0,0,0"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
-                <TextBlock x:Name="VremePocetkaUsluge"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    Foreground="Black"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
+        <TextBlock      x:Name="ImePacijenta"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Center" 
+                        FontWeight="Bold" 
+                        FontSize="18"
+                        Foreground="#eeebdd"
+                        Margin="0,-10,0,0"
+                        Grid.Row="3"
+                        Grid.Column="1" 
+                        Grid.ColumnSpan="3"/>
 
-                <TextBlock Text="Vreme završetka usluge:" Margin="0,0,0,0" Padding="2"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
-                <TextBlock x:Name="VremeZavrsetkaUsluge"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    Foreground="Black"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
+        <Image      Source="/images/lekar-icons/folder-dark-icon.png"
+                    Margin="-10,-40,-10,-10"
+                    Grid.Row="3" Grid.RowSpan="3"
+                    Grid.Column="1" Grid.ColumnSpan="3"/>
+
+        <StackPanel     Grid.Row="4" 
+                        Grid.RowSpan="3"
+                        Grid.Column="1" 
+                        Grid.ColumnSpan="3"
+                        Margin="0,15,0,0">
+
+            <TextBlock  Text="Tip usluge:" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        FontWeight="Bold" 
+                        Foreground="#eeebdd"/>
+
+            <TextBlock  x:Name="TipUsluge"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        Foreground="Black"/>
+
+            <TextBlock  Text="Prostorija:" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        FontWeight="Bold" 
+                        Foreground="#eeebdd"/>
+
+            <TextBlock  x:Name="Prostorija"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        Foreground="Black"/>
+
+            <StackPanel Orientation="Horizontal" >
+
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock  Text="Vreme početka usluge:"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+
+                    <TextBlock  x:Name="VremePocetkaUsluge"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                Foreground="Black"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+
+                    <TextBlock  Text="Vreme završetka usluge:" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+
+                    <TextBlock  x:Name="VremeZavrsetkaUsluge"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                Foreground="Black"/>
+
+                </StackPanel>
+                
+
             </StackPanel>
-        </StackPanel>
 
-        <StackPanel Grid.Row="6" Grid.RowSpan="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="10,10,5,0">
             <TextBlock Text="Razlog zakazivanja:" 
                     VerticalAlignment="Top" HorizontalAlignment="left" 
                     FontWeight="Bold" 
+                    
                     Foreground="#eeebdd"
                     Grid.Row="4" Grid.RowSpan="1"
                     Grid.Column="1" Grid.ColumnSpan="5"
-                    Margin="0,0,0,2"/>
-            <TextBox IsEnabled="False" x:Name="RazlogZakazivanja" MaxLines="3" MinLines="3" TextWrapping="Wrap"/>
+                    Margin="0,10,0,0"/>
+            <TextBox    x:Name="RazlogZakazivanja"
+                        Margin="-10,0,0,0"
+                        IsEnabled="False"
+                        Width="300"
+                        MaxLines="3" 
+                        MinLines="3" 
+                        TextWrapping="Wrap"/>
+
+            <StackPanel Orientation="Vertical" 
+ 
+                            Width="150"
+                            Margin="160,110,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                <Button     Background="#eeebdd" 
+                                Margin="0,5,0,0"
+                                Height="35"
+                                Click="PotvrdiBrisanje">
+
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+
+                    <StackPanel Orientation="Horizontal"  
+                                Width="140">
+                        <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" />
+                        <TextBlock Padding="2" 
+                                   FontSize="11" 
+                                   VerticalAlignment="Center" 
+                                   FontWeight="SemiBold">Brisanje usluge</TextBlock>
+                    </StackPanel>
+
+                </Button>
+
+                <Button         Background="#eeebdd" 
+                                Margin="0,5,0,0"
+                                Width="100"
+                                Height="35"
+                                HorizontalAlignment="Right"
+                                Click="OdustaniButton">
+
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+
+                    <StackPanel Orientation="Horizontal"  
+                                Width="140">
+                        <Image Source="/images/lekar-icons/back-icon.png" Width="35"/>
+                        <TextBlock Padding="2" 
+                                   FontSize="11" 
+                                   VerticalAlignment="Center" 
+                                   FontWeight="SemiBold">Odustani</TextBlock>
+                    </StackPanel>
+
+                </Button>
+
+            </StackPanel>
+
+
         </StackPanel>
 
-        <Button Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom"
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,-10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal"  Width="140">
-                <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" />
-                <TextBlock Padding="2" FontSize="11" VerticalAlignment="Center" FontWeight="SemiBold">Brisanje usluge</TextBlock>
-            </StackPanel>
-        </Button>
+
+        
+            
     </Grid>
 </Page>

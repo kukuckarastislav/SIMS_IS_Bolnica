@@ -153,6 +153,12 @@
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\2_pacijenti\UpucivanjePacijent.xaml.cs">
+      <DependentUpon>UpucivanjePacijent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\3_lekovi\Lekovi.xaml.cs">
+      <DependentUpon>Lekovi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
@@ -313,6 +319,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="view\lekar\0_pocetak\GlavniMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\2_pacijenti\UpucivanjePacijent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\3_lekovi\Lekovi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -655,7 +669,6 @@
     <Resource Include="images\lekar-icons\prikaz-usluge-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="view\lekar\3_lekovi\" />
     <Folder Include="view\lekar\4_prostorije\" />
   </ItemGroup>
   <ItemGroup>

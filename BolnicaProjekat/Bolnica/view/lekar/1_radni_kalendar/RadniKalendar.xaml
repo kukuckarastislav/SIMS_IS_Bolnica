@@ -150,7 +150,8 @@
                         HorizontalAlignment="Center"
                         Background="#eeebdd" 
                         BorderThickness="1" 
-                        BorderBrush="Black">
+                        BorderBrush="Black"
+                        Click="EvidentiranjeUsluge_Click">
                 
                 <Button.Resources>
                     <Style TargetType="Border">

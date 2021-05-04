@@ -61,8 +61,6 @@ namespace Bolnica.view.lekar.pacijenti
 
             refBrisanjeUsluge = new view.lekar.pacijenti.BrisanjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
             NavigationService.Navigate(refBrisanjeUsluge);
-            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(OdabranaUsluga.Usluga);
-            ListaRadniKalendar.Remove(OdabranaUsluga);
         }
 
         private void AzuriranjeUsluge_Click(object sender, RoutedEventArgs e)
@@ -83,8 +81,8 @@ namespace Bolnica.view.lekar.pacijenti
                 MessageBox.Show("Odaberite uslugu!");
                 return;
             }
-            refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
-            NavigationService.Navigate(refAzuriranjeUsluge);
+            refEvidentiranjeUsluge = new view.lekar.pacijenti.EvidentiranjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
+            NavigationService.Navigate(refEvidentiranjeUsluge);
 
         }
 

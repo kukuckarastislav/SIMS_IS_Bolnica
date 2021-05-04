@@ -5,7 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.lekar.pacijenti"
       mc:Ignorable="d" 
-      d:DesignHeight="510" d:DesignWidth="390" Background="#630000" FontSize="11"
+      d:DesignHeight="660"
+      d:DesignWidth="400"
+      Background="#630000" 
+      Margin="-55,0,0,0" 
+      FontSize="12"
       Title="PrikazMedicinskiKarton">
 
     <Grid VerticalAlignment="Center" Name="GlavniMeni_CenterGrid">
@@ -132,7 +136,7 @@
         <Button Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="7" Height="36" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
                 Click="TerapijaButton"
-                IsEnabled="False">
+                IsEnabled="True">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -184,7 +188,7 @@
                 </Style>
             </Button.Resources>
             <StackPanel Orientation="Horizontal"  Width="140">
-                <Image Source="/images/lekar-icons/zakazivanje-icon.png" Width="35" />
+                <Image Source="/images/lekar-icons/zakazivanje-usluge-icon.png" Width="35" />
                 <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Zakazivanje usluge</TextBlock>
             </StackPanel>
         </Button>
@@ -192,7 +196,7 @@
         <!-- Medicinski Karton - Button2.2 - Zakazivanje Usluge -->
         <Button Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="7" Height="36" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                IsEnabled="False">
+                IsEnabled="True">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -215,7 +219,7 @@
                 </Style>
             </Button.Resources>
             <StackPanel Orientation="Horizontal"  Width="140">
-                <Image Source="/images/lekar-icons/recept-icon.png" Width="25"  Margin="0,0,8,0" />
+                <Image Source="/images/lekar-icons/izdavanje-recepta-icon.png" Width="25"  Margin="0,0,8,0" />
                 <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Izdavanje recepta</TextBlock>
             </StackPanel>
         </Button>

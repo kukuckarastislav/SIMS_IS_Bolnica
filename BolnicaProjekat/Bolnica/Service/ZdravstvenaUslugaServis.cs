@@ -23,6 +23,11 @@ namespace Servis
         public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
         public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
 
+        public ZdravstvenaUslugaServis()
+        {
+            terminiRepozitorijum = new ZdravstvenaUslugaRepozitorijum();
+
+        }
         public static List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
 
         {
@@ -226,7 +231,47 @@ namespace Servis
             odabranaUsluga.Usluga.Termin.Kraj = kraj;
                   
         }
+        public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)
+        {
 
+            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
+            Termin radnoVreme = GetRadnoVremeLekara(lekar,
+                new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 0),
+                new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 59));
+
+            while (radnoVreme.Pocetak + trajanjePregleda <= radnoVreme.Kraj)
+            {
+                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(radnoVreme.Pocetak, radnoVreme.Pocetak + trajanjePregleda), 1, lekar.Id, -1, TipUsluge.Pregled, -1, false, "", "");
+                pregledi.Add(pregled);
+                radnoVreme.Pocetak += trajanjePregleda;
+            }
+
+            return pregledi;
+        }
+
+        public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
+        {
+            ZdravstvenaUsluga uslugaKojaSeOdlaze = ZdravstvenaUslugaRepozitorijum.GetInstance.GetUslugaZaTermin(lekar, usluga.Termin.Pocetak);
+            ZdravstvenaUsluga odlozenaUsluga = OdloziTerminRadiHitnogTermina(lekar, usluga);
+            if(uslugaKojaSeOdlaze!=null)OtkaziUslugu(uslugaKojaSeOdlaze);
+            if (odlozenaUsluga != null)
+            {
+                odlozenaUsluga.IdPacijenta = uslugaKojaSeOdlaze.IdPacijenta;
+                odlozenaUsluga.IdLekara = usluga.IdLekara;
+                odlozenaUsluga.Id = terminiRepozitorijum.getLastId() + 1;
+                DodajUslugu(odlozenaUsluga);
+            }
+            DodajUslugu(usluga);
+
+            return uslugaKojaSeOdlaze;
+        }
+
+        public ZdravstvenaUsluga OdloziTerminRadiHitnogTermina(Lekar lekar, ZdravstvenaUsluga usluga)
+        {
+            ZdravstvenaUsluga uslugaKojaSeOdlaze = ZdravstvenaUslugaRepozitorijum.GetInstance.GetUslugaZaTermin(lekar, usluga.Termin.Pocetak);
+            if (uslugaKojaSeOdlaze == null) return null;
+            return OdloziUslugu(uslugaKojaSeOdlaze);
+        }
 
     }
 }

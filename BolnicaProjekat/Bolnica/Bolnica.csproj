@@ -247,6 +247,9 @@
     <Compile Include="view\sekretar\SekretarHome.xaml.cs">
       <DependentUpon>SekretarHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\WindowHitniTermini.xaml.cs">
+      <DependentUpon>WindowHitniTermini.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\WindowIzmenaPodataka.xaml.cs">
       <DependentUpon>WindowIzmenaPodataka.xaml</DependentUpon>
     </Compile>
@@ -473,6 +476,10 @@
     <Page Include="view\sekretar\SekretarHome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\WindowHitniTermini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\WindowIzmenaPodataka.xaml">
       <Generator>MSBuild:Compile</Generator>

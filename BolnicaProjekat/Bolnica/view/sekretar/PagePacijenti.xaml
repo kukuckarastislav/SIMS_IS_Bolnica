@@ -17,11 +17,12 @@
     <Grid Background="#ccffbd">
         <DockPanel>
             <StackPanel Height="60" HorizontalAlignment="Left" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
-                <Button Margin="30 10" Background="white" Click="IzmeniPacijenta_Click">Izmeni podatke pacijenta</Button>
-                <Button Margin="30 10" Background="white" Click="ObrisiPacijenta_Click">Obrisi pacijenta</Button>
-                <Button Margin="30 10" Background="white" Click="ZakaziTermin_Click">Zakazi termin</Button>
-                <Button Margin="30 10" Background="white" Click="PogledajTermine_Click">Pogledaj termine</Button>
-                <Button Margin="30 10" Background="white" Click="OtvoriMedicinskiKarton_Click">Medicinski karton</Button>
+                <Button Margin="10 10" Background="white" Click="IzmeniPacijenta_Click">Izmeni podatke pacijenta</Button>
+                <Button Margin="10 10" Background="white" Click="ObrisiPacijenta_Click">Obrisi pacijenta</Button>
+                <Button Margin="10 10" Background="white" Click="ZakaziTermin_Click">Zakazi termin</Button>
+                <Button Margin="10 10" Background="white" Click="PogledajTermine_Click">Pogledaj termine</Button>
+                <Button Margin="10 10" Background="white" Click="OtvoriMedicinskiKarton_Click">Medicinski karton</Button>
+                <Button Margin="10 10" Background="white" Click="ZakaziHitanTermin_Click">Hitno zakazivanje</Button>
             </StackPanel>
             <Grid DockPanel.Dock="Bottom" Background="#ccffbd">
                 <Grid.ColumnDefinitions>

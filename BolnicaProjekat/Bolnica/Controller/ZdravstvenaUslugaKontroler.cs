@@ -31,6 +31,14 @@ namespace Controller
             return ret;
         }
 
+        public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar,ZdravstvenaUsluga usluga)
+        {
+            notifikacijaServis.ZakaziTermin(usluga);
+            ZdravstvenaUsluga ret = servis.HitnoDodajUslugu(lekar, usluga);
+            if(ret!=null)notifikacijaServis.OtkaziTermin(ret);
+            return ret;
+        }
+
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
             servis.OtkaziUslugu(usluga);
@@ -70,9 +78,16 @@ namespace Controller
             return ZdravstvenaUslugaServis.GetSlobodniTermini(OdabraniLekar,pocetak,kraj,prioritet);
         }
 
+        public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)
+        {
+            return servis.GetSviTerminiZaDatum(lekar,datum);
+        }
+
         public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga Pregled,DateTime NoviPocetak)
         {
             return servis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
         }
+
+
     }
 }

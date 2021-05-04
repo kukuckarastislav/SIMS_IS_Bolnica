@@ -218,6 +218,20 @@ namespace Repozitorijum
 
         }
 
+        public ZdravstvenaUsluga GetUslugaZaTermin(Lekar lekar, DateTime datum)
+        {
+            foreach (ZdravstvenaUsluga usluga in Usluge)
+            {
+                if (usluga.IdLekara == lekar.Id
+                    && usluga.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
+                {
+                    return usluga;
+                }
+            }
+
+            return null;
+        }
+
 
         public int getLastId()
         {

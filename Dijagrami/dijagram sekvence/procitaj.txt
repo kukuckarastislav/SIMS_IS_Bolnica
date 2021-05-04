@@ -1,0 +1,3 @@
+Dijagrami su spojeni sa prjektom koji se nalazi Dijagrami\ZdravoBolnicaProj\ZdravoBolnicaProj.
+Ukoliko se dijagram otvara odavde mozda se nece dobro ucitati, pa je najbolje pokusati otvoriti projekat na
+prethodno navedenoj adresi.

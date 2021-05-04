@@ -112,9 +112,8 @@ namespace Bolnica.view.pacijent
             if (Lekar.IsChecked == true) prioritet = 1;
 
             Pregledi = new ObservableCollection<ZdravstvenaUsluga>();
-            
-            PreglediList = KontrolerZU.GetSlobodniTermini(OdabraniLekar, pocetak, kraj, prioritet);
 
+            PreglediList = KontrolerZU.GetSlobodniTermini(OdabraniLekar, pocetak, kraj, prioritet);
             foreach (var v in PreglediList)
                 Pregledi.Add(v);
             this.listaPregleda.ItemsSource = Pregledi;

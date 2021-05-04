@@ -16,17 +16,18 @@ namespace Controller
     class ZdravstvenaUslugaKontroler
     {
         private ZdravstvenaUslugaServis servis;
+        private NotifikacijeServis notifikacijaServis;
 
         public ZdravstvenaUslugaKontroler()
         {
             servis = new ZdravstvenaUslugaServis();
+            notifikacijaServis = new NotifikacijeServis();
         }
 
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUsluga ret = servis.DodajUslugu(usluga);
-           // NotifikacijaKontroler kontroler = new NotifikacijaKontroler(); //ovo bi bilo dobro da se stavi u notifikacije kontroler
-            //kontroler.NotifikujZakazaniTermin(usluga);
+            notifikacijaServis.ZakaziTermin(usluga);
             return ret;
         }
 
@@ -61,13 +62,12 @@ namespace Controller
         {
             DateTime pocetak = new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 00);
             DateTime kraj = new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 00);
-
-            return servis.GetSlobodniTerminiLekara(OdabraniLekar,pocetak,kraj);
+            return ZdravstvenaUslugaServis.GetSlobodniTerminiLekara(OdabraniLekar,pocetak,kraj); 
         }
 
         public List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
         {
-            return servis.GetSlobodniTermini(OdabraniLekar,pocetak,kraj,prioritet);
+            return ZdravstvenaUslugaServis.GetSlobodniTermini(OdabraniLekar,pocetak,kraj,prioritet);
         }
 
         public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga Pregled,DateTime NoviPocetak)

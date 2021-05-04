@@ -19,10 +19,12 @@ namespace Servis
         public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
         public Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
         public Repozitorijum.ProstorijeRepozitorijum prostorijeRepozitorijum;
-        public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
-        public  TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
 
-        public List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+        public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
+        public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
+
+        public static List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
             pregledi = GetSlobodniTerminiLekara(OdabraniLekar, pocetak, kraj);
@@ -37,8 +39,7 @@ namespace Servis
             }
             return pregledi;
         }
-
-        public List<ZdravstvenaUsluga> GetSlobodniTerminiLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        public static List<ZdravstvenaUsluga> GetSlobodniTerminiLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
             Termin radnoVreme = GetRadnoVremeLekara(OdabraniLekar, pocetak, kraj);
@@ -56,9 +57,8 @@ namespace Servis
 
             return pregledi;
         }
+        public static bool JeTerminZauzet(Lekar OdabraniLekar, ZdravstvenaUsluga pregled) {
 
-        public bool JeTerminZauzet(Lekar OdabraniLekar, ZdravstvenaUsluga pregled)
-        {
             List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(OdabraniLekar.Id);
 
             foreach (ZdravstvenaUsluga termin in terminiLekara)
@@ -68,8 +68,7 @@ namespace Servis
 
             return false;
         }
-
-        public Termin GetRadnoVremeLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        public static Termin GetRadnoVremeLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             int krajSati = OdabraniLekar.radnoVreme.KrajRadnogVremena;
             int pocetakSati = OdabraniLekar.radnoVreme.PocetakRadnogVremena;
@@ -80,8 +79,7 @@ namespace Servis
             return new Termin(new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetakSati, 0, 0),
                                 new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, krajSati, 0, 0));
         }
-
-        public List<ZdravstvenaUsluga> GetPriblizniTerminiPoVremenu(DateTime pocetak, DateTime kraj)
+        public static List<ZdravstvenaUsluga> GetPriblizniTerminiPoVremenu(DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
             List<ZdravstvenaUsluga> pomocna = new List<ZdravstvenaUsluga>();
@@ -93,8 +91,7 @@ namespace Servis
             }
             return pregledi;
         }
-
-        public List<ZdravstvenaUsluga> GetPriblizniTerminiPoLekaru(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        public static List<ZdravstvenaUsluga> GetPriblizniTerminiPoLekaru(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
 
@@ -107,7 +104,6 @@ namespace Servis
             pregledi = GetSlobodniTerminiLekara(OdabraniLekar, pocetakRadnogVremena, krajkRadnogVremena_);
             return pregledi;
         }
-
 
         public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga pregled, DateTime noviPocetak)
         {

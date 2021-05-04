@@ -79,7 +79,7 @@
         "Naziv": "Racunar",
         "Tip": 0,
         "Opis": "Racunar za evidenciju ",
-        "Kolicina": 30,
+        "Kolicina": 29,
         "Cena": 60000,
         "IdInventar": 0
       },
@@ -166,7 +166,7 @@
         "Naziv": "Racunar",
         "Tip": 0,
         "Opis": "Racunar za evidenciju ",
-        "Kolicina": 1,
+        "Kolicina": 2,
         "Cena": 60000,
         "IdInventar": 0
       }

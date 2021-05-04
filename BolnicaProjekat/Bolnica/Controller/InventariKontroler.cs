@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 using Model;
 using Servis;
 
@@ -48,6 +49,7 @@ namespace Kontroler
             return InventariSerivsObjekat.ObrisiOpremuInvetara(idInventara, oprema, skroz);
         }
 
+
         public ObservableCollection<Oprema> GetTipOpremeByIdInventaraObservable(int id, TipOpreme tipOpreme)
         {
             return InventariSerivsObjekat.GetTipOpremeByIdInventaraObservable(id, tipOpreme);
@@ -63,5 +65,10 @@ namespace Kontroler
             return InventariSerivsObjekat.preraspodelaOpreme(idInventar1, idInventar2, oprema, kolicina);
         }
 
+
+        public ObservableCollection<OpremaDTO> GetOpremaByNaprednaPretraga(ParametriNaprednePretrageDTO parametriPretrage)
+        {
+            return InventariSerivsObjekat.GetOpremaByNaprednaPretraga(parametriPretrage);
+        }
     }
 }

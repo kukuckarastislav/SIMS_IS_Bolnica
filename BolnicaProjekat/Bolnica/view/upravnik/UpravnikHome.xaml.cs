@@ -63,5 +63,10 @@ namespace Bolnica.view.upravnik
         {
             RadnaPovrsina.Content = new view.upravnik.Magacin.MagacinPage();
         }
+
+        private void Lekovi_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.upravnik.Lekovi.PrikazLekova();
+        }
     }
 }

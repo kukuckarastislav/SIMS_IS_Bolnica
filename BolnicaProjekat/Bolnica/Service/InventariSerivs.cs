@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using DTO;
 using Model;
 
 namespace Servis
@@ -13,10 +14,12 @@ namespace Servis
     {
 
         public Repozitorijum.InventariRepozitorijum InventarRepozitorijumRef { get; set; }
+        private ProstorijeServis prostorijeServisObjaket;
 
         public InventariSerivs()
         {
             InventarRepozitorijumRef = Repozitorijum.InventariRepozitorijum.GetInstance;
+            prostorijeServisObjaket = new ProstorijeServis();
         }
 
         public List<Inventar> GetAllInventar()
@@ -103,6 +106,8 @@ namespace Servis
             return editOprema;
         }
 
+        
+
         /*
          * parametar skroz nam sluzi ako zelimo obrisati neku opremu na nivou celog sistema
          * */
@@ -174,6 +179,84 @@ namespace Servis
         public bool preraspodelaOpreme(TransferOpreme transferOpreme)
         {
             return preraspodelaOpreme(transferOpreme.IdInventar1, transferOpreme.IdInventar2, transferOpreme.SifraOpreme, transferOpreme.KolicinaOpreme);
+        }
+
+        public ObservableCollection<OpremaDTO> GetOpremaByNaprednaPretraga(ParametriNaprednePretrageDTO parametriPretrage)
+        {
+            ObservableCollection<OpremaDTO> opremeDTO = new ObservableCollection<OpremaDTO>(); 
+            if (parametriPretrage == null)
+            {
+                MessageBox.Show("Alo poslao si null vracam praznu listu "); 
+                return opremeDTO;
+            }
+
+            List<Inventar> inventari = GetAllInventar();
+
+            foreach(Inventar inventar in inventari)
+            {
+                Prostorija prostorija = null;
+                bool prostorijaZadovoljava = false;
+                if (inventar.IdProstorije == -1)
+                {
+                    // magacin
+                    prostorijaZadovoljava = parametriPretrage.CheckMagacin;
+                }
+                else
+                {
+                    // prostorija
+                    prostorija = prostorijeServisObjaket.GetProstorijaById(inventar.IdProstorije);
+                    if (prostorija.TipProstorije == TipProstorije.Bolnicka && parametriPretrage.CheckBolnicka)
+                    {
+                        prostorijaZadovoljava = true;
+                    }
+                    else if (prostorija.TipProstorije == TipProstorije.OpracionaSala && parametriPretrage.CheckOpracionaSala)
+                    {
+                        prostorijaZadovoljava = true;
+                    }
+                    else if (prostorija.TipProstorije == TipProstorije.SobaZaPreglede && parametriPretrage.CheckSobaZaPreglede)
+                    {
+                        prostorijaZadovoljava = true;
+                    }
+                    else if (prostorija.TipProstorije == TipProstorije.BolesnickaSoba && parametriPretrage.CheckBolesnickaSoba)
+                    {
+                        prostorijaZadovoljava = true;
+                    }
+                }
+                
+                
+                
+
+                if (prostorijaZadovoljava)
+                {
+                    foreach(Oprema op in inventar.LOprema)
+                    {
+                        bool odgovaraTipOpreme = false;
+                        if (op.Tip == TipOpreme.Staticka && parametriPretrage.CheckStaticka) odgovaraTipOpreme = true;
+                        else if (op.Tip == TipOpreme.Dinamicka && parametriPretrage.CheckDinamicka) odgovaraTipOpreme = true;
+
+                        if (odgovaraTipOpreme && 
+                            op.Naziv.Contains(parametriPretrage.PretragaNaziv) &&
+                            op.Sifra.Contains(parametriPretrage.PretragaSifra) &&
+                            (op.Kolicina >= parametriPretrage.KolicinaOd && op.Kolicina <= parametriPretrage.KolicinaDo) &&
+                            (op.Cena >= parametriPretrage.CenaOd && op.Cena <= parametriPretrage.CenaDo))
+                        {
+                            if (prostorija == null)
+                            {
+                                opremeDTO.Add(new OpremaDTO(op, "Magacin"));
+                            }
+                            else
+                            {
+                                opremeDTO.Add(new OpremaDTO(op, prostorija.BrojSprat));
+                            }
+                            
+                        }
+                    }
+                }
+
+            }
+
+
+            return opremeDTO;
         }
 
 

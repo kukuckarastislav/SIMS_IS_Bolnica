@@ -1,36 +1,5 @@
 [
   {
-    "Id": 1,
-    "Pocetak": "2021-05-04T04:00:00",
-    "Kraj": "2021-05-04T09:00:00",
-    "IdProstorije1": 1,
-    "IdProstorije2": -1,
-    "IdZdravstveneUsluge": -1,
-    "tipTerminaProstorije": 1,
-    "PreraspodelaIzvrsena": false,
-    "ListaTransferOpreme": []
-  },
-  {
-    "Id": 2,
-    "Pocetak": "2021-05-04T10:00:00",
-    "Kraj": "2021-05-04T11:00:00",
-    "IdProstorije1": 3,
-    "IdProstorije2": 1,
-    "IdZdravstveneUsluge": -1,
-    "tipTerminaProstorije": 2,
-    "PreraspodelaIzvrsena": false,
-    "ListaTransferOpreme": [
-      {
-        "BrojSpratProstorije1": "Magacin",
-        "BrojSpratProstorije2": "1/1",
-        "IdInventar1": 0,
-        "IdInventar2": 1,
-        "SifraOpreme": "pc",
-        "KolicinaOpreme": 1
-      }
-    ]
-  },
-  {
     "Id": 3,
     "Pocetak": "2021-05-06T00:00:00",
     "Kraj": "2021-05-19T00:00:00",

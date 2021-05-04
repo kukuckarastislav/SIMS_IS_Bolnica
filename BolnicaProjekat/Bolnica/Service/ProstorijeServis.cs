@@ -22,7 +22,7 @@ namespace Servis
         {
             ProstorijeRepozitorijumRef = ProstorijeRepozitorijum.GetInstance;
             InventariRepozitorijumRef = InventariRepozitorijum.GetInstance;
-            InventariSerivsObjekat = new InventariSerivs();
+            //InventariSerivsObjekat = new InventariSerivs();
         }
 
         

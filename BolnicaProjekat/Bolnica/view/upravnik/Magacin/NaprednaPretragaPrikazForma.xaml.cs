@@ -1,0 +1,74 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using Kontroler;
+using DTO;
+using System.Collections.ObjectModel;
+
+namespace Bolnica.view.upravnik.Magacin
+{
+    /// <summary>
+    /// Interaction logic for NaprednaPretragaPrikazForma.xaml
+    /// </summary>
+    public partial class NaprednaPretragaPrikazForma : Window
+    {
+        private InventariKontroler inventariKontrolerObjekat;
+        private ObservableCollection<OpremaDTO> lOpremeDTO;
+        private ParametriNaprednePretrageDTO parametriPretrage;
+        public NaprednaPretragaPrikazForma()
+        {
+            InitializeComponent();
+            parametriPretrage = new ParametriNaprednePretrageDTO(inputNaziv.Text, inputSifra.Text, Convert.ToDouble(inputCenaOd.Text), Convert.ToDouble(inputCenaDo.Text),
+                Convert.ToInt32(inputKolicinaOd.Text), Convert.ToInt32(inputKolicinaDo.Text), 
+                Convert.ToBoolean(checkMagacin.IsChecked), Convert.ToBoolean(checkBolnicka.IsChecked),
+                Convert.ToBoolean(checkBolesnickaSoba.IsChecked), Convert.ToBoolean(checkOpracionaSala.IsChecked),
+                Convert.ToBoolean(checkSobaZaPreglede.IsChecked),
+                Convert.ToBoolean(checkStaticka.IsChecked), Convert.ToBoolean(checkDinamicka.IsChecked));
+
+            inventariKontrolerObjekat = new InventariKontroler();
+            lOpremeDTO = inventariKontrolerObjekat.GetOpremaByNaprednaPretraga(parametriPretrage);
+            DataGridPrikazOpremeNapredno.ItemsSource = lOpremeDTO;
+        }
+
+        public void azurirajPrikaz()
+        {
+            lOpremeDTO = inventariKontrolerObjekat.GetOpremaByNaprednaPretraga(parametriPretrage);
+            DataGridPrikazOpremeNapredno.ItemsSource = lOpremeDTO;
+        }
+
+        private void Pretraga_click(object sender, RoutedEventArgs e)
+        {
+
+            parametriPretrage.PretragaNaziv = inputNaziv.Text;
+            parametriPretrage.PretragaSifra = inputSifra.Text;
+            parametriPretrage.CenaOd = Convert.ToDouble(inputCenaOd.Text);
+            parametriPretrage.CenaDo= Convert.ToDouble(inputCenaDo.Text);
+            parametriPretrage.KolicinaOd = Convert.ToInt32(inputKolicinaOd.Text);
+            parametriPretrage.KolicinaDo = Convert.ToInt32(inputKolicinaDo.Text);
+            parametriPretrage.CheckMagacin = Convert.ToBoolean(checkMagacin.IsChecked);
+            parametriPretrage.CheckBolnicka = Convert.ToBoolean(checkBolnicka.IsChecked);
+            parametriPretrage.CheckBolesnickaSoba = Convert.ToBoolean(checkBolesnickaSoba.IsChecked);
+            parametriPretrage.CheckOpracionaSala = Convert.ToBoolean(checkOpracionaSala.IsChecked);
+            parametriPretrage.CheckSobaZaPreglede = Convert.ToBoolean(checkSobaZaPreglede.IsChecked);
+            parametriPretrage.CheckStaticka = Convert.ToBoolean(checkStaticka.IsChecked);
+            parametriPretrage.CheckDinamicka = Convert.ToBoolean(checkDinamicka.IsChecked);
+
+            azurirajPrikaz();
+        }
+
+        private void Nazad_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

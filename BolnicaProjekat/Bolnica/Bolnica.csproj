@@ -95,6 +95,8 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\OpremaDTO.cs" />
+    <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
@@ -268,11 +270,17 @@
     <Compile Include="view\upravnik\Inventari\ZakazivanjeTerminaForma.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaForma.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\Lekovi\PrikazLekova.xaml.cs">
+      <DependentUpon>PrikazLekova.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml.cs">
       <DependentUpon>DodajOpremuUMagForma.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Magacin\MagacinPage.xaml.cs">
       <DependentUpon>MagacinPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Magacin\NaprednaPretragaPrikazForma.xaml.cs">
+      <DependentUpon>NaprednaPretragaPrikazForma.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Magacin\PrikazDinamicke.xaml.cs">
       <DependentUpon>PrikazDinamicke.xaml</DependentUpon>
@@ -480,6 +488,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\upravnik\Lekovi\PrikazLekova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -487,6 +499,10 @@
     <Page Include="view\upravnik\Magacin\MagacinPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\upravnik\Magacin\NaprednaPretragaPrikazForma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\upravnik\Magacin\PrikazDinamicke.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -19,7 +19,7 @@ namespace Model
             Opis = opis;
             Kolicina = kolicina;
             Cena = cena;
-            IdInventar = idInventar;
+            IdInventar = idInventar;    // id inventara nam ne treba
         }
 
         public int Id { get; set; }

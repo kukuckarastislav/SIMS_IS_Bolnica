@@ -18,6 +18,7 @@
                     <Button Width="100" Margin="30 10" Click="Dodaj_u_mag">Dodaj</Button>
                     <Button Width="100" Margin="30 10" Click="Izmeni_u_mag">Izmeni</Button>
                     <Button Width="100" Margin="30 10" Click="Obrisi_u_mag">Obrisi</Button>
+                    <Button Width="100" Margin="30 10" Click="Napredna_Pretraga_click">Napredni filter</Button>
                 </StackPanel>
             </StackPanel>
 

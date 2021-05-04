@@ -17,7 +17,7 @@
                     <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 40 0 2" Click="Prostorije_Click">Rad sa Prostorijama</Button>
                     <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2" Click="Inventari_Click">Inventari</Button>
                     <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2" Click="Magacin_Click">Magacin</Button>
-                    <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2">ToDO</Button>
+                    <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2" Click="Lekovi_Click">Lekovi</Button>
                     <Button FontWeight="Bold" Height="30" BorderBrush="#00568f" BorderThickness="2" Background="#008fe8" Foreground="White" Margin="0 2">ToDO</Button>
                 </StackPanel>
             </Grid>

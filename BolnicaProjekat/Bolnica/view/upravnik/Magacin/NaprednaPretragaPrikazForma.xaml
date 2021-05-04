@@ -1,0 +1,138 @@
+﻿<Window x:Class="Bolnica.view.upravnik.Magacin.NaprednaPretragaPrikazForma"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.upravnik.Magacin"
+        mc:Ignorable="d"
+        Title="NaprednaPretragaPrikazForma" Height="720" Width="1000">
+    <Grid>
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="30"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid Background="White" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Naziv"></TextBlock>
+                    <TextBox x:Name="inputNaziv" Width="120" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"></TextBox>
+                </Grid>
+                
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Sifra"></TextBlock>
+                    <TextBox x:Name="inputSifra" Width="120" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"></TextBox>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Cena od"></TextBlock>
+                    <TextBox x:Name="inputCenaOd" Width="60" Height="22" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Text="0"></TextBox>
+                    <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="do"></TextBlock>
+                    <TextBox x:Name="inputCenaDo" Width="60" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" Text="1000000"></TextBox>
+                </Grid>
+
+                <Grid Grid.Row="3" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="30"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Kolicina od"></TextBlock>
+                    <TextBox x:Name="inputKolicinaOd" Width="60" Height="22" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Text="0"></TextBox>
+                    <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="do"></TextBlock>
+                    <TextBox x:Name="inputKolicinaDo" Width="60" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" Text="1000"></TextBox>
+                </Grid>
+
+
+                <CheckBox IsChecked="True" x:Name="checkMagacin" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Magacin"></CheckBox>
+                <CheckBox x:Name="checkBolnicka" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Bolnicka"></CheckBox>
+                <CheckBox x:Name="checkBolesnickaSoba" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="BolesnickaSoba"></CheckBox>
+                <CheckBox x:Name="checkOpracionaSala" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="OpracionaSala"></CheckBox>
+                <CheckBox x:Name="checkSobaZaPreglede" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="SobaZaPreglede"></CheckBox>
+
+                <CheckBox IsChecked="True" x:Name="checkStaticka" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Staticka"></CheckBox>
+                <CheckBox IsChecked="True" x:Name="checkDinamicka" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Dinamicka"></CheckBox>
+
+                <Button Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" Width="100" Click="Pretraga_click">Pretraga</Button>
+                
+            </Grid>
+            
+            
+
+
+            <DataGrid x:Name="DataGridPrikazOpremeNapredno" 
+                Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2"
+                          ItemsSource="{Binding Path=KolekcijaOpreme}" 
+                          IsReadOnly="True"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="0.7*" />
+                    <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="0.5*" />
+                    <DataGridTextColumn Header="Tip Opreme" Binding="{Binding TipOpreme}" Width="0.5*" />
+                    <DataGridTextColumn Header="Cena" Binding="{Binding Cena}" Width="0.5*" />
+                    <DataGridTextColumn Header="Kolicina" Binding="{Binding Kolicina}" Width="0.5*" />
+                    <DataGridTextColumn Header="lokacija" Binding="{Binding BrojSpratProstorije}" Width="0.7*" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Width="100" Height="40" Click="Nazad_Click">Nazad</Button>
+            
+        </Grid>
+    </Grid>
+</Window>

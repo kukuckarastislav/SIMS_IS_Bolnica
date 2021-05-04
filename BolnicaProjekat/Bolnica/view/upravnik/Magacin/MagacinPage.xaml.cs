@@ -148,5 +148,11 @@ namespace Bolnica.view.upravnik.Magacin
             aktiviraj(2);
 
         }
+
+        private void Napredna_Pretraga_click(object sender, RoutedEventArgs e)
+        {
+            var naprednaPretraga = new NaprednaPretragaPrikazForma();
+            naprednaPretraga.Show();
+        }
     }
 }

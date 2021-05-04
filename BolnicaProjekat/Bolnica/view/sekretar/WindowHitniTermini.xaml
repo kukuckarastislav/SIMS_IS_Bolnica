@@ -1,0 +1,79 @@
+﻿<Window x:Class="Bolnica.view.sekretar.WindowHitniTermini"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.sekretar"
+        mc:Ignorable="d"
+        Title="WindowHitniTermini" Height="450" Width="800">
+    <Grid Background="#ccffbd">
+        <DockPanel>
+            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
+
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17px" Margin="-30 0 0 0" >Odabir lekara:</TextBlock>
+                <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Grid.Row="1" Grid.Column="2" SelectionChanged="ComboBoxLekari_SelectionChanged"/>
+                
+                <Button  Background="white" Grid.Row="9" Grid.Column="4" Click="ZakaziTermin_Click">Zakazi termin</Button>
+                <Button  Background="white" Grid.Row="9" Grid.Column="6" Click="Odustani_Click">Odustani</Button>
+
+                <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17px" Margin="-5 0 0 0" >Tip usluge:</TextBlock>
+                <RadioButton Content="Pregled" Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="3" VerticalAlignment="Top" Name="rbPregled"/>
+                <RadioButton Content="Operacija" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,-5" Grid.Row="3" VerticalAlignment="Bottom" Name="rbOperacija"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17px" Margin="-50 0 0 0" >Slobodni termini:</TextBlock>
+                <ListView 
+                          ItemsSource="{Binding Pregledi}"
+                          x:Name="listaPregleda"
+                          
+                          RenderTransformOrigin="0.5,0.5" Height="200" VerticalAlignment="Top" 
+                          Grid.Row="1" Grid.RowSpan="8" Grid.Column="4" Grid.ColumnSpan="3"
+                          
+                          >
+                    <ListView.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.168"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ListView.RenderTransform>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak}"/>
+                            <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj}"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

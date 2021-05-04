@@ -358,5 +358,23 @@
     "PacijentProcitao": false,
     "LekarProcitao": false,
     "Opis": "Otkazan vam je pregled, dana 5/4/2021, sa pocetkom u 8:00 AM."
+  },
+  {
+    "Id": 41,
+    "IdZdravstveneUsluge": 1,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazan vam je pregled, dana 5/4/2021, sa pocetkom u 8:00 AM."
+  },
+  {
+    "Id": 42,
+    "IdZdravstveneUsluge": -1,
+    "IdPacijenta": 3,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Otkazan vam je pregled, dana 5/4/2021, sa pocetkom u 8:00 AM."
   }
 ]

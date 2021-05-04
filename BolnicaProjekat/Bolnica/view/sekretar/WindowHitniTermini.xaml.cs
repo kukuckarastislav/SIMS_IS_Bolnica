@@ -24,7 +24,7 @@ namespace Bolnica.view.sekretar
     public partial class WindowHitniTermini : Window
     {
         private Pacijent pacijent;
-        private ObservableCollection<Model.Lekar> listaLekari;
+        private ObservableCollection<Lekar> listaLekari;
         private ObservableCollection<ZdravstvenaUsluga> Pregledi { get; set; }
         public WindowHitniTermini(Pacijent pacijent)
         {

@@ -69,7 +69,7 @@ namespace Bolnica.view.sekretar
 
         private void ZakaziHitanTermin_Click(object sender, RoutedEventArgs e)
         {
-            Model.Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Model.Pacijent;
+            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
             if (pacijent == null) return;
 
             var zakaziTerminPage = new WindowHitniTermini(pacijent);

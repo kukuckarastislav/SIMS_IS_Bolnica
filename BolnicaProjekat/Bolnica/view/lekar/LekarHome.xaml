@@ -181,7 +181,7 @@
                     
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/images/lekar-icons/lekovi-icon.png" Width="38" />
-                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Radni kalendar</TextBlock>
+                        <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Lekovi</TextBlock>
                     </StackPanel>
                 </Button>
 

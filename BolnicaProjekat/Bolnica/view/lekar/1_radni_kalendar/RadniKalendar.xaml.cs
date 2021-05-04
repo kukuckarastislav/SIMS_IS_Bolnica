@@ -31,11 +31,9 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.EvidentiranjeUsluge refEvidentiranjeUsluge;
         // LISTE
         public ObservableCollection<DTORadniKalendar> ListaRadniKalendar;
-
-
         // OBJEKTI
-        public DTORadniKalendar odabranaUsluga;
-        public Lekar Lekar;
+        public DTORadniKalendar OdabranaUsluga { get; set; }
+        public Lekar Lekar { get; set; }
 
         public RadniKalendar(Lekar Lekar)
         {
@@ -47,47 +45,48 @@ namespace Bolnica.view.lekar.pacijenti
 
         }
 
-        private void UslugaSelektovana(object sender, MouseButtonEventArgs e)
+
+        private void RadniKalendar_danasnji_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            odabranaUsluga = RadniKalendar_danasnji.SelectedItem as DTORadniKalendar;
+            OdabranaUsluga = RadniKalendar_danasnji.SelectedItem as DTORadniKalendar;
         }
 
         private void BrisanjeUsluge_Click(object sender, RoutedEventArgs e)
         {
-            if (odabranaUsluga == null)
+            if (OdabranaUsluga == null)
             {
                 MessageBox.Show("Odaberite uslugu!");
                 return;
             }
-/*
-            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(odabranaUsluga);
-            ListaZdrastvenaUsluga.Remove(odabranaUsluga);*/
+
+            refBrisanjeUsluge = new view.lekar.pacijenti.BrisanjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
+            NavigationService.Navigate(refBrisanjeUsluge);
+            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(OdabranaUsluga.Usluga);
+            ListaRadniKalendar.Remove(OdabranaUsluga);
         }
 
         private void AzuriranjeUsluge_Click(object sender, RoutedEventArgs e)
         {
-            if (odabranaUsluga == null)
+            if (OdabranaUsluga == null)
             {
                 MessageBox.Show("Odaberite uslugu!");
                 return;
             }
-          /*  refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(Lekar, odabranaUsluga);
-            NavigationService.Navigate(refAzuriranjeUsluge);*/
+            refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
+            NavigationService.Navigate(refAzuriranjeUsluge);
         }
 
         private void EvidentiranjeUsluge_Click(object sender, RoutedEventArgs e)
         {
-            if (odabranaUsluga == null)
+            if (OdabranaUsluga == null)
             {
                 MessageBox.Show("Odaberite uslugu!");
                 return;
             }
-       /*     refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(Lekar, odabranaUsluga);
-            NavigationService.Navigate(refAzuriranjeUsluge);*/
+            refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
+            NavigationService.Navigate(refAzuriranjeUsluge);
 
         }
-
-
 
     }
 }

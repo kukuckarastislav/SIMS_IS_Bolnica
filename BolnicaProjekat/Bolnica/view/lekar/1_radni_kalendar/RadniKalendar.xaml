@@ -19,8 +19,7 @@
             <ColumnDefinition Width="35"/>
             <ColumnDefinition Width="20"/>
             <!-- Meni - Prazno mesto - LEVO -->
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="90"/>
+            <ColumnDefinition Width="290"/>
             <!-- Prazno mesto - DESNO -->
 
             <ColumnDefinition Width="20"/>
@@ -38,8 +37,10 @@
             <!-- [3] Meni (2) - GORE -->
             <RowDefinition Height="25"/>
             <!-- [4] Meni (3) - Button1- CENTAR -->
-            <RowDefinition Height="350"/>
-
+            <RowDefinition Height="320"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
 
         </Grid.RowDefinitions>
 
@@ -62,11 +63,12 @@
                     Grid.Row="2"
                     Grid.Column="2" Grid.ColumnSpan="2"/>
 
-        <TabControl Grid.Column="1" Grid.ColumnSpan="2"
+        <TabControl Grid.Column="1" Grid.ColumnSpan="3"
                     Grid.Row="4" Background="#630000">
             <TabItem Header="Današnji" >
                 <ListBox    x:Name="RadniKalendar_danasnji" 
                             Margin="5"
+                            MouseDoubleClick="RadniKalendar_danasnji_MouseDoubleClick"
                             Background="#810000">
                     <ListBox.ItemTemplate>
                     
@@ -113,18 +115,21 @@
 
 
 
+        <StackPanel     Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        Grid.Column="2"
+                        Grid.Row="6">
 
-        
-
-
-
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="4" Margin="-154,0,9,0">
-
-            <Button x:Name="BrisanjeUsluge"  Height="35" Width="100" VerticalAlignment="Bottom"  HorizontalAlignment="left"
-                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                    Margin="10,0,5,20"
-                            Click="BrisanjeUsluge_Click">
+            <Button     x:Name="BrisanjeUsluge"  
+                        Height="35" 
+                        Width="90" 
+                        VerticalAlignment="Center"  
+                        HorizontalAlignment="Center"
+                        Background="#eeebdd" 
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="BrisanjeUsluge_Click">
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -132,14 +137,21 @@
                 </Button.Resources>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/images/lekar-icons/brisanje-usluge-icon.png" Width="25" />
-                    <TextBlock TextWrapping="Wrap" FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="70"> Brisanje usluge</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="10" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="70"> Brisanje usluge</TextBlock>
                 </StackPanel>
+                
             </Button>
 
 
-            <Button x:Name="EvidentiranjeUsluge" Height="35" Width="100" VerticalAlignment="Bottom"  HorizontalAlignment="left"
-                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                    Margin="10,0,5,20">
+            <Button     x:Name="EvidentiranjeUsluge" 
+                        Height="35" 
+                        Width="90" 
+                        VerticalAlignment="Center"  
+                        HorizontalAlignment="Center"
+                        Background="#eeebdd" 
+                        BorderThickness="1" 
+                        BorderBrush="Black">
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -147,28 +159,35 @@
                 </Button.Resources>
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/images/lekar-icons/usluga-icon.png" Width="25" />
-                    <TextBlock TextWrapping="Wrap"  FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="70"> Evidentiranje usluge</TextBlock>
+                    <TextBlock TextWrapping="Wrap"  FontSize="10" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="70"> Evidentiranje usluge</TextBlock>
                 </StackPanel>
+                
             </Button>
 
-            <Button x:Name="AzuriranjeUsluge" Height="35" Width="100" VerticalAlignment="Bottom"  HorizontalAlignment="left"
-                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                    Margin="10,0,5,20"
-                            Click="AzuriranjeUsluge_Click">
+            <Button     x:Name="AzuriranjeUsluge" 
+                        Height="35" 
+                        Width="90" 
+                        VerticalAlignment="Center"  
+                        HorizontalAlignment="Center"
+                        Background="#eeebdd" 
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="AzuriranjeUsluge_Click">
+                
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
                     </Style>
                 </Button.Resources>
+                
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/images/lekar-icons/azuriranje-usluge-icon.png" Width="25" />
-                    <TextBlock TextWrapping="Wrap"
-                                       FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="74"> Ažuriranje usluge</TextBlock>
+                    <TextBlock TextWrapping="Wrap" FontSize="10" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="74"> Ažuriranje usluge</TextBlock>
                 </StackPanel>
             </Button>
 
-
         </StackPanel>
+
 
 
 

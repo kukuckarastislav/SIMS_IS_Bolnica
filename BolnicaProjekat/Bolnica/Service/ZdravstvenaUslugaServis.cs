@@ -225,5 +225,14 @@ namespace Servis
             return null;
         }
 
+        public void AzurirajVremeUsluga(DTORadniKalendar usluga, DateTime pocetak, DateTime kraj) 
+        {
+            DTORadniKalendar odabranaUsluga = usluga;
+            odabranaUsluga.Usluga.Termin.Pocetak = pocetak;
+            odabranaUsluga.Usluga.Termin.Kraj = kraj;
+                  
+        }
+
+
     }
 }

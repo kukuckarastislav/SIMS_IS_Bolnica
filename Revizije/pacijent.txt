@@ -5,3 +5,9 @@ Mihajlo Ostojic, izvestaj za dijegram aktivnosti pacijenta
 -- unos parametara fali unos komentara
 -- promeniti imena
 -- ostalo deluje uredu
+
+
+Izvestaj za dijegram sekvence pacijenta:
+
+- Sve funkcije su uredno ispracene
+- nisu referencirane metode i klase iz class dijagram

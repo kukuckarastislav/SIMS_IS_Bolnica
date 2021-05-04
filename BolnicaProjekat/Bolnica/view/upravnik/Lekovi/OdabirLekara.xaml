@@ -1,0 +1,32 @@
+﻿<Window x:Class="Bolnica.view.upravnik.Lekovi.OdabirLekara"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.upravnik.Lekovi"
+        mc:Ignorable="d"
+        Title="OdabirLekara" Height="384.658" Width="435.069">
+    <Grid>
+        <ListView SelectionMode="Multiple" ItemsSource="{Binding Lekari}" x:Name="listaLekara" Margin="-1,0,1,0" RenderTransformOrigin="0.5,0.5" Height="300" VerticalAlignment="Top" >
+            <ListView.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.168"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListView.RenderTransform>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Ime" DisplayMemberBinding="{Binding Ime}"/>
+                    <GridViewColumn Header="Prezime" DisplayMemberBinding="{Binding Prezime}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Margin="66,307,243,12" Click="Odustani_Button_Click">Odustani
+        </Button>
+        <Button Margin="226,307,83,12" Click="Posalji_Button_Click">Posalji
+        </Button>
+
+    </Grid>
+</Window>

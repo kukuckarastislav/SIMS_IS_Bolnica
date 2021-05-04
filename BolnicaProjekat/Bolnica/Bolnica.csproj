@@ -87,6 +87,7 @@
     <Compile Include="Controller\InventariKontroler.cs" />
     <Compile Include="Controller\KorisnickaAktivnostKontroler.cs" />
     <Compile Include="Controller\LekarKontroler.cs" />
+    <Compile Include="Controller\LekoviKontroler.cs" />
     <Compile Include="Controller\NotifikacijaKontroler.cs" />
     <Compile Include="Controller\ObavestenjeKontroler.cs" />
     <Compile Include="Controller\PacijentKontroler.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Repository\InventariRepozitorijum.cs" />
     <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
+    <Compile Include="Repository\LekoviRepozitorijum.cs" />
     <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />
     <Compile Include="Repository\ObavestenjeRepozitorijum.cs" />
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
@@ -147,6 +149,7 @@
     <Compile Include="Service\InventariSerivs.cs" />
     <Compile Include="Service\KorisnickaAktivnostServis.cs" />
     <Compile Include="Service\LekarServis.cs" />
+    <Compile Include="Service\LekoviServis.cs" />
     <Compile Include="Service\NotifikacijeServis.cs" />
     <Compile Include="Service\ObavestenjeServis.cs" />
     <Compile Include="Service\PacijentServis.cs" />
@@ -270,8 +273,20 @@
     <Compile Include="view\upravnik\Inventari\ZakazivanjeTerminaForma.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaForma.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\upravnik\Lekovi\PrikazLekova.xaml.cs">
-      <DependentUpon>PrikazLekova.xaml</DependentUpon>
+    <Compile Include="view\upravnik\Lekovi\DodajLek.xaml.cs">
+      <DependentUpon>DodajLek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Lekovi\LekoviPage.xaml.cs">
+      <DependentUpon>LekoviPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Lekovi\OdabirLekara.xaml.cs">
+      <DependentUpon>OdabirLekara.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Lekovi\PrikazNeodobrenihLekova.xaml.cs">
+      <DependentUpon>PrikazNeodobrenihLekova.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Lekovi\PrikazOdobrenihLekova.xaml.cs">
+      <DependentUpon>PrikazOdobrenihLekova.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Magacin\DodajOpremuUMagForma.xaml.cs">
       <DependentUpon>DodajOpremuUMagForma.xaml</DependentUpon>
@@ -488,7 +503,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\upravnik\Lekovi\PrikazLekova.xaml">
+    <Page Include="view\upravnik\Lekovi\DodajLek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Lekovi\LekoviPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Lekovi\OdabirLekara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Lekovi\PrikazNeodobrenihLekova.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Lekovi\PrikazOdobrenihLekova.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

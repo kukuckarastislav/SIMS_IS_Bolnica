@@ -31,5 +31,16 @@ namespace Model
         public double Cena { get; set; }
         public int IdInventar { get; set; }
 
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
+
+
+
     }
+
+
+
 }

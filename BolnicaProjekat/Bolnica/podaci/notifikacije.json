@@ -1,41 +1,56 @@
 [
   {
-    "Id": 2,
+    "Id": -1,
+    "IdZdravstveneUsluge": 2,
+    "IdPacijenta": 1,
+    "IdLekara": 2,
+    "PacijentProcitao": false,
+    "LekarProcitao": true,
+    "Opis": "2021-05-04 08:00 AM*   Podsjecamo vas da danas, u 11:00 AM treba da popijete vas lijek."
+  },
+  {
+    "Id": -2,
+    "IdZdravstveneUsluge": 1,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": true,
+    "Opis": "2021-05-04 09:00 AM*   Podsjecamo vas da danas, u 12:00 PM treba da popijete vas lijek."
+  },
+  {
+    "Id": -3,
+    "IdZdravstveneUsluge": 1,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": true,
+    "Opis": "2021-05-05 07:00 AM*   Podsjecamo vas da danas, u 10:00 AM treba da popijete vas lijek."
+  },
+  {
+    "Id": -4,
+    "IdZdravstveneUsluge": 2,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": true,
+    "Opis": "2021-05-05 09:00 AM*   Podsjecamo vas da danas, u 12:00 PM treba da popijete vas lijek."
+  },
+  {
+    "Id": -5,
     "IdZdravstveneUsluge": 3,
-    "IdPacijenta": 1,
+    "IdPacijenta": 2,
     "IdLekara": 1,
     "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 4/30/2021, sa pocetkom u 12:00 PM."
-<<<<<<< HEAD
-=======
+    "LekarProcitao": true,
+    "Opis": "2021-05-05 07:00 AM*   Podsjecamo vas da danas, u 10:00 AM treba da popijete vas lijek."
   },
   {
-    "Id": 3,
+    "Id": -6,
     "IdZdravstveneUsluge": 4,
-    "IdPacijenta": 1,
+    "IdPacijenta": 2,
     "IdLekara": 1,
     "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 5/7/2021, sa pocetkom u 8:30 AM."
-  },
-  {
-    "Id": 4,
-    "IdZdravstveneUsluge": 2,
-    "IdPacijenta": 1,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 5/5/2021, sa pocetkom u 9:00 AM."
-  },
-  {
-    "Id": 5,
-    "IdZdravstveneUsluge": 2,
-    "IdPacijenta": 1,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 5/5/2021, sa pocetkom u 10:30 AM."
->>>>>>> lekar-WPF-i-upucivanje
+    "LekarProcitao": true,
+    "Opis": "2021-05-05 03:00 AM*   Podsjecamo vas da danas, u 06:00 AM treba da popijete vas lijek."
   }
 ]

@@ -1,9 +1,9 @@
-﻿<Page x:Class="Bolnica.view.lekar._2_pacijenti.UpucivanjePacijent"
+﻿<Page x:Class="Bolnica.view.lekar.pacijenti.UpucivanjePacijent"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Bolnica.view.lekar._2_pacijenti"
+      xmlns:local="clr-namespace:Bolnica.view.lekar.pacijenti"
       mc:Ignorable="d" 
       d:DesignHeight="660"
       d:DesignWidth="400"
@@ -91,7 +91,7 @@
         <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Orientation="Horizontal">
             <Button  Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Left"
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                >
+                Click="PrikazMedicinskiKartonButton">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>
@@ -130,7 +130,7 @@
                     Grid.Row="4" Grid.RowSpan="1"
                 Grid.Column="1" Grid.ColumnSpan="5"/>
                 <RadioButton IsChecked="True" Content="Pregled"    VerticalAlignment="Center" HorizontalAlignment="Left"   Name="rbPregled"/>
-                <RadioButton IsEnabled="False" Content="Operacija" VerticalAlignment="Center" HorizontalAlignment="Left"  Name="rbOperacija"/>
+                <RadioButton IsEnabled="True" Content="Operacija" VerticalAlignment="Center" HorizontalAlignment="Left"  Name="rbOperacija"/>
 
                 <TextBlock Text="Prostorija:" 
                     VerticalAlignment="Top" HorizontalAlignment="left" 
@@ -138,8 +138,10 @@
                     Foreground="#eeebdd"
                     Grid.Row="4" Grid.RowSpan="1"
                     Grid.Column="1" Grid.ColumnSpan="5"/>
-                <ComboBox x:Name="ComboBoxProstorija" ItemsSource="{Binding KolekcijaSobaZaPregled}" Height="10" Width="120" 
-                                  HorizontalAlignment="Left">
+                <ComboBox x:Name="ComboBoxProstorija" 
+                          ItemsSource="{Binding KolekcijaSobaZaPregled}" 
+                          Width="120" 
+                          HorizontalAlignment="Left">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding BrojSprat}"/>
@@ -200,6 +202,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.RowSpan="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="10,10,5,0">
+            
             <TextBlock Text="Razlog zakazivanja:" 
                     VerticalAlignment="Top" HorizontalAlignment="left" 
                     FontWeight="Bold" 
@@ -208,10 +211,28 @@
                     Grid.Column="1" Grid.ColumnSpan="5"
                     Margin="0,0,0,2"/>
             <TextBox x:Name="RazlogZakazivanja"  MaxLines="3" MinLines="3" TextWrapping="Wrap"/>
+          
+            <TextBlock Text="Lekar/Specijalista:" 
+                    VerticalAlignment="Top" HorizontalAlignment="left" 
+                    FontWeight="Bold" 
+                    Foreground="#eeebdd"
+                    Grid.Row="4" Grid.RowSpan="1"
+                    Grid.Column="1" Grid.ColumnSpan="5"
+                    Margin="0,0,0,2"/>
+            <ComboBox x:Name="ComboBoxLekar" 
+                     ItemsSource="{Binding KolekcijaLekara}" 
+                     Width="120" 
+                     HorizontalAlignment="Left">
+     
+            </ComboBox>
+
+
+
         </StackPanel>
 
         <Button Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,-10">
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,-10"
+                Click="PotvrdiZakazanuUsluguButton">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

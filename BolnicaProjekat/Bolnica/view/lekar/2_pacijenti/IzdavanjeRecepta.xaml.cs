@@ -24,7 +24,7 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public Pacijent IzabraniPacijent { get; set; }
         public ObservableCollection<Recept> Recepti { get; set; }
-        public ObservableCollection<Lek> Lekovi { get; set; }
+        public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
         public Lek OdabraniLek { get; set; }
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
@@ -34,6 +34,11 @@ namespace Bolnica.view.lekar.pacijenti
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
+
+            Servis.LekoviServis servis = new Servis.LekoviServis();
+            KolekcijaLekovi = servis.GetOdobreniLekovi();
+
+            ComboBoxLek.ItemsSource = KolekcijaLekovi;
 
 
             headerIme.Text = IzabraniPacijent.Ime;
@@ -61,11 +66,19 @@ namespace Bolnica.view.lekar.pacijenti
             DateTime DatumPropisivanja = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
             //DateTime DatumIsteka = datum_isteka.SelectedDate.Value; //iz nekog razl ne radi
 
-            // OdabraniLek = ComboBoxLek.SelectedItem as Lek;
+            OdabraniLek = ComboBoxLek.SelectedItem as Lek;
+            string nacin_koriscenja = NacinKorsicenja.Text;
+            int idRec = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll().Count+1;
+            int idLekar = Lekar.Id;
+            int idPac = IzabraniPacijent.Id;
+            int idLeka = OdabraniLek.Id;
 
-            Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
+            Recept r = new Recept(idRec, idLekar, idPac, idLeka, DatumPropisivanja, DatumPropisivanja, false, nacin_koriscenja);
+
+
+           // Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
             Servis.NotifikacijeServis.ReceptNotifikacija(r,vrijemeUzimanja);
-
+            Servis.ReceptServis.DodajRecept(r);
             //Recepti = new ObservableCollection<Recept>();
 
         }
@@ -78,5 +91,6 @@ namespace Bolnica.view.lekar.pacijenti
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
+
     }
 }

@@ -20,26 +20,26 @@ namespace Kontroler
         }
         public ObservableCollection<Recept> GetPacijentovihRecepta(int pacId)
         {
-            return servis.GetPacijentovihRecepta(pacId);
+            return ReceptServis.GetPacijentovihRecepta(pacId);
         }
 
         public ObservableCollection<Recept> GetLekarovihRecepta(int lekarId)
         {
-            return servis.GetPacijentovihRecepta(lekarId);
+            return ReceptServis.GetPacijentovihRecepta(lekarId);
         }
 
         public ObservableCollection<Recept> GetRecepataOdredjenogLeka(int lekId)
         {
-            return servis.GetPacijentovihRecepta(lekId);
+            return ReceptServis.GetPacijentovihRecepta(lekId);
         }
         public void ObrisiRecept(Recept recept)
         {
-            servis.ObrisiRecept(recept);
+            ReceptServis.ObrisiRecept(recept);
         }
 
         public void DodajRecept(Recept recept)
         {
-            servis.DodajRecept(recept);
+            ReceptServis.DodajRecept(recept);
         }
 
         /*

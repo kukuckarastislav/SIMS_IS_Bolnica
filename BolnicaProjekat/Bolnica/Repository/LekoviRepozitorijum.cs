@@ -102,7 +102,7 @@ namespace Repozitorijum
             return lekovi;
         }
 
-        public Lek GetOceneById(int id)
+        public Lek GetLekById(int id)
         {
             loadData();
             foreach (Lek z in lekovi)

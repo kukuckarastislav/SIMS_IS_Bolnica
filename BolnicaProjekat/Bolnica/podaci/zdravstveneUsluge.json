@@ -12,5 +12,33 @@
     "Obavljena": false,
     "RazlogZakazivanja": "",
     "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "0001-01-01T22:30:00",
+      "Kraj": "0001-01-01T23:00:00"
+    },
+    "Id": 3,
+    "IdLekara": 2,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": 7,
+    "Obavljena": false,
+    "RazlogZakazivanja": "rsrsr",
+    "RezultatUsluge": " "
+  },
+  {
+    "Termin": {
+      "Pocetak": "0001-01-01T10:00:00",
+      "Kraj": "0001-01-01T10:30:00"
+    },
+    "Id": 4,
+    "IdLekara": 2,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": 6,
+    "Obavljena": false,
+    "RazlogZakazivanja": "operacija - ruka",
+    "RezultatUsluge": " "
   }
 ]

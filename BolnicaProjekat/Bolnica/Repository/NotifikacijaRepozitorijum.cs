@@ -66,6 +66,22 @@ namespace Repozitorijum
             string json = JsonSerializer.Serialize(Notifikacije, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
+
+        internal void ObrisiNotifikacijuPacijenta(int idPacijenta, int idNotifikacije)
+        {
+            int i = 0;
+            foreach (Notifikacija n in Notifikacije)
+            {
+                if (n.Id == idNotifikacije && n.IdPacijenta==idPacijenta)
+                {
+                    Notifikacije.RemoveAt(i);
+                    break;
+                }
+                i++;
+            }
+            SaveData();
+        }
+
         public Model.Notifikacija DodajNotifikaciju(Model.Notifikacija notifikacija)
         {
             loadData();

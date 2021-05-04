@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
+using Bolnica.Controller;
 
 namespace Bolnica.view.pacijent
 {
@@ -21,11 +22,13 @@ namespace Bolnica.view.pacijent
         ObservableCollection<Notifikacija> Notifikacije { get; set; }
         ObservableCollection<Notifikacija> Reminders { get; set; }
         public Notifikacija KliknutaNotifijacija { get; set; }
+
+        private Controller.NotifikacijaKontroler Kontroler;
         public NotifikacijePacijent()
         {
 
-            Controller.NotifikacijaKontroler kontroler = new Controller.NotifikacijaKontroler();
-            Notifikacije = kontroler.GetNotifikacijePacijenta(1);
+            Kontroler = new Controller.NotifikacijaKontroler();
+            Notifikacije = Kontroler.GetNotifikacijePacijenta(1);
             Reminders = new ObservableCollection<Notifikacija>();
             //prvo cemo prikazati samo normalne notifikacije a remindere u njihovu listu
             
@@ -93,7 +96,8 @@ namespace Bolnica.view.pacijent
 
         private void obrisi_notifikaciju(object sender, RoutedEventArgs e)
         {
-            
+            KliknutaNotifijacija = listaNotifikacija.SelectedItem as Notifikacija;
+            Kontroler.ObrisiNotifikaciju(1, KliknutaNotifijacija.Id);
         }
     }
 }

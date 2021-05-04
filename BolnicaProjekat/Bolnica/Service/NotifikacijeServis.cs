@@ -35,15 +35,34 @@ namespace Servis
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
         }
 
+        internal void ObrisiNotifikaciju(int idPacijenta, int idNotifikacije)
+        {
+            NotifikacijaRepozitorijum.GetInstance.ObrisiNotifikacijuPacijenta(idPacijenta, idNotifikacije);
+        }
+
         internal ObservableCollection<Notifikacija> GetNotifikacijePacijenta(int idPacijenta)
         {
             DateTime now = DateTime.Now;
-            if((now.Day==PrviDanAnkete.Day && now.Month == PrviDanAnkete.Month) || (now.Day == DrugiDanAnkete.Day && now.Month == DrugiDanAnkete.Month))
+            if ((now.Day == PrviDanAnkete.Day && now.Month == PrviDanAnkete.Month && !DobioNotifikaciju(idPacijenta)) ||
+                (now.Day == DrugiDanAnkete.Day && now.Month == DrugiDanAnkete.Month) && !DobioNotifikaciju(idPacijenta))
             {
-                string text = "Kliknite na ovu notifikaciju da biste popunili anketu o nasoj bolnici!";
-                NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(new Notifikacija(0,0,idPacijenta,0,false,false,text));
+                if (!DobioNotifikaciju(idPacijenta))
+                {
+                    string text = "Kliknite na ovu notifikaciju da biste popunili anketu o nasoj bolnici!";
+                    NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(new Notifikacija(0, 0, idPacijenta, 0, false, false, text));
+                }
             }
-            return NotifikacijaRepozitorijum.GetInstance.GetByPatientId(idPacijenta); ;
+            return NotifikacijaRepozitorijum.GetInstance.GetByPatientId(idPacijenta);
+        }
+        public bool DobioNotifikaciju(int idPacijenta)
+        {
+            ObservableCollection<Notifikacija> notifikacije = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(idPacijenta);
+            foreach (Notifikacija n in notifikacije)
+            {
+                if (n.Id == 0)
+                    return true;
+            }
+            return false;
         }
 
         public static void ReceptNotifikacija(Recept recept, DateTime VremeUzimanja)

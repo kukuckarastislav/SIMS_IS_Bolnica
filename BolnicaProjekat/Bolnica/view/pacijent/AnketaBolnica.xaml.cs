@@ -19,8 +19,10 @@ namespace Bolnica.view.pacijent
     /// <summary>
     /// Interaction logic for AnketaBolnica.xaml
     /// </summary>
+    /// 
+
     public partial class AnketaBolnica : Window
-    {   
+    {
         public int idPacijenta { get; set; }
         public string text { get; set; }
         public AnketaBolnica(int idPacijenta)
@@ -31,9 +33,13 @@ namespace Bolnica.view.pacijent
 
         private void posalji_anketu(object sender, RoutedEventArgs e)
         {
+            Controller.NotifikacijaKontroler kontrolerNotifikacija = new Controller.NotifikacijaKontroler();
+
+            kontrolerNotifikacija.ObrisiNotifikaciju(1, 0);
             Controller.AnketaKontroler kontroler = new Controller.AnketaKontroler();
             text = sadrzaj.Text;
-            kontroler.DodajOcenuBolnice(idPacijenta, text);
+            int ocjena = Convert.ToInt32(ocjene.Text);
+            kontroler.DodajOcenuBolnice(idPacijenta, text,ocjena);
             this.Close();
         }
     }

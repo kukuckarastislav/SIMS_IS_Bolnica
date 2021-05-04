@@ -29,11 +29,15 @@ namespace Bolnica.view.pacijent
         public DateTime date;
         public Lekar OdabraniLekar;
         public ObservableCollection<Lekar> listaLekari { get; set; }
+        ZdravstvenaUslugaKontroler KontrolerZU { get; set; }
+        KorisnickaAktivnostKontroler KontrolerKA { get; set; }
+
 
         public RaspoloziviPregledi()
         {
             InitializeComponent();
-
+            KontrolerZU = new ZdravstvenaUslugaKontroler();
+            KontrolerKA = new KorisnickaAktivnostKontroler();
 
             //Pregledi = ZdravstvenaUslugaServis.getFirstAvailableAppointments();
             this.listaPregleda.ItemsSource = Pregledi;
@@ -54,16 +58,15 @@ namespace Bolnica.view.pacijent
             if (odabraniPregled == null)
                 MessageBox.Show("Niste odabrali pregled");
 
-            KorisnickaAktivnostKontroler kontroler = new KorisnickaAktivnostKontroler();
-
-            if (!kontroler.JeSpamUser(1))
+          
+            if (!KontrolerKA.JeSpamUser(1))
             {
                 //ne bi trenalo da udje ovdje uopste ako je spam user
                 // MessageBox.Show("Da li je spam user " + KorisnickaAktivnostServis.JeSpamUser(1));
                 odabraniPregled.IdPacijenta = 1;
 
-                Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(odabraniPregled);
-                kontroler.DodajKorisnickuAktivnostZakazivanja(1);
+                KontrolerZU.DodajUslugu(odabraniPregled);
+                KontrolerKA.DodajKorisnickuAktivnostZakazivanja(1);
                 Pregledi.Remove(odabraniPregled);
             }
             else
@@ -109,10 +112,11 @@ namespace Bolnica.view.pacijent
             if (Lekar.IsChecked == true) prioritet = 1;
 
             Pregledi = new ObservableCollection<ZdravstvenaUsluga>();
-            PreglediList = ZdravstvenaUslugaServis.getAvailableAppointments(OdabraniLekar, pocetak, kraj, prioritet);
+            
+            PreglediList = KontrolerZU.GetSlobodniTermini(OdabraniLekar, pocetak, kraj, prioritet);
+
             foreach (var v in PreglediList)
                 Pregledi.Add(v);
-
             this.listaPregleda.ItemsSource = Pregledi;
         }
     }

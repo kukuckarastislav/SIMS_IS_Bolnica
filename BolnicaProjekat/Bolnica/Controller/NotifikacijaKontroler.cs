@@ -33,5 +33,9 @@ namespace Bolnica.Controller
             return ServisNotifikacije.GetNotifikacijePacijenta(idPacijenta);
         }
 
+        internal void ObrisiNotifikaciju(int idPacijenta, int idNotifikacije)
+        {
+            ServisNotifikacije.ObrisiNotifikaciju(idPacijenta,idNotifikacije);
+        }
     }
 }

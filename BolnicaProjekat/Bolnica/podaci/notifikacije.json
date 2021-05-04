@@ -1,14 +1,5 @@
 [
   {
-    "Id": 0,
-    "IdZdravstveneUsluge": 1,
-    "IdPacijenta": 1,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Kliknite ovdje da biste popunili anketu nase bolnice."
-  },
-  {
     "Id": 2,
     "IdZdravstveneUsluge": 3,
     "IdPacijenta": 1,
@@ -16,14 +7,5 @@
     "PacijentProcitao": false,
     "LekarProcitao": false,
     "Opis": "Zakazan vam je pregled, dana 4/30/2021, sa pocetkom u 12:00 PM."
-  },
-  {
-    "Id": 3,
-    "IdZdravstveneUsluge": 4,
-    "IdPacijenta": 1,
-    "IdLekara": 1,
-    "PacijentProcitao": false,
-    "LekarProcitao": false,
-    "Opis": "Zakazan vam je pregled, dana 5/7/2021, sa pocetkom u 8:30 AM."
   }
 ]

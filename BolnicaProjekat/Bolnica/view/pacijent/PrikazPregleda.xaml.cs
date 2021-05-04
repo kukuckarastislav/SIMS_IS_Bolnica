@@ -23,8 +23,10 @@ namespace Bolnica.view.pacijent
     {
         public ZdravstvenaUsluga Pregled;
         public DateTime NoviPocetak;
+        ZdravstvenaUslugaKontroler Kontroler;
         public PrikazPregleda(ZdravstvenaUsluga usluga)
         {
+            Kontroler = new ZdravstvenaUslugaKontroler();
 
             InitializeComponent();
             Pregled = usluga;
@@ -52,7 +54,7 @@ namespace Bolnica.view.pacijent
         {
             KorisnickaAktivnostKontroler kontroler = new KorisnickaAktivnostKontroler();
 
-            if (!Servis.ZdravstvenaUslugaServis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak))
+            if (!Kontroler.PomjeranjeTerminaMoguce(Pregled, NoviPocetak))
             {
                 MessageBox.Show("Izabrani termin je zauzet");
             }

@@ -7,7 +7,22 @@
         mc:Ignorable="d"
         Title="AnketaLekar" Height="395.753" Width="584.246">
     <Grid>
-        <Label Margin="40,28,87,298" Content="Kojom ocjenom biste ocjenili naseg lekara                                                    ? "/>
+        <Label Margin="40,28,157,298" Content="Kojom ocjenom biste ocjenili naseg lekara                                          ? "/>
+        <ComboBox x:Name="ocjene" Margin="508,33,11,302">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+            <ComboBoxItem Margin="22,0,724,0" Content="1" />
+            <ComboBoxItem Margin="22,0,724,0" Content="2" />
+            <ComboBoxItem Margin="22,0,724,0" Content="3" />
+            <ComboBoxItem Margin="22,0,724,0" Content="4" />
+            <ComboBoxItem Margin="22,0,724,0" Content="5" />
+        </ComboBox>
         <TextBlock x:Name="lekar" Margin="273,28,144,298"/>
         <Label Margin="40,124,87,202" Content="Da li imate neki komentar ? "/>
         <TextBox x:Name="sadrzaj" Margin="40,151,62,78"/>

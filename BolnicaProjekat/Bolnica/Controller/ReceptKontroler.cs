@@ -42,6 +42,11 @@ namespace Kontroler
             ReceptServis.DodajRecept(recept);
         }
 
+        public ObservableCollection<Recept> GetAll()
+        {
+            return ReceptServis.GetAll();
+        }
+
         /*
         public ObservableCollection<Recept> GetPacijentovihRecepta(int pacId)
         public ObservableCollection<Recept> GetLekarovihRecepta(int lekarId)

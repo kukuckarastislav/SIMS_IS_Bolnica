@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -35,12 +36,11 @@ namespace Bolnica.view.lekar.pacijenti
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
 
-            Servis.LekoviServis servis = new Servis.LekoviServis();
-            KolekcijaLekovi = servis.GetOdobreniLekovi();
+            Kontroler.LekoviKontroler LekoviKontroler = new Kontroler.LekoviKontroler();
+            Kontroler.ReceptKontroler ReceptKontroler = new Kontroler.ReceptKontroler();
+            KolekcijaLekovi = LekoviKontroler.GetOdobreniLekovi();
 
             ComboBoxLek.ItemsSource = KolekcijaLekovi;
-
-
             headerIme.Text = IzabraniPacijent.Ime;
             headerPrezime.Text = IzabraniPacijent.Prezime;
             headerJMBG.Text = IzabraniPacijent.Jmbg;
@@ -56,19 +56,16 @@ namespace Bolnica.view.lekar.pacijenti
             if (Vreme_AP.Equals("PM"))
                 VremeSati += 12;
 
-
-
             DateTime vrijemeUzimanja= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, VremeSati, VremeMinute, 00);
             MessageBox.Show(vrijemeUzimanja.ToString());
 
-
-
-            DateTime DatumPropisivanja = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+            DateTime DatumPropisivanja = new DateTime(DateTime.Now.Year,DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
             //DateTime DatumIsteka = datum_isteka.SelectedDate.Value; //iz nekog razl ne radi
 
             OdabraniLek = ComboBoxLek.SelectedItem as Lek;
             string nacin_koriscenja = NacinKorsicenja.Text;
-            int idRec = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll().Count+1;
+            Kontroler.ReceptKontroler ReceptKontroler = new Kontroler.ReceptKontroler();
+            int idRec = ReceptKontroler.GetAll().Count + 1;
             int idLekar = Lekar.Id;
             int idPac = IzabraniPacijent.Id;
             int idLeka = OdabraniLek.Id;
@@ -78,7 +75,7 @@ namespace Bolnica.view.lekar.pacijenti
 
            // Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
             Servis.NotifikacijeServis.ReceptNotifikacija(r,vrijemeUzimanja);
-            Servis.ReceptServis.DodajRecept(r);
+            ReceptKontroler.DodajRecept(r);
             //Recepti = new ObservableCollection<Recept>();
 
         }

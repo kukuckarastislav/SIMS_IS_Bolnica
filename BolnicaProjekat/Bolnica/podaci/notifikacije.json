@@ -16,5 +16,23 @@
     "PacijentProcitao": false,
     "LekarProcitao": false,
     "Opis": "Zakazan vam je pregled, dana 5/4/2021, sa pocetkom u 8:00 AM."
+  },
+  {
+    "Id": -3,
+    "IdZdravstveneUsluge": 5,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": true,
+    "Opis": "2021-05-04 22:00 PM*   Podsjecamo vas da danas, u 01:00 AM treba da popijete vas lijek."
+  },
+  {
+    "Id": -4,
+    "IdZdravstveneUsluge": 6,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": true,
+    "Opis": "2021-05-05 06:00 AM*   Podsjecamo vas da danas, u 09:00 AM treba da popijete vas lijek."
   }
 ]

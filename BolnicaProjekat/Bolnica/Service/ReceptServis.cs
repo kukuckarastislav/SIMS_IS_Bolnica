@@ -90,6 +90,10 @@ namespace Servis
             return ret;
         }
 
+        public static ObservableCollection<Recept> GetAll()
+        {
+            return ReceptRepozitorijum.GetInstance.GetAll();
+        }
 
 
 

@@ -59,7 +59,7 @@
         "Naziv": "Infuzija",
         "Tip": 1,
         "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 23,
+        "Kolicina": 25,
         "Cena": 60,
         "IdInventar": 0
       },
@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 16,
+        "Kolicina": 15,
         "Cena": 125,
         "IdInventar": 0
       },
@@ -136,7 +136,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 6,
+        "Kolicina": 7,
         "Cena": 125,
         "IdInventar": 0
       },
@@ -146,7 +146,7 @@
         "Naziv": "Infuzija",
         "Tip": 1,
         "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 4,
+        "Kolicina": 2,
         "Cena": 60,
         "IdInventar": 0
       },

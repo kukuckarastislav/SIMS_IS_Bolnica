@@ -24,31 +24,21 @@ namespace Bolnica.view.upravnik.Inventari
     {
 
         private int smerTransfera = 0;  // 0 - magacin u invetar; 1 - inventar u magacin
-        private TipOpreme tipOpreme;
         private Inventar inventar1;
         private Inventar inventar2;
         private int idInventar1;
         private int idInventar2;
         private Prostorija prostorija1;
         private Prostorija prostorija2;
-        private Magacin.PrikazStaticke refPrikazStaticke = null;
-        private Magacin.PrikazStaticke prikazStatickeInventar1 = null;
-        private Magacin.PrikazStaticke prikazStatickeInventar2 = null;
 
         private Magacin.PrikazDinamicke refPrikazDinamicke = null;
         private Magacin.PrikazDinamicke prikazDinamickeInventar1 = null;
         private Magacin.PrikazDinamicke prikazDinamickeInventar2 = null;
 
-
-
-
-
         private InventariKontroler inventariKontroler;
         private ProstorijeKontroler prostorijeKontroler;
 
-        public PreraspodelaInventara(Magacin.PrikazStaticke refPrikazStaticke,
-                                      Magacin.PrikazDinamicke refPrikazDinamicke,
-                                      TipOpreme tipOpreme,
+        public PreraspodelaInventara(Magacin.PrikazDinamicke refPrikazDinamicke,
                                       int idInventar1,
                                       int idInventar2)
         {
@@ -56,9 +46,7 @@ namespace Bolnica.view.upravnik.Inventari
             this.idInventar2 = idInventar2;
             this.inventariKontroler = new InventariKontroler();
             this.prostorijeKontroler = new ProstorijeKontroler();
-            this.refPrikazStaticke = refPrikazStaticke;
             this.refPrikazDinamicke = refPrikazDinamicke;
-            this.tipOpreme = tipOpreme;
             this.inventar1 = inventariKontroler.GetInventarById(idInventar1);
             this.inventar2 = inventariKontroler.GetInventarById(idInventar2);
 
@@ -73,20 +61,12 @@ namespace Bolnica.view.upravnik.Inventari
             {
                 MessageBox.Show("Greska prostorije su == NULL");
             }
-            if (tipOpreme == TipOpreme.Staticka)
-            {
-                prikazStatickeInventar1 = new Magacin.PrikazStaticke(idInventar1, txt_naziv_opreme, false);
-                prikazStatickeInventar2 = new Magacin.PrikazStaticke(idInventar2, txt_naziv_opreme, false);
-                PovrsinaPrikazInvetar1.Content = prikazStatickeInventar1;
-                PovrsinaPrikazInvetar2.Content = prikazStatickeInventar2;
-            }
-            else
-            {
-                prikazDinamickeInventar1 = new Magacin.PrikazDinamicke(idInventar1, txt_naziv_opreme, false);
-                prikazDinamickeInventar2 = new Magacin.PrikazDinamicke(idInventar2, txt_naziv_opreme, false);
-                PovrsinaPrikazInvetar1.Content = prikazDinamickeInventar1;
-                PovrsinaPrikazInvetar2.Content = prikazDinamickeInventar2;
-            }
+           
+            prikazDinamickeInventar1 = new Magacin.PrikazDinamicke(idInventar1, txt_naziv_opreme, false);
+            prikazDinamickeInventar2 = new Magacin.PrikazDinamicke(idInventar2, txt_naziv_opreme, false);
+            PovrsinaPrikazInvetar1.Content = prikazDinamickeInventar1;
+            PovrsinaPrikazInvetar2.Content = prikazDinamickeInventar2;
+            
 
             
             if (idInventar1 == 0) lblProstorija1.Text = "Magacin";
@@ -118,18 +98,13 @@ namespace Bolnica.view.upravnik.Inventari
             if (smerTransfera == 0)
             {
                 // magacin -> inventar
-                if (tipOpreme == TipOpreme.Staticka)
-                    oprema = prikazStatickeInventar1.GetSelectedOprema();
-                else
-                    oprema = prikazDinamickeInventar1.GetSelectedOprema();
+                oprema = prikazDinamickeInventar1.GetSelectedOprema();
             }
             else if (smerTransfera == 1)
             {
                 // inventar -> magacin
-                if (tipOpreme == TipOpreme.Staticka)
-                    oprema = prikazStatickeInventar2.GetSelectedOprema();
-                else
-                    oprema = prikazDinamickeInventar2.GetSelectedOprema();
+               
+                oprema = prikazDinamickeInventar2.GetSelectedOprema();
             }
             
 
@@ -156,21 +131,14 @@ namespace Bolnica.view.upravnik.Inventari
                 inventariKontroler.preraspodelaOpreme(idInventar2, idInventar1, oprema, kolicina);
             }
 
-            if (tipOpreme == TipOpreme.Staticka)
-            {
-                prikazStatickeInventar1.azurirajPrikaz();
-                prikazStatickeInventar2.azurirajPrikaz();
-            }
-            else
-            {
-                prikazDinamickeInventar1.azurirajPrikaz();
-                prikazDinamickeInventar2.azurirajPrikaz();
-            }
+          
+            prikazDinamickeInventar1.azurirajPrikaz();
+            prikazDinamickeInventar2.azurirajPrikaz();
+            
         }
 
         private void Button_Click_zavrsi(object sender, RoutedEventArgs e)
         {
-            if (refPrikazStaticke != null) refPrikazStaticke.azurirajPrikaz();
             if (refPrikazDinamicke != null) refPrikazDinamicke.azurirajPrikaz();
 
             this.Close();

@@ -84,8 +84,8 @@ namespace Bolnica.view.upravnik.Inventari
 
             if(tipOpreme == TipOpreme.Dinamicka)
             {
-                var preraspodelaInventara = new PreraspodelaInventara(refPrikazStaticke, refPrikazDinamicke,
-                                                                        tipOpreme, 0, prostorija.IdInventar);
+                var preraspodelaInventara = new PreraspodelaInventara(refPrikazDinamicke,
+                                                                        0, prostorija.IdInventar);
                 preraspodelaInventara.Show();
             }
             else

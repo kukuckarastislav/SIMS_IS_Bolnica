@@ -1,0 +1,11 @@
+Revidiranje dijagrama za kontrolnu tacku KT4
+
+Milica Vucinic RA139/2018 revidiranje Rastislav Kukucka RA129/2018
+Kolega Rastislav je imao dijagram Aktivnosti za zakazivanje renoviranja
+- Nemaju sve aktivnosti svoje input i output
+- Prikaz nije aktivnost upravnika nego sistema
+
+Rastislav Kukucka RA129/2018 revidiranje Milica Vucinic RA139/2018
+Koleginica Milica je imala sequence dijagram za anti-trol mehanizam.
+- Na dijagramu postoji “suspenzija istekla promjenljiva” a nema je nigde u kodu, mogla je ta provera bas da se stavi u jednu funkciju koja vraca bool
+

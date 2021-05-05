@@ -5,7 +5,8 @@
 <Workspace>
 	<Local Expanded="Yes">
 		<Model Expanded="Yes" ID="{4BA75A4A-EF8B-4730-A4F4-FFF1D0B951BB}" Loaded="No" Name="ZdravoBolnicaProj" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="../ZdravoBolnicaProj/ZdravoBolnicaProj/ZdravoBolnicaProj.prj"/>
-		<Model Expanded="Yes" ID="{4BA75A4A-EF8B-4730-A4F4-FFF1D0B951BB}" Name="ZdravoBolnicaProj" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="../ZdravoBolnicaProj/ZdravoBolnicaProj/ZdravoBolnicaProj.prj"/>
+		<Model Expanded="Yes" ID="{4BA75A4A-EF8B-4730-A4F4-FFF1D0B951BB}" Loaded="No" Name="ZdravoBolnicaProj" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="../ZdravoBolnicaProj/ZdravoBolnicaProj/ZdravoBolnicaProj.prj"/>
+		<Model Expanded="Yes" ID="{F1FCEC67-C63F-43BC-90C2-62C0F5074227}" Name="ZdravoBolnicaClassDiagram" Type="{18112060-1A4B-11D1-83D9-444553540000}" URL="../ZdravoBolnicaProj/ZdravoBolnicaClassDiagram.oom"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

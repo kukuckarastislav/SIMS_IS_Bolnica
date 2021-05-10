@@ -11,11 +11,11 @@
             <Grid DockPanel.Dock="Left" Background="#1c1427" Width="Auto">
                 <StackPanel Orientation="Vertical">
 
-                    <Button Margin="0 100 0 0" Click="Registracija_Click" Background="#7eca9c" Height="50">Registracija pacijenata</Button>
+                    <Button Click="PocetnaStranica_Click" Margin="0 100 0 0" Background="#7eca9c" Height="50">Pocetna stranica</Button>
+                    <Button Click="Registracija_Click" Background="#7eca9c" Height="50">Registracija pacijenata</Button>
                     <Button Click="ListPacijenti_Click" Background="#7eca9c" Height="50">Lista pacijenata</Button>
                     <Button Click="ListObavestenja_Click" Background="#7eca9c" Height="50">Obavestenja</Button>
-                    <Button Background="#7eca9c" Height="50">ToDO</Button>
-                    <Button Background="#7eca9c" Height="50">ToDO</Button>
+                    <Button Click="ZauzetostProstorija_Click" Background="#7eca9c" Height="50">Zauzetost prostorija</Button>
                 </StackPanel>
             </Grid>
             <DockPanel DockPanel.Dock="Right">

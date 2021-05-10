@@ -25,6 +25,10 @@ namespace Bolnica.view.sekretar
             RadnaPovrsina.Content = new view.sekretar.PagePacijenti();
         }
 
+        private void PocetnaStranica_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.PocetnaStranica();
+        }
         private void Registracija_Click(object sender, RoutedEventArgs e)
         {
             RadnaPovrsina.Content = new view.sekretar.registracija.PageRegistracija();
@@ -37,6 +41,10 @@ namespace Bolnica.view.sekretar
         private void ListObavestenja_Click(object sender, RoutedEventArgs e)
         {
             RadnaPovrsina.Content = new view.sekretar.PageObavestenja();
+        }
+        private void ZauzetostProstorija_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.ZauzetostProstorija();
         }
     }
 }

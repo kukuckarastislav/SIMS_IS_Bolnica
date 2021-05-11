@@ -15,7 +15,7 @@ namespace Kontroler
 {
    public class PacijentKontroler
    {
-       
+        public Servis.PacijentServis pacijentServis;
         public PacijentKontroler()
         {
             pacijentServis = new PacijentServis();
@@ -55,12 +55,17 @@ namespace Kontroler
          // TODO: implement
          return null;
       }
+
+        
         public void SaveData()
         {
             pacijentServis.SaveData();
         }
-   
-      public Servis.PacijentServis pacijentServis;
-   
-   }
+
+        public Pacijent PrijavaPacijenta(String korisnickoIme, String lozinka)
+        {
+            return pacijentServis.PrijaviPacijenta(korisnickoIme, lozinka);
+        }
+
+    }
 }

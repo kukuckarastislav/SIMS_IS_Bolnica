@@ -82,6 +82,25 @@ namespace Repozitorijum
             SaveData();
             return lekar;
         }
+        public bool ProveriPostojanjeLekara(string korisnickoIme)
+        {
+            foreach (Lekar lekar in Lekari)
+            {
+                if (lekar.KorisnickoIme.Equals(korisnickoIme)) return true;
+            }
+
+            return false;
+        }
+
+        public Lekar GetByImeLozinka(string korisnickoIme, string lozinka)
+        {
+            foreach (Lekar lekar in Lekari)
+            {
+                if (lekar.KorisnickoIme.Equals(korisnickoIme) && lekar.Sifra.Equals(lozinka))
+                    return lekar;
+            }
+            return null;
+        }
 
         public Model.Lekar AzurirajLekara(Model.Lekar lekar)
       {

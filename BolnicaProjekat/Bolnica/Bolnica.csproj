@@ -658,7 +658,9 @@
     <None Include="podaci\obavestenja.json" />
     <None Include="podaci\pacijenti.json" />
     <None Include="podaci\recepti.json" />
+    <None Include="podaci\sekretari.json" />
     <None Include="podaci\terminProstorije.json" />
+    <None Include="podaci\upravnici.json" />
     <None Include="podaci\zdravstveneUsluge.json" />
     <None Include="podaci\prostorije.json" />
     <None Include="Properties\Settings.settings">

@@ -33,8 +33,23 @@ namespace Servis
             PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
          return pacijent;
       }
-      
-      public ObservableCollection<Model.Pacijent> GetAll()
+
+        public bool ProveriPostojanjePacijenta(string korisnickoIme)
+        {
+            return PacijentRepozitorijum.GetInstance.ProveriPostojanjePacijenta(korisnickoIme);
+        }
+
+        public Pacijent PrijaviPacijenta(string korisnickoIme, string lozinka)
+        {
+            if (ProveriPostojanjePacijenta(korisnickoIme))
+            {
+                return PacijentRepozitorijum.GetInstance.GetByImeLozinka(korisnickoIme, lozinka);
+            }
+
+            return null;
+        }
+
+        public ObservableCollection<Model.Pacijent> GetAll()
       {
           
          return PacijentRepozitorijum.GetInstance.GetAll();

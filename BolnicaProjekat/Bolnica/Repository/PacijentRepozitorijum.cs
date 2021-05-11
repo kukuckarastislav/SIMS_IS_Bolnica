@@ -60,6 +60,26 @@ namespace Repozitorijum
             }
         }
 
+        public bool ProveriPostojanjePacijenta(string korisnickoIme)
+        {
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (pacijent.KorisnickoIme.Equals(korisnickoIme)) return true;
+            }
+
+            return false;
+        }
+
+        public Pacijent GetByImeLozinka(string korisnickoIme, string lozinka)
+        {
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (pacijent.KorisnickoIme.Equals(korisnickoIme) && pacijent.Sifra.Equals(lozinka))
+                    return pacijent;
+            }
+            return null;
+        }
+
         public void SaveData()
         {
             var format = new JsonSerializerOptions

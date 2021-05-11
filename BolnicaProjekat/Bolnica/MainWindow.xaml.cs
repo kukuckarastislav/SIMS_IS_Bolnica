@@ -17,6 +17,7 @@ using System.Xml.Serialization;
 using System.Text.Json;
 using Model;
 using Repozitorijum;
+using Kontroler;
 
 namespace Bolnica
 {
@@ -31,15 +32,12 @@ namespace Bolnica
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //Termin termin = new Termin();
-            //ZdravstvenaUsluga test = new ZdravstvenaUsluga(termin, 1, 1,1, TipUsluge.Pregled, 1, false, "nebitan", "nebitan");
-            //ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(test);
-            //Model.RadnoVreme radnoVreme = new Model.RadnoVreme(8, 14);
-            //Lekar l = new Lekar(radnoVreme, RadniStatus.Aktivan, 1, false, "", "LasloUri", "laci", "Laslo",
-            //"Uri", Pol.Musko, "laci@gmail.com", "0621010909",new DateTime(1999,10,10),
-            //"1234123412341", "madjarsko", "blizu hotela park");
-            //LekarRepozitorijum.GetInstance.DodajLekara(l);
-
+            //Sekretar s = new Sekretar(new RadnoVreme(7, 15), RadniStatus.Aktivan, 1);
+            //SekretarRepozitorijum.GetInstance.Sekretari.Add(s);
+            //SekretarRepozitorijum.GetInstance.SaveData();
+            //Upravnik u = new Upravnik(new RadnoVreme(9, 17), RadniStatus.Aktivan, 1);
+            //UpravnikRepozitorijum.GetInstance.Upravnici.Add(u);
+            //UpravnikRepozitorijum.GetInstance.SaveData();
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)
@@ -65,6 +63,39 @@ namespace Bolnica
         {
             var pacijent_home = new Bolnica.view.pacijent.PacijentHome(Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(1));
             pacijent_home.Show();
+        }
+
+        private void Prijava_Click(object sender, RoutedEventArgs e)
+        {
+            SekretarKontroler skontroler = new SekretarKontroler();
+            Korisnik k = skontroler.PrijavaSekretara(txbIme.Text, txbLozinka.Text);
+            if(k!=null)
+            {
+                var sekretar_home = new Bolnica.view.sekretar.SekretarHome();
+                sekretar_home.Show();
+            }
+            UpravnikKontroler ukontroler = new UpravnikKontroler();
+            k = ukontroler.PrijavaUpravnika(txbIme.Text, txbLozinka.Text);
+            if (k != null)
+            {
+                var upravnik_home = new Bolnica.view.upravnik.UpravnikHome();
+                upravnik_home.Show();
+            }
+            LekarKontroler lkontroler = new LekarKontroler();
+            k = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Text);
+            if (k != null)
+            {
+                var lekar_home = new Bolnica.view.lekar.LekarHome(Repozitorijum.LekarRepozitorijum.GetInstance.GetById(1));
+                lekar_home.Show();
+            }
+            PacijentKontroler pkontroler = new PacijentKontroler();
+            k = pkontroler.PrijavaPacijenta(txbIme.Text, txbLozinka.Text);
+            if (k != null)
+            {
+                var pacijent_home = new Bolnica.view.pacijent.PacijentHome(Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(1));
+                pacijent_home.Show();
+            }
+
         }
     }
 }

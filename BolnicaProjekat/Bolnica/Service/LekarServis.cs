@@ -14,6 +14,10 @@ namespace Servis
 {
    public class LekarServis
    {
+        public LekarServis()
+        {
+
+        }
       public Lekar DodajLekara(Model.Lekar lekar)
       {
          // TODO: implement
@@ -41,6 +45,21 @@ namespace Servis
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
             return LekarRepozitorijum.GetInstance.GetAllObs();
+        }
+
+        public bool ProveriPostojanjeLekara(string korisnickoIme)
+        {
+            return LekarRepozitorijum.GetInstance.ProveriPostojanjeLekara(korisnickoIme);
+        }
+
+        public Lekar PrijaviLekara(string korisnickoIme, string lozinka)
+        {
+            if (ProveriPostojanjeLekara(korisnickoIme))
+            {
+                return LekarRepozitorijum.GetInstance.GetByImeLozinka(korisnickoIme, lozinka);
+            }
+
+            return null;
         }
 
         public Model.Lekar GetById(long id)

@@ -13,33 +13,12 @@
         WindowStartupLocation="CenterScreen"
         >
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="247"/>
-            <ColumnDefinition Width="247"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="247" />
-            <RowDefinition Height="247" />
-        </Grid.RowDefinitions>
+        <Button Content="Prijavi se" HorizontalAlignment="Left" Margin="195,381,0,0" VerticalAlignment="Top" Width="92" Height="26" Click="Prijava_Click"/>
+        <TextBlock FontSize="20px" HorizontalAlignment="Left" Margin="110,232,0,0" TextWrapping="Wrap" Text="Korisničko ime:" VerticalAlignment="Top" RenderTransformOrigin="-0.072,0.774"/>
+        <TextBlock FontSize="20px" HorizontalAlignment="Left" Margin="176,295,0,0" TextWrapping="Wrap" Text="Lozinka:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="260,239,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="txbIme"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="260,299,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="txbLozinka"/>
+        <Image HorizontalAlignment="Left" Height="123" Margin="195,69,0,0" VerticalAlignment="Top" Width="128" Source="images/bolnica-icon.png"/>
 
-        <Button Grid.Column="0" Grid.Row="0"
-                Click="Pacijent_Home_Click">
-            <Image HorizontalAlignment="Center" Source="/images/pacijent-window-button.jpg"/>
-        </Button>
-        <Button Grid.Column="1" Grid.Row="0" 
-                Click="Lekar_Home_Click">
-            <Image HorizontalAlignment="Center" Source="/images/lekar-window-button.jpg"/>
-
-        </Button>
-
-        <Button Grid.Column="0" Grid.Row="1" 
-                Click="Upravnik_Home_Click">
-            <Image HorizontalAlignment="Center" Source="/images/upravnik-window-button.jpg"/>
-        </Button>
-
-        <Button Grid.Column="1" Grid.Row="1" 
-                Click="Sekretar_Home_Click">
-            <Image HorizontalAlignment="Center" Source="/images/sekretar-window-button.jpg"/>
-        </Button>
     </Grid>
 </Window>

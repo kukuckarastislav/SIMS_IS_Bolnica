@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Repozitorijum;
 
 namespace Servis
 {
@@ -41,6 +42,21 @@ namespace Servis
          // TODO: implement
          return null;
       }
+
+        public bool ProveriPostojanjeSekretara(string korisnickoIme)
+        {
+            return SekretarRepozitorijum.GetInstance.ProveriPostojanjeSekretara(korisnickoIme);
+        }
+
+        public Sekretar PrijaviSekretara(string korisnickoIme, string lozinka)
+        {
+            if(ProveriPostojanjeSekretara(korisnickoIme))
+            {
+                return SekretarRepozitorijum.GetInstance.GetByImeLozinka(korisnickoIme, lozinka);
+            }
+
+            return null;
+        }
    
       public Repozitorijum.SekretarRepozitorijum sekretarRepozitorijum;
    

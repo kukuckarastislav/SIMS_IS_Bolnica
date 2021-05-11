@@ -228,12 +228,12 @@ namespace Repozitorijum
 
         }
 
-        public ZdravstvenaUsluga GetUslugaZaTermin(Lekar lekar, DateTime datum)
+        public ZdravstvenaUsluga GetUslugaZaTermin(Lekar lekar, DateTime termin)
         {
             foreach (ZdravstvenaUsluga usluga in Usluge)
             {
                 if (usluga.IdLekara == lekar.Id
-                    && usluga.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
+                    && usluga.Termin.Pocetak.Date.Equals(termin.Date))
                 {
                     return usluga;
                 }
@@ -246,12 +246,10 @@ namespace Repozitorijum
         public int getNewId()
         {
             int id = 1;
-            loadData();
-            int brUsluga = Usluge.Count;
-            if (brUsluga == 0)
+            if (Usluge.Count == 0)
                 return id;
             
-            return Usluge.ElementAt(brUsluga-1).Id + 1;
+            return Usluge.ElementAt(Usluge.Count - 1).Id + 1;
         }
 
     }

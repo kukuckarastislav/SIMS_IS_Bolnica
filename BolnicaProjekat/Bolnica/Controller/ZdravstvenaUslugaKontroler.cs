@@ -42,8 +42,6 @@ namespace Controller
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
             servis.OtkaziUslugu(usluga);
-           // NotifikacijaKontroler kontroler = new NotifikacijaKontroler();
-            //kontroler.NotifikujOtkazaniTermin(usluga);
         }
 
         internal ObservableCollection<ZdravstvenaUsluga> GetTerminiPacijenta(int id)

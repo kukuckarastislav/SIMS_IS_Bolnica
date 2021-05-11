@@ -100,7 +100,7 @@ namespace Repository
             return Obavestenja;
         }
 
-        public int GetLastId()
+        public int GetNewId()
         {
             int id = 1;
             loadData();
@@ -108,7 +108,7 @@ namespace Repository
             if (brUsluga == 0)
                 return id;
 
-            return Obavestenja.ElementAt(brUsluga - 1).Id;
+            return Obavestenja.ElementAt(brUsluga - 1).Id + 1;
         }
 
     }

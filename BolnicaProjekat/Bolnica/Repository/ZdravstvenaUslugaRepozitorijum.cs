@@ -139,7 +139,17 @@ namespace Repozitorijum
             return Usluge;
         }
 
-       public ObservableCollection<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
+        public List<ZdravstvenaUsluga> getAllList()
+        {
+            List<ZdravstvenaUsluga> lista = new List<ZdravstvenaUsluga>();
+            foreach(ZdravstvenaUsluga u in Usluge)
+            {
+                lista.Add(u);
+            }
+            return lista;
+        }
+
+        public ObservableCollection<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
         {
             loadData();
             ObservableCollection<ZdravstvenaUsluga> ret = new ObservableCollection<ZdravstvenaUsluga>();
@@ -233,7 +243,7 @@ namespace Repozitorijum
         }
 
 
-        public int getLastId()
+        public int getNewId()
         {
             int id = 1;
             loadData();
@@ -241,7 +251,7 @@ namespace Repozitorijum
             if (brUsluga == 0)
                 return id;
             
-            return Usluge.ElementAt(brUsluga-1).Id;
+            return Usluge.ElementAt(brUsluga-1).Id + 1;
         }
 
     }

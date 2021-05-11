@@ -26,8 +26,7 @@ namespace Service
 
         public Obavestenje DodajObavestenje(Obavestenje obavestenje)
         {
-            int id = ObavestenjeRepozitorijum.GetInstance.GetLastId() + 1;
-            obavestenje.Id = id;
+            obavestenje.Id = ObavestenjeRepozitorijum.GetInstance.GetNewId(); ;
             return ObavestenjeRepozitorijum.GetInstance.DodajObavestenje(obavestenje);
         }
 

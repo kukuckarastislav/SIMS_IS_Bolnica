@@ -190,7 +190,7 @@ namespace Servis
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
 
-            usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getLastId() + 1;
+            usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
             return ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
         }
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
@@ -214,9 +214,6 @@ namespace Servis
                 }
 
             }
-
-
-
             return null;
         }
         internal ObservableCollection<ZdravstvenaUsluga> GetTerminiPacijenta(int id)
@@ -231,20 +228,24 @@ namespace Servis
             odabranaUsluga.Usluga.Termin.Kraj = kraj;
                   
         }
-        public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)
+        public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(DateTime datum)
+        {
+            List<ZdravstvenaUsluga> terminiZaDatum = new List<ZdravstvenaUsluga>();
+            List<ZdravstvenaUsluga> listaSviUsluga = ZdravstvenaUslugaRepozitorijum.GetInstance.getAllList();
+            foreach(ZdravstvenaUsluga usluga in listaSviUsluga)
+            {
+                if (usluga.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
+                {
+                    terminiZaDatum.Add(usluga);
+                }
+            }
+            return terminiZaDatum;
+        }
+        public List<ZdravstvenaUsluga> GetSviTerminiZaProstoriju(Lekar lekar, DateTime datum)
         {
 
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
-            Termin radnoVreme = GetRadnoVremeLekara(lekar,
-                new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 0),
-                new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 59));
-
-            while (radnoVreme.Pocetak + trajanjePregleda <= radnoVreme.Kraj)
-            {
-                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(radnoVreme.Pocetak, radnoVreme.Pocetak + trajanjePregleda), 1, lekar.Id, -1, TipUsluge.Pregled, -1, false, "", "");
-                pregledi.Add(pregled);
-                radnoVreme.Pocetak += trajanjePregleda;
-            }
+            
 
             return pregledi;
         }
@@ -258,7 +259,7 @@ namespace Servis
             {
                 odlozenaUsluga.IdPacijenta = uslugaKojaSeOdlaze.IdPacijenta;
                 odlozenaUsluga.IdLekara = usluga.IdLekara;
-                odlozenaUsluga.Id = terminiRepozitorijum.getLastId() + 1;
+                odlozenaUsluga.Id = terminiRepozitorijum.getNewId();
                 DodajUslugu(odlozenaUsluga);
             }
             DodajUslugu(usluga);

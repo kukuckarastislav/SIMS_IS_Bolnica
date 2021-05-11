@@ -11,6 +11,8 @@ using Model;
 using System.Text.Json;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Linq;
+using Model;
 
 namespace Repozitorijum
 {
@@ -99,14 +101,19 @@ namespace Repozitorijum
             SaveData();
             return pacijent;
         }
+        public int GetNewId()
+        {
+            int newId = 1;
+            if (pacijenti.Count == 0)
+                return newId;
+            return pacijenti.ElementAt(pacijenti.Count - 1).Id + 1;
+        }
 
-
-      
-      public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
-      {
+        public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
+        {
             SaveData();
             return pacijent;
-      }
+        }
       
         //logicko brisanje
         public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)

@@ -14,25 +14,25 @@ namespace Servis
 {
    public class PacijentServis
    {
-      public Model.Pacijent DodajPacijenta(Model.Pacijent pacijent)
-      {
-            int newId = PacijentRepozitorijum.GetInstance.GetAll().Count + 1;
-            pacijent.Id = newId;
+        public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
+        public Model.Pacijent DodajPacijenta(Model.Pacijent pacijent)
+        {
+            pacijent.Id = PacijentRepozitorijum.GetInstance.GetNewId();
             PacijentRepozitorijum.GetInstance.DodajPacijenta(pacijent);
             return pacijent;
-      }
+        }
       
-      public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
-      {
+        public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
+        {
             PacijentRepozitorijum.GetInstance.AzurirajPacijenta(pacijent);
-         return pacijent;
-      }
+            return pacijent;
+        }
       
-      public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
-      {
+        public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
+        {
             PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
-         return pacijent;
-      }
+            return pacijent;
+        }
 
         public bool ProveriPostojanjePacijenta(string korisnickoIme)
         {
@@ -50,18 +50,9 @@ namespace Servis
         }
 
         public ObservableCollection<Model.Pacijent> GetAll()
-      {
-          
-         return PacijentRepozitorijum.GetInstance.GetAll();
-      }
-      
-      public Model.Pacijent GetById(long id)
-      {
-         // TODO: implement
-         return null;
-      }
-   
-      public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
+        {
+            return PacijentRepozitorijum.GetInstance.GetAll();
+        }
 
         public void SaveData()
         {

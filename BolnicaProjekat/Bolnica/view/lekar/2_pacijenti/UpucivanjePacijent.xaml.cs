@@ -95,7 +95,7 @@ namespace Bolnica.view.lekar.pacijenti
             DateTime kraj = pocetak + trajanje;
 
             Termin termin = new Termin(pocetak, kraj);
-            int idUsluge = Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getLastId() + 1;
+            int idUsluge = Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
             int idLekara = ((Lekar)ComboBoxLekar.SelectedItem).Id;
             int idPacijenta = IzabraniPacijent.Id;
             TipUsluge tipUsluge = TipUsluge.Pregled;

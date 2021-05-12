@@ -7,12 +7,18 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Servis;
 
 namespace Kontroler
 {
-   public class UpravnikKontroler
+    public class UpravnikKontroler
    {
-      public Upravnik DodajPacijenta(Upravnik upravnik)
+        public UpravnikServis upravnikServis;
+        public UpravnikKontroler()
+        {
+            upravnikServis = new UpravnikServis();
+        }
+        public Upravnik DodajPacijenta(Upravnik upravnik)
       {
          // TODO: implement
          return null;
@@ -41,8 +47,11 @@ namespace Kontroler
          // TODO: implement
          return null;
       }
-   
-      public Servis.UpravnikServis upravnikServis;
-   
-   }
+
+        public Upravnik PrijavaUpravnika(String korisnickoIme, String lozinka)
+        {
+            return upravnikServis.PrijaviUpravnika(korisnickoIme, lozinka);
+        }
+
+    }
 }

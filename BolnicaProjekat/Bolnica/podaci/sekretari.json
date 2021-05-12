@@ -1,0 +1,21 @@
+[
+  {
+    "Id": 1,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 7,
+      "KrajRadnogVremena": 15
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "mihajloostojic",
+    "Sifra": "sifra",
+    "Ime": "Mihajlo",
+    "Prezime": "Ostojic",
+    "Pol": 0,
+    "Email": "mihajloostojic@gmail.com",
+    "Telefon": "4213123123",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1234512345123",
+    "Drzavljanstvo": "Srpsko",
+    "AdresaStanovanja": "Adresa"
+  }
+]

@@ -53,8 +53,13 @@ namespace Kontroler
          // TODO: implement
          return null;
       }
-   
-      public Servis.LekarServis lekarServis;
+
+        public Lekar PrijavaLekara(String korisnickoIme, String lozinka)
+        {
+            return lekarServis.PrijaviLekara(korisnickoIme, lozinka);
+        }
+
+        public Servis.LekarServis lekarServis;
    
    }
 }

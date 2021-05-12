@@ -7,11 +7,18 @@
 using System;
 using System.Collections.Generic;
 using Model;
+using Servis;
 
 namespace Kontroler
 {
-   public class SekretarKontroler
+    
+    public class SekretarKontroler
    {
+        public Servis.SekretarServis sekretarServis;
+        public SekretarKontroler()
+        {
+            sekretarServis = new SekretarServis();
+        }
       public Model.Sekretar DodajSekretara(Model.Sekretar sekretar)
       {
          // TODO: implement
@@ -41,8 +48,11 @@ namespace Kontroler
          // TODO: implement
          return null;
       }
-   
-      public Servis.SekretarServis sekretarServis;
+
+        public Sekretar PrijavaSekretara(String korisnickoIme,String lozinka)
+        {
+            return sekretarServis.PrijaviSekretara(korisnickoIme, lozinka);
+        }
    
    }
 }

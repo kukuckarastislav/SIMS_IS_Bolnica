@@ -25,7 +25,6 @@ namespace Servis
         public void ZakaziTermin(ZdravstvenaUsluga usluga)
         {
             int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
-            // public Notifikacija(int id, int idZdravstveneUsluge, int idPacijenta, int idLekara,bool pacijentProcitao, bool lekarProcitao, string opis)
             Notifikacija novaNotifikacija = new Notifikacija(id + 1, usluga.Id, usluga.IdPacijenta, usluga.IdLekara, false, false, "");
             if (usluga.TipUsluge == TipUsluge.Pregled)
                 novaNotifikacija.Opis = "Zakazan vam je pregled,";

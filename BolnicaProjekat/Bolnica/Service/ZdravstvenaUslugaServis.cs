@@ -22,7 +22,7 @@ namespace Servis
 
         public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
         public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
-
+        public const int maxBrojDanaOdlaganja = 3;
         public ZdravstvenaUslugaServis()
         {
             terminiRepozitorijum = new ZdravstvenaUslugaRepozitorijum();
@@ -189,8 +189,7 @@ namespace Servis
 
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
-
-            usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getLastId() + 1;
+            usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
             return ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
         }
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
@@ -200,7 +199,6 @@ namespace Servis
 
         public ZdravstvenaUsluga OdloziUslugu(ZdravstvenaUsluga usluga)
         {
-            int maxBrojDanaOdlaganja = 3;
             DateTime datum = usluga.Termin.Pocetak;
             for (int i = 1; i < maxBrojDanaOdlaganja; i++)
             {
@@ -214,9 +212,6 @@ namespace Servis
                 }
 
             }
-
-
-
             return null;
         }
         internal ObservableCollection<ZdravstvenaUsluga> GetTerminiPacijenta(int id)
@@ -233,20 +228,46 @@ namespace Servis
         }
         public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)
         {
-
-            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
+            List<ZdravstvenaUsluga> terminiZaDatum = new List<ZdravstvenaUsluga>();
             Termin radnoVreme = GetRadnoVremeLekara(lekar,
                 new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 0),
                 new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 59));
 
             while (radnoVreme.Pocetak + trajanjePregleda <= radnoVreme.Kraj)
             {
-                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(radnoVreme.Pocetak, radnoVreme.Pocetak + trajanjePregleda), 1, lekar.Id, -1, TipUsluge.Pregled, -1, false, "", "");
-                pregledi.Add(pregled);
+                ZdravstvenaUsluga usluga = new ZdravstvenaUsluga(new Termin(radnoVreme.Pocetak, radnoVreme.Pocetak + trajanjePregleda), 1, lekar.Id, -1, TipUsluge.Pregled, -1, false, "", "");
+                terminiZaDatum.Add(usluga);
                 radnoVreme.Pocetak += trajanjePregleda;
             }
 
-            return pregledi;
+            return terminiZaDatum;
+        }
+        public List<ZdravstvenaUsluga> GetSviTerminiProstorije(int id)
+        {
+
+            List<ZdravstvenaUsluga> terminiProstorije = new List<ZdravstvenaUsluga>();
+            List<ZdravstvenaUsluga> listaSviUsluga = ZdravstvenaUslugaRepozitorijum.GetInstance.getAllList();
+            foreach (ZdravstvenaUsluga usluga in listaSviUsluga)
+            {
+                if (usluga.IdProstorije == id)
+                {
+                    terminiProstorije.Add(usluga);
+                }
+            }
+            return terminiProstorije;
+        }
+
+        public List<ZdravstvenaUsluga> GetSviTerminiProstorijeZaDatum(int id, DateTime datum)
+        {
+            List<ZdravstvenaUsluga> terminiProstorije = GetSviTerminiProstorije(id);
+            foreach (ZdravstvenaUsluga usluga in terminiProstorije)
+            {
+                if (usluga.Termin.Pocetak.Date.Equals(datum.Date))
+                {
+                    terminiProstorije.Add(usluga);
+                }
+            }
+            return terminiProstorije;
         }
 
         public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
@@ -258,7 +279,7 @@ namespace Servis
             {
                 odlozenaUsluga.IdPacijenta = uslugaKojaSeOdlaze.IdPacijenta;
                 odlozenaUsluga.IdLekara = usluga.IdLekara;
-                odlozenaUsluga.Id = terminiRepozitorijum.getLastId() + 1;
+                odlozenaUsluga.Id = terminiRepozitorijum.getNewId();
                 DodajUslugu(odlozenaUsluga);
             }
             DodajUslugu(usluga);

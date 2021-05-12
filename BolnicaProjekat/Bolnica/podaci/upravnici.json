@@ -1,0 +1,21 @@
+[
+  {
+    "Id": 1,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 9,
+      "KrajRadnogVremena": 17
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "rastislavkukucka",
+    "Sifra": "sifra",
+    "Ime": "Rastislav",
+    "Prezime": "Kukucka",
+    "Pol": 0,
+    "Email": "rastislavkukucka@gmail.com",
+    "Telefon": "312312313",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1234235321423",
+    "Drzavljanstvo": "",
+    "AdresaStanovanja": "adresa100"
+  }
+]

@@ -15,15 +15,15 @@ namespace Kontroler
 {
    public class PacijentKontroler
    {
-       
+        public Servis.PacijentServis pacijentServis;
         public PacijentKontroler()
         {
             pacijentServis = new PacijentServis();
         }
-      public Model.Pacijent DodajPacijenta(MedicinskiKarton medicinskiKarton, ArrayList ocene, int id, bool pacijentGost, bool hospitalizovan, bool spamUser, bool logickiObrisan, string korisnickoIme, string sifra, string ime,
+        public Model.Pacijent DodajPacijenta(MedicinskiKarton medicinskiKarton, ArrayList ocene, int id, bool pacijentGost, bool hospitalizovan, bool spamUser, bool logickiObrisan, string korisnickoIme, string sifra, string ime,
             string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
             string jmbg, string drzavljanstvo, string adresaStanovanja)
-      {
+        {
             medicinskiKarton.IdPacijent = id;
             Model.Pacijent noviPacijent = new Model.Pacijent( medicinskiKarton,  ocene,  id,  pacijentGost,  hospitalizovan,  spamUser,  logickiObrisan,  korisnickoIme,  sifra,  ime,
              prezime,  pol,  email,  telefon,  datumRodjenja,
@@ -31,36 +31,34 @@ namespace Kontroler
 
             pacijentServis.DodajPacijenta(noviPacijent);
             return noviPacijent;
-      }
+        }
       
-      public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
-      {
+        public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
+        {
             pacijentServis.AzurirajPacijenta(pacijent);
-         return pacijent;
-      }
+             return pacijent;
+         }
       
-      public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
-      {
+        public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
+        {
             pacijentServis.ObrisiPacijenta(pacijent);
-         return pacijent;
-      }
+            return pacijent;
+        }
       
-      public ObservableCollection<Model.Pacijent> GetAll()
-      {
+        public ObservableCollection<Model.Pacijent> GetAll()
+        {
             return pacijentServis.GetAll();
-      }
-      
-      public Model.Pacijent GetById(long id)
-      {
-         // TODO: implement
-         return null;
-      }
+        }
+        
         public void SaveData()
         {
             pacijentServis.SaveData();
         }
-   
-      public Servis.PacijentServis pacijentServis;
-   
-   }
+
+        public Pacijent PrijavaPacijenta(String korisnickoIme, String lozinka)
+        {
+            return pacijentServis.PrijaviPacijenta(korisnickoIme, lozinka);
+        }
+
+    }
 }

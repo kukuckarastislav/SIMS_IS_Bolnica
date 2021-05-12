@@ -245,6 +245,9 @@
     <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
       <DependentUpon>PagePacijenti.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PocetnaStranica.xaml.cs">
+      <DependentUpon>PocetnaStranica.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\registracija\PageRegistracija.xaml.cs">
       <DependentUpon>PageRegistracija.xaml</DependentUpon>
     </Compile>
@@ -268,6 +271,9 @@
     </Compile>
     <Compile Include="view\sekretar\ZakazivanjeTermina.xaml.cs">
       <DependentUpon>ZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\ZauzetostProstorija.xaml.cs">
+      <DependentUpon>ZauzetostProstorija.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Inventari\InventariPage.xaml.cs">
       <DependentUpon>InventariPage.xaml</DependentUpon>
@@ -473,6 +479,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\sekretar\PocetnaStranica.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\registracija\PageRegistracija.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -502,6 +512,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\ZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\ZauzetostProstorija.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -644,7 +658,9 @@
     <None Include="podaci\obavestenja.json" />
     <None Include="podaci\pacijenti.json" />
     <None Include="podaci\recepti.json" />
+    <None Include="podaci\sekretari.json" />
     <None Include="podaci\terminProstorije.json" />
+    <None Include="podaci\upravnici.json" />
     <None Include="podaci\zdravstveneUsluge.json" />
     <None Include="podaci\prostorije.json" />
     <None Include="Properties\Settings.settings">

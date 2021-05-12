@@ -139,7 +139,17 @@ namespace Repozitorijum
             return Usluge;
         }
 
-       public ObservableCollection<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
+        public List<ZdravstvenaUsluga> getAllList()
+        {
+            List<ZdravstvenaUsluga> lista = new List<ZdravstvenaUsluga>();
+            foreach(ZdravstvenaUsluga u in Usluge)
+            {
+                lista.Add(u);
+            }
+            return lista;
+        }
+
+        public ObservableCollection<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
         {
             loadData();
             ObservableCollection<ZdravstvenaUsluga> ret = new ObservableCollection<ZdravstvenaUsluga>();
@@ -218,12 +228,12 @@ namespace Repozitorijum
 
         }
 
-        public ZdravstvenaUsluga GetUslugaZaTermin(Lekar lekar, DateTime datum)
+        public ZdravstvenaUsluga GetUslugaZaTermin(Lekar lekar, DateTime termin)
         {
             foreach (ZdravstvenaUsluga usluga in Usluge)
             {
                 if (usluga.IdLekara == lekar.Id
-                    && usluga.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
+                    && usluga.Termin.Pocetak.Date.Equals(termin.Date))
                 {
                     return usluga;
                 }
@@ -233,15 +243,13 @@ namespace Repozitorijum
         }
 
 
-        public int getLastId()
+        public int getNewId()
         {
             int id = 1;
-            loadData();
-            int brUsluga = Usluge.Count;
-            if (brUsluga == 0)
+            if (Usluge.Count == 0)
                 return id;
             
-            return Usluge.ElementAt(brUsluga-1).Id;
+            return Usluge.ElementAt(Usluge.Count - 1).Id + 1;
         }
 
     }

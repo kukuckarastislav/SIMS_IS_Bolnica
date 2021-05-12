@@ -125,14 +125,15 @@ namespace Repozitorijum
         }
 
         public Model.Lekar GetById(long id)
-      {
-         foreach(Lekar l in Lekari)
+        {
+            loadData();
+            foreach(Lekar l in Lekari)
             {
                 if (l.Id == id)
                     return l;
             }
-         return null;
-      }
+            return null;
+        }
    
       private string PutanjaFajla;
    

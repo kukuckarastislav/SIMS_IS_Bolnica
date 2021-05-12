@@ -37,5 +37,6 @@ namespace Bolnica.Controller
         {
             ServisNotifikacije.ObrisiNotifikaciju(idPacijenta,idNotifikacije);
         }
+
     }
 }

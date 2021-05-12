@@ -50,14 +50,14 @@
                 Zakazi pregled
             </Button>
             <Button Foreground="Orange" Background="White" Click="prikazi_vlastite_preglede" Margin="123,78,25,10" Content="Termini" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.ColumnSpan="2" Grid.Column="3"/>
-            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,157,60,144" Content="Notifikacije" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_notifikacije"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,155,60,146" Content="Notifikacije" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_notifikacije"/>
 
             <Image Source="/images/call.png" Margin="273,0,39,-110" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4"/>
 
             <Image Source="/images/mm.png" Margin="-46,97,112,187" RenderTransformOrigin="0.45,0.414" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
-            <Image Source="/images/krug.png" Margin="209,195,30,78" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
-            <TextBlock  x:Name="broj_notifikacija" Margin="245,211,37,83" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Arial" FontSize="27" Foreground="Orange" />
+            <Image Source="/images/krug.png" Margin="211,193,28,80" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
+            <TextBlock  x:Name="broj_notifikacija" Margin="243,209,39,85" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Arial" FontSize="27" Foreground="Orange" />
 
             <Image Source="/images/folder1.png" Margin="53,43,-226,-100" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="1"/>
 
@@ -77,6 +77,12 @@
             <TextBlock x:Name="telefon" Margin="81,287,-161,14" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
             <TextBlock x:Name="email" Margin="82,318,-161,-17" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="korisnickoime" Margin="107,89,67,212" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,353,60,-52" Content="Ocjene" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_ocjene"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,248,60,53" Content="Podsjetnik" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_podsjetnik"/>
+            <Image Source="/Bolnica;component/images/krug.png" Margin="16,289,231,-13" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
+            <Image Source="/Bolnica;component/images/krug.png" Margin="83,286,196,19" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
+            <Image Source="/Bolnica;component/images/krug.png" Margin="132,289,177,19" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
+            <TextBlock  x:Name="broj_podsjetnika" Margin="46,303,236,-9" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Arial" FontSize="27" Foreground="Orange" />
 
 
         </Grid>

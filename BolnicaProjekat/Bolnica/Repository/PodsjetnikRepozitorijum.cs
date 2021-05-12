@@ -7,17 +7,17 @@ using Model;
 
 namespace Repozitorijum
 {
-    public class AnketaRepozitorijum
+    public class PodsjetnikRepozitorijum
     {
-        private const string imeFajla = "anketa.json";
-        private static AnketaRepozitorijum instance = null;
-        public static AnketaRepozitorijum GetInstance
+        private const string imeFajla = "podsjetnik.json";
+        private static PodsjetnikRepozitorijum instance = null;
+        public static PodsjetnikRepozitorijum GetInstance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new AnketaRepozitorijum();
+                    instance = new PodsjetnikRepozitorijum();
                 }
                 return instance;
             }
@@ -27,12 +27,12 @@ namespace Repozitorijum
             }
 
         }
-        public AnketaRepozitorijum()
+        public PodsjetnikRepozitorijum()
         {
             loadData();
         }
 
-        public ObservableCollection<Model.Ocena> ocene;
+        public ObservableCollection<Podsjetnik> ocene;
 
 
         private void loadData()
@@ -42,13 +42,13 @@ namespace Repozitorijum
                 if (ocene == null)
                 {
 
-                    ObservableCollection<Model.Ocena> p = JsonSerializer.Deserialize<ObservableCollection<Model.Ocena>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    ObservableCollection<Podsjetnik> p = JsonSerializer.Deserialize<ObservableCollection<Podsjetnik>>(File.ReadAllText("../../podaci/" + imeFajla));
                     ocene = p;
                 }
             }
             catch (Exception e)
             {
-                ocene = new ObservableCollection<Model.Ocena>();
+                ocene = new ObservableCollection<Podsjetnik>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -62,7 +62,7 @@ namespace Repozitorijum
             string json = JsonSerializer.Serialize(ocene, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
-        public Model.Ocena DodajOcenu(Model.Ocena ocena)
+        public Podsjetnik DodajPodsjetnik(Podsjetnik ocena)
         {
             loadData();
 
@@ -74,17 +74,17 @@ namespace Repozitorijum
         }
 
 
-        public ObservableCollection<Model.Ocena> GetAll()
+        public ObservableCollection<Podsjetnik> GetAll()
         {
             loadData();
             return ocene;
         }
 
-        public ObservableCollection<Model.Ocena> GetOceneByPatientId(int id)
+        public ObservableCollection<Podsjetnik> GetPodsjetnikByPatientId(int id)
         {
             loadData();
-            ObservableCollection<Model.Ocena> ret = new ObservableCollection<Model.Ocena>();
-            foreach (Ocena z in ocene)
+            ObservableCollection<Podsjetnik> ret = new ObservableCollection<Podsjetnik>();
+            foreach (Podsjetnik z in ocene)
             {
                 if (z.IdPacijenta == id)
                 {
@@ -94,18 +94,11 @@ namespace Repozitorijum
             return ret;
         }
 
-        public ObservableCollection<Model.Ocena> GetOceneByLekarId(int id)
+        public Podsjetnik AzurirajPodsjetnik(Podsjetnik p)
         {
             loadData();
-            ObservableCollection<Model.Ocena> ret = new ObservableCollection<Model.Ocena>();
-            foreach (Ocena z in ocene)
-            {
-                if (z.IdLekara == id)
-                {
-                    ret.Add(z);
-                }
-            }
-            return ret;
+            SaveData();
+            return p;
         }
     }
 

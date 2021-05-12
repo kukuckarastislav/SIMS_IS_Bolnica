@@ -35,7 +35,7 @@ namespace Bolnica.view.pacijent
 
         private void dodaj_podsjetnik(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.NoviPodsjetnik(Pacijent);
+            var varr = new view.pacijent.NoviPodsjetnik(Pacijent,"");
             varr.Show();
         }
     }

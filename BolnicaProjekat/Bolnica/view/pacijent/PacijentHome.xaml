@@ -46,10 +46,10 @@
                 <RowDefinition Height="138"/>
                 <RowDefinition Height="338"/>
             </Grid.RowDefinitions>
-            <Button Foreground="Orange" Background="White" Click="prikazi_preglede" Margin="123,0,25,285" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="1">
+            <Button Foreground="Orange" Background="White" Click="prikazi_preglede" Margin="121,0,27,285" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="1">
                 Zakazi pregled
             </Button>
-            <Button Foreground="Orange" Background="White" Click="prikazi_vlastite_preglede" Margin="123,78,25,10" Content="Termini" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.ColumnSpan="2" Grid.Column="3"/>
+            <Button Foreground="Orange" Background="White" Click="prikazi_vlastite_preglede" Margin="138,76,10,12" Content="Termini" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.ColumnSpan="2" Grid.Column="3"/>
             <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,155,60,146" Content="Notifikacije" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_notifikacije"/>
 
             <Image Source="/images/call.png" Margin="273,0,39,-110" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4"/>
@@ -57,7 +57,7 @@
             <Image Source="/images/mm.png" Margin="-46,97,112,187" RenderTransformOrigin="0.45,0.414" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
 
             <Image Source="/images/krug.png" Margin="211,193,28,80" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
-            <TextBlock  x:Name="broj_notifikacija" Margin="243,209,39,85" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Arial" FontSize="27" Foreground="Orange" />
+            <TextBlock  x:Name="broj_notifikacija" Margin="243,209,39,85" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Serif" FontSize="27" Foreground="Orange" />
 
             <Image Source="/images/folder1.png" Margin="53,43,-226,-100" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="1"/>
 
@@ -82,7 +82,9 @@
             <Image Source="/Bolnica;component/images/krug.png" Margin="16,289,231,-13" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
             <Image Source="/Bolnica;component/images/krug.png" Margin="83,286,196,19" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
             <Image Source="/Bolnica;component/images/krug.png" Margin="132,289,177,19" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
-            <TextBlock  x:Name="broj_podsjetnika" Margin="46,303,236,-9" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Arial" FontSize="27" Foreground="Orange" />
+            <TextBlock  x:Name="broj_podsjetnika" Margin="46,303,236,-9" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Serif" FontSize="27" Foreground="Orange" />
+            <Button Foreground="Orange" Background="White" Margin="137,26,-145,259" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="4" Content="Istorija bolesti" Grid.ColumnSpan="2" Grid.Row="1" Click="prikazi_istoriju_bolesti"/>
+            <Button Foreground="Orange" Background="White" Margin="3,97,-164,327" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="5" Content="Trenutna terapija" Grid.RowSpan="2" Click="prikazi_trenutnu_terapiju"/>
 
 
         </Grid>

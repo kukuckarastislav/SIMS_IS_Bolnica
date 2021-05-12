@@ -22,11 +22,12 @@ namespace Bolnica.view.pacijent
     {
         public Pacijent Pacijent { get; set; }
         private Controller.PodsjetnikKontroler Kontroler;
-        public NoviPodsjetnik(Pacijent Pacijent)
+        public NoviPodsjetnik(Pacijent Pacijent,String text)
         {
             Kontroler = new Controller.PodsjetnikKontroler();
             this.Pacijent = Pacijent;
             InitializeComponent();
+            sadrzaj.Text = text;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

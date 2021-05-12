@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Media;
+using DTO;
 using Model;
 using Repozitorijum;
 
@@ -19,13 +20,14 @@ namespace Servis
         public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
         public Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
         public Repozitorijum.ProstorijeRepozitorijum prostorijeRepozitorijum;
-
         public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
+
         public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
         public const int maxBrojDanaOdlaganja = 3;
         public ZdravstvenaUslugaServis()
         {
             terminiRepozitorijum = new ZdravstvenaUslugaRepozitorijum();
+            lekarRepozitorijum = new LekarRepozitorijum();
 
         }
         public static List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
@@ -44,6 +46,30 @@ namespace Servis
             }
             return pregledi;
         }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
+        {
+            ObservableCollection<ZdravstvenaUsluga> prosliTermini = new ObservableCollection<ZdravstvenaUsluga>();
+            foreach(ZdravstvenaUsluga u in terminiRepozitorijum.getTerminiByPacijentId(id))
+            {
+                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) <= 0)
+                    prosliTermini.Add(u);
+            }
+            return KonverujModelDTO(prosliTermini);
+        }
+
+        private ObservableCollection<ZdravstvenaUslugaDTO> KonverujModelDTO(ObservableCollection<ZdravstvenaUsluga> prosliTermini)
+        {
+            ObservableCollection<ZdravstvenaUslugaDTO> ret = new ObservableCollection<ZdravstvenaUslugaDTO>();
+            foreach (ZdravstvenaUsluga u in prosliTermini)
+            {
+                ret.Add(new ZdravstvenaUslugaDTO(u.Termin, u.Id, u.IdPacijenta, u.IdLekara,
+                    lekarRepozitorijum.GetById(u.IdLekara).Ime+" "+ lekarRepozitorijum.GetById(u.IdLekara).Prezime,
+                        u.TipUsluge, u.IdProstorije, u.RazlogZakazivanja, u.RezultatUsluge));
+            }
+            return ret;
+        }
+
         public static List<ZdravstvenaUsluga> GetSlobodniTerminiLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();

@@ -57,5 +57,11 @@ namespace Bolnica.view.pacijent
             var varr = new view.pacijent.NotifikacijePacijent();
             varr.Show();
         }
+
+        private void prikazi_ocjene(object sender, RoutedEventArgs e)
+        {
+            var varr=new view.pacijent.Ocjene(Pacijent);
+            varr.Show();
+        }
     }
 }

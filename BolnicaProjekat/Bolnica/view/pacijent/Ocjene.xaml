@@ -1,0 +1,49 @@
+﻿<Window x:Class="Bolnica.view.pacijent.Ocjene"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        mc:Ignorable="d"
+        Title="Ocjene" Height="564.658" Width="975.068">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Menu Background="WhiteSmoke" Margin="0,1,1,502">
+            <MenuItem Header="Pocetna">
+                <MenuItem Header="Prikazi ocjene lekara" Click="MenuItem_Click_ocene_lekara"/>
+                <MenuItem Header="Prikazi ocjene bolnice" Click="MenuItem_Click_ocene_bolnice"/>
+            </MenuItem>
+            <MenuItem Header="Moje ocjene">
+                <MenuItem Header="Prikazi moje ocjene" Click="MenuItem_Click_moje_ocene" />
+                <MenuItem Header="Dodaj ocjenu za lekara"/>
+            </MenuItem>
+            <MenuItem Header="Pomoc">
+            </MenuItem>
+        </Menu>
+        <StackPanel></StackPanel>
+        <ListView ItemsSource="{Binding ListaOcene}" x:Name="listaOcjena" Margin="-1,83,1,0" RenderTransformOrigin="0.5,0.5" Height="396" VerticalAlignment="Top" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="45" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Datum" DisplayMemberBinding="{Binding Datum,StringFormat={}{0:MM/dd/yyy HH:mm}}"/>
+                    <GridViewColumn Header="Lekar" DisplayMemberBinding="{Binding NazivLekara}"/>
+                    <GridViewColumn Header="Ocjena" DisplayMemberBinding="{Binding Vrednost}"/>
+                    <GridViewColumn Header="Komentar" DisplayMemberBinding="{Binding Komentar}"/>
+                    <GridViewColumn Header="Autor" DisplayMemberBinding="{Binding NazivAutora}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Margin="663,37,170,466"/>
+        <Button Margin="813,37,19,466" Click="prikazi_ocene_lekara">Prikazi ocjene za lekara
+        </Button>
+        <Button Margin="813,488,19,15">Odustani
+        </Button>
+
+    </Grid>
+</Window>

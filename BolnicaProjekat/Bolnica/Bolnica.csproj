@@ -97,6 +97,7 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\OcenaDTO.cs" />
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
@@ -223,6 +224,9 @@
     </Compile>
     <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
       <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\Ocjene.xaml.cs">
+      <DependentUpon>Ocjene.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
@@ -448,6 +452,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\NotifikacijePacijent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\Ocjene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

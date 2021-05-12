@@ -93,6 +93,20 @@ namespace Repozitorijum
             }
             return ret;
         }
+
+        public ObservableCollection<Model.Ocena> GetOceneByLekarId(int id)
+        {
+            loadData();
+            ObservableCollection<Model.Ocena> ret = new ObservableCollection<Model.Ocena>();
+            foreach (Ocena z in ocene)
+            {
+                if (z.IdLekara == id)
+                {
+                    ret.Add(z);
+                }
+            }
+            return ret;
+        }
     }
 
 }

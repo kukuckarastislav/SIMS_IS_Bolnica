@@ -40,7 +40,7 @@ namespace Bolnica.view.pacijent
             korisnickoime.Text = p.KorisnickoIme;
 
             broj_notifikacija.Text = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(p.Id).Count.ToString();
-
+            broj_podsjetnika.Text = Repozitorijum.PodsjetnikRepozitorijum.GetInstance.GetPodsjetnikByPatientId(p.Id).Count.ToString();
             Pacijent = p;
 
             PodsjetnikServis = new Servis.PodsjetnikServis();
@@ -79,10 +79,5 @@ namespace Bolnica.view.pacijent
             varr.Show();
         }
 
-        private void dodaj_podsjetnik(object sender, RoutedEventArgs e)
-        {
-            var varr = new view.pacijent.NoviPodsjetnik(Pacijent);
-            varr.Show();
-        }
     }
 }

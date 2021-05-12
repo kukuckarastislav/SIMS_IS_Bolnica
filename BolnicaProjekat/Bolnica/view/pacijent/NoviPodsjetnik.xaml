@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="NoviPodsjetnik" Height="451.233" Width="501.644">
+        Title="NoviPodsjetnik" Height="453.699" Width="533.699">
     <Grid>
-        <TextBox x:Name="sadrzaj" Margin="39,71,50,185"/>
-        <Label Margin="39,27,296,354" Content="Unesite tekst:"/>
-        <Button Click="Button_Click" Margin="163,357,180,27" Content="Potvrdi"/>
-        <ComboBox x:Name="vrijeme_pocetak_sati" Margin="39,275,397,116" Background="#32ccff">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="192*"/>
+            <ColumnDefinition Width="55*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="sadrzaj" Margin="39,71,50,196" Grid.ColumnSpan="2"/>
+        <Label Margin="39,27,186.356,354" Content="Unesite tekst:" FontSize="18"/>
+        <Button Click="Button_Click" Margin="332,358,39,30" Content="Potvrdi" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="vrijeme_pocetak_sati" Margin="39,275,287.356,116" Background="#32ccff">
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >1</ComboBoxItem>
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >2</ComboBoxItem>
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >3</ComboBoxItem>
@@ -24,7 +28,7 @@
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >11</ComboBoxItem>
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="vrijeme_pocetak_minute" Margin="97,275,341,116" RenderTransformOrigin="1.23,0.361">
+        <ComboBox x:Name="vrijeme_pocetak_minute" Margin="97,275,231.356,116" RenderTransformOrigin="1.23,0.361">
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
@@ -38,11 +42,12 @@
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="55" />
         </ComboBox>
-        <ComboBox x:Name="vrijeme_pocetak_ap" Margin="153,275,285,116" RenderTransformOrigin="1.23,0.361">
+        <ComboBox x:Name="vrijeme_pocetak_ap" Margin="153,275,175.356,116" RenderTransformOrigin="1.23,0.361">
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
             <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />
 
         </ComboBox>
+        <Label Margin="39,233,0,153" Content="Izaberite vrijeme kada želite da dobijate podsjetnik:" FontSize="15"/>
 
 
     </Grid>

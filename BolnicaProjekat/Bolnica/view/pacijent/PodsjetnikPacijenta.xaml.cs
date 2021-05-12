@@ -32,5 +32,11 @@ namespace Bolnica.view.pacijent
             Lista = Kontroler.GetPodsjetnikPacijenta(Pacijent.Id);
             this.listaPodsjetnik.ItemsSource = Lista; //zasad null
         }
+
+        private void dodaj_podsjetnik(object sender, RoutedEventArgs e)
+        {
+            var varr = new view.pacijent.NoviPodsjetnik(Pacijent);
+            varr.Show();
+        }
     }
 }

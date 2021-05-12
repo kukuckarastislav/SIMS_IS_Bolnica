@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="PodsjetnikPacijenta" Height="463.562" Width="518.904">
     <Grid>
-        <ListView ItemsSource="{Binding Lista}" x:Name="listaPodsjetnik" Margin="-1,46,0,0" RenderTransformOrigin="0.5,0.5" Height="332" VerticalAlignment="Top" >
+        <ListView ItemsSource="{Binding Lista}" x:Name="listaPodsjetnik" RenderTransformOrigin="0.5,0.5" Height="374" VerticalAlignment="Top" >
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
-                    <Setter Property="Height" Value="45" />
+                    <Setter Property="Height" Value="48" />
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.View>
@@ -20,6 +20,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Foreground="Orange" Background="White" Click="dodaj_podsjetnik" Margin="22,386,316,14" Content="Dodaj novi podsjetnik" FontFamily="Arial" FontSize="16" RenderTransformOrigin="1.449,-0.502"/>
 
     </Grid>
 </Window>

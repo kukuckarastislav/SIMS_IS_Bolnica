@@ -1,0 +1,25 @@
+﻿<Window x:Class="Bolnica.view.pacijent.PodsjetnikPacijenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        mc:Ignorable="d"
+        Title="PodsjetnikPacijenta" Height="463.562" Width="518.904">
+    <Grid>
+        <ListView ItemsSource="{Binding Lista}" x:Name="listaPodsjetnik" Margin="-1,46,0,0" RenderTransformOrigin="0.5,0.5" Height="332" VerticalAlignment="Top" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Height" Value="45" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Vrijeme" DisplayMemberBinding="{Binding VrijemePojavljivanja, StringFormat=\{0:MM/dd/yyy HH:mm\}}"/>
+                    <GridViewColumn Header="Tekst" DisplayMemberBinding="{Binding Tekst}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

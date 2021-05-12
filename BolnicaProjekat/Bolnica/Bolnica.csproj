@@ -91,6 +91,7 @@
     <Compile Include="Controller\NotifikacijaKontroler.cs" />
     <Compile Include="Controller\ObavestenjeKontroler.cs" />
     <Compile Include="Controller\PacijentKontroler.cs" />
+    <Compile Include="Controller\PodsjetnikKontroler.cs" />
     <Compile Include="Controller\ProstorijeKontroler.cs" />
     <Compile Include="Controller\ReceptKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="Model\Oprema.cs" />
     <Compile Include="Model\Osoblje.cs" />
     <Compile Include="Model\Pacijent.cs" />
+    <Compile Include="Model\Podsjetnik.cs" />
     <Compile Include="Model\Pol.cs" />
     <Compile Include="Model\Prostorija.cs" />
     <Compile Include="Model\Racun.cs" />
@@ -144,6 +146,7 @@
     <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />
     <Compile Include="Repository\ObavestenjeRepozitorijum.cs" />
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
+    <Compile Include="Repository\PodsjetnikRepozitorijum.cs" />
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\ReceptRepozitorijum.cs" />
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
@@ -158,6 +161,7 @@
     <Compile Include="Service\NotifikacijeServis.cs" />
     <Compile Include="Service\ObavestenjeServis.cs" />
     <Compile Include="Service\PacijentServis.cs" />
+    <Compile Include="Service\PodsjetnikServis.cs" />
     <Compile Include="Service\ProstorijeServis.cs" />
     <Compile Include="Service\ReceptiServis.cs" />
     <Compile Include="Service\ReceptServis.cs" />
@@ -225,11 +229,17 @@
     <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
       <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\NoviPodsjetnik.xaml.cs">
+      <DependentUpon>NoviPodsjetnik.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\Ocjene.xaml.cs">
       <DependentUpon>Ocjene.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\PodsjetnikPacijenta.xaml.cs">
+      <DependentUpon>PodsjetnikPacijenta.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\PrikazPregleda.xaml.cs">
       <DependentUpon>PrikazPregleda.xaml</DependentUpon>
@@ -455,11 +465,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\pacijent\NoviPodsjetnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\pacijent\Ocjene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\PacijentHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\PodsjetnikPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

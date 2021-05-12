@@ -1,0 +1,54 @@
+﻿<Window x:Class="Bolnica.view.pacijent.NoviPodsjetnik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        mc:Ignorable="d"
+        Title="NoviPodsjetnik" Height="453.699" Width="533.699">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="192*"/>
+            <ColumnDefinition Width="55*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="sadrzaj" Margin="39,71,50,196" Grid.ColumnSpan="2"/>
+        <Label Margin="39,27,186.356,354" Content="Unesite tekst:" FontSize="18"/>
+        <Button Click="Button_Click" Margin="332,358,39,30" Content="Potvrdi" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="vrijeme_pocetak_sati" Margin="39,275,287.356,116" Background="#32ccff">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >1</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >2</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >3</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >4</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >5</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >6</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">7</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >8</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >9</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >10</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >11</ComboBoxItem>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="vrijeme_pocetak_minute" Margin="97,275,231.356,116" RenderTransformOrigin="1.23,0.361">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="15" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="20" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="25" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="35" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="40" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="45" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="55" />
+        </ComboBox>
+        <ComboBox x:Name="vrijeme_pocetak_ap" Margin="153,275,175.356,116" RenderTransformOrigin="1.23,0.361">
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
+            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />
+
+        </ComboBox>
+        <Label Margin="39,233,0,153" Content="Izaberite vrijeme kada želite da dobijate podsjetnik:" FontSize="15"/>
+
+
+    </Grid>
+</Window>

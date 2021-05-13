@@ -1,4 +1,5 @@
 ﻿using Bolnica.Controller;
+using DTO;
 using Model;
 using Repozitorijum;
 using Servis;
@@ -37,6 +38,11 @@ namespace Controller
             ZdravstvenaUsluga ret = servis.HitnoDodajUslugu(lekar, usluga);
             if(ret!=null)notifikacijaServis.OtkaziTermin(ret);
             return ret;
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
+        {
+            return servis.GetProsliTerminiPacijenta(id);
         }
 
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)

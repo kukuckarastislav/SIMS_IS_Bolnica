@@ -79,5 +79,17 @@ namespace Bolnica.view.pacijent
             varr.Show();
         }
 
+        private void prikazi_istoriju_bolesti(object sender, RoutedEventArgs e)
+        {
+            var varr = new view.pacijent.IstorijaBolesti(Pacijent);
+            varr.Show();
+
+        }
+
+        private void prikazi_trenutnu_terapiju(object sender, RoutedEventArgs e)
+        {
+            var varr = new view.pacijent.TrenutnaTerapija(Pacijent);
+            varr.Show();
+        }
     }
 }

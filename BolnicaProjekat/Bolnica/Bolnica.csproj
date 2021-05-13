@@ -102,6 +102,7 @@
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
+    <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="Model\DTORadniKalendar.cs" />
@@ -226,6 +227,9 @@
     <Compile Include="view\pacijent\AnketaLekar.xaml.cs">
       <DependentUpon>AnketaLekar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\IstorijaBolesti.xaml.cs">
+      <DependentUpon>IstorijaBolesti.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
       <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
     </Compile>
@@ -249,6 +253,9 @@
     </Compile>
     <Compile Include="view\pacijent\SopstveniPregledi.xaml.cs">
       <DependentUpon>SopstveniPregledi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\TrenutnaTerapija.xaml.cs">
+      <DependentUpon>TrenutnaTerapija.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
       <DependentUpon>KartonPacijenta.xaml</DependentUpon>
@@ -461,6 +468,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\pacijent\IstorijaBolesti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\pacijent\NotifikacijePacijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -492,6 +503,10 @@
     <Page Include="view\pacijent\SopstveniPregledi.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\pacijent\TrenutnaTerapija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\KartonPacijenta.xaml">
       <SubType>Designer</SubType>
@@ -816,6 +831,21 @@
     <Resource Include="images\lekar-icons\podesavanje-icon.png" />
     <Resource Include="images\lekar-icons\radni-kalendar-prazan-icon.png" />
     <Resource Include="images\lekar-icons\statistika-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\pozadina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\anamneza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\frame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\frameblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\frame6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

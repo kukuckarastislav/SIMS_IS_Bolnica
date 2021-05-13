@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Repozitorijum;
 using Model;
 using System.Collections.ObjectModel;
+using System.Threading;
 
 namespace Servis
 {
@@ -32,8 +33,9 @@ namespace Servis
                     }
                 }
 
-
+                Thread.Sleep(60 * 1000);      // na svkaih 60 sekundi   
             }
+
         }
 
         internal Podsjetnik DodajPodsjetnik(int idPacijenta, DateTime pocetak, string text)

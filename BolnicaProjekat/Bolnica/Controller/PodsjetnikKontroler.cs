@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Servis;
 using Model;
+using DTO;
 
-namespace Bolnica.Controller
+namespace Kontroler
 {
     class PodsjetnikKontroler
     {
@@ -23,9 +24,19 @@ namespace Bolnica.Controller
             return servis.GetPodsjetnikPacijenta(id);
         }
 
-        internal void DodajPodsjetnik(int id, DateTime pocetak, string text)
+        internal void AzurirajStanjePosleCitanja(int id)
         {
-            servis.DodajPodsjetnik(id,pocetak,text);
+            servis.AzurirajStanjePosleCitanja(id);
+        }
+
+        public void DodajPodsjetnik(PodsjetnikParametriDTO parametri)
+        {
+            servis.DodajPodsjetnik(parametri);
+        }
+
+        internal string GetBrojNeprocitanihPodsjetnika(int id)
+        {
+            return servis.GetBrojNeprocitanihPodsjetnika(id).ToString();
         }
     }
 }

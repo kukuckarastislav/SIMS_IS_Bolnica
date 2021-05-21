@@ -49,11 +49,16 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </ListView.RenderTransform>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="30" />
+                </Style>
+            </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
                     <GridViewColumn x:Name="pocetak_termina" Header="Vrijeme pocetka" DisplayMemberBinding="{Binding Termin.Pocetak,StringFormat={}{0:hh:mm tt}}"/>
                     <GridViewColumn Header="Vrijeme zavrsetka" DisplayMemberBinding="{Binding Termin.Kraj,StringFormat={}{0:hh:mm tt}}"/>
-                    <GridViewColumn Header="Lekar" DisplayMemberBinding="{Binding IdLekara}"/>
+                    <GridViewColumn Header="Lekar" DisplayMemberBinding="{Binding ImePrezimeLekara}"/>
                 </GridView>
             </ListView.View>
         </ListView>

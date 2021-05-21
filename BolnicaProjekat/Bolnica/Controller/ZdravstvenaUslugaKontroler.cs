@@ -1,16 +1,10 @@
-﻿using Bolnica.Controller;
-using DTO;
+﻿using DTO;
 using Model;
-using Repozitorijum;
 using Servis;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Converters;
+
 
 namespace Controller
 {
@@ -50,7 +44,7 @@ namespace Controller
             servis.OtkaziUslugu(usluga);
         }
 
-        internal ObservableCollection<ZdravstvenaUsluga> GetTerminiPacijenta(int id)
+        public ObservableCollection<ZdravstvenaUslugaDTO> GetTerminiPacijenta(int id)
         {
             return servis.GetTerminiPacijenta(id);
         }
@@ -77,9 +71,9 @@ namespace Controller
             return ZdravstvenaUslugaServis.GetSlobodniTerminiLekara(OdabraniLekar,pocetak,kraj); 
         }
 
-        public List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+        public ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
         {
-            return ZdravstvenaUslugaServis.GetSlobodniTermini(OdabraniLekar,pocetak,kraj,prioritet);
+            return ZdravstvenaUslugaServis.GetSlobodniTerminiDTO(OdabraniLekar, pocetak, kraj, prioritet);
         }
 
         public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)

@@ -13,18 +13,16 @@ namespace Model
         public DateTime VrijemePojavljivanja { get; set; }
         public bool Vidljiv { get; set; }
         public string Tekst { get; set; }
+        public bool Procitan { get; set; }
 
-        public Podsjetnik(int id, int idPacijenta, DateTime vrijemePojavljivanja, bool vidljiv, string tekst)
+        public Podsjetnik(int id, int idPacijenta, DateTime vrijemePojavljivanja, bool vidljiv, string tekst,bool procitan)
         {
             Id = id;
             IdPacijenta = idPacijenta;
             VrijemePojavljivanja = vrijemePojavljivanja;
             Vidljiv = vidljiv;
             Tekst = tekst;
+            Procitan = procitan;
         }
-
-        //mozda dodati otkad dokad da ih dobija
-
-
     }
 }

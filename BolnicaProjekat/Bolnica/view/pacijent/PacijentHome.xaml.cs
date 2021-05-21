@@ -1,30 +1,16 @@
 ﻿using Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Service;
+using Kontroler;
 
 namespace Bolnica.view.pacijent
 {
-    /// <summary>
-    /// Interaction logic for PacijentHome.xaml
-    /// </summary>
     public partial class PacijentHome : Window
     {
         public Pacijent Pacijent;
         Thread podsjetnikThread;
         private Servis.PodsjetnikServis PodsjetnikServis;
+
         public PacijentHome(Pacijent p)
         {
 
@@ -40,7 +26,8 @@ namespace Bolnica.view.pacijent
             korisnickoime.Text = p.KorisnickoIme;
 
             broj_notifikacija.Text = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(p.Id).Count.ToString();
-            broj_podsjetnika.Text = Repozitorijum.PodsjetnikRepozitorijum.GetInstance.GetPodsjetnikByPatientId(p.Id).Count.ToString();
+            PodsjetnikKontroler Kontroler = new PodsjetnikKontroler();
+            broj_podsjetnika.Text = Kontroler.GetBrojNeprocitanihPodsjetnika(p.Id);
             Pacijent = p;
 
             PodsjetnikServis = new Servis.PodsjetnikServis();
@@ -91,5 +78,23 @@ namespace Bolnica.view.pacijent
             var varr = new view.pacijent.TrenutnaTerapija(Pacijent);
             varr.Show();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void odjava_Click(object sender, RoutedEventArgs e)
+        {
+            var varr = new MainWindow();
+            this.Close();
+        }
+
+        private void pomoc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        }
     }
-}

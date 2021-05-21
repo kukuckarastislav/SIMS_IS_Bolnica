@@ -19,7 +19,7 @@ namespace Servis
             return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(0-id-1,text,ocjena,idPacijenta,-1,DateTime.Now)); //sve ocjene za bolnicu ce imati negativan id
         }
 
-        public Ocena DodajOcenuLekara(ZdravstvenaUsluga pregled, int idPacijenta, string text,int ocjena)
+        public Ocena DodajOcenuLekara(ZdravstvenaUslugaDTO pregled, int idPacijenta, string text,int ocjena)
         {
             int id = AnketaRepozitorijum.GetInstance.GetAll().Count;
             int idLekara = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Id;

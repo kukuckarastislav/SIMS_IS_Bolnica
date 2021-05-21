@@ -7,7 +7,7 @@ using Model;
 
 namespace DTO
 {
-    class ZdravstvenaUslugaDTO
+    public class ZdravstvenaUslugaDTO
     {
         public Termin Termin { get; set; }
         public int Id { get; set; }

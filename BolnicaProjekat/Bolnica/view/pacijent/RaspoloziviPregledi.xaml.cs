@@ -1,36 +1,24 @@
 ﻿using Model;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Servis;
 using Controller;
+using DTO;
 
 namespace Bolnica.view.pacijent
 {
-    /// <summary>
-    /// Interaction logic for pregledi.xaml
-    /// </summary>
     public partial class RaspoloziviPregledi : Window
     {
-        public ObservableCollection<ZdravstvenaUsluga> Pregledi;
-        public List<ZdravstvenaUsluga> PreglediList { get; set; }
-        public ZdravstvenaUsluga odabraniPregled;
-        public DateTime date;
-        public Lekar OdabraniLekar;
-        public ObservableCollection<Lekar> listaLekari { get; set; }
-        ZdravstvenaUslugaKontroler KontrolerZU { get; set; }
-        KorisnickaAktivnostKontroler KontrolerKA { get; set; }
+        private ObservableCollection<ZdravstvenaUslugaDTO> Pregledi;
+        private ZdravstvenaUslugaDTO OdabraniPregled;
+        private DateTime OdabraniDatum;
+        private Lekar OdabraniLekar;
+
+        private ObservableCollection<Lekar> listaLekari;
+        ZdravstvenaUslugaKontroler KontrolerZU;
+        KorisnickaAktivnostKontroler KontrolerKA;
 
 
         public RaspoloziviPregledi()
@@ -39,53 +27,45 @@ namespace Bolnica.view.pacijent
             KontrolerZU = new ZdravstvenaUslugaKontroler();
             KontrolerKA = new KorisnickaAktivnostKontroler();
 
-            //Pregledi = ZdravstvenaUslugaServis.getFirstAvailableAppointments();
             this.listaPregleda.ItemsSource = Pregledi;
 
-            date = DateTime.Now;
+            OdabraniDatum = DateTime.Now;
             listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
             this.ComboBoxLekari.ItemsSource = listaLekari;
         }
 
         private void odabran_je_pregled(object sender, MouseButtonEventArgs e)
         {
-            odabraniPregled = listaPregleda.SelectedItem as ZdravstvenaUsluga;
-            // MessageBox.Show(odabraniPregled.Termin.Pocetak.ToString());
+            OdabraniPregled = listaPregleda.SelectedItem as ZdravstvenaUslugaDTO;
         }
 
         private void zakazi_pregled(object sender, RoutedEventArgs e)
         {
-            if (odabraniPregled == null)
+            if (OdabraniPregled == null)
                 MessageBox.Show("Niste odabrali pregled");
 
           
             if (!KontrolerKA.JeSpamUser(1))
             {
-                //ne bi trenalo da udje ovdje uopste ako je spam user
-                // MessageBox.Show("Da li je spam user " + KorisnickaAktivnostServis.JeSpamUser(1));
-                odabraniPregled.IdPacijenta = 1;
-
-                KontrolerZU.DodajUslugu(odabraniPregled);
+                OdabraniPregled.IdPacijenta = 1;
                 KontrolerKA.DodajKorisnickuAktivnostZakazivanja(1);
-                Pregledi.Remove(odabraniPregled);
+                Pregledi.Remove(OdabraniPregled);
             }
             else
             {
-                MessageBox.Show("Nije moguce, suspendovani ste");
+                MessageBox.Show("Nije moguce, blokirani ste");
             }
         }
 
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            date = datum.SelectedDate.Value;
+            OdabraniDatum = datum.SelectedDate.Value;
 
-            if (DateTime.Compare(date, DateTime.Now) < 0)
+            if (DateTime.Compare(OdabraniDatum, DateTime.Now) < 0)
             {
                 MessageBox.Show("Moguce je izabrati samo buduce datume");
-                date = DateTime.Now;
+                OdabraniDatum = DateTime.Now;
             }
-
-
         }
 
         private void pretrazi_termine(object sender, RoutedEventArgs e)
@@ -98,24 +78,19 @@ namespace Bolnica.view.pacijent
             int krajkMinute = Convert.ToInt32(vrijeme_kraj_minute.Text);
             string krajAP = vrijeme_kraj_ap.Text;
 
-            if (pocetakAP.Equals("PM"))
-                pocetakSati += 12;
-            if (krajAP.Equals("PM"))
-                krajSati += 12;
+            if (pocetakAP.Equals("PM")) pocetakSati += 12;
+            if (krajAP.Equals("PM")) krajSati += 12;
 
-            DateTime pocetak = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute, 00);
-            DateTime kraj = new DateTime(date.Year, date.Month, date.Day, krajSati, krajkMinute, 00);
+            DateTime pocetak = new DateTime(OdabraniDatum.Year, OdabraniDatum.Month, OdabraniDatum.Day, pocetakSati, pocetakMinute, 00);
+            DateTime kraj = new DateTime(OdabraniDatum.Year, OdabraniDatum.Month, OdabraniDatum.Day, krajSati, krajkMinute, 00);
 
             OdabraniLekar = ComboBoxLekari.SelectedItem as Lekar;
 
             int prioritet = 0;
-            if (Lekar.IsChecked == true) prioritet = 1;
+            if (Lekar.IsChecked == true)
+                prioritet = 1;
 
-            Pregledi = new ObservableCollection<ZdravstvenaUsluga>();
-
-            PreglediList = KontrolerZU.GetSlobodniTermini(OdabraniLekar, pocetak, kraj, prioritet);
-            foreach (var v in PreglediList)
-                Pregledi.Add(v);
+            Pregledi = KontrolerZU.GetSlobodniTermini(OdabraniLekar, pocetak, kraj, prioritet);
             this.listaPregleda.ItemsSource = Pregledi;
         }
     }

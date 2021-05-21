@@ -101,6 +101,7 @@
     <Compile Include="DTO\OcenaDTO.cs" />
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
+    <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
@@ -846,6 +847,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\frame6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\poruka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\poruka2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

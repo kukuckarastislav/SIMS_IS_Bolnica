@@ -1,30 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Model;
+using DTO;
 
 namespace Bolnica.view.pacijent
 {
-    /// <summary>
-    /// Interaction logic for Ocjene.xaml
-    /// </summary>
+
     public partial class Ocjene : Window
     {
-        public Pacijent Pacijent;
-        private ObservableCollection<DTO.OcenaDTO> ListaOcene;
+        private Pacijent Pacijent;
+        private ObservableCollection<OcenaDTO> ListaOcene;
         private Controller.AnketaKontroler Kontroler;
-        public ObservableCollection<Lekar> listaLekari { get; set; }
+        private ObservableCollection<Lekar> listaLekari;
 
         public Ocjene(Pacijent Pacijent)
         {

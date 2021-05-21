@@ -1,28 +1,18 @@
-﻿using Model;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Controller;
+using DTO;
+using Model;
 
 namespace Bolnica.view.pacijent
 {
     public partial class SopstveniPregledi : Window
     {
-        public ObservableCollection<ZdravstvenaUsluga> PreglediPacijenta { get; set; }
-        public ZdravstvenaUsluga odabraniPregled;
-        public Pacijent Pacijent;
-
+        private ObservableCollection<ZdravstvenaUslugaDTO> PreglediPacijenta;
+        private ZdravstvenaUslugaDTO odabraniPregled;
+        private Pacijent Pacijent;
         ZdravstvenaUslugaKontroler Kontroler;
 
         public SopstveniPregledi(Pacijent pacijent)
@@ -30,18 +20,16 @@ namespace Bolnica.view.pacijent
            InitializeComponent();
            Pacijent = pacijent;
            Kontroler = new ZdravstvenaUslugaKontroler();
-
-           // PreglediPacijenta = Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(Pacijent.Id);
            PreglediPacijenta = Kontroler.GetTerminiPacijenta(Pacijent.Id);
 
             this.listaPregledaPacijenta.
-                ItemsSource = PreglediPacijenta;
+            ItemsSource = PreglediPacijenta;
         }
 
 
         private void pregled_odabran(object sender, MouseButtonEventArgs e)
         {
-            odabraniPregled = listaPregledaPacijenta.SelectedItem as ZdravstvenaUsluga;
+            odabraniPregled = listaPregledaPacijenta.SelectedItem as ZdravstvenaUslugaDTO;
 
             TimeSpan period = new TimeSpan(1, 0, 0, 0, 0);
             if (odabraniPregled.Termin.Pocetak.Subtract(DateTime.Now) < period)
@@ -72,7 +60,7 @@ namespace Bolnica.view.pacijent
                 return;
             }
 
-            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(odabraniPregled);
+           // Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(odabraniPregled);
             PreglediPacijenta.Remove(odabraniPregled);
         }
 

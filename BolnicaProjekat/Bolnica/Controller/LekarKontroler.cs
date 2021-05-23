@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Servis;
+using DTO;
+using Bolnica.DTO;
 
 namespace Kontroler
 {
@@ -46,6 +48,10 @@ namespace Kontroler
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
             return lekarServis.GetAllObs();
+        }
+        public ObservableCollection<LekarDTO> getAllDto()
+        {
+            return lekarServis.GetAllDto();
         }
 
         public Model.Lekar GetById(long id)

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Converters;
+using DTO;
 
 namespace Controller
 {
@@ -86,6 +87,10 @@ namespace Controller
             return servis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
         }
 
+        public ObservableCollection<ZdravstvenaUslugaDTO> getAllDto()
+        {
+            return servis.getAllDto();
+        }
 
     }
 }

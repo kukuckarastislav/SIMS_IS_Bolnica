@@ -1,0 +1,33 @@
+﻿<Page x:Class="Bolnica.view.sekretar.PageLekari"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageLekari">
+
+    <Grid Background="#ccffbd">
+        <DataGrid x:Name="DataGridPrikazLekara"
+                  ItemsSource="{Binding Path=PrikazaniLekari}" 
+                  IsReadOnly="False"
+                  SelectionMode="Single" 
+                  AutoGenerateColumns="False"
+            HorizontalAlignment="Left" Height="265" Margin="69,143,0,0" VerticalAlignment="Top" Width="665">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" Width="*" />
+                <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" Width="*" />
+                <DataGridTextColumn Header="Sprecijalizacija" Binding="{Binding Sprecijalizacija}" Width="*" />
+                <DataGridTextColumn Header="Korisnicko ime" Binding="{Binding KorisnickoIme}" Width="*" />
+                <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="69,56,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Obrisi" HorizontalAlignment="Left" Margin="175,56,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Izmeni podatke" HorizontalAlignment="Left" Margin="283,56,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.16,0.943"/>
+        <Button Content="Radno vreme" HorizontalAlignment="Left" Margin="394,56,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Page>

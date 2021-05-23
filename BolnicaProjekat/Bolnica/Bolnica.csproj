@@ -97,9 +97,12 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\LekarDTO.cs" />
     <Compile Include="DTO\OpremaDTO.cs" />
+    <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
+    <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="Model\DTORadniKalendar.cs" />
@@ -239,17 +242,29 @@
     <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
       <DependentUpon>KartonPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageKorisnickiNalog.xaml.cs">
+      <DependentUpon>PageKorisnickiNalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageLekari.xaml.cs">
+      <DependentUpon>PageLekari.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PageObavestenja.xaml.cs">
       <DependentUpon>PageObavestenja.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
       <DependentUpon>PagePacijenti.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageZakazaniTermini.xaml.cs">
+      <DependentUpon>PageZakazaniTermini.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PocetnaStranica.xaml.cs">
       <DependentUpon>PocetnaStranica.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\registracija\PageRegistracija.xaml.cs">
       <DependentUpon>PageRegistracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\registracija\RegistracijaLekara.xaml.cs">
+      <DependentUpon>RegistracijaLekara.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\SekretarHome.xaml.cs">
       <DependentUpon>SekretarHome.xaml</DependentUpon>
@@ -471,6 +486,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\PageKorisnickiNalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageLekari.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PageObavestenja.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -479,6 +502,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\sekretar\PageZakazaniTermini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PocetnaStranica.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -486,6 +513,10 @@
     <Page Include="view\sekretar\registracija\PageRegistracija.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\registracija\RegistracijaLekara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\SekretarHome.xaml">
       <Generator>MSBuild:Compile</Generator>

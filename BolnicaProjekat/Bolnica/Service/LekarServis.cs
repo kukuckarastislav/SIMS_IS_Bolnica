@@ -9,6 +9,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Repozitorijum;
+using DTO;
+using Bolnica.DTO;
+using System.Windows;
 
 namespace Servis
 {
@@ -45,6 +48,26 @@ namespace Servis
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
             return LekarRepozitorijum.GetInstance.GetAllObs();
+        }
+        public ObservableCollection<LekarDTO> GetAllDto()
+        {
+            ObservableCollection<LekarDTO> lekariDto = new ObservableCollection<LekarDTO>();
+            ObservableCollection<Lekar> sviLekari = LekarRepozitorijum.GetInstance.GetAllObs();
+            foreach(Lekar lekar in sviLekari)
+            {
+                LekarDTO noviDto = new LekarDTO();
+                noviDto.Id = lekar.Id;
+                noviDto.Ime = lekar.Ime;
+                noviDto.Prezime = lekar.Prezime;
+                noviDto.KorisnickoIme = lekar.KorisnickoIme;
+                noviDto.Specijalista = lekar.Specijalista;
+                noviDto.Specijalizacija = lekar.Specijalizacija;
+                noviDto.Telefon = lekar.Telefon;
+                noviDto.Email = lekar.Email;
+                lekariDto.Add(noviDto);
+            }
+
+            return lekariDto;
         }
 
         public bool ProveriPostojanjeLekara(string korisnickoIme)

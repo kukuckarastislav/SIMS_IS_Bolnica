@@ -1,0 +1,97 @@
+﻿<Page x:Class="Bolnica.view.sekretar.PageRadnoVreme"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="900"
+      Title="PageRadnoVreme">
+
+    <Grid Background="#ccffbd">
+        <DatePicker HorizontalAlignment="Left" Margin="180,226,0,0" VerticalAlignment="Top" Name="datumOdmoraPocetak" />
+        <DatePicker HorizontalAlignment="Left" Margin="180,270,0,0" VerticalAlignment="Top" Name="datumOdmoraKraj" />
+        <Button Content="Dodaj odmor" HorizontalAlignment="Left" Margin="303,226,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="-1.536,0.24" Click="DodajOdmor_Click"/>
+        <ListView HorizontalAlignment="Left" Height="160" Margin="107,359,0,0" VerticalAlignment="Top" Width="239" ItemsSource="{Binding Odmori}" Name="listaOdmora">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Pocetak" Width="120" DisplayMemberBinding="{Binding Period.Pocetak }" />
+                    <GridViewColumn Header="Završetak" Width="120" DisplayMemberBinding="{Binding Period.Kraj}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView HorizontalAlignment="Left" Height="160" Margin="535,359,0,0" VerticalAlignment="Top" Width="125" Name="listaSlobodnihDana" ItemsSource="{Binding slobodniDaniLekara}" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Datum" Width="120" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Obriši dan" HorizontalAlignment="Left" Margin="561,538,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button Content="Obriši odmor" HorizontalAlignment="Left" Margin="261,538,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="-4.841,0.558" Click="ObrisiOdmor_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="108,336,0,0" TextWrapping="Wrap" Text="Godišnji odmor" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="536,336,0,0" TextWrapping="Wrap" Text="Slobodni dani" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="74,191,0,0" TextWrapping="Wrap" Text="Dodaj godišnji odmor" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="74,234,0,0" TextWrapping="Wrap" Text="Datum početka:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="74,274,0,0" TextWrapping="Wrap" Text="Datum završetka:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="536,194,0,0" TextWrapping="Wrap" Text="Dodaj slobodan dan" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="535,226,0,0" VerticalAlignment="Top" Name="datumSlobodnogDana"/>
+        <Button Content="Dodaj dan" HorizontalAlignment="Left" Margin="664,226,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="-1.536,0.24" Click="DodajSlobodanDan_Click"/>
+        <ComboBox HorizontalAlignment="Left" Margin="226,104,0,0" VerticalAlignment="Top" Width="120" Name="cmbPocetakRadnogVremena" >
+            <ComboBoxItem  Name="cbi0">00:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi1">01:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi2">02:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi3">03:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi4">04:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi5">05:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi6">06:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi7">07:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi8">08:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi9">09:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi10">10:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi11">11:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi12">12:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi13">13:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi14">14:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi15">15:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi16">16:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi17">17:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi18">18:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi19">19:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi20">20:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi21">21:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi22">22:00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi23">23:00</ComboBoxItem>
+        </ComboBox>
+        <ComboBox HorizontalAlignment="Left" Margin="511,104,0,0" VerticalAlignment="Top" Width="120" Name="cmbKrajRadnogVremena">
+            <ComboBoxItem  Name="cb2i1">01:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i2">02:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i3">03:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i4">04:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i5">05:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i6">06:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i7">07:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i8">08:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i9">09:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i10">10:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i11">11:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i12">12:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i13">13:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i14">14:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i15">15:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i16">16:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i17">17:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i18">18:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i19">19:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i20">20:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i21">21:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i22">22:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i23">23:00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i24">24:00</ComboBoxItem>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="74,110,0,0" TextWrapping="Wrap" Text="Pocetak radnog vremena:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="375,104,0,0" TextWrapping="Wrap" Text="Kraj radnog vremena:" VerticalAlignment="Top"/>
+        <Button Content="Imeni radno vreme" HorizontalAlignment="Left" Margin="664,105,0,0" VerticalAlignment="Top" Width="116" RenderTransformOrigin="-1.536,0.24" Click="IzmeniRadnoVreme_Click"/>
+
+    </Grid>
+</Page>

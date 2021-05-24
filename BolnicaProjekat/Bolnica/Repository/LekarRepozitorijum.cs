@@ -164,6 +164,30 @@ namespace Repozitorijum
         }
 
         private string PutanjaFajla;
-   
-   }
+
+        public RadnoVreme getRadnoVremeLekara(int id)
+        {
+            foreach(Lekar lekar in Lekari)
+            {
+                if(lekar.Id == id)
+                {
+                    return lekar.radnoVreme;
+                }
+            }
+
+            return null;
+        }
+
+        public void IzmeniRadnoVremeLekara(int id, RadnoVreme vreme)
+        {
+            foreach (Lekar lekar in Lekari)
+            {
+                if (lekar.Id == id)
+                {
+                    lekar.radnoVreme = vreme;
+                    break;
+                }
+            }
+        }
+    }
 }

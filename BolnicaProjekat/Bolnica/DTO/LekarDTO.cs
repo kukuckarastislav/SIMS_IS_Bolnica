@@ -24,6 +24,7 @@ namespace DTO
         public string AdresaStanovanja { get; set; }
         public string Sifra { get; set; }
 
+
         public LekarDTO()
         {
 

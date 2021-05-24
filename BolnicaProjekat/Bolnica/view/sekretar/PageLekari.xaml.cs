@@ -51,5 +51,13 @@ namespace Bolnica.view.sekretar
             var page = new PageLekarIzmena(lekar);
             NavigationService.Navigate(page);
         }
+
+        private void RadnoVreme_Click(object sender, RoutedEventArgs e)
+        {
+            LekarDTO lekar = DataGridPrikazLekara.SelectedItem as LekarDTO;
+            if (lekar == null) return;
+            var page = new PageRadnoVreme(lekar);
+            NavigationService.Navigate(page);
+        }
     }
 }

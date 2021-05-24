@@ -48,7 +48,10 @@
     "Specijalista": false,
     "Specijalizacija": "",
     "LogickiObrisan": false,
-    "radnoVreme": null,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 14
+    },
     "RadniStatus": 0,
     "KorisnickoIme": "nikolanikolic",
     "Sifra": "sifra",
@@ -67,7 +70,10 @@
     "Specijalista": false,
     "Specijalizacija": "",
     "LogickiObrisan": true,
-    "radnoVreme": null,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 16,
+      "KrajRadnogVremena": 23
+    },
     "RadniStatus": 0,
     "KorisnickoIme": "jovanajovanovic",
     "Sifra": "sifra",
@@ -85,8 +91,11 @@
     "Id": 5,
     "Specijalista": false,
     "Specijalizacija": "",
-    "LogickiObrisan": true,
-    "radnoVreme": null,
+    "LogickiObrisan": false,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 16,
+      "KrajRadnogVremena": 23
+    },
     "RadniStatus": 0,
     "KorisnickoIme": "jankojankovic",
     "Sifra": "sifra",

@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\AnketaKontroler.cs" />
+    <Compile Include="Controller\GodisnjiOdmorKontroler.cs" />
     <Compile Include="Controller\InventariKontroler.cs" />
     <Compile Include="Controller\KorisnickaAktivnostKontroler.cs" />
     <Compile Include="Controller\LekarKontroler.cs" />
@@ -94,13 +95,16 @@
     <Compile Include="Controller\ProstorijeKontroler.cs" />
     <Compile Include="Controller\ReceptKontroler.cs" />
     <Compile Include="Controller\SekretarKontroler.cs" />
+    <Compile Include="Controller\SlobodniDaniKontroler.cs" />
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\GodisnjiOdmorDTO.cs" />
     <Compile Include="DTO\LekarDTO.cs" />
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
+    <Compile Include="DTO\SlobodniDaniDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
@@ -108,6 +112,7 @@
     <Compile Include="Model\DTORadniKalendar.cs" />
     <Compile Include="Model\DTORecept.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />
+    <Compile Include="Model\GodisnjiOdmor.cs" />
     <Compile Include="Model\Inventar.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Lek.cs" />
@@ -127,6 +132,7 @@
     <Compile Include="Model\RadnoVreme.cs" />
     <Compile Include="Model\Recept.cs" />
     <Compile Include="Model\Sekretar.cs" />
+    <Compile Include="Model\SlobodniDani.cs" />
     <Compile Include="Model\Terapija.cs" />
     <Compile Include="Model\Termin.cs" />
     <Compile Include="Model\TerminProstorije.cs" />
@@ -139,6 +145,7 @@
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
     <Compile Include="Repository\AnketaRepozitorijum.cs" />
+    <Compile Include="Repository\GodisnjiOdmorRepozitorijum.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
     <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
@@ -149,10 +156,12 @@
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\ReceptRepozitorijum.cs" />
     <Compile Include="Repository\SekretarRepozitorijum.cs" />
+    <Compile Include="Repository\SlobodniDaniRepozitorijum.cs" />
     <Compile Include="Repository\TerminProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
     <Compile Include="Repository\UpravnikRepozitorijum.cs" />
     <Compile Include="Service\AnketaServis.cs" />
+    <Compile Include="Service\GodisnjiOdmorServis.cs" />
     <Compile Include="Service\InventariSerivs.cs" />
     <Compile Include="Service\KorisnickaAktivnostServis.cs" />
     <Compile Include="Service\LekarServis.cs" />
@@ -164,6 +173,7 @@
     <Compile Include="Service\ReceptiServis.cs" />
     <Compile Include="Service\ReceptServis.cs" />
     <Compile Include="Service\SekretarServis.cs" />
+    <Compile Include="Service\SlobodniDaniServis.cs" />
     <Compile Include="Service\TerminProstorijeServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
@@ -256,6 +266,9 @@
     </Compile>
     <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
       <DependentUpon>PagePacijenti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageRadnoVreme.xaml.cs">
+      <DependentUpon>PageRadnoVreme.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\PageZakazaniTermini.xaml.cs">
       <DependentUpon>PageZakazaniTermini.xaml</DependentUpon>
@@ -509,6 +522,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="view\sekretar\PageRadnoVreme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PageZakazaniTermini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -689,6 +706,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="podaci\godisnjiodmor.json" />
     <None Include="podaci\inventari.json" />
     <None Include="podaci\lekari.json" />
     <None Include="podaci\lekovi.json" />
@@ -697,6 +715,7 @@
     <None Include="podaci\pacijenti.json" />
     <None Include="podaci\recepti.json" />
     <None Include="podaci\sekretari.json" />
+    <None Include="podaci\slobodnidani.json" />
     <None Include="podaci\terminProstorije.json" />
     <None Include="podaci\upravnici.json" />
     <None Include="podaci\zdravstveneUsluge.json" />

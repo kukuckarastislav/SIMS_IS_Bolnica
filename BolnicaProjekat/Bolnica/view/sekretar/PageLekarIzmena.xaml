@@ -1,0 +1,31 @@
+﻿<Page x:Class="Bolnica.view.sekretar.PageLekarIzmena"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageLekarIzmena">
+
+    <Grid Background="#ccffbd">
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="172,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputIme" />
+        <Button Content="Sacuvaj Izmene" HorizontalAlignment="Left" Margin="598,366,0,0" VerticalAlignment="Top" Width="100" Height="30" Click="SacuvajIzmene_Click" />
+        <TextBlock HorizontalAlignment="Left" Margin="118,78,0,0" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="87,120,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="429,225,0,0" TextWrapping="Wrap" Text="Drzavljanstvo:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="505,127,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" RenderTransformOrigin="13.432,-10.426" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="94,225,0,0" TextWrapping="Wrap" Text="Telefon:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="391,82,0,0" TextWrapping="Wrap" Text="Adresa stanovanja:" VerticalAlignment="Top" FontSize="20px"  />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="172,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputPrezime" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="172,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputTelefon" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="578,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputAdresa" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="578,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputEmail" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="578,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputDrzavljansto" />
+        <TextBlock HorizontalAlignment="Left" Margin="108,175,0,0" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="420,172,0,0" TextWrapping="Wrap" Text="Datum rođenja:" VerticalAlignment="Top" FontSize="20px" />
+        <DatePicker HorizontalAlignment="Left" Margin="578,181,0,0" VerticalAlignment="Top" Name="inputDatum" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="172,175,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="inputJMBG" IsEnabled="False" />
+
+    </Grid>
+</Page>

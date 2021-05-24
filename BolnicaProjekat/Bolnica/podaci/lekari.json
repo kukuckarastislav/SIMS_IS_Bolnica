@@ -3,6 +3,7 @@
     "Id": 1,
     "Specijalista": false,
     "Specijalizacija": "",
+    "LogickiObrisan": false,
     "radnoVreme": {
       "PocetakRadnogVremena": 8,
       "KrajRadnogVremena": 14
@@ -24,6 +25,7 @@
     "Id": 2,
     "Specijalista": false,
     "Specijalizacija": "",
+    "LogickiObrisan": false,
     "radnoVreme": {
       "PocetakRadnogVremena": 8,
       "KrajRadnogVremena": 14
@@ -40,5 +42,62 @@
     "Jmbg": "1234123412342",
     "Drzavljanstvo": "srpsko",
     "AdresaStanovanja": "dom a"
+  },
+  {
+    "Id": 3,
+    "Specijalista": false,
+    "Specijalizacija": "",
+    "LogickiObrisan": false,
+    "radnoVreme": null,
+    "RadniStatus": 0,
+    "KorisnickoIme": "nikolanikolic",
+    "Sifra": "sifra",
+    "Ime": "Nikolaaaa",
+    "Prezime": "Janjic",
+    "Pol": 0,
+    "Email": "nikolaaaaa@gmail.com",
+    "Telefon": "4324234",
+    "DatumRodjenja": "0616-06-26T00:00:00",
+    "Jmbg": "12341231",
+    "Drzavljanstvo": "dasdsa@gmail.com",
+    "AdresaStanovanja": "adresa nova2"
+  },
+  {
+    "Id": 4,
+    "Specijalista": false,
+    "Specijalizacija": "",
+    "LogickiObrisan": true,
+    "radnoVreme": null,
+    "RadniStatus": 0,
+    "KorisnickoIme": "jovanajovanovic",
+    "Sifra": "sifra",
+    "Ime": "Jovana",
+    "Prezime": "Jovanovic",
+    "Pol": 0,
+    "Email": "joka@gmail.com",
+    "Telefon": "12312345",
+    "DatumRodjenja": "1979-02-06T00:00:00",
+    "Jmbg": "123451231",
+    "Drzavljanstvo": "srpsko",
+    "AdresaStanovanja": "adresa 46"
+  },
+  {
+    "Id": 5,
+    "Specijalista": false,
+    "Specijalizacija": "",
+    "LogickiObrisan": true,
+    "radnoVreme": null,
+    "RadniStatus": 0,
+    "KorisnickoIme": "jankojankovic",
+    "Sifra": "sifra",
+    "Ime": "Janko",
+    "Prezime": "Jakovic",
+    "Pol": 0,
+    "Email": "jankomejl@gmail.com",
+    "Telefon": "0642353225",
+    "DatumRodjenja": "1960-08-17T00:00:00",
+    "Jmbg": "135321",
+    "Drzavljanstvo": "srpsko",
+    "AdresaStanovanja": "adresa 342"
   }
 ]

@@ -1,4 +1,4 @@
-﻿using Bolnica.DTO;
+﻿using DTO;
 using Kontroler;
 using System;
 using System.Collections.Generic;
@@ -29,9 +29,27 @@ namespace Bolnica.view.sekretar
             InitializeComponent();
 
             LekarKontroler kontroler = new LekarKontroler();
-            PrikazaniLekari = kontroler.getAllDto();
-            MessageBox.Show("ima " + PrikazaniLekari.Count);
+            PrikazaniLekari = kontroler.getAllNeobrisaniLekari();
             this.DataGridPrikazLekara.ItemsSource = PrikazaniLekari;
+        }
+
+        private void ObrisiLekara_Click(object sender, RoutedEventArgs e)
+        {
+            LekarDTO lekar = DataGridPrikazLekara.SelectedItem as LekarDTO;
+            if (lekar == null) return;
+
+            LekarKontroler kontroler = new LekarKontroler();
+            kontroler.ObrisiLekara(lekar);
+            PrikazaniLekari.Remove(lekar);
+            MessageBox.Show("Lekar je uspesno obrisan.");
+        }
+
+        private void IzmeniLekara_Click(object sender, RoutedEventArgs e)
+        {
+            LekarDTO lekar = DataGridPrikazLekara.SelectedItem as LekarDTO;
+            if (lekar == null) return;
+            var page = new PageLekarIzmena(lekar);
+            NavigationService.Navigate(page);
         }
     }
 }

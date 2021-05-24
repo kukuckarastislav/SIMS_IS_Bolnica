@@ -11,6 +11,8 @@ using System.Text.Json;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.IO;
+using System.Linq;
+using DTO;
 
 namespace Repozitorijum
 {
@@ -102,17 +104,37 @@ namespace Repozitorijum
             return null;
         }
 
-        public Model.Lekar AzurirajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+        public void AzurirajLekara(LekarDTO dto)
+        {
+            foreach (Lekar lekar in Lekari)
+            {
+                if (lekar.Id == dto.Id)
+                {
+                    lekar.Ime = dto.Ime;
+                    lekar.Prezime = dto.Prezime;
+                    lekar.Telefon = dto.Telefon;
+                    lekar.AdresaStanovanja = dto.AdresaStanovanja;
+                    lekar.Email = dto.Email;
+                    lekar.Drzavljanstvo = dto.Drzavljanstvo;
+                    lekar.DatumRodjenja = dto.DatumRodjenja;
+                    break;
+                }
+            }
+            SaveData();
+        }
       
-      public Model.Lekar ObrisiLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+        public void ObrisiLekara(LekarDTO dto)
+        {
+            foreach(Lekar lekar in Lekari)
+            {
+                if(lekar.Id == dto.Id)
+                {
+                    lekar.LogickiObrisan = true;
+                    break;
+                }
+            }
+            SaveData();
+        }
       
       public List<Lekar> GetAll()
       {
@@ -133,8 +155,15 @@ namespace Repozitorijum
             }
          return null;
       }
-   
-      private string PutanjaFajla;
+        public int GetNewId()
+        {
+            int newId = 1;
+            if (Lekari.Count == 0)
+                return newId;
+            return Lekari.ElementAt(Lekari.Count - 1).Id + 1;
+        }
+
+        private string PutanjaFajla;
    
    }
 }

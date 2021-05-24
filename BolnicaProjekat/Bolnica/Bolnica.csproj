@@ -248,6 +248,9 @@
     <Compile Include="view\sekretar\PageLekari.xaml.cs">
       <DependentUpon>PageLekari.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageLekarIzmena.xaml.cs">
+      <DependentUpon>PageLekarIzmena.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PageObavestenja.xaml.cs">
       <DependentUpon>PageObavestenja.xaml</DependentUpon>
     </Compile>
@@ -491,6 +494,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\PageLekari.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageLekarIzmena.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

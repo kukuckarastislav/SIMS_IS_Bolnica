@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using Model;
 
@@ -32,23 +32,23 @@ namespace Repozitorijum
             loadData();
         }
 
-        public ObservableCollection<Podsjetnik> ocene;
+        public List<Podsjetnik> lista;
 
 
         private void loadData()
         {
             try
             {
-                if (ocene == null)
+                if (lista == null)
                 {
 
-                    ObservableCollection<Podsjetnik> p = JsonSerializer.Deserialize<ObservableCollection<Podsjetnik>>(File.ReadAllText("../../podaci/" + imeFajla));
-                    ocene = p;
+                    List<Podsjetnik> p = JsonSerializer.Deserialize<List<Podsjetnik>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    lista = p;
                 }
             }
             catch (Exception e)
             {
-                ocene = new ObservableCollection<Podsjetnik>();
+                lista = new List<Podsjetnik>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -59,32 +59,32 @@ namespace Repozitorijum
             {
                 WriteIndented = true,
             };
-            string json = JsonSerializer.Serialize(ocene, format);
+            string json = JsonSerializer.Serialize(lista, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
         public Podsjetnik DodajPodsjetnik(Podsjetnik ocena)
         {
             loadData();
 
-            if (!this.ocene.Contains(ocena))
-                this.ocene.Add(ocena);
+            if (!this.lista.Contains(ocena))
+                this.lista.Add(ocena);
 
             SaveData();
             return ocena;
         }
 
 
-        public ObservableCollection<Podsjetnik> GetAll()
+        public List<Podsjetnik> GetAll()
         {
             loadData();
-            return ocene;
+            return lista;
         }
 
-        public ObservableCollection<Podsjetnik> GetPodsjetnikByPatientId(int id)
+        public List<Podsjetnik> GetPodsjetnikByPatientId(int id)
         {
             loadData();
-            ObservableCollection<Podsjetnik> ret = new ObservableCollection<Podsjetnik>();
-            foreach (Podsjetnik z in ocene)
+            List<Podsjetnik> ret = new List<Podsjetnik>();
+            foreach (Podsjetnik z in lista)
             {
                 if (z.IdPacijenta == id)
                 {
@@ -99,6 +99,15 @@ namespace Repozitorijum
             loadData();
             SaveData();
             return p;
+        }
+
+        public int getNewId()
+        {
+            int id = 1;
+            if (lista.Count == 0)
+                return id;
+
+            return lista.ElementAt(lista.Count - 1).Id + 1;
         }
     }
 

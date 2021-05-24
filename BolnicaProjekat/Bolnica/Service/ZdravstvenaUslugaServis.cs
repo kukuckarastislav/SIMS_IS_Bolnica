@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Media;
 using DTO;
 using Model;
 using Repozitorijum;
@@ -17,10 +16,10 @@ namespace Servis
 {
     public class ZdravstvenaUslugaServis
     {
-        public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
-        public Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
-        public Repozitorijum.ProstorijeRepozitorijum prostorijeRepozitorijum;
-        public Repozitorijum.ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
+        public PacijentRepozitorijum pacijentRepozitorijum;
+        public LekarRepozitorijum lekarRepozitorijum;
+        public ProstorijeRepozitorijum prostorijeRepozitorijum;
+        public ZdravstvenaUslugaRepozitorijum terminiRepozitorijum;
 
         public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
         public const int maxBrojDanaOdlaganja = 3;
@@ -30,6 +29,25 @@ namespace Servis
             lekarRepozitorijum = new LekarRepozitorijum();
 
         }
+
+
+        internal static ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(Lekar odabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+        {
+            return Konvertuj(GetSlobodniTermini(odabraniLekar,pocetak,kraj,prioritet));
+        }
+
+        private static ObservableCollection<ZdravstvenaUslugaDTO> Konvertuj(List<ZdravstvenaUsluga> prosliTermini)
+        {
+            ObservableCollection<ZdravstvenaUslugaDTO> ret = new ObservableCollection<ZdravstvenaUslugaDTO>();
+            foreach (ZdravstvenaUsluga u in prosliTermini)
+            {
+                ret.Add(new ZdravstvenaUslugaDTO(u.Termin, u.Id, u.IdPacijenta, u.IdLekara,
+                     "Laslo ",
+                        u.TipUsluge, u.IdProstorije, u.RazlogZakazivanja, u.RezultatUsluge));
+            }
+            return ret;
+        }
+
         public static List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
 
         {
@@ -49,7 +67,7 @@ namespace Servis
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
         {
-            ObservableCollection<ZdravstvenaUsluga> prosliTermini = new ObservableCollection<ZdravstvenaUsluga>();
+            List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
             foreach(ZdravstvenaUsluga u in terminiRepozitorijum.getTerminiByPacijentId(id))
             {
                 if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) <= 0)
@@ -58,7 +76,7 @@ namespace Servis
             return KonverujModelDTO(prosliTermini);
         }
 
-        private ObservableCollection<ZdravstvenaUslugaDTO> KonverujModelDTO(ObservableCollection<ZdravstvenaUsluga> prosliTermini)
+        private ObservableCollection<ZdravstvenaUslugaDTO> KonverujModelDTO(List<ZdravstvenaUsluga> prosliTermini)
         {
             ObservableCollection<ZdravstvenaUslugaDTO> ret = new ObservableCollection<ZdravstvenaUslugaDTO>();
             foreach (ZdravstvenaUsluga u in prosliTermini)
@@ -162,7 +180,6 @@ namespace Servis
             if (noviPocetak.Minute > 30)
                 afterHalf = true;
 
-            //jako primitivno znam, ali radi posao
             foreach (var v in terminiLekara)
             {
                 if (afterHalf)
@@ -179,16 +196,10 @@ namespace Servis
             return true;
         }
 
-        public List<ZdravstvenaUsluga> getFirstAvailableAppointments()
-        {
-            //ovo zasad nije neophodno rekla bih
-            return null;
-        }
-
        public static ObservableCollection<DTORadniKalendar> getUslugeLekara(Lekar l)
         {
             ObservableCollection<DTORadniKalendar> lista = new ObservableCollection<DTORadniKalendar>();
-            ObservableCollection<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
+            List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
             foreach(ZdravstvenaUsluga zu in usluge)
             {
                 //DTORadniKalendar(ZdravstvenaUsluga usluga, Pacijent pacijent, Prostorija prostorija)
@@ -203,12 +214,11 @@ namespace Servis
         public static ObservableCollection<DTOUslugaLekar> getUslugePacijenta(Pacijent p)
         {
             ObservableCollection<DTOUslugaLekar> lista = new ObservableCollection<DTOUslugaLekar>();
-            ObservableCollection<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(p.Id);
+            List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(p.Id);
             foreach (ZdravstvenaUsluga zu in usluge)
             {
                 lista.Add(new DTOUslugaLekar(zu, LekarRepozitorijum.GetInstance.GetById(zu.IdLekara)));
             }
-
 
             return lista;
         }
@@ -240,9 +250,9 @@ namespace Servis
             }
             return null;
         }
-        internal ObservableCollection<ZdravstvenaUsluga> GetTerminiPacijenta(int id)
+        public ObservableCollection<ZdravstvenaUslugaDTO> GetTerminiPacijenta(int id)
         {
-            return Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(id);
+            return KonverujModelDTO(ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(id));
         }
 
         public void AzurirajVremeUsluga(DTORadniKalendar usluga, DateTime pocetak, DateTime kraj) 
@@ -272,7 +282,7 @@ namespace Servis
         {
 
             List<ZdravstvenaUsluga> terminiProstorije = new List<ZdravstvenaUsluga>();
-            List<ZdravstvenaUsluga> listaSviUsluga = ZdravstvenaUslugaRepozitorijum.GetInstance.getAllList();
+            List<ZdravstvenaUsluga> listaSviUsluga = ZdravstvenaUslugaRepozitorijum.GetInstance.getAll();
             foreach (ZdravstvenaUsluga usluga in listaSviUsluga)
             {
                 if (usluga.IdProstorije == id)

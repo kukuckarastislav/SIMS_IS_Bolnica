@@ -24,7 +24,7 @@ namespace Bolnica.Controller
             return servis.DodajOcenuBolnice(idPacijenta,text,ocjena);
         }
 
-        public Ocena DodajOcenuLekara(ZdravstvenaUsluga pregled,int idPacijenta, string text,int ocjena)
+        public Ocena DodajOcenuLekara(ZdravstvenaUslugaDTO pregled,int idPacijenta, string text,int ocjena)
         {
             return servis.DodajOcenuLekara(pregled,idPacijenta, text,ocjena);
         }

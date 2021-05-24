@@ -23,9 +23,10 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class IstorijaBolesti : Window
     {
-        private ObservableCollection<ZdravstvenaUslugaDTO> Lista { get; set; } //koji k
-        private ZdravstvenaUslugaKontroler Kontroler { get; set; }
-        private Pacijent Pacijent {get; set;}
+        private ObservableCollection<ZdravstvenaUslugaDTO> Lista;
+        private ZdravstvenaUslugaKontroler Kontroler;
+        private Pacijent Pacijent;
+
         public IstorijaBolesti(Pacijent Pacijent)
         {
             Kontroler = new ZdravstvenaUslugaKontroler();

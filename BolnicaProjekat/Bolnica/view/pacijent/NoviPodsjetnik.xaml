@@ -8,46 +8,61 @@
         Title="NoviPodsjetnik" Height="453.699" Width="533.699">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="192*"/>
-            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="sadrzaj" Margin="39,71,50,196" Grid.ColumnSpan="2" FontSize="14" FontFamily="Arial" Foreground="Black"/>
-        <Label Margin="39,27,186.356,354" Content="Unesite tekst:" FontSize="18"/>
-        <Button Click="Button_Click" Margin="332,358,39,30" Content="Potvrdi" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="vrijeme_pocetak_sati" Margin="39,275,287.356,116" Background="#32ccff">
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >1</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >2</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >3</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >4</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >5</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >6</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">7</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >8</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >9</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >10</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >11</ComboBoxItem>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
-        </ComboBox>
-        <ComboBox x:Name="vrijeme_pocetak_minute" Margin="97,275,231.356,116" RenderTransformOrigin="1.23,0.361">
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="15" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="20" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="25" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="35" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="40" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="45" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="55" />
-        </ComboBox>
-        <ComboBox x:Name="vrijeme_pocetak_ap" Margin="153,275,175.356,116" RenderTransformOrigin="1.23,0.361">
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
-            <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />
+        <TextBox x:Name="sadrzaj" Margin="39,71,39,272" FontSize="14" FontFamily="Arial" Foreground="Black"/>
+        <Label Margin="39,27,303,354" Content="Unesite tekst:" FontSize="20"/>
+        <Button Click="Button_Click" Margin="321,353,39,33" Content="Potvrdi"/>
+        <Label Margin="39,168,117,218" Content="Izaberite vrijeme kada želite da dobijate podsjetnik:" FontSize="15"/>
+        <Label Margin="39,259,292,127" Content="Izaberite vremenski period:" FontSize="15"/>
+        <DatePicker Name="odDatum" Margin="97,301,292,85" FontSize="13" SelectedDateChanged="od_SelectedDateChanged"/>
+        <DatePicker Name="doDatum" Margin="97,353,292,33" FontSize="13" SelectedDateChanged="do_SelectedDateChanged"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="sadrzaj1" Margin="39,71,39,272" FontSize="18" FontFamily="Arial" Foreground="Black"/>
+            <Label Margin="39,27,303,354" Content="Unesite tekst:" FontSize="20"/>
+            <Button Click="Button_Click" Margin="321,353,39,33" Content="Potvrdi"/>
+            <ComboBox x:Name="sati" Margin="39,206,404,185">
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="1" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="2" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="3" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="4" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="5" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="6" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True" Content="7"/>
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="8" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="9" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="11" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="12" />
+            </ComboBox>
+            <ComboBox x:Name="minute" Margin="97,206,348,185" RenderTransformOrigin="1.23,0.361">
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="15" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="20" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="25" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="35" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="40" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="45" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="55" />
+            </ComboBox>
+            <ComboBox x:Name="ap" Margin="153,206,292,185" RenderTransformOrigin="1.23,0.361">
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
+                <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />
 
-        </ComboBox>
-        <Label Margin="39,233,0,153" Content="Izaberite vrijeme kada želite da dobijate podsjetnik:" FontSize="15"/>
+            </ComboBox>
+            <Label Margin="39,168,117,218" Content="Izaberite vrijeme kada želite da dobijate podsjetnik:" FontSize="15"/>
+            <Label Margin="39,301,431,85" Content="Od:" FontSize="15"/>
+            <Label Margin="39,353,431,33" Content="Do:" FontSize="15"/>
+
+
+        </Grid>
 
 
     </Grid>

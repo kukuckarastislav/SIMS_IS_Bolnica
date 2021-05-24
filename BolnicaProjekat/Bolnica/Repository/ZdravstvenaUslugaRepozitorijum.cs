@@ -30,7 +30,7 @@ namespace Repozitorijum
 
         }
 
-        public ObservableCollection<ZdravstvenaUsluga> Usluge { get; set; }
+        public List<ZdravstvenaUsluga> Usluge { get; set; }
 
         public ZdravstvenaUslugaRepozitorijum()
         {
@@ -49,13 +49,13 @@ namespace Repozitorijum
                 if (Usluge == null)
                 {
 
-                    ObservableCollection<Model.ZdravstvenaUsluga> u = JsonSerializer.Deserialize<ObservableCollection<Model.ZdravstvenaUsluga>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<ZdravstvenaUsluga> u = JsonSerializer.Deserialize<List<ZdravstvenaUsluga>>(File.ReadAllText("../../podaci/" + imeFajla));
                     Usluge = u;
                 }
             }
             catch (Exception e)
             {
-                Usluge = new ObservableCollection<Model.ZdravstvenaUsluga>();
+                Usluge = new List<ZdravstvenaUsluga>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -134,25 +134,15 @@ namespace Repozitorijum
             return usluge;
         }
 
-        public ObservableCollection<Model.ZdravstvenaUsluga> getAll()
+        public List<ZdravstvenaUsluga> getAll()
         {
             return Usluge;
         }
 
-        public List<ZdravstvenaUsluga> getAllList()
-        {
-            List<ZdravstvenaUsluga> lista = new List<ZdravstvenaUsluga>();
-            foreach(ZdravstvenaUsluga u in Usluge)
-            {
-                lista.Add(u);
-            }
-            return lista;
-        }
-
-        public ObservableCollection<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
+        public List<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
         {
             loadData();
-            ObservableCollection<ZdravstvenaUsluga> ret = new ObservableCollection<ZdravstvenaUsluga>();
+            List<ZdravstvenaUsluga> ret = new List<ZdravstvenaUsluga>();
             foreach(ZdravstvenaUsluga z in Usluge)
             {
                 if (z.IdPacijenta == id)
@@ -163,10 +153,10 @@ namespace Repozitorijum
             return ret;
         }
 
-        public ObservableCollection<ZdravstvenaUsluga> GetTerminByLekarId(int id)
+        public List<ZdravstvenaUsluga> GetTerminByLekarId(int id)
         {
             loadData();
-            ObservableCollection<ZdravstvenaUsluga> ret = new ObservableCollection<ZdravstvenaUsluga>();
+            List<ZdravstvenaUsluga> ret = new List<ZdravstvenaUsluga>();
             foreach (ZdravstvenaUsluga z in Usluge)
             {
                 if (z.IdLekara == id)

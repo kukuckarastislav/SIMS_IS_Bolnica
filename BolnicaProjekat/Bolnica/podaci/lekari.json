@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "Specijalista": false,
-    "Specijalizacija": "",
+    "Specijalizacija": "opsti lekar",
     "LogickiObrisan": false,
     "radnoVreme": {
       "PocetakRadnogVremena": 8,
@@ -23,8 +23,8 @@
   },
   {
     "Id": 2,
-    "Specijalista": false,
-    "Specijalizacija": "",
+    "Specijalista": true,
+    "Specijalizacija": "kardiohirurg",
     "LogickiObrisan": false,
     "radnoVreme": {
       "PocetakRadnogVremena": 8,

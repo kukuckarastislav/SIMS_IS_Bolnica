@@ -8,12 +8,14 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Collections;
+using System.Collections.Generic;
+
 namespace Model
 {
    public class MedicinskiKarton
    {
 
-        public MedicinskiKarton(int idPacijenta, bool osiguran, ArrayList zdravstvenaUsluga, Terapija terapija, string alergeni)
+        public MedicinskiKarton(int idPacijenta, bool osiguran, ArrayList zdravstvenaUsluga, Terapija terapija, List<string> alergeni)
         {
             IdPacijent = idPacijenta;
             Osiguran = osiguran;
@@ -34,7 +36,7 @@ namespace Model
         public ArrayList ZdravstvenaUsluga { get; set; }
         [JsonInclude]
         public Terapija Terapija { get; set; }
-        public string Alergeni { get; set; }
+        public List<string> Alergeni { get; set; }
 
         /*
         /// <pdGenerated>default getter</pdGenerated>

@@ -28,8 +28,9 @@ namespace Bolnica.view.lekar.pacijenti
         public Pacijent IzabraniPacijent { get; set; }
         public Lekar Lekar { get; set; }
         public ObservableCollection<DTORecept> ListaRecepti { get; set; }
+        public ObservableCollection<string> KolekcijaAlergeni;
         public MedicinskiKarton MedicinskiKarton { get; set; }
-        public string Alergeni;
+        public List<string> Alergeni;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         public TerapijaPacijenta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
@@ -51,8 +52,17 @@ namespace Bolnica.view.lekar.pacijenti
              *        string opisKoriscenja)
              */
             this.DataGridRecepti.ItemsSource = ListaRecepti;
-            this.AlergeniTextBox.Text = Alergeni;
+            this.DataGridPrikazAlergena.ItemsSource = Alergeni;
         }
+
+        private void AzurirajPrikazAlergena()
+        {
+            DataGridPrikazAlergena.ItemsSource = KolekcijaAlergeni;
+        }
+
+
+
+
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {

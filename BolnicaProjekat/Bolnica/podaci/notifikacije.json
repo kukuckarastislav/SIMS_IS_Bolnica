@@ -34,5 +34,14 @@
     "PacijentProcitao": false,
     "LekarProcitao": true,
     "Opis": "2021-05-05 06:00 AM*   Podsjecamo vas da danas, u 09:00 AM treba da popijete vas lijek."
+  },
+  {
+    "Id": -5,
+    "IdZdravstveneUsluge": 7,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": true,
+    "Opis": "2021-05-25 08:00 AM*   Podsjecamo vas da danas, u 11:00 AM treba da popijete vas lijek."
   }
 ]

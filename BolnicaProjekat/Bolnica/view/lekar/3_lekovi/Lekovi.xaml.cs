@@ -23,6 +23,9 @@ namespace Bolnica.view.lekar.lekovi
     /// </summary>
     public partial class Lekovi : Page
     {
+
+        private view.lekar.GlavniMeni refGlavniMeni;
+
         public Lekar Lekar;
         public ObservableCollection<Lek> odobreniLekoviKolekcija;
         public ObservableCollection<Lek> lekoviZaReviziju;
@@ -44,26 +47,37 @@ namespace Bolnica.view.lekar.lekovi
             if (LekoviZaRevizijuTab.IsSelected)
             {
                 OdobravanjeLeka.Visibility = Visibility.Visible;
-                OdbijanjeeLeka.Visibility = Visibility.Visible;
+                OdbijanjeLeka.Visibility = Visibility.Visible;
                 IzmenaLeka.Visibility = Visibility.Visible;
             }
             if (OdobreniLekoviTab.IsSelected)
             {
                 OdobravanjeLeka.Visibility = Visibility.Collapsed;
-                OdbijanjeeLeka.Visibility = Visibility.Collapsed;
+                OdbijanjeLeka.Visibility = Visibility.Collapsed;
                 IzmenaLeka.Visibility = Visibility.Collapsed;
             }
         }
 
+        private void GlavniMeniButton(object sender, RoutedEventArgs e)
+        {
+            if (this.Lekar != null)
+            {
+                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                NavigationService.Navigate(refGlavniMeni);
+            }
+        }
+
+
+
         private void IzmenaLeka_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = (Lek) Lekovi_za_reviziju.SelectedItem;
+            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
                 var izmeniLek = new IzmenaLeka(lek, this.Lekar);
                 NavigationService.Navigate(izmeniLek);
             }
-            
+
         }
 
         private void OdobravanjeLeka_Click(object sender, RoutedEventArgs e)
@@ -74,6 +88,17 @@ namespace Bolnica.view.lekar.lekovi
                 var odobriLek = new OdobravanjeLeka(lek, this.Lekar);
                 NavigationService.Navigate(odobriLek);
             }
+        }
+
+        private void OdbijanjeLeka_Click(object sender, RoutedEventArgs e)
+        {
+            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
+            if (lek != null)
+            {
+                var odbijLek = new OdbijanjeLeka(lek, this.Lekar);
+                NavigationService.Navigate(odbijLek);
+            }
+
         }
     }
 }

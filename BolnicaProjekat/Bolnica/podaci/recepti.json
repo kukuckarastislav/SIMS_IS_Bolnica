@@ -58,5 +58,15 @@
     "DatumIsteka": "2021-05-05T10:14:39",
     "OslobodjenOdParticipacije": false,
     "OpisKoriscenja": "Na\u010Din koris\u010Denja:"
+  },
+  {
+    "Id": 7,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "IdLeka": 1,
+    "DatumPropisivanja": "2021-05-25T23:58:54",
+    "DatumIsteka": "2021-05-25T23:58:54",
+    "OslobodjenOdParticipacije": false,
+    "OpisKoriscenja": "Na\u010Din koris\u010Denja:"
   }
 ]

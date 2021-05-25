@@ -4,19 +4,18 @@
     "Sifra": "BRF",
     "Naziv": "Brufen",
     "Odobren": true,
-    "Opis": "Brufen YES ZA TEMPERATURU",
+    "Opis": "Brufen je jako dobar lek",
     "Kolicina": 124,
-    "Cena": 440,
+    "Cena": 450,
     "Alergeni": [
-      "TempoFobija",
-      "HepaTromboFobija",
-      "haha"
+      "Alergen1",
+      "Alergen2"
     ],
     "Revizije": [
       {
         "IdLekara": 1,
         "StatusRevizije": 1,
-        "Poruka": "CAO LASLO cao"
+        "Poruka": "pogledao sam, okej"
       },
       {
         "IdLekara": 2,
@@ -34,12 +33,12 @@
     "Kolicina": 24,
     "Cena": 123,
     "Alergeni": [
-      "plucoFobija"
+      "Alergen3"
     ],
     "Revizije": [
       {
         "IdLekara": 1,
-        "StatusRevizije": 0,
+        "StatusRevizije": 1,
         "Poruka": "CAO LASLO :)"
       },
       {

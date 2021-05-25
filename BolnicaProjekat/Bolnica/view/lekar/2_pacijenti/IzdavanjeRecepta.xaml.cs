@@ -25,25 +25,46 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public Pacijent IzabraniPacijent { get; set; }
         public ObservableCollection<Recept> Recepti { get; set; }
-        public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
+        public ObservableCollection<Lek> odobreniLekoviKolekcija;
+        public ObservableCollection<string> KolekcijaAlergeniLeka;
+        public ObservableCollection<string> KolekcijaAlergeniPacijenta;
+        public LekoviKontroler lekoviKontrolerObjekat;
         public Lek OdabraniLek { get; set; }
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public IzdavanjeRecepta(Lekar Lekar,Pacijent IzabraniPacijent)
+        public IzdavanjeRecepta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
+            lekoviKontrolerObjekat = new LekoviKontroler();
+            this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            this.ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
 
-            Kontroler.LekoviKontroler LekoviKontroler = new Kontroler.LekoviKontroler();
-            Kontroler.ReceptKontroler ReceptKontroler = new Kontroler.ReceptKontroler();
-            KolekcijaLekovi = LekoviKontroler.GetOdobreniLekovi();
+            KolekcijaAlergeniLeka = new ObservableCollection<string>();
+            KolekcijaAlergeniPacijenta = new ObservableCollection<string>();
+            DataGridAlergeniLeka.Visibility = Visibility.Hidden;
+            DataGridAlergeniPacijenta.Visibility = Visibility.Visible;
 
-            ComboBoxLek.ItemsSource = KolekcijaLekovi;
+
+            UcitajPodatke();
+        }
+
+        private void UcitajPodatke()
+        {
+
+            ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
             headerIme.Text = IzabraniPacijent.Ime;
             headerPrezime.Text = IzabraniPacijent.Prezime;
             headerJMBG.Text = IzabraniPacijent.Jmbg;
+
+            foreach (string alergen in IzabraniPacijent.MedicinskiKarton.Alergeni)
+            {
+                KolekcijaAlergeniPacijenta.Add(alergen);
+            }
+
+            DataGridAlergeniPacijenta.ItemsSource = KolekcijaAlergeniPacijenta;
 
         }
 
@@ -84,10 +105,43 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar,IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
 
+        private void ComboBoxLek_DropDownClosed(object sender, EventArgs e)
+        {
+            if (ComboBoxLek.SelectedItem != null)
+            {
+                OdabraniLek = (Lek)ComboBoxLek.SelectedItem;
+                DataGridAlergeniLeka.Visibility = Visibility.Visible;
+                foreach (string alergen in OdabraniLek.Alergeni)
+                {
+                    KolekcijaAlergeniLeka.Add(alergen);
+                }
+
+                DataGridAlergeniLeka.ItemsSource = KolekcijaAlergeniLeka;
+            }
+
+            bool imaPresek = false;
+            foreach (string presecniAlergen in KolekcijaAlergeniLeka)
+            {
+                if (KolekcijaAlergeniPacijenta.Contains(presecniAlergen) == true)
+                {
+                    PotvrdiRecept.IsEnabled = false;
+                    ImaAlergijuTextBlock.Visibility = Visibility.Visible;
+                    imaPresek = true;
+                }
+            }
+
+            if (!imaPresek)
+            {
+                PotvrdiRecept.IsEnabled = true;
+                NemaAlergijuTextBlock.Visibility = Visibility.Visible;
+            }
+
+
+        }
     }
 }

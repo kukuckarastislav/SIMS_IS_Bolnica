@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DTO;
+using Model;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Bolnica.Controller
             servisObavestenja = new ObavestenjeServis();
         }
 
-        public ObservableCollection<Obavestenje> GetAllObavestenja()
+        public ObservableCollection<ObavestenjeDTO> GetAllObavestenja()
         {
             return servisObavestenja.GetAllObavestenja();
         }

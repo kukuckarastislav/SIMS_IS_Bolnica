@@ -101,19 +101,15 @@
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
     <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
+    <Compile Include="DTO\ObavestenjeDTO.cs" />
     <Compile Include="DTO\OcenaDTO.cs" />
-
     <Compile Include="DTO\GodisnjiOdmorDTO.cs" />
     <Compile Include="DTO\LekarDTO.cs" />
-
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
-
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
-
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
-
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />

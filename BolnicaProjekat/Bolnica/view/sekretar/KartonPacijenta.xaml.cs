@@ -26,17 +26,17 @@ namespace Bolnica.view.sekretar
         {
             InitializeComponent();
             this.pacijent = pacijent;
-            if(pacijent.MedicinskiKarton.Alergeni == null)
+       /*     if(pacijent.MedicinskiKarton.Alergeni == null)
             {
                 pacijent.MedicinskiKarton.Alergeni = " ";
             }
-            tbAlergeni.Text = pacijent.MedicinskiKarton.Alergeni;
+            tbAlergeni.Text = pacijent.MedicinskiKarton.Alergeni;*/
         }
 
         private void SacuvaAlergene_Click(object sender, RoutedEventArgs e)
         {
             PacijentKontroler kontroler = new PacijentKontroler();
-            pacijent.MedicinskiKarton.Alergeni = tbAlergeni.Text;
+         //   pacijent.MedicinskiKarton.Alergeni = tbAlergeni.Text;
             kontroler.AzurirajPacijenta(pacijent);
             MessageBox.Show("Izmena je sacuvana.");
         }

@@ -8,15 +8,14 @@
     "Kolicina": 124,
     "Cena": 450,
     "Alergeni": [
-      "TempoFobija",
-      "HepaTromboFobija",
-      "FaksFobija"
+      "Alergen1",
+      "Alergen2"
     ],
     "Revizije": [
       {
         "IdLekara": 1,
         "StatusRevizije": 1,
-        "Poruka": "Cao Rastislave. Kako ide zivot? Brufen je puno pomagao"
+        "Poruka": ""
       },
       {
         "IdLekara": 2,
@@ -34,7 +33,7 @@
     "Kolicina": 24,
     "Cena": 123,
     "Alergeni": [
-      "plucoFobija"
+      "Alergen3"
     ],
     "Revizije": [
       {

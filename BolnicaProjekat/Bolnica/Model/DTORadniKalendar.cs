@@ -23,12 +23,19 @@ namespace Model
         {
             get
             {
-                return Pacijent.Ime + " " + Pacijent.Prezime;
+                if (Pacijent != null ) {
+                    return Pacijent.Ime + " " + Pacijent.Prezime;
+                }
+                else
+                {
+                    return "";
+                }
+
             }
 
         }
 
-        public string NazivProstorije
+    public string NazivProstorije
         {
             get
             {

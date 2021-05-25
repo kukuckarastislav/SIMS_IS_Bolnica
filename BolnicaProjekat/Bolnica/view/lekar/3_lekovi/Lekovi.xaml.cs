@@ -44,13 +44,13 @@ namespace Bolnica.view.lekar.lekovi
             if (LekoviZaRevizijuTab.IsSelected)
             {
                 OdobravanjeLeka.Visibility = Visibility.Visible;
-                OdbijanjeeLeka.Visibility = Visibility.Visible;
+                OdbijanjeLeka.Visibility = Visibility.Visible;
                 IzmenaLeka.Visibility = Visibility.Visible;
             }
             if (OdobreniLekoviTab.IsSelected)
             {
                 OdobravanjeLeka.Visibility = Visibility.Collapsed;
-                OdbijanjeeLeka.Visibility = Visibility.Collapsed;
+                OdbijanjeLeka.Visibility = Visibility.Collapsed;
                 IzmenaLeka.Visibility = Visibility.Collapsed;
             }
         }
@@ -74,6 +74,17 @@ namespace Bolnica.view.lekar.lekovi
                 var odobriLek = new OdobravanjeLeka(lek, this.Lekar);
                 NavigationService.Navigate(odobriLek);
             }
+        }
+
+        private void OdbijanjeLeka_Click(object sender, RoutedEventArgs e)
+        {
+            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
+            if (lek != null)
+            {
+                var odbijLek = new OdbijanjeLeka(lek, this.Lekar);
+                NavigationService.Navigate(odbijLek);
+            }
+
         }
     }
 }

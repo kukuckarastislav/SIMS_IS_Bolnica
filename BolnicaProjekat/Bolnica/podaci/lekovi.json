@@ -4,19 +4,19 @@
     "Sifra": "BRF",
     "Naziv": "Brufen",
     "Odobren": true,
-    "Opis": "Brufen YES ZA TEMPERATURU",
+    "Opis": "Brufen je jako dobar lek",
     "Kolicina": 124,
-    "Cena": 440,
+    "Cena": 450,
     "Alergeni": [
       "TempoFobija",
       "HepaTromboFobija",
-      "haha"
+      "FaksFobija"
     ],
     "Revizije": [
       {
         "IdLekara": 1,
         "StatusRevizije": 1,
-        "Poruka": "CAO LASLO cao"
+        "Poruka": "Cao Rastislave. Kako ide zivot? Brufen je puno pomagao"
       },
       {
         "IdLekara": 2,

@@ -70,7 +70,6 @@
                     Margin="-10,-40,-10,-10"
                     Grid.Row="3" Grid.RowSpan="3"
                     Grid.Column="1" Grid.ColumnSpan="3"/>
-
         <StackPanel     Grid.Row="4" 
                         Grid.RowSpan="3"
                         Grid.Column="1" 
@@ -83,10 +82,11 @@
                         FontWeight="Bold" 
                         Foreground="#eeebdd"
 />
-            <TextBlock  x:Name="TipUsluge"
+            <TextBox  x:Name="inputNaziv"
+                      IsEnabled="False"
                         VerticalAlignment="Top" 
                         HorizontalAlignment="left" 
-                        Foreground="Black"/>
+                        Foreground="Black" Width="90"/>
 
             <TextBlock  Text="Šifra leka:" 
                         VerticalAlignment="Top" 
@@ -94,9 +94,10 @@
                         FontWeight="Bold" 
                         Foreground="#eeebdd"/>
 
-            <TextBlock  x:Name="Prostorija"
+            <TextBox  x:Name="inputSifra"
+                      IsEnabled="False"
                         VerticalAlignment="Top" 
-                        HorizontalAlignment="left" 
+                        HorizontalAlignment="left" Width="90" 
                         Foreground="Black"/>
 
 
@@ -112,14 +113,15 @@
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                    <TextBlock  x:Name="VremePocetkaUsluge"
+                    <TextBox  x:Name="inputCena"
+                              IsEnabled="False"
                                 VerticalAlignment="Top" 
-                                HorizontalAlignment="left" 
+                                HorizontalAlignment="left" Width="90"
                                 Foreground="Black"/>
 
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+                <StackPanel Orientation="Vertical" Margin="97,0,0,0">
 
                     <TextBlock  Text="Status leka:" 
                                 VerticalAlignment="Top" 
@@ -127,9 +129,9 @@
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                    <TextBlock  x:Name="VremeZavrsetkaUsluge"
+                    <TextBox  x:Name="statusLeka" IsEnabled="False"
                                 VerticalAlignment="Top" 
-                                HorizontalAlignment="left" 
+                                HorizontalAlignment="left" Width="90"
                                 Foreground="Black"/>
 
                 </StackPanel>
@@ -138,13 +140,42 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
 
-                <StackPanel Orientation="Vertical" Width="145">
+                <StackPanel Orientation="Vertical" Width="200">
 
                     <TextBlock  Text="Alergene leka:" 
                                 VerticalAlignment="Top" 
                                 HorizontalAlignment="left" 
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
+
+                    <Grid Height="121">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+
+                        <DataGrid x:Name="DataGridPrikazAlergena" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="2"
+                          ItemsSource="{Binding Path=KolekcijaAlergeni}" 
+                          IsEnabled="False"
+                          IsReadOnly="False"
+                          FontSize="10"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Naziv Alergena" Binding="{Binding}" Width="0.7*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </Grid>
 
 
                 </StackPanel>
@@ -156,6 +187,13 @@
                                 HorizontalAlignment="left" 
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
+
+                    <TextBox  x:Name="inputOpis" 
+                              IsEnabled="False"
+                              TextWrapping="Wrap"
+                                VerticalAlignment="Top" MinLines="3"
+                                HorizontalAlignment="left" Width="90" 
+                                Foreground="Black"/>
 
                 </StackPanel>
 
@@ -172,9 +210,10 @@
                                 Foreground="#eeebdd"/>
 
                     <TextBox
-                        IsEnabled="False"
+                        x:Name="inputPoruka"
+                        IsEnabled="True"
                         MaxLines="3"
-                        MinLines="3">
+                        MinLines="3" Height="63">
                     </TextBox>
 
                 </StackPanel >
@@ -199,13 +238,12 @@
                         </Button.Resources>
 
                         <StackPanel Orientation="Horizontal"  
-                                Width="135">
+                                Width="140">
                             <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" />
                             <TextBlock Padding="2" 
                                    FontSize="11" 
-                                   TextWrapping="Wrap"
                                    VerticalAlignment="Center" 
-                                   FontWeight="SemiBold"> Potvrdi </TextBlock>
+                                   FontWeight="SemiBold"> Potvrdi odobravanje</TextBlock>
                         </StackPanel>
 
                     </Button>
@@ -215,6 +253,7 @@
                                 Width="100"
                                 Height="35"
                                 HorizontalAlignment="Right"
+                                Click="Odustani_click"
                                 >
 
                         <Button.Resources>

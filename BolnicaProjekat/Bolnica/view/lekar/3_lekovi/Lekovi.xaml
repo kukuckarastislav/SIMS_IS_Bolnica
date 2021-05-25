@@ -143,7 +143,7 @@
                         Grid.Column="2"
                         Grid.Row="6">
 
-            <Button     x:Name="OdbijanjeeLeka"  
+            <Button     x:Name="OdbijanjeLeka"  
                         Height="35" 
                         Width="90" 
                         VerticalAlignment="Center"  
@@ -151,6 +151,7 @@
                         Background="#eeebdd" 
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        Click="OdbijanjeLeka_Click"
                         >
 
                 <Button.Resources>

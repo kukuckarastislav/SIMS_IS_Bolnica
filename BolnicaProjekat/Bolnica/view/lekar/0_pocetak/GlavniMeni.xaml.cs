@@ -65,12 +65,5 @@ namespace Bolnica.view.lekar
             NavigationService.Navigate(refNotifikacije);
         }
 
-        private void LogOutButtton(object sender, RoutedEventArgs e)
-        {
-            refLoginPage = new view.lekar.LoginPage(Lekar);
-            NavigationService.Navigate(refLoginPage);
-        }
-
-
     }
 }

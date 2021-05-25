@@ -28,7 +28,8 @@ namespace Bolnica.view.lekar
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
         private view.lekar.lekovi.Lekovi refLekovi;
         private view.lekar.Notifikacije refNotifikacije;
-        private view.lekar.LoginPage refLoginPage;
+        private view.lekar.GlavniMeni refGlavniMeni;
+        //private view.lekar.LoginPage refLoginPage;
 
         public Lekar Lekar;
         public LekarHome(Lekar Lekar)
@@ -36,8 +37,8 @@ namespace Bolnica.view.lekar
             this.Lekar = Lekar;
             InitializeComponent();
 
-            refLoginPage = new view.lekar.LoginPage(Lekar);
-            main_frame.Navigate(refLoginPage);
+            refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+            main_frame.Navigate(refGlavniMeni);
 
 
         }
@@ -72,8 +73,7 @@ namespace Bolnica.view.lekar
 
         private void LogOutButtton(object sender, RoutedEventArgs e)
         {
-            refLoginPage = new view.lekar.LoginPage(Lekar);
-            main_frame.Navigate(refLoginPage);
+            this.Close();
         }
 
         private void main_frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)

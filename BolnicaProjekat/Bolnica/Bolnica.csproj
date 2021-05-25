@@ -176,6 +176,9 @@
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\2_pacijenti\UpucivanjeNaStacionarnoLecenje.xaml.cs">
+      <DependentUpon>UpucivanjeNaStacionarnoLecenje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\2_pacijenti\UpucivanjePacijent.xaml.cs">
       <DependentUpon>UpucivanjePacijent.xaml</DependentUpon>
     </Compile>
@@ -408,6 +411,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="view\lekar\0_pocetak\GlavniMeni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\2_pacijenti\UpucivanjeNaStacionarnoLecenje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -883,6 +890,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\poruka2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\hospital-bed-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

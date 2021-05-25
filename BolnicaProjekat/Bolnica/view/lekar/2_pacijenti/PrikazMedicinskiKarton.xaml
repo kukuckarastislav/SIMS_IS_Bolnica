@@ -163,7 +163,7 @@
             </StackPanel>
         </Button>
         <!-- Medicinski Karton - Button1.4 - Kontaktiranje putem e-mailja -->
-        <Button Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="9" Height="36" VerticalAlignment="Bottom" 
+        <Button Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="9" Height="36" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
                 IsEnabled="False">
             <Button.Resources>
@@ -172,9 +172,9 @@
                 </Style>
             </Button.Resources>
             <StackPanel Orientation="Horizontal"  Width="140">
-                <Image Source="/images/lekar-icons/mail-icon.png" Width="25" Height="25" Margin="3,5,0,5"/>
+                <Image Source="/images/lekar-icons/hospital-bed-icon.png" Width="25" Height="25" Margin="3,5,0,5"/>
                 <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" TextAlignment="Center"
-                           TextWrapping="Wrap" Width="100" Text="Kontaktiranje putem e-mailja"/>
+                           TextWrapping="Wrap" Width="100" Text="Upućivanje na statičko lečenje"/>
             </StackPanel>
         </Button>
 
@@ -189,7 +189,7 @@
             </Button.Resources>
             <StackPanel Orientation="Horizontal"  Width="140">
                 <Image Source="/images/lekar-icons/zakazivanje-usluge-icon.png" Width="35" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Zakazivanje usluge</TextBlock>
+                <TextBlock Padding="2" VerticalAlignment="Center" TextAlignment="Center" FontWeight="SemiBold" Width="100" TextWrapping="Wrap">Zakazivanje usluge</TextBlock>
             </StackPanel>
         </Button>
 
@@ -206,8 +206,7 @@
             </Button.Resources>
             <StackPanel Orientation="Horizontal"  Width="140">
                 <Image Source="/images/lekar-icons/uput-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" >
-                    Upućivanje pacijenta</TextBlock>
+                <TextBlock Padding="2" VerticalAlignment="Center" TextAlignment="Center" FontWeight="SemiBold" Width="100" TextWrapping="Wrap" Text=" Upućivanje pacijenta"/>
             </StackPanel>
         </Button>
 
@@ -222,12 +221,12 @@
             </Button.Resources>
             <StackPanel Orientation="Horizontal"  Width="140">
                 <Image Source="/images/lekar-icons/izdavanje-recepta-icon.png" Width="25"  Margin="0,0,8,0" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Izdavanje recepta</TextBlock>
+                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Text="Izdavanje recepta"/>
             </StackPanel>
         </Button>
 
         <!-- Medicinski Karton - Button2.4 - Kontaktiranje putem telefona -->
-        <Button Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="9" Height="36" VerticalAlignment="Bottom" 
+        <Button Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="9" Height="36" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
                 IsEnabled="False">
 

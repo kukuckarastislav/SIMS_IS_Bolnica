@@ -12,7 +12,7 @@ namespace Model
    public class Lekar : Osoblje
    {
       public int Id { get; set; }
-        public Boolean Specijalista { get; set; }
+        public bool Specijalista { get; set; }
         public string Specijalizacija { get; set; }
         public bool LogickiObrisan { get; set; }
 

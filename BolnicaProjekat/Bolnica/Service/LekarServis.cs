@@ -14,11 +14,14 @@ using System.Windows;
 
 namespace Servis
 {
-   public class LekarServis
-   {
+    public class LekarServis
+    {
+
+        public Repozitorijum.LekarRepozitorijum lekarRepozitorijumRef;
+
         public LekarServis()
         {
-
+            lekarRepozitorijumRef = LekarRepozitorijum.GetInstance;
         }
         public LekarDTO DodajLekara(LekarDTO lekarDto)
         {
@@ -125,12 +128,23 @@ namespace Servis
         }
 
         public Model.Lekar GetById(long id)
-      {
-         // TODO: implement
-         return null;
-      }
-   
-      public Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
-   
-   }
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public ObservableCollection<LekarRevizijaLekaDTO> GetLekariDTOzaComboBox()
+        {
+            ObservableCollection<LekarRevizijaLekaDTO> obsLekarRevizijaLekaDTO = new ObservableCollection<LekarRevizijaLekaDTO>();
+            List<Lekar> Lekari = lekarRepozitorijumRef.GetAll();
+
+            foreach(Lekar lekar in Lekari)
+            {
+                obsLekarRevizijaLekaDTO.Add(new LekarRevizijaLekaDTO(lekar.Id, lekar.Ime + " " + lekar.Prezime, lekar.Specijalizacija, "bez prava"));
+            }
+
+            return obsLekarRevizijaLekaDTO;
+        }
+
+    }
 }

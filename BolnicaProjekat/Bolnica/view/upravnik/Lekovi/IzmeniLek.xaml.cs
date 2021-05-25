@@ -1,7 +1,5 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,29 +11,37 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DTO;
+using Model;
 using Kontroler;
-using System.IO;
+using System.Collections.ObjectModel;
+using DTO;
 
 namespace Bolnica.view.upravnik.Lekovi
 {
     /// <summary>
-    /// Interaction logic for DodajLek.xaml
+    /// Interaction logic for IzmeniLek.xaml
     /// </summary>
-    public partial class DodajLek : Window
+    public partial class IzmeniLek : Window
     {
         public LekarKontroler lekarKontrolerObjekat;
         public LekoviKontroler lekoviKontrolerObjekat;
         public ObservableCollection<string> KolekcijaAlergeni;
         public ObservableCollection<LekarRevizijaLekaDTO> KolekcijaLekaraCombo;
         public ObservableCollection<LekarRevizijaLekaDTO> KolekcijaLekaraDataGrid;
-        private List<RevizijaLeka> RevizijeLekara;
-        private PrikazNeodobrenihLekova refPrikazNeodobrenihLekova;
+        public List<RevizijaLeka> RevizijeLekara;
+        public PrikazNeodobrenihLekova refPrikazNeodobrenihLekova;
+        public PrikazOdobrenihLekova refPrikazOdobrenihLekova;
+        public Lek lek;
 
-        public DodajLek(PrikazNeodobrenihLekova refPrikazNeodobrenihLekova)
+        public IzmeniLek(PrikazNeodobrenihLekova refPrikazNeodobrenihLekova,
+                        PrikazOdobrenihLekova refPrikazOdobrenihLekova,
+                        Lek lek)
         {
             InitializeComponent();
+
+            this.lek = lek;
             this.refPrikazNeodobrenihLekova = refPrikazNeodobrenihLekova;
+            this.refPrikazOdobrenihLekova = refPrikazOdobrenihLekova;
             lekarKontrolerObjekat = new LekarKontroler();
             lekoviKontrolerObjekat = new LekoviKontroler();
 
@@ -47,6 +53,45 @@ namespace Bolnica.view.upravnik.Lekovi
             KolekcijaAlergeni = new ObservableCollection<string>();
             inputPoruka.Text = "Poruka ... ";
 
+            UcitajPodatke();
+        }
+
+        private void UcitajPodatke()
+        {
+            inputNaziv.Text = lek.Naziv;
+            inputSifra.Text = lek.Sifra;
+            inputKolicina.Text = Convert.ToString(lek.Kolicina);
+            inputCena.Text = Convert.ToString(lek.Cena);
+            inputOpis.Text = lek.Opis;
+
+            foreach(LekarRevizijaLekaDTO lekar in KolekcijaLekaraCombo)
+            {
+                if (lek.PostojiLekarURevizijiByID(lekar.IdLekara))
+                {
+                    // nov lekar??
+                    KolekcijaLekaraDataGrid.Add(lekar);
+                }
+            }
+            AzurirajPrikazDataGridLekari();
+            
+            
+            foreach(string alergen in lek.Alergeni)
+            {
+                KolekcijaAlergeni.Add(alergen);
+            }
+            AzurirajPrikazAlergena();
+
+            foreach(RevizijaLeka revizija in lek.Revizije)
+            {
+                RevizijeLekara.Add(new RevizijaLeka(revizija.IdLekara, revizija.StatusRevizije, revizija.Poruka));
+                foreach (LekarRevizijaLekaDTO lekarDTO in KolekcijaLekaraDataGrid)
+                {
+                    lekarDTO.SetStatusRevizije(revizija.StatusRevizije);
+                }
+
+            }
+            AzurirajPrikazDataGridLekari();
+
         }
 
         private void odustani_Click(object sender, RoutedEventArgs e)
@@ -56,43 +101,51 @@ namespace Bolnica.view.upravnik.Lekovi
 
         private void Potvrdi_click(object sender, RoutedEventArgs e)
         {
-            /*
-            int id = Repozitorijum.LekoviRepozitorijum.GetInstance.GetAll().Count;
-            Lek lek = new Lek(id+1,inputSifra.Text,inputNaziv.Text,false,inputOpis.Text,Convert.ToInt32(inputKolicina.Text),Convert.ToDouble(inputCena.Text));  //ovaj obj se ne pravi ovdje ali neka ga zasad
-            Kontroler.LekoviKontroler Kontroler = new Kontroler.LekoviKontroler();
-            Kontroler.DodajLek(lek);
-            */
-
             List<string> alergeni = new List<string>();
-            foreach(string alergen in KolekcijaAlergeni)
+            foreach (string alergen in KolekcijaAlergeni)
             {
                 alergeni.Add(alergen);
             }
 
-            lekoviKontrolerObjekat.DodajLek(inputNaziv.Text,
+
+            foreach(RevizijaLeka r in lek.Revizije)
+            {
+                foreach(RevizijaLeka rev in RevizijeLekara)
+                {
+                    if(r.IdLekara == rev.IdLekara)
+                    {
+                        rev.StatusRevizije = r.StatusRevizije;
+                    }
+                }
+            }
+
+            lekoviKontrolerObjekat.IzmeniLek(lek.Id,
+                                            inputNaziv.Text,
                                             inputSifra.Text,
                                             Convert.ToInt32(inputKolicina.Text),
                                             Convert.ToDouble(inputCena.Text),
                                             inputOpis.Text,
                                             RevizijeLekara,
-                                            alergeni);
+                                            alergeni
+                                            );
 
-
-            if(refPrikazNeodobrenihLekova != null) refPrikazNeodobrenihLekova.AzurirajPrikaz();
+            if (refPrikazNeodobrenihLekova != null) refPrikazNeodobrenihLekova.AzurirajPrikaz();
+            if (refPrikazOdobrenihLekova != null) refPrikazOdobrenihLekova.AzurirajPrikaz();
             this.Close();
         }
 
         private RevizijaLeka GetRevizjaLekaByIDLekara(int idLekar)
         {
-            foreach(RevizijaLeka revizija in RevizijeLekara)
+            foreach (RevizijaLeka revizija in RevizijeLekara)
             {
-                if(revizija.IdLekara == idLekar)
+                if (revizija.IdLekara == idLekar)
                 {
                     return revizija;
                 }
             }
             return null;
         }
+
 
         private void DataGridPrikazLekara_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -101,6 +154,8 @@ namespace Bolnica.view.upravnik.Lekovi
             {
                 RevizijaLeka revizija = GetRevizjaLekaByIDLekara(selektovanLekarIzDataGrida.IdLekara);
                 inputPoruka.Text = revizija.Poruka;
+                selektovanLekarIzDataGrida.SetStatusRevizije(revizija.StatusRevizije);
+                AzurirajPrikazDataGridLekari();
             }
         }
 
@@ -111,9 +166,9 @@ namespace Bolnica.view.upravnik.Lekovi
 
         private bool LekarJosNijeDodat(LekarRevizijaLekaDTO noviLekar)
         {
-            foreach(LekarRevizijaLekaDTO odabranLekar in KolekcijaLekaraDataGrid)
+            foreach (LekarRevizijaLekaDTO odabranLekar in KolekcijaLekaraDataGrid)
             {
-                if(odabranLekar.IdLekara == noviLekar.IdLekara)
+                if (odabranLekar.IdLekara == noviLekar.IdLekara)
                 {
                     return false;
                 }
@@ -128,9 +183,9 @@ namespace Bolnica.view.upravnik.Lekovi
 
         private void Dodaj_lekara_click(object sender, RoutedEventArgs e)
         {
-            LekarRevizijaLekaDTO selektovanLekarIzComboBox = (LekarRevizijaLekaDTO) ComboLekar.SelectedItem;
+            LekarRevizijaLekaDTO selektovanLekarIzComboBox = (LekarRevizijaLekaDTO)ComboLekar.SelectedItem;
 
-            if(selektovanLekarIzComboBox != null)
+            if (selektovanLekarIzComboBox != null)
             {
                 // dodati lekara na ovaj lek
                 if (LekarJosNijeDodat(selektovanLekarIzComboBox))
@@ -146,9 +201,9 @@ namespace Bolnica.view.upravnik.Lekovi
 
         private void Ukloni_lekara_click(object sender, RoutedEventArgs e)
         {
-            LekarRevizijaLekaDTO selektovanLekarIzDataGrida = (LekarRevizijaLekaDTO) DataGridPrikazLekara.SelectedItem;
+            LekarRevizijaLekaDTO selektovanLekarIzDataGrida = (LekarRevizijaLekaDTO)DataGridPrikazLekara.SelectedItem;
 
-            if(selektovanLekarIzDataGrida != null)
+            if (selektovanLekarIzDataGrida != null)
             {
                 RevizijaLeka revizija = GetRevizjaLekaByIDLekara(selektovanLekarIzDataGrida.IdLekara);
                 RevizijeLekara.Remove(revizija);
@@ -174,18 +229,22 @@ namespace Bolnica.view.upravnik.Lekovi
             if (!KolekcijaAlergeni.Contains(noviAlergen) && !string.IsNullOrWhiteSpace(noviAlergen))
             {
                 KolekcijaAlergeni.Add(noviAlergen);
-                DataGridPrikazAlergena.ItemsSource = KolekcijaAlergeni;
+                AzurirajPrikazAlergena();
             }
+        }
+
+        private void AzurirajPrikazAlergena()
+        {
+            DataGridPrikazAlergena.ItemsSource = KolekcijaAlergeni;
         }
 
         private void Ukloni_alergen_click(object sender, RoutedEventArgs e)
         {
-            string selektovanAlergen = (string) DataGridPrikazAlergena.SelectedItem;
+            string selektovanAlergen = (string)DataGridPrikazAlergena.SelectedItem;
             if (selektovanAlergen != null)
             {
                 KolekcijaAlergeni.Remove(selektovanAlergen);
             }
         }
-
     }
 }

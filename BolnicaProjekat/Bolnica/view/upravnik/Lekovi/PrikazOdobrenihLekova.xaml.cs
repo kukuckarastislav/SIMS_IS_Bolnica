@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kontroler;
 using Model;
 
 namespace Bolnica.view.upravnik.Lekovi
@@ -25,14 +26,25 @@ namespace Bolnica.view.upravnik.Lekovi
     {
         public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
         public Lek OdabraniLek { get; set; }
+
+        public LekoviKontroler lekoviKontrolerObjekat;
         public PrikazOdobrenihLekova()
         {
             InitializeComponent();
-            Kontroler.LekoviKontroler Kontroler = new Kontroler.LekoviKontroler();
-            KolekcijaLekovi = Kontroler.GetOdobreniLekovi();
-
+            lekoviKontrolerObjekat = new LekoviKontroler();
+            KolekcijaLekovi = lekoviKontrolerObjekat.GetOdobreniLekovi();
             this.DataGridPrikazOdobrenihLekova.ItemsSource = KolekcijaLekovi;
+        }
 
+        public void AzurirajPrikaz()
+        {
+            KolekcijaLekovi = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            this.DataGridPrikazOdobrenihLekova.ItemsSource = KolekcijaLekovi;
+        }
+
+        public Lek GetSelectedLek()
+        {
+            return (DataGridPrikazOdobrenihLekova.SelectedItem as Lek);
         }
 
         private void DataGridPrikazOdobrenihLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)

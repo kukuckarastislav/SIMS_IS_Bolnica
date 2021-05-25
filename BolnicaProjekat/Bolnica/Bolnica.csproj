@@ -100,7 +100,7 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
-
+    <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
     <Compile Include="DTO\OcenaDTO.cs" />
 
     <Compile Include="DTO\GodisnjiOdmorDTO.cs" />
@@ -141,6 +141,7 @@
     <Compile Include="Model\RadniStatus.cs" />
     <Compile Include="Model\RadnoVreme.cs" />
     <Compile Include="Model\Recept.cs" />
+    <Compile Include="Model\RevizijaLeka.cs" />
     <Compile Include="Model\Sekretar.cs" />
     <Compile Include="Model\SlobodniDani.cs" />
     <Compile Include="Model\Terapija.cs" />
@@ -192,11 +193,23 @@
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\2_pacijenti\UpucivanjeNaStacionarnoLecenje.xaml.cs">
+      <DependentUpon>UpucivanjeNaStacionarnoLecenje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\2_pacijenti\UpucivanjePacijent.xaml.cs">
       <DependentUpon>UpucivanjePacijent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\3_lekovi\IzmenaLeka.xaml.cs">
+      <DependentUpon>IzmenaLeka.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\3_lekovi\Lekovi.xaml.cs">
       <DependentUpon>Lekovi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\3_lekovi\OdbijanjeLeka.xaml.cs">
+      <DependentUpon>OdbijanjeLeka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\3_lekovi\OdobravanjeLeka.xaml.cs">
+      <DependentUpon>OdobravanjeLeka.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
@@ -354,6 +367,9 @@
     <Compile Include="view\upravnik\Lekovi\DodajLek.xaml.cs">
       <DependentUpon>DodajLek.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\Lekovi\IzmeniLek.xaml.cs">
+      <DependentUpon>IzmeniLek.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\Lekovi\LekoviPage.xaml.cs">
       <DependentUpon>LekoviPage.xaml</DependentUpon>
     </Compile>
@@ -433,11 +449,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\lekar\2_pacijenti\UpucivanjeNaStacionarnoLecenje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\lekar\2_pacijenti\UpucivanjePacijent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\lekar\3_lekovi\IzmenaLeka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\lekar\3_lekovi\Lekovi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\3_lekovi\OdbijanjeLeka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\3_lekovi\OdobravanjeLeka.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -646,6 +678,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\upravnik\Lekovi\DodajLek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Lekovi\IzmeniLek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -915,6 +951,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\poruka2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\hospital-bed-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

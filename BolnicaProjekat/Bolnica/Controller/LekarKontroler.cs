@@ -10,12 +10,12 @@ using System.Collections.ObjectModel;
 using Model;
 using Servis;
 using DTO;
-using DTO;
 
 namespace Kontroler
 {
-   public class LekarKontroler
-   {
+    public class LekarKontroler
+    {
+        public Servis.LekarServis lekarServis;
 
         public LekarKontroler()
         {
@@ -57,17 +57,24 @@ namespace Kontroler
         }
 
         public Model.Lekar GetById(long id)
-      {
-         // TODO: implement
-         return null;
-      }
+        {
+            // TODO: implement
+            return null;
+        }
 
         public Lekar PrijavaLekara(String korisnickoIme, String lozinka)
         {
             return lekarServis.PrijaviLekara(korisnickoIme, lozinka);
         }
 
-        public Servis.LekarServis lekarServis;
-   
-   }
+
+
+
+        public ObservableCollection<LekarRevizijaLekaDTO> GetLekariDTOzaComboBox()
+        {
+            return lekarServis.GetLekariDTOzaComboBox();
+        }
+
+
+    }
 }

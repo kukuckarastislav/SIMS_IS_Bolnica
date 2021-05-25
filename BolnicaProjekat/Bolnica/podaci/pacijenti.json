@@ -5,7 +5,9 @@
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null,
-      "Alergeni": " alergen 1,2"
+      "Alergeni": [
+        "Alergen3"
+      ]
     },
     "Ocene": null,
     "Id": 1,
@@ -31,7 +33,10 @@
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null,
-      "Alergeni": null
+      "Alergeni": [
+        "Alergen1",
+        "Alergen5"
+      ]
     },
     "Ocene": null,
     "Id": 2,
@@ -57,7 +62,7 @@
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null,
-      "Alergeni": " al"
+      "Alergeni": null
     },
     "Ocene": null,
     "Id": 3,

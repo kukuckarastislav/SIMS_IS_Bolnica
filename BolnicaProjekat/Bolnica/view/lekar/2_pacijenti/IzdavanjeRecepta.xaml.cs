@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,26 +25,46 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public Pacijent IzabraniPacijent { get; set; }
         public ObservableCollection<Recept> Recepti { get; set; }
-        public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
+        public ObservableCollection<Lek> odobreniLekoviKolekcija;
+        public ObservableCollection<string> KolekcijaAlergeniLeka;
+        public ObservableCollection<string> KolekcijaAlergeniPacijenta;
+        public LekoviKontroler lekoviKontrolerObjekat;
         public Lek OdabraniLek { get; set; }
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public IzdavanjeRecepta(Lekar Lekar,Pacijent IzabraniPacijent)
+        public IzdavanjeRecepta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
+            lekoviKontrolerObjekat = new LekoviKontroler();
+            this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            this.ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
 
-            Servis.LekoviServis servis = new Servis.LekoviServis();
-            KolekcijaLekovi = servis.GetOdobreniLekovi();
+            KolekcijaAlergeniLeka = new ObservableCollection<string>();
+            KolekcijaAlergeniPacijenta = new ObservableCollection<string>();
+            DataGridAlergeniLeka.Visibility = Visibility.Hidden;
+            DataGridAlergeniPacijenta.Visibility = Visibility.Visible;
 
-            ComboBoxLek.ItemsSource = KolekcijaLekovi;
 
+            UcitajPodatke();
+        }
 
+        private void UcitajPodatke()
+        {
+
+            ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
             headerIme.Text = IzabraniPacijent.Ime;
             headerPrezime.Text = IzabraniPacijent.Prezime;
             headerJMBG.Text = IzabraniPacijent.Jmbg;
+
+            foreach (string alergen in IzabraniPacijent.MedicinskiKarton.Alergeni)
+            {
+                KolekcijaAlergeniPacijenta.Add(alergen);
+            }
+
+            DataGridAlergeniPacijenta.ItemsSource = KolekcijaAlergeniPacijenta;
 
         }
 
@@ -58,7 +79,7 @@ namespace Bolnica.view.lekar.pacijenti
 
 
 
-            DateTime vrijemeUzimanja= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, VremeSati, VremeMinute, 00);
+            DateTime vrijemeUzimanja = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, VremeSati, VremeMinute, 00);
             MessageBox.Show(vrijemeUzimanja.ToString());
 
 
@@ -68,7 +89,7 @@ namespace Bolnica.view.lekar.pacijenti
 
             OdabraniLek = ComboBoxLek.SelectedItem as Lek;
             string nacin_koriscenja = NacinKorsicenja.Text;
-            int idRec = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll().Count+1;
+            int idRec = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll().Count + 1;
             int idLekar = Lekar.Id;
             int idPac = IzabraniPacijent.Id;
             int idLeka = OdabraniLek.Id;
@@ -76,8 +97,8 @@ namespace Bolnica.view.lekar.pacijenti
             Recept r = new Recept(idRec, idLekar, idPac, idLeka, DatumPropisivanja, DatumPropisivanja, false, nacin_koriscenja);
 
 
-           // Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
-            Servis.NotifikacijeServis.ReceptNotifikacija(r,vrijemeUzimanja);
+            // Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
+            Servis.NotifikacijeServis.ReceptNotifikacija(r, vrijemeUzimanja);
             Servis.ReceptServis.DodajRecept(r);
             //Recepti = new ObservableCollection<Recept>();
 
@@ -87,10 +108,43 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar,IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
 
+        private void ComboBoxLek_DropDownClosed(object sender, EventArgs e)
+        {
+            if (ComboBoxLek.SelectedItem != null)
+            {
+                OdabraniLek = (Lek)ComboBoxLek.SelectedItem;
+                DataGridAlergeniLeka.Visibility = Visibility.Visible;
+                foreach (string alergen in OdabraniLek.Alergeni)
+                {
+                    KolekcijaAlergeniLeka.Add(alergen);
+                }
+
+                DataGridAlergeniLeka.ItemsSource = KolekcijaAlergeniLeka;
+            }
+
+            bool imaPresek = false;
+            foreach (string presecniAlergen in KolekcijaAlergeniLeka)
+            {
+                if (KolekcijaAlergeniPacijenta.Contains(presecniAlergen) == true)
+                {
+                    PotvrdiRecept.IsEnabled = false;
+                    ImaAlergijuTextBlock.Visibility = Visibility.Visible;
+                    imaPresek = true;
+                }
+            }
+
+            if (!imaPresek)
+            {
+                PotvrdiRecept.IsEnabled = true;
+                NemaAlergijuTextBlock.Visibility = Visibility.Visible;
+            }
+
+
+        }
     }
 }

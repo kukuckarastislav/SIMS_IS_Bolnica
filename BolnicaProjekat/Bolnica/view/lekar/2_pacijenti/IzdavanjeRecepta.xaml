@@ -17,7 +17,7 @@
         <Grid.ColumnDefinitions>
             <!-- Prazno mesto - LEVO -->
             <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
             <!-- Meni - Prazno mesto - LEVO -->
             <ColumnDefinition Width="140"/>
             <!-- Meni - Dugmici - CENTAR -->
@@ -128,7 +128,10 @@
                     Grid.Column="1" Grid.ColumnSpan="5"
                    />
                 <ComboBox x:Name="ComboBoxLek"
-                          ItemsSource="{Binding KolekcijaLekovi}" HorizontalAlignment="Left" Width="162"/>
+                          HorizontalAlignment="Left" 
+                          Width="162"
+                          DisplayMemberPath="Naziv"
+                          DropDownClosed="ComboBoxLek_DropDownClosed"/>
 
                 <TextBlock Text="Datum isteka:" Margin="0,5,0,0"
                     VerticalAlignment="Top" HorizontalAlignment="left" 
@@ -157,7 +160,7 @@
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >8</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >9</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >10</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">11 </ComboBoxItem>
+                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">11</ComboBoxItem>
                         <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
                     </ComboBox>
                     <ComboBox x:Name="Vreme_Minute"  Width="45" Background="#32ccff">
@@ -178,11 +181,8 @@
                     </ComboBox>
 
                 </StackPanel>
-
-
-
-
             </StackPanel>
+
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.RowSpan="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="10,10,5,0">
@@ -197,7 +197,9 @@
             <TextBox  x:Name="VremenUzimanja" MaxLines="6" MinLines="6" TextWrapping="Wrap"/>
         </StackPanel>
 
-        <Button Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom" 
+        <Button x:Name="PotvrdiRecept"
+                IsEnabled="False"
+                Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,35"
                 Click="IzdavanjeReceptaButton" HorizontalAlignment="Left" Grid.RowSpan="2" Width="141">
             <Button.Resources>
@@ -210,6 +212,74 @@
                 <TextBlock Padding="2" FontSize="11" VerticalAlignment="Center" FontWeight="SemiBold">Izdavanje recepta</TextBlock>
             </StackPanel>
         </Button>
+
+        <TextBlock x:Name="ImaAlergijuTextBlock"
+                    Grid.Row="10" 
+                   VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                   FontSize="16"
+                   FontWeight="DemiBold"
+                    Opacity="0.8"
+                   Visibility="Hidden"
+                   Grid.Column="2" Grid.ColumnSpan="3" Foreground="DarkRed">
+                Pacijent ima alergiju za izabrani lek.
+        </TextBlock>
+
+        <TextBlock x:Name="NemaAlergijuTextBlock"
+                    Grid.Row="10" 
+                   VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                   FontSize="16"
+                   FontWeight="DemiBold"
+                   Visibility="Hidden"
+                   Grid.Column="2" Grid.ColumnSpan="3" Foreground="DarkOliveGreen">
+                Pacijent nema alergiju za izabrani lek.
+        </TextBlock>
+
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="11"   Grid.RowSpan="3"
+                    Grid.Column="1"  Grid.ColumnSpan="5">
+
+            <DataGrid x:Name="DataGridAlergeniLeka" 
+
+
+                  ItemsSource="{Binding Path=KolekcijaAlergeniLeka}" 
+                          IsReadOnly="False"
+                          FontSize="10"
+                          Margin="10"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                        IsEnabled="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Alergeni Leka" Binding="{Binding}" Width="140" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+            <DataGrid x:Name="DataGridAlergeniPacijenta" 
+                     ItemsSource="{Binding Path=KolekcijaAlergeniPacijenta}" 
+                          IsReadOnly="False"
+                          FontSize="10"
+                          Margin="10"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                           IsEnabled="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Alergeni Pacijenta" Binding="{Binding}" Width="140" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </StackPanel>
+
+
+
+
+
+
+
+
 
     </Grid>
 </Page>

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
 using Kontroler;
+using System.Collections.ObjectModel;
 
 namespace Bolnica.view.lekar.lekovi
 {
@@ -24,6 +25,7 @@ namespace Bolnica.view.lekar.lekovi
     {
 
         public LekoviKontroler lekoviKontrolerObjekat;
+        public ObservableCollection<string> KolekcijaAlergeni;
         private Lek lek;
         private Lekar lekar;
         private RevizijaLeka revizija;
@@ -31,18 +33,49 @@ namespace Bolnica.view.lekar.lekovi
         {
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
+            KolekcijaAlergeni = new ObservableCollection<string>();
             this.lek = lek;
             this.lekar = lekar;
             RevizijaLeka tempRevizija = lek.GetRevizijaLekaByIdLekara(lekar.Id);
             revizija = new RevizijaLeka(tempRevizija.IdLekara, tempRevizija.StatusRevizije, tempRevizija.Poruka);
 
+            UcitajPodatke();
         }
+
+        private void UcitajPodatke()
+        {
+            inputNaziv.Text = lek.Naziv;
+            inputSifra.Text = lek.Sifra;
+            inputCena.Text = Convert.ToString(lek.Cena);
+            inputOpis.Text = lek.Opis;
+
+            foreach (string alergen in lek.Alergeni)
+            {
+                KolekcijaAlergeni.Add(alergen);
+            }
+            AzurirajPrikazAlergena();
+
+            inputPoruka.Text = revizija.Poruka;
+            if (lek.JeOdobren())
+            {
+                statusLeka.Text = "Odobren";
+            }
+            else
+            {
+                statusLeka.Text = "Nije odobren";
+            }
+
+
+        }
+
+        private void AzurirajPrikazAlergena()
+        {
+            DataGridPrikazAlergena.ItemsSource = KolekcijaAlergeni;
+        }
+
 
         private void Potvrdi_click(object sender, RoutedEventArgs e)
         {
-            // revizija.
-            MessageBox.Show("odobravanje");
-
             revizija.StatusRevizije = 1;
             lekoviKontrolerObjekat.LekarOdobravaLek(lek.Id, revizija);
 
@@ -52,5 +85,15 @@ namespace Bolnica.view.lekar.lekovi
                 NavigationService.Navigate(lekoviPage);
             }
         }
+
+        private void Odustani_click(object sender, RoutedEventArgs e)
+        {
+            if (this.lekar != null)
+            {
+                var lekoviPage = new Lekovi(lekar);
+                NavigationService.Navigate(lekoviPage);
+            }
+        }
+
     }
 }

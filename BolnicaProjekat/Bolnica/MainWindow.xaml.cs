@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Xml.Serialization;
 using System.Text.Json;
 using Model;
+using DTO;
 using Repozitorijum;
 using Kontroler;
 
@@ -26,9 +27,10 @@ namespace Bolnica
     /// </summary>
     public partial class MainWindow : Window
     {
+        private PacijentDTO PrijavljeniPacijent;
         public MainWindow()
         {
-            
+
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -61,7 +63,7 @@ namespace Bolnica
 
         private void Pacijent_Home_Click(object sender, RoutedEventArgs e)
         {
-            var pacijent_home = new Bolnica.view.pacijent.PacijentHome(Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(1));
+            var pacijent_home = new Bolnica.view.pacijent.PacijentHome(PrijavljeniPacijent);
             pacijent_home.Show();
         }
 
@@ -69,7 +71,7 @@ namespace Bolnica
         {
             SekretarKontroler skontroler = new SekretarKontroler();
             Korisnik k = skontroler.PrijavaSekretara(txbIme.Text, txbLozinka.Text);
-            if(k!=null)
+            if (k != null)
             {
                 var sekretar_home = new Bolnica.view.sekretar.SekretarHome();
                 sekretar_home.Show();
@@ -89,10 +91,10 @@ namespace Bolnica
                 lekar_home.Show();
             }
             PacijentKontroler pkontroler = new PacijentKontroler();
-            k = pkontroler.PrijavaPacijenta(txbIme.Text, txbLozinka.Text);
-            if (k != null)
+            PrijavljeniPacijent = pkontroler.PrijavaPacijenta(txbIme.Text, txbLozinka.Text);
+            if (PrijavljeniPacijent != null)
             {
-                var pacijent_home = new Bolnica.view.pacijent.PacijentHome(Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(1));
+                var pacijent_home = new Bolnica.view.pacijent.PacijentHome(PrijavljeniPacijent);
                 pacijent_home.Show();
             }
 

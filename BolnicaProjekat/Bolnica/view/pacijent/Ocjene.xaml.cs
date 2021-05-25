@@ -8,12 +8,12 @@ namespace Bolnica.view.pacijent
 
     public partial class Ocjene : Window
     {
-        private Pacijent Pacijent;
+        private PacijentDTO Pacijent;
         private ObservableCollection<OcenaDTO> ListaOcene;
         private Controller.AnketaKontroler Kontroler;
         private ObservableCollection<Lekar> listaLekari;
 
-        public Ocjene(Pacijent Pacijent)
+        public Ocjene(PacijentDTO Pacijent)
         {
             Kontroler = new Controller.AnketaKontroler();
             this.Pacijent = Pacijent;

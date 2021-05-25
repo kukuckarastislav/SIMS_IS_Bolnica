@@ -31,7 +31,6 @@ namespace Servis
 
         }
 
-
         internal static ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(Lekar odabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
         {
             return Konvertuj(GetSlobodniTermini(odabraniLekar,pocetak,kraj,prioritet));
@@ -262,6 +261,13 @@ namespace Servis
             odabranaUsluga.Usluga.Termin.Pocetak = pocetak;
             odabranaUsluga.Usluga.Termin.Kraj = kraj;
                   
+        }
+
+        public void DodajKomentarNaUslugu(int idUsluge,String text)
+        {
+            ZdravstvenaUsluga u = terminiRepozitorijum.getTerminById(idUsluge);
+            u.RazlogZakazivanja = text;
+            terminiRepozitorijum.AzurirajUslugu(u);
         }
         public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)
         {

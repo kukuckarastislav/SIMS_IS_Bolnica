@@ -38,6 +38,11 @@ namespace Controller
             return ret;
         }
 
+        internal void DodajKomentarNaUslugu(int id, string text)
+        {
+            servis.DodajKomentarNaUslugu(id,text);
+        }
+
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
         {
             return servis.GetProsliTerminiPacijenta(id);

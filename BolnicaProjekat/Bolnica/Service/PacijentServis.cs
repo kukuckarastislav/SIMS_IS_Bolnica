@@ -40,11 +40,11 @@ namespace Servis
             return PacijentRepozitorijum.GetInstance.ProveriPostojanjePacijenta(korisnickoIme);
         }
 
-        public Pacijent PrijaviPacijenta(string korisnickoIme, string lozinka)
+        public PacijentDTO PrijaviPacijenta(string korisnickoIme, string lozinka)
         {
             if (ProveriPostojanjePacijenta(korisnickoIme))
             {
-                return PacijentRepozitorijum.GetInstance.GetByImeLozinka(korisnickoIme, lozinka);
+                return KonvertujPacijentaUPacijentDTO(PacijentRepozitorijum.GetInstance.GetByImeLozinka(korisnickoIme, lozinka));
             }
 
             return null;

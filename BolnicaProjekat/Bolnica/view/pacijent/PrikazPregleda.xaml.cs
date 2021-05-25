@@ -29,7 +29,7 @@ namespace Bolnica.view.pacijent
         private void izmjena_pregleda(object sender, RoutedEventArgs e)
         {
            this. Close();
-           Pregled.RazlogZakazivanja = komentar.Text;
+           Pregled.Komentar = komentar.Text;
         }
 
         private void pomjeri_pregled(object sender, RoutedEventArgs e)

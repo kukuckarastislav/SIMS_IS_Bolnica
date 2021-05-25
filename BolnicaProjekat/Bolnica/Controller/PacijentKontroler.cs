@@ -60,7 +60,7 @@ namespace Kontroler
             pacijentServis.SaveData();
         }
 
-        public Pacijent PrijavaPacijenta(String korisnickoIme, String lozinka)
+        public PacijentDTO PrijavaPacijenta(String korisnickoIme, String lozinka)
         {
             return pacijentServis.PrijaviPacijenta(korisnickoIme, lozinka);
         }

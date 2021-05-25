@@ -109,6 +109,7 @@
     <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
+    <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
@@ -179,7 +180,6 @@
     <Compile Include="Service\PacijentServis.cs" />
     <Compile Include="Service\PodsjetnikServis.cs" />
     <Compile Include="Service\ProstorijeServis.cs" />
-    <Compile Include="Service\ReceptiServis.cs" />
     <Compile Include="Service\ReceptServis.cs" />
     <Compile Include="Service\SekretarServis.cs" />
     <Compile Include="Service\SlobodniDaniServis.cs" />

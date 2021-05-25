@@ -68,25 +68,21 @@
 
             <Image Source="/images/folder1.png" Margin="53,43,-226,-100" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="1"/>
 
-            <Label Margin="156,132,92,174" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.673,0.578" Grid.ColumnSpan="2">Ime:</Label>
-            <Label Margin="118,165,91,141" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Prezime:" Grid.ColumnSpan="2"/>
-            <Label Margin="144,198,91,103" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Jmbg:" Grid.ColumnSpan="2"/>
-            <Label Margin="0,229,91,72" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content=" Pol:"/>
-            <Label Margin="130,251,91,50" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Adresa:" Grid.ColumnSpan="2"/>
+            <Label Margin="156,182,92,124" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.673,0.578" Grid.ColumnSpan="2">Ime:</Label>
+            <Label Margin="118,215,91,91" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Prezime:" Grid.ColumnSpan="2"/>
+            <Label Margin="144,248,91,53" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Jmbg:" Grid.ColumnSpan="2"/>
             <Label Margin="130,282,91,19" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Telefon:" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
             <Label Margin="144,312,92,-11" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Content="Email:" Grid.ColumnSpan="2" RenderTransformOrigin="0.551,1.069"/>
 
-            <TextBlock x:Name="ime" Margin="82,132,-102,174" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.525,0.163" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="prezime" Margin="81,165,-102,141" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="jmbg" Margin="81,202,-102,99" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="pol" Margin="81,231,-102,70" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-            <TextBlock x:Name="adresa" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.392,1.793" Grid.ColumnSpan="2" Grid.Column="4" Margin="79,257,-161,44" Grid.Row="1"/>
+            <TextBlock x:Name="ime" Margin="82,186,-102,120" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" RenderTransformOrigin="0.525,0.163" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="prezime" Margin="81,219,-102,87" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
+            <TextBlock x:Name="jmbg" Margin="81,252,-102,49" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="telefon" Margin="81,287,-161,14" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
             <TextBlock x:Name="email" Margin="82,318,-161,-17" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="korisnickoime" Margin="107,89,67,212" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,353,60,-52" Content="Ocjene" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_ocjene"/>
             <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,248,60,53" Content="Podsjetnik" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_podsjetnik"/>
-           <Button Foreground="Orange" Background="White" Margin="137,26,-145,259" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="4" Content="Istorija bolesti" Grid.ColumnSpan="2" Grid.Row="1" Click="prikazi_istoriju_bolesti"/>
+            <Button Foreground="Orange" Background="White" Margin="137,26,-145,259" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="4" Content="Istorija bolesti" Grid.ColumnSpan="2" Grid.Row="1" Click="prikazi_istoriju_bolesti"/>
             <Button Foreground="Orange" Background="White" Margin="3,97,-164,327" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="5" Content="Trenutna terapija" Grid.RowSpan="2" Click="prikazi_trenutnu_terapiju"/>
             <Image Source="/Bolnica;component/images/poruka.png" Margin="12,276,206,-5" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
             <TextBlock  x:Name="broj_podsjetnika" Margin="56,299,231,0" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Serif" FontSize="29" Foreground="Orange" />

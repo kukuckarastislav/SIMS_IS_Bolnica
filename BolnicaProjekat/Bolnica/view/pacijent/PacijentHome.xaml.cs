@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using DTO;
 using System.Threading;
 using System.Windows;
 using Kontroler;
@@ -7,23 +7,20 @@ namespace Bolnica.view.pacijent
 {
     public partial class PacijentHome : Window
     {
-        public Pacijent Pacijent;
+        public PacijentDTO Pacijent;
         Thread podsjetnikThread;
         private Servis.PodsjetnikServis PodsjetnikServis;
 
-        public PacijentHome(Pacijent p)
+        public PacijentHome(PacijentDTO p)
         {
 
             InitializeComponent();
 
             ime.Text = p.Ime;
             prezime.Text = p.Prezime;
-            pol.Text = p.Pol.ToString();
-            adresa.Text = p.AdresaStanovanja;
             email.Text = p.Email;
             jmbg.Text = p.Jmbg;
             telefon.Text = p.Telefon;
-            korisnickoime.Text = p.KorisnickoIme;
 
             broj_notifikacija.Text = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(p.Id).Count.ToString();
             PodsjetnikKontroler Kontroler = new PodsjetnikKontroler();

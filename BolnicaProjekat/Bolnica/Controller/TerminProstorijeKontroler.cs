@@ -35,7 +35,7 @@ namespace Kontroler
             return terminProstorijeServisObjekat.ZakaziTerminPremestanjaProstorije(idProstorije1, idProstorije2, tipTerminaProstorije, pocetak, kraj);
         }
 
-        public ObservableCollection<TerminProstorije> GetTerminiZauzetostiByProstorijaIdObs(int idProstorije1, int idProstorije2=-1)
+        public ObservableCollection<TerminProstorije> GetTerminiZauzetostiByProstorijaIdObs(int idProstorije1, int idProstorije2 = -1)
         {
             return terminProstorijeServisObjekat.GetTerminiZauzetostiByProstorijaIdObs(idProstorije1, idProstorije2);
         }
@@ -75,6 +75,11 @@ namespace Kontroler
             return terminProstorijeServisObjekat.ZakaziTerminRenoviranjaProstorije(idProstorije, pocetak, kraj);
         }
 
+
+        public bool ZakaziTerminRazdvajanjaProstorije(int idProstorije, DateTime pocetak, DateTime kraj, TransformacijaProstorijeParametri transformacijaProstorije)
+        {
+            return terminProstorijeServisObjekat.ZakaziTerminRazdvajanjaProstorije(idProstorije, pocetak, kraj, transformacijaProstorije);
+        }
 
     }
 

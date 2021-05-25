@@ -122,7 +122,7 @@ namespace Servis
             if (ProveraIspravnogNovogZakazivanja(pocetak, kraj, termini))
             {
                 int id = TerminProstorijeRepozitorijumRef.GetFirstFitID();
-                TerminProstorije tp = new TerminProstorije(id, pocetak, kraj, idProstorije1, idProstorije2, -1, tipTerminaProstorije, false, new List<TransferOpreme>());
+                TerminProstorije tp = new TerminProstorije(id, pocetak, kraj, idProstorije1, idProstorije2, -1, tipTerminaProstorije, false, new List<TransferOpreme>(), null);
                 TerminProstorijeRepozitorijumRef.DodajTerminProstorije(tp);
                 return true;
             }
@@ -139,7 +139,7 @@ namespace Servis
             if (ProveraIspravnogNovogZakazivanja(pocetak, kraj, termini))
             {
                 int id = TerminProstorijeRepozitorijumRef.GetFirstFitID();
-                TerminProstorije tp = new TerminProstorije(id, pocetak, kraj, idProstorije, -1, -1, TipTerminaProstorije.Renoviranje, false, new List<TransferOpreme>());
+                TerminProstorije tp = new TerminProstorije(id, pocetak, kraj, idProstorije, -1, -1, TipTerminaProstorije.Renoviranje, false, new List<TransferOpreme>(), null);
                 TerminProstorijeRepozitorijumRef.DodajTerminProstorije(tp);
                 return true;
             }
@@ -337,6 +337,23 @@ namespace Servis
         }
 
 
+        public bool ZakaziTerminRazdvajanjaProstorije(int idProstorije, DateTime pocetak, DateTime kraj, TransformacijaProstorijeParametri transformacijaProstorije)
+        {
+            ObservableCollection<Termin> termini = null;
+
+            termini = GetTerminiByProstorijaIdObs(idProstorije);
+
+            if (ProveraIspravnogNovogZakazivanja(pocetak, kraj, termini))
+            {
+                int id = TerminProstorijeRepozitorijumRef.GetFirstFitID();
+                TerminProstorije tp = new TerminProstorije(id, pocetak, kraj, idProstorije, -1, -1, TipTerminaProstorije.TransformacijaRazdvajanje, false, new List<TransferOpreme>(), transformacijaProstorije);
+                TerminProstorijeRepozitorijumRef.DodajTerminProstorije(tp);
+                return true;
+            }
+
+            return false;
+        }
+
 
         public void ThreadPreraspodelaInventara()
         {
@@ -367,6 +384,12 @@ namespace Servis
                             TerminProstorijeRepozitorijumRef.AzurirajTransferOpreme(tp);
                             MessageBox.Show(info);
                         }
+                    }else if (tp.tipTerminaProstorije == TipTerminaProstorije.TransformacijaRazdvajanje ||
+                              tp.tipTerminaProstorije == TipTerminaProstorije.TransformacijaSpajanje)
+                    {
+
+
+
                     }
                 }
 

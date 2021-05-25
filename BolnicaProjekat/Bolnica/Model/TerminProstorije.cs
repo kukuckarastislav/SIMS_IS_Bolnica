@@ -17,10 +17,12 @@ namespace Model
         public TipTerminaProstorije tipTerminaProstorije { get; set; }
         public bool PreraspodelaIzvrsena { get; set; }      // true - izvrsili smo preraspodelu, false - jos nismo prebacili staticku opremu iz invetara u inventar
         public List<TransferOpreme> ListaTransferOpreme { get; set; }   // ovo se koristi kad je tipTerminaProstorije premestanje 
+        public TransformacijaProstorijeParametri TransformacijaProstorijeParam { get; set; }
 
         public TerminProstorije(int id, DateTime pocetak, DateTime kraj, int idProstorije1, int idProstorije2, 
             int idZdravstveneUsluge, TipTerminaProstorije tipTerminaProstorije, 
-            bool preraspodelaIzvrsena, List<TransferOpreme> listaTransferOpreme)
+            bool preraspodelaIzvrsena, List<TransferOpreme> listaTransferOpreme,
+            TransformacijaProstorijeParametri transformacijaProstorijeParam)
         {
             Id = id;
             Pocetak = pocetak;
@@ -31,6 +33,7 @@ namespace Model
             this.tipTerminaProstorije = tipTerminaProstorije;
             PreraspodelaIzvrsena = preraspodelaIzvrsena;
             ListaTransferOpreme = listaTransferOpreme;
+            TransformacijaProstorijeParam = transformacijaProstorijeParam;
         }
 
         public bool isPreraspodela()

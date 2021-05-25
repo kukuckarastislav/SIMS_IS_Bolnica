@@ -102,18 +102,13 @@
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
     <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
     <Compile Include="DTO\OcenaDTO.cs" />
-
     <Compile Include="DTO\GodisnjiOdmorDTO.cs" />
     <Compile Include="DTO\LekarDTO.cs" />
-
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
-
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
-
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
-
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
@@ -152,6 +147,7 @@
     <Compile Include="Model\TipTerminaProstorije.cs" />
     <Compile Include="Model\TipUsluge.cs" />
     <Compile Include="Model\TransferOpreme.cs" />
+    <Compile Include="Model\TransformacijaProstorijeParametri.cs" />
     <Compile Include="Model\Upravnik.cs" />
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
@@ -426,6 +422,9 @@
     </Compile>
     <Compile Include="view\upravnik\prostorije\prostorije.xaml.cs">
       <DependentUpon>prostorije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\ZakazivanjeRazdvajanjaProstorijeForma.xaml.cs">
+      <DependentUpon>ZakazivanjeRazdvajanjaProstorijeForma.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\prostorije\ZakazivanjeTerminaRenoviranjaForma.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaRenoviranjaForma.xaml</DependentUpon>
@@ -758,6 +757,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\upravnik\prostorije\prostorije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\prostorije\ZakazivanjeRazdvajanjaProstorijeForma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

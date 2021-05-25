@@ -12,6 +12,8 @@ namespace Model
         PreraspodelaInventaraPiM,
         PreraspodelaInventaraPiP,
         Renoviranje,
-        Zabrana
+        Zabrana,
+        TransformacijaSpajanje,
+        TransformacijaRazdvajanje
     }
 }

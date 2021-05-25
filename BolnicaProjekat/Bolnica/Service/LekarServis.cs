@@ -9,38 +9,42 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Repozitorijum;
+using DTO;
 
 namespace Servis
 {
-   public class LekarServis
-   {
+    public class LekarServis
+    {
+
+        public Repozitorijum.LekarRepozitorijum lekarRepozitorijumRef;
+
         public LekarServis()
         {
-
+            lekarRepozitorijumRef = LekarRepozitorijum.GetInstance;
         }
-      public Lekar DodajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.Lekar AzurirajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.Lekar ObrisiLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<Lekar> GetAll()
-      {
-         // TODO: implement
-         return null;
-      }
+        public Lekar DodajLekara(Model.Lekar lekar)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public Model.Lekar AzurirajLekara(Model.Lekar lekar)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public Model.Lekar ObrisiLekara(Model.Lekar lekar)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public List<Lekar> GetAll()
+        {
+            // TODO: implement
+            return null;
+        }
 
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
@@ -63,12 +67,23 @@ namespace Servis
         }
 
         public Model.Lekar GetById(long id)
-      {
-         // TODO: implement
-         return null;
-      }
-   
-      public Repozitorijum.LekarRepozitorijum lekarRepozitorijum;
-   
-   }
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public ObservableCollection<LekarRevizijaLekaDTO> GetLekariDTOzaComboBox()
+        {
+            ObservableCollection<LekarRevizijaLekaDTO> obsLekarRevizijaLekaDTO = new ObservableCollection<LekarRevizijaLekaDTO>();
+            List<Lekar> Lekari = lekarRepozitorijumRef.GetAll();
+
+            foreach(Lekar lekar in Lekari)
+            {
+                obsLekarRevizijaLekaDTO.Add(new LekarRevizijaLekaDTO(lekar.Id, lekar.Ime + " " + lekar.Prezime, lekar.Specijalizacija, "bez prava"));
+            }
+
+            return obsLekarRevizijaLekaDTO;
+        }
+
+    }
 }

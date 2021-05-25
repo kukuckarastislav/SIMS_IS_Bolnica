@@ -14,8 +14,8 @@ using System.IO;
 
 namespace Repozitorijum
 {
-   public class LekarRepozitorijum
-   {
+    public class LekarRepozitorijum
+    {
         private const string imeFajla = "lekari.json";
         private static LekarRepozitorijum instance = null;
         public static LekarRepozitorijum GetInstance
@@ -41,7 +41,7 @@ namespace Repozitorijum
             //Lekari = new ObservableCollection<Model.Lekar>();
         }
 
-        public ObservableCollection<Model.Lekar> Lekari { get; set; }
+        public List<Model.Lekar> Lekari { get; set; }
 
 
         private void loadData()
@@ -51,7 +51,7 @@ namespace Repozitorijum
                 if (Lekari == null)
                 {
 
-                    ObservableCollection<Model.Lekar> p = JsonSerializer.Deserialize<ObservableCollection<Model.Lekar>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<Model.Lekar> p = JsonSerializer.Deserialize<List<Model.Lekar>>(File.ReadAllText("../../podaci/" + imeFajla));
                     Lekari = p;
                 }
             }
@@ -88,7 +88,6 @@ namespace Repozitorijum
             {
                 if (lekar.KorisnickoIme.Equals(korisnickoIme)) return true;
             }
-
             return false;
         }
 
@@ -103,39 +102,44 @@ namespace Repozitorijum
         }
 
         public Model.Lekar AzurirajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.Lekar ObrisiLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<Lekar> GetAll()
-      {
-         return null;
-      }
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public Model.Lekar ObrisiLekara(Model.Lekar lekar)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public List<Lekar> GetAll()
+        {
+            return Lekari;
+        }
 
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
-            return Lekari;
+            ObservableCollection<Lekar> obsLekari = new ObservableCollection<Lekar>();
+            foreach(Lekar lekar in Lekari)
+            {
+                obsLekari.Add(lekar);
+            }
+            return obsLekari;
         }
 
         public Model.Lekar GetById(long id)
         {
             loadData();
-            foreach(Lekar l in Lekari)
+            foreach (Lekar l in Lekari)
             {
                 if (l.Id == id)
                     return l;
             }
             return null;
         }
-   
-      private string PutanjaFajla;
-   
-   }
+
+        private string PutanjaFajla;
+
+    }
 }

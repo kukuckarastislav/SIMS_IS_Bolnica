@@ -98,6 +98,7 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
     <Compile Include="DTO\OcenaDTO.cs" />
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Model\RadniStatus.cs" />
     <Compile Include="Model\RadnoVreme.cs" />
     <Compile Include="Model\Recept.cs" />
+    <Compile Include="Model\RevizijaLeka.cs" />
     <Compile Include="Model\Sekretar.cs" />
     <Compile Include="Model\Terapija.cs" />
     <Compile Include="Model\Termin.cs" />
@@ -317,6 +319,9 @@
     </Compile>
     <Compile Include="view\upravnik\Lekovi\DodajLek.xaml.cs">
       <DependentUpon>DodajLek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Lekovi\IzmeniLek.xaml.cs">
+      <DependentUpon>IzmeniLek.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Lekovi\LekoviPage.xaml.cs">
       <DependentUpon>LekoviPage.xaml</DependentUpon>
@@ -586,6 +591,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\upravnik\Lekovi\DodajLek.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Lekovi\IzmeniLek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,22 +1,43 @@
 [
   {
     "Id": 1,
-    "Sifra": "554",
-    "Naziv": "kfvbjg55",
-    "Odobren": true,
-    "Opis": "Opis ...ff",
-    "Kolicina": 4,
-    "Cena": 44,
-    "IdInventar": 0
+    "Sifra": "BRf3",
+    "Naziv": "Brufen",
+    "Odobren": false,
+    "Opis": "Brufen je lek za temperaturu",
+    "Kolicina": 10,
+    "Cena": 599,
+    "Alergeni": [
+      "BRUFOBIJA",
+      "toplo fobija"
+    ],
+    "Revizije": [
+      {
+        "IdLekara": 1,
+        "StatusRevizije": 0,
+        "Poruka": "Laslo odobri ovja lek je koristan"
+      }
+    ]
   },
   {
     "Id": 2,
-    "Sifra": "wer",
-    "Naziv": "Ibuprofen",
-    "Odobren": true,
-    "Opis": "Opis ...",
-    "Kolicina": 2,
-    "Cena": 2000,
-    "IdInventar": 0
+    "Sifra": "hem432",
+    "Naziv": "Hemomicin",
+    "Odobren": false,
+    "Opis": "SUPER LEK jako lep lek",
+    "Kolicina": 129,
+    "Cena": 200,
+    "Alergeni": [
+      "alergen1",
+      "alergen2",
+      "dasdas"
+    ],
+    "Revizije": [
+      {
+        "IdLekara": 1,
+        "StatusRevizije": 0,
+        "Poruka": "cao laslo nova poruka"
+      }
+    ]
   }
 ]

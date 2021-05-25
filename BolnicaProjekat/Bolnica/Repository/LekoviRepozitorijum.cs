@@ -32,8 +32,7 @@ namespace Repozitorijum
             loadData();
         }
 
-        public ObservableCollection<Lek> lekovi;
-
+        public List<Lek> lekovi;
 
         private void loadData()
         {
@@ -42,13 +41,13 @@ namespace Repozitorijum
                 if (lekovi == null)
                 {
 
-                    ObservableCollection<Lek> p = JsonSerializer.Deserialize<ObservableCollection<Lek>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<Lek> p = JsonSerializer.Deserialize<List<Lek>>(File.ReadAllText("../../podaci/" + imeFajla));
                     lekovi = p;
                 }
             }
             catch (Exception e)
             {
-                lekovi = new ObservableCollection<Lek>();
+                lekovi = new List<Lek>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -65,10 +64,7 @@ namespace Repozitorijum
         public Lek DodajLek(Lek lek)
         {
             loadData();
-
-            if (!this.lekovi.Contains(lek))
-                this.lekovi.Add(lek);
-
+            lekovi.Add(lek);
             SaveData();
             return lek;
         }
@@ -79,24 +75,23 @@ namespace Repozitorijum
             return lek;
         }
 
-        public Lek ObrisiLek(Lek lek)
+        public Lek ObrisiLek(Lek stariLek)
         {
-            int i = 0;
-            foreach (Lek z in lekovi)
+            loadData();
+            foreach (Lek lek in lekovi)
             {
-                if (z.Id == lek.Id)
+                if (lek.Id == stariLek.Id)
                 {
-                    lekovi.RemoveAt(i);
+                    lekovi.Remove(lek);
                     break;
                 }
-                i++;
             }
             SaveData();
-            return lek;
+            return stariLek;
         }
 
 
-        public ObservableCollection<Lek> GetAll()
+        public List<Lek> GetAll()
         {
             loadData();
             return lekovi;
@@ -105,14 +100,28 @@ namespace Repozitorijum
         public Lek GetLekById(int id)
         {
             loadData();
-            foreach (Lek z in lekovi)
+            foreach (Lek lek in lekovi)
             {
-                if (z.Id == id)
+                if (lek.Id == id)
                 {
-                    return z;
+                    return lek;
                 }
             }
             return null;
+        }
+
+        public int GetFirstFitID()
+        {
+            loadData();
+            int najveciID = 0;
+            foreach (Lek lek in lekovi)
+            {
+                if (lek.Id > najveciID)
+                {
+                    najveciID = lek.Id;
+                }
+            }
+            return najveciID + 1;
         }
     }
 

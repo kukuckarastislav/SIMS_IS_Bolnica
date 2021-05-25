@@ -13,24 +13,12 @@
                 <StackPanel>
                     <Label Margin="10 0 0 0" FontSize="24" Content="Lekovi"/>
                 </StackPanel>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="100"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                    </Grid.RowDefinitions>
-                    <Button x:Name="btn_dodaj_lek" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="106" Margin="3,30,0,10" Click="DodavanjeLeka_Click" Content="Dodaj novi lek"/>
-                    <Button x:Name="btn_obrisi_lek" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Width="91" Margin="272,30,0,10"  Content="Obrisi lek" Click="btn_obrisi_lek_Click" Grid.ColumnSpan="2"/>
-                    <Button x:Name="btn_izmeni_lek" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Width="102" Margin="75,30,0,10" Click="btn_izmeni_lek_Click" Content="Izmeni lek"/>
-                    <Button x:Name="btn_revizija_leka" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Width="102" Margin="195,30,0,10" Click="btn_revizija_leka_Click" Content="Posalji na reviziju"/>
-                </Grid>
-
-
-
+                <StackPanel Height="60" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Width="100" Margin="30 10" Click="Dodaj_lek_click" x:Name="btn_dodaj_lek" Content="Dodaj novi lek"/>
+                    <Button Width="100" Margin="30 10" Click="btn_obrisi_lek_Click" x:Name="btn_obrisi_lek" Content="Obrisi lek"/>
+                    <Button Width="100" Margin="30 10" Click="btn_izmeni_lek_Click" x:Name="btn_izmeni_lek" Content="Izmeni lek"/>
+                   <!-- <Button Width="100" Margin="30 10" Click="btn_revizija_leka_Click" x:Name="btn_revizija_lek" Content="Posalji na reviziju"/> -->
+                </StackPanel>
             </StackPanel>
 
             <Grid DockPanel.Dock="Bottom" Background="White">
@@ -47,16 +35,15 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Background="White" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
-                    <Button x:Name="Btn_prikaz_staticku" Background="White" Width="109" Margin="5 25 0 0" Click="Btn_prikazi_odobrene">Odobreni lekovi</Button>
-                    <Button x:Name="Btn_prikaz_dinamicku" Background="White" Width="118" Margin="0 25 0 0" Click="Btn_prikazi_neodobrene">Neodobreni lekovi</Button>
+                    <Button x:Name="Btn_prikaz_odobrene" Background="White" Width="109" Margin="5 25 0 0" Click="Btn_prikazi_odobrene">Odobreni lekovi</Button>
+                    <Button x:Name="Btn_prikaz_neodobrene" Background="White" Width="118" Margin="0 25 0 0" Click="Btn_prikazi_neodobrene">Neodobreni lekovi</Button>
                 </StackPanel>
 
 
                 <Frame x:Name="PovrsinaPrikazLekova" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
-                       Background="blue"
-                       ></Frame>
+                       Background="LightGray"></Frame>
 
             </Grid>
         </DockPanel>

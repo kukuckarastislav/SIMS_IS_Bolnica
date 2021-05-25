@@ -22,8 +22,8 @@
   },
   {
     "Id": 2,
-    "Specijalista": false,
-    "Specijalizacija": "",
+    "Specijalista": true,
+    "Specijalizacija": "Kardio hirurg",
     "radnoVreme": {
       "PocetakRadnogVremena": 8,
       "KrajRadnogVremena": 14

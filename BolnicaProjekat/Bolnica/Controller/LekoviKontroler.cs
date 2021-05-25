@@ -9,38 +9,76 @@ using Servis;
 
 namespace Kontroler
 {
-    class LekoviKontroler
+    public class LekoviKontroler
     {
-        private LekoviServis servis;
+        private LekoviServis lekoviServisObjekat;
 
         public LekoviKontroler()
         {
-            servis = new LekoviServis();
+            lekoviServisObjekat = new LekoviServis();
         }
 
         public void PosaljiLekoveNaReviziju(ObservableCollection<Lekar> odabraniLekari, Lek lek)
         {
-            servis.PosaljiLekoveNaReviziju(odabraniLekari, lek);
+            lekoviServisObjekat.PosaljiLekoveNaReviziju(odabraniLekari, lek);
         }
 
         public ObservableCollection<Lek> GetOdobreniLekovi()
         {
-            return servis.GetOdobreniLekovi();
+            return lekoviServisObjekat.GetOdobreniLekovi();
         }
 
         public ObservableCollection<Lek> GetNeOdobreniLekovi()
         {
-            return servis.GetNeodobreniLekovi();
+            return lekoviServisObjekat.GetNeodobreniLekovi();
         }
 
         public void ObrisiLek(Lek lek)
         {
-            servis.ObrisiLek(lek);
+            lekoviServisObjekat.ObrisiLek(lek);
         }
 
-        internal void DodajLek(Lek lek)
+        public bool DodajLek(string naziv,
+                            string sifra,
+                            int kolicina,
+                            double cena,
+                            string opis,
+                            List<RevizijaLeka> revizijeLekara,
+                            List<string> alergeni
+                            )
         {
-            servis.DodajLek(lek);
+            return lekoviServisObjekat.DodajLek(naziv,
+                                               sifra,
+                                               kolicina,
+                                               cena,
+                                               opis,
+                                               revizijeLekara,
+                                               alergeni
+                                               );
+
         }
+
+        public bool IzmeniLek(int idLeka,
+                            string naziv,
+                            string sifra,
+                            int kolicina,
+                            double cena,
+                            string opis,
+                            List<RevizijaLeka> revizijeLekara,
+                            List<string> alergeni
+                            )
+        {
+            return lekoviServisObjekat.IzmeniLek(idLeka,
+                                                   naziv,
+                                                   sifra,
+                                                   kolicina,
+                                                   cena,
+                                                   opis,
+                                                   revizijeLekara,
+                                                   alergeni);
+
+        }
+
+        
     }
 }

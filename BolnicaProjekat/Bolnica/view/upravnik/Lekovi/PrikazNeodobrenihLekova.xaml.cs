@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.Lekovi
 {
@@ -24,13 +25,25 @@ namespace Bolnica.view.upravnik.Lekovi
     {
         public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
         public Lek OdabraniLek { get; set; }
+
+        public LekoviKontroler lekoviKontrolerObjekat;
         public PrikazNeodobrenihLekova()
         {
             InitializeComponent();
-            Kontroler.LekoviKontroler Kontroler = new Kontroler.LekoviKontroler();
-            KolekcijaLekovi = Kontroler.GetNeOdobreniLekovi();
+            lekoviKontrolerObjekat = new LekoviKontroler();
+            KolekcijaLekovi = lekoviKontrolerObjekat.GetNeOdobreniLekovi();
             this.DataGridPrikazNeodobrenihLekova.ItemsSource = KolekcijaLekovi;
+        }
 
+        public void AzurirajPrikaz()
+        {
+            KolekcijaLekovi = lekoviKontrolerObjekat.GetNeOdobreniLekovi();
+            this.DataGridPrikazNeodobrenihLekova.ItemsSource = KolekcijaLekovi;
+        }
+
+        public Lek GetSelectedLek()
+        {
+            return (DataGridPrikazNeodobrenihLekova.SelectedItem as Lek);
         }
 
         private void DataGridPrikazNeodobrenihLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)

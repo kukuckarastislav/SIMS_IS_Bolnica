@@ -9,39 +9,41 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Servis;
+using DTO;
 
 namespace Kontroler
 {
-   public class LekarKontroler
-   {
+    public class LekarKontroler
+    {
+        public Servis.LekarServis lekarServis;
 
         public LekarKontroler()
         {
             lekarServis = new LekarServis();
         }
-      public Lekar DodajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.Lekar AzurirajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public Model.Lekar ObrisiLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
-      
-      public List<Lekar> GetAll()
-      {
-         // TODO: implement
-         return null;
-      }
+        public Lekar DodajLekara(Model.Lekar lekar)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public Model.Lekar AzurirajLekara(Model.Lekar lekar)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public Model.Lekar ObrisiLekara(Model.Lekar lekar)
+        {
+            // TODO: implement
+            return null;
+        }
+
+        public List<Lekar> GetAll()
+        {
+            // TODO: implement
+            return null;
+        }
 
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
@@ -49,17 +51,24 @@ namespace Kontroler
         }
 
         public Model.Lekar GetById(long id)
-      {
-         // TODO: implement
-         return null;
-      }
+        {
+            // TODO: implement
+            return null;
+        }
 
         public Lekar PrijavaLekara(String korisnickoIme, String lozinka)
         {
             return lekarServis.PrijaviLekara(korisnickoIme, lozinka);
         }
 
-        public Servis.LekarServis lekarServis;
-   
-   }
+
+
+
+        public ObservableCollection<LekarRevizijaLekaDTO> GetLekariDTOzaComboBox()
+        {
+            return lekarServis.GetLekariDTOzaComboBox();
+        }
+
+
+    }
 }

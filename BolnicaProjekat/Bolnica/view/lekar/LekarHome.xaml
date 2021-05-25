@@ -177,7 +177,7 @@
                         BorderBrush="Black"
                         HorizontalContentAlignment="Left"
                         VerticalContentAlignment="Center"
-                        Click="PacijentiButton">
+                        Click="LekoviButton">
                     
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/images/lekar-icons/lekovi-icon.png" Width="38" />

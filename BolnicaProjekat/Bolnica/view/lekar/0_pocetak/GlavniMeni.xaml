@@ -114,7 +114,7 @@
         <!-- Meni - Button3 - Lekovi -->
         <Button Grid.Column="2" Grid.Row="6" Height="35" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                IsEnabled="False">
+                Click="LekoviButton" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>
@@ -169,21 +169,6 @@
             </StackPanel>
         </Button>
 
-
-        <!-- Meni - Button7 - Logout -->
-        <Button Grid.Column="2" Grid.Row="10" Grid.RowSpan="2" Height="35" VerticalAlignment="Center" 
-                Background="#e05b49" BorderThickness="1" BorderBrush="Black"
-                >
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/logout-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Odjavi se</TextBlock>
-            </StackPanel>
-        </Button>
 
     </Grid>
 </Page>

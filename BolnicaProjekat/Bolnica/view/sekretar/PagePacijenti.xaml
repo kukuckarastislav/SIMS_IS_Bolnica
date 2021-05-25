@@ -55,7 +55,6 @@
                         <DataGridTextColumn Header="JMBG" Binding="{Binding Jmbg}" Width="*" />
                         <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" Width="*" />
                         <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" Width="*" />
-                        <DataGridTextColumn Header="Pol" Binding="{Binding Pol}" Width="*" />
                         <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}" Width="*" />
                         <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
                     </DataGrid.Columns>

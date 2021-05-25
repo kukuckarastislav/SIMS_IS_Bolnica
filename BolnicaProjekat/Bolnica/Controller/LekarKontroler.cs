@@ -9,33 +9,32 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Servis;
+using DTO;
 
 namespace Kontroler
 {
-   public class LekarKontroler
-   {
+    public class LekarKontroler
+    {
+        public Servis.LekarServis lekarServis;
 
         public LekarKontroler()
         {
             lekarServis = new LekarServis();
         }
-      public Lekar DodajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+        public LekarDTO DodajLekara(LekarDTO lekar)
+        {
+            return lekarServis.DodajLekara(lekar);
+        }
       
-      public Model.Lekar AzurirajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+         public LekarDTO AzurirajLekara(LekarDTO lekar)
+         {
+             return lekarServis.AzurirajLekara(lekar);
+        }
       
-      public Model.Lekar ObrisiLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+         public LekarDTO ObrisiLekara(LekarDTO lekar)
+         {
+            return lekarServis.ObrisiLekara(lekar);
+         }
       
       public List<Lekar> GetAll()
       {
@@ -47,19 +46,35 @@ namespace Kontroler
         {
             return lekarServis.GetAllObs();
         }
+        public ObservableCollection<LekarDTO> getAllDto()
+        {
+            return lekarServis.GetAllDto();
+        }
+
+        public ObservableCollection<LekarDTO> getAllNeobrisaniLekari()
+        {
+            return lekarServis.GetAllNeobrisaniLekari();
+        }
 
         public Model.Lekar GetById(long id)
-      {
-         // TODO: implement
-         return null;
-      }
+        {
+            // TODO: implement
+            return null;
+        }
 
         public Lekar PrijavaLekara(String korisnickoIme, String lozinka)
         {
             return lekarServis.PrijaviLekara(korisnickoIme, lozinka);
         }
 
-        public Servis.LekarServis lekarServis;
-   
-   }
+
+
+
+        public ObservableCollection<LekarRevizijaLekaDTO> GetLekariDTOzaComboBox()
+        {
+            return lekarServis.GetLekariDTOzaComboBox();
+        }
+
+
+    }
 }

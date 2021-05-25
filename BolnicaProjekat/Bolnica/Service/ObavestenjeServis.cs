@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Model;
 using Repository;
+using DTO;
 
 namespace Service
 {
@@ -14,9 +15,22 @@ namespace Service
 
         private ObavestenjeRepozitorijum obavestenjeRepozitorijum;
 
-        public ObservableCollection<Obavestenje> GetAllObavestenja()
+        public ObservableCollection<ObavestenjeDTO> GetAllObavestenja()
         {
-            return ObavestenjeRepozitorijum.GetInstance.GetAll();
+            ObservableCollection <Obavestenje>obavestenja = ObavestenjeRepozitorijum.GetInstance.GetAll();
+            ObservableCollection<ObavestenjeDTO> obavestenjaDTO = new ObservableCollection<ObavestenjeDTO>();
+
+            foreach (Obavestenje obavestenje in obavestenja)
+            {
+                ObavestenjeDTO dto = new ObavestenjeDTO();
+                dto.Id = obavestenje.Id;
+                dto.Naslov = obavestenje.Naslov;
+                dto.Poruka = obavestenje.Poruka;
+                dto.DatumObjave = obavestenje.DatumObjave;
+                obavestenjaDTO.Add(dto);
+            }
+
+            return obavestenjaDTO;
         }
 
         public void ObrisiObavestenje(int id)

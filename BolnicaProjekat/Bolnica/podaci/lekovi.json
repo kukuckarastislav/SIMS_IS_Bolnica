@@ -1,22 +1,57 @@
 [
   {
     "Id": 1,
-    "Sifra": "554",
-    "Naziv": "kfvbjg55",
+    "Sifra": "BRF",
+    "Naziv": "Brufen",
     "Odobren": true,
-    "Opis": "Opis ...ff",
-    "Kolicina": 4,
-    "Cena": 44,
-    "IdInventar": 0
+    "Opis": "Brufen YES ZA TEMPERATURU",
+    "Kolicina": 124,
+    "Cena": 440,
+    "Alergeni": [
+      "TempoFobija",
+      "HepaTromboFobija",
+      "haha"
+    ],
+    "Revizije": [
+      {
+        "IdLekara": 1,
+        "StatusRevizije": 1,
+        "Poruka": "CAO LASLO cao"
+      },
+      {
+        "IdLekara": 2,
+        "StatusRevizije": 1,
+        "Poruka": "CAO JOVANA"
+      }
+    ]
   },
   {
     "Id": 2,
-    "Sifra": "wer",
-    "Naziv": "Ibuprofen",
-    "Odobren": true,
-    "Opis": "Opis ...",
-    "Kolicina": 2,
-    "Cena": 2000,
-    "IdInventar": 0
+    "Sifra": "HEm",
+    "Naziv": "Hemomicin",
+    "Odobren": false,
+    "Opis": "Hemomicin lek za plauca",
+    "Kolicina": 24,
+    "Cena": 123,
+    "Alergeni": [
+      "plucoFobija"
+    ],
+    "Revizije": [
+      {
+        "IdLekara": 1,
+        "StatusRevizije": 0,
+        "Poruka": "CAO LASLO :)"
+      },
+      {
+        "IdLekara": 3,
+        "StatusRevizije": 0,
+        "Poruka": "Poruka ..."
+      },
+      {
+        "IdLekara": 4,
+        "StatusRevizije": 0,
+        "Poruka": "Poruka ..."
+      }
+    ]
   }
 ]

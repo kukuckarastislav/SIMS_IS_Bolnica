@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Model;
 using Kontroler;
 using Bolnica.Controller;
+using DTO;
 
 namespace Bolnica.view.sekretar
 {
@@ -24,11 +25,11 @@ namespace Bolnica.view.sekretar
     /// </summary>
     public partial class PageObavestenja : Page
     {
-        private ObservableCollection<Obavestenje> Obavestenja { get; set; }
+        private ObservableCollection<ObavestenjeDTO> Obavestenja { get; set; }
         public PageObavestenja()
         {
             InitializeComponent();
-            Obavestenja = new ObservableCollection<Obavestenje>();
+            Obavestenja = new ObservableCollection<ObavestenjeDTO>();
             ObavestenjeKontroler kontorler = new ObavestenjeKontroler();
             Obavestenja = kontorler.GetAllObavestenja();
             this.listObavestenja.ItemsSource = Obavestenja;
@@ -36,7 +37,7 @@ namespace Bolnica.view.sekretar
 
         private void ObrisiObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            Obavestenje obavestenje = this.listObavestenja.SelectedItem as Obavestenje;
+            ObavestenjeDTO obavestenje = this.listObavestenja.SelectedItem as ObavestenjeDTO;
             if (obavestenje == null) return;
 
             ObavestenjeKontroler kontroler = new ObavestenjeKontroler();

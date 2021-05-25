@@ -12,10 +12,11 @@ namespace Model
    public class Lekar : Osoblje
    {
       public int Id { get; set; }
-        public Boolean Specijalista { get; set; }
+        public bool Specijalista { get; set; }
         public string Specijalizacija { get; set; }
+        public bool LogickiObrisan { get; set; }
 
-        
+
         public Lekar(int id,bool specijalista,string specijalizacija,RadnoVreme radnoVreme, RadniStatus radniStatus,string korisnickoIme,
             string sifra,string ime,string prezime,Pol pol,string email,string telefon, DateTime datumRodjenja,string jmbg,
             string drzavljanstvo, string adresaStanovanja
@@ -27,6 +28,8 @@ namespace Model
             Specijalista = specijalista;
             Specijalizacija = specijalizacija;
         }
+
+        
         public override string ToString()
         {
             return Ime +" "+ Prezime;

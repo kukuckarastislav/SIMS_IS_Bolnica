@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
+using DTO;
 
 namespace Bolnica.view.sekretar
 {
@@ -26,23 +27,17 @@ namespace Bolnica.view.sekretar
     {
         public ObservableCollection<Pacijent> KolekcijaPacijenata { get; set; }
         public ObservableCollection<Pacijent> listaPacijenata;
-        
+        private ObservableCollection<PacijentDTO> PrikazaniPacijenti;
+
         public PagePacijenti()
         {
            //KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             InitializeComponent();
 
-            KolekcijaPacijenata = new ObservableCollection<Pacijent>();
             PacijentKontroler kontorler = new PacijentKontroler();
-            listaPacijenata = kontorler.GetAll();
+            PrikazaniPacijenti = kontorler.GetPacijentiDto();
 
-            foreach(Pacijent p in listaPacijenata)
-            {
-
-                if(!p.LogickiObrisan) KolekcijaPacijenata.Add(p);
-            }
-
-            this.DataGridPrikazPacijenata.ItemsSource = KolekcijaPacijenata;
+            this.DataGridPrikazPacijenata.ItemsSource = PrikazaniPacijenti;
         }
 
         private void IzmeniPacijenta_Click(object sender, RoutedEventArgs e)
@@ -79,12 +74,12 @@ namespace Bolnica.view.sekretar
 
         private void ObrisiPacijenta_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
+            PacijentDTO pacijent = DataGridPrikazPacijenata.SelectedItem as PacijentDTO;
             if (pacijent == null) return;
 
             PacijentKontroler kontroler = new PacijentKontroler();
             kontroler.ObrisiPacijenta(pacijent);
-            KolekcijaPacijenata.Remove(pacijent);
+            PrikazaniPacijenti.Remove(pacijent);
             MessageBox.Show("Pacijent je uspesno obrisan.");
         }
         

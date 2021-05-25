@@ -26,6 +26,7 @@ namespace Bolnica.view.lekar
         // NEXT - PAGES
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
+        private view.lekar.lekovi.Lekovi refLekovi;
         private view.lekar.Notifikacije refNotifikacije;
 
         // KORISNICI
@@ -51,6 +52,12 @@ namespace Bolnica.view.lekar
             NavigationService.Navigate(refPrikazPacijenataZaLekar);
         }
 
+        private void LekoviButton(object sender, RoutedEventArgs e)
+        {
+            refLekovi = new view.lekar.lekovi.Lekovi(Lekar);
+            NavigationService.Navigate(refLekovi);
+
+        }
 
         private void NotifikacijeButton(object sender, RoutedEventArgs e)
         {
@@ -58,10 +65,5 @@ namespace Bolnica.view.lekar
             NavigationService.Navigate(refNotifikacije);
         }
 
-     private void LogOutButtton(object sender, RoutedEventArgs e)
-        {
-            refLoginPage = new view.lekar.LoginPage(Lekar);
-            NavigationService.Navigate(refLoginPage);
-        }
     }
 }

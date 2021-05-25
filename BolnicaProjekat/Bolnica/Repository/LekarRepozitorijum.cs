@@ -11,11 +11,13 @@ using System.Text.Json;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.IO;
+using System.Linq;
+using DTO;
 
 namespace Repozitorijum
 {
-   public class LekarRepozitorijum
-   {
+    public class LekarRepozitorijum
+    {
         private const string imeFajla = "lekari.json";
         private static LekarRepozitorijum instance = null;
         public static LekarRepozitorijum GetInstance
@@ -41,7 +43,7 @@ namespace Repozitorijum
             //Lekari = new ObservableCollection<Model.Lekar>();
         }
 
-        public ObservableCollection<Model.Lekar> Lekari { get; set; }
+        public List<Model.Lekar> Lekari { get; set; }
 
 
         private void loadData()
@@ -51,7 +53,7 @@ namespace Repozitorijum
                 if (Lekari == null)
                 {
 
-                    ObservableCollection<Model.Lekar> p = JsonSerializer.Deserialize<ObservableCollection<Model.Lekar>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<Model.Lekar> p = JsonSerializer.Deserialize<List<Model.Lekar>>(File.ReadAllText("../../podaci/" + imeFajla));
                     Lekari = p;
                 }
             }
@@ -88,7 +90,6 @@ namespace Repozitorijum
             {
                 if (lekar.KorisnickoIme.Equals(korisnickoIme)) return true;
             }
-
             return false;
         }
 
@@ -102,40 +103,96 @@ namespace Repozitorijum
             return null;
         }
 
-        public Model.Lekar AzurirajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+        public void AzurirajLekara(LekarDTO dto)
+        {
+            foreach (Lekar lekar in Lekari)
+            {
+                if (lekar.Id == dto.Id)
+                {
+                    lekar.Ime = dto.Ime;
+                    lekar.Prezime = dto.Prezime;
+                    lekar.Telefon = dto.Telefon;
+                    lekar.AdresaStanovanja = dto.AdresaStanovanja;
+                    lekar.Email = dto.Email;
+                    lekar.Drzavljanstvo = dto.Drzavljanstvo;
+                    lekar.DatumRodjenja = dto.DatumRodjenja;
+                    break;
+                }
+            }
+            SaveData();
+        }
       
-      public Model.Lekar ObrisiLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+        public void ObrisiLekara(LekarDTO dto)
+        {
+            foreach(Lekar lekar in Lekari)
+            {
+                if(lekar.Id == dto.Id)
+                {
+                    lekar.LogickiObrisan = true;
+                    break;
+                }
+            }
+            SaveData();
+        }
       
       public List<Lekar> GetAll()
       {
-         return null;
+         return Lekari;
       }
 
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
-            return Lekari;
+            ObservableCollection<Lekar> obsLekari = new ObservableCollection<Lekar>();
+            foreach(Lekar lekar in Lekari)
+            {
+                obsLekari.Add(lekar);
+            }
+            return obsLekari;
         }
 
         public Model.Lekar GetById(long id)
         {
             loadData();
-            foreach(Lekar l in Lekari)
+            foreach (Lekar l in Lekari)
             {
                 if (l.Id == id)
                     return l;
             }
             return null;
         }
-   
-      private string PutanjaFajla;
-   
-   }
+
+        public int GetNewId()
+        {
+            int newId = 1;
+            if (Lekari.Count == 0)
+                return newId;
+            return Lekari.ElementAt(Lekari.Count - 1).Id + 1;
+        }
+
+        public RadnoVreme getRadnoVremeLekara(int id)
+        {
+            foreach(Lekar lekar in Lekari)
+            {
+                if(lekar.Id == id)
+                {
+                    return lekar.radnoVreme;
+                }
+            }
+
+            return null;
+        }
+
+        public void IzmeniRadnoVremeLekara(int id, RadnoVreme vreme)
+        {
+            foreach (Lekar lekar in Lekari)
+            {
+                if (lekar.Id == id)
+                {
+                    lekar.radnoVreme = vreme;
+                    break;
+                }
+            }
+        }
+    }
+
 }

@@ -82,10 +82,10 @@ namespace Bolnica
                 upravnik_home.Show();
             }
             LekarKontroler lkontroler = new LekarKontroler();
-            k = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Text);
-            if (k != null)
+            Lekar lekar = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Text);
+            if (lekar != null)
             {
-                var lekar_home = new Bolnica.view.lekar.LekarHome(Repozitorijum.LekarRepozitorijum.GetInstance.GetById(1));
+                var lekar_home = new Bolnica.view.lekar.LekarHome(lekar);
                 lekar_home.Show();
             }
             PacijentKontroler pkontroler = new PacijentKontroler();
@@ -97,5 +97,6 @@ namespace Bolnica
             }
 
         }
+
     }
 }

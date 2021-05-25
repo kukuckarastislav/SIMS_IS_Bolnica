@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Linq;
 using Model;
+using DTO;
 
 namespace Repozitorijum
 {
@@ -116,17 +117,16 @@ namespace Repozitorijum
         }
       
         //logicko brisanje
-        public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
+        public void ObrisiPacijenta(PacijentDTO pacijentZaBrisanje)
         {
-            foreach (Pacijent p in pacijenti)
+            foreach (Pacijent pacijent in pacijenti)
             {
-                if (p.Jmbg.Equals(pacijent.Jmbg))
+                if (pacijent.Jmbg.Equals(pacijentZaBrisanje.Jmbg))
                 {
-                    p.LogickiObrisan = true;
+                    pacijent.LogickiObrisan = true;
                 }
             }
             SaveData();
-            return pacijent;
         }
       
       public ObservableCollection<Model.Pacijent> GetAll()
@@ -134,6 +134,16 @@ namespace Repozitorijum
          loadData();
          return pacijenti;
       }
+        public ObservableCollection<Pacijent> GetNeobrisaniPacijenti()
+        {
+            ObservableCollection<Pacijent> neobrisaniPacijenti = new ObservableCollection<Pacijent>();
+            foreach (Pacijent pacijent in pacijenti)
+            {
+                if (!pacijent.LogickiObrisan) neobrisaniPacijenti.Add(pacijent);
+            }
+
+            return neobrisaniPacijenti;
+        }
 
         public Model.Pacijent GetById(int id)
       {

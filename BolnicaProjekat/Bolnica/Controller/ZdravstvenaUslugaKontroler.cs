@@ -1,10 +1,14 @@
-﻿using DTO;
-using Model;
-using Servis;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media.Converters;
+using DTO;
+using Model;
+using Servis;
 
 namespace Controller
 {
@@ -86,6 +90,10 @@ namespace Controller
             return servis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
         }
 
+        public ObservableCollection<ZdravstvenaUslugaDTO> getAllDto()
+        {
+            return servis.getAllDto();
+        }
 
     }
 }

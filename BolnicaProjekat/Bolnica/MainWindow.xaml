@@ -14,11 +14,14 @@
         >
     <Grid>
         <Button Content="Prijavi se" HorizontalAlignment="Left" Margin="195,381,0,0" VerticalAlignment="Top" Width="92" Height="26" Click="Prijava_Click"/>
+        <Button Content="Upravnik" HorizontalAlignment="Left" Margin="54,429,0,0" VerticalAlignment="Top" Width="92" Height="26" Click="Upravnik_Home_Click"/>
         <TextBlock FontSize="20px" HorizontalAlignment="Left" Margin="110,232,0,0" TextWrapping="Wrap" Text="Korisničko ime:" VerticalAlignment="Top" RenderTransformOrigin="-0.072,0.774"/>
         <TextBlock FontSize="20px" HorizontalAlignment="Left" Margin="176,295,0,0" TextWrapping="Wrap" Text="Lozinka:" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="260,239,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="txbIme"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="260,299,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="txbLozinka"/>
         <Image HorizontalAlignment="Left" Height="123" Margin="195,69,0,0" VerticalAlignment="Top" Width="128" Source="images/bolnica-icon.png"/>
+
+        <!-- precica -->
 
     </Grid>
 </Window>

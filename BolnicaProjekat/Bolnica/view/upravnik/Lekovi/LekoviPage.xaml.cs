@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
+using Kontroler;
 
 namespace Bolnica.view.upravnik.Lekovi
 {
@@ -24,75 +25,96 @@ namespace Bolnica.view.upravnik.Lekovi
         private Lekovi.PrikazOdobrenihLekova refPrikazOdobrenihlekova;
         private Lekovi.PrikazNeodobrenihLekova refPrikazNeodobrenihlekova;
         private Lek OdabraniLek;
-        private Kontroler.LekoviKontroler Kontroler;
+        private LekoviKontroler lekoviKontrolerObjekat;
+        private int aktivnaGrupa = 0;  // odobreni
         public LekoviPage()
         {
             InitializeComponent();
-            Kontroler = new Kontroler.LekoviKontroler();
+            lekoviKontrolerObjekat = new Kontroler.LekoviKontroler();
             refPrikazOdobrenihlekova = new Lekovi.PrikazOdobrenihLekova();
+            refPrikazNeodobrenihlekova = new PrikazNeodobrenihLekova();
             PovrsinaPrikazLekova.Content = refPrikazOdobrenihlekova;
+            aktiviraj(0);
 
         }
 
-        private void DodavanjeLeka_Click(object sender, RoutedEventArgs e)
+        private void aktiviraj(int aktivan)
         {
-            var DodajLek = new DodajLek();
-            DodajLek.Show();
+            aktivnaGrupa = aktivan;
+
+            Btn_prikaz_odobrene.Background = Brushes.White;
+            Btn_prikaz_neodobrene.Background = Brushes.White;
+
+            switch (aktivnaGrupa)
+            {
+                case 0:
+                    Btn_prikaz_odobrene.Background = Brushes.LightGray;
+                    refPrikazNeodobrenihlekova = null;
+                    break;
+                case 1:
+                    Btn_prikaz_neodobrene.Background = Brushes.LightGray;
+                    refPrikazOdobrenihlekova = null;
+                    break;
+            }
         }
 
         private void Btn_prikazi_odobrene(object sender, RoutedEventArgs e)
         {
             refPrikazOdobrenihlekova = new Lekovi.PrikazOdobrenihLekova();
             PovrsinaPrikazLekova.Content = refPrikazOdobrenihlekova;
-            btn_revizija_leka.Visibility = Visibility.Hidden;
+            aktiviraj(0);
         }
 
         private void Btn_prikazi_neodobrene(object sender, RoutedEventArgs e)
         {
-            btn_revizija_leka.Visibility = Visibility.Visible;
             refPrikazNeodobrenihlekova = new Lekovi.PrikazNeodobrenihLekova();
             PovrsinaPrikazLekova.Content = refPrikazNeodobrenihlekova;
+            aktiviraj(1);
+        }
+
+        private void Dodaj_lek_click(object sender, RoutedEventArgs e)
+        {
+            var DodajLek = new DodajLek(refPrikazNeodobrenihlekova);
+            DodajLek.Show();
         }
 
         private void btn_izmeni_lek_Click(object sender, RoutedEventArgs e)
         {
+            Lek lek = null;
+            if (aktivnaGrupa == 0) lek = refPrikazOdobrenihlekova.GetSelectedLek();
+            else if (aktivnaGrupa == 1) lek = refPrikazNeodobrenihlekova.GetSelectedLek();
 
+            if (lek == null)
+            {
+                MessageBox.Show("Niste selektovali lek");
+                return;
+            }
+
+            var IzmeniLek = new IzmeniLek(refPrikazNeodobrenihlekova, refPrikazOdobrenihlekova, lek);
+            IzmeniLek.Show();
         }
 
         private void btn_obrisi_lek_Click(object sender, RoutedEventArgs e)
         {
-            OdabraniLek = refPrikazOdobrenihlekova.OdabraniLek;
-            if (OdabraniLek != null)
+            Lek lek = null;
+            if (aktivnaGrupa == 0) lek = refPrikazOdobrenihlekova.GetSelectedLek();
+            else if (aktivnaGrupa == 1) lek = refPrikazNeodobrenihlekova.GetSelectedLek();
+
+            if (lek == null)
             {
-                Kontroler.ObrisiLek(OdabraniLek);
+                MessageBox.Show("Niste selektovali lek");
             }
             else
             {
-                OdabraniLek = refPrikazNeodobrenihlekova.OdabraniLek;
-                if (OdabraniLek != null)
+                var rezultat = MessageBox.Show("Zelite da obrisete lek " + lek.Naziv, "Brisanje Leka", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                if (rezultat == MessageBoxResult.Yes)
                 {
-                    Kontroler.ObrisiLek(OdabraniLek);
-                }
-                else
-                {
-                    MessageBox.Show("Niste odabrali lek");
+                    lekoviKontrolerObjekat.ObrisiLek(lek);
                 }
             }
 
-        }
-
-        private void btn_revizija_leka_Click(object sender, RoutedEventArgs e)
-        {
-            OdabraniLek = refPrikazNeodobrenihlekova.OdabraniLek;
-            if (OdabraniLek != null)
-            {
-                var OdabirLekara = new OdabirLekara(OdabraniLek);
-                OdabirLekara.Show();
-            }
-            else
-            {
-                MessageBox.Show("Niste odabrali lek");
-            }
+            if (aktivnaGrupa == 0) refPrikazOdobrenihlekova.AzurirajPrikaz();
+            else if (aktivnaGrupa == 1) refPrikazNeodobrenihlekova.AzurirajPrikaz();
         }
     }
 }

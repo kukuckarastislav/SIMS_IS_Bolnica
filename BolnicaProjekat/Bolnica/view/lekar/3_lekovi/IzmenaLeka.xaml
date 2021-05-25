@@ -190,7 +190,7 @@
                     <Button     Background="#eeebdd" 
                                 Margin="0,5,0,0"
                                 Height="35"
-                                Click="PotvrdiAzuriranjeButton">
+                                >
 
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -214,7 +214,7 @@
                                 Width="100"
                                 Height="35"
                                 HorizontalAlignment="Right"
-                                Click="OdustaniButton">
+                                >
 
                         <Button.Resources>
                             <Style TargetType="Border">

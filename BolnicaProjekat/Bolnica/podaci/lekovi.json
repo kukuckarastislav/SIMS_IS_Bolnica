@@ -24,7 +24,7 @@
     "Sifra": "hem432",
     "Naziv": "Hemomicin",
     "Odobren": false,
-    "Opis": "SUPER LEK jako lep lek",
+    "Opis": "COOL",
     "Kolicina": 129,
     "Cena": 200,
     "Alergeni": [
@@ -36,7 +36,7 @@
       {
         "IdLekara": 1,
         "StatusRevizije": 0,
-        "Poruka": "cao laslo nova poruka"
+        "Poruka": "cao laslo nova poruka ss"
       }
     ]
   }

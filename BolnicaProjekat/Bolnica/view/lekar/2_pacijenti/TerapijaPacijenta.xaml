@@ -17,7 +17,7 @@
         <Grid.ColumnDefinitions>
             <!-- Prazno mesto - LEVO -->
             <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
             <!-- Meni - Prazno mesto - LEVO -->
             <ColumnDefinition Width="140"/>
             <!-- Meni - Dugmici - CENTAR -->

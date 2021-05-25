@@ -17,7 +17,7 @@
         <Grid.ColumnDefinitions>
             <!-- Prazno mesto - LEVO -->
             <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="20"/>
             <!-- Meni - Prazno mesto - LEVO -->
             <ColumnDefinition Width="140"/>
             <!-- Meni - Dugmici - CENTAR -->
@@ -128,7 +128,9 @@
                     Grid.Column="1" Grid.ColumnSpan="5"
                    />
                 <ComboBox x:Name="ComboBoxLek"
-                          ItemsSource="{Binding KolekcijaLekovi}" HorizontalAlignment="Left" Width="162"/>
+                          HorizontalAlignment="Left" 
+                          Width="162"
+                          DisplayMemberPath="Naziv"/>
 
                 <TextBlock Text="Datum isteka:" Margin="0,5,0,0"
                     VerticalAlignment="Top" HorizontalAlignment="left" 

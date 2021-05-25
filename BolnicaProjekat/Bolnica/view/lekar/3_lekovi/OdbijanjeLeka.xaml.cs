@@ -34,10 +34,11 @@ namespace Bolnica.view.lekar.lekovi
         public OdbijanjeLeka(Lek lek, Lekar lekar)
         {
             InitializeComponent();
-            lekoviKontrolerObjekat = new LekoviKontroler();
-            KolekcijaAlergeni = new ObservableCollection<string>();
             this.lek = lek;
             this.lekar = lekar;
+            lekoviKontrolerObjekat = new LekoviKontroler();
+            KolekcijaAlergeni = new ObservableCollection<string>();
+
             RevizijaLeka tempRevizija = lek.GetRevizijaLekaByIdLekara(lekar.Id);
             revizija = new RevizijaLeka(tempRevizija.IdLekara, tempRevizija.StatusRevizije, tempRevizija.Poruka);
             UcitajPodatke();

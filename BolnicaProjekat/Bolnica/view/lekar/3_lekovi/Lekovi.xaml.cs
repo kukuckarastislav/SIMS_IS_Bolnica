@@ -23,6 +23,9 @@ namespace Bolnica.view.lekar.lekovi
     /// </summary>
     public partial class Lekovi : Page
     {
+
+        private view.lekar.GlavniMeni refGlavniMeni;
+
         public Lekar Lekar;
         public ObservableCollection<Lek> odobreniLekoviKolekcija;
         public ObservableCollection<Lek> lekoviZaReviziju;
@@ -55,15 +58,26 @@ namespace Bolnica.view.lekar.lekovi
             }
         }
 
+        private void GlavniMeniButton(object sender, RoutedEventArgs e)
+        {
+            if (this.Lekar != null)
+            {
+                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                NavigationService.Navigate(refGlavniMeni);
+            }
+        }
+
+
+
         private void IzmenaLeka_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = (Lek) Lekovi_za_reviziju.SelectedItem;
+            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
                 var izmeniLek = new IzmenaLeka(lek, this.Lekar);
                 NavigationService.Navigate(izmeniLek);
             }
-            
+
         }
 
         private void OdobravanjeLeka_Click(object sender, RoutedEventArgs e)

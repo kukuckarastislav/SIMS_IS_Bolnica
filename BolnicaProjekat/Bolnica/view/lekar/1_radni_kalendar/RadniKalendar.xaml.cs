@@ -86,5 +86,14 @@ namespace Bolnica.view.lekar.pacijenti
 
         }
 
+        private void GlavniMeniButton(object sender, RoutedEventArgs e)
+        {
+            if (this.Lekar != null)
+            {
+                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                NavigationService.Navigate(refGlavniMeni);
+            }
+        }
+
     }
 }

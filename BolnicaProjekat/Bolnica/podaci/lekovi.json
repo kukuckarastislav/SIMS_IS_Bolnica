@@ -39,7 +39,7 @@
     "Revizije": [
       {
         "IdLekara": 1,
-        "StatusRevizije": 0,
+        "StatusRevizije": 1,
         "Poruka": "CAO LASLO :)"
       },
       {

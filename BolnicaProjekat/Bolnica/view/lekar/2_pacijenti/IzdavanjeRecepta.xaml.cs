@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Kontroler;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,8 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public Pacijent IzabraniPacijent { get; set; }
         public ObservableCollection<Recept> Recepti { get; set; }
-        public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
+        public ObservableCollection<Lek> odobreniLekoviKolekcija;
+        public LekoviKontroler lekoviKontrolerObjekat;
         public Lek OdabraniLek { get; set; }
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
@@ -34,13 +36,15 @@ namespace Bolnica.view.lekar.pacijenti
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
+            lekoviKontrolerObjekat = new LekoviKontroler();
+            this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            this.ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
+            UcitajPodatke();
+        }
 
-            Servis.LekoviServis servis = new Servis.LekoviServis();
-            KolekcijaLekovi = servis.GetOdobreniLekovi();
-
-            ComboBoxLek.ItemsSource = KolekcijaLekovi;
-
-
+        private void UcitajPodatke()
+        {
+            ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
             headerIme.Text = IzabraniPacijent.Ime;
             headerPrezime.Text = IzabraniPacijent.Prezime;
             headerJMBG.Text = IzabraniPacijent.Jmbg;

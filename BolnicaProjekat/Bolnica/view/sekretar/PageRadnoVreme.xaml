@@ -27,7 +27,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Obriši dan" HorizontalAlignment="Left" Margin="561,538,0,0" VerticalAlignment="Top" Width="99"/>
+        <Button Content="Obriši dan" HorizontalAlignment="Left" Margin="561,538,0,0" VerticalAlignment="Top" Width="99" Click="ObrisiSlobodanDan_Click"/>
         <Button Content="Obriši odmor" HorizontalAlignment="Left" Margin="261,538,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="-4.841,0.558" Click="ObrisiOdmor_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="108,336,0,0" TextWrapping="Wrap" Text="Godišnji odmor" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="536,336,0,0" TextWrapping="Wrap" Text="Slobodni dani" VerticalAlignment="Top"/>

@@ -97,6 +97,7 @@ namespace Bolnica.Repository
                 if(odmor.Id == id)
                 {
                     godisnjiOdmori.Remove(odmor);
+                    SaveData();
                     break;
                 }
             }

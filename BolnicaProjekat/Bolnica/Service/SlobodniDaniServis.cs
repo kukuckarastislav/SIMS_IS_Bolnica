@@ -65,5 +65,10 @@ namespace Service
             return false;
         }
 
+        public void ObrisiSlobodanDan(int idLekara, DateTime dan)
+        {
+            SlobodniDaniRepozitorijum.GetInstance.ObrisiSlobodanDan(idLekara, dan);
+        }
+
     }
 }

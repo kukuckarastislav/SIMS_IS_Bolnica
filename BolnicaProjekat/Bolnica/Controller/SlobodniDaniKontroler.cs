@@ -29,5 +29,10 @@ namespace Controller
             servisSlobodnihDana.DodajSlobodanDan(idLekara,dan);
         }
 
+        public void ObrisiSlobodanDan(int idLekara, DateTime dan)
+        {
+            servisSlobodnihDana.ObrisiSlobodanDan(idLekara, dan);
+        }
+
     }
 }

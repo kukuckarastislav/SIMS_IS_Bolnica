@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace Repository
 {
@@ -37,11 +38,23 @@ namespace Repository
             {
                 if(dani.LekarId == idLekara)
                 {
-                    dani.Dani.Add(dan);
+                    if (!DaLiVecImaSlobodanDan(dani.Dani, dan))
+                        dani.Dani.Add(dan);
                     break;
                 }
             }
             SaveData();
+        }
+
+        private bool DaLiVecImaSlobodanDan(List<DateTime> slobodniDani, DateTime danProvere)
+        {
+            foreach(DateTime dan in slobodniDani)
+            {
+                if (dan.Date.Equals(danProvere.Date))
+                    return true;
+            }
+
+            return false;
         }
 
         public SlobodniDaniRepozitorijum()
@@ -102,6 +115,31 @@ namespace Repository
         {
             loadData();
             return slobodniDani;
+        }
+
+        public void ObrisiSlobodanDan(int idLekara, DateTime dan)
+        {
+            foreach (SlobodniDani dani in slobodniDani)
+            {
+                if (dani.LekarId == idLekara)
+                {
+                    ObrisiSlobodanDan(dani.Dani, dan);
+                }
+            }
+        }
+
+        private void ObrisiSlobodanDan(List<DateTime> slobodniDani, DateTime danProvere)
+        {
+            foreach (DateTime dan in slobodniDani)
+            {
+                if (dan.Date.Equals(danProvere.Date))
+                {
+                    slobodniDani.Remove(danProvere);
+                    SaveData();
+                    break;
+                }
+            }
+
         }
     }
 }

@@ -56,6 +56,7 @@ namespace Bolnica.view.sekretar
         private void DodajOdmor_Click(object sender, RoutedEventArgs e)
         {
             GodisnjiOdmorDTO dto = new GodisnjiOdmorDTO();
+            if (datumOdmoraPocetak.SelectedDate == null || datumOdmoraKraj.SelectedDate == null) return;
             dto.Period = new Termin((DateTime)datumOdmoraPocetak.SelectedDate, (DateTime)datumOdmoraKraj.SelectedDate);
             GodisnjiOdmorKontroler kontroler = new GodisnjiOdmorKontroler();
             Odmori.Add(kontroler.DodajGodisnjiOdmor(lekarDto.Id, dto));
@@ -89,6 +90,7 @@ namespace Bolnica.view.sekretar
                 return;
             SlobodniDaniKontroler kontroler = new SlobodniDaniKontroler();
             kontroler.DodajSlobodniDan(lekarDto.Id, (DateTime)datumSlobodnogDana.SelectedDate);
+            LoadSlobodniDani();
         }
 
         private void LoadSlobodniDani()
@@ -96,6 +98,16 @@ namespace Bolnica.view.sekretar
             SlobodniDaniKontroler kontroler = new SlobodniDaniKontroler();
             slobodniDaniLekara = kontroler.GetDaniLekara(lekarDto.Id);
             listaSlobodnihDana.ItemsSource = slobodniDaniLekara.Dani;
+        }
+
+        private void ObrisiSlobodanDan_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime? datum = listaSlobodnihDana.SelectedItem as DateTime?;
+            if (datum == null) return;
+
+            SlobodniDaniKontroler kontroler = new SlobodniDaniKontroler();
+            kontroler.ObrisiSlobodanDan(lekarDto.Id, (DateTime)datum);
+            LoadSlobodniDani();
         }
     }
 }

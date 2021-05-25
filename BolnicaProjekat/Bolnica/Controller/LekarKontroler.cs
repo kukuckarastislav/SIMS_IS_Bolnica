@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Servis;
+using DTO;
+using DTO;
 
 namespace Kontroler
 {
@@ -19,23 +21,20 @@ namespace Kontroler
         {
             lekarServis = new LekarServis();
         }
-      public Lekar DodajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+        public LekarDTO DodajLekara(LekarDTO lekar)
+        {
+            return lekarServis.DodajLekara(lekar);
+        }
       
-      public Model.Lekar AzurirajLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+         public LekarDTO AzurirajLekara(LekarDTO lekar)
+         {
+             return lekarServis.AzurirajLekara(lekar);
+        }
       
-      public Model.Lekar ObrisiLekara(Model.Lekar lekar)
-      {
-         // TODO: implement
-         return null;
-      }
+         public LekarDTO ObrisiLekara(LekarDTO lekar)
+         {
+            return lekarServis.ObrisiLekara(lekar);
+         }
       
       public List<Lekar> GetAll()
       {
@@ -46,6 +45,15 @@ namespace Kontroler
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
             return lekarServis.GetAllObs();
+        }
+        public ObservableCollection<LekarDTO> getAllDto()
+        {
+            return lekarServis.GetAllDto();
+        }
+
+        public ObservableCollection<LekarDTO> getAllNeobrisaniLekari()
+        {
+            return lekarServis.GetAllNeobrisaniLekari();
         }
 
         public Model.Lekar GetById(long id)

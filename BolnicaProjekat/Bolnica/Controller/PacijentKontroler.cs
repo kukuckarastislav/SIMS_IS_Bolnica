@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Servis;
+using DTO;
 
 namespace Kontroler
 {
@@ -39,17 +40,21 @@ namespace Kontroler
              return pacijent;
          }
       
-        public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
+        public void ObrisiPacijenta(PacijentDTO pacijent)
         {
             pacijentServis.ObrisiPacijenta(pacijent);
-            return pacijent;
         }
       
         public ObservableCollection<Model.Pacijent> GetAll()
         {
             return pacijentServis.GetAll();
         }
-        
+
+        public ObservableCollection<PacijentDTO> GetPacijentiDto()
+        {
+            return pacijentServis.GetPacijentiDto();
+        }
+
         public void SaveData()
         {
             pacijentServis.SaveData();

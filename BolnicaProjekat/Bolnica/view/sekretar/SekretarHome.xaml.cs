@@ -33,10 +33,18 @@ namespace Bolnica.view.sekretar
         {
             RadnaPovrsina.Content = new view.sekretar.registracija.PageRegistracija();
         }
+        private void RegistracijaLekara_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.registracija.RegistracijaLekara();
+        }
 
         private void ListPacijenti_Click(object sender, RoutedEventArgs e)
         {
             RadnaPovrsina.Content = new view.sekretar.PagePacijenti();
+        }
+        private void ListLekara_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.PageLekari();
         }
         private void ListObavestenja_Click(object sender, RoutedEventArgs e)
         {

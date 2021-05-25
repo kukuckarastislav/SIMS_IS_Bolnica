@@ -9,6 +9,7 @@ namespace DTO
 {
     public class ZdravstvenaUslugaDTO
     {
+
         public Termin Termin { get; set; }
         public int Id { get; set; }
         public int IdPacijenta { get; set; }
@@ -30,6 +31,10 @@ namespace DTO
             IdProstorije = idProstorije;
             RazlogZakazivanja = razlogZakazivanja;
             RezultatUsluge = rezultatUsluge;
+        }
+
+        public ZdravstvenaUslugaDTO()
+        {
         }
     }
 }

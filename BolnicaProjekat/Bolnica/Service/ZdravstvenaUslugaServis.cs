@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Media;
 using DTO;
 using Model;
 using Repozitorijum;
@@ -280,7 +281,6 @@ namespace Servis
         }
         public List<ZdravstvenaUsluga> GetSviTerminiProstorije(int id)
         {
-
             List<ZdravstvenaUsluga> terminiProstorije = new List<ZdravstvenaUsluga>();
             List<ZdravstvenaUsluga> listaSviUsluga = ZdravstvenaUslugaRepozitorijum.GetInstance.getAll();
             foreach (ZdravstvenaUsluga usluga in listaSviUsluga)
@@ -306,6 +306,24 @@ namespace Servis
             return terminiProstorije;
         }
 
+        public ObservableCollection<ZdravstvenaUslugaDTO> getAllDto()
+        {
+            ObservableCollection<ZdravstvenaUslugaDTO> uslugeDto = new ObservableCollection<ZdravstvenaUslugaDTO>();
+
+            foreach(ZdravstvenaUsluga usluga in terminiRepozitorijum.getAll())
+            {
+                ZdravstvenaUslugaDTO uslugaDto = new ZdravstvenaUslugaDTO();
+                uslugaDto.Id = usluga.Id;
+                uslugaDto.IdLekara = usluga.IdLekara;
+                uslugaDto.IdPacijenta = usluga.IdPacijenta;
+                uslugaDto.IdProstorije = usluga.IdProstorije;
+                uslugaDto.Termin = usluga.Termin;
+                uslugaDto.TipUsluge = usluga.TipUsluge;
+            }
+
+            return uslugeDto;
+        }
+
         public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUsluga uslugaKojaSeOdlaze = ZdravstvenaUslugaRepozitorijum.GetInstance.GetUslugaZaTermin(lekar, usluga.Termin.Pocetak);
@@ -328,6 +346,17 @@ namespace Servis
             ZdravstvenaUsluga uslugaKojaSeOdlaze = ZdravstvenaUslugaRepozitorijum.GetInstance.GetUslugaZaTermin(lekar, usluga.Termin.Pocetak);
             if (uslugaKojaSeOdlaze == null) return null;
             return OdloziUslugu(uslugaKojaSeOdlaze);
+        }
+
+        public bool jesuliPreklopljeniTermini(Termin termin1, Termin termin2)
+        {
+            if(termin1.Pocetak <= termin2.Pocetak)
+            {
+                if (termin1.Kraj >= termin2.Kraj)
+                    return true;
+            }
+
+            return false;
         }
 
     }

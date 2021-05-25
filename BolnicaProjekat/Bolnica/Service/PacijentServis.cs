@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Repozitorijum;
+using DTO;
+using Bolnica.view.sekretar;
 
 namespace Servis
 {
@@ -28,10 +30,9 @@ namespace Servis
             return pacijent;
         }
       
-        public Model.Pacijent ObrisiPacijenta(Model.Pacijent pacijent)
+        public void ObrisiPacijenta(PacijentDTO pacijent)
         {
             PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
-            return pacijent;
         }
 
         public bool ProveriPostojanjePacijenta(string korisnickoIme)
@@ -52,6 +53,24 @@ namespace Servis
         public ObservableCollection<Model.Pacijent> GetAll()
         {
             return PacijentRepozitorijum.GetInstance.GetAll();
+        }
+
+        public ObservableCollection<PacijentDTO> GetPacijentiDto()
+        {
+            ObservableCollection<Pacijent> sviPacijenti = PacijentRepozitorijum.GetInstance.GetNeobrisaniPacijenti();
+            ObservableCollection<PacijentDTO> dtoPacijenti = new ObservableCollection<PacijentDTO>();
+
+            foreach(Pacijent pacijent in sviPacijenti)
+            {
+                dtoPacijenti.Add(KonvertujPacijentaUPacijentDTO(pacijent));
+            }
+
+            return dtoPacijenti;
+        }
+
+        public PacijentDTO KonvertujPacijentaUPacijentDTO(Pacijent pacijent)
+        {
+            return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg);
         }
 
         public void SaveData()

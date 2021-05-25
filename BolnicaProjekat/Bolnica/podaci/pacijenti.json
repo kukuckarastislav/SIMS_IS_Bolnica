@@ -64,7 +64,7 @@
     "PacijentGost": false,
     "Hospitalizovan": false,
     "SpamUser": false,
-    "LogickiObrisan": false,
+    "LogickiObrisan": true,
     "KorisnickoIme": "simasima",
     "Sifra": "sifra",
     "Ime": "Sima",

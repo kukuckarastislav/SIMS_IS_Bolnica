@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Model;
+using Kontroler;
 
 namespace Bolnica.view.lekar.lekovi
 {
@@ -20,9 +22,35 @@ namespace Bolnica.view.lekar.lekovi
     /// </summary>
     public partial class OdobravanjeLeka : Page
     {
-        public OdobravanjeLeka()
+
+        public LekoviKontroler lekoviKontrolerObjekat;
+        private Lek lek;
+        private Lekar lekar;
+        private RevizijaLeka revizija;
+        public OdobravanjeLeka(Lek lek, Lekar lekar)
         {
             InitializeComponent();
+            lekoviKontrolerObjekat = new LekoviKontroler();
+            this.lek = lek;
+            this.lekar = lekar;
+            RevizijaLeka tempRevizija = lek.GetRevizijaLekaByIdLekara(lekar.Id);
+            revizija = new RevizijaLeka(tempRevizija.IdLekara, tempRevizija.StatusRevizije, tempRevizija.Poruka);
+
+        }
+
+        private void Potvrdi_click(object sender, RoutedEventArgs e)
+        {
+            // revizija.
+            MessageBox.Show("odobravanje");
+
+            revizija.StatusRevizije = 1;
+            lekoviKontrolerObjekat.LekarOdobravaLek(lek.Id, revizija);
+
+            if (this.lekar != null)
+            {
+                var lekoviPage = new Lekovi(lekar);
+                NavigationService.Navigate(lekoviPage);
+            }
         }
     }
 }

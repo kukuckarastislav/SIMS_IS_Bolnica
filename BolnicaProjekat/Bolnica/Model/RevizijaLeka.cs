@@ -11,7 +11,7 @@ namespace Model
         public RevizijaLeka(int idLekara, int statusRevizije, string poruka)
         {
             IdLekara = idLekara;
-            StatusRevizije = StatusRevizije;
+            StatusRevizije = statusRevizije;
             Poruka = poruka;
         }
 

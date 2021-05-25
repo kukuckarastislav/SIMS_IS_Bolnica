@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kontroler;
 
 namespace Bolnica.view.lekar.lekovi
 {
@@ -22,13 +24,19 @@ namespace Bolnica.view.lekar.lekovi
     public partial class Lekovi : Page
     {
         public Lekar Lekar;
+        public ObservableCollection<Lek> odobreniLekoviKolekcija;
+        public ObservableCollection<Lek> lekoviZaReviziju;
+        public LekoviKontroler lekoviKontrolerObjekat;
         public Lekovi(Lekar Lekar)
         {
             this.Lekar = Lekar;
             InitializeComponent();
+            lekoviKontrolerObjekat = new LekoviKontroler();
 
-
-
+            this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            this.lekoviZaReviziju = lekoviKontrolerObjekat.GetLekoviZaRevizijuByIdLekara(Lekar.Id);
+            this.Odobreni_lekovi.ItemsSource = odobreniLekoviKolekcija;
+            this.Lekovi_za_reviziju.ItemsSource = lekoviZaReviziju;
         }
 
         private void LekoviTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,6 +52,27 @@ namespace Bolnica.view.lekar.lekovi
                 OdobravanjeLeka.Visibility = Visibility.Collapsed;
                 OdbijanjeeLeka.Visibility = Visibility.Collapsed;
                 IzmenaLeka.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void IzmenaLeka_Click(object sender, RoutedEventArgs e)
+        {
+            Lek lek = (Lek) Lekovi_za_reviziju.SelectedItem;
+            if (lek != null)
+            {
+                var izmeniLek = new IzmenaLeka(lek, this.Lekar);
+                NavigationService.Navigate(izmeniLek);
+            }
+            
+        }
+
+        private void OdobravanjeLeka_Click(object sender, RoutedEventArgs e)
+        {
+            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
+            if (lek != null)
+            {
+                var odobriLek = new OdobravanjeLeka(lek, this.Lekar);
+                NavigationService.Navigate(odobriLek);
             }
         }
     }

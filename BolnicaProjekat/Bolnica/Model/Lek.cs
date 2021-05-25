@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Windows;
 using Model;
 
 namespace Model
@@ -44,6 +45,50 @@ namespace Model
                     return true;
                 }
             }
+            return false;
+        }
+
+        public bool JeOdobren()
+        {
+            int broj_odobrenja = 0;
+            foreach(RevizijaLeka revizija in Revizije)
+            {
+                if(revizija.StatusRevizije == 1)
+                {
+                    broj_odobrenja++;
+                    MessageBox.Show("opet");
+                }
+            }
+            Odobren = broj_odobrenja >= 2;
+            MessageBox.Show(Convert.ToString(broj_odobrenja));
+            return Odobren;
+        }
+
+        public RevizijaLeka GetRevizijaLekaByIdLekara(int idLekara)
+        {
+            foreach(RevizijaLeka revizija in Revizije)
+            {
+                if(revizija.IdLekara == idLekara)
+                {
+                    return revizija;
+                }
+            }
+            return null;
+        }
+
+        public bool IzmeniRevizijuLekar(RevizijaLeka revizijaLekara)
+        {
+            foreach(RevizijaLeka revizija in Revizije)
+            {
+                if(revizija.IdLekara == revizijaLekara.IdLekara)
+                {
+                    revizija.StatusRevizije = revizijaLekara.StatusRevizije;
+                    revizija.Poruka = revizijaLekara.Poruka;
+                    JeOdobren();
+                    return true;
+                }
+            }
+
             return false;
         }
 

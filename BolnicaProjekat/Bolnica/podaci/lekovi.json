@@ -1,47 +1,21 @@
 [
   {
     "Id": 1,
-    "Sifra": "BRf3",
+    "Sifra": "BRF",
     "Naziv": "Brufen",
     "Odobren": false,
-    "Opis": "Brufen je lek za temperaturu",
-    "Kolicina": 10,
-    "Cena": 599,
+    "Opis": "Brufen za tempereatur",
+    "Kolicina": 124,
+    "Cena": 500,
     "Alergeni": [
-      "BRUFOBIJA",
-      "toplo fobija"
+      "TempoFobija",
+      "HepaTromboFobija"
     ],
     "Revizije": [
       {
         "IdLekara": 1,
-        "StatusRevizije": 0,
-        "Poruka": "Laslo odobri ovja lek je koristan"
-      }
-    ]
-  },
-  {
-    "Id": 2,
-    "Sifra": "hem432",
-    "Naziv": "Hemomicin",
-    "Odobren": false,
-    "Opis": "df",
-    "Kolicina": 129,
-    "Cena": 200,
-    "Alergeni": [
-      "alergen1",
-      "alergen2",
-      "dasdas"
-    ],
-    "Revizije": [
-      {
-        "IdLekara": 1,
-        "StatusRevizije": 0,
-        "Poruka": "Poruka ..."
-      },
-      {
-        "IdLekara": 2,
-        "StatusRevizije": 0,
-        "Poruka": "Poruka ..."
+        "StatusRevizije": 1,
+        "Poruka": "CAO LASLO"
       }
     ]
   }

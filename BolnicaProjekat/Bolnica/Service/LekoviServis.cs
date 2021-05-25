@@ -28,10 +28,10 @@ namespace Servis
         {
             ObservableCollection<Lek> ret = new ObservableCollection<Lek>();
             List<Lek> lekovi = Repozitorijum.LekoviRepozitorijum.GetInstance.GetAll();
-            foreach (Lek l in lekovi)
+            foreach (Lek lek in lekovi)
             {
-                if (l.Odobren == true)
-                    ret.Add(l);
+                if(lek.Odobren)
+                    ret.Add(lek);
             }
             return ret;
         }
@@ -93,6 +93,57 @@ namespace Servis
             return true;
         }
 
+        public ObservableCollection<Lek> GetLekoviZaRevizijuByIdLekara(int idLekara)
+        {
+            ObservableCollection<Lek> lekoviNaRevizijiLekaru = new ObservableCollection<Lek>();
+            List<Lek> lekovi = LekoviRepozitorijum.GetInstance.GetAll();
+
+            foreach(Lek lek in lekovi)
+            {
+                foreach(RevizijaLeka revizija in lek.Revizije)
+                {
+                    if(revizija.IdLekara == idLekara)
+                    {
+                        lekoviNaRevizijiLekaru.Add(lek);
+                        break;
+                    }
+                }
+            }
+
+            return lekoviNaRevizijiLekaru;
+        }
+
+
+        public bool IzmenaLekaByLekar(int idLeka,
+                                   string naziv,
+                                   string sifra,
+                                   double cena,
+                                   string opis,
+                                   RevizijaLeka revizija,
+                                   List<string> alergeni
+                                   )
+        {
+            Lek lek = lekoviRepozitorijumRef.GetLekById(idLeka);
+            lek.Naziv = naziv;
+            lek.Sifra = sifra;
+            lek.Cena = cena;
+            lek.Opis = opis;
+            lek.IzmeniRevizijuLekar(revizija);
+            lek.Alergeni = alergeni;
+
+            lekoviRepozitorijumRef.AzurirajLek(lek);
+
+            return true;
+        }
+
+        public bool LekarOdobravaLek(int idLeka, RevizijaLeka revizija)
+        {
+            Lek lek = lekoviRepozitorijumRef.GetLekById(idLeka);
+            lek.IzmeniRevizijuLekar(revizija);
+            lekoviRepozitorijumRef.AzurirajLek(lek);
+
+            return true;
+        }
 
     }
 }

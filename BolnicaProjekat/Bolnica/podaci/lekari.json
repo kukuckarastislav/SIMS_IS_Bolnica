@@ -23,6 +23,27 @@
   {
     "Id": 2,
     "Specijalista": true,
+    "Specijalizacija": "Pulmolog",
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 14
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "rasti",
+    "Sifra": "rasti",
+    "Ime": "rasti",
+    "Prezime": "K",
+    "Pol": 0,
+    "Email": "rasti@gmail.com",
+    "Telefon": "0621010909",
+    "DatumRodjenja": "1999-10-10T00:00:00",
+    "Jmbg": "1234125412341",
+    "Drzavljanstvo": "slovacko",
+    "AdresaStanovanja": "u bp"
+  },
+  {
+    "Id": 3,
+    "Specijalista": true,
     "Specijalizacija": "Kardio hirurg",
     "radnoVreme": {
       "PocetakRadnogVremena": 8,

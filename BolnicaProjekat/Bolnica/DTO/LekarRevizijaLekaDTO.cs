@@ -29,6 +29,26 @@ namespace DTO
         public string Specijalizacija { get; set; }
         public string StatusRevizije { get; set; }
 
+        public void SetStatusRevizije(int status)
+        {
+            if(status == 0)
+            {
+                StatusRevizije = "Na cekanju";
+            }
+            else if(status == 1)
+            {
+                StatusRevizije = "Odobreno";
+            }
+            else if(status == -1)
+            {
+                StatusRevizije = "Odbaceno";
+            }
+            else
+            {
+                StatusRevizije = "P";
+            }
+        }
+
 
     }
 }

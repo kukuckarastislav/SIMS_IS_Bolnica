@@ -94,10 +94,10 @@
                         FontWeight="Bold" 
                         Foreground="#eeebdd"
 />
-            <TextBlock  x:Name="TipUsluge"
+            <TextBox  x:Name="inputNaziv"
                         VerticalAlignment="Top" 
                         HorizontalAlignment="left" 
-                        Foreground="Black"/>
+                        Foreground="Black" Width="90"/>
 
             <TextBlock  Text="Šifra leka:" 
                         VerticalAlignment="Top" 
@@ -105,9 +105,9 @@
                         FontWeight="Bold" 
                         Foreground="#eeebdd"/>
 
-            <TextBlock  x:Name="Prostorija"
+            <TextBox  x:Name="inputSifra"
                         VerticalAlignment="Top" 
-                        HorizontalAlignment="left" 
+                        HorizontalAlignment="left" Width="90" 
                         Foreground="Black"/>
 
 
@@ -123,14 +123,14 @@
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                    <TextBlock  x:Name="VremePocetkaUsluge"
+                    <TextBox  x:Name="inputCena"
                                 VerticalAlignment="Top" 
-                                HorizontalAlignment="left" 
+                                HorizontalAlignment="left" Width="90"
                                 Foreground="Black"/>
 
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+                <StackPanel Orientation="Vertical" Margin="97,0,0,0">
 
                     <TextBlock  Text="Status leka:" 
                                 VerticalAlignment="Top" 
@@ -138,9 +138,9 @@
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                    <TextBlock  x:Name="VremeZavrsetkaUsluge"
+                    <TextBox  x:Name="statusLeka" IsEnabled="False"
                                 VerticalAlignment="Top" 
-                                HorizontalAlignment="left" 
+                                HorizontalAlignment="left" Width="90"
                                 Foreground="Black"/>
 
                 </StackPanel>
@@ -149,13 +149,43 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
 
-                <StackPanel Orientation="Vertical" Width="145">
+                <StackPanel Orientation="Vertical" Width="200">
 
                     <TextBlock  Text="Alergene leka:" 
                                 VerticalAlignment="Top" 
                                 HorizontalAlignment="left" 
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
+
+                    <Grid Height="121">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="inputAlergen" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                           Grid.Row="0" Grid.Column="0" Height="20" Width="90"></TextBox>
+                        <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" VerticalAlignment="Top" Width="40" Height="20" Click="Dodaj_alergen_click">Dodaj</Button>
+
+                        <DataGrid x:Name="DataGridPrikazAlergena" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                          ItemsSource="{Binding Path=KolekcijaAlergeni}" 
+                          IsReadOnly="False"
+                          FontSize="10"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Naziv Alergena" Binding="{Binding}" Width="0.7*" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 10" VerticalAlignment="Center" Width="40" Height="20" Click="Ukloni_alergen_click">Ukloni</Button>
+                    </Grid>
 
 
                 </StackPanel>
@@ -168,6 +198,12 @@
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
+                    <TextBox  x:Name="inputOpis" 
+                              TextWrapping="Wrap"
+                                VerticalAlignment="Top" MinLines="3"
+                                HorizontalAlignment="left" Width="90" 
+                                Foreground="Black"/>
+
                 </StackPanel>
 
             </StackPanel>
@@ -176,7 +212,18 @@
 
                 <StackPanel Orientation="Vertical" Width="160">
 
+                    <TextBlock  Text="Poruka:"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
 
+                    <TextBox
+                        x:Name="inputPoruka"
+                        IsEnabled="True"
+                        MaxLines="3"
+                        MinLines="3" Height="63">
+                    </TextBox>
 
                 </StackPanel >
 
@@ -190,6 +237,7 @@
                     <Button     Background="#eeebdd" 
                                 Margin="0,5,0,0"
                                 Height="35"
+                                Click="Potvrdi_click"
                                 >
 
                         <Button.Resources>
@@ -214,6 +262,7 @@
                                 Width="100"
                                 Height="35"
                                 HorizontalAlignment="Right"
+                                Click="Odustani_click"
                                 >
 
                         <Button.Resources>

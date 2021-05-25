@@ -28,10 +28,10 @@ namespace Bolnica.view.upravnik.Lekovi
         public ObservableCollection<string> KolekcijaAlergeni;
         public ObservableCollection<LekarRevizijaLekaDTO> KolekcijaLekaraCombo;
         public ObservableCollection<LekarRevizijaLekaDTO> KolekcijaLekaraDataGrid;
-        private List<RevizijaLeka> RevizijeLekara;
-        private PrikazNeodobrenihLekova refPrikazNeodobrenihLekova;
-        private PrikazOdobrenihLekova refPrikazOdobrenihLekova;
-        private Lek lek;
+        public List<RevizijaLeka> RevizijeLekara;
+        public PrikazNeodobrenihLekova refPrikazNeodobrenihLekova;
+        public PrikazOdobrenihLekova refPrikazOdobrenihLekova;
+        public Lek lek;
 
         public IzmeniLek(PrikazNeodobrenihLekova refPrikazNeodobrenihLekova,
                         PrikazOdobrenihLekova refPrikazOdobrenihLekova,
@@ -68,6 +68,7 @@ namespace Bolnica.view.upravnik.Lekovi
             {
                 if (lek.PostojiLekarURevizijiByID(lekar.IdLekara))
                 {
+                    // nov lekar??
                     KolekcijaLekaraDataGrid.Add(lekar);
                 }
             }
@@ -97,6 +98,22 @@ namespace Bolnica.view.upravnik.Lekovi
             foreach (string alergen in KolekcijaAlergeni)
             {
                 alergeni.Add(alergen);
+            }
+
+            foreach(RevizijaLeka rev in RevizijeLekara)
+            {
+                MessageBox.Show("LEKAR:" + rev.IdLekara + " status:" + rev.StatusRevizije);
+            }
+
+            foreach(RevizijaLeka r in lek.Revizije)
+            {
+                foreach(RevizijaLeka rev in RevizijeLekara)
+                {
+                    if(r.IdLekara == rev.IdLekara)
+                    {
+                        rev.StatusRevizije = r.StatusRevizije;
+                    }
+                }
             }
 
             lekoviKontrolerObjekat.IzmeniLek(lek.Id,
@@ -133,6 +150,8 @@ namespace Bolnica.view.upravnik.Lekovi
             {
                 RevizijaLeka revizija = GetRevizjaLekaByIDLekara(selektovanLekarIzDataGrida.IdLekara);
                 inputPoruka.Text = revizija.Poruka;
+                selektovanLekarIzDataGrida.SetStatusRevizije(revizija.StatusRevizije);
+                AzurirajPrikazDataGridLekari();
             }
         }
 

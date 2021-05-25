@@ -79,6 +79,32 @@ namespace Kontroler
 
         }
 
-        
+
+        public ObservableCollection<Lek> GetLekoviZaRevizijuByIdLekara(int idLekara)
+        {
+            return lekoviServisObjekat.GetLekoviZaRevizijuByIdLekara(idLekara);
+        }
+
+
+        public bool IzmenaLekaByLekar(int IdLeka,
+                                    string naziv,
+                                    string sifra,
+                                    double cena,
+                                    string opis,
+                                    RevizijaLeka revizija,
+                                    List<string> alergeni
+                                    )
+        {
+
+            return lekoviServisObjekat.IzmenaLekaByLekar(IdLeka, naziv, sifra, cena, opis, revizija, alergeni);
+        }
+
+
+        public bool LekarOdobravaLek(int idLeka, RevizijaLeka revizija)
+        {
+            return lekoviServisObjekat.LekarOdobravaLek(idLeka, revizija);
+        }
+
+
     }
 }

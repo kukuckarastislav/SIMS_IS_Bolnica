@@ -1,4 +1,5 @@
-﻿using Bolnica.view.lekar.pacijenti;
+﻿using Bolnica.view.lekar.lekovi;
+using Bolnica.view.lekar.pacijenti;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace Bolnica.view.lekar
         // MENU - PAGES
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
+        private view.lekar.lekovi.Lekovi refLekovi;
         private view.lekar.Notifikacije refNotifikacije;
         private view.lekar.LoginPage refLoginPage;
 
@@ -55,6 +57,13 @@ namespace Bolnica.view.lekar
         }
 
 
+        private void LekoviButton(object sender, RoutedEventArgs e)
+        {
+            refLekovi = new view.lekar.lekovi.Lekovi(Lekar);
+            main_frame.Navigate(refLekovi);
+        }
+
+
         private void NotifikacijeButton(object sender, RoutedEventArgs e)
         {
             refNotifikacije = new view.lekar.Notifikacije(Lekar);
@@ -71,7 +80,7 @@ namespace Bolnica.view.lekar
         {
             Type pageType = e.Content.GetType();
 
-            if (pageType == typeof(RadniKalendar) || pageType == typeof(PrikazPacijenata))
+            if (pageType == typeof(RadniKalendar) || pageType == typeof(PrikazPacijenata) || pageType == typeof(Lekovi))
             {
                 menu_items_panel.Visibility = System.Windows.Visibility.Visible;
             }
@@ -87,5 +96,7 @@ namespace Bolnica.view.lekar
         {
             this.Close();
         }
+
+
     }
 }

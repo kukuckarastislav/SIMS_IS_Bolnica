@@ -1,0 +1,243 @@
+﻿<Page x:Class="Bolnica.view.lekar.lekovi.OdobravanjeLeka"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.lekar.lekovi"
+          mc:Ignorable="d" 
+      d:DesignHeight="660"
+      d:DesignWidth="400"
+      Background="#630000"
+      Margin="-55,0,0,0" FontSize="12"
+      Title="OdbijanjeLeka">
+
+
+    <Grid VerticalAlignment="Center">
+
+
+        <Grid.ColumnDefinitions>
+            <!-- Prazno mesto - LEVO -->
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="20"/>
+            <!-- Meni - Prazno mesto - LEVO -->
+            <ColumnDefinition Width="290"/>
+            <!-- Prazno mesto - DESNO -->
+
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="35"/>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid.RowDefinitions>
+            <!-- [0] PraznoMesto - GORE -->
+            <RowDefinition Height="10"/>
+            <!-- [1] Profilna slika (1) - GORE -->
+            <RowDefinition Height="Auto"/>
+            <!-- [2] Profilna slika (2) i Meni (1)- GORE -->
+            <RowDefinition Height="35"/>
+            <!-- [3] Meni (2) - GORE -->
+            <RowDefinition Height="25"/>
+            <!-- [4] Meni (3) - Button1- CENTAR -->
+            <RowDefinition Height="320"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="20"/>
+
+        </Grid.RowDefinitions>
+
+
+        <!-- Profilna Slika-->
+        <Ellipse    Width="110" 
+                    Height="110" 
+                    Fill="#810000"
+                    Grid.Row="1"
+                    Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Image  Source="/images/lekar-icons/potvrdi-uslugu-icon.png"
+                Width="70" 
+                Grid.Row="1" 
+                Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBlock  Text="Odobravanje Leka" 
+                    VerticalAlignment="Top" HorizontalAlignment="Center" 
+                    FontWeight="Bold" 
+                    FontSize="18"
+                    Foreground="#eeebdd"
+                    Grid.Row="2"
+                    Grid.Column="1" Grid.ColumnSpan="3"/>
+
+        <!-- Odabrana Usluga -->
+
+        <Image      Source="/images/lekar-icons/folder-dark-icon.png"
+                    Margin="-10,-40,-10,-10"
+                    Grid.Row="3" Grid.RowSpan="3"
+                    Grid.Column="1" Grid.ColumnSpan="3"/>
+
+        <StackPanel     Grid.Row="4" 
+                        Grid.RowSpan="3"
+                        Grid.Column="1" 
+                        Grid.ColumnSpan="3"
+                        Margin="0,15,0,0">
+
+            <TextBlock  Text="Naziv leka:" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        FontWeight="Bold" 
+                        Foreground="#eeebdd"
+/>
+            <TextBlock  x:Name="TipUsluge"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        Foreground="Black"/>
+
+            <TextBlock  Text="Šifra leka:" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        FontWeight="Bold" 
+                        Foreground="#eeebdd"/>
+
+            <TextBlock  x:Name="Prostorija"
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        Foreground="Black"/>
+
+
+
+
+            <StackPanel Orientation="Horizontal" >
+
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock  Text="Cena leka:                   "
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+
+                    <TextBlock  x:Name="VremePocetkaUsluge"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                Foreground="Black"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="40,0,0,0">
+
+                    <TextBlock  Text="Status leka:" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+
+                    <TextBlock  x:Name="VremeZavrsetkaUsluge"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                Foreground="Black"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+
+                <StackPanel Orientation="Vertical" Width="145">
+
+                    <TextBlock  Text="Alergene leka:" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="17,0,0,0" Height="150">
+
+                    <TextBlock  Text="Opis:" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+
+                <StackPanel Orientation="Vertical" Width="160">
+
+                    <TextBlock  Text="Poruka:"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+
+                    <TextBox
+                        IsEnabled="False"
+                        MaxLines="3"
+                        MinLines="3">
+                    </TextBox>
+
+                </StackPanel >
+
+                <StackPanel Orientation="Vertical" 
+ 
+                            Width="150"
+                            Margin="20,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+
+                    <Button     Background="#eeebdd" 
+                                Margin="0,5,0,0"
+                                Height="35"
+                                Click="PotvrdiAzuriranjeButton">
+
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+
+                        <StackPanel Orientation="Horizontal"  
+                                Width="135">
+                            <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" />
+                            <TextBlock Padding="2" 
+                                   FontSize="11" 
+                                   TextWrapping="Wrap"
+                                   VerticalAlignment="Center" 
+                                   FontWeight="SemiBold"> Potvrdi </TextBlock>
+                        </StackPanel>
+
+                    </Button>
+
+                    <Button     Background="#eeebdd" 
+                                Margin="0,5,0,0"
+                                Width="100"
+                                Height="35"
+                                HorizontalAlignment="Right"
+                                Click="OdustaniButton">
+
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+
+                        <StackPanel Orientation="Horizontal"  
+                                Width="140">
+                            <Image Source="/images/lekar-icons/back-icon.png" Width="35"/>
+                            <TextBlock Padding="2" 
+                                   FontSize="11" 
+                                   VerticalAlignment="Center" 
+                                   FontWeight="SemiBold">Odustani</TextBlock>
+                        </StackPanel>
+
+                    </Button>
+
+                </StackPanel>
+
+            </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

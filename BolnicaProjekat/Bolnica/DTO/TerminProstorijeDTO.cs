@@ -31,6 +31,8 @@ namespace DTO
             if (tipTerminaProstorije == TipTerminaProstorije.Renoviranje) return "Renoviranje";
             if (tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiM) return "Preraspodela Magacin";
             if (tipTerminaProstorije == TipTerminaProstorije.PreraspodelaInventaraPiP) return "Preraspodela Prostorija";
+            if (tipTerminaProstorije == TipTerminaProstorije.TransformacijaRazdvajanje) return "Razdvajanje";
+            if (tipTerminaProstorije == TipTerminaProstorije.TransformacijaSpajanje) return "Spajanje";
             // if (tipTerminaProstorije == TipTerminaProstorije.Zabrana) return "Zabrana";
 
             return "TIP TERMINA";

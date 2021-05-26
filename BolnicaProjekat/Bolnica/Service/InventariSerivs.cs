@@ -158,20 +158,17 @@ namespace Servis
             return oprema;
         }
 
-        public bool preraspodelaOpreme(int idInventar1, int idInventar2, string sifraOprema, int kolicina)
+        public bool preraspodelaOpreme(int idPocetnogInventara, int idKrajnjegInventara, string sifraOprema, int kolicina)
         {
-            Inventar inv1 = GetInventarById(idInventar1);
-            Inventar inv2 = GetInventarById(idInventar2);
+            Inventar pocetniInventar = GetInventarById(idPocetnogInventara);
+            Inventar krajnjiInventar = GetInventarById(idKrajnjegInventara);
 
-            if (inv1 == null || inv2 == null)
-            {
-                MessageBox.Show("Inventari su null u servisu metodi preraspodleaOpreme()");
+            if (pocetniInventar == null || krajnjiInventar == null)
                 return false;
-            }
 
-            Oprema oprema = inv1.oduzmiOpremu(sifraOprema, kolicina);
+            Oprema oprema = pocetniInventar.oduzmiOpremu(sifraOprema, kolicina);
             if (oprema == null) return false;
-            inv2.dodajOpremu(oprema, kolicina);
+            krajnjiInventar.dodajOpremu(oprema, kolicina);
             InventarRepozitorijumRef.AzurirajInventar();
             return true;
         }
@@ -259,6 +256,29 @@ namespace Servis
             return opremeDTO;
         }
 
+
+        public bool PrebaciSvuOpremu(int idPocetnogInventara, int idKrajnjegInventara)
+        {
+            Inventar pocetniInventar = GetInventarById(idPocetnogInventara);
+            Inventar krajnjiInventar = GetInventarById(idKrajnjegInventara);
+
+            foreach(Oprema oprema in pocetniInventar.LOprema)
+            {
+                krajnjiInventar.dodajOpremu(oprema, oprema.Kolicina);
+            }
+
+            pocetniInventar.LOprema = new List<Oprema>();
+
+            InventarRepozitorijumRef.AzurirajInventar();
+            return true;
+        }
+
+        public bool ObrisiInventarById(int IdInventar)
+        {
+            Inventar inventar = GetInventarById(IdInventar);
+            InventarRepozitorijumRef.ObrisiInventar(inventar);
+            return true;
+        }
 
     }
 }

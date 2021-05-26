@@ -84,7 +84,8 @@ namespace Bolnica.view.upravnik.prostorije
 
         private void Spajanje_click(object sender, RoutedEventArgs e)
         {
-
+            var zakazivanjeSpajanjaProstorijeForma = new ZakaziSpajanjeProstorijeForma(this, prostorija);
+            zakazivanjeSpajanjaProstorijeForma.Show();
         }
 
         private void Razdvajanje_click(object sender, RoutedEventArgs e)

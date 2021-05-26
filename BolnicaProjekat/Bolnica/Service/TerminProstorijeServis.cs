@@ -354,6 +354,21 @@ namespace Servis
             return false;
         }
 
+        public bool ZakaziTerminSpajanjaProstorije(int idProstorijeA, int idProstorijeB, DateTime pocetak, DateTime kraj, TransformacijaProstorijeParametri transformacijaProstorije)
+        {
+            ObservableCollection<Termin> termini = GetUnijaTerminaByProstorijaIdObs(idProstorijeA, idProstorijeB);
+
+            if (ProveraIspravnogNovogZakazivanja(pocetak, kraj, termini))
+            {
+                int id = TerminProstorijeRepozitorijumRef.GetFirstFitID();
+                TerminProstorije tp = new TerminProstorije(id, pocetak, kraj, idProstorijeA, idProstorijeB, -1, TipTerminaProstorije.TransformacijaSpajanje, false, new List<TransferOpreme>(), transformacijaProstorije);
+                TerminProstorijeRepozitorijumRef.DodajTerminProstorije(tp);
+                return true;
+            }
+
+            return false;
+        }
+
 
         public void ThreadPreraspodelaInventara()
         {
@@ -362,6 +377,7 @@ namespace Servis
 
                 List<TerminProstorije> listaTerminaProstorije = TerminProstorijeRepozitorijumRef.GetTerminiProstorijeAll();
                 InventariSerivs inventarServiObjekat = new InventariSerivs();
+                ProstorijeServis prostorijeServis = new ProstorijeServis();
 
                 foreach (TerminProstorije tp in listaTerminaProstorije)
                 {
@@ -384,13 +400,8 @@ namespace Servis
                             TerminProstorijeRepozitorijumRef.AzurirajTransferOpreme(tp);
                             MessageBox.Show(info);
                         }
-                    }else if (tp.tipTerminaProstorije == TipTerminaProstorije.TransformacijaRazdvajanje ||
-                              tp.tipTerminaProstorije == TipTerminaProstorije.TransformacijaSpajanje)
-                    {
-
-
-
                     }
+                    
                 }
 
                 for(int i = 0; i < listaTerminaProstorije.Count; i++)
@@ -405,6 +416,32 @@ namespace Servis
                             // prosao je termin i mozemo obrisati
                             TerminProstorijeRepozitorijumRef.OtkaziTerminProstorije(tp);  // oprezno
                             //MessageBox.Show("obrisan je termin ");
+                            i = -1;
+                        }
+                    }
+                    else if (tp.tipTerminaProstorije == TipTerminaProstorije.TransformacijaRazdvajanje)
+                    {
+                        if (tp.Kraj < DateTime.Now)
+                        {
+                            // izvrsiti logiku ove operacije
+                            prostorijeServis.NapraviDveProstorijeRazdvajanjemJedne(tp);
+                            prostorijeServis.ObrisiProstorijuById(tp.IdProstorije1);
+
+                            TerminProstorijeRepozitorijumRef.OtkaziTerminProstorije(tp);  // oprezno
+                            i = -1;
+                        }
+                    }
+                    else if (tp.tipTerminaProstorije == TipTerminaProstorije.TransformacijaSpajanje)
+                    {
+                        if (tp.Kraj < DateTime.Now)
+                        {
+                            //izvrsiti logiku ove operacije
+                            prostorijeServis.NapraviJednuProstorijuSpajanjemDve(tp);
+                            prostorijeServis.ObrisiProstorijuById(tp.IdProstorije1);
+                            prostorijeServis.ObrisiProstorijuById(tp.IdProstorije2);
+
+
+                            TerminProstorijeRepozitorijumRef.OtkaziTerminProstorije(tp);  // oprezno
                             i = -1;
                         }
                     }

@@ -91,9 +91,10 @@ namespace Repozitorijum
 
         public Inventar ObrisiInventar(Inventar inventar)
         {
-            
-            // TODO: implement
-            return null;
+            UcitajPodatke();
+            lInventara.Remove(inventar);
+            SacuvajPodatke();
+            return inventar;
         }
 
         public List<Inventar> GetAll()

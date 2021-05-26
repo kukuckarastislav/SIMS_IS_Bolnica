@@ -130,5 +130,29 @@
     "BrojSlobodnihKreveta": 2,
     "BrojSprat": "B9/2",
     "IdInventar": 11
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 16,
+    "TipProstorije": 0,
+    "Broj": "TestSPajanje-A",
+    "Sprat": 55,
+    "Povrsina": 80,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "TestSPajanje-A/55",
+    "IdInventar": 16
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 17,
+    "TipProstorije": 0,
+    "Broj": "TestSPajanje-B",
+    "Sprat": 55,
+    "Povrsina": 80,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "TestSPajanje-B/55",
+    "IdInventar": 17
   }
 ]

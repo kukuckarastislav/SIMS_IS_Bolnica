@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 15,
+        "Kolicina": 12,
         "Cena": 125,
         "IdInventar": 0
       },
@@ -136,18 +136,8 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 7,
+        "Kolicina": 10,
         "Cena": 125,
-        "IdInventar": 0
-      },
-      {
-        "Id": -1,
-        "Sifra": "inf1L",
-        "Naziv": "Infuzija",
-        "Tip": 1,
-        "Opis": "Infuzija natrijum hlorid ",
-        "Kolicina": 2,
-        "Cena": 60,
         "IdInventar": 0
       },
       {
@@ -168,6 +158,16 @@
         "Opis": "Racunar za evidenciju ",
         "Kolicina": 2,
         "Cena": 60000,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "inf1L",
+        "Naziv": "Infuzija",
+        "Tip": 1,
+        "Opis": "Infuzija natrijum hlorid ",
+        "Kolicina": 2,
+        "Cena": 60,
         "IdInventar": 0
       }
     ],

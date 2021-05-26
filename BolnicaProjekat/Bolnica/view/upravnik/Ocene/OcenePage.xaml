@@ -1,0 +1,88 @@
+﻿<Page x:Class="Bolnica.view.upravnik.Ocene.OcenePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.upravnik.Ocene"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OcenePage">
+
+    <Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
+                <StackPanel>
+                    <Label Margin="10 0 0 0" FontSize="24">Ocene</Label>
+                </StackPanel>
+            </StackPanel>
+
+            <Grid DockPanel.Dock="Bottom" Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Grid.Column="1" Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Lekar"></TextBlock>
+                    <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Prosecna Ocena"></TextBlock>
+                    <TextBlock x:Name="txtProsecnaOcena" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Text="0.0"></TextBlock>
+
+                    <ComboBox x:Name="ComboLekar" VerticalAlignment="Center" ItemsSource="{Binding KolekcijaLekaraCombo}" Grid.Column="1" Grid.Row="0" Height="23" Width="160" 
+                        HorizontalAlignment="Left" DropDownClosed="comboLekar_DropDownClosed">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding ImePrezimeLekara}"/>
+                                    <TextBlock Text=" - "></TextBlock>
+                                    <TextBlock Text="{Binding Specijalizacija}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+
+                    </ComboBox>
+
+
+                </Grid>
+
+
+                <DataGrid x:Name="DataGridOcene" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                          ItemsSource="{Binding Path=KolekcijaOcena}" 
+                          IsReadOnly="False"
+                          SelectionMode="Single" 
+                          AutoGenerateColumns="False"
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Lekar" Binding="{Binding NazivLekara}" Width="0.7*" />
+                        <DataGridTextColumn Header="Naziv autara" Binding="{Binding NazivAutora}" Width="0.7*" />
+                        <DataGridTextColumn Header="Komentar" Binding="{Binding Komentar}" Width="0.7*" />
+                        <DataGridTextColumn Header="Vrednost" Binding="{Binding Vrednost}" Width="0.7*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
+
+
+            </Grid>
+        </DockPanel>
+    </Grid>
+
+
+</Page>

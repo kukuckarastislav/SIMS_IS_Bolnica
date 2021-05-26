@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class OcenaDTO
+    public class OcenaDTO
     {
         public int Id { get; set; }
         public string Komentar { get; set; }
@@ -14,8 +14,8 @@ namespace DTO
         public int IdPacijenta { get; set; }
         public int IdLekara { get; set; }
         public DateTime Datum { get; set; }
-        public String NazivLekara{ get; set; }
-        public String NazivAutora { get; set; }
+        public string NazivLekara{ get; set; }
+        public string NazivAutora { get; set; }
         public bool OcenaBolnice { get; set; }
 
         public OcenaDTO(int id, string komentar, int vrednost, int idPacijenta, int idLekara, DateTime datum, string nazivLekara, string nazivAutora,bool ocenaBolnice)

@@ -141,19 +141,18 @@ namespace Servis
         }
 
 
-        public Oprema preraspodelaOpreme(int idInventar1, int idInventar2, Oprema oprema, int kolicina)
+        public Oprema preraspodelaOpreme(int idPocetnogInventara, int idKrajnjegInventara, Oprema oprema, int kolicina)
         {
-            Inventar inv1 = GetInventarById(idInventar1);
-            Inventar inv2 = GetInventarById(idInventar2);
+            Inventar pocetniInventar = GetInventarById(idPocetnogInventara);
+            Inventar krajnjiInventar = GetInventarById(idKrajnjegInventara);
 
-            if(inv1 == null || inv2 == null)
+            if(pocetniInventar == null || krajnjiInventar == null)
             {
-                MessageBox.Show("Inventari su null u servisu metodi preraspodleaOpreme()");
                 return null;
             }
 
-            inv1.oduzmiOpremu(oprema, kolicina);
-            inv2.dodajOpremu(oprema, kolicina);
+            pocetniInventar.oduzmiOpremu(oprema, kolicina);
+            krajnjiInventar.dodajOpremu(oprema, kolicina);
             InventarRepozitorijumRef.AzurirajInventar();
             return oprema;
         }

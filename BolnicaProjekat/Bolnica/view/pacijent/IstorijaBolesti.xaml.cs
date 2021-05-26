@@ -27,11 +27,11 @@ namespace Bolnica.view.pacijent
             OdabranaUsluga = listaZavrseniTermini.SelectedItem as ZdravstvenaUslugaDTO;
             anamneza.Text = OdabranaUsluga.RezultatUsluge;
             sadrzaj.Text = OdabranaUsluga.Komentar;
-            Kontroler.DodajKomentarNaUslugu(OdabranaUsluga.Id, sadrzaj.Text);
         }
 
         private void dodaj_podsjetnik(object sender, RoutedEventArgs e)
         {
+            Kontroler.DodajKomentarNaUslugu(OdabranaUsluga.Id, sadrzaj.Text);
             var varr = new NoviPodsjetnik(Pacijent,sadrzaj.Text);
             varr.Show();
         }

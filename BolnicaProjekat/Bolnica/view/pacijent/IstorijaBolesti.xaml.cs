@@ -1,33 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Model;
 using DTO;
 using System.Collections.ObjectModel;
 using Controller;
 
 namespace Bolnica.view.pacijent
 {
-    /// <summary>
-    /// Interaction logic for IstorijaBolesti.xaml
-    /// </summary>
     public partial class IstorijaBolesti : Window
     {
         private ObservableCollection<ZdravstvenaUslugaDTO> Lista;
         private ZdravstvenaUslugaKontroler Kontroler;
-        private Pacijent Pacijent;
+        private ZdravstvenaUslugaDTO OdabranaUsluga;
+        private PacijentDTO Pacijent;
 
-        public IstorijaBolesti(Pacijent Pacijent)
+        public IstorijaBolesti(PacijentDTO Pacijent)
         {
             Kontroler = new ZdravstvenaUslugaKontroler();
             this.Pacijent = Pacijent;
@@ -38,12 +24,14 @@ namespace Bolnica.view.pacijent
 
         private void listaZavrseniTermini_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ZdravstvenaUslugaDTO OdabraniTermin = listaZavrseniTermini.SelectedItem as ZdravstvenaUslugaDTO;
-            anamneza.Text = OdabraniTermin.RezultatUsluge;
+            OdabranaUsluga = listaZavrseniTermini.SelectedItem as ZdravstvenaUslugaDTO;
+            anamneza.Text = OdabranaUsluga.RezultatUsluge;
+            sadrzaj.Text = OdabranaUsluga.Komentar;
         }
 
         private void dodaj_podsjetnik(object sender, RoutedEventArgs e)
         {
+            Kontroler.DodajKomentarNaUslugu(OdabranaUsluga.Id, sadrzaj.Text);
             var varr = new NoviPodsjetnik(Pacijent,sadrzaj.Text);
             varr.Show();
         }

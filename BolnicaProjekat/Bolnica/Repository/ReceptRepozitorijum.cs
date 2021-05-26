@@ -113,6 +113,20 @@ namespace Repozitorijum
             return null;
         }
 
+        public List<Recept> GetReceptiByPatientId(int id)
+        {
+            loadData();
+            List<Recept> ret = new List<Recept>();
+            foreach (Recept z in recepti)
+            {
+                if (z.IdPacijenta == id)
+                {
+                    ret.Add(z);
+                }
+            }
+            return ret;
+        }
+
 
     }
 }

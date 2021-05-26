@@ -21,7 +21,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="sadrzaj1" Margin="39,71,39,272" FontSize="18" FontFamily="Arial" Foreground="Black"/>
             <Label Margin="39,27,303,354" Content="Unesite tekst:" FontSize="20"/>
             <Button Click="Button_Click" Margin="321,353,39,33" Content="Potvrdi"/>
             <ComboBox x:Name="sati" Margin="39,206,404,185">

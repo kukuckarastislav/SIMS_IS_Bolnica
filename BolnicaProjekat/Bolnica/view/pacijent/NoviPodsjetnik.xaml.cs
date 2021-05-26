@@ -9,11 +9,11 @@ namespace Bolnica.view.pacijent
 {
     public partial class NoviPodsjetnik : Window
     {
-        public Pacijent Pacijent { get; set; }
+        public PacijentDTO Pacijent { get; set; }
         private PodsjetnikKontroler Kontroler;
         private DateTime Od;
         private DateTime Do;
-        public NoviPodsjetnik(Pacijent Pacijent,String text)
+        public NoviPodsjetnik(PacijentDTO Pacijent,String text)
         {
             Kontroler = new PodsjetnikKontroler();
             this.Pacijent = Pacijent;

@@ -12,10 +12,10 @@ namespace Bolnica.view.pacijent
     {
         private ObservableCollection<ZdravstvenaUslugaDTO> PreglediPacijenta;
         private ZdravstvenaUslugaDTO odabraniPregled;
-        private Pacijent Pacijent;
+        private PacijentDTO Pacijent;
         ZdravstvenaUslugaKontroler Kontroler;
 
-        public SopstveniPregledi(Pacijent pacijent)
+        public SopstveniPregledi(PacijentDTO pacijent)
         {
            InitializeComponent();
            Pacijent = pacijent;

@@ -153,6 +153,19 @@ namespace Repozitorijum
             return ret;
         }
 
+        public ZdravstvenaUsluga getTerminById(int id)
+        {
+            loadData();
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.Id == id)
+                {
+                    return z;
+                }
+            }
+            return null;
+        }
+
         public List<ZdravstvenaUsluga> GetTerminByLekarId(int id)
         {
             loadData();
@@ -216,6 +229,11 @@ namespace Repozitorijum
             SaveData();
             return usluga;
 
+        }
+        public ZdravstvenaUsluga AzurirajUslugu(ZdravstvenaUsluga usluga)
+        {
+            SaveData();
+            return usluga;
         }
 
         public ZdravstvenaUsluga GetUslugaZaTermin(Lekar lekar, DateTime termin)

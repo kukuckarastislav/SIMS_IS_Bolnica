@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using Model;
+using DTO;
 using Kontroler;
 
 namespace Bolnica.view.pacijent
@@ -8,10 +9,10 @@ namespace Bolnica.view.pacijent
 
     public partial class PodsjetnikPacijenta : Window
     {
-        public Pacijent Pacijent;
+        public PacijentDTO Pacijent;
         public ObservableCollection<Podsjetnik> Lista { get; set; }
         private PodsjetnikKontroler Kontroler;
-        public PodsjetnikPacijenta(Pacijent Pacijent)
+        public PodsjetnikPacijenta(PacijentDTO Pacijent)
         {
             Kontroler = new PodsjetnikKontroler();
             this.Pacijent = Pacijent;

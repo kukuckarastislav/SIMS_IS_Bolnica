@@ -17,7 +17,7 @@ namespace DTO
         public string ImePrezimeLekara { get; set; }
         public TipUsluge TipUsluge { get; set; }
         public int IdProstorije { get; set; }
-        public string RazlogZakazivanja { get; set; }
+        public string Komentar { get; set; }
         public string RezultatUsluge { get; set; }
 
         public ZdravstvenaUslugaDTO(Termin termin, int id, int idPacijenta, int idLekara, string imePrezimeLekara, TipUsluge tipUsluge, int idProstorije, string razlogZakazivanja, string rezultatUsluge)
@@ -29,7 +29,7 @@ namespace DTO
             ImePrezimeLekara = imePrezimeLekara;
             TipUsluge = tipUsluge;
             IdProstorije = idProstorije;
-            RazlogZakazivanja = razlogZakazivanja;
+            Komentar = razlogZakazivanja;
             RezultatUsluge = rezultatUsluge;
         }
 

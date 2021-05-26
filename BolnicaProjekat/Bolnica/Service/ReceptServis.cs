@@ -14,7 +14,7 @@ namespace Servis
     {
         private PacijentRepozitorijum refPacijentRepozitorijum;
         private LekarRepozitorijum refLekarRepozitorijum;
-        private LekarRepozitorijum refLekRepozitorijum;
+        private LekoviRepozitorijum refLekoviRepozitorijum;
 
 
         public static Recept DodajRecept(Recept recept)
@@ -94,11 +94,6 @@ namespace Servis
         {
             return ReceptRepozitorijum.GetInstance.GetAll();
         }
-
-
-
-
-
 
 
 

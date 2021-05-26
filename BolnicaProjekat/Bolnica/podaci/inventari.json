@@ -39,7 +39,7 @@
         "Naziv": "Hanzaplast",
         "Tip": 1,
         "Opis": "Zaustavlja spoljasnje krvarenje",
-        "Kolicina": 240,
+        "Kolicina": 239,
         "Cena": 5,
         "IdInventar": 0
       },
@@ -168,6 +168,16 @@
         "Opis": "Infuzija natrijum hlorid ",
         "Kolicina": 2,
         "Cena": 60,
+        "IdInventar": 0
+      },
+      {
+        "Id": -1,
+        "Sifra": "HANz00",
+        "Naziv": "Hanzaplast",
+        "Tip": 1,
+        "Opis": "Zaustavlja spoljasnje krvarenje",
+        "Kolicina": 1,
+        "Cena": 5,
         "IdInventar": 0
       }
     ],

@@ -52,5 +52,35 @@
         "Poruka": "Poruka ..."
       }
     ]
+  },
+  {
+    "Id": 3,
+    "Sifra": "Bruff99",
+    "Naziv": "Brufen",
+    "Odobren": false,
+    "Opis": "Brufen za bolove",
+    "Kolicina": 143,
+    "Cena": 325,
+    "Alergeni": [
+      "BrufFOBIJA",
+      "ALergoBrufobija"
+    ],
+    "Revizije": [
+      {
+        "IdLekara": 1,
+        "StatusRevizije": -1,
+        "Poruka": "ne valja ti lek"
+      },
+      {
+        "IdLekara": 2,
+        "StatusRevizije": 0,
+        "Poruka": "Poruka ..."
+      },
+      {
+        "IdLekara": 5,
+        "StatusRevizije": 0,
+        "Poruka": "Poruka ..."
+      }
+    ]
   }
 ]

@@ -165,7 +165,7 @@
         <!-- Medicinski Karton - Button1.4 - Kontaktiranje putem e-mailja -->
         <Button Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="9" Height="36" VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                IsEnabled="False">
+                IsEnabled="True" Click="UpucivanjeHospitalizacijaButton">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

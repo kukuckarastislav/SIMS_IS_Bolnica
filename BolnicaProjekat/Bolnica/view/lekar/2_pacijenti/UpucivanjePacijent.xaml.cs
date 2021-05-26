@@ -27,7 +27,6 @@ namespace Bolnica.view.lekar.pacijenti
         public ObservableCollection<Prostorija> KolekcijaSobeZaPregled { get; set; }
         public ObservableCollection<String> KolekcijaIDSobeZaPregled { get; set; }
         public ObservableCollection<Lekar> KolekcijaLekar { get; set; }
-
         public DateTime date;
         public Lekar Lekar { get; set; }
         public Pacijent IzabraniPacijent { get; set; }

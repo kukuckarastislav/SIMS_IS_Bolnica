@@ -26,14 +26,12 @@ namespace Bolnica.view.lekar.pacijenti
         // BACK - PAGES
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
 
-        public int h;
-        public int m;
         public Lekar Lekar { get; set; }
         public ObservableCollection<DTORadniKalendar> ListaRadniKalendar { get; set; }
         public DTORadniKalendar OdabranaUsluga { get; set; }
         public DTORadniKalendar AzuriranaUsluga { get; set; }
-        public DateTime azuriran_pocetak { get; set; }
-        public DateTime azuriran_kraj { get; set; }
+        public DateTime AzuriranPocetak { get; set; }
+        public DateTime AzuriranKraj { get; set; }
 
         public AzuriranjeUsluge(Lekar Lekar, DTORadniKalendar OdabranaUsluga, ObservableCollection<DTORadniKalendar> ListaRadniKalendar)
         {
@@ -41,27 +39,31 @@ namespace Bolnica.view.lekar.pacijenti
             this.OdabranaUsluga = OdabranaUsluga;
             this.ListaRadniKalendar = ListaRadniKalendar;
             this.Lekar = Lekar;
+            UcitajPodatke();
+        }
 
-            ImePacijenta.Text = "Pacijent: " + OdabranaUsluga.ImePacijenta.ToString();
-            TipUsluge.Text = OdabranaUsluga.Usluga.TipUsluge.ToString();
-            Prostorija.Text = OdabranaUsluga.NazivProstorije.ToString();
-            VremePocetkaUsluge.Text = OdabranaUsluga.Usluga.Termin.Pocetak.ToString("MM/dd/yyyy HH:mm:ss");
-            VremeZavrsetkaUsluge.Text = OdabranaUsluga.Usluga.Termin.Kraj.ToString("MM/dd/yyyy HH:mm:ss");
-            RazlogZakazivanja.Text = OdabranaUsluga.Usluga.RazlogZakazivanja.ToString();
+        private void UcitajPodatke()
+        {
+            lblImePrezimePacijenta.Text = "Pacijent: " + OdabranaUsluga.ImePacijenta.ToString();
+            txtTipUsluge.Text = OdabranaUsluga.Usluga.TipUsluge.ToString();
+            txtProstorija.Text = OdabranaUsluga.NazivProstorije.ToString();
+            txtPocetkaUsluge.Text = OdabranaUsluga.Usluga.Termin.Pocetak.ToString("MM/dd/yyyy HH:mm:ss");
+            txtZavrsetkaUsluge.Text = OdabranaUsluga.Usluga.Termin.Kraj.ToString("MM/dd/yyyy HH:mm:ss");
+            txtRazlogZakazivanja.Text = OdabranaUsluga.Usluga.RazlogZakazivanja.ToString();
+            KreirajIspravanKalendar();
+        }
 
-
+        private void KreirajIspravanKalendar()
+        {
             CalendarDateRange proslost = new CalendarDateRange(DateTime.MinValue, DateTime.Today);
-            Kalendar_pomeri_dan_termina.BlackoutDates.Add(proslost);
-
+            kalPomeriDanUsluge.BlackoutDates.Add(proslost);
         }
 
         private void PotvrdiAzuriranjeButton(object sender, RoutedEventArgs e)
         {
-            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.AzurirajVremeUsluga(OdabranaUsluga.Usluga, azuriran_pocetak, azuriran_kraj);
+            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.AzurirajVremeUsluga(OdabranaUsluga.Usluga, AzuriranPocetak, AzuriranKraj);
             refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(Lekar);
             NavigationService.Navigate(refRadniKalendar);
-
-
         }
 
         private void OdustaniButton(object sender, RoutedEventArgs e)
@@ -73,61 +75,50 @@ namespace Bolnica.view.lekar.pacijenti
             }
         }
 
+        private void IspisiAzuriranoVreme()
+        {
+            int sati = Convert.ToInt32(VremePocetakTermina_Sat.Text);
+            int minute = Convert.ToInt32(VremePocetakTermina_Minut.Text);
+            DateTime datum = kalPomeriDanUsluge.SelectedDate.Value;
+            DateTime azuriran_pocetak = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute, 0);
+            DateTime azuriran_kraj = new DateTime();
+            if (minute != 30)
+            {
+                azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute + 30, 0);
+            }
+            else
+            {
+                azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati + 1, minute - 30, 0);
+            }
+            AzuriranoVreme.Text = (NapraviStringAzuriranoVreme(azuriran_pocetak, azuriran_kraj));
+
+        }
+
+        private string NapraviStringAzuriranoVreme(DateTime azuriran_pocetak, DateTime azuriran_kraj)
+        {
+            this.AzuriranPocetak = azuriran_pocetak;
+            this.AzuriranKraj = azuriran_kraj;
+            return  azuriran_pocetak.ToString("MM / dd / yyyy") + "\n" 
+                    + "Od "+ azuriran_pocetak.ToString("HH:mm:ss") + "\n" 
+                    + "Do " + azuriran_kraj.ToString("HH:mm:ss");
+        }
+
         private void Kalendar_pomeri_dan_termina_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (VremePocetakTermina_Sat.SelectedValue!=null && VremePocetakTermina_Minut.SelectedValue != null && Kalendar_pomeri_dan_termina.SelectedDate != null)
+            if (VremePocetakTermina_Sat.SelectedValue != null &&
+                VremePocetakTermina_Minut.SelectedValue != null &&
+                kalPomeriDanUsluge.SelectedDate != null)
             {
-                int sati = Convert.ToInt32(VremePocetakTermina_Sat.Text);
-                int minute = Convert.ToInt32(VremePocetakTermina_Minut.Text);
-                DateTime datum = Kalendar_pomeri_dan_termina.SelectedDate.Value;
-
-                DateTime azuriran_pocetak = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute, 0);
-                DateTime azuriran_kraj = new DateTime();
-                if (minute != 30)
-                {
-                    azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute + 30, 0);
-                }
-                else
-                {
-                    azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati + 1, minute -30, 0);
-                }
-
-
-                AzuriranoVreme.Text = (azurirajVreme(azuriran_pocetak,azuriran_kraj));
-
-
+                IspisiAzuriranoVreme();
             }
             return;
         }
 
-        private string azurirajVreme(DateTime azuriran_pocetak, DateTime azuriran_kraj)
-        {
-            this.azuriran_pocetak = azuriran_pocetak;
-            this.azuriran_kraj = azuriran_kraj;
-            return azuriran_pocetak.ToString("MM / dd / yyyy") + "\n" + "Od " + azuriran_pocetak.ToString("HH:mm:ss") + "\n" + "Do " + azuriran_kraj.ToString("HH:mm:ss");
-        }
-
         private void VremePocetakTermina_Sat_DropDownClosed(object sender, EventArgs e)
         {
-            if (Kalendar_pomeri_dan_termina.SelectedDate != null)
+            if (kalPomeriDanUsluge.SelectedDate != null)
             {
-                int sati = Convert.ToInt32(VremePocetakTermina_Sat.Text);
-                int minute = Convert.ToInt32(VremePocetakTermina_Minut.Text);
-                DateTime datum = Kalendar_pomeri_dan_termina.SelectedDate.Value;
-
-                DateTime azuriran_pocetak = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute, 0);
-                DateTime azuriran_kraj = new DateTime();
-                if (minute != 30)
-                {
-                    azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute + 30, 0);
-                }
-                else
-                {
-                    azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati + 1, minute - 30, 0);
-                }
-
-                AzuriranoVreme.Text = (azurirajVreme(azuriran_pocetak, azuriran_kraj));
-
+                IspisiAzuriranoVreme();
             }
             return;
 
@@ -135,31 +126,14 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void VremePocetakTermina_Minut_DropDownClosed(object sender, EventArgs e)
         {
-
-
-            if (Kalendar_pomeri_dan_termina.SelectedDate != null)
+            if (kalPomeriDanUsluge.SelectedDate != null)
             {
-                int sati = Convert.ToInt32(VremePocetakTermina_Sat.Text);
-                int minute = Convert.ToInt32(VremePocetakTermina_Minut.Text);
-                DateTime datum = Kalendar_pomeri_dan_termina.SelectedDate.Value;
-
-                DateTime azuriran_pocetak = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute, 0);
-                DateTime azuriran_kraj = new DateTime();
-                if (minute != 30)
-                {
-                    azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute + 30, 0);
-                }
-                else
-                {
-                    azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati + 1, minute - 30, 0);
-                }
-
-                AzuriranoVreme.Text = (azurirajVreme(azuriran_pocetak, azuriran_kraj));
-
+                IspisiAzuriranoVreme();
             }
-
             return;
 
         }
+
+
     }
 }

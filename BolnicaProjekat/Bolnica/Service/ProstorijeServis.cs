@@ -61,6 +61,10 @@ namespace Servis
         public Prostorija ObrisiProstoriju(Prostorija delProstorija)
         {
             // mozda bi ovde trebalo pozvati i brisanje inventara sa brisanjem ove prostorije
+            //kad brisemo prostoriju treba obrisati i njen inventar
+            InventariSerivsObjekat = new InventariSerivs();
+            InventariSerivsObjekat.PrebaciSvuOpremu(delProstorija.IdInventar, 0);   //0 inventar je magacin
+            InventariSerivsObjekat.ObrisiInventarById(delProstorija.IdInventar);
             return ProstorijeRepozitorijumRef.ObrisiProstoriju(delProstorija);
         }
 
@@ -142,8 +146,27 @@ namespace Servis
         }
 
 
+        public bool NapraviDveProstorijeRazdvajanjemJedne(TerminProstorije terminProstorije)
+        {
+            TransformacijaProstorijeParametri tpp = terminProstorije.TransformacijaProstorijeParam;
+            DodajProstoriju(tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
+            DodajProstoriju(tpp.TipProstorijeB, tpp.BrojB, tpp.SpratB, tpp.PovrsinaB);
+            return true;
+        }
 
+        public bool ObrisiProstorijuById(int idProstorije)
+        {
+            Prostorija delProstorija = GetProstorijaById(idProstorije);
+            ObrisiProstoriju(delProstorija);
+            return true;
+        }
 
+        public bool NapraviJednuProstorijuSpajanjemDve(TerminProstorije terminProstorije)
+        {
+            TransformacijaProstorijeParametri tpp = terminProstorije.TransformacijaProstorijeParam;
+            DodajProstoriju(tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
+            return true;
+        }
 
     }
 }

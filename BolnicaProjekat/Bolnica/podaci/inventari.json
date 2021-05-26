@@ -439,5 +439,17 @@
     "IdProstorije": 11,
     "LOprema": [],
     "LLekovi": []
+  },
+  {
+    "Id": 16,
+    "IdProstorije": 16,
+    "LOprema": [],
+    "LLekovi": []
+  },
+  {
+    "Id": 17,
+    "IdProstorije": 17,
+    "LOprema": [],
+    "LLekovi": []
   }
 ]

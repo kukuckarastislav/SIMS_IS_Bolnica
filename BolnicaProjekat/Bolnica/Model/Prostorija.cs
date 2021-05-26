@@ -27,7 +27,7 @@ namespace Model
 
         }
 
-        public List<int> IdZdravstveneUsluge { get; set; }
+        public List<int> IdZdravstveneUsluge { get; set; }      // ovo tu je neka greska treba obrisati ovu listu 
 
        // public System.Collections.ArrayList TerminiZauzetosti { get; set; }
         /*

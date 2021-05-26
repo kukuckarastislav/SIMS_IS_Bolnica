@@ -81,5 +81,17 @@ namespace Bolnica.view.upravnik.prostorije
         {
             this.Close();
         }
+
+        private void Spajanje_click(object sender, RoutedEventArgs e)
+        {
+            var zakazivanjeSpajanjaProstorijeForma = new ZakaziSpajanjeProstorijeForma(this, prostorija);
+            zakazivanjeSpajanjaProstorijeForma.Show();
+        }
+
+        private void Razdvajanje_click(object sender, RoutedEventArgs e)
+        {
+            var zakazivanjeRazdvajanjaProstorijeForma = new ZakazivanjeRazdvajanjaProstorijeForma(this, prostorija);
+            zakazivanjeRazdvajanjaProstorijeForma.Show();
+        }
     }
 }

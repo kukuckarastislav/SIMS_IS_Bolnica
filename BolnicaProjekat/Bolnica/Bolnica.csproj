@@ -149,6 +149,7 @@
     <Compile Include="Model\TipTerminaProstorije.cs" />
     <Compile Include="Model\TipUsluge.cs" />
     <Compile Include="Model\TransferOpreme.cs" />
+    <Compile Include="Model\TransformacijaProstorijeParametri.cs" />
     <Compile Include="Model\Upravnik.cs" />
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
@@ -422,6 +423,12 @@
     </Compile>
     <Compile Include="view\upravnik\prostorije\prostorije.xaml.cs">
       <DependentUpon>prostorije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\ZakaziSpajanjeProstorijeForma.xaml.cs">
+      <DependentUpon>ZakaziSpajanjeProstorijeForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\prostorije\ZakazivanjeRazdvajanjaProstorijeForma.xaml.cs">
+      <DependentUpon>ZakazivanjeRazdvajanjaProstorijeForma.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\prostorije\ZakazivanjeTerminaRenoviranjaForma.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaRenoviranjaForma.xaml</DependentUpon>
@@ -754,6 +761,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\upravnik\prostorije\prostorije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\prostorije\ZakaziSpajanjeProstorijeForma.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\prostorije\ZakazivanjeRazdvajanjaProstorijeForma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

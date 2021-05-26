@@ -50,7 +50,6 @@ namespace Bolnica.view.upravnik
 
         private void Prostorije_Click(object sender, RoutedEventArgs e)
         {
-
             RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
         }
 
@@ -67,6 +66,11 @@ namespace Bolnica.view.upravnik
         private void Lekovi_Click(object sender, RoutedEventArgs e)
         {
            RadnaPovrsina.Content = new view.upravnik.Lekovi.LekoviPage();
+        }
+
+        private void Ocene_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.upravnik.Ocene.OcenePage();
         }
     }
 }

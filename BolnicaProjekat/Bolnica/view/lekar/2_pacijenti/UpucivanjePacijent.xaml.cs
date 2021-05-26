@@ -37,26 +37,29 @@ namespace Bolnica.view.lekar.pacijenti
 
         public UpucivanjePacijent(Lekar Lekar, Pacijent IzabraniPacijent)
         {
+            InitializeComponent();
             this.Lekar = Lekar;
-            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
             this.IzabraniPacijent = IzabraniPacijent;
+
+            InicijalizujObjekte();
+            UcitajPodatke();
+        }
+
+        private void InicijalizujObjekte()
+        {
+            ProstorijeKontrolerObjekat = new ProstorijeKontroler();
             KolekcijaSobeZaPregled = ProstorijeKontrolerObjekat.getProstorijeTipObservable(TipProstorije.SobaZaPreglede);
             KolekcijaIDSobeZaPregled = new ObservableCollection<String>();
-
             KolekcijaLekar = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
-
 
             foreach (Prostorija s in KolekcijaSobeZaPregled)
             {
-                //KolekcijaIDSobeZaPregled.Add(s.Id.ToString());
                 KolekcijaIDSobeZaPregled.Add(s.BrojSprat);
             }
-            InitializeComponent();
-
-
             date = DateTime.Now;
-
-
+        }
+        private void UcitajPodatke()
+        {
             this.ComboBoxProstorija.ItemsSource = KolekcijaSobeZaPregled;
             this.ComboBoxLekar.ItemsSource = KolekcijaLekar;
 
@@ -65,10 +68,10 @@ namespace Bolnica.view.lekar.pacijenti
             headerJMBG.Text = IzabraniPacijent.Jmbg;
         }
 
+
         private void datum_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             date = datum.SelectedDate.Value;
-
             if (DateTime.Compare(date, DateTime.Now) < 0)
             {
                 MessageBox.Show("Moguce je izabrati samo buduce datume");

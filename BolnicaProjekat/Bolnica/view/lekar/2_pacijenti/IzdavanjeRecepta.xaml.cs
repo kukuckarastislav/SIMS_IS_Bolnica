@@ -32,6 +32,7 @@ namespace Bolnica.view.lekar.pacijenti
         public Lek OdabraniLek { get; set; }
         public Lekar Lekar;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
+        private view.lekar.pacijenti.NacinKoriscenja refNacinKoriscenja;
 
         public IzdavanjeRecepta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
@@ -70,18 +71,9 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void IzdavanjeReceptaButton(object sender, RoutedEventArgs e)
         {
-            int VremeSati = Convert.ToInt32(Vreme_Sati.Text);
-            int VremeMinute = Convert.ToInt32(Vreme_Minute.Text);
-            string Vreme_AP = Vreme_AM_PM.Text;
-
-            if (Vreme_AP.Equals("PM"))
-                VremeSati += 12;
-
-            DateTime vrijemeUzimanja= new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, VremeSati, VremeMinute, 00);
-            MessageBox.Show(vrijemeUzimanja.ToString());
 
             DateTime DatumPropisivanja = new DateTime(DateTime.Now.Year,DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-            //DateTime DatumIsteka = datum_isteka.SelectedDate.Value; //iz nekog razl ne radi
+
 
             OdabraniLek = ComboBoxLek.SelectedItem as Lek;
             string nacin_koriscenja = NacinKorsicenja.Text;
@@ -95,7 +87,7 @@ namespace Bolnica.view.lekar.pacijenti
 
 
            // Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
-            Servis.NotifikacijeServis.ReceptNotifikacija(r,vrijemeUzimanja);
+           // Servis.NotifikacijeServis.ReceptNotifikacija(r,vrijemeUzimanja);
             ReceptKontroler.DodajRecept(r);
             //Recepti = new ObservableCollection<Recept>();
 
@@ -142,6 +134,15 @@ namespace Bolnica.view.lekar.pacijenti
             }
 
 
+        }
+
+        private void NacinKorisnenjaButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (OdabraniLek != null)
+            {
+                refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(Lekar, IzabraniPacijent, OdabraniLek.Id);
+                NavigationService.Navigate(refNacinKoriscenja);
+            }
         }
     }
 }

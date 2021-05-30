@@ -92,6 +92,10 @@ namespace Bolnica.view.pacijent
 
         }
 
-
+        private void izvjestaj_Click(object sender, RoutedEventArgs e)
+        {
+            var varr = new Izvjestaj(Pacijent);
+            varr.ShowDialog();
         }
+    }
     }

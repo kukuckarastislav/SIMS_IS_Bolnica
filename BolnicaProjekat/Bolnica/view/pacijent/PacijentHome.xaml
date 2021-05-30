@@ -25,6 +25,7 @@
                 <MenuItem Header="Medicinski karton">
                     <MenuItem Name="istorija_prikaz" Header="Istorija bolesti" Click="prikazi_istoriju_bolesti"/>
                     <MenuItem Name="terapija" Header="Trenutna terapija" Click="prikazi_trenutnu_terapiju"/>
+                    <MenuItem Name="izvjestaj" Header="Izvjestaj u uzimanju terapije" Click="izvjestaj_Click"/>
                 </MenuItem>
                 <MenuItem Header="Podesavanja">
                     <MenuItem Header="Tooltipovi">

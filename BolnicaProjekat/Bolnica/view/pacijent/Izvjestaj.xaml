@@ -1,0 +1,47 @@
+﻿<Window x:Class="Bolnica.view.pacijent.Izvjestaj"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        mc:Ignorable="d"
+        Title="Izvjestaj" Height="476.258" Width="1268.108">
+    <Grid>
+        <StackPanel>
+            <Label Margin="5,0,0,0" Content="Izvjestaj o uzimanju terapije na sedmicnom nivou" FontSize="25" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal" Height="343">
+                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                    <Label Content="Ponedeljak:" FontSize="18"/>
+                    <TextBlock x:Name="ponedeljak" Height="168" >
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                    <Label Content="Utorak:" FontSize="18"/>
+                    <TextBlock x:Name="utorak" Height="168"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                    <Label Content="Srijeda:" FontSize="18"/>
+                    <TextBlock x:Name="srijeda" Height="168"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                    <Label Content="Četvrtak:" FontSize="18"/>
+                    <TextBlock x:Name="cetvrtak" Height="168"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                    <Label Content="Petak:" FontSize="18"/>
+                    <TextBlock x:Name="petak" Height="168"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                    <Label Content="Subota:" FontSize="18"/>
+                    <TextBlock x:Name="subota" Height="168"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                    <Label Content="Nedelja:" FontSize="18"/>
+                    <TextBlock x:Name="nedelja" Height="168"/>
+                </StackPanel>
+            </StackPanel>
+            <TextBlock x:Name="period" Height="49" HorizontalAlignment="Left" Width="556" FontSize="17"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

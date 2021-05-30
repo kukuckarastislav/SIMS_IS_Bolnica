@@ -114,6 +114,7 @@
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
+    <Compile Include="DTO\StavkaIzvjestajaDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
@@ -267,6 +268,9 @@
     </Compile>
     <Compile Include="view\pacijent\IstorijaBolesti.xaml.cs">
       <DependentUpon>IstorijaBolesti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\Izvjestaj.xaml.cs">
+      <DependentUpon>Izvjestaj.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
       <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
@@ -557,6 +561,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\IstorijaBolesti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\Izvjestaj.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

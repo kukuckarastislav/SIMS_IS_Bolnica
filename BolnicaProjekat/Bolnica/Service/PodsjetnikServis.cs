@@ -122,6 +122,47 @@ namespace Servis
             return count;
         }
 
+        public List<StavkaIzvjestajaDTO> GetPodsjetnikAktuelneSedmice(int idPacijenta)
+        {
+            List<StavkaIzvjestajaDTO> ret = new List<StavkaIzvjestajaDTO>();
+            foreach(Podsjetnik p in GetPodsjetnikPacijenta(idPacijenta))
+            {
+                if((DateTime.Compare(p.VrijemePojavljivanja, GetPocetakIzvjestaja()) >= 0) &&
+                    (DateTime.Compare(p.VrijemePojavljivanja, GetPocetakIzvjestaja().AddDays(7)) <= 0))
+                {
+                    String[] tokens = p.Tekst.Split(' ');
+                    string nazivLijeka = tokens[9];
+                    ret.Add(new StavkaIzvjestajaDTO(p.VrijemePojavljivanja.DayOfWeek.ToString(),nazivLijeka,p.VrijemePojavljivanja));
+                }
+            }
+            return ret;
+        }
+
+        public List<StavkaIzvjestajaDTO> GetStavkaIzvjestajaZaDan(int idPacijenta,string DanUSedmici)
+        {
+            List<StavkaIzvjestajaDTO> ret = new List<StavkaIzvjestajaDTO>();
+            foreach(StavkaIzvjestajaDTO s in GetPodsjetnikAktuelneSedmice(idPacijenta))
+            {
+                if (s.DanUSedmici.Equals(DanUSedmici))
+                    ret.Add(s);
+            }
+            return ret;
+        }
+
+        public DateTime GetPocetakIzvjestaja()
+        {
+            DateTime pocetakIzvjestaja = new DateTime();
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Monday) pocetakIzvjestaja = DateTime.Now;
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Tuesday) pocetakIzvjestaja = DateTime.Now - new TimeSpan(1, 0, 0, 0);
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday) pocetakIzvjestaja = DateTime.Now - new TimeSpan(2, 0, 0, 0);
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Thursday) pocetakIzvjestaja = DateTime.Now - new TimeSpan(3, 0, 0, 0);
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Friday) pocetakIzvjestaja = DateTime.Now - new TimeSpan(4, 0, 0, 0);
+            else if (DateTime.Now.DayOfWeek == DayOfWeek.Saturday) pocetakIzvjestaja = DateTime.Now - new TimeSpan(5, 0, 0, 0);
+            else pocetakIzvjestaja = DateTime.Now - new TimeSpan(6, 0, 0, 0);
+
+            return pocetakIzvjestaja;
+        }
+
 
 
     }

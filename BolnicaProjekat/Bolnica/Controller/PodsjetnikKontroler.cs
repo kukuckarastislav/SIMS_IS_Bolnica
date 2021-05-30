@@ -38,5 +38,10 @@ namespace Kontroler
         {
             return servis.GetBrojNeprocitanihPodsjetnika(id).ToString();
         }
+
+        internal void DodajPodsjetnikZaUzimanjeLijeka(ParametriUzimanjaTerapijeDTO dto, int idLeka,int idPacijenta)
+        {
+            servis.DodajPodsjetnikZaUzimanjeLijeka(dto,idLeka,idPacijenta);
+        }
     }
 }

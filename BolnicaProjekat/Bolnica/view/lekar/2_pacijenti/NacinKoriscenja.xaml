@@ -207,7 +207,7 @@
                                   Width="45" 
                                   Background="#32ccff" 
                                   MaxDropDownHeight="40"
-                                  DropDownClosed="cmbSaRazmakomOd_DropDownClosed" SelectionChanged="cmbSaRazmakomOd_SelectionChanged">
+                                  >
                         <ComboBoxItem >4</ComboBoxItem>
                         <ComboBoxItem >6</ComboBoxItem>
                         <ComboBoxItem IsSelected="True" >8</ComboBoxItem>
@@ -229,7 +229,6 @@
                                   Width="45" 
                                   Background="#32ccff" 
                                   MaxDropDownHeight="40"
-                                  DropDownClosed="cmbPocetakTerapije_Sat_DropDownClosed"
                                   >
                         <ComboBoxItem >0</ComboBoxItem>
                         <ComboBoxItem >1</ComboBoxItem>
@@ -266,7 +265,9 @@
                                 Margin="0,5,0,0"
                                 Height="35"
                                 Width="100"
-                            HorizontalAlignment="Right">
+                            HorizontalAlignment="Right"
+                            Click="Button_Click">
+                            
 
                     <Button.Resources>
                         <Style TargetType="Border">

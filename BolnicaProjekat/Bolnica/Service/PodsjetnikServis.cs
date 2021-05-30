@@ -11,10 +11,12 @@ namespace Servis
     public class PodsjetnikServis
     {
         private PodsjetnikRepozitorijum Repozitorijum;
+        private LekoviRepozitorijum lekoviRepozitorijum;
 
         public PodsjetnikServis()
         {
             Repozitorijum = PodsjetnikRepozitorijum.GetInstance;
+            lekoviRepozitorijum = LekoviRepozitorijum.GetInstance;
         }
 
         public void ThreadPodsjetnik()
@@ -47,6 +49,45 @@ namespace Servis
                 parametri.Pocetak += new TimeSpan(1, 0, 0, 0, 0);
             }
             return null;
+        }
+
+
+        internal void DodajPodsjetnikZaUzimanjeLijeka(ParametriUzimanjaTerapijeDTO parametri, int idLeka,int idPacijenta)
+        {
+            while (DateTime.Compare(parametri.PocetakTerapije, parametri.KrajTerapije) <= 0)
+            {
+                DateTime Vrijeme = new DateTime(parametri.PocetakTerapije.Year, parametri.PocetakTerapije.Month, parametri.PocetakTerapije.Day,
+                                                   parametri.PredlozenoVrijeme,00, 00);
+
+                int id = Repozitorijum.getNewId();
+                Podsjetnik Podsjetnik = new Podsjetnik(id, idPacijenta, Vrijeme, false, GenerisiTekstPodsjetnika(idLeka), false);
+                Repozitorijum.DodajPodsjetnik(Podsjetnik);
+                parametri.PocetakTerapije += new TimeSpan(1, 0, 0, 0, 0);
+                DodajOstalePodsjetnikeZaDan(parametri,Podsjetnik);
+            }
+        }
+
+        public void DodajOstalePodsjetnikeZaDan(ParametriUzimanjaTerapijeDTO parametri,Podsjetnik p)
+        {
+            if(parametri.DnevniBrojUzimanja > 1)
+            {
+                int id = Repozitorijum.getNewId();
+                TimeSpan period = new TimeSpan(0, parametri.VremenskiRazmak, 0, 0, 0);
+                Podsjetnik noviPodsjetnik = new Podsjetnik(id,p.IdPacijenta,p.VrijemePojavljivanja + period,p.Vidljiv,p.Tekst,p.Procitan);
+                Repozitorijum.DodajPodsjetnik(noviPodsjetnik);
+
+                if(parametri.DnevniBrojUzimanja == 3)
+                {
+                    int newid = Repozitorijum.getNewId();
+                    Podsjetnik NoviPodsjetnik = new Podsjetnik(newid, p.IdPacijenta, p.VrijemePojavljivanja+period+period, p.Vidljiv, p.Tekst, p.Procitan);
+                    Repozitorijum.DodajPodsjetnik(NoviPodsjetnik);
+                }
+            }
+        }
+
+        public String GenerisiTekstPodsjetnika(int idLeka)
+        {
+            return "Podsjecamo vas da je vrijeme da uzmete vas lijek " + lekoviRepozitorijum.GetLekById(idLeka).Naziv;
         }
 
         internal ObservableCollection<Podsjetnik> GetPodsjetnikPacijenta(int id)

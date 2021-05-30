@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
+using Kontroler;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -31,11 +33,16 @@ namespace Bolnica.view.lekar.pacijenti
         private int PocetakTerapijeUSatima;
         private int DnevniBrojUzimanja;
 
+        private int idLeka;
+
+        public static ParametriUzimanjaTerapijeDTO dto { get; set; }
+
 
         public NacinKoriscenja(Lekar Lekar, Pacijent IzabraniPacijent, int idLeka)
         {
             this.Lekar = Lekar;
             this.IzabraniPacijent = IzabraniPacijent;
+            this.idLeka = idLeka;
             InitializeComponent();
             KreirajIspravanKalendar();
         }
@@ -51,15 +58,11 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void PotvrdiButton(object sender, RoutedEventArgs e)
         {
-            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(Lekar, IzabraniPacijent);
-            NavigationService.Navigate(refIzdavanjeRecepta);
+
 
         }
-
         private void OdustaniButton(object sender, RoutedEventArgs e)
         {
-            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(Lekar, IzabraniPacijent);
-            NavigationService.Navigate(refIzdavanjeRecepta);
 
         }
 
@@ -97,18 +100,20 @@ namespace Bolnica.view.lekar.pacijenti
                                                 0, 0, 0);
         }
 
-        private void cmbSaRazmakomOd_DropDownClosed(object sender, EventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            VremenskiRazmak = Convert.ToInt32(cmbSaRazmakomOd.SelectedItem);
-        }
 
-        private void cmbPocetakTerapije_Sat_DropDownClosed(object sender, EventArgs e)
-        {
+            VremenskiRazmak = Convert.ToInt32(cmbSaRazmakomOd.Text);
+            MessageBox.Show(VremenskiRazmak.ToString());
             PocetakTerapijeUSatima = Convert.ToInt32(cmbPocetakTerapije_Sat.Text);
-        }
+            MessageBox.Show(PocetakTerapijeUSatima.ToString());
 
-        private void cmbSaRazmakomOd_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+            dto = new ParametriUzimanjaTerapijeDTO(PocetakTerapije, KrajTerapije, VremenskiRazmak, PocetakTerapijeUSatima, DnevniBrojUzimanja);
+            PodsjetnikKontroler kontroler = new PodsjetnikKontroler();
+            kontroler.DodajPodsjetnikZaUzimanjeLijeka(dto, idLeka, IzabraniPacijent.Id);
+
+            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(Lekar, IzabraniPacijent);
+            NavigationService.Navigate(refIzdavanjeRecepta);
 
         }
     }

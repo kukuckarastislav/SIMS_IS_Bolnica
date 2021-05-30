@@ -1,2 +1,50 @@
 [
+  {
+    "Id": 1,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-04T11:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false
+  },
+  {
+    "Id": 2,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-04T21:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false
+  },
+  {
+    "Id": 3,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-05T11:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false
+  },
+  {
+    "Id": 4,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-05T21:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false
+  },
+  {
+    "Id": 5,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-06T11:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false
+  },
+  {
+    "Id": 6,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-06T21:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false
+  }
 ]

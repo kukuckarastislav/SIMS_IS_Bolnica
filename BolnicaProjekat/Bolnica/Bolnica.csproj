@@ -110,6 +110,7 @@
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
+    <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="DTO\SlobodniDaniDTO.cs" />

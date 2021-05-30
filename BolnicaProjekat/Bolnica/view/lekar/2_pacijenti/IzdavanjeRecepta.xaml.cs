@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
+
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -34,6 +36,7 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         private view.lekar.pacijenti.NacinKoriscenja refNacinKoriscenja;
 
+        private ParametriUzimanjaTerapijeDTO dto;
         public IzdavanjeRecepta(Lekar Lekar, Pacijent IzabraniPacijent)
         {
             this.Lekar = Lekar;
@@ -91,6 +94,7 @@ namespace Bolnica.view.lekar.pacijenti
             ReceptKontroler.DodajRecept(r);
             //Recepti = new ObservableCollection<Recept>();
 
+
         }
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
@@ -142,6 +146,7 @@ namespace Bolnica.view.lekar.pacijenti
             {
                 refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(Lekar, IzabraniPacijent, OdabraniLek.Id);
                 NavigationService.Navigate(refNacinKoriscenja);
+                dto = NacinKoriscenja.dto;
             }
         }
     }

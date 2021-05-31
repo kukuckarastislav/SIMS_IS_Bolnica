@@ -16,9 +16,9 @@ namespace Kontroler
             servis = new FeedbackServis();
         }
 
-        public void DodajFeedbackPacijenta()
+        public void DodajFeedbackPacijenta(int idPacijenta,String text)
         {
-
+            servis.DodajFeedbackPacijenta(idPacijenta,text);
         }
         public void DodajFeedbackLekara()
         {

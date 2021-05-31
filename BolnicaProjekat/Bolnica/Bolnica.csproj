@@ -266,6 +266,9 @@
     <Compile Include="view\pacijent\AnketaLekar.xaml.cs">
       <DependentUpon>AnketaLekar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\FeedbackPacijenta.xaml.cs">
+      <DependentUpon>FeedbackPacijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\IstorijaBolesti.xaml.cs">
       <DependentUpon>IstorijaBolesti.xaml</DependentUpon>
     </Compile>
@@ -283,6 +286,9 @@
     </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\PacijentHomeHelp.xaml.cs">
+      <DependentUpon>PacijentHomeHelp.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\PodsjetnikPacijenta.xaml.cs">
       <DependentUpon>PodsjetnikPacijenta.xaml</DependentUpon>
@@ -560,6 +566,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\pacijent\FeedbackPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\pacijent\IstorijaBolesti.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -581,6 +591,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\PacijentHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\PacijentHomeHelp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

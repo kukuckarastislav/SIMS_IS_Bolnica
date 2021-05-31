@@ -45,7 +45,7 @@ namespace Servis
                 int id = Repozitorijum.getNewId();
                 DateTime Vrijeme = new DateTime(parametri.Pocetak.Year,parametri.Pocetak.Month,parametri.Pocetak.Day,
                                             parametri.VrijemePojavljivanja.Hour,parametri.VrijemePojavljivanja.Minute,00);
-                Repozitorijum.DodajPodsjetnik(new Podsjetnik(id,parametri.IdPacijenta,Vrijeme, false, parametri.Tekst,false));
+                Repozitorijum.DodajPodsjetnik(new Podsjetnik(id,parametri.IdPacijenta,Vrijeme, false, parametri.Tekst,false,false));
                 parametri.Pocetak += new TimeSpan(1, 0, 0, 0, 0);
             }
             return null;
@@ -60,7 +60,7 @@ namespace Servis
                                                    parametri.PredlozenoVrijeme,00, 00);
 
                 int id = Repozitorijum.getNewId();
-                Podsjetnik Podsjetnik = new Podsjetnik(id, idPacijenta, Vrijeme, false, GenerisiTekstPodsjetnika(idLeka), false);
+                Podsjetnik Podsjetnik = new Podsjetnik(id, idPacijenta, Vrijeme, false, GenerisiTekstPodsjetnika(idLeka), false,true);
                 Repozitorijum.DodajPodsjetnik(Podsjetnik);
                 parametri.PocetakTerapije += new TimeSpan(1, 0, 0, 0, 0);
                 DodajOstalePodsjetnikeZaDan(parametri,Podsjetnik);
@@ -73,13 +73,13 @@ namespace Servis
             {
                 int id = Repozitorijum.getNewId();
                 TimeSpan period = new TimeSpan(0, parametri.VremenskiRazmak, 0, 0, 0);
-                Podsjetnik noviPodsjetnik = new Podsjetnik(id,p.IdPacijenta,p.VrijemePojavljivanja + period,p.Vidljiv,p.Tekst,p.Procitan);
+                Podsjetnik noviPodsjetnik = new Podsjetnik(id,p.IdPacijenta,p.VrijemePojavljivanja + period,p.Vidljiv,p.Tekst,p.Procitan,true);
                 Repozitorijum.DodajPodsjetnik(noviPodsjetnik);
 
                 if(parametri.DnevniBrojUzimanja == 3)
                 {
                     int newid = Repozitorijum.getNewId();
-                    Podsjetnik NoviPodsjetnik = new Podsjetnik(newid, p.IdPacijenta, p.VrijemePojavljivanja+period+period, p.Vidljiv, p.Tekst, p.Procitan);
+                    Podsjetnik NoviPodsjetnik = new Podsjetnik(newid, p.IdPacijenta, p.VrijemePojavljivanja+period+period, p.Vidljiv, p.Tekst, p.Procitan,true);
                     Repozitorijum.DodajPodsjetnik(NoviPodsjetnik);
                 }
             }
@@ -128,7 +128,7 @@ namespace Servis
             foreach(Podsjetnik p in GetPodsjetnikPacijenta(idPacijenta))
             {
                 if((DateTime.Compare(p.VrijemePojavljivanja, GetPocetakIzvjestaja()) >= 0) &&
-                    (DateTime.Compare(p.VrijemePojavljivanja, GetPocetakIzvjestaja().AddDays(7)) <= 0))
+                    (DateTime.Compare(p.VrijemePojavljivanja, GetPocetakIzvjestaja().AddDays(7)) <= 0) && p.JePodsjetnikZaLijekove)
                 {
                     String[] tokens = p.Tekst.Split(' ');
                     string nazivLijeka = tokens[9];

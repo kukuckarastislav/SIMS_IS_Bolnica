@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Servis;
 using Model;
 using DTO;
@@ -37,6 +34,16 @@ namespace Kontroler
         internal string GetBrojNeprocitanihPodsjetnika(int id)
         {
             return servis.GetBrojNeprocitanihPodsjetnika(id).ToString();
+        }
+
+        internal void DodajPodsjetnikZaUzimanjeLijeka(ParametriUzimanjaTerapijeDTO dto, int idLeka,int idPacijenta)
+        {
+            servis.DodajPodsjetnikZaUzimanjeLijeka(dto,idLeka,idPacijenta);
+        }
+
+        public List<StavkaIzvjestajaDTO> GetStavkeIzvjestajaZaDan(int idPacijenta,String dan)
+        {
+            return servis.GetStavkaIzvjestajaZaDan(idPacijenta,dan);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Windows;
 using Kontroler;
+using System.Windows.Input;
 
 namespace Bolnica.view.pacijent
 {
@@ -36,44 +37,44 @@ namespace Bolnica.view.pacijent
         private void prikazi_preglede(object sender, RoutedEventArgs e)
         {
             var varr = new view.pacijent.RaspoloziviPregledi();
-            varr.Show();
+            varr.ShowDialog();
         }
 
         private void prikazi_vlastite_preglede(object sender, RoutedEventArgs e)
         {
             var varr = new view.pacijent.SopstveniPregledi(Pacijent);
-            varr.Show();
+            varr.ShowDialog();
 
         }
         private void prikazi_notifikacije(object sender, RoutedEventArgs e)
         {
             var varr = new view.pacijent.NotifikacijePacijent();
-            varr.Show();
+            varr.ShowDialog();
         }
 
         private void prikazi_ocjene(object sender, RoutedEventArgs e)
         {
             var varr=new view.pacijent.Ocjene(Pacijent);
-            varr.Show();
+            varr.ShowDialog();
         }
 
         private void prikazi_podsjetnik(object sender, RoutedEventArgs e)
         {
             var varr=new view.pacijent.PodsjetnikPacijenta(Pacijent);
-            varr.Show();
+            varr.ShowDialog();
         }
 
         private void prikazi_istoriju_bolesti(object sender, RoutedEventArgs e)
         {
             var varr = new view.pacijent.IstorijaBolesti(Pacijent);
-            varr.Show();
+            varr.ShowDialog();
 
         }
 
         private void prikazi_trenutnu_terapiju(object sender, RoutedEventArgs e)
         {
             var varr = new view.pacijent.TrenutnaTerapija(Pacijent);
-            varr.Show();
+            varr.ShowDialog();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -89,9 +90,41 @@ namespace Bolnica.view.pacijent
 
         private void pomoc_Click(object sender, RoutedEventArgs e)
         {
-
+            var varr = new PacijentHomeHelp();
+            varr.ShowDialog();
         }
 
+        private void izvjestaj_Click(object sender, RoutedEventArgs e)
+        {
+            var varr = new Izvjestaj(Pacijent);
+            varr.ShowDialog();
+        }
+
+        private void feedback_Click(object sender, RoutedEventArgs e)
+        {
+            var varr = new FeedbackPacijenta(Pacijent);
+            varr.ShowDialog();
+        }
+
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.E && Keyboard.IsKeyDown(Key.LeftCtrl))
+                odjava_Click(sender, e);
+            else if (e.Key == Key.H && Keyboard.IsKeyDown(Key.LeftCtrl))
+                pomoc_Click(sender, e);
+            else if (e.Key == Key.N && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_notifikacije(sender, e);
+            else if (e.Key == Key.P && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_podsjetnik(sender, e);
+            else if (e.Key == Key.A && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_preglede(sender, e);
+            else if (e.Key == Key.O && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_vlastite_preglede(sender, e);
+            else if (e.Key == Key.G && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_ocjene(sender, e);
+            else if (e.Key == Key.I && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_istoriju_bolesti(sender, e);
 
         }
+    }
     }

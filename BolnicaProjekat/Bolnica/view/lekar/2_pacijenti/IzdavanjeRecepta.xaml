@@ -141,53 +141,31 @@
                     Grid.Column="1" Grid.ColumnSpan="5"/>
                 <DatePicker Grid.Row="3" Grid.Column="2" x:Name="datum_isteka"/>
 
-                <TextBlock Text="Vreme uzimanja:" Margin="0,0,0,0" Padding="2"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    />
 
-                <StackPanel x:Name="VremeUzimanja" Orientation="Horizontal" HorizontalAlignment="Left">
-
-                    <ComboBox x:Name="Vreme_Sati" Width="45" Background="#32ccff">
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >1</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >2</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >3</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >4</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >5</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >6</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >7</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >8</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >9</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >10</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">11</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
-                    </ComboBox>
-                    <ComboBox x:Name="Vreme_Minute"  Width="45" Background="#32ccff">
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="05" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="10" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="15" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="20" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="35" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="40" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="45" />
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="50" />
-                    </ComboBox>
-                    <ComboBox x:Name="Vreme_AM_PM"  Width="45" Background="#32ccff">
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM"/>
-                    </ComboBox>
-
-                </StackPanel>
+                <Button x:Name="NacinKorisnenjaButton"
+                IsEnabled="True"
+                Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom" 
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,20,0,35"
+                Click="NacinKorisnenjaButton_Click" HorizontalAlignment="Left" Grid.RowSpan="2" Width="141">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <StackPanel Orientation="Horizontal"  Width="140">
+                        <!--Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" -->
+                        <TextBlock Padding="2" FontSize="11" VerticalAlignment="Center" FontWeight="SemiBold">Način koriščenja</TextBlock>
+                    </StackPanel>
+                </Button>
+                
+                
             </StackPanel>
 
         </StackPanel>
 
         <StackPanel Grid.Row="6" Grid.RowSpan="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="10,10,5,0">
             <TextBlock  x:Name="NacinKorsicenja"
-                        Text="Način korisčenja:" 
+                        Text="Komentar: " 
                         VerticalAlignment="Top" HorizontalAlignment="left" 
                         FontWeight="Bold" 
                         Foreground="#eeebdd"

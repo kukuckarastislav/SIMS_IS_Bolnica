@@ -14,8 +14,9 @@ namespace Model
         public bool Vidljiv { get; set; }
         public string Tekst { get; set; }
         public bool Procitan { get; set; }
+        public bool JePodsjetnikZaLijekove { get; set; }
 
-        public Podsjetnik(int id, int idPacijenta, DateTime vrijemePojavljivanja, bool vidljiv, string tekst,bool procitan)
+        public Podsjetnik(int id, int idPacijenta, DateTime vrijemePojavljivanja, bool vidljiv, string tekst, bool procitan, bool jePodsjetnikZaLijekove)
         {
             Id = id;
             IdPacijenta = idPacijenta;
@@ -23,6 +24,7 @@ namespace Model
             Vidljiv = vidljiv;
             Tekst = tekst;
             Procitan = procitan;
+            JePodsjetnikZaLijekove = jePodsjetnikZaLijekove;
         }
     }
 }

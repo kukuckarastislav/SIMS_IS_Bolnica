@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controller\AnketaKontroler.cs" />
+    <Compile Include="Controller\FeedbackKontroler.cs" />
     <Compile Include="Controller\GodisnjiOdmorKontroler.cs" />
     <Compile Include="Controller\InventariKontroler.cs" />
     <Compile Include="Controller\KorisnickaAktivnostKontroler.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\FeedbackDTO.cs" />
     <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
     <Compile Include="DTO\ObavestenjeDTO.cs" />
     <Compile Include="DTO\OcenaDTO.cs" />
@@ -108,9 +110,11 @@
     <Compile Include="DTO\OpremaDTO.cs" />
     <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
+    <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
+    <Compile Include="DTO\StavkaIzvjestajaDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Model\Aktivnost.cs" />
@@ -118,6 +122,7 @@
     <Compile Include="Model\DTORadniKalendar.cs" />
     <Compile Include="Model\DTORecept.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />
+    <Compile Include="Model\Feedback.cs" />
     <Compile Include="Model\GodisnjiOdmor.cs" />
     <Compile Include="Model\Inventar.cs" />
     <Compile Include="Model\Korisnik.cs" />
@@ -154,6 +159,7 @@
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
     <Compile Include="Repository\AnketaRepozitorijum.cs" />
+    <Compile Include="Repository\FeedbackRepozitorijum.cs" />
     <Compile Include="Repository\GodisnjiOdmorRepozitorijum.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
     <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
@@ -171,6 +177,7 @@
     <Compile Include="Repository\ZdravstvenaUslugaRepozitorijum.cs" />
     <Compile Include="Repository\UpravnikRepozitorijum.cs" />
     <Compile Include="Service\AnketaServis.cs" />
+    <Compile Include="Service\FeedbackServis.cs" />
     <Compile Include="Service\GodisnjiOdmorServis.cs" />
     <Compile Include="Service\InventariSerivs.cs" />
     <Compile Include="Service\KorisnickaAktivnostServis.cs" />
@@ -189,6 +196,9 @@
     <Compile Include="Service\UpravnikServis.cs" />
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\lekar\2_pacijenti\NacinKoriscenja.xaml.cs">
+      <DependentUpon>NacinKoriscenja.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\2_pacijenti\UpucivanjeNaStacionarnoLecenje.xaml.cs">
       <DependentUpon>UpucivanjeNaStacionarnoLecenje.xaml</DependentUpon>
@@ -256,8 +266,14 @@
     <Compile Include="view\pacijent\AnketaLekar.xaml.cs">
       <DependentUpon>AnketaLekar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\FeedbackPacijenta.xaml.cs">
+      <DependentUpon>FeedbackPacijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\IstorijaBolesti.xaml.cs">
       <DependentUpon>IstorijaBolesti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\Izvjestaj.xaml.cs">
+      <DependentUpon>Izvjestaj.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
       <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
@@ -270,6 +286,9 @@
     </Compile>
     <Compile Include="view\pacijent\PacijentHome.xaml.cs">
       <DependentUpon>PacijentHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\PacijentHomeHelp.xaml.cs">
+      <DependentUpon>PacijentHomeHelp.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\PodsjetnikPacijenta.xaml.cs">
       <DependentUpon>PodsjetnikPacijenta.xaml</DependentUpon>
@@ -455,6 +474,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\lekar\2_pacijenti\NacinKoriscenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\lekar\2_pacijenti\UpucivanjeNaStacionarnoLecenje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -543,7 +566,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\pacijent\FeedbackPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\pacijent\IstorijaBolesti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\Izvjestaj.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -560,6 +591,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\PacijentHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\PacijentHomeHelp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

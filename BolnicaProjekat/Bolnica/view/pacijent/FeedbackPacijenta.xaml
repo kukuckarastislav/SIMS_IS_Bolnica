@@ -1,0 +1,17 @@
+﻿<Window x:Class="Bolnica.view.pacijent.FeedbackPacijenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        mc:Ignorable="d"
+        Title="FeedbackPacijenta" Height="164.852" Width="487.005">
+    <Grid>
+        <StackPanel>
+            <Label Content="Dajte nam svoj feedback o radu aplikacije:" Margin="40,0"/>
+            <TextBox Name="feedback" Height="57" Width="400"/>
+            <Button Name="potvrdi" Width="81" Height="27" Margin="0,0,39,0" HorizontalAlignment="Right" Content="Potvrdi" Click="potvrdi_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

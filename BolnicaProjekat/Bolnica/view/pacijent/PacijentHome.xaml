@@ -5,33 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="PacijentHome" Height="609.448" Width="1166.982">
+        Title="PacijentHome" Height="609.448" Width="1166.982"
+        KeyDown="Window_KeyDown">
     <Grid Margin="0,0,2,0">
         <DockPanel>
             <Menu DockPanel.Dock="Top" Height="21" Background="WhiteSmoke">
                 <MenuItem Header="Nalog">
                     <MenuItem Header="Izmjena informacija"/>
                     <MenuItem Header="Promjena lozinke"/>
-                    <MenuItem Name="odjava" Header="Odjava" Click="odjava_Click"/>
+                    <MenuItem Name="odjava" Header="Odjava" Click="odjava_Click" InputGestureText="Ctrl+E"/>
+                    <Separator/>
+                    <MenuItem Name="feedback" Header="Dodaj feedback o radu aplikacije" Click="feedback_Click"/>
+
                 </MenuItem>
                 <MenuItem Header="Termini">
-                    <MenuItem Name="moji_termini" Header="Zakazani termini" Click="prikazi_vlastite_preglede" />
-                    <MenuItem Name="zakazivanje" Header="Zakazivanje pregleda" Click="prikazi_preglede"/>
+                    <MenuItem Name="moji_termini" Header="Zakazani termini" Click="prikazi_vlastite_preglede" InputGestureText="Ctrl+O"/>
+                    <MenuItem Name="zakazivanje" Header="Zakazivanje pregleda" Click="prikazi_preglede" InputGestureText="Ctrl+A"/>
                 </MenuItem>
                 <MenuItem Header="Poruke">
-                    <MenuItem Name="notifikacije_prikaz" Header="Notifikacije" Click="prikazi_notifikacije"/>
-                    <MenuItem Name="podsjetnik_prikaz" Header="Podsjetnik" Click="prikazi_podsjetnik"/>
+                    <MenuItem Name="notifikacije_prikaz" Header="Notifikacije" Click="prikazi_notifikacije" InputGestureText="Ctrl+N"/>
+                    <MenuItem Name="podsjetnik_prikaz" Header="Podsjetnik" Click="prikazi_podsjetnik" InputGestureText="Ctrl+P"/>
                 </MenuItem>
                 <MenuItem Header="Medicinski karton">
-                    <MenuItem Name="istorija_prikaz" Header="Istorija bolesti" Click="prikazi_istoriju_bolesti"/>
+                    <MenuItem Name="istorija_prikaz" Header="Istorija bolesti" Click="prikazi_istoriju_bolesti" InputGestureText="Ctrl+I"/>
                     <MenuItem Name="terapija" Header="Trenutna terapija" Click="prikazi_trenutnu_terapiju"/>
+                    <MenuItem Name="izvjestaj" Header="Izvjestaj u uzimanju terapije" Click="izvjestaj_Click"/>
                 </MenuItem>
                 <MenuItem Header="Podesavanja">
                     <MenuItem Header="Tooltipovi">
                         <RadioButton GroupName="Group1" IsChecked="True">Ukljuceni</RadioButton>
                         <RadioButton GroupName="Group1">Iskljuceni</RadioButton>
                     </MenuItem>
-                    <MenuItem Name="pomoc" Header="Pomoc" Click="pomoc_Click"/>
+                    <MenuItem Name="pomoc" Header="Pomoc" Click="pomoc_Click" InputGestureText="Ctrl+H"/>
                 </MenuItem>
             </Menu>
             <StackPanel></StackPanel>

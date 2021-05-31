@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="708" d:DesignWidth="874"
       Title="ZauzetostProstorija">
 
     <Grid Background="#ccffbd">
@@ -17,7 +17,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="91,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Do:"/>
         <DatePicker HorizontalAlignment="Left" Margin="144,250,0,0" VerticalAlignment="Top" Height="35" Width="118"/>
         <DatePicker HorizontalAlignment="Left" Margin="144,301,0,0" VerticalAlignment="Top"/>
-        <Button Background="White" Content="Kreiraj izveštaj" HorizontalAlignment="Left" Margin="141,372,0,0" VerticalAlignment="Top" Width="92" Height="24"/>
+        <Button Background="White" Content="Kreiraj izveštaj" HorizontalAlignment="Left" Width="100px" Height="40px" VerticalAlignment="Top" Margin="64,398,0,0" />
 
     </Grid>
 </Page>

@@ -12,24 +12,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.sekretar
 {
     /// <summary>
-    /// Interaction logic for PageZakazaniTermini.xaml
+    /// Interaction logic for PageMedicinskiKarton.xaml
     /// </summary>
-    public partial class PageZakazaniTermini : Page
+    public partial class PageMedicinskiKarton : Page
     {
-        public PageZakazaniTermini()
+        public PageMedicinskiKarton(PacijentDTO pacijent)
         {
             InitializeComponent();
         }
-
-        private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
-        {
-            var terminPage = new sekretar.ZakazivanjeTermina();
-            NavigationService.Navigate(terminPage);
-        }
-
     }
 }

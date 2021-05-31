@@ -308,6 +308,12 @@
     <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
       <DependentUpon>KartonPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageDodavanjeObavestenja.xaml.cs">
+      <DependentUpon>PageDodavanjeObavestenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageIzmenaPacijenta.xaml.cs">
+      <DependentUpon>PageIzmenaPacijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PageKorisnickiNalog.xaml.cs">
       <DependentUpon>PageKorisnickiNalog.xaml</DependentUpon>
     </Compile>
@@ -316,6 +322,12 @@
     </Compile>
     <Compile Include="view\sekretar\PageLekarIzmena.xaml.cs">
       <DependentUpon>PageLekarIzmena.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageListaPacijenata.xaml.cs">
+      <DependentUpon>PageListaPacijenata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageMedicinskiKarton.xaml.cs">
+      <DependentUpon>PageMedicinskiKarton.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\PageObavestenja.xaml.cs">
       <DependentUpon>PageObavestenja.xaml</DependentUpon>
@@ -334,6 +346,9 @@
     </Compile>
     <Compile Include="view\sekretar\registracija\PageRegistracija.xaml.cs">
       <DependentUpon>PageRegistracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\registracija\PageRegistracijaPacijentaxaml.xaml.cs">
+      <DependentUpon>PageRegistracijaPacijentaxaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\registracija\RegistracijaLekara.xaml.cs">
       <DependentUpon>RegistracijaLekara.xaml</DependentUpon>
@@ -622,6 +637,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\PageDodavanjeObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageIzmenaPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PageKorisnickiNalog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -631,6 +654,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\PageLekarIzmena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageListaPacijenata.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageMedicinskiKarton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -657,6 +688,10 @@
     <Page Include="view\sekretar\registracija\PageRegistracija.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\registracija\PageRegistracijaPacijentaxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\registracija\RegistracijaLekara.xaml">
       <SubType>Designer</SubType>

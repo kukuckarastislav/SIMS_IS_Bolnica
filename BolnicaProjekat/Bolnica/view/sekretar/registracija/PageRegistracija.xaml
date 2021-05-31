@@ -5,67 +5,40 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar.registracija"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="708" d:DesignWidth="874"
       Title="PageRegistracija">
 
     <Grid Background="#ccffbd">
-        <DockPanel>
-            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
-                <Button Margin="30 10" ToolTip="Registracija sa potpunim unosom podataka" Background="white" Click="HitnoRegistruj_Pacijenta">Hitna registracija</Button>
-                <Button Margin="30 10" ToolTip="Registracija sa unosom neophodnih podataka" Background="white" Click="Registruj_Pacijenta">Registruj pacijenta</Button>
-                <Button Margin="30 10" ToolTip="Ocisti polja" Background="white" Click="Ocisti_Polja">Ocisti polja</Button>
-            </StackPanel>
-            <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
-                <Grid.ColumnDefinitions >
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                
-                <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Ime:</TextBlock>
-                <TextBox Grid.Row="1" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputIme"></TextBox>
-                <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Prezime:</TextBlock>
-                <TextBox Grid.Row="2" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputPrezime"></TextBox>
-                <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >JMBG:</TextBlock>
-                <TextBox Grid.Row="3" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputJmbg"></TextBox>
-                <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Telefon:</TextBlock>
-                <TextBox Grid.Row="4" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputTelefon"></TextBox>
-                <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Pol:</TextBlock>
-                <RadioButton Content="Musko" Grid.Column="2" HorizontalAlignment="Left" Margin="0,5,0,0" Grid.Row="5" VerticalAlignment="Top" Name="rbMusko"/>
-                <RadioButton Content="Zensko" Grid.Column="2" HorizontalAlignment="Left" Margin="0,0,0,0" Grid.Row="5" VerticalAlignment="Bottom" Name="rbZensko"/>
-                <TextBlock Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-50 0 0 0">Adresa stanovanja:</TextBlock>
-                <TextBox Grid.Row="6" Grid.Column="2" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputAdresa"></TextBox>
-                
-                <TextBlock Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-25 0 0 0">Korisnicko ime:</TextBlock>
-                <TextBox Grid.Row="1" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputKorisnickoIme"></TextBox>
-                <TextBlock Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Sifra:</TextBlock>
-                <TextBox Grid.Row="2" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputSifra"></TextBox>
-                <TextBlock Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" >Email:</TextBlock>
-                <TextBox Grid.Row="3" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputEmail"></TextBox>
-                <TextBlock Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-30 0 0 0" >Datum rodjenja:</TextBlock>
-                <TextBox Grid.Row="4" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDatum"></TextBox>
-                <TextBlock Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="-20 0 0 0">Drzavljanstvo:</TextBlock>
-                <TextBox Grid.Row="5" Grid.Column="5" Margin="0 10 0 10" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDrzavljanstvo"></TextBox>
-                
 
+        <Button Margin="157,65,616.6,603" Background="white" Width="100px" Height="40px" Click="HitnoRegistruj_Pacijenta">Hitna registracija</Button>
+        <Button Margin="311,65,462.6,603" Background="white" Width="100px" Height="40px" Click="Registruj_Pacijenta">Registruj pacijenta</Button>
+        <Button Margin="463,65,310.6,603" Background="white" Width="100px" Height="40px" Click="Ocisti_Polja">Ocisti polja</Button>
 
-            </Grid>
-        </DockPanel>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="111,197,662.6,471" >Ime:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="253,197,520.6,471" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputIme"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="111,265,662.6,403" >Prezime:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="211,265,562.6,403" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputPrezime"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="111,334,662.6,334" >JMBG:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="193,334,580.6,334" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputJmbg"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="111,408,662.6,260" >Telefon:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="193,408,580.6,260" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputTelefon"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="111,493,662.6,175" >Pol:</TextBlock>
+        <RadioButton Content="Musko"  HorizontalAlignment="Left" Margin="193,493,0,0" VerticalAlignment="Top" Name="rbMusko" RenderTransformOrigin="-0.138,13.974"/>
+        <RadioButton Content="Zensko"  HorizontalAlignment="Left" Margin="193,0,0,160" VerticalAlignment="Bottom" Name="rbZensko" RenderTransformOrigin="0.225,-2.763"/>
+        <TextBlock Width="167" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="519,244,187.6,424">Adresa stanovanja:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="691,244,82.6,424" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputAdresa"></TextBox>
+
+        <TextBlock Width="130" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="508,313,235.6,355">Korisnicko ime:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="683,313,90.6,355" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputKorisnickoIme"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="564,375,209.6,293" >Sifra:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="683,375,90.6,293" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputSifra"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="508,427,265.6,241" >Email:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="586,427,187.6,241" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputEmail"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="434,493,339.6,175" >Datum rodjenja:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="564,493,209.6,175" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDatum"></TextBox>
+        <TextBlock Width="100px" Height="40px" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px" Margin="450,563,323.6,105">Drzavljanstvo:</TextBlock>
+        <TextBox Width="100px" Height="40px" Margin="586,563,187.6,105" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="17px" Name="inputDrzavljanstvo"></TextBox>
+        <CheckBox Content="Hitna registracija" HorizontalAlignment="Left" Margin="134,148,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

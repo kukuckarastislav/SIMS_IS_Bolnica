@@ -5,42 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.sekretar"
         mc:Ignorable="d"
-        Title="KartonPacijenta" Height="450" Width="800">
+        Title="KartonPacijenta" Height="708" Width="874">
     <Grid Background="#ccffbd">
-        <DockPanel>
-            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
-                <Button Margin="30 10" ToolTip="Registracija sa potpunim unosom podataka" Background="white" Click="SacuvaAlergene_Click">Sacuvaj izmene</Button>
-            </StackPanel>
-            <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
-                <Grid.ColumnDefinitions >
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+        <Button Content="Dodaj alergen" HorizontalAlignment="Left" Margin="359,199,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.396,0.26" Background="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="178,166,0,0" TextWrapping="Wrap" Text="Naziv alergena" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="40" Margin="178,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+        <ListView HorizontalAlignment="Left" Height="236" Margin="178,310,0,0" VerticalAlignment="Top" Width="182">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Obrisi alergen" HorizontalAlignment="Left" Margin="260,573,0,0" VerticalAlignment="Top" Width="100" Height="40" Background="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="177,289,0,0" TextWrapping="Wrap" Text="Alergeni" VerticalAlignment="Top"/>
 
-                <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15px" >Alergeni</TextBlock>
-                <TextBox Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Name="tbAlergeni"
-                TextWrapping="Wrap"
-                 AcceptsReturn="True"
-                VerticalScrollBarVisibility="Visible"/>
 
-            </Grid>
-        </DockPanel>
     </Grid>
 </Window>

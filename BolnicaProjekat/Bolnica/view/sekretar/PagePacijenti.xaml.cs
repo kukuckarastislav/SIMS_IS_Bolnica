@@ -94,11 +94,11 @@ namespace Bolnica.view.sekretar
 
         private void OtvoriMedicinskiKarton_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
-            if (pacijent == null) return;
+            //Pacijent pacijent = DataGridPrikazPacijenata.SelectedItem as Pacijent;
+            //if (pacijent == null) return;
 
-            var medicinskiKartonWindow = new KartonPacijenta(pacijent);
-            medicinskiKartonWindow.Show();
+            //var medicinskiKarton= new PageMedicinskiKarton();
+            //NavigationService.Navigate(medicinskiKarton);
         }
     }
 }

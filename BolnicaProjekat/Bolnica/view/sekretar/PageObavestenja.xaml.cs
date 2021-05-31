@@ -48,8 +48,8 @@ namespace Bolnica.view.sekretar
 
         private void DodajObavestenje_Click(object sender, RoutedEventArgs e)
         {
-            var winObavestenja = new WindowObavestenja();
-            winObavestenja.Show();
+            var pageObavestenja = new PageDodavanjeObavestenja();
+            NavigationService.Navigate(pageObavestenja);
         }
     }
 }

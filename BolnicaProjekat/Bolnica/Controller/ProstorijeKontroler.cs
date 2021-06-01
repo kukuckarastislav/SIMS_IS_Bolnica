@@ -90,7 +90,10 @@ namespace Kontroler
         {
             return ProstorijeServisObjekat.getProstorijeTipObservable(tipProstorije);
         }
-
+        public ObservableCollection<Prostorija> getBolesnickeSobeZaHospitalizaciju()
+        {
+            return ProstorijeServisObjekat.getBolesnickeSobeZaHospitalizaciju();
+        }
 
     }
 }

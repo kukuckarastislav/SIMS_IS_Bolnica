@@ -408,9 +408,12 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
-                    <Button     Background="#eeebdd" 
+                    <Button     x:Name="btnPotvrdiHospitalizaciju"
+                                Background="#eeebdd" 
                                 Margin="0,5,0,0"
-                                Height="35">
+                                Height="35"
+                                IsEnabled="False"
+                                Click="btnPotvrdiHospitalizaciju_Click">
 
                         <Button.Resources>
                             <Style TargetType="Border">

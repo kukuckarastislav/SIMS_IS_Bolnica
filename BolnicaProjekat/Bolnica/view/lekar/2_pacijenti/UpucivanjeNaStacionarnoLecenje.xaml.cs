@@ -196,5 +196,15 @@ namespace Bolnica.view.lekar.pacijenti
                 IspisiAzuriranoStanje();
             }
         }
+
+        private void btnPotvrdiHospitalizaciju_Click(object sender, RoutedEventArgs e)
+        {
+            if (SveJePopunjen())
+            {
+                btnPotvrdiHospitalizaciju.IsEnabled = true;
+                //cmb
+
+            }
+        }
     }
 }

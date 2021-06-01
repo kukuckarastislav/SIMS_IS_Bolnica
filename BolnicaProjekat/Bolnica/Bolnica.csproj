@@ -86,6 +86,7 @@
     <Compile Include="Controller\AnketaKontroler.cs" />
     <Compile Include="Controller\FeedbackKontroler.cs" />
     <Compile Include="Controller\GodisnjiOdmorKontroler.cs" />
+    <Compile Include="Controller\HospitalizacijaKontroler.cs" />
     <Compile Include="Controller\InventariKontroler.cs" />
     <Compile Include="Controller\KorisnickaAktivnostKontroler.cs" />
     <Compile Include="Controller\LekarKontroler.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
     <Compile Include="DTO\FeedbackDTO.cs" />
+    <Compile Include="DTO\HospitalizacijaDTO.cs" />
     <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
     <Compile Include="DTO\ObavestenjeDTO.cs" />
     <Compile Include="DTO\OcenaDTO.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Model\DTOUslugaLekar.cs" />
     <Compile Include="Model\Feedback.cs" />
     <Compile Include="Model\GodisnjiOdmor.cs" />
+    <Compile Include="Model\Hospitalizacija.cs" />
     <Compile Include="Model\Inventar.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Lek.cs" />
@@ -161,6 +164,7 @@
     <Compile Include="Repository\AnketaRepozitorijum.cs" />
     <Compile Include="Repository\FeedbackRepozitorijum.cs" />
     <Compile Include="Repository\GodisnjiOdmorRepozitorijum.cs" />
+    <Compile Include="Repository\HospitalizacijaRepozitorijum.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
     <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
@@ -179,6 +183,7 @@
     <Compile Include="Service\AnketaServis.cs" />
     <Compile Include="Service\FeedbackServis.cs" />
     <Compile Include="Service\GodisnjiOdmorServis.cs" />
+    <Compile Include="Service\HospitalizacijaServis.cs" />
     <Compile Include="Service\InventariSerivs.cs" />
     <Compile Include="Service\KorisnickaAktivnostServis.cs" />
     <Compile Include="Service\LekarServis.cs" />
@@ -849,14 +854,17 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="podaci\anketa.json" />
     <None Include="podaci\feedback.json" />
     <None Include="podaci\godisnjiodmor.json" />
     <None Include="podaci\inventari.json" />
+    <None Include="podaci\korisnickaAktivnost.json" />
     <None Include="podaci\lekari.json" />
     <None Include="podaci\lekovi.json" />
     <None Include="podaci\notifikacije.json" />
     <None Include="podaci\obavestenja.json" />
     <None Include="podaci\pacijenti.json" />
+    <None Include="podaci\podsjetnik.json" />
     <None Include="podaci\recepti.json" />
     <None Include="podaci\sekretari.json" />
     <None Include="podaci\slobodnidani.json" />

@@ -85,6 +85,8 @@ namespace Servis
 
             return ProstorijeRepozitorijumRef.AzurirajProstoriju(editProstorija);
         }
+
+
         public Prostorija AzurirajProstoriju(Prostorija editProstorija,
                                              string broj,
                                              int sprat,
@@ -166,6 +168,21 @@ namespace Servis
             TransformacijaProstorijeParametri tpp = terminProstorije.TransformacijaProstorijeParam;
             DodajProstoriju(tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
             return true;
+        }
+
+
+        public ObservableCollection<Prostorija> getBolesnickeSobeZaHospitalizaciju()
+        {
+            ObservableCollection<Prostorija> BolesnickeSobeSaSlobodnimKrevetom = new ObservableCollection<Prostorija>();
+            List<Prostorija> prostorije = ProstorijeRepozitorijumRef.GetProstorijeAll();
+            foreach (Prostorija p in prostorije)
+            {
+                if (p.TipProstorije == TipProstorije.BolesnickaSoba && p.BrojSlobodnihKreveta>0)
+                {
+                    BolesnickeSobeSaSlobodnimKrevetom.Add(p);
+                }
+            }
+            return BolesnickeSobeSaSlobodnimKrevetom;
         }
 
     }

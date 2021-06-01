@@ -17,9 +17,6 @@ using Servis;
 
 namespace Bolnica.view.upravnik
 {
-    /// <summary>
-    /// Interaction logic for UpravnikHome.xaml
-    /// </summary>
     public partial class UpravnikHome : Window
     {
 
@@ -29,23 +26,12 @@ namespace Bolnica.view.upravnik
         public UpravnikHome()
         {
             InitializeComponent();
-            //RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
-            /*public Upravnik(RadnoVreme radnoVreme, RadniStatus radniStatus, string korisnickoIme, string sifra, string ime,
-            string prezime, Pol pol, string email, string telefon, DateTime datumRodjenja,
-            string jmbg, string drzavljanstvo, string adresaStanovanja) : base(radnoVreme, radniStatus, korisnickoIme, sifra, ime, prezime, pol, email, telefon, datumRodjenja, jmbg, drzavljanstvo,
-                adresaStanovanja)
-             * 
-             */
-
-
-            //Model.RadnoVreme radnoVreme = new Model.RadnoVreme(new DateTime(2000, 1, 7, 0, 0, 0), new DateTime(2022,1,1));
-            //Model.RadnoVreme radnoVreme = new Model.RadnoVreme(7.0, 17.0);
-            //Model.Upravnik upravnik = new Model.Upravnik(radnoVreme, Model.RadniStatus.Aktivan, "Pera123", "SIFRA", "Peric", "peric", Model.Pol.Musko, "perica@gmail", "0658499", new DateTime(2000, 1, 7), "4932423", "Srpsko", "Novi Sad");
-
             terminProstorijeServisObjekat = new TerminProstorijeServis();
             preraspodelaInventaraThread = new Thread(new ThreadStart(terminProstorijeServisObjekat.ThreadPreraspodelaInventara));
             preraspodelaInventaraThread.IsBackground = true;
             preraspodelaInventaraThread.Start();
+
+            RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
         }
 
         private void Prostorije_Click(object sender, RoutedEventArgs e)

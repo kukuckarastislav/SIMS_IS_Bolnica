@@ -24,8 +24,8 @@ namespace DTO
         public string drzavljanstvo;
         public string adresaStanovanja;
         public string sifra;
-
-
+        public string ponovljenaSifra;
+        
         public RegistracijaLekaraDTO()
         {
 
@@ -184,6 +184,19 @@ namespace DTO
             }
         }
 
+        public string PonovljenaSifra
+        {
+            get { return ponovljenaSifra; }
+            set
+            {
+                if (ponovljenaSifra != value)
+                {
+                    ponovljenaSifra = value;
+                    OnPropertyChanged("PonovljenaSifra");
+                }
+            }
+        }
+
         public DateTime DatumRodjenja
         {
             get { return datumRodjenja; }
@@ -218,39 +231,43 @@ namespace DTO
             ValidirajAdresu();
             ValidirajKorisnickoIme();
             ValidirajEmail();
+            ValidirajLozinku();
+            ValidirajPonovljenuLozinku();
+            ValidirajDrzavljanstvo();
+            ValidirajSpecijalizaciju();
         }
 
         private void ValidirajIme()
         {
             if (string.IsNullOrWhiteSpace(this.ime))
             {
-                this.ValidationErrors["Ime"] = "Polje ne može biti prazno!";
+                this.ValidationErrors["Ime"] = "Polje ne može biti prazno.";
             }
         }
         private void ValidirajPrezime()
         {
             if (string.IsNullOrWhiteSpace(this.prezime))
             {
-                this.ValidationErrors["Prezime"] = "Polje ne može biti prazno!";
+                this.ValidationErrors["Prezime"] = "Polje ne može biti prazno.";
             }
         }
         private void ValidirajJmbg()
         {
             if (String.IsNullOrWhiteSpace(this.jmbg))
             {
-                this.ValidationErrors["Jmbg"] = "Polje ne može biti prazno!";
+                this.ValidationErrors["Jmbg"] = "Polje ne može biti prazno.";
             }
             else
             {
                 if (this.jmbg.Length != 13)
                 {
-                    this.ValidationErrors["Jmbg"] = "Polje mora sadržati 13 cifara!";
+                    this.ValidationErrors["Jmbg"] = "Polje mora sadržati 13 cifara.";
                 }
                 else
                 {
                     if (!Validator.ValidanJmbg(this.jmbg))
                     {
-                        this.ValidationErrors["Jmbg"] = "Polje mora sadržati 13 cifara!";
+                        this.ValidationErrors["Jmbg"] = "Polje mora sadržati 13 cifara.";
                     }
                 }
             }
@@ -259,28 +276,28 @@ namespace DTO
         {
             if (String.IsNullOrWhiteSpace(this.telefon))
             {
-                this.ValidationErrors["Telefon"] = "Polje ne može biti prazno!";
+                this.ValidationErrors["Telefon"] = "Polje ne može biti prazno.";
             }
         }
         private void ValidirajAdresu()
         {
             if (String.IsNullOrWhiteSpace(this.adresaStanovanja))
             {
-                this.ValidationErrors["AdresaStanovanja"] = "Polje ne može biti prazno!";
+                this.ValidationErrors["AdresaStanovanja"] = "Polje ne može biti prazno.";
             }
         }
         private void ValidirajKorisnickoIme()
         {
             if (String.IsNullOrWhiteSpace(this.korisnickoIme))
             {
-                this.ValidationErrors["KorisnickoIme"] = "Polje ne može biti prazno!";
+                this.ValidationErrors["KorisnickoIme"] = "Polje ne može biti prazno.";
             }
             else
             {
                 PacijentKontroler kontroler = new PacijentKontroler();
                 if (kontroler.JelPostojiKorisnickoIme(this.korisnickoIme))
                 {
-                    this.ValidationErrors["KorisnickoIme"] = "Korisničko ime je zauzeto!";
+                    this.ValidationErrors["KorisnickoIme"] = "Korisničko ime je zauzeto.";
                 }
 
             }
@@ -290,14 +307,52 @@ namespace DTO
         {
             if (String.IsNullOrWhiteSpace(this.email))
             {
-                this.ValidationErrors["Email"] = "Polje ne može biti prazno!";
+                this.ValidationErrors["Email"] = "Polje ne može biti prazno.";
             }
             else
             {
                 if (!Validator.ValidanEmail(this.email))
                 {
-                    this.ValidationErrors["Email"] = "Pogrešan formajt email-a!";
+                    this.ValidationErrors["Email"] = "Pogrešan formajt email-a.";
                 }
+            }
+        }
+
+        private void ValidirajLozinku()
+        {
+            if (String.IsNullOrWhiteSpace(this.sifra))
+            {
+                this.ValidationErrors["Lozinka"] = "Polje ne može biti prazno.";
+            }
+        }
+        private void ValidirajPonovljenuLozinku()
+        {
+            if (String.IsNullOrWhiteSpace(this.ponovljenaSifra))
+            {
+                this.ValidationErrors["PonovljenaLozinka"] = "Polje ne može biti prazno.";
+            }
+            else
+            {
+                if(!this.sifra.Equals(this.ponovljenaSifra))
+                {
+                    this.ValidationErrors["PonovljenaLozinka"] = "Polje se ne poklapa sa lozinkom.";
+                }
+            }
+        }
+
+        private void ValidirajDrzavljanstvo()
+        {
+            if (String.IsNullOrWhiteSpace(this.drzavljanstvo))
+            {
+                this.ValidationErrors["Drzavljanstvo"] = "Polje ne može biti prazno.";
+            }
+        }
+
+        private void ValidirajSpecijalizaciju()
+        {
+            if (String.IsNullOrWhiteSpace(this.specijalizacija))
+            {
+                this.ValidationErrors["Specijalizacija"] = "Polje ne može biti prazno.";
             }
         }
 

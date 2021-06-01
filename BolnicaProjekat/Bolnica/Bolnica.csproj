@@ -218,6 +218,9 @@
     <Compile Include="view\lekar\3_lekovi\OdobravanjeLeka.xaml.cs">
       <DependentUpon>OdobravanjeLeka.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\lekar\FeedBack.xaml.cs">
+      <DependentUpon>FeedBack.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
@@ -499,6 +502,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\lekar\3_lekovi\OdobravanjeLeka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\lekar\FeedBack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -842,6 +849,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="podaci\feedback.json" />
     <None Include="podaci\godisnjiodmor.json" />
     <None Include="podaci\inventari.json" />
     <None Include="podaci\lekari.json" />
@@ -1016,6 +1024,9 @@
     <Resource Include="images\lupa.png" />
     <Resource Include="images\MainWindow-background.jpg" />
     <Resource Include="images\medicine11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\feedback-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

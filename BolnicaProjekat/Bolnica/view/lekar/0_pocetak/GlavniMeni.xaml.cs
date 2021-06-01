@@ -28,6 +28,7 @@ namespace Bolnica.view.lekar
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
         private view.lekar.lekovi.Lekovi refLekovi;
         private view.lekar.Notifikacije refNotifikacije;
+        private view.lekar.FeedBack refFeedBack;
 
         // KORISNICI
         public Lekar Lekar;
@@ -65,5 +66,10 @@ namespace Bolnica.view.lekar
             NavigationService.Navigate(refNotifikacije);
         }
 
+        private void btnFeedback_Click(object sender, RoutedEventArgs e)
+        {
+            refFeedBack = new view.lekar.FeedBack(Lekar);
+            NavigationService.Navigate(refFeedBack);
+        }
     }
 }

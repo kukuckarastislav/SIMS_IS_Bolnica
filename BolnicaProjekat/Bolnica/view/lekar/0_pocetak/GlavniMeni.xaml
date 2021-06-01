@@ -47,9 +47,9 @@
             <!-- [9] Meni (8) - PreLogout- DOLE -->
             <RowDefinition Height="45"/>
             <!-- [10] Meni (9) - LogoutButton- DOLE -->
-            <RowDefinition Height="15"/>
-            <!-- [11] Meni (11) - PosleLogout- DOLE -->
             <RowDefinition Height="45"/>
+            <!-- [11] Meni (11) - PosleLogout- DOLE -->
+            <RowDefinition Height="15"/>
             <!-- [12] PraznoMesto(1)- DOLE -->
             <RowDefinition Height="*"/>
             <!-- [13] PraznoMesto(2)- DOLE -->
@@ -165,7 +165,24 @@
             </Button.Resources>
             <StackPanel Orientation="Horizontal">
                 <Image Source="/images/lekar-icons/notification-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Notifikacije</TextBlock>
+                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Notifikacija</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <!-- Meni - Button7 - Feedback -->
+        <Button x:Name="btnFeedback"
+                Grid.Column="2" Grid.Row="10" Height="35" VerticalAlignment="Bottom" 
+                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                IsEnabled="True"
+                Click="btnFeedback_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/images/lekar-icons/feedback-icon.png" Width="25" />
+                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Feedback</TextBlock>
             </StackPanel>
         </Button>
 

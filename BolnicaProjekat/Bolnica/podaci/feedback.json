@@ -4,5 +4,23 @@
     "Tekst": "jako sam zadovoljna. preljepo.",
     "IdKorisnika": 1,
     "VrstaKorisnika": "PACIJENT"
+  },
+  {
+    "Id": 2,
+    "Tekst": "Aplikacija je dobra",
+    "IdKorisnika": 1,
+    "VrstaKorisnika": "LEKAR"
+  },
+  {
+    "Id": 3,
+    "Tekst": "Aplikacija je dobra",
+    "IdKorisnika": 1,
+    "VrstaKorisnika": "LEKAR"
+  },
+  {
+    "Id": 4,
+    "Tekst": "Aplikacija je dobra",
+    "IdKorisnika": 1,
+    "VrstaKorisnika": "LEKAR"
   }
 ]

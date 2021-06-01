@@ -20,18 +20,20 @@ namespace Kontroler
         {
             servis.DodajFeedbackPacijenta(idPacijenta,text);
         }
-        public void DodajFeedbackLekara()
+        public void DodajFeedbackLekara(int idLekara, String text)
         {
-
+            servis.DodajFeedbackLekara(idLekara, text);
         }
-        public void DodajFeedbackUpravnika()
+        public void DodajFeedbackSekretara(int idSekretara, String text)
         {
-
+            servis.DodajFeedbackSekretara(idSekretara, text);
         }
-        public void DodajFeedbackSekretara()
+
+        public void DodajFeedbackUpravnika(int idUpravnika, String text)
         {
-
+            servis.DodajFeedbackUpravnika(idUpravnika, text);
         }
+
 
     }
 }

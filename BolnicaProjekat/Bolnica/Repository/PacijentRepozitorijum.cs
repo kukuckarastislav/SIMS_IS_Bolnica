@@ -208,6 +208,18 @@ namespace Repozitorijum
             return false;
         }
 
+        public bool JelPostojiKorisnickoIme(string korisnickoIme)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.KorisnickoIme.Equals(korisnickoIme))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
     }
 }

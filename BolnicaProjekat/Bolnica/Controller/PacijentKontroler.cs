@@ -80,5 +80,10 @@ namespace Kontroler
             pacijentServis.ObrisiAlergen(idPacijenta, alergen);
         }
 
+        public bool JelPostojiKorisnickoIme(string korisnickoIme)
+        {
+            return pacijentServis.JelPostojiKorisnickoIme(korisnickoIme);
+        }
+
     }
 }

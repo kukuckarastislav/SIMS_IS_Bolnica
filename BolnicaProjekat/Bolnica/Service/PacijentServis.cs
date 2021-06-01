@@ -87,6 +87,16 @@ namespace Servis
         {
             PacijentRepozitorijum.GetInstance.ObrisiAlergen(idPacijenta, alergen);
         }
+        public bool JelPostojiKorisnickoIme(string korisnickoIme)
+        {
+            bool postojanjePacijenta = PacijentRepozitorijum.GetInstance.JelPostojiKorisnickoIme(korisnickoIme);
+            bool postojanjeSekretara = SekretarRepozitorijum.GetInstance.JelPostojiKorisnickoIme(korisnickoIme);
+            bool postojanjeUpravnika = UpravnikRepozitorijum.GetInstance.JelPostojiKorisnickoIme(korisnickoIme);
+            bool postojanjeLekara = LekarRepozitorijum.GetInstance.JelPostojiKorisnickoIme(korisnickoIme);
+
+            bool pom = postojanjePacijenta || postojanjeSekretara || postojanjeUpravnika || postojanjeLekara;
+            return pom;
+        }
 
         public void SaveData()
         {

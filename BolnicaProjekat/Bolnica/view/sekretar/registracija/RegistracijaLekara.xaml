@@ -4,38 +4,64 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar.registracija"
+      xmlns:data="clr-namespace:DTO"
+      xmlns:viewmodel="clr-namespace:Bolnica.viewmodel"
       mc:Ignorable="d" 
       d:DesignHeight="708" d:DesignWidth="874"
       Title="RegistracijaLekara">
+    <Page.DataContext>
+        <viewmodel:RegistracijaLekaraViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <DataTemplate DataType="{x:Type data:RegistracijaLekaraDTO}">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{Binding Path=Ime, Mode=OneWay}" FontSize="16" TextWrapping="Wrap"/>
+                <TextBlock Text="{Binding Path=Prezime, Mode=OneWay}" TextWrapping="Wrap"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
 
     <Grid Background="#ccffbd">
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="222,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputIme" />
-        <Button Content="Registruj lekara" HorizontalAlignment="Left" Margin="649,478,0,0" VerticalAlignment="Top" Width="100px" Height="40px" Background="White" Click="RegistrujLekara_Click"/>
+
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="222,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputIme" Text="{Binding CurrentLekar.Ime, Mode=TwoWay}"/>
+        <Button Content="Registruj lekara" HorizontalAlignment="Left" Margin="651,584,0,0" VerticalAlignment="Top" Width="100px" Height="40px" Background="White" Command="{Binding AddLekarCommand}"/>
         <TextBlock HorizontalAlignment="Left" Margin="169,120,0,0" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="138,163,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="175,320,0,0" TextWrapping="Wrap" Text="Pol:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="481,300,0,0" TextWrapping="Wrap" Text="Drzavljanstvo:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="551,200,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" RenderTransformOrigin="13.432,-10.426" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="145,268,0,0" TextWrapping="Wrap" Text="Telefon:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="114,392,0,0" TextWrapping="Wrap" Text="Adresa stanovanja:" VerticalAlignment="Top" FontSize="20px"  />
-        <TextBlock HorizontalAlignment="Left" Margin="470,120,0,0" TextWrapping="Wrap" Text="Korisnicko ime:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="532,159,0,0" TextWrapping="Wrap" Text="Lozinka:" VerticalAlignment="Top" RenderTransformOrigin="6.363,5.075" FontSize="20px" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputPrezime" />
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="222,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputTelefon" />
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="294,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputAdresa" />
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="629,120,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="inputKorisnickoIme"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="629,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputLozinka" />
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="629,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputEmail" />
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="629,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputDrzavljansto" />
-        <RadioButton Content="Musko" HorizontalAlignment="Left" Margin="222,320,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.127,7.342" Name="rbrMusko" />
-        <RadioButton Content="Zensko" HorizontalAlignment="Left" Margin="222,352,0,0" VerticalAlignment="Top" Name="rbrZensko" />
-        <TextBlock HorizontalAlignment="Left" Margin="158,218,0,0" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBlock HorizontalAlignment="Left" Margin="470,251,0,0" TextWrapping="Wrap" Text="Datum rođenja:" VerticalAlignment="Top" FontSize="20px" />
-        <DatePicker HorizontalAlignment="Left" Margin="629,254,0,0" VerticalAlignment="Top" Name="inputDatum" />
-        <TextBlock HorizontalAlignment="Left" Margin="478,396,0,0" TextWrapping="Wrap" Text="Specijalizacija:" VerticalAlignment="Top" FontSize="20px" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="629,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="inputSpecijalizacija" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,218,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="inputJMBG" />
-        <CheckBox Content="Da li je specijalizant" HorizontalAlignment="Left" Margin="551,355,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="138,179,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="176,360,0,0" TextWrapping="Wrap" Text="Pol:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="483,406,0,0" TextWrapping="Wrap" Text="Drzavljanstvo:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="555,295,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" RenderTransformOrigin="13.432,-10.426" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="144,295,0,0" TextWrapping="Wrap" Text="Telefon:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="47,421,0,0" TextWrapping="Wrap" Text="Adresa stanovanja:" VerticalAlignment="Top" FontSize="20px"  />
+        <TextBlock HorizontalAlignment="Left" Margin="474,124,0,0" TextWrapping="Wrap" Text="Korisnicko ime:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="536,179,0,0" TextWrapping="Wrap" Text="Lozinka:" VerticalAlignment="Top" RenderTransformOrigin="6.363,5.075" FontSize="20px" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputPrezime" Text="{Binding CurrentLekar.Prezime, Mode=TwoWay}"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="222,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputTelefon" Text="{Binding CurrentLekar.Telefon, Mode=TwoWay}"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="222,426,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputAdresa" Text="{Binding CurrentLekar.AdresaStanovanja, Mode=TwoWay}"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="629,129,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="inputKorisnickoIme" Text="{Binding CurrentLekar.KorisnickoIme, Mode=TwoWay}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="629,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputLozinka" />
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="629,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputEmail" Text="{Binding CurrentLekar.Email, Mode=TwoWay}"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="631,406,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="inputDrzavljansto" />
+        <RadioButton Content="Musko" HorizontalAlignment="Left" Margin="222,362,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.127,7.342" Name="rbrMusko" />
+        <RadioButton Content="Zensko" HorizontalAlignment="Left" Margin="222,388,0,0" VerticalAlignment="Top" Name="rbrZensko" />
+        <TextBlock HorizontalAlignment="Left" Margin="158,236,0,0" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="472,357,0,0" TextWrapping="Wrap" Text="Datum rođenja:" VerticalAlignment="Top" FontSize="20px" />
+        <DatePicker HorizontalAlignment="Left" Margin="631,360,0,0" VerticalAlignment="Top" Name="inputDatum" />
+        <TextBlock HorizontalAlignment="Left" Margin="480,502,0,0" TextWrapping="Wrap" Text="Specijalizacija:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="631,506,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="inputSpecijalizacija" />
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="222,240,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Name="inputJMBG" Text="{Binding CurrentLekar.Jmbg, Mode=TwoWay}"/>
+        <CheckBox Content="Da li je specijalizant" HorizontalAlignment="Left" Margin="553,461,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbErrIme" HorizontalAlignment="Left" Margin="222,151,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[Ime]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrPrezime" HorizontalAlignment="Left" Margin="222,211,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[Prezime]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrJmbg" HorizontalAlignment="Left" Margin="222,268,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[Jmbg]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrTelefon" HorizontalAlignment="Left" Margin="222,327,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[Telefon]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrAdresaStanovanja" HorizontalAlignment="Left" Margin="222,453,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[AdresaStanovanja]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrKorisnickoIme" HorizontalAlignment="Left" Margin="629,156,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[KorisnickoIme]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrLozinka" HorizontalAlignment="Left" Margin="629,211,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[Lozinka]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock HorizontalAlignment="Left" Margin="438,236,0,0" TextWrapping="Wrap" Text="Ponovljena lozinka:" VerticalAlignment="Top" RenderTransformOrigin="6.363,5.075" FontSize="20px" />
+        <TextBox Name="inputPonovljenaLozinka"  HorizontalAlignment="Left" Height="23" Margin="629,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBlock x:Name="tbErrPonovljenaLozinka" HorizontalAlignment="Left" Margin="629,268,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[PonovljenaLozinka]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrEmail" HorizontalAlignment="Left" Margin="629,327,0,0" TextWrapping="Wrap" Text="{Binding CurrentLekar.ValidationErrors[Email]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
 
     </Grid>
 </Page>

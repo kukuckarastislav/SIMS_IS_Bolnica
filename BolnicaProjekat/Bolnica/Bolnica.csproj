@@ -113,6 +113,7 @@
     <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
+    <Compile Include="DTO\RegistracijaLekaraDTO.cs" />
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
     <Compile Include="DTO\StavkaIzvjestajaDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
@@ -194,7 +195,12 @@
     <Compile Include="Service\TerminProstorijeServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
+    <Compile Include="utils\BindableBase.cs" />
+    <Compile Include="utils\MyICommand.cs" />
+    <Compile Include="utils\ValidationBase.cs" />
+    <Compile Include="utils\ValidationErrors.cs" />
     <Compile Include="utils\Validator.cs" />
+    <Compile Include="viewmodel\RegistracijaLekaraViewModel.cs" />
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
     </Compile>
@@ -1009,6 +1015,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="view\lekar\4_prostorije\" />
+    <Folder Include="view\sekretar\help\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\lekar-icons\pacijent-zensko-icon.png" />

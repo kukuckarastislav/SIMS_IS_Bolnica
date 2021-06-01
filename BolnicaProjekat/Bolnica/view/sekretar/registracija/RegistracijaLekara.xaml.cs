@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using Bolnica.viewmodel;
 
 namespace Bolnica.view.sekretar.registracija
 {

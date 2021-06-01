@@ -115,8 +115,7 @@ namespace Servis
 
         public List<Prostorija> GetProstorijeAll()
         {
-            // TODO: implement
-            return null;
+            return ProstorijeRepozitorijumRef.GetProstorijeAll();
         }
 
 
@@ -168,21 +167,6 @@ namespace Servis
             TransformacijaProstorijeParametri tpp = terminProstorije.TransformacijaProstorijeParam;
             DodajProstoriju(tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
             return true;
-        }
-
-
-        public ObservableCollection<Prostorija> getBolesnickeSobeZaHospitalizaciju()
-        {
-            ObservableCollection<Prostorija> BolesnickeSobeSaSlobodnimKrevetom = new ObservableCollection<Prostorija>();
-            List<Prostorija> prostorije = ProstorijeRepozitorijumRef.GetProstorijeAll();
-            foreach (Prostorija p in prostorije)
-            {
-                if (p.TipProstorije == TipProstorije.BolesnickaSoba && p.BrojSlobodnihKreveta>0)
-                {
-                    BolesnickeSobeSaSlobodnimKrevetom.Add(p);
-                }
-            }
-            return BolesnickeSobeSaSlobodnimKrevetom;
         }
 
     }

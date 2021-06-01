@@ -857,6 +857,7 @@
     <None Include="podaci\anketa.json" />
     <None Include="podaci\feedback.json" />
     <None Include="podaci\godisnjiodmor.json" />
+    <None Include="podaci\hospitalizacija.json" />
     <None Include="podaci\inventari.json" />
     <None Include="podaci\korisnickaAktivnost.json" />
     <None Include="podaci\lekari.json" />

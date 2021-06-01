@@ -91,7 +91,7 @@
     "Sprat": 7,
     "Povrsina": 140,
     "BrojKreveta": 20,
-    "BrojSlobodnihKreveta": 14,
+    "BrojSlobodnihKreveta": 20,
     "BrojSprat": "B1/7",
     "IdInventar": 8
   },
@@ -103,7 +103,7 @@
     "Sprat": 6,
     "Povrsina": 129,
     "BrojKreveta": 15,
-    "BrojSlobodnihKreveta": 7,
+    "BrojSlobodnihKreveta": 15,
     "BrojSprat": "3/6",
     "IdInventar": 9
   },
@@ -127,7 +127,7 @@
     "Sprat": 2,
     "Povrsina": 200,
     "BrojKreveta": 10,
-    "BrojSlobodnihKreveta": 2,
+    "BrojSlobodnihKreveta": 10,
     "BrojSprat": "B9/2",
     "IdInventar": 11
   },
@@ -154,5 +154,17 @@
     "BrojSlobodnihKreveta": 0,
     "BrojSprat": "TestSPajanje-B/55",
     "IdInventar": 17
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 18,
+    "TipProstorije": 1,
+    "Broj": "BOL99",
+    "Sprat": 66,
+    "Povrsina": 100,
+    "BrojKreveta": 2,
+    "BrojSlobodnihKreveta": 2,
+    "BrojSprat": "BOL99/66",
+    "IdInventar": 18
   }
 ]

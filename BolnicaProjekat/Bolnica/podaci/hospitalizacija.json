@@ -1,0 +1,10 @@
+[
+  {
+    "Id": 1,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "IdProstorije": 18,
+    "PocetakHospitalizacije": "2021-06-04T07:00:00",
+    "KrajHospitalizacije": "2021-06-05T07:00:00"
+  }
+]

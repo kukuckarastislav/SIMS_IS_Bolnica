@@ -25,6 +25,8 @@ namespace Model
             KrajHospitalizacije = krajHospitalizacije;
         }
 
+
+
     }
 
 }

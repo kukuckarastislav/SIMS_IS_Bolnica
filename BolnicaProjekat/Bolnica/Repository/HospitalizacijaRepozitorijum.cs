@@ -131,6 +131,20 @@ namespace Repozitorijum
             return ret;
         }
 
+        public int GetFirstFitID()
+        {
+            loadData();
+            int najveciID = 0;
+            foreach (Hospitalizacija hospitalizacija in hospitalizacije)
+            {
+                if (hospitalizacija.Id > najveciID)
+                {
+                    najveciID = hospitalizacija.Id;
+                }
+            }
+            return najveciID + 1;
+        }
+
 
     }
 

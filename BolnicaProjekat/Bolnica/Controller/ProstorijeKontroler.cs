@@ -92,7 +92,9 @@ namespace Kontroler
         }
         public ObservableCollection<Prostorija> getBolesnickeSobeZaHospitalizaciju()
         {
-            return ProstorijeServisObjekat.getBolesnickeSobeZaHospitalizaciju();
+            //TODO: ovo resiti?
+            return new ObservableCollection<Prostorija>();
+            //return ProstorijeServisObjekat.getBolesnickeSobeZaHospitalizaciju();
         }
 
     }

@@ -15,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kontroler;
+using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -29,9 +31,10 @@ namespace Bolnica.view.lekar.pacijenti
         public DateTime PocetakHospitalizacije;
         public DateTime ZavrsetakHospitalizacije;
         public ObservableCollection<Prostorija> BolesnickeSobe;
-        public ProstorijeKontroler objekatProstorijeKontroler;
+        public HospitalizacijaKontroler hospitalizacijaKontrolerObjekat;
         public DateTime AzuriranPocetak { get; set; }
         public DateTime AzuriranKraj { get; set; }
+        private Prostorija selektovanaProstorija = null; 
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
         public UpucivanjeNaStacionarnoLecenje(Lekar Lekar, Pacijent IzabraniPacijent)
@@ -45,9 +48,8 @@ namespace Bolnica.view.lekar.pacijenti
 
         public void InicijalizujObjekte()
         {
-            objekatProstorijeKontroler = new ProstorijeKontroler();
+            hospitalizacijaKontrolerObjekat = new HospitalizacijaKontroler();
             BolesnickeSobe = new ObservableCollection<Prostorija>();
-            BolesnickeSobe = objekatProstorijeKontroler.getProstorijeTipObservable(TipProstorije.BolesnickaSoba);
         }
         public void UcitajPodatke()
         {
@@ -71,11 +73,14 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void IspisiAzuriranoStanje()
         {
-            DateTime azuriranPocetak = IzracunajPocetakHospitalizacije();
-            DateTime azuriranKraj = IzracunajZavrsetakHospitalizacije();
-            string vremeHospitalizacije = (NapraviStringAzuriranoVreme(azuriranPocetak, azuriranKraj));
-            string prostorija = ((Prostorija)cmbBolesnickeSobe.SelectedItem).BrojSprat;
-            txtAzuriranoStanje.Text = "Hospitalizacija: " + "\n" + vremeHospitalizacije + "\n     u " + prostorija + " prostoriji";
+            PocetakHospitalizacije = IzracunajPocetakHospitalizacije();
+            ZavrsetakHospitalizacije = IzracunajZavrsetakHospitalizacije();
+            string vremeHospitalizacije = (NapraviStringAzuriranoVreme(PocetakHospitalizacije, ZavrsetakHospitalizacije));
+            MessageBox.Show(Convert.ToString(PocetakHospitalizacije));
+            MessageBox.Show(Convert.ToString(ZavrsetakHospitalizacije));
+            BolesnickeSobe = hospitalizacijaKontrolerObjekat.getBolesnickeSobeZaHospitalizacijuUIntevalu(PocetakHospitalizacije, ZavrsetakHospitalizacije);
+            cmbBolesnickeSobe.ItemsSource = BolesnickeSobe;
+            txtAzuriranoStanje.Text = "Hospitalizacija: " + "\n" + vremeHospitalizacije + "\n";
 
         }
 
@@ -125,15 +130,18 @@ namespace Bolnica.view.lekar.pacijenti
 
         private bool SveJePopunjen()
         {
+            BolesnickeSobe = new ObservableCollection<Prostorija>();
+            cmbBolesnickeSobe.ItemsSource = BolesnickeSobe;
+
+            btnPotvrdiHospitalizaciju.IsEnabled = false;
+            selektovanaProstorija = null;
             if (kalPocetakHospitalizacije.SelectedDate != null &&
                 cmbPocetakHospitalizacije_Sat.SelectedItem != null &&
                 cmbPocetakHospitalizacije_Min.SelectedItem != null &&
 
                 kalZavrsetakHospitalizacije.SelectedDate != null &&
                 cmbZavrsetakHospitalizacije_Sat.SelectedItem != null &&
-                cmbZavrsetakHospitalizacije_Min.SelectedItem != null &&
-
-                cmbBolesnickeSobe.SelectedItem != null)
+                cmbZavrsetakHospitalizacije_Min.SelectedItem != null)
             {
                 return true;
             }
@@ -191,19 +199,21 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void cmbBolesnickeSobe_DropDownClosed(object sender, EventArgs e)
         {
-            if (SveJePopunjen())
+            selektovanaProstorija = (Prostorija)cmbBolesnickeSobe.SelectedItem;
+            if(selektovanaProstorija != null)
             {
-                IspisiAzuriranoStanje();
-            }
+                btnPotvrdiHospitalizaciju.IsEnabled = true;
+            }   
         }
 
         private void btnPotvrdiHospitalizaciju_Click(object sender, RoutedEventArgs e)
         {
-            if (SveJePopunjen())
+            if(selektovanaProstorija != null)
             {
-                btnPotvrdiHospitalizaciju.IsEnabled = true;
-                //cmb
 
+                HospitalizacijaDTO hospitalizacijaDTO = new HospitalizacijaDTO(IzabraniPacijent.Id, Lekar.Id, selektovanaProstorija.Id, PocetakHospitalizacije, ZavrsetakHospitalizacije);
+
+                hospitalizacijaKontrolerObjekat.DodajHospitalizaciju(hospitalizacijaDTO);
             }
         }
     }

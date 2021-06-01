@@ -73,6 +73,21 @@ namespace Servis
             return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg);
         }
 
+        public List<string> GetAlergeniPacijenta(int id)
+        {
+            return PacijentRepozitorijum.GetInstance.GetAlergeniPacijenta(id);
+        }
+
+        public void DodajAlergen(int idPacijenta, string alergen)
+        {
+            PacijentRepozitorijum.GetInstance.DodajAlergen(idPacijenta, alergen);
+        }
+
+        public void ObrisiAlergen(int idPacijenta, string alergen)
+        {
+            PacijentRepozitorijum.GetInstance.ObrisiAlergen(idPacijenta, alergen);
+        }
+
         public void SaveData()
         {
             PacijentRepozitorijum.GetInstance.SaveData();

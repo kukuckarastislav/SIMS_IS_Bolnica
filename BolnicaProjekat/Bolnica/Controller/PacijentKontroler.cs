@@ -65,5 +65,20 @@ namespace Kontroler
             return pacijentServis.PrijaviPacijenta(korisnickoIme, lozinka);
         }
 
+        public List<string> GetAlergeniPacijenta(int id)
+        {
+            return pacijentServis.GetAlergeniPacijenta(id);
+        }
+
+        public void DodajAlergen(int idPacijenta, string alergen)
+        {
+            pacijentServis.DodajAlergen(idPacijenta, alergen);
+        }
+
+        public void ObrisiAlergen(int idPacijenta, string alergen)
+        {
+            pacijentServis.ObrisiAlergen(idPacijenta, alergen);
+        }
+
     }
 }

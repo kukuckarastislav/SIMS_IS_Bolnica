@@ -9,12 +9,12 @@
       Title="PageMedicinskiKarton">
 
     <Grid Background="#ccffbd">
-        <Button Content="Dodaj alergen" HorizontalAlignment="Left" Margin="412,199,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.396,0.26" Background="White" />
+        <Button Content="Dodaj alergen" HorizontalAlignment="Left" Margin="412,199,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.396,0.26" Background="White" Click="DodajAlergen_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="178,166,0,0" TextWrapping="Wrap" Text="Naziv alergena" VerticalAlignment="Top" FontSize="17px" />
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="178,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182"/>
-        <Button Content="Obrisi alergen" HorizontalAlignment="Left" Margin="412,322,0,0" VerticalAlignment="Top" Width="100" Height="40" Background="White" RenderTransformOrigin="-1.199,-3.427"/>
+        <TextBox Name="textBoxNaziv" HorizontalAlignment="Left" Height="40" Margin="178,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182"/>
+        <Button Content="Obrisi alergen" HorizontalAlignment="Left" Margin="412,322,0,0" VerticalAlignment="Top" Width="100" Height="40" Background="White" RenderTransformOrigin="-1.199,-3.427" Click="ObrisiAlergen_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="178,286,0,0" TextWrapping="Wrap" Text="Alergeni" VerticalAlignment="Top" FontSize="17px" />
-        <ListBox HorizontalAlignment="Left" Height="236" Margin="178,322,0,0" VerticalAlignment="Top" Width="182"/>
+        <ListBox Name="listBoxAlergeni" HorizontalAlignment="Left" Height="236" Margin="178,322,0,0" VerticalAlignment="Top" Width="182"/>
         <TextBlock HorizontalAlignment="Left" Margin="178,34,0,0" TextWrapping="Wrap" Text="Pacijent" VerticalAlignment="Top" FontSize="17px" />
         <TextBlock HorizontalAlignment="Left" Margin="178,75,0,0" TextWrapping="Wrap" Text="Ime" VerticalAlignment="Top" FontSize="17px" />
         <TextBlock HorizontalAlignment="Left" Margin="178,116,0,0" TextWrapping="Wrap" Text="Prezime" VerticalAlignment="Top" FontSize="17px" />

@@ -154,7 +154,60 @@ namespace Repozitorijum
             }        
          return null;
       }
-  
-   
-   }
+
+        public List<string> GetAlergeniPacijenta(int id)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Id == id)
+                    return p.MedicinskiKarton.Alergeni;
+            }
+
+            return null;
+        }
+
+        public void DodajAlergen(int idPacijenta, string alergen)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Id == idPacijenta)
+                {
+                    if (DaLiImaAlergen(p.MedicinskiKarton.Alergeni, alergen) == false)
+                    {
+                        p.MedicinskiKarton.Alergeni.Add(alergen);
+                        SaveData();
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void ObrisiAlergen(int idPacijenta, string alergen)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Id == idPacijenta)
+                {
+                    if (DaLiImaAlergen(p.MedicinskiKarton.Alergeni, alergen) == true)
+                    {
+                        p.MedicinskiKarton.Alergeni.Remove(alergen);
+                        SaveData();
+                        return;
+                    }
+                }
+            }
+        }
+
+        public bool DaLiImaAlergen(List<string> alergeni, string alergen)
+        {
+            foreach(string a in alergeni)
+            {
+                if (a.Equals(alergen)) return true;
+            }
+
+            return false;
+        }
+
+
+    }
 }

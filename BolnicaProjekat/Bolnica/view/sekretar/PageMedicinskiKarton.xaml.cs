@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using Kontroler;
 
 namespace Bolnica.view.sekretar
 {
@@ -21,9 +23,43 @@ namespace Bolnica.view.sekretar
     /// </summary>
     public partial class PageMedicinskiKarton : Page
     {
+        private PacijentDTO pacijent;
+        private ObservableCollection<string> lista;
         public PageMedicinskiKarton(PacijentDTO pacijent)
         {
             InitializeComponent();
+            this.pacijent = pacijent;
+            lista = new ObservableCollection<string>();
+            UcitajAlergene();
+        }
+
+        private void DodajAlergen_Click(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxNaziv.Text)) return;
+            PacijentKontroler kontroler = new PacijentKontroler();
+            kontroler.DodajAlergen(pacijent.Id, textBoxNaziv.Text);
+            UcitajAlergene();
+        }
+
+        private void UcitajAlergene()
+        {
+            PacijentKontroler kontroler = new PacijentKontroler();
+            List<String> alergeni = kontroler.GetAlergeniPacijenta(pacijent.Id);
+            lista = new ObservableCollection<string>();
+            foreach (string alergen in alergeni)
+            {
+                lista.Add(alergen);
+            }
+            listBoxAlergeni.ItemsSource = lista;
+        }
+
+        private void ObrisiAlergen_Click(object sender, RoutedEventArgs e)
+        {
+            string alergen = listBoxAlergeni.SelectedItem as string;
+            if (String.IsNullOrEmpty(alergen)) return;
+            PacijentKontroler kontroler = new PacijentKontroler();
+            kontroler.ObrisiAlergen(pacijent.Id, alergen);
+            UcitajAlergene();
         }
     }
 }

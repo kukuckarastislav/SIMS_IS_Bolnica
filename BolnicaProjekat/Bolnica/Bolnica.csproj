@@ -1008,5 +1008,14 @@
   <ItemGroup>
     <Resource Include="images\lekar-icons\hospital-bed-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\lekar-icons\hospital-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\circles.png" />
+    <Resource Include="images\lupa.png" />
+    <Resource Include="images\MainWindow-background.jpg" />
+    <Resource Include="images\medicine11.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

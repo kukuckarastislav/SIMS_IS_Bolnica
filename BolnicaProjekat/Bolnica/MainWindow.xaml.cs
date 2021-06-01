@@ -70,28 +70,28 @@ namespace Bolnica
         private void Prijava_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler skontroler = new SekretarKontroler();
-            Korisnik k = skontroler.PrijavaSekretara(txbIme.Text, txbLozinka.Text);
+            Korisnik k = skontroler.PrijavaSekretara(txbIme.Text, txbLozinka.Password);
             if (k != null)
             {
                 var sekretar_home = new Bolnica.view.sekretar.SekretarHome();
                 sekretar_home.Show();
             }
             UpravnikKontroler ukontroler = new UpravnikKontroler();
-            k = ukontroler.PrijavaUpravnika(txbIme.Text, txbLozinka.Text);
+            k = ukontroler.PrijavaUpravnika(txbIme.Text, txbLozinka.Password);
             if (k != null)
             {
                 var upravnik_home = new Bolnica.view.upravnik.UpravnikHome();
                 upravnik_home.Show();
             }
             LekarKontroler lkontroler = new LekarKontroler();
-            Lekar lekar = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Text);
+            Lekar lekar = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Password);
             if (lekar != null)
             {
                 var lekar_home = new Bolnica.view.lekar.LekarHome(lekar);
                 lekar_home.Show();
             }
             PacijentKontroler pkontroler = new PacijentKontroler();
-            PrijavljeniPacijent = pkontroler.PrijavaPacijenta(txbIme.Text, txbLozinka.Text);
+            PrijavljeniPacijent = pkontroler.PrijavaPacijenta(txbIme.Text, txbLozinka.Password);
             if (PrijavljeniPacijent != null)
             {
                 var pacijent_home = new Bolnica.view.pacijent.PacijentHome(PrijavljeniPacijent);

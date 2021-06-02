@@ -27,10 +27,11 @@ namespace Bolnica.view.sekretar.registracija
         {
             InitializeComponent();
             rbMusko.IsChecked = true;
+            inputDatumRodjenja.SelectedDate = DateTime.Now;
         }
 
         private void Registruj_Pacijenta(object sender, RoutedEventArgs e)
-        {
+        {/*
             if (!ValidirajUnos()) return;
             try
             {
@@ -55,11 +56,11 @@ namespace Bolnica.view.sekretar.registracija
             catch (Exception ee)
             {
                 MessageBox.Show("Podaci nisu ispravnog formata");
-            }
+            }*/
         }
 
         private bool ValidirajUnos()
-        {
+        {/*
             ResetujGreske();
             bool validanUnos = true;
 
@@ -84,8 +85,11 @@ namespace Bolnica.view.sekretar.registracija
                 tbErrRegistracija.Text = "Korisnik je uspesno registrovan!";
             }
 
-            return validanUnos;
+            return validanUnos;*/
+            return false;
         }
+
+        /*
         private void ResetujGreske()
         {
             tbErrIme.Text = "";
@@ -256,6 +260,6 @@ namespace Bolnica.view.sekretar.registracija
             }
             return true;
         }
-
+        */
     }
 }

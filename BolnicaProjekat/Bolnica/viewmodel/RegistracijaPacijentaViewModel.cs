@@ -6,35 +6,42 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using System.Windows;
+using Bolnica.DTO;
+using Kontroler;
 
 namespace Bolnica.viewmodel
 {
     class RegistracijaPacijentaViewModel : BindableBase
     {
-        public MyICommand AddLekarCommand { get; set; }
-        private RegistracijaLekaraDTO currentLekar = new RegistracijaLekaraDTO();
+        public MyICommand AddPacijentCommand { get; set; }
+        private RegistracijaPacijentaDTO currentPacijent = new RegistracijaPacijentaDTO();
 
         public RegistracijaPacijentaViewModel()
         {
-            AddLekarCommand = new MyICommand(OnAdd);
+            AddPacijentCommand = new MyICommand(RegistrujPacijenta);
         }
 
-        public RegistracijaLekaraDTO CurrentLekar
+        public RegistracijaPacijentaDTO CurrentPacijent
         {
-            get { return currentLekar; }
+            get { return currentPacijent; }
             set
             {
-                currentLekar = value;
+                currentPacijent = value;
                 OnPropertyChanged("CurrentNote");
             }
         }
 
-        public void OnAdd()
+        public void RegistrujPacijenta()
         {
-            CurrentLekar.Validate();
-            if (CurrentLekar.IsValid)
+            CurrentPacijent.Validate();
+            if (CurrentPacijent.IsValid)
             {
-                MessageBox.Show("validan je!");
+                PacijentKontroler kontroler = new PacijentKontroler();
+                kontroler.DodajPacijenta(CurrentPacijent);
+                MessageBox.Show("Pacijent je uspešno dodat.");
+            }
+            else
+            {
             }
 
         }

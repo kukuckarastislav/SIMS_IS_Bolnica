@@ -11,7 +11,7 @@ namespace DTO
     public class RegistracijaLekaraDTO : ValidationBase
     {
         public int id;
-        public Boolean specijalista;
+        public bool specijalista;
         public string specijalizacija;
         public string ime;
         public string prezime;
@@ -25,10 +25,11 @@ namespace DTO
         public string adresaStanovanja;
         public string sifra;
         public string ponovljenaSifra;
-        
+        public bool musko;
+        public string status;
         public RegistracijaLekaraDTO()
         {
-
+            musko = true;
         }
 
         public int Id
@@ -40,6 +41,18 @@ namespace DTO
                 {
                     id = value;
                     OnPropertyChanged("Id");
+                }
+            }
+        }
+        public bool Musko
+        {
+            get { return musko; }
+            set
+            {
+                if (musko != value)
+                {
+                    musko = value;
+                    OnPropertyChanged("Musko");
                 }
             }
         }
@@ -57,19 +70,6 @@ namespace DTO
             }
         }
 
-        public string Specijalizacija
-        {
-            get { return specijalizacija; }
-            set
-            {
-                if (specijalizacija != value)
-                {
-                    specijalizacija = value;
-                    OnPropertyChanged("Specijalizacija");
-                }
-            }
-        }
-
         public string Ime
         {
             get { return ime; }
@@ -79,6 +79,19 @@ namespace DTO
                 {
                     ime = value;
                     OnPropertyChanged("Ime");
+                }
+            }
+        }
+
+        public string Specijalizacija
+        {
+            get { return specijalizacija; }
+            set
+            {
+                if (specijalizacija != value)
+                {
+                    specijalizacija = value;
+                    OnPropertyChanged("Specijalizacija");
                 }
             }
         }
@@ -235,13 +248,40 @@ namespace DTO
             ValidirajPonovljenuLozinku();
             ValidirajDrzavljanstvo();
             ValidirajSpecijalizaciju();
+            ValidirajDatumRodjenja();
         }
+
+        private void ValidirajDatumRodjenja()
+        {
+            if (this.datumRodjenja==null)
+            {
+                this.ValidationErrors["DatumRodjenja"] = "Polje ne može biti prazno.";
+            }
+            else
+            {
+                if(this.datumRodjenja>DateTime.Now)
+                {
+                    this.ValidationErrors["DatumRodjenja"] = "Izabrani datum ne može biti nakon današnjeg datuma.";
+                }
+            }
+        }
+
 
         private void ValidirajIme()
         {
             if (string.IsNullOrWhiteSpace(this.ime))
             {
                 this.ValidationErrors["Ime"] = "Polje ne može biti prazno.";
+            }
+        }
+        private void ValidirajSpecijalizaciju()
+        {
+            if (this.specijalista)
+            {
+                if (string.IsNullOrWhiteSpace(this.specijalizacija))
+                {
+                    this.ValidationErrors["Specijalizacija"] = "Polje ne može biti prazno.";
+                }
             }
         }
         private void ValidirajPrezime()
@@ -347,15 +387,5 @@ namespace DTO
                 this.ValidationErrors["Drzavljanstvo"] = "Polje ne može biti prazno.";
             }
         }
-
-        private void ValidirajSpecijalizaciju()
-        {
-            if (String.IsNullOrWhiteSpace(this.specijalizacija))
-            {
-                this.ValidationErrors["Specijalizacija"] = "Polje ne može biti prazno.";
-            }
-        }
-
-
     }
 }

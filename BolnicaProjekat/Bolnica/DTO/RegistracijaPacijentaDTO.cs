@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Bolnica.utils;
 using Model;
+using Kontroler;
 
-namespace Bolnica.DTO
+namespace DTO
 {
-    class RegistracijaPacijentaDTO : ValidationBase
+    public class RegistracijaPacijentaDTO : ValidationBase
     {
         public int id;
         public string ime;
@@ -22,8 +23,9 @@ namespace Bolnica.DTO
         public string drzavljanstvo;
         public string adresaStanovanja;
         public string sifra;
+        public string ponovljenaSifra;
         public bool pacijentGost;
-
+        public bool musko;
         public RegistracijaPacijentaDTO()
         {
 
@@ -51,6 +53,19 @@ namespace Bolnica.DTO
                 {
                     ime = value;
                     OnPropertyChanged("Ime");
+                }
+            }
+        }
+
+        public bool Musko
+        {
+            get { return musko; }
+            set
+            {
+                if (musko != value)
+                {
+                    musko = value;
+                    OnPropertyChanged("Musko");
                 }
             }
         }
@@ -156,6 +171,19 @@ namespace Bolnica.DTO
             }
         }
 
+        public string PonovljenaSifra
+        {
+            get { return ponovljenaSifra; }
+            set
+            {
+                if (ponovljenaSifra != value)
+                {
+                    ponovljenaSifra = value;
+                    OnPropertyChanged("PonovljenaSifra");
+                }
+            }
+        }
+
         public DateTime DatumRodjenja
         {
             get { return datumRodjenja; }
@@ -196,7 +224,167 @@ namespace Bolnica.DTO
 
         protected override void ValidateSelf()
         {
+            ValidirajIme();
+            ValidirajPrezime();
+            ValidirajJmbg();
+            ValidirajTelefon();
+            ValidirajAdresu();
+            ValidirajKorisnickoIme();
+            ValidirajEmail();
+            ValidirajLozinku();
+            ValidirajPonovljenuLozinku();
+            ValidirajDrzavljanstvo();
+            ValidirajDatumRodjenja();
+        }
 
+        private void ValidirajDatumRodjenja()
+        {
+            if (!this.pacijentGost)
+            {
+                if (this.datumRodjenja == null)
+                {
+                    this.ValidationErrors["DatumRodjenja"] = "Polje ne može biti prazno.";
+                }
+                else
+                {
+                    if (this.datumRodjenja > DateTime.Now)
+                    {
+                        this.ValidationErrors["DatumRodjenja"] = "Izabrani datum ne može biti nakon današnjeg datuma.";
+                    }
+                }
+            }
+        }
+
+        private void ValidirajIme()
+        {
+            if (string.IsNullOrWhiteSpace(this.ime))
+            {
+                this.ValidationErrors["Ime"] = "Polje ne može biti prazno.";
+            }
+        }
+        private void ValidirajPrezime()
+        {
+            if (string.IsNullOrWhiteSpace(this.prezime))
+            {
+                this.ValidationErrors["Prezime"] = "Polje ne može biti prazno.";
+            }
+        }
+        private void ValidirajJmbg()
+        {
+            if (String.IsNullOrWhiteSpace(this.jmbg))
+            {
+                this.ValidationErrors["Jmbg"] = "Polje ne može biti prazno.";
+            }
+            else
+            {
+                if (this.jmbg.Length != 13)
+                {
+                    this.ValidationErrors["Jmbg"] = "Polje mora sadržati 13 cifara.";
+                }
+                else
+                {
+                    if (!Validator.ValidanJmbg(this.jmbg))
+                    {
+                        this.ValidationErrors["Jmbg"] = "Polje mora sadržati 13 cifara.";
+                    }
+                }
+            }
+        }
+        private void ValidirajTelefon()
+        {
+            if (!this.pacijentGost)
+            {
+                if (String.IsNullOrWhiteSpace(this.telefon))
+                {
+                    this.ValidationErrors["Telefon"] = "Polje ne može biti prazno.";
+                }
+            }
+        }
+        private void ValidirajAdresu()
+        {
+            if (!this.pacijentGost)
+            {
+                if (String.IsNullOrWhiteSpace(this.adresaStanovanja))
+                {
+                    this.ValidationErrors["AdresaStanovanja"] = "Polje ne može biti prazno.";
+                }
+            }
+        }
+        private void ValidirajKorisnickoIme()
+        {
+            if (!this.pacijentGost)
+            {
+                if (String.IsNullOrWhiteSpace(this.korisnickoIme))
+                {
+                    this.ValidationErrors["KorisnickoIme"] = "Polje ne može biti prazno.";
+                }
+                else
+                {
+                    PacijentKontroler kontroler = new PacijentKontroler();
+                    if (kontroler.JelPostojiKorisnickoIme(this.korisnickoIme))
+                    {
+                        this.ValidationErrors["KorisnickoIme"] = "Korisničko ime je zauzeto.";
+                    }
+
+                }
+            }
+        }
+
+        private void ValidirajEmail()
+        {
+            if (!this.pacijentGost)
+            {
+                if (String.IsNullOrWhiteSpace(this.email))
+                {
+                    this.ValidationErrors["Email"] = "Polje ne može biti prazno.";
+                }
+                else
+                {
+                    if (!Validator.ValidanEmail(this.email))
+                    {
+                        this.ValidationErrors["Email"] = "Pogrešan formajt email-a.";
+                    }
+                }
+            }
+        }
+
+        private void ValidirajLozinku()
+        {
+            if (!this.pacijentGost)
+            {
+                if (String.IsNullOrWhiteSpace(this.sifra))
+                {
+                    this.ValidationErrors["Lozinka"] = "Polje ne može biti prazno.";
+                }
+            }
+        }
+        private void ValidirajPonovljenuLozinku()
+        {
+            if (!this.pacijentGost)
+            {
+                if (String.IsNullOrWhiteSpace(this.ponovljenaSifra))
+                {
+                    this.ValidationErrors["PonovljenaLozinka"] = "Polje ne može biti prazno.";
+                }
+                else
+                {
+                    if (!this.sifra.Equals(this.ponovljenaSifra))
+                    {
+                        this.ValidationErrors["PonovljenaLozinka"] = "Polje se ne poklapa sa lozinkom.";
+                    }
+                }
+            }
+        }
+
+        private void ValidirajDrzavljanstvo()
+        {
+            if (!this.pacijentGost)
+            {
+                if (String.IsNullOrWhiteSpace(this.drzavljanstvo))
+                {
+                    this.ValidationErrors["Drzavljanstvo"] = "Polje ne može biti prazno.";
+                }
+            }
         }
     }
 }

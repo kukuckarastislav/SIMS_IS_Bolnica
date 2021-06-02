@@ -30,8 +30,13 @@ namespace Kontroler
              prezime,  pol,  email,  telefon,  datumRodjenja,
              jmbg,  drzavljanstvo,  adresaStanovanja);
 
-            pacijentServis.DodajPacijenta(noviPacijent);
+            //pacijentServis.DodajPacijenta(noviPacijent);
             return noviPacijent;
+        }
+
+        public void DodajPacijenta(RegistracijaPacijentaDTO podaci)
+        {
+            pacijentServis.DodajPacijenta(podaci);
         }
       
         public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)

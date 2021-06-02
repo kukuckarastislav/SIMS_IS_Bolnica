@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
         Title="AnketaBolnica" Height="330.411" Width="565.753">
+
     <Grid>
         <Label Margin="40,28,44,232">Kakvo je vase iskustvo sa Zdravo Bolnicom? Da li ste zadovoljni pruzenom uslugom?
         </Label>

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DTO;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Kontroler;
 
 namespace Bolnica.viewmodel
 {
@@ -17,7 +18,7 @@ namespace Bolnica.viewmodel
 
         public RegistracijaLekaraViewModel()
         {
-            AddLekarCommand = new MyICommand(OnAdd);
+            AddLekarCommand = new MyICommand(RegistrujLekara);
         }
 
         public RegistracijaLekaraDTO CurrentLekar
@@ -30,13 +31,18 @@ namespace Bolnica.viewmodel
             }
         }
 
-        public void OnAdd()
+        public void RegistrujLekara()
         {
-            MessageBox.Show("Radi!");
             CurrentLekar.Validate();
             if (CurrentLekar.IsValid)
             {
-                MessageBox.Show("validan je!");
+                LekarKontroler kontroler = new LekarKontroler();
+                kontroler.DodajLekara(CurrentLekar);
+                MessageBox.Show("Lekar je uspešno dodat.");
+            }
+            else
+            {
+
             }
 
         }

@@ -11,19 +11,31 @@ using Model;
 using Repozitorijum;
 using DTO;
 using Bolnica.view.sekretar;
+using System.Collections;
+
 
 namespace Servis
 {
    public class PacijentServis
    {
         public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
-        public Model.Pacijent DodajPacijenta(Model.Pacijent pacijent)
+        public void DodajPacijenta(RegistracijaPacijentaDTO podaciPacijenta)
         {
-            pacijent.Id = PacijentRepozitorijum.GetInstance.GetNewId();
+            podaciPacijenta.Id = PacijentRepozitorijum.GetInstance.GetNewId();
+            Pacijent pacijent = konvertujDtoUModel(podaciPacijenta);
             PacijentRepozitorijum.GetInstance.DodajPacijenta(pacijent);
+        }
+
+        public Pacijent konvertujDtoUModel(RegistracijaPacijentaDTO podaciPacijenta)
+        {
+            Pol pol = Pol.Zensko;
+            if (podaciPacijenta.Musko) pol = Pol.Musko;
+            Pacijent pacijent = new Pacijent(new MedicinskiKarton(), new ArrayList(),podaciPacijenta.Id,podaciPacijenta.pacijentGost,false,false,false,
+                podaciPacijenta.KorisnickoIme,podaciPacijenta.Sifra,podaciPacijenta.Ime,podaciPacijenta.Prezime,pol,
+                podaciPacijenta.Email,podaciPacijenta.Telefon,podaciPacijenta.DatumRodjenja,podaciPacijenta.Jmbg,podaciPacijenta.Drzavljanstvo,podaciPacijenta.AdresaStanovanja);
             return pacijent;
         }
-      
+
         public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
         {
             PacijentRepozitorijum.GetInstance.AzurirajPacijenta(pacijent);

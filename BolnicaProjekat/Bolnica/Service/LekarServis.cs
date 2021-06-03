@@ -23,20 +23,21 @@ namespace Servis
         {
             lekarRepozitorijumRef = LekarRepozitorijum.GetInstance;
         }
-        public LekarDTO DodajLekara(LekarDTO lekarDto)
+        public void DodajLekara(RegistracijaLekaraDTO podaciLekara)
         {
-            Lekar lekar = konvertujDto(lekarDto);
+            Lekar lekar = konvertujDtoUModel(podaciLekara);
             lekar.LogickiObrisan = false;
             LekarRepozitorijum.GetInstance.DodajLekara(lekar);
-
-            return lekarDto;
         }
 
-        public Lekar konvertujDto(LekarDTO dto)
+        public Lekar konvertujDtoUModel(RegistracijaLekaraDTO podaciLekara)
         {
             int id = LekarRepozitorijum.GetInstance.GetNewId();
-            Lekar lekar = new Lekar(id, dto.Specijalista, dto.Specijalizacija, null, RadniStatus.Aktivan, dto.KorisnickoIme,
-                dto.Sifra, dto.Ime, dto.Prezime, dto.Pol, dto.Email, dto.Telefon, dto.DatumRodjenja, dto.Jmbg, dto.Drzavljanstvo, dto.AdresaStanovanja);
+            Pol pol = Pol.Zensko;
+            if(podaciLekara.Musko) pol = Pol.Musko;
+            Lekar lekar = new Lekar(id, podaciLekara.Specijalista, podaciLekara.Specijalizacija, new RadnoVreme(8,16), RadniStatus.Aktivan, podaciLekara.KorisnickoIme,
+                podaciLekara.Sifra, podaciLekara.Ime, podaciLekara.Prezime, pol, podaciLekara.Email, podaciLekara.Telefon, podaciLekara.DatumRodjenja,
+                podaciLekara.Jmbg, podaciLekara.Drzavljanstvo, podaciLekara.AdresaStanovanja);
             return lekar;
         }
       
@@ -105,6 +106,7 @@ namespace Servis
                     noviDto.Telefon = lekar.Telefon;
                     noviDto.Email = lekar.Email;
                     noviDto.DatumRodjenja = lekar.DatumRodjenja;
+                    noviDto.Pol = lekar.Pol;
                     lekariDto.Add(noviDto);
                 }
             }

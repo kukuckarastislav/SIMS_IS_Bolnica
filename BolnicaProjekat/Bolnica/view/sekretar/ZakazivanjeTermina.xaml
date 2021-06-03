@@ -5,41 +5,26 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ZakazivanjeTermina" Height="768" Width="1024"
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="ZakazivanjeTermina" 
       >
 
     <Grid Background="#ccffbd">
-        <DockPanel>
-            <StackPanel Height="60" HorizontalAlignment="Center" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
-                
-            </StackPanel>
-            <Grid DockPanel.Dock="Bottom" Background="#ccffbd" >
-                <Grid.ColumnDefinitions >
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <ComboBox x:Name="ComboBoxLekari" ItemsSource="{Binding listaLekari}" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="Zakazi termin" HorizontalAlignment="Left" Width="100px" Height="40px" VerticalAlignment="Top" Margin="650,612,0,0" Background="White"/>
+        <ComboBox HorizontalAlignment="Left" Margin="162,83,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.582,0.054"/>
+        <ComboBox HorizontalAlignment="Left" Margin="162,154,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,89,0,0" TextWrapping="Wrap" Text="Odabir lekara:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,154,0,0" TextWrapping="Wrap" Text="Odabir pacijenta:" VerticalAlignment="Top" RenderTransformOrigin="0.561,-3.108"/>
+        <DatePicker HorizontalAlignment="Left" Margin="150,377,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="152,444,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="150,490,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="86,444,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="86,490,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="56,381,0,0" TextWrapping="Wrap" Text="Datum termina" VerticalAlignment="Top"/>
+        <RadioButton Content="Pregled" HorizontalAlignment="Left" Margin="140,302,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Operacija" HorizontalAlignment="Left" Margin="140,322,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="61,302,0,0" TextWrapping="Wrap" Text="Tip termina:" VerticalAlignment="Top"/>
+        <CheckBox Content="Hitno zakazivanje" HorizontalAlignment="Left" Margin="162,230,0,0" VerticalAlignment="Top"/>
 
-
-            </Grid>
-        </DockPanel>
     </Grid>
 </Page>

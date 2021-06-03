@@ -1,0 +1,28 @@
+﻿<Page x:Class="Bolnica.view.sekretar.PageMedicinskiKarton"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="PageMedicinskiKarton">
+
+    <Grid Background="#ccffbd">
+        <Button Content="Dodaj alergen" HorizontalAlignment="Left" Margin="412,241,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.396,0.26" Background="White" Click="DodajAlergen_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="178,208,0,0" TextWrapping="Wrap" Text="Naziv alergena" VerticalAlignment="Top" FontSize="17px" />
+        <TextBox Name="textBoxNaziv" HorizontalAlignment="Left" Height="35" Margin="178,246,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+        <Button Content="Obrisi alergen" HorizontalAlignment="Left" Margin="412,364,0,0" VerticalAlignment="Top" Width="100" Height="40" Background="White" RenderTransformOrigin="-1.199,-3.427" Click="ObrisiAlergen_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="178,328,0,0" TextWrapping="Wrap" Text="Alergeni" VerticalAlignment="Top" FontSize="17px" />
+        <ListBox Name="listBoxAlergeni" HorizontalAlignment="Left" Height="236" Margin="178,364,0,0" VerticalAlignment="Top" Width="182"/>
+        <TextBlock HorizontalAlignment="Left" Margin="178,34,0,0" TextWrapping="Wrap" Text="Pacijent" VerticalAlignment="Top" FontSize="17px" />
+        <TextBlock HorizontalAlignment="Left" Margin="178,75,0,0" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" FontSize="17px" />
+        <TextBlock HorizontalAlignment="Left" Margin="178,114,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" FontSize="17px" />
+        <TextBlock Name="tbIme" HorizontalAlignment="Left" Margin="222,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="17px" />
+        <TextBlock HorizontalAlignment="Left" Margin="178,152,0,0" TextWrapping="Wrap" Text="JMGB:" VerticalAlignment="Top" FontSize="17px" />
+        <TextBlock Name="tbPrezime" HorizontalAlignment="Left" Margin="253,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="17px" />
+        <TextBlock Name="tbJmbg" HorizontalAlignment="Left" Margin="236,152,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="17px" />
+
+
+    </Grid>
+</Page>

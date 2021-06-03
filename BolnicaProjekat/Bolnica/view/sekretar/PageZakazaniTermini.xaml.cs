@@ -24,5 +24,12 @@ namespace Bolnica.view.sekretar
         {
             InitializeComponent();
         }
+
+        private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            var terminPage = new sekretar.ZakazivanjeTermina();
+            NavigationService.Navigate(terminPage);
+        }
+
     }
 }

@@ -1,0 +1,32 @@
+﻿<Page x:Class="Bolnica.view.sekretar.PageListaPacijenata"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="PageListaPacijenata">
+
+    <Grid Background="#ccffbd">
+        <Button Content="Izmeni podatke pacijenta" HorizontalAlignment="Left" Margin="73,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White" Click="IzmeniPacijenta_Click" />
+        <Button Content="Obrisi pacijenta" HorizontalAlignment="Left" Margin="253,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White" Click="ObrisiPacijenta_Click" />
+        <Button Content="Pregled medicinskog kartona" HorizontalAlignment="Left" Margin="432,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White" Click="OtvoriMedicinskiKarton_Click" />
+        <DataGrid HorizontalAlignment="Left" Height="425" Margin="73,218,0,0" VerticalAlignment="Top" Width="717"
+                   Background="White" x:Name="DataGridPrikazPacijenata"
+                  ItemsSource="{Binding Path=KolekcijaPacijenata}"
+                  IsReadOnly="True"
+                  SelectionMode="Single" 
+                  AutoGenerateColumns="False" 
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="JMBG" Binding="{Binding Jmbg}" Width="*" />
+                <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" Width="*" />
+                <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" Width="*" />
+                <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>

@@ -193,6 +193,19 @@ namespace Repozitorijum
                 }
             }
         }
+
+        public bool JelPostojiKorisnickoIme(string korisnickoIme)
+        {
+            foreach (Lekar l in Lekari)
+            {
+                if (l.KorisnickoIme.Equals(korisnickoIme))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 
 }

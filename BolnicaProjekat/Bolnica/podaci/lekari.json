@@ -108,5 +108,115 @@
     "Jmbg": "135321",
     "Drzavljanstvo": "srpsko",
     "AdresaStanovanja": "adresa 342"
+  },
+  {
+    "Id": 6,
+    "Specijalista": true,
+    "Specijalizacija": "asdads",
+    "LogickiObrisan": true,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 16
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "mihajloostojic2",
+    "Sifra": "sifra2",
+    "Ime": "das",
+    "Prezime": "dsa",
+    "Pol": 0,
+    "Email": "mejl@mejl.com",
+    "Telefon": "4124124",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1231231231231",
+    "Drzavljanstvo": "ima",
+    "AdresaStanovanja": "adresa nova nova"
+  },
+  {
+    "Id": 7,
+    "Specijalista": false,
+    "Specijalizacija": "asdasd",
+    "LogickiObrisan": true,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 16
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "imeime",
+    "Sifra": "sifra3",
+    "Ime": "dsadas",
+    "Prezime": "dasdasd",
+    "Pol": 0,
+    "Email": "sad@sad.com",
+    "Telefon": "412421",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1231231231231",
+    "Drzavljanstvo": "asdasd",
+    "AdresaStanovanja": "sadasd"
+  },
+  {
+    "Id": 8,
+    "Specijalista": false,
+    "Specijalizacija": "asdasd",
+    "LogickiObrisan": true,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 16
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "imeime3",
+    "Sifra": "sifra3",
+    "Ime": "dsadas",
+    "Prezime": "dasdasd",
+    "Pol": 0,
+    "Email": "sad@sad.com",
+    "Telefon": "412421",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1231231231231",
+    "Drzavljanstvo": "asdasd",
+    "AdresaStanovanja": "sadasd"
+  },
+  {
+    "Id": 9,
+    "Specijalista": true,
+    "Specijalizacija": "stagod",
+    "LogickiObrisan": false,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 16
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "mihajloostojic3",
+    "Sifra": "sifra2",
+    "Ime": "Janko",
+    "Prezime": "Prezime",
+    "Pol": 0,
+    "Email": "mejl@mejl.com",
+    "Telefon": "421421321",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1231231231322",
+    "Drzavljanstvo": "ima",
+    "AdresaStanovanja": "adresa2"
+  },
+  {
+    "Id": 10,
+    "Specijalista": true,
+    "Specijalizacija": "Hirurg",
+    "LogickiObrisan": false,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 16
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "stefanstefanovic",
+    "Sifra": "sifra",
+    "Ime": "Stefan",
+    "Prezime": "Stevic",
+    "Pol": 0,
+    "Email": "stefan100@gmail.com",
+    "Telefon": "143412321321",
+    "DatumRodjenja": "2000-10-12T00:00:00",
+    "Jmbg": "4214325234143",
+    "Drzavljanstvo": "ima",
+    "AdresaStanovanja": "adresa bb,100"
   }
 ]

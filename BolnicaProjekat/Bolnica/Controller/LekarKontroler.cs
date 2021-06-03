@@ -21,9 +21,9 @@ namespace Kontroler
         {
             lekarServis = new LekarServis();
         }
-        public LekarDTO DodajLekara(LekarDTO lekar)
+        public void DodajLekara(RegistracijaLekaraDTO podaciLekara)
         {
-            return lekarServis.DodajLekara(lekar);
+            lekarServis.DodajLekara(podaciLekara);
         }
       
          public LekarDTO AzurirajLekara(LekarDTO lekar)

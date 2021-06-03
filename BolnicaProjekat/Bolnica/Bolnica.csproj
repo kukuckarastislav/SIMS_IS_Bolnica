@@ -35,6 +35,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -115,6 +151,8 @@
     <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
+    <Compile Include="DTO\RegistracijaLekaraDTO.cs" />
+    <Compile Include="DTO\RegistracijaPacijentaDTO.cs" />
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
     <Compile Include="DTO\StavkaIzvjestajaDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
@@ -203,6 +241,13 @@
     <Compile Include="Service\UpravnikServis.cs" />
     <Compile Include="Threads\MedicationConsumption.cs" />
     <Compile Include="Threads\UserSuspension.cs" />
+    <Compile Include="utils\BindableBase.cs" />
+    <Compile Include="utils\MyICommand.cs" />
+    <Compile Include="utils\ValidationBase.cs" />
+    <Compile Include="utils\ValidationErrors.cs" />
+    <Compile Include="utils\Validator.cs" />
+    <Compile Include="viewmodel\RegistracijaLekaraViewModel.cs" />
+    <Compile Include="viewmodel\RegistracijaPacijentaViewModel.cs" />
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
     </Compile>
@@ -329,6 +374,12 @@
     <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
       <DependentUpon>KartonPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageDodavanjeObavestenja.xaml.cs">
+      <DependentUpon>PageDodavanjeObavestenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageIzmenaPacijenta.xaml.cs">
+      <DependentUpon>PageIzmenaPacijenta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PageKorisnickiNalog.xaml.cs">
       <DependentUpon>PageKorisnickiNalog.xaml</DependentUpon>
     </Compile>
@@ -337,6 +388,12 @@
     </Compile>
     <Compile Include="view\sekretar\PageLekarIzmena.xaml.cs">
       <DependentUpon>PageLekarIzmena.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageListaPacijenata.xaml.cs">
+      <DependentUpon>PageListaPacijenata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageMedicinskiKarton.xaml.cs">
+      <DependentUpon>PageMedicinskiKarton.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\PageObavestenja.xaml.cs">
       <DependentUpon>PageObavestenja.xaml</DependentUpon>
@@ -355,6 +412,9 @@
     </Compile>
     <Compile Include="view\sekretar\registracija\PageRegistracija.xaml.cs">
       <DependentUpon>PageRegistracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\registracija\PageRegistracijaPacijentaxaml.xaml.cs">
+      <DependentUpon>PageRegistracijaPacijentaxaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\registracija\RegistracijaLekara.xaml.cs">
       <DependentUpon>RegistracijaLekara.xaml</DependentUpon>
@@ -659,6 +719,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\PageDodavanjeObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageIzmenaPacijenta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PageKorisnickiNalog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -668,6 +736,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\PageLekarIzmena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageListaPacijenata.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageMedicinskiKarton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -694,6 +770,10 @@
     <Page Include="view\sekretar\registracija\PageRegistracija.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\sekretar\registracija\PageRegistracijaPacijentaxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\registracija\RegistracijaLekara.xaml">
       <SubType>Designer</SubType>
@@ -1061,6 +1141,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\lekar-icons\feedback-icon.png" />
+    <Content Include="view\sekretar\help\registracija\Ime.htm" />
+    <Content Include="view\sekretar\help\registracija\Indeks.htm" />
+    <Content Include="view\sekretar\help\registracija\index.htm" />
+    <Content Include="view\sekretar\help\registracija\Prezime.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

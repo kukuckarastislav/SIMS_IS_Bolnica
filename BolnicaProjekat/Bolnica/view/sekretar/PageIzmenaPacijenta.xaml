@@ -1,0 +1,52 @@
+﻿<Page x:Class="Bolnica.view.sekretar.PageIzmenaPacijenta"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="PageIzmenaPacijenta">
+
+    <Grid Background="#ccffbd">
+        <Button Content="Sašuvaj izmene" HorizontalAlignment="Left" Margin="457,593,0,0" VerticalAlignment="Top" Width="120" Height="40" Background="White" Click="IzmeniPacijenta_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="192,118,0,0" TextWrapping="Wrap" Text="Ime:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="155,168,0,0" TextWrapping="Wrap" Text="Prezime:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="175,223,0,0" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" FontSize="20px" />
+        <TextBlock HorizontalAlignment="Left" Margin="198,291,0,0" TextWrapping="Wrap" Text="Pol:" VerticalAlignment="Top" FontSize="20px" RenderTransformOrigin="0.465,-0.159"/>
+        <TextBlock HorizontalAlignment="Left" Margin="161,350,0,0" TextWrapping="Wrap" Text="Telefon:" VerticalAlignment="Top" FontSize="20px" RenderTransformOrigin="0.524,1.624"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="64,401,0,0" TextWrapping="Wrap" Text="Adresa stanovanja:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBox Name="inputIme" HorizontalAlignment="Left" Height="23" Margin="245,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="inputPrezime" HorizontalAlignment="Left" Height="23" Margin="245,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.504,0.345"/>
+        <TextBox Name="inputJmbg" HorizontalAlignment="Left" Height="23" Margin="245,225,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox Name="inputTelefon" HorizontalAlignment="Left" Height="23" Margin="244,352,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="inputAdresa" HorizontalAlignment="Left" Height="23" Margin="244,406,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="554,116,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="469,168,0,0" TextWrapping="Wrap" Text="Datum rođenja:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="484,237,0,0" TextWrapping="Wrap" Text="Državljanstvo:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBox Name="inputEmail" HorizontalAlignment="Left" Height="23" Margin="618,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="inputDrzavljanstvo" HorizontalAlignment="Left" Height="23" Margin="618,242,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <RadioButton Name="rbMusko" Content="Muško" HorizontalAlignment="Left" Margin="245,284,0,0" VerticalAlignment="Top" IsEnabled="False" RenderTransformOrigin="0.452,1.596"/>
+        <RadioButton Name="rbZensko" Content="Žensko" HorizontalAlignment="Left" Margin="245,311,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Button Content="Odustani" HorizontalAlignment="Left" Margin="618,593,0,0" VerticalAlignment="Top" Width="120" Height="40" Background="White" Click="Odustani_Click"/>
+        <DatePicker Name="inputDatumRodjenja" HorizontalAlignment="Left" Margin="618,172,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="tbErrIme" HorizontalAlignment="Left" Margin="245,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrPrezime" HorizontalAlignment="Left" Margin="245,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrJmbg" HorizontalAlignment="Left" Margin="245,254,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrTelefon" HorizontalAlignment="Left" Margin="245,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrAdresaStanovanja" HorizontalAlignment="Left" Margin="245,433,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrEmail" HorizontalAlignment="Left" Margin="618,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrDatumRodjenja" HorizontalAlignment="Left" Margin="618,200,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrDrzavljanstvo" HorizontalAlignment="Left" Margin="618,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+
+
+
+
+
+    </Grid>
+</Page>

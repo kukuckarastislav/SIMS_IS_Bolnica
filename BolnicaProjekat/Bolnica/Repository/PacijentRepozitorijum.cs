@@ -110,12 +110,26 @@ namespace Repozitorijum
             return pacijenti.ElementAt(pacijenti.Count - 1).Id + 1;
         }
 
+        public void AzurirajPacijenta(PacijentDTO noviPodaci)
+        {
+            Pacijent pacijent = GetById(noviPodaci.Id);
+            pacijent.Ime = noviPodaci.Ime;
+            pacijent.Prezime = noviPodaci.Prezime;
+            pacijent.Pol = noviPodaci.Pol;
+            pacijent.Telefon = noviPodaci.Telefon;
+            pacijent.Drzavljanstvo = noviPodaci.Drzavljanstvo;
+            pacijent.DatumRodjenja = noviPodaci.DatumRodjenja;
+            pacijent.Email = noviPodaci.Email;
+            pacijent.AdresaStanovanja = noviPodaci.AdresaStanovanja;
+            SaveData();
+        }
+
         public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
         {
             SaveData();
             return pacijent;
         }
-      
+
         //logicko brisanje
         public void ObrisiPacijenta(PacijentDTO pacijentZaBrisanje)
         {
@@ -154,7 +168,72 @@ namespace Repozitorijum
             }        
          return null;
       }
-  
-   
-   }
+
+        public List<string> GetAlergeniPacijenta(int id)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Id == id)
+                    return p.MedicinskiKarton.Alergeni;
+            }
+
+            return null;
+        }
+
+        public void DodajAlergen(int idPacijenta, string alergen)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Id == idPacijenta)
+                {
+                    if (DaLiImaAlergen(p.MedicinskiKarton.Alergeni, alergen) == false)
+                    {
+                        p.MedicinskiKarton.Alergeni.Add(alergen);
+                        SaveData();
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void ObrisiAlergen(int idPacijenta, string alergen)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.Id == idPacijenta)
+                {
+                    if (DaLiImaAlergen(p.MedicinskiKarton.Alergeni, alergen) == true)
+                    {
+                        p.MedicinskiKarton.Alergeni.Remove(alergen);
+                        SaveData();
+                        return;
+                    }
+                }
+            }
+        }
+
+        public bool DaLiImaAlergen(List<string> alergeni, string alergen)
+        {
+            foreach(string a in alergeni)
+            {
+                if (a.Equals(alergen)) return true;
+            }
+
+            return false;
+        }
+
+        public bool JelPostojiKorisnickoIme(string korisnickoIme)
+        {
+            foreach (Pacijent p in pacijenti)
+            {
+                if (p.KorisnickoIme.Equals(korisnickoIme))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+    }
 }

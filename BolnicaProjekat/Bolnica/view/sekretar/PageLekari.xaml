@@ -5,16 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="708" d:DesignWidth="874"
       Title="PageLekari">
 
     <Grid Background="#ccffbd">
         <DataGrid x:Name="DataGridPrikazLekara"
                   ItemsSource="{Binding Path=PrikazaniLekari}" 
-                  IsReadOnly="False"
+                  IsReadOnly="True"
                   SelectionMode="Single" 
                   AutoGenerateColumns="False"
-            HorizontalAlignment="Left" Height="265" Margin="69,143,0,0" VerticalAlignment="Top" Width="665">
+            HorizontalAlignment="Left" Height="466" Margin="67,191,0,0" VerticalAlignment="Top" Width="728" Background="White">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" Width="*" />
                 <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" Width="*" />
@@ -24,9 +24,9 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Obrisi" HorizontalAlignment="Left" Margin="69,56,0,0" VerticalAlignment="Top" Width="81" Click="ObrisiLekara_Click" Height="30"/>
-        <Button Content="Izmeni podatke" HorizontalAlignment="Left" Margin="190,56,0,0" VerticalAlignment="Top" Width="90" RenderTransformOrigin="-0.16,0.943" Height="30" Click="IzmeniLekara_Click"/>
-        <Button Content="Radno vreme" HorizontalAlignment="Left" Margin="313,56,0,0" VerticalAlignment="Top" Width="91" Height="30" Click="RadnoVreme_Click" />
+        <Button Content="Izmeni podatke lekara" HorizontalAlignment="Left" Margin="67,30,0,0" VerticalAlignment="Top" Width="135" Height="40" Click="IzmeniLekara_Click" Background="White" />
+        <Button Content="Obrisi lekara" HorizontalAlignment="Left" Margin="234,30,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="-0.16,0.943" Click="ObrisiLekara_Click" Background="White" />
+        <Button Content="Radno vreme" HorizontalAlignment="Left" Margin="360,30,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="RadnoVreme_Click" Background="White" RenderTransformOrigin="0.151,0.088" />
 
     </Grid>
 </Page>

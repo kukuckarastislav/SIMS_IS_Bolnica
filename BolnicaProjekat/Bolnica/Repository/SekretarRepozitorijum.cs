@@ -80,6 +80,18 @@ namespace Repozitorijum
             return null;
         }
 
+        public bool JelPostojiKorisnickoIme(string korisnickoIme)
+        {
+            foreach (Sekretar s in Sekretari)
+            {
+                if (s.KorisnickoIme.Equals(korisnickoIme))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void SaveData()
         {
             var format = new JsonSerializerOptions

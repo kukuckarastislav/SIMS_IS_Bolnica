@@ -7,7 +7,7 @@
       xmlns:views="using:CitiBox.Views"
       xmlns:local="clr-namespace:Bolnica.view.sekretar" xmlns:converters1="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="708" d:DesignWidth="874"
       Title="PagePacijenti"
     >
     <Page.Resources>
@@ -15,52 +15,28 @@
     </Page.Resources>
 
     <Grid Background="#ccffbd">
-        <DockPanel>
-            <StackPanel Height="60" HorizontalAlignment="Left" DockPanel.Dock="Top" Orientation="Horizontal" Background="#ccffbd">
-                <Button Margin="10 10" Background="white" Click="IzmeniPacijenta_Click">Izmeni podatke pacijenta</Button>
-                <Button Margin="10 10" Background="white" Click="ObrisiPacijenta_Click">Obrisi pacijenta</Button>
-                <Button Margin="10 10" Background="white" Click="ZakaziTermin_Click">Zakazi termin</Button>
-                <Button Margin="10 10" Background="white" Click="PogledajTermine_Click">Pogledaj termine</Button>
-                <Button Margin="10 10" Background="white" Click="OtvoriMedicinskiKarton_Click">Medicinski karton</Button>
-                <Button Margin="10 10" Background="white" Click="ZakaziHitanTermin_Click">Hitno zakazivanje</Button>
-            </StackPanel>
-            <Grid DockPanel.Dock="Bottom" Background="#ccffbd">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <DataGrid x:Name="DataGridPrikazPacijenata"
-                          ItemsSource="{Binding Path=KolekcijaPacijenata}" 
-                          Grid.Row="1" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="7"
-                          IsReadOnly="False"
+
+        <DataGrid x:Name="DataGridPrikazPacijenata"
+                          ItemsSource="{Binding Path=KolekcijaPacijenata}" Grid.Column="0"
+                          IsReadOnly="True"
                           SelectionMode="Single" 
                           AutoGenerateColumns="False"
-                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="JMBG" Binding="{Binding Jmbg}" Width="*" />
-                        <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" Width="*" />
-                        <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" Width="*" />
-                        <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}" Width="*" />
-                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                          SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}" Margin="105,300,79.6,55">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="JMBG" Binding="{Binding Jmbg}" Width="*" />
+                <DataGridTextColumn Header="Ime" Binding="{Binding Ime}" Width="*" />
+                <DataGridTextColumn Header="Prezime" Binding="{Binding Prezime}" Width="*" />
+                <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
 
-            </Grid>
-        </DockPanel>
+        <Button Width="150px" Height="40px" Background="white" Click="IzmeniPacijenta_Click" Margin="76,54,697.6,614">Izmeni podatke pacijenta</Button>
+        <Button Width="100px" Height="40px" Background="white" Click="ObrisiPacijenta_Click" Margin="230,54,543.6,614">Obrisi pacijenta</Button>
+        <Button Width="100px" Height="40px" Background="white" Click="ZakaziTermin_Click" Margin="610,144,163.6,524">Zakazi termin</Button>
+        <Button Width="100px" Height="40px" Background="white" Click="PogledajTermine_Click" Margin="479,169,294.6,499">Pogledaj termine</Button>
+        <Button Width="100px" Height="40px" Background="white" Click="OtvoriMedicinskiKarton_Click" Margin="366,54,407.6,614">Medicinski karton</Button>
+        <Button Width="100px" Height="40px" Background="white" Click="ZakaziHitanTermin_Click" Margin="353,194,420.6,474">Hitno zakazivanje</Button>
+
     </Grid>
 </Page>

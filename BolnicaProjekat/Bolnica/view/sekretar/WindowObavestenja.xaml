@@ -15,15 +15,15 @@
             </StackPanel>
             <Grid DockPanel.Dock="Bottom" Background="#ccffbd">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="88.8" />
+                    <ColumnDefinition Width="88*" />
+                    <ColumnDefinition Width="88*" />
+                    <ColumnDefinition Width="88*" />
+                    <ColumnDefinition Width="89*" />
+                    <ColumnDefinition Width="88*" />
+                    <ColumnDefinition Width="88*" />
+                    <ColumnDefinition Width="88*" />
+                    <ColumnDefinition Width="88*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />

@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using Bolnica.viewmodel;
 
 namespace Bolnica.view.sekretar.registracija
 {
@@ -31,27 +32,6 @@ namespace Bolnica.view.sekretar.registracija
             this.inputDatum.SelectedDate = DateTime.Now;
         }
 
-        private void RegistrujLekara_Click(object sender, RoutedEventArgs e)
-        {
-            LekarDTO dto = new LekarDTO();
-            dto.Ime = this.inputIme.Text;
-            dto.Prezime = this.inputPrezime.Text;
-            dto.Jmbg = this.inputJMBG.Text;
-            dto.Telefon = this.inputTelefon.Text;
-            dto.AdresaStanovanja = this.inputAdresa.Text;
-            dto.KorisnickoIme = this.inputKorisnickoIme.Text;
-            dto.Sifra = this.inputLozinka.Text;
-            dto.Specijalizacija = this.inputSpecijalizacija.Text;
-            dto.Email = this.inputEmail.Text;
-            dto.Drzavljanstvo = this.inputDrzavljansto.Text;
-            if (this.rbrMusko.IsChecked == true)
-                dto.Pol = Pol.Musko;
-            else
-                dto.Pol = Pol.Zensko;
-            dto.DatumRodjenja = (DateTime)inputDatum.SelectedDate;
-            LekarKontroler kontroler = new LekarKontroler();
-            kontroler.DodajLekara(dto);
-            //kontroler.DodajLekara();
-        }
+       
     }
 }

@@ -150,6 +150,7 @@
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
+    <Compile Include="DTO\ProstorijaDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="DTO\RegistracijaLekaraDTO.cs" />
     <Compile Include="DTO\RegistracijaPacijentaDTO.cs" />

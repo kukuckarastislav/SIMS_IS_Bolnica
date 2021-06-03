@@ -47,5 +47,10 @@ namespace DTO
             AdresaStanovanja = dto.AdresaStanovanja;
             Sifra = dto.Sifra;
         }
+
+        public override string ToString()
+        {
+            return Ime + " " + Prezime + " - " + KorisnickoIme;
+        }
     }
 }

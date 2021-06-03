@@ -11,10 +11,12 @@ using Model;
 using Repozitorijum;
 using DTO;
 using Bolnica.view.sekretar;
+using Interface;
+using Threads;
 
 namespace Servis
 {
-   public class PacijentServis
+   class PacijentServis : IObserver
    {
         public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
         public Model.Pacijent DodajPacijenta(Model.Pacijent pacijent)
@@ -76,6 +78,16 @@ namespace Servis
         public void SaveData()
         {
             PacijentRepozitorijum.GetInstance.SaveData();
+        }
+
+        public void Update(ISubject subject)
+        {
+            if(subject is UserSuspension userSuspension)
+            {
+                Pacijent p = PacijentRepozitorijum.GetInstance.GetById(userSuspension.Patientid);
+                p.SpamUser = false;
+                AzurirajPacijenta(p);
+            }
         }
     }
 }

@@ -53,6 +53,7 @@ namespace Repozitorijum
             }
         }
 
+
         public void SaveData()
         {
             var format = new JsonSerializerOptions
@@ -118,6 +119,20 @@ namespace Repozitorijum
                 }
             }
             SaveData();
+        }
+
+        internal List<Aktivnost> GetAllSuspenzije()
+        {
+            loadData();
+            List<Model.Aktivnost> ret = new List<Model.Aktivnost>();
+            foreach (Aktivnost z in aktivnosti)
+            {
+                if (z.Vrsta.Equals("TRENUTNA SUSPENZIJA"))
+                {
+                    ret.Add(z);
+                }
+            }
+            return ret;
         }
 
 

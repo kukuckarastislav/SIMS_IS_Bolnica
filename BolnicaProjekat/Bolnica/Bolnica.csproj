@@ -119,6 +119,8 @@
     <Compile Include="DTO\StavkaIzvjestajaDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
+    <Compile Include="Interface\IObserver.cs" />
+    <Compile Include="Interface\ISubject.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="Model\DTORadniKalendar.cs" />
@@ -199,6 +201,7 @@
     <Compile Include="Service\TerminProstorijeServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
+    <Compile Include="Threads\UserSuspension.cs" />
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>
     </Compile>

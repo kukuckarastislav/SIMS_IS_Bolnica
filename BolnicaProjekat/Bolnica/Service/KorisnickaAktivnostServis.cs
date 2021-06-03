@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Repozitorijum;
 using Model;
+using Interface;
+using Threads;
 
 namespace Servis
 {
-    public class KorisnickaAktivnostServis
+    class KorisnickaAktivnostServis : IObserver
     {
         private KorisnickaAktivnostRepozitorijum _KorisnickaAktivnostRepozitorijum;
         private NotifikacijaRepozitorijum _NotifikacijeRepozitorijum;   //posalji mu upozorenje da ce biti banovan
@@ -50,10 +52,8 @@ namespace Servis
                 Pacijent p = PacijentRepozitorijum.GetInstance.GetById(IdPacijenta);
                 p.SpamUser = true;
                 PacijentRepozitorijum.GetInstance.AzurirajPacijenta(p);
-                KorisnickaAktivnostRepozitorijum.GetInstance.AzurirajStareSuspenzije(IdPacijenta);
-                KorisnickaAktivnostRepozitorijum.GetInstance.DodajAktivnost(new Aktivnost(IdPacijenta, DateTime.Now, "TRENUTNA SUSPENZIJA")); //jer moze biti vise suspenzija
-                //sad ako je bilo ranijih suspenzija preimenuj
 
+                KorisnickaAktivnostRepozitorijum.GetInstance.DodajAktivnost(new Aktivnost(IdPacijenta, DateTime.Now, "TRENUTNA SUSPENZIJA")); //jer moze biti vise suspenzija
                 return true;
             }
             else if (GetBrojPomjeranjaTermina(aktivnosti) == 3 || GetBrojZakazivanjaTermina(aktivnosti) == 3)
@@ -112,8 +112,12 @@ namespace Servis
             return KorisnickaAktivnostRepozitorijum.GetInstance.DodajAktivnost(aktivnost);
         }
 
-
-
-
+        public void Update(ISubject subject)
+        {
+            if(subject is UserSuspension userSuspension)
+            {
+                KorisnickaAktivnostRepozitorijum.GetInstance.AzurirajStareSuspenzije(userSuspension.Patientid);
+            }
+        }
     }
 }

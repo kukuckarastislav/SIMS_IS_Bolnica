@@ -10,10 +10,12 @@ using System.Text.Json;
 using System.IO;
 using Model;
 using Repozitorijum;
+using Interface;
+using Threads;
 
 namespace Servis
 {
-   public class NotifikacijeServis
+   class NotifikacijeServis : IObserver
    {
         private PacijentRepozitorijum pacijentRepozitorijum;
         private LekarRepozitorijum lekarRepozitorijum;
@@ -90,6 +92,15 @@ namespace Servis
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
         }
 
-
+        public void Update(ISubject subject)
+        {
+            if(subject is UserSuspension userSuspension)
+            {
+                int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
+                NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(new Notifikacija(id + 1, -1, userSuspension.Patientid, -1, false, false,
+                                                                         " Vas period suspenzije je istekao i sa tim u vezi, vise niste blokirani."));
+            }
+            
+        }
     }
 }

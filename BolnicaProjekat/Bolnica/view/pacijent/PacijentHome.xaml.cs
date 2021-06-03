@@ -3,6 +3,8 @@ using System.Threading;
 using System.Windows;
 using Kontroler;
 using System.Windows.Input;
+using Threads;
+using Servis;
 
 namespace Bolnica.view.pacijent
 {
@@ -10,7 +12,9 @@ namespace Bolnica.view.pacijent
     {
         public PacijentDTO Pacijent;
         Thread podsjetnikThread;
+        Thread suspensionThread;
         private Servis.PodsjetnikServis PodsjetnikServis;
+        private UserSuspension UserSuspension;
 
         public PacijentHome(PacijentDTO p)
         {
@@ -32,7 +36,17 @@ namespace Bolnica.view.pacijent
             podsjetnikThread = new Thread(new ThreadStart(PodsjetnikServis.ThreadPodsjetnik));
             podsjetnikThread.IsBackground = true;
             podsjetnikThread.Start();
+
+            UserSuspension = new UserSuspension();
+            UserSuspension.Register(new KorisnickaAktivnostServis());
+            UserSuspension.Register(new PacijentServis());
+            UserSuspension.Register(new NotifikacijeServis());
+
+            suspensionThread = new Thread(new ThreadStart(UserSuspension.ThreadSuspension));
+            suspensionThread.IsBackground = true;
+            suspensionThread.Start();
         }
+
 
         private void prikazi_preglede(object sender, RoutedEventArgs e)
         {

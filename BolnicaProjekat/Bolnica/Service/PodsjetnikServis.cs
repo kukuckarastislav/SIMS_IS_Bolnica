@@ -5,10 +5,12 @@ using DTO;
 using System.Collections.ObjectModel;
 using System.Threading;
 using System.Collections.Generic;
+using Interface;
+using Threads;
 
 namespace Servis
 {
-    public class PodsjetnikServis
+    class PodsjetnikServis: IObserver
     {
         private PodsjetnikRepozitorijum Repozitorijum;
         private LekoviRepozitorijum lekoviRepozitorijum;
@@ -19,24 +21,7 @@ namespace Servis
             lekoviRepozitorijum = LekoviRepozitorijum.GetInstance;
         }
 
-        public void ThreadPodsjetnik()
-        {
-            List<Podsjetnik> lista = Repozitorijum.GetAll();
-            while (true)
-            {
-                foreach (Podsjetnik p in lista)
-                {
-                    if (!p.Vidljiv && DateTime.Compare(p.VrijemePojavljivanja, DateTime.Now) <= 0)
-                    {
-                        p.Vidljiv = true;
-                        Repozitorijum.AzurirajPodsjetnik(p);
-                    }
-                }
 
-                Thread.Sleep(60 * 1000);      // na svkaih 60 sekundi   
-            }
-
-        }
 
         internal Podsjetnik DodajPodsjetnik(PodsjetnikParametriDTO parametri)
         {
@@ -163,7 +148,14 @@ namespace Servis
             return pocetakIzvjestaja;
         }
 
-
-
+        public void Update(ISubject subject)
+        {
+            if(subject is MedicationConsumption medicationConsumption)
+            {
+                Podsjetnik p = Repozitorijum.GetPodsjetnikById(medicationConsumption.Reminderid);
+                p.Vidljiv = true;
+                Repozitorijum.AzurirajPodsjetnik(p);
+            }
+        }
     }
 }

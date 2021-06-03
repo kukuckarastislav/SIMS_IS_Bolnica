@@ -65,20 +65,6 @@ namespace Servis
             }
             return false;
         }
-
-        public static void ReceptNotifikacija(Recept recept, DateTime VremeUzimanja)
-        {
-            TimeSpan ts = new TimeSpan(0,3,0,0,0);
-            DateTime vrijemePojavljivanja = VremeUzimanja - ts;
-            String vrPojavljivanja = vrijemePojavljivanja.ToString("yyyy-MM-dd HH:mm tt");
-
-            int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
-
-            Notifikacija novaNotifikacija = new Notifikacija(0 - id-1, recept.Id, recept.IdPacijenta, recept.IdLekara, false, true, "");
-            novaNotifikacija.Opis = vrPojavljivanja+"*"+"   Podsjecamo vas da danas, u " + VremeUzimanja.ToString("HH:mm tt") + " treba da popijete vas lijek.";
-            NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
-        
-        }
   
         public void OtkaziTermin(ZdravstvenaUsluga usluga)
         {

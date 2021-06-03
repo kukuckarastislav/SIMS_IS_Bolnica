@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
-        Title="NotifikacijePacijent" Height="547.349" Width="769.671">
+        WindowStartupLocation="CenterScreen"
+        Title="NotifikacijePacijent" Height="545.812" Width="829.633">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="131*"/>
-            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="280*"/>
+            <ColumnDefinition Width="101*"/>
         </Grid.ColumnDefinitions>
-        <ListView ListViewItem.MouseDoubleClick="kliknuta_notifikacija" ItemsSource="{Binding Notifikacije}" x:Name="listaNotifikacija" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5" Height="442" VerticalAlignment="Top" Grid.ColumnSpan="2"  FontSize="20" FontFamily="Arial">
+        <ListView ListViewItem.MouseDoubleClick="kliknuta_notifikacija" ItemsSource="{Binding Notifikacije}" x:Name="listaNotifikacija" Margin="0,2,0,0" RenderTransformOrigin="0.5,0.5" Height="442" VerticalAlignment="Top"  FontSize="20" FontFamily="Arial" Grid.ColumnSpan="2">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Height" Value="55" />
@@ -33,7 +34,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="97,460,102,18" Content="Obrisi notifikaciju" FontFamily="Arial" FontSize="17" RenderTransformOrigin="1.449,-0.502" Click="obrisi_notifikaciju"/>
+        <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="81,460,351,18" Content="Obrisi notifikaciju" FontFamily="Arial" FontSize="17" RenderTransformOrigin="1.449,-0.502" Click="obrisi_notifikaciju"/>
 
     </Grid>
 </Window>

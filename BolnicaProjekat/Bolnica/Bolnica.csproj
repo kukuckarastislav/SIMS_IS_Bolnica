@@ -201,6 +201,7 @@
     <Compile Include="Service\TerminProstorijeServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
+    <Compile Include="Threads\MedicationConsumption.cs" />
     <Compile Include="Threads\UserSuspension.cs" />
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
       <DependentUpon>GlavniMeni.xaml</DependentUpon>

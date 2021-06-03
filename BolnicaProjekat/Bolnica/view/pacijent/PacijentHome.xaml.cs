@@ -14,7 +14,7 @@ namespace Bolnica.view.pacijent
         Thread podsjetnikThread;
         Thread suspensionThread;
         private UserSuspension UserSuspension;
-        private Servis.PodsjetnikServis PodsjetnikServis;
+        private MedicationConsumption MedicationConsumption;
 
         public PacijentHome(PacijentDTO p)
         {
@@ -32,10 +32,13 @@ namespace Bolnica.view.pacijent
             broj_podsjetnika.Text = Kontroler.GetBrojNeprocitanihPodsjetnika(p.Id);
             Pacijent = p;
 
-            PodsjetnikServis = new Servis.PodsjetnikServis();
-            podsjetnikThread = new Thread(new ThreadStart(PodsjetnikServis.ThreadPodsjetnik));
+            MedicationConsumption = new MedicationConsumption();
+            MedicationConsumption.Register(new PodsjetnikServis());
+
+            podsjetnikThread = new Thread(new ThreadStart(MedicationConsumption.ThreadPodsjetnik));
             podsjetnikThread.IsBackground = true;
             podsjetnikThread.Start();
+
 
             UserSuspension = new UserSuspension();
             UserSuspension.Register(new KorisnickaAktivnostServis());

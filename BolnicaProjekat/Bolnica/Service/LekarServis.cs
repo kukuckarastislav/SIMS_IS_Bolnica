@@ -106,6 +106,7 @@ namespace Servis
                     noviDto.Telefon = lekar.Telefon;
                     noviDto.Email = lekar.Email;
                     noviDto.DatumRodjenja = lekar.DatumRodjenja;
+                    noviDto.Pol = lekar.Pol;
                     lekariDto.Add(noviDto);
                 }
             }

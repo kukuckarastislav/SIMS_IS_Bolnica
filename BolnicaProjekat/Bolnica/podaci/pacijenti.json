@@ -58,18 +58,18 @@
   },
   {
     "MedicinskiKarton": {
-      "IdPacijent": 0,
+      "IdPacijent": 3,
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null,
-      "Alergeni": null
+      "Alergeni": []
     },
     "Ocene": null,
     "Id": 3,
     "PacijentGost": false,
     "Hospitalizovan": false,
     "SpamUser": false,
-    "LogickiObrisan": true,
+    "LogickiObrisan": false,
     "KorisnickoIme": "simasima",
     "Sifra": "sifra",
     "Ime": "Sima",
@@ -84,54 +84,62 @@
   },
   {
     "MedicinskiKarton": {
-      "IdPacijent": 0,
+      "IdPacijent": 4,
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
       "Terapija": null,
-      "Alergeni": null
+      "Alergeni": [
+        "Alergen 1"
+      ]
     },
     "Ocene": null,
     "Id": 4,
     "PacijentGost": false,
     "Hospitalizovan": false,
     "SpamUser": false,
-    "LogickiObrisan": true,
-    "KorisnickoIme": "dsadasd",
+    "LogickiObrisan": false,
+    "KorisnickoIme": "markomarkovic",
     "Sifra": "asdasd",
     "Ime": "Marko",
-    "Prezime": "Markovic",
+    "Prezime": "Peric",
     "Pol": 0,
-    "Email": "mejl",
-    "Telefon": "12312313",
-    "DatumRodjenja": "2000-10-10T00:00:00",
+    "Email": "mejl2@marko.com",
+    "Telefon": "062523432",
+    "DatumRodjenja": "1990-10-10T00:00:00",
     "Jmbg": "1231231",
     "Drzavljanstvo": "ima2",
-    "AdresaStanovanja": "asdasd"
+    "AdresaStanovanja": "adresa, bb 10"
   },
   {
     "MedicinskiKarton": {
-      "IdPacijent": 0,
+      "IdPacijent": 5,
       "Osiguran": false,
       "ZdravstvenaUsluga": null,
-      "Terapija": null,
-      "Alergeni": null
+      "Terapija": {
+        "Id": 0,
+        "Naziv": null,
+        "DatumPocetka": "0001-01-01T00:00:00",
+        "DatumZavrsetka": "0001-01-01T00:00:00",
+        "Anamneza": null
+      },
+      "Alergeni": []
     },
-    "Ocene": null,
+    "Ocene": [],
     "Id": 5,
     "PacijentGost": false,
     "Hospitalizovan": false,
     "SpamUser": false,
-    "LogickiObrisan": true,
-    "KorisnickoIme": "asdascas",
-    "Sifra": "adsc2",
-    "Ime": "asdas",
-    "Prezime": "asdasd",
-    "Pol": 0,
-    "Email": "dsadsa",
-    "Telefon": "312312312",
-    "DatumRodjenja": "2000-10-10T00:00:00",
-    "Jmbg": "2321312",
-    "Drzavljanstvo": "dasdsa",
-    "AdresaStanovanja": "sadasdas"
+    "LogickiObrisan": false,
+    "KorisnickoIme": "jokajovanovic",
+    "Sifra": "sifra",
+    "Ime": "Jovana",
+    "Prezime": "Jovanovic",
+    "Pol": 1,
+    "Email": "joka@gmail.com",
+    "Telefon": "12532413212",
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1255463443241",
+    "Drzavljanstvo": "ima",
+    "AdresaStanovanja": "adsesda"
   }
 ]

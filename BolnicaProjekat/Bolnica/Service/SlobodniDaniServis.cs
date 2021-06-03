@@ -24,6 +24,10 @@ namespace Service
                 SlobodniDaniRepozitorijum.GetInstance.DodajOdmor(new SlobodniDani(SlobodniDaniRepozitorijum.GetInstance.GetNewId(), idLekara, new List<DateTime>()));
             SlobodniDaniRepozitorijum.GetInstance.DodajDanLekaru(idLekara, dan);
         }
+        public void RegistrujSlobodneDaneLekara(int idLekara)
+        {
+            SlobodniDaniRepozitorijum.GetInstance.DodajOdmor(new SlobodniDani(SlobodniDaniRepozitorijum.GetInstance.GetNewId(), idLekara, new List<DateTime>()));
+        }
 
         public SlobodniDani KonvertujUmodel(SlobodniDaniDTO dto)
         {
@@ -42,6 +46,14 @@ namespace Service
         public SlobodniDaniDTO GetDaniLekara(int idLekara)
         {
             ObservableCollection<SlobodniDani> sviDani = SlobodniDaniRepozitorijum.GetInstance.GetAll();
+            foreach (SlobodniDani dan in sviDani)
+            {
+                if (dan.LekarId == idLekara)
+                {
+                    return KonvertujUDTO(dan);
+                }
+            }
+            RegistrujSlobodneDaneLekara(idLekara);
             foreach (SlobodniDani dan in sviDani)
             {
                 if (dan.LekarId == idLekara)

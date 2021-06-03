@@ -30,6 +30,9 @@ namespace Bolnica.view.sekretar
             InitializeComponent();
             this.pacijent = pacijent;
             lista = new ObservableCollection<string>();
+            this.tbIme.Text = pacijent.Ime;
+            this.tbPrezime.Text = pacijent.Prezime;
+            this.tbJmbg.Text = pacijent.Jmbg;
             UcitajAlergene();
         }
 

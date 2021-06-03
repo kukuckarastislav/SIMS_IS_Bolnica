@@ -23,6 +23,11 @@ namespace Servis
         {
             podaciPacijenta.Id = PacijentRepozitorijum.GetInstance.GetNewId();
             Pacijent pacijent = konvertujDtoUModel(podaciPacijenta);
+            if (podaciPacijenta.PacijentGost)
+            {
+                pacijent.KorisnickoIme = podaciPacijenta.Jmbg;
+                pacijent.Sifra = podaciPacijenta.Jmbg;
+            }
             PacijentRepozitorijum.GetInstance.DodajPacijenta(pacijent);
         }
 
@@ -30,7 +35,7 @@ namespace Servis
         {
             Pol pol = Pol.Zensko;
             if (podaciPacijenta.Musko) pol = Pol.Musko;
-            Pacijent pacijent = new Pacijent(new MedicinskiKarton(), new ArrayList(),podaciPacijenta.Id,podaciPacijenta.pacijentGost,false,false,false,
+            Pacijent pacijent = new Pacijent(new MedicinskiKarton(podaciPacijenta.Id,false, null,new Terapija(), new List<string>()), new ArrayList(),podaciPacijenta.Id,podaciPacijenta.pacijentGost,false,false,false,
                 podaciPacijenta.KorisnickoIme,podaciPacijenta.Sifra,podaciPacijenta.Ime,podaciPacijenta.Prezime,pol,
                 podaciPacijenta.Email,podaciPacijenta.Telefon,podaciPacijenta.DatumRodjenja,podaciPacijenta.Jmbg,podaciPacijenta.Drzavljanstvo,podaciPacijenta.AdresaStanovanja);
             return pacijent;
@@ -41,7 +46,12 @@ namespace Servis
             PacijentRepozitorijum.GetInstance.AzurirajPacijenta(pacijent);
             return pacijent;
         }
-      
+
+        public void AzurirajPacijenta(PacijentDTO noviPodaci)
+        {
+            PacijentRepozitorijum.GetInstance.AzurirajPacijenta(noviPodaci);
+        }
+
         public void ObrisiPacijenta(PacijentDTO pacijent)
         {
             PacijentRepozitorijum.GetInstance.ObrisiPacijenta(pacijent);
@@ -82,7 +92,8 @@ namespace Servis
 
         public PacijentDTO KonvertujPacijentaUPacijentDTO(Pacijent pacijent)
         {
-            return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg);
+            return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg,pacijent.AdresaStanovanja,
+                pacijent.Drzavljanstvo,pacijent.Pol,pacijent.DatumRodjenja);
         }
 
         public List<string> GetAlergeniPacijenta(int id)

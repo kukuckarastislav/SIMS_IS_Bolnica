@@ -66,7 +66,8 @@ namespace Bolnica.view.sekretar
         private void UcitajPodatkePacijenata()
         {
             PacijentKontroler kontorler = new PacijentKontroler();
-            this.DataGridPrikazPacijenata.ItemsSource = kontorler.GetPacijentiDto();
+            KolekcijaPacijenata = kontorler.GetPacijentiDto();
+            this.DataGridPrikazPacijenata.ItemsSource = KolekcijaPacijenata;
         }
     }
 }

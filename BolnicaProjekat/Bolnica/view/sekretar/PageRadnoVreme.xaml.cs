@@ -29,11 +29,15 @@ namespace Bolnica.view.sekretar
         private LekarDTO lekarDto;
         private ObservableCollection<GodisnjiOdmorDTO> Odmori;
         private SlobodniDaniDTO slobodniDaniLekara;
+        private ObservableCollection<DateTime> slobodniDani;
         public PageRadnoVreme(LekarDTO dto)
         {
             InitializeComponent();
 
             lekarDto = dto;
+            datumOdmoraPocetak.SelectedDate = DateTime.Now;
+            datumOdmoraKraj.SelectedDate = DateTime.Now;
+            datumSlobodnogDana.SelectedDate = DateTime.Now;
             LoadGodisnjiOdmor();
             LoadRadnoVreme();
             LoadSlobodniDani();
@@ -57,6 +61,11 @@ namespace Bolnica.view.sekretar
         {
             GodisnjiOdmorDTO dto = new GodisnjiOdmorDTO();
             if (datumOdmoraPocetak.SelectedDate == null || datumOdmoraKraj.SelectedDate == null) return;
+            if(datumOdmoraPocetak.SelectedDate >= datumOdmoraKraj.SelectedDate)
+            {
+                MessageBox.Show("Datum završetka odmora ne može biti pre početka odmora.");
+                return;
+            }
             dto.Period = new Termin((DateTime)datumOdmoraPocetak.SelectedDate, (DateTime)datumOdmoraKraj.SelectedDate);
             GodisnjiOdmorKontroler kontroler = new GodisnjiOdmorKontroler();
             Odmori.Add(kontroler.DodajGodisnjiOdmor(lekarDto.Id, dto));
@@ -76,12 +85,13 @@ namespace Bolnica.view.sekretar
         {
             if(cmbPocetakRadnogVremena.SelectedIndex >= cmbKrajRadnogVremena.SelectedIndex)
             {
-                MessageBox.Show("Greska");
+                MessageBox.Show("Pocetak radnog vremena ne može biti pre kraja radnog vremena.");
                 return;
             }
             RadnoVreme vreme = new RadnoVreme(cmbPocetakRadnogVremena.SelectedIndex, cmbKrajRadnogVremena.SelectedIndex);
             GodisnjiOdmorKontroler kontroler = new GodisnjiOdmorKontroler();
             kontroler.IzmeniRadnoVremeLekara(lekarDto.Id, vreme);
+            MessageBox.Show("Radno vreme je uspešno izmenjeno.");
         }
 
         private void DodajSlobodanDan_Click(object sender, RoutedEventArgs e)
@@ -95,9 +105,14 @@ namespace Bolnica.view.sekretar
 
         private void LoadSlobodniDani()
         {
+            slobodniDani = new ObservableCollection<DateTime>();
             SlobodniDaniKontroler kontroler = new SlobodniDaniKontroler();
             slobodniDaniLekara = kontroler.GetDaniLekara(lekarDto.Id);
-            listaSlobodnihDana.ItemsSource = slobodniDaniLekara.Dani;
+            foreach(DateTime dan in slobodniDaniLekara.Dani)
+            {
+                slobodniDani.Add(dan);
+            }
+            listaSlobodnihDana.ItemsSource = slobodniDani;
         }
 
         private void ObrisiSlobodanDan_Click(object sender, RoutedEventArgs e)

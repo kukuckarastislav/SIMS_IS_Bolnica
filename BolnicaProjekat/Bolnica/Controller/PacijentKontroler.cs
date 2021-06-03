@@ -43,8 +43,12 @@ namespace Kontroler
         {
             pacijentServis.AzurirajPacijenta(pacijent);
              return pacijent;
-         }
-      
+        }
+        public void AzurirajPacijenta(PacijentDTO noviPodaci)
+        {
+            pacijentServis.AzurirajPacijenta(noviPodaci);
+        }
+
         public void ObrisiPacijenta(PacijentDTO pacijent)
         {
             pacijentServis.ObrisiPacijenta(pacijent);

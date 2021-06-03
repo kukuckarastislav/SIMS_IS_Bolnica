@@ -5,14 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
+      d:DesignHeight="708" d:DesignWidth="874"
       Title="PageRadnoVreme">
 
     <Grid Background="#ccffbd">
-        <DatePicker HorizontalAlignment="Left" Margin="180,226,0,0" VerticalAlignment="Top" Name="datumOdmoraPocetak" />
-        <DatePicker HorizontalAlignment="Left" Margin="180,270,0,0" VerticalAlignment="Top" Name="datumOdmoraKraj" />
-        <Button Content="Dodaj odmor" HorizontalAlignment="Left" Margin="303,226,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="-1.536,0.24" Click="DodajOdmor_Click"/>
-        <ListView HorizontalAlignment="Left" Height="160" Margin="107,359,0,0" VerticalAlignment="Top" Width="239" ItemsSource="{Binding Odmori}" Name="listaOdmora">
+        <DatePicker HorizontalAlignment="Left" Margin="248,288,0,0" VerticalAlignment="Top" Name="datumOdmoraPocetak" Width="118" />
+        <DatePicker HorizontalAlignment="Left" Margin="248,331,0,0" VerticalAlignment="Top" Name="datumOdmoraKraj" Width="118" />
+        <Button Content="Dodaj odmor" HorizontalAlignment="Left" Margin="248,376,0,0" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="-1.536,0.24" Click="DodajOdmor_Click" Background="White"/>
+        <ListView HorizontalAlignment="Left" Height="160" Margin="76,484,0,0" VerticalAlignment="Top" Width="239" ItemsSource="{Binding Odmori}" Name="listaOdmora">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Pocetak" Width="120" DisplayMemberBinding="{Binding Period.Pocetak }" />
@@ -20,24 +20,24 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView HorizontalAlignment="Left" Height="160" Margin="535,359,0,0" VerticalAlignment="Top" Width="125" Name="listaSlobodnihDana" ItemsSource="{Binding slobodniDaniLekara}" >
+        <ListView HorizontalAlignment="Left" Height="166" Margin="514,478,0,0" VerticalAlignment="Top" Width="125" Name="listaSlobodnihDana" ItemsSource="{Binding slobodniDaniLekara}" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Datum" Width="120" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Obriši dan" HorizontalAlignment="Left" Margin="561,538,0,0" VerticalAlignment="Top" Width="99" Click="ObrisiSlobodanDan_Click"/>
-        <Button Content="Obriši odmor" HorizontalAlignment="Left" Margin="261,538,0,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="-4.841,0.558" Click="ObrisiOdmor_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="108,336,0,0" TextWrapping="Wrap" Text="Godišnji odmor" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="536,336,0,0" TextWrapping="Wrap" Text="Slobodni dani" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="74,191,0,0" TextWrapping="Wrap" Text="Dodaj godišnji odmor" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="74,234,0,0" TextWrapping="Wrap" Text="Datum početka:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="74,274,0,0" TextWrapping="Wrap" Text="Datum završetka:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="536,194,0,0" TextWrapping="Wrap" Text="Dodaj slobodan dan" VerticalAlignment="Top"/>
-        <DatePicker HorizontalAlignment="Left" Margin="535,226,0,0" VerticalAlignment="Top" Name="datumSlobodnogDana"/>
-        <Button Content="Dodaj dan" HorizontalAlignment="Left" Margin="664,226,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="-1.536,0.24" Click="DodajSlobodanDan_Click"/>
-        <ComboBox HorizontalAlignment="Left" Margin="226,104,0,0" VerticalAlignment="Top" Width="120" Name="cmbPocetakRadnogVremena" >
+        <Button Content="Obriši dan" HorizontalAlignment="Left" Margin="656,478,0,0" VerticalAlignment="Top" Width="120" Height="30" Click="ObrisiSlobodanDan_Click" Background="White"/>
+        <Button Content="Obriši odmor" HorizontalAlignment="Left" Margin="334,484,0,0" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="-4.841,0.558" Click="ObrisiOdmor_Click" Background="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,446,0,0" TextWrapping="Wrap" Text="Godišnji odmor" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="517,446,0,0" TextWrapping="Wrap" Text="Slobodni dani" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,230,0,0" TextWrapping="Wrap" Text="Dodaj godišnji odmor" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,283,0,0" TextWrapping="Wrap" Text="Datum početka:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="76,329,0,0" TextWrapping="Wrap" Text="Datum završetka:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="515,230,0,0" TextWrapping="Wrap" Text="Dodaj slobodan dan" VerticalAlignment="Top" FontSize="20px"/>
+        <DatePicker HorizontalAlignment="Left" Margin="515,289,0,0" VerticalAlignment="Top" Name="datumSlobodnogDana" RenderTransformOrigin="0.474,-2.409" Width="122"/>
+        <Button Content="Dodaj dan" HorizontalAlignment="Left" Margin="654,284,0,0" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="-1.536,0.24" Click="DodajSlobodanDan_Click" Background="White"/>
+        <ComboBox HorizontalAlignment="Left" Margin="246,102,0,0" VerticalAlignment="Top" Width="120" Name="cmbPocetakRadnogVremena" Background="White" BorderBrush="White" Foreground="Black">
             <ComboBoxItem  Name="cbi0">00:00</ComboBoxItem>
             <ComboBoxItem  Name="cbi1">01:00</ComboBoxItem>
             <ComboBoxItem  Name="cbi2">02:00</ComboBoxItem>
@@ -63,7 +63,13 @@
             <ComboBoxItem  Name="cbi22">22:00</ComboBoxItem>
             <ComboBoxItem  Name="cbi23">23:00</ComboBoxItem>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="511,104,0,0" VerticalAlignment="Top" Width="120" Name="cmbKrajRadnogVremena">
+        <ComboBox HorizontalAlignment="Left" Margin="517,102,0,0" VerticalAlignment="Top" Width="120" Name="cmbKrajRadnogVremena" BorderBrush="White">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
             <ComboBoxItem  Name="cb2i1">01:00</ComboBoxItem>
             <ComboBoxItem  Name="cb2i2">02:00</ComboBoxItem>
             <ComboBoxItem  Name="cb2i3">03:00</ComboBoxItem>
@@ -89,9 +95,9 @@
             <ComboBoxItem  Name="cb2i23">23:00</ComboBoxItem>
             <ComboBoxItem  Name="cb2i24">24:00</ComboBoxItem>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="74,110,0,0" TextWrapping="Wrap" Text="Pocetak radnog vremena:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="375,104,0,0" TextWrapping="Wrap" Text="Kraj radnog vremena:" VerticalAlignment="Top"/>
-        <Button Content="Imeni radno vreme" HorizontalAlignment="Left" Margin="664,105,0,0" VerticalAlignment="Top" Width="116" RenderTransformOrigin="-1.536,0.24" Click="IzmeniRadnoVreme_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="140,70,0,0" TextWrapping="Wrap" Text="Pocetak radnog vremena:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="433,70,0,0" TextWrapping="Wrap" Text="Kraj radnog vremena:" VerticalAlignment="Top" FontSize="20px"/>
+        <Button Content="Imeni radno vreme" HorizontalAlignment="Left" Margin="654,94,0,0" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="-1.536,0.24" Click="IzmeniRadnoVreme_Click" Background="White"/>
 
     </Grid>
 </Page>

@@ -157,7 +157,7 @@
     "Id": 8,
     "Specijalista": false,
     "Specijalizacija": "asdasd",
-    "LogickiObrisan": false,
+    "LogickiObrisan": true,
     "radnoVreme": {
       "PocetakRadnogVremena": 8,
       "KrajRadnogVremena": 16
@@ -196,5 +196,27 @@
     "Jmbg": "1231231231322",
     "Drzavljanstvo": "ima",
     "AdresaStanovanja": "adresa2"
+  },
+  {
+    "Id": 10,
+    "Specijalista": true,
+    "Specijalizacija": "Hirurg",
+    "LogickiObrisan": false,
+    "radnoVreme": {
+      "PocetakRadnogVremena": 8,
+      "KrajRadnogVremena": 16
+    },
+    "RadniStatus": 0,
+    "KorisnickoIme": "stefanstefanovic",
+    "Sifra": "sifra",
+    "Ime": "Stefan",
+    "Prezime": "Stevic",
+    "Pol": 0,
+    "Email": "stefan100@gmail.com",
+    "Telefon": "143412321321",
+    "DatumRodjenja": "2000-10-12T00:00:00",
+    "Jmbg": "4214325234143",
+    "Drzavljanstvo": "ima",
+    "AdresaStanovanja": "adresa bb,100"
   }
 ]

@@ -24,9 +24,9 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Izmeni podatke" HorizontalAlignment="Left" Margin="67,30,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="IzmeniLekara_Click" Background="White" />
-        <Button Content="Obrisi lekara" HorizontalAlignment="Left" Margin="194,30,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="-0.16,0.943" Click="ObrisiLekara_Click" Background="White" />
-        <Button Content="Radno vreme" HorizontalAlignment="Left" Margin="322,30,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="RadnoVreme_Click" Background="White" RenderTransformOrigin="0.151,0.088" />
+        <Button Content="Izmeni podatke lekara" HorizontalAlignment="Left" Margin="67,30,0,0" VerticalAlignment="Top" Width="135" Height="40" Click="IzmeniLekara_Click" Background="White" />
+        <Button Content="Obrisi lekara" HorizontalAlignment="Left" Margin="234,30,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="-0.16,0.943" Click="ObrisiLekara_Click" Background="White" />
+        <Button Content="Radno vreme" HorizontalAlignment="Left" Margin="360,30,0,0" VerticalAlignment="Top" Width="100" Height="40" Click="RadnoVreme_Click" Background="White" RenderTransformOrigin="0.151,0.088" />
 
     </Grid>
 </Page>

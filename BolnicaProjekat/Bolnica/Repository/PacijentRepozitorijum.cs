@@ -110,12 +110,26 @@ namespace Repozitorijum
             return pacijenti.ElementAt(pacijenti.Count - 1).Id + 1;
         }
 
+        public void AzurirajPacijenta(PacijentDTO noviPodaci)
+        {
+            Pacijent pacijent = GetById(noviPodaci.Id);
+            pacijent.Ime = noviPodaci.Ime;
+            pacijent.Prezime = noviPodaci.Prezime;
+            pacijent.Pol = noviPodaci.Pol;
+            pacijent.Telefon = noviPodaci.Telefon;
+            pacijent.Drzavljanstvo = noviPodaci.Drzavljanstvo;
+            pacijent.DatumRodjenja = noviPodaci.DatumRodjenja;
+            pacijent.Email = noviPodaci.Email;
+            pacijent.AdresaStanovanja = noviPodaci.AdresaStanovanja;
+            SaveData();
+        }
+
         public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
         {
             SaveData();
             return pacijent;
         }
-      
+
         //logicko brisanje
         public void ObrisiPacijenta(PacijentDTO pacijentZaBrisanje)
         {

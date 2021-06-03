@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Controller;
+using DTO;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,12 @@ namespace Bolnica.view.sekretar
     /// </summary>
     public partial class PageZakazaniTermini : Page
     {
+        private ObservableCollection<ZakazaniTerminiDTO> KolekcijaTermina { get; set; }
         public PageZakazaniTermini()
         {
             InitializeComponent();
+            inputDatumPretrage.SelectedDate = DateTime.Now;
+            UcitajTermine((DateTime)inputDatumPretrage.SelectedDate);
         }
 
         private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
@@ -30,6 +36,27 @@ namespace Bolnica.view.sekretar
             var terminPage = new sekretar.ZakazivanjeTermina();
             NavigationService.Navigate(terminPage);
         }
+        private void OtkaziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
 
+        private void UcitajTermine(DateTime datumUcitavanja)
+        {
+            ZdravstvenaUslugaKontroler kontroler = new ZdravstvenaUslugaKontroler();
+            KolekcijaTermina = new ObservableCollection<ZakazaniTerminiDTO>();
+            List<ZakazaniTerminiDTO> listaTermina = kontroler.getAllDto(datumUcitavanja);
+            foreach(ZakazaniTerminiDTO dto in listaTermina)
+            {
+                KolekcijaTermina.Add(dto);
+            }
+            tableTermini.ItemsSource = KolekcijaTermina;
+        }
+
+        private void inputDatumPretrage_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(inputDatumPretrage.SelectedDate!=null)
+                UcitajTermine((DateTime)inputDatumPretrage.SelectedDate);
+        }
     }
 }

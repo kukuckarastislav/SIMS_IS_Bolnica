@@ -105,9 +105,13 @@ namespace Controller
             return servis.GetAktuelniPreglediPacijenta(id);
         }
 
-        public ObservableCollection<ZdravstvenaUslugaDTO> getAllDto()
+        public List<ZakazaniTerminiDTO> getAllDto()
         {
             return servis.getAllDto();
+        }
+        public List<ZakazaniTerminiDTO> getAllDto(DateTime datumPretrage)
+        {
+            return servis.getAllDtoZaDatum(datumPretrage);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliPreglediPacijenta(int id)

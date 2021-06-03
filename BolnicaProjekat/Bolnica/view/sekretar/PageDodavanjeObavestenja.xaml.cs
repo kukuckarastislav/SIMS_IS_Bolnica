@@ -33,7 +33,7 @@ namespace Bolnica.view.sekretar
             ObavestenjeKontroler kontroler = new ObavestenjeKontroler();
             Obavestenje ret = kontroler.DodajObavestenje(tbNaslov.Text, tbPoruka.Text);
             if (ret == null)
-                MessageBox.Show("Podaci nisu oneti.");
+                MessageBox.Show("Podaci za naslov i tekst obavestenja nisu uneti.");
             else
                 MessageBox.Show("Obavestenje je uspesno dodato.");
         }

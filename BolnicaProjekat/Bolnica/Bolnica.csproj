@@ -156,6 +156,7 @@
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
     <Compile Include="DTO\StavkaIzvjestajaDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
+    <Compile Include="DTO\ZakazaniTerminiDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Interface\IObserver.cs" />
     <Compile Include="Interface\ISubject.cs" />

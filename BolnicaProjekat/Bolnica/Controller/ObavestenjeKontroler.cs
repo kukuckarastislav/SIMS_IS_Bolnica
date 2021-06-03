@@ -31,7 +31,7 @@ namespace Bolnica.Controller
 
         public Obavestenje DodajObavestenje(String naslov, String poruka)
         {
-            if (String.IsNullOrEmpty(naslov) || String.IsNullOrEmpty(poruka)) return null;
+            if (String.IsNullOrWhiteSpace(naslov) || String.IsNullOrWhiteSpace(poruka)) return null;
             Obavestenje obavestenje = new Obavestenje(-1, naslov, DateTime.Now, poruka);
             return servisObavestenja.DodajObavestenje(obavestenje);
         }

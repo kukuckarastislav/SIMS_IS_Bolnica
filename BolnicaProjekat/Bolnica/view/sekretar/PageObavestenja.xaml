@@ -17,7 +17,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Naslov" Width="120" DisplayMemberBinding="{Binding Naslov}" />
-                    <GridViewColumn Header="Datum" Width="70" DisplayMemberBinding="{Binding DatumObjave}" />
+                    <GridViewColumn Header="Datum" Width="63" DisplayMemberBinding="{Binding DatumObjave}" />
                     <GridViewColumn Header="Poruka" Width="360" DisplayMemberBinding="{Binding Poruka}" />
                 </GridView>
             </ListView.View>

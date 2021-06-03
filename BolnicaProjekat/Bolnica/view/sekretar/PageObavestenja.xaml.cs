@@ -42,7 +42,8 @@ namespace Bolnica.view.sekretar
 
             ObavestenjeKontroler kontroler = new ObavestenjeKontroler();
             kontroler.ObrisiObavestenje(obavestenje.Id);
-            MessageBox.Show("Obavestenje je uspesno obrisano.");
+            Obavestenja = kontroler.GetAllObavestenja();
+            this.listObavestenja.ItemsSource = Obavestenja;
 
         }
 

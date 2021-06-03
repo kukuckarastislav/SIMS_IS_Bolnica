@@ -367,22 +367,38 @@ namespace Servis
             return terminiProstorije;
         }
 
-        public ObservableCollection<ZdravstvenaUslugaDTO> getAllDto()
+        public List<ZakazaniTerminiDTO> getAllDto()
         {
-            ObservableCollection<ZdravstvenaUslugaDTO> uslugeDto = new ObservableCollection<ZdravstvenaUslugaDTO>();
+            List<ZakazaniTerminiDTO> uslugeDto = new List<ZakazaniTerminiDTO>();
 
             foreach(ZdravstvenaUsluga usluga in terminiRepozitorijum.getAll())
             {
-                ZdravstvenaUslugaDTO uslugaDto = new ZdravstvenaUslugaDTO();
+                ZakazaniTerminiDTO uslugaDto = new ZakazaniTerminiDTO();
                 uslugaDto.Id = usluga.Id;
-                uslugaDto.IdLekara = usluga.IdLekara;
-                uslugaDto.IdPacijenta = usluga.IdPacijenta;
-                uslugaDto.IdProstorije = usluga.IdProstorije;
+                uslugaDto.Lekar = LekarRepozitorijum.GetInstance.GetById(usluga.IdLekara);
+                uslugaDto.Pacijent = PacijentRepozitorijum.GetInstance.GetById(usluga.IdPacijenta);
+                uslugaDto.Prostorija = ProstorijeRepozitorijum.GetInstance.GetProstorijaById(usluga.IdProstorije);
                 uslugaDto.Termin = usluga.Termin;
                 uslugaDto.TipUsluge = usluga.TipUsluge;
+                uslugeDto.Add(uslugaDto);
             }
 
             return uslugeDto;
+        }
+
+        public List<ZakazaniTerminiDTO> getAllDtoZaDatum(DateTime datumPretrage)
+        {
+            List<ZakazaniTerminiDTO> uslugeDto = getAllDto();
+            List<ZakazaniTerminiDTO> odabraneUsluge = new List<ZakazaniTerminiDTO>();
+            foreach (ZakazaniTerminiDTO dto in uslugeDto)
+            {
+                if(dto.Termin.Pocetak.Date.Equals(datumPretrage))
+                {
+                    odabraneUsluge.Add(dto);
+                }
+            }
+
+            return odabraneUsluge;
         }
 
         public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)

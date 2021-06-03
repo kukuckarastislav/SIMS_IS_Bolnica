@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="SopstveniPregledi" Height="448.864" Width="817.045"
         Background="WhiteSmoke"
         ResizeMode="NoResize">
@@ -12,14 +13,18 @@
         <DockPanel Grid.RowSpan="2">
             <Menu DockPanel.Dock="Top" Height="21" Background="#e5e5e5" Margin="2,0,0,0">
                 <MenuItem Header="Prikaz">
-                    <RadioButton GroupName="Group2" IsChecked="True">Aktuelni termini</RadioButton>
-                    <RadioButton GroupName="Group2">Prosli termini</RadioButton>
+                    <RadioButton Name="aktuelni_termini" GroupName="Group2" IsChecked="True" Click="aktuelni_termini_Click">Aktuelni termini</RadioButton>
+                    <RadioButton Name="prosli_termini" GroupName="Group2" Click="prosli_termini_Click">Prosli termini</RadioButton>
                     <Separator />
-                    <RadioButton GroupName="Group2">Aktuelni pregledi</RadioButton>
-                    <RadioButton GroupName="Group2">Prosli Pregledi</RadioButton>
+                    <RadioButton Name="aktuelni_pregledi" GroupName="Group2" Click="aktuelni_pregledi_Click">Aktuelni pregledi</RadioButton>
+                    <RadioButton Name="prosli_pregledi" GroupName="Group2" Click="prosli_pregledi_Click">Prosli Pregledi</RadioButton>
                     <Separator />
-                    <RadioButton GroupName="Group2">Aktuelne operacije</RadioButton>
-                    <RadioButton GroupName="Group2">Prosle operacije</RadioButton>
+                    <RadioButton Name="aktuelne_operacije" GroupName="Group2" Click="aktuelne_operacije_Click">Aktuelne operacije</RadioButton>
+                    <RadioButton Name="prosle_operacije" GroupName="Group2" Click="prosle_operacije_Click">Prosle operacije</RadioButton>
+                </MenuItem>
+                <MenuItem Header="Pomoc">
+                    <MenuItem Header="Prikazi pomoc" Click="MenuItem_Click">
+                    </MenuItem>
                 </MenuItem>
             </Menu>
             <StackPanel></StackPanel>

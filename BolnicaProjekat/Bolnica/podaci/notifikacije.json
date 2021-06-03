@@ -43,5 +43,32 @@
     "PacijentProcitao": false,
     "LekarProcitao": true,
     "Opis": "2021-05-25 08:00 AM*   Podsjecamo vas da danas, u 11:00 AM treba da popijete vas lijek."
+  },
+  {
+    "Id": 6,
+    "IdZdravstveneUsluge": -1,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": " Vas period suspenzije je istekao i sa tim u vezi, vise niste blokirani."
+  },
+  {
+    "Id": 7,
+    "IdZdravstveneUsluge": -1,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": " Upozoravamo vas da cete bannovani ako uradite jos jedno pomjeranje ili zakazivanje termina!"
+  },
+  {
+    "Id": 8,
+    "IdZdravstveneUsluge": -1,
+    "IdPacijenta": 1,
+    "IdLekara": -1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": " Vas period suspenzije je istekao i sa tim u vezi, vise niste blokirani."
   }
 ]

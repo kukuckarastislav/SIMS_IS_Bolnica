@@ -109,6 +109,17 @@ namespace Repozitorijum
 
             return lista.ElementAt(lista.Count - 1).Id + 1;
         }
+
+        internal Podsjetnik GetPodsjetnikById(int reminderid)
+        {
+            loadData();
+            foreach (Podsjetnik z in lista)
+            {
+                if (z.Id == reminderid)
+                    return z;              
+            }
+            return null;
+        }
     }
 
 }

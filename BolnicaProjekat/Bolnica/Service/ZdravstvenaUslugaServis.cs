@@ -88,6 +88,61 @@ namespace Servis
             return ret;
         }
 
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelniTerminiPacijenta(int id)
+        {
+            List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga u in terminiRepozitorijum.getTerminiByPacijentId(id))
+            {
+                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) >= 0)
+                    prosliTermini.Add(u);
+            }
+            return KonverujModelDTO(prosliTermini);
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelniPreglediPacijenta(int id)
+        {
+            List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga u in terminiRepozitorijum.getTerminiByPacijentId(id))
+            {
+                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) >= 0 && u.TipUsluge==TipUsluge.Pregled)
+                    prosliTermini.Add(u);
+            }
+            return KonverujModelDTO(prosliTermini);
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliPreglediPacijenta(int id)
+        {
+            List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga u in terminiRepozitorijum.getTerminiByPacijentId(id))
+            {
+                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) <= 0 && u.TipUsluge == TipUsluge.Pregled)
+                    prosliTermini.Add(u);
+            }
+            return KonverujModelDTO(prosliTermini);
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelneOperacijePacijenta(int id)
+        {
+            List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga u in terminiRepozitorijum.getTerminiByPacijentId(id))
+            {
+                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) >= 0 && u.TipUsluge == TipUsluge.Operacija)
+                    prosliTermini.Add(u);
+            }
+            return KonverujModelDTO(prosliTermini);
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsleOperacijePacijenta(int id)
+        {
+            List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga u in terminiRepozitorijum.getTerminiByPacijentId(id))
+            {
+                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) <= 0 && u.TipUsluge == TipUsluge.Operacija)
+                    prosliTermini.Add(u);
+            }
+            return KonverujModelDTO(prosliTermini);
+        }
+
         public static List<ZdravstvenaUsluga> GetSlobodniTerminiLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();

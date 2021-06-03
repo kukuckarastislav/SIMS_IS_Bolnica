@@ -10,10 +10,9 @@
         <StackPanel>
             <Label Margin="5,0,0,0" Content="Izvjestaj o uzimanju terapije na sedmicnom nivou" FontSize="25" HorizontalAlignment="Left"/>
             <StackPanel Orientation="Horizontal" Height="343">
-                <StackPanel Orientation="Vertical" Width="180" Height="250">
+                <StackPanel Orientation="Vertical" Width="180" Height="250" >
                     <Label Content="Ponedeljak:" FontSize="18"/>
-                    <TextBlock x:Name="ponedeljak" Height="168" >
-                    </TextBlock>
+                    <TextBlock x:Name="ponedeljak" Height="168" />
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Width="180" Height="250">
                     <Label Content="Utorak:" FontSize="18"/>

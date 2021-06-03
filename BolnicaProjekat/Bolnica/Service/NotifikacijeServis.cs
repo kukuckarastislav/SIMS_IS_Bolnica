@@ -10,10 +10,12 @@ using System.Text.Json;
 using System.IO;
 using Model;
 using Repozitorijum;
+using Interface;
+using Threads;
 
 namespace Servis
 {
-   public class NotifikacijeServis
+   class NotifikacijeServis : IObserver
    {
         private PacijentRepozitorijum pacijentRepozitorijum;
         private LekarRepozitorijum lekarRepozitorijum;
@@ -63,20 +65,6 @@ namespace Servis
             }
             return false;
         }
-
-        public static void ReceptNotifikacija(Recept recept, DateTime VremeUzimanja)
-        {
-            TimeSpan ts = new TimeSpan(0,3,0,0,0);
-            DateTime vrijemePojavljivanja = VremeUzimanja - ts;
-            String vrPojavljivanja = vrijemePojavljivanja.ToString("yyyy-MM-dd HH:mm tt");
-
-            int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
-
-            Notifikacija novaNotifikacija = new Notifikacija(0 - id-1, recept.Id, recept.IdPacijenta, recept.IdLekara, false, true, "");
-            novaNotifikacija.Opis = vrPojavljivanja+"*"+"   Podsjecamo vas da danas, u " + VremeUzimanja.ToString("HH:mm tt") + " treba da popijete vas lijek.";
-            NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
-        
-        }
   
         public void OtkaziTermin(ZdravstvenaUsluga usluga)
         {
@@ -90,6 +78,15 @@ namespace Servis
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(novaNotifikacija);
         }
 
-
+        public void Update(ISubject subject)
+        {
+            if(subject is UserSuspension userSuspension)
+            {
+                int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
+                NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(new Notifikacija(id + 1, -1, userSuspension.Patientid, -1, false, false,
+                                                                         " Vas period suspenzije je istekao i sa tim u vezi, vise niste blokirani."));
+            }
+            
+        }
     }
 }

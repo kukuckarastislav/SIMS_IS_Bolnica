@@ -5,18 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="PodsjetnikPacijenta" Height="463.562" Width="518.904">
     <Grid>
-        <ListView ItemsSource="{Binding Lista}" x:Name="listaPodsjetnik" RenderTransformOrigin="0.5,0.5" Height="374" VerticalAlignment="Top" >
+        <ListView ItemsSource="{Binding Lista}" x:Name="listaPodsjetnik" RenderTransformOrigin="0.5,0.5" Height="374" VerticalAlignment="Top" FontFamily="Arial" FontSize="16" Foreground="DarkBlue">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="Height" Value="48" />
+                    <Setter Property="BorderBrush" Value="LightGray" />
+                    <Setter Property="BorderThickness" Value="0,0,0,1" />
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Vrijeme" DisplayMemberBinding="{Binding VrijemePojavljivanja, StringFormat=\{0:MM/dd/yyy HH:mm\}}"/>
-                    <GridViewColumn Header="Tekst" DisplayMemberBinding="{Binding Tekst}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding VrijemePojavljivanja, StringFormat=\{0:MM/dd/yyy HH:mm\}}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Tekst}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -93,5 +93,11 @@ namespace Bolnica.view.pacijent
             Pregledi = KontrolerZU.GetSlobodniTermini(OdabraniLekar, pocetak, kraj, prioritet);
             this.listaPregleda.ItemsSource = Pregledi;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var varr = new PretragaTerminaHelp();
+            varr.ShowDialog();
+        }
     }
 }

@@ -14,9 +14,9 @@ using DTO;
 
 namespace Kontroler
 {
-   public class PacijentKontroler
+   class PacijentKontroler
    {
-        public Servis.PacijentServis pacijentServis;
+        private Servis.PacijentServis pacijentServis;
         public PacijentKontroler()
         {
             pacijentServis = new PacijentServis();

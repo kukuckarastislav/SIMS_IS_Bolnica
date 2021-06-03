@@ -3,6 +3,8 @@ using System.Threading;
 using System.Windows;
 using Kontroler;
 using System.Windows.Input;
+using Servis;
+using Threads;
 
 namespace Bolnica.view.pacijent
 {
@@ -10,7 +12,9 @@ namespace Bolnica.view.pacijent
     {
         public PacijentDTO Pacijent;
         Thread podsjetnikThread;
-        private Servis.PodsjetnikServis PodsjetnikServis;
+        Thread suspensionThread;
+        private UserSuspension UserSuspension;
+        private MedicationConsumption MedicationConsumption;
 
         public PacijentHome(PacijentDTO p)
         {
@@ -28,10 +32,22 @@ namespace Bolnica.view.pacijent
             broj_podsjetnika.Text = Kontroler.GetBrojNeprocitanihPodsjetnika(p.Id);
             Pacijent = p;
 
-            PodsjetnikServis = new Servis.PodsjetnikServis();
-            podsjetnikThread = new Thread(new ThreadStart(PodsjetnikServis.ThreadPodsjetnik));
+            MedicationConsumption = new MedicationConsumption();
+            MedicationConsumption.Register(new PodsjetnikServis());
+
+            podsjetnikThread = new Thread(new ThreadStart(MedicationConsumption.ThreadPodsjetnik));
             podsjetnikThread.IsBackground = true;
             podsjetnikThread.Start();
+
+
+            UserSuspension = new UserSuspension();
+            UserSuspension.Register(new KorisnickaAktivnostServis());
+            UserSuspension.Register(new PacijentServis());
+            UserSuspension.Register(new NotifikacijeServis());
+
+            suspensionThread = new Thread(new ThreadStart(UserSuspension.ThreadSuspension));
+            suspensionThread.IsBackground = true;
+            suspensionThread.Start();
         }
 
         private void prikazi_preglede(object sender, RoutedEventArgs e)
@@ -77,11 +93,6 @@ namespace Bolnica.view.pacijent
             varr.ShowDialog();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void odjava_Click(object sender, RoutedEventArgs e)
         {
             var varr = new MainWindow();
@@ -124,6 +135,9 @@ namespace Bolnica.view.pacijent
                 prikazi_ocjene(sender, e);
             else if (e.Key == Key.I && Keyboard.IsKeyDown(Key.LeftCtrl))
                 prikazi_istoriju_bolesti(sender, e);
+            else if (e.Key == Key.T && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_trenutnu_terapiju(sender, e);
+
 
         }
     }

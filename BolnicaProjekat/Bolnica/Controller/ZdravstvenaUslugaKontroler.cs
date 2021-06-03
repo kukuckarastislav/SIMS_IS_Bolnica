@@ -95,10 +95,34 @@ namespace Controller
             return servis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
         }
 
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelniTerminiPacijenta(int id)
+        {
+            return servis.GetAktuelniTerminiPacijenta(id);
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelniPreglediPacijenta(int id)
+        {
+            return servis.GetAktuelniPreglediPacijenta(id);
+        }
+
         public ObservableCollection<ZdravstvenaUslugaDTO> getAllDto()
         {
             return servis.getAllDto();
         }
 
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliPreglediPacijenta(int id)
+        {
+            return servis.GetProsliPreglediPacijenta(id);
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelneOperacijePacijenta(int id)
+        {
+            return servis.GetAktuelneOperacijePacijenta(id);
+        }
+
+        internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsleOperacijePacijenta(int id)
+        {
+            return servis.GetProsleOperacijePacijenta(id);
+        }
     }
 }

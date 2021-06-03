@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Repozitorijum;
 using Model;
+using Interface;
+using Threads;
 
 namespace Servis
 {
-    public class KorisnickaAktivnostServis
+    class KorisnickaAktivnostServis : IObserver
     {
         private KorisnickaAktivnostRepozitorijum _KorisnickaAktivnostRepozitorijum;
         private NotifikacijaRepozitorijum _NotifikacijeRepozitorijum;   //posalji mu upozorenje da ce biti banovan
@@ -17,26 +19,12 @@ namespace Servis
 
         private readonly TimeSpan JedanMjesec = new TimeSpan(30, 0, 0, 0, 0);
         private readonly TimeSpan PeriodSuspenzije = new TimeSpan(14, 0, 0, 0, 0);
-        // private static readonly TimeSpan PeriodSuspenzije = new TimeSpan(0, 0, 0, 0, 1);
-
+  
 
         public bool JeSpamUser(int IdPacijenta)
         {
-            //ako je vec spam user, da li mu je period banovanja istekao , tako sto nadjemo kad je banovan--> to je isto serijalizovana aktivnost
             if (PacijentRepozitorijum.GetInstance.GetById(IdPacijenta).SpamUser)
-            {
-                DateTime datumSuspenzije = KorisnickaAktivnostRepozitorijum.GetInstance.GetDatumSuspenzije(IdPacijenta); //posto moze biti vise datuma suspenzije, kada prodje trenutna preimenovacemo je
-
-                if (DateTime.Compare(datumSuspenzije + PeriodSuspenzije, DateTime.Now) <= 0)
-                {
-                    Pacijent p = PacijentRepozitorijum.GetInstance.GetById(IdPacijenta);
-                    p.SpamUser = false;
-                    PacijentRepozitorijum.GetInstance.AzurirajPacijenta(p);
-                    return false;
-                }
-                else return true; //ostaje span user
-
-            }
+                return true;
             else return AnalizaAktivnostiPacijenta(IdPacijenta);
         }
 
@@ -50,10 +38,8 @@ namespace Servis
                 Pacijent p = PacijentRepozitorijum.GetInstance.GetById(IdPacijenta);
                 p.SpamUser = true;
                 PacijentRepozitorijum.GetInstance.AzurirajPacijenta(p);
-                KorisnickaAktivnostRepozitorijum.GetInstance.AzurirajStareSuspenzije(IdPacijenta);
-                KorisnickaAktivnostRepozitorijum.GetInstance.DodajAktivnost(new Aktivnost(IdPacijenta, DateTime.Now, "TRENUTNA SUSPENZIJA")); //jer moze biti vise suspenzija
-                //sad ako je bilo ranijih suspenzija preimenuj
 
+                KorisnickaAktivnostRepozitorijum.GetInstance.DodajAktivnost(new Aktivnost(IdPacijenta, DateTime.Now, "TRENUTNA SUSPENZIJA")); //jer moze biti vise suspenzija
                 return true;
             }
             else if (GetBrojPomjeranjaTermina(aktivnosti) == 3 || GetBrojZakazivanjaTermina(aktivnosti) == 3)
@@ -112,8 +98,12 @@ namespace Servis
             return KorisnickaAktivnostRepozitorijum.GetInstance.DodajAktivnost(aktivnost);
         }
 
-
-
-
+        public void Update(ISubject subject)
+        {
+            if(subject is UserSuspension userSuspension)
+            {
+                KorisnickaAktivnostRepozitorijum.GetInstance.AzurirajStareSuspenzije(userSuspension.Patientid);
+            }
+        }
     }
 }

@@ -1,3 +1,20 @@
 [
-
+  {
+    "Id": 1,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-03T14:00:00",
+    "Vidljiv": true,
+    "Tekst": "samo se pojavi",
+    "Procitan": true,
+    "JePodsjetnikZaLijekove": false
+  },
+  {
+    "Id": 2,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-03T14:06:00",
+    "Vidljiv": true,
+    "Tekst": "samo se pojavi",
+    "Procitan": true,
+    "JePodsjetnikZaLijekove": false
+  }
 ]

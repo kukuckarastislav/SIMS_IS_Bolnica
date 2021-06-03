@@ -22,8 +22,7 @@ namespace Bolnica.view.pacijent
            Kontroler = new ZdravstvenaUslugaKontroler();
            PreglediPacijenta = Kontroler.GetTerminiPacijenta(Pacijent.Id);
 
-            this.listaPregledaPacijenta.
-            ItemsSource = PreglediPacijenta;
+            this.listaPregledaPacijenta.ItemsSource = PreglediPacijenta;
         }
 
 
@@ -88,6 +87,48 @@ namespace Bolnica.view.pacijent
         {
             var varr = new view.pacijent.AnketaLekar(odabraniPregled);
             varr.Show();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var varr = new TerminiPacijentaHelp();
+            varr.ShowDialog();
+        }
+
+        private void prosli_termini_Click(object sender, RoutedEventArgs e)
+        {
+            PreglediPacijenta = Kontroler.GetProsliTerminiPacijenta(Pacijent.Id);
+            this.listaPregledaPacijenta.ItemsSource = PreglediPacijenta;
+        }
+
+        private void aktuelni_termini_Click(object sender, RoutedEventArgs e)
+        {
+            PreglediPacijenta = Kontroler.GetAktuelniTerminiPacijenta(Pacijent.Id);
+            this.listaPregledaPacijenta.ItemsSource = PreglediPacijenta;
+        }
+
+        private void aktuelni_pregledi_Click(object sender, RoutedEventArgs e)
+        {
+            PreglediPacijenta = Kontroler.GetAktuelniPreglediPacijenta(Pacijent.Id);
+            this.listaPregledaPacijenta.ItemsSource = PreglediPacijenta;
+        }
+
+        private void prosli_pregledi_Click(object sender, RoutedEventArgs e)
+        {
+            PreglediPacijenta = Kontroler.GetProsliPreglediPacijenta(Pacijent.Id);
+            this.listaPregledaPacijenta.ItemsSource = PreglediPacijenta;
+        }
+
+        private void aktuelne_operacije_Click(object sender, RoutedEventArgs e)
+        {
+            PreglediPacijenta = Kontroler.GetAktuelneOperacijePacijenta(Pacijent.Id);
+            this.listaPregledaPacijenta.ItemsSource = PreglediPacijenta;
+        }
+
+        private void prosle_operacije_Click(object sender, RoutedEventArgs e)
+        {
+            PreglediPacijenta = Kontroler.GetProsleOperacijePacijenta(Pacijent.Id);
+            this.listaPregledaPacijenta.ItemsSource = PreglediPacijenta;
         }
     }
 }

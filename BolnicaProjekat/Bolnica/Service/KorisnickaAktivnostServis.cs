@@ -19,26 +19,12 @@ namespace Servis
 
         private readonly TimeSpan JedanMjesec = new TimeSpan(30, 0, 0, 0, 0);
         private readonly TimeSpan PeriodSuspenzije = new TimeSpan(14, 0, 0, 0, 0);
-        // private static readonly TimeSpan PeriodSuspenzije = new TimeSpan(0, 0, 0, 0, 1);
-
+  
 
         public bool JeSpamUser(int IdPacijenta)
         {
-            //ako je vec spam user, da li mu je period banovanja istekao , tako sto nadjemo kad je banovan--> to je isto serijalizovana aktivnost
             if (PacijentRepozitorijum.GetInstance.GetById(IdPacijenta).SpamUser)
-            {
-                DateTime datumSuspenzije = KorisnickaAktivnostRepozitorijum.GetInstance.GetDatumSuspenzije(IdPacijenta); //posto moze biti vise datuma suspenzije, kada prodje trenutna preimenovacemo je
-
-                if (DateTime.Compare(datumSuspenzije + PeriodSuspenzije, DateTime.Now) <= 0)
-                {
-                    Pacijent p = PacijentRepozitorijum.GetInstance.GetById(IdPacijenta);
-                    p.SpamUser = false;
-                    PacijentRepozitorijum.GetInstance.AzurirajPacijenta(p);
-                    return false;
-                }
-                else return true; //ostaje span user
-
-            }
+                return true;
             else return AnalizaAktivnostiPacijenta(IdPacijenta);
         }
 

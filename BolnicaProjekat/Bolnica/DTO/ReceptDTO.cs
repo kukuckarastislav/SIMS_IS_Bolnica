@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class ReceptDTO
+    public class ReceptDTO
     {
         public int Id { get; set; }
         public int IdLekara { get; set; }
@@ -17,8 +17,10 @@ namespace DTO
         public DateTime DatumPropisivanja { get; set; }
         public DateTime DatumIsteka { get; set; }
         public string OpisKoriscenja { get; set; }
+        public double Cijena { get; set; }
+        public int Kolicina { get; set; }
 
-        public ReceptDTO(int id, int idLekara, string imePrezimeLekara, int idPacijenta, int idLeka, string nazivLeka, DateTime datumPropisivanja, DateTime datumIsteka, string opisKoriscenja)
+        public ReceptDTO(int id, int idLekara, string imePrezimeLekara, int idPacijenta, int idLeka, string nazivLeka, DateTime datumPropisivanja, DateTime datumIsteka, string opisKoriscenja, double cijena, int kolicina)
         {
             Id = id;
             IdLekara = idLekara;
@@ -29,6 +31,8 @@ namespace DTO
             DatumPropisivanja = datumPropisivanja;
             DatumIsteka = datumIsteka;
             OpisKoriscenja = opisKoriscenja;
+            Cijena = cijena;
+            Kolicina = kolicina;
         }
     }
 }

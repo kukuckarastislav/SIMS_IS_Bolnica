@@ -1,4 +1,5 @@
 ﻿using Bolnica.Model;
+using DTO;
 using Model;
 using Repozitorijum;
 using System;
@@ -39,6 +40,19 @@ namespace Servis
                 {
                     ret.Add(r);
                 }
+            }
+            return ret;
+        }
+
+        internal List<ReceptDTO> GetReceptiPacijentaDTO(int id)
+        {
+            List<ReceptDTO> ret = new List<ReceptDTO>();
+
+            foreach (var r in GetPacijentovihRecepta(id))
+            {
+                Lek lek = LekoviRepozitorijum.GetInstance.GetLekById(r.IdLeka);
+                ret.Add(new ReceptDTO(1, r.IdLekara, LekarRepozitorijum.GetInstance.GetById(r.IdLekara).Ime + " " + LekarRepozitorijum.GetInstance.GetById(r.IdLekara).Ime,
+                    r.IdPacijenta, r.IdLeka, lek.Naziv, r.DatumPropisivanja, r.DatumIsteka, r.OpisKoriscenja, lek.Cena, lek.Kolicina));//ovo nema smisla stv ali ajde za ispis
             }
             return ret;
         }

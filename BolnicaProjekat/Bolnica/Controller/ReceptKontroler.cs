@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 
 namespace Kontroler
 {
@@ -26,6 +27,11 @@ namespace Kontroler
         public ObservableCollection<Recept> GetLekarovihRecepta(int lekarId)
         {
             return ReceptServis.GetPacijentovihRecepta(lekarId);
+        }
+
+        internal List<ReceptDTO> getReceptiPacijentaDTO(int id)
+        {
+            return servis.GetReceptiPacijentaDTO(id);
         }
 
         public ObservableCollection<Recept> GetRecepataOdredjenogLeka(int lekId)

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="IstorijaBolesti" Height="457.397" Width="785.205">
     <Grid>
         <Grid.RowDefinitions>

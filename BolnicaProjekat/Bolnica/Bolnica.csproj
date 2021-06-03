@@ -304,14 +304,23 @@
     <Compile Include="view\pacijent\PodsjetnikPacijenta.xaml.cs">
       <DependentUpon>PodsjetnikPacijenta.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\PretragaTerminaHelp.xaml.cs">
+      <DependentUpon>PretragaTerminaHelp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\PrikazPregleda.xaml.cs">
       <DependentUpon>PrikazPregleda.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\PrikazRecepta.xaml.cs">
+      <DependentUpon>PrikazRecepta.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\RaspoloziviPregledi.xaml.cs">
       <DependentUpon>RaspoloziviPregledi.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\SopstveniPregledi.xaml.cs">
       <DependentUpon>SopstveniPregledi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\pacijent\TerminiPacijentaHelp.xaml.cs">
+      <DependentUpon>TerminiPacijentaHelp.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\pacijent\TrenutnaTerapija.xaml.cs">
       <DependentUpon>TrenutnaTerapija.xaml</DependentUpon>
@@ -617,7 +626,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\pacijent\PretragaTerminaHelp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\pacijent\PrikazPregleda.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\pacijent\PrikazRecepta.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -626,6 +643,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\SopstveniPregledi.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="view\pacijent\TerminiPacijentaHelp.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -3,8 +3,8 @@ using System.Threading;
 using System.Windows;
 using Kontroler;
 using System.Windows.Input;
-using Threads;
 using Servis;
+using Threads;
 
 namespace Bolnica.view.pacijent
 {
@@ -13,8 +13,8 @@ namespace Bolnica.view.pacijent
         public PacijentDTO Pacijent;
         Thread podsjetnikThread;
         Thread suspensionThread;
-        private Servis.PodsjetnikServis PodsjetnikServis;
         private UserSuspension UserSuspension;
+        private Servis.PodsjetnikServis PodsjetnikServis;
 
         public PacijentHome(PacijentDTO p)
         {
@@ -46,7 +46,6 @@ namespace Bolnica.view.pacijent
             suspensionThread.IsBackground = true;
             suspensionThread.Start();
         }
-
 
         private void prikazi_preglede(object sender, RoutedEventArgs e)
         {
@@ -91,11 +90,6 @@ namespace Bolnica.view.pacijent
             varr.ShowDialog();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void odjava_Click(object sender, RoutedEventArgs e)
         {
             var varr = new MainWindow();
@@ -138,6 +132,9 @@ namespace Bolnica.view.pacijent
                 prikazi_ocjene(sender, e);
             else if (e.Key == Key.I && Keyboard.IsKeyDown(Key.LeftCtrl))
                 prikazi_istoriju_bolesti(sender, e);
+            else if (e.Key == Key.T && Keyboard.IsKeyDown(Key.LeftCtrl))
+                prikazi_trenutnu_terapiju(sender, e);
+
 
         }
     }

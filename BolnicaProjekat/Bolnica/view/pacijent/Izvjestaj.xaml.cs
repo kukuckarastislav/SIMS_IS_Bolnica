@@ -24,21 +24,22 @@ namespace Bolnica.view.pacijent
             List<StavkaIzvjestajaDTO> Subota = kontroler.GetStavkeIzvjestajaZaDan(Pacijent.Id, DayOfWeek.Saturday.ToString());
             List<StavkaIzvjestajaDTO> Nedelja = kontroler.GetStavkeIzvjestajaZaDan(Pacijent.Id, DayOfWeek.Sunday.ToString());
 
+            Servis.PodsjetnikServis servis = new Servis.PodsjetnikServis();
 
             foreach (StavkaIzvjestajaDTO s in Ponedeljak)
-                ponedeljak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")";
+                ponedeljak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
             foreach (StavkaIzvjestajaDTO s in Utorak)
-                utorak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")";
+                utorak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
             foreach (StavkaIzvjestajaDTO s in Srijeda)
-                srijeda.Text +=s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")";
+                srijeda.Text +=s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
             foreach (StavkaIzvjestajaDTO s in Cetvrtak)
-                cetvrtak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")";
+                cetvrtak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
             foreach (StavkaIzvjestajaDTO s in Petak)
-                petak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")";
+                petak.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
             foreach (StavkaIzvjestajaDTO s in Subota)
-                subota.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")";
+                subota.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
             foreach (StavkaIzvjestajaDTO s in Nedelja)
-                nedelja.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")";
+                nedelja.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
 
         }
     }

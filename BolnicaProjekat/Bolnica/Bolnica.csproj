@@ -332,6 +332,9 @@
     <Compile Include="view\pacijent\Izvjestaj.xaml.cs">
       <DependentUpon>Izvjestaj.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\pacijent\Kalendar.xaml.cs">
+      <DependentUpon>Kalendar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\pacijent\NotifikacijePacijent.xaml.cs">
       <DependentUpon>NotifikacijePacijent.xaml</DependentUpon>
     </Compile>
@@ -660,6 +663,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\pacijent\Izvjestaj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\pacijent\Kalendar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1145,6 +1152,12 @@
     <Content Include="view\sekretar\help\registracija\Indeks.htm" />
     <Content Include="view\sekretar\help\registracija\index.htm" />
     <Content Include="view\sekretar\help\registracija\Prezime.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\kalendat\MyCalendar-master\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\MyCalendar.Calendar.csproj">
+      <Project>{31c3b4a7-504b-4eff-bacc-c8f2ffe5af6f}</Project>
+      <Name>MyCalendar.Calendar</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

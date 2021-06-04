@@ -1,0 +1,17 @@
+﻿<Window x:Class="Bolnica.view.pacijent.Kalendar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Bolnica.view.pacijent"
+        xmlns:calendar="clr-namespace:MyCalendar.Calendar;assembly=MyCalendar.Calendar"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Kalendar" Height="541.666" Width="804.167">
+    <Grid>
+        <calendar:Calendar Name="Calendar" DayChanged="Calendar_DayChanged" MouseDoubleClick="Calendar_MouseDoubleClick" Margin="0,24,0,0"/>
+        <ComboBox x:Name="cboMonth" Margin="4,1,651,472">
+        </ComboBox>
+        <ComboBox x:Name="cboYear" Margin="146,1,509,472"/>
+    </Grid>
+</Window>

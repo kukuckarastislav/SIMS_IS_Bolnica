@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view.pacijent"
         mc:Ignorable="d"
         Title="PacijentHome" Height="609.448" Width="1166.982"
+        
         KeyDown="Window_KeyDown">
     <Grid Margin="0,0,2,0">
         <DockPanel>
@@ -54,7 +55,7 @@
             <Button Content="Zakazi pregled" Foreground="Orange" Background="White" Click="prikazi_preglede" Margin="121,0,27,285" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" Grid.Row="1" ToolTip="Klikom na ovo dugme otavarate prozor za zakazivanje pregleda">
             </Button>
             <Button Foreground="Orange" Background="White" Click="prikazi_vlastite_preglede" Margin="138,76,10,12" Content="Termini" FontFamily="Arial" FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" ToolTip="Klikom na ovo dugme otvarate prozor koji prikazuje vase preglede"/>
-            
+
             <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,155,60,146" Content="Notifikacije" FontFamily="Arial" FontSize="20"  Grid.Row="1" Click="prikazi_notifikacije"/>
 
             <Image Source="/images/call.png" Margin="273,0,39,-110" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4"/>
@@ -83,6 +84,8 @@
             <Button Foreground="Orange" Background="White" Margin="3,97,-164,327" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="5" Content="Trenutna terapija" Grid.RowSpan="2" Click="prikazi_trenutnu_terapiju" ToolTip="Klikom na ovo dugme dobijate uvid u svoju terapiju i trenutno stanje"/>
             <Image Source="/Bolnica;component/images/poruka.png" Margin="12,276,206,-5" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
             <TextBlock  x:Name="broj_podsjetnika" Margin="56,299,231,0" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Serif" FontSize="29" Foreground="Orange" />
+            <Button Name="kalendar" Click="kalendar_Click"
+                    Foreground="Gray" Background="White"  Margin="121,383,109,-81" Content="Prikazi kalendar" FontFamily="Arial" FontSize="20" Grid.Column="1" ToolTip="Klikom na ovo dugme otvarate prozor koji prikazuje kalendar" Grid.Row="1" Grid.ColumnSpan="3"/>
 
 
         </Grid>

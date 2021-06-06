@@ -140,5 +140,11 @@ namespace Bolnica.view.pacijent
 
 
         }
+
+        private void kalendar_Click(object sender, RoutedEventArgs e)
+        {
+            var varr = new Kalendar(Pacijent);
+            varr.ShowDialog();
+        }
     }
     }

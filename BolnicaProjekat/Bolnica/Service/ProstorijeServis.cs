@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
+using DTO;
 using Model;
 using Repozitorijum;
 
@@ -167,6 +168,31 @@ namespace Servis
             TransformacijaProstorijeParametri tpp = terminProstorije.TransformacijaProstorijeParam;
             DodajProstoriju(tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
             return true;
+        }
+
+        public List<ProstorijaDTO> GetProstorijeDTO()
+        {
+            List<Prostorija> sveProstorije = ProstorijeRepozitorijum.GetInstance.GetProstorijeAll();
+            List<ProstorijaDTO> prostorijeDto = new List<ProstorijaDTO>();
+            foreach (Prostorija prostorija in sveProstorije)
+            {
+                prostorijeDto.Add(KonvertujModelUDto(prostorija));
+            }
+
+            return prostorijeDto;
+        }
+
+        public ProstorijaDTO KonvertujModelUDto(Prostorija prostorija)
+        {
+            ProstorijaDTO dto = new ProstorijaDTO();
+
+            dto.Id = prostorija.Id;
+            dto.Povrsina = prostorija.Povrsina;
+            dto.Sprat = prostorija.Sprat;
+            dto.TipProstorije = prostorija.TipProstorije;
+            dto.Broj = prostorija.Broj;
+
+            return dto;
         }
 
     }

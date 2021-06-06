@@ -107,6 +107,7 @@ namespace Servis
                     noviDto.Email = lekar.Email;
                     noviDto.DatumRodjenja = lekar.DatumRodjenja;
                     noviDto.Pol = lekar.Pol;
+                    noviDto.radnoVreme = lekar.radnoVreme;
                     lekariDto.Add(noviDto);
                 }
             }

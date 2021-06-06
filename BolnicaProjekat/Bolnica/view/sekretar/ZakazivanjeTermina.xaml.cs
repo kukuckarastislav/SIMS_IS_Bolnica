@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using Controller;
+using DTO;
 using Kontroler;
 using Model;
 using System;
@@ -52,9 +53,13 @@ namespace Bolnica.view.sekretar
         }
         private void UcitajProstorije()
         {
+            ObservableCollection<ProstorijaDTO> prostorije = new ObservableCollection<ProstorijaDTO>();
             ProstorijeKontroler kontroler = new ProstorijeKontroler();
-            //ObservableCollection<ProstorijaDTO> prostorije = kontroler.getAllProstorije();
-            //cmbProstorije.ItemsSource = prostorije;
+            foreach(ProstorijaDTO dto in kontroler.GetProstorijeDTO())
+            {
+                prostorije.Add(dto);
+            }
+            cmbProstorije.ItemsSource = prostorije;
         }
 
         private void cbHitnoZakazivanje_Checked(object sender, RoutedEventArgs e)
@@ -73,7 +78,63 @@ namespace Bolnica.view.sekretar
 
         private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
         {
-            ValidirajUnos();
+            ZdravstvenaUslugaKontroler kontroler = new ZdravstvenaUslugaKontroler();
+            
+            if (ValidirajUnos())
+            {
+                ZakaziTetminDTO dto = GetPodaciZakazivanja();
+                dto = kontroler.ZakaziUslugu(dto);
+                if(dto.ZakazanTermin)
+                {
+                    MessageBox.Show("Termin je uspešno zakazan.");
+                }
+                else
+                {
+                    tbErrLekar.Text = dto.GreskaLekar;
+                    tbErrProstorije.Text = dto.GreskaProstorija;
+                    tbErrTermin.Text = dto.GreskaRadnoVreme;
+                }
+            }
+        }
+
+        private ZakaziTetminDTO GetPodaciZakazivanja()
+        {
+            ZakaziTetminDTO dto = new ZakaziTetminDTO();
+            LekarDTO lekar = cmbLekari.SelectedItem as LekarDTO;
+            dto.IdLekara = lekar.Id;
+            PacijentDTO pacijent = cmbPacijenti.SelectedItem as PacijentDTO;
+            dto.IdPacijenta = pacijent.Id;
+            ProstorijaDTO prostorija = cmbProstorije.SelectedItem as ProstorijaDTO;
+            dto.IdProstorije = prostorija.Id;
+            if(rbPregled.IsChecked==true)
+            {
+                dto.TipUsluge = TipUsluge.Pregled;
+            }
+            else
+            {
+                dto.TipUsluge = TipUsluge.Operacija;
+            }
+            dto.Termin = GetVremeZakazivanja();
+
+            return dto;
+        }
+
+        private Termin GetVremeZakazivanja()
+        {
+            int year = datumTermina.SelectedDate.Value.Year;
+            int month = datumTermina.SelectedDate.Value.Month;
+            int day = datumTermina.SelectedDate.Value.Day;
+            int hourPocetak = cbPocetakSati.SelectedIndex;
+            int hourKraj = cbKrajSati.SelectedIndex;
+            int minPocetak = 0;
+            int minKraj = 0;
+            if (cbPocetaMinuti.SelectedIndex != 0)
+                minPocetak = 30;
+            if (cbKrajMinuti.SelectedIndex != 0)
+                minKraj = 30;
+            Termin termin = new Termin(new DateTime(year, month, day, hourPocetak, minPocetak, 0),
+                                       new DateTime(year, month, day,hourKraj,minKraj,0));
+            return termin;
         }
 
         private bool ValidirajUnos()
@@ -85,6 +146,8 @@ namespace Bolnica.view.sekretar
             if (!ValidirajLekara()) validanUnos = false;
             if (!ValidirajDatum()) validanUnos = false;
             if (!ValidirajVremeTermina()) validanUnos = false;
+            if (!ValidirajProstoriju()) validanUnos = false;
+
 
             if (!validanUnos)
             {
@@ -105,6 +168,7 @@ namespace Bolnica.view.sekretar
             tbErrLekar.Text = "";
             tbErrPacijent.Text = "";
             tbErrTermin.Text = "";
+            tbErrProstorije.Text = "";
         }
         private bool ValidirajPacijenta()
         {
@@ -125,6 +189,16 @@ namespace Bolnica.view.sekretar
             return true;
         }
 
+        private bool ValidirajProstoriju()
+        {
+            if (cmbProstorije.SelectedIndex == -1)
+            {
+                tbErrProstorije.Text = "Prostorija nije odabrana.";
+                return false;
+            }
+            return true;
+        }
+
         private bool ValidirajDatum()
         {
             if(datumTermina.SelectedDate==null)
@@ -137,8 +211,36 @@ namespace Bolnica.view.sekretar
 
         private bool ValidirajVremeTermina()
         {
+            if(cbPocetakSati.SelectedIndex==-1 || cbPocetaMinuti.SelectedIndex==-1 
+                || cbKrajSati.SelectedIndex==-1 || cbKrajMinuti.SelectedIndex==-1)
+            {
+                tbErrTermin.Text = "Vreme termina nije izabrano";
+                return false;
+            }
+            if(cbPocetakSati.SelectedIndex> cbKrajSati.SelectedIndex)
+            {
+                tbErrTermin.Text = "Vreme završetka termina mora biti nakon pocetka.";
+                return false;
+            }
+            if(cbPocetakSati.SelectedIndex == cbKrajSati.SelectedIndex)
+            {
+                if(cbPocetaMinuti.SelectedIndex >= cbKrajMinuti.SelectedIndex)
+                {
+                    tbErrTermin.Text = "Vreme završetka termina mora biti nakon pocetka.";
+                    return false;
+                }
+            }
             return true;
         }
 
+        private void cmbLekari_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(cmbLekari.SelectedIndex!=-1)
+            {
+                LekarDTO dto = cmbLekari.SelectedItem as LekarDTO;
+
+                tbRadnoVreme.Text = dto.RadnoVremeIspis;
+            }
+        }
     }
 }

@@ -9,8 +9,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Media;
+using Bolnica.Repository;
 using DTO;
 using Model;
+using Org.BouncyCastle.Security;
+using Repository;
 using Repozitorijum;
 
 namespace Servis
@@ -357,14 +360,15 @@ namespace Servis
         public List<ZdravstvenaUsluga> GetSviTerminiProstorijeZaDatum(int id, DateTime datum)
         {
             List<ZdravstvenaUsluga> terminiProstorije = GetSviTerminiProstorije(id);
+            List<ZdravstvenaUsluga> terminiDana = new List<ZdravstvenaUsluga>();
             foreach (ZdravstvenaUsluga usluga in terminiProstorije)
             {
                 if (usluga.Termin.Pocetak.Date.Equals(datum.Date))
                 {
-                    terminiProstorije.Add(usluga);
+                    terminiDana.Add(usluga);
                 }
             }
-            return terminiProstorije;
+            return terminiDana;
         }
 
         public List<ZakazaniTerminiDTO> getAllDto()
@@ -425,16 +429,124 @@ namespace Servis
             return OdloziUslugu(uslugaKojaSeOdlaze);
         }
 
+        public List<ZdravstvenaUsluga> GetUslugeLekaraZaDan(int idLekara, DateTime datum)
+        {
+            List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(idLekara);
+            List<ZdravstvenaUsluga> uslugeZaDatum = new List<ZdravstvenaUsluga>();
+            foreach(ZdravstvenaUsluga usluga in usluge)
+            {
+                if(usluga.Termin.Pocetak.Date.Equals(datum))
+                {
+                    uslugeZaDatum.Add(usluga);
+                }
+            }
+            return uslugeZaDatum;
+        }
+
         public bool jesuliPreklopljeniTermini(Termin termin1, Termin termin2)
         {
-            if(termin1.Pocetak <= termin2.Pocetak)
+            if(termin1.Pocetak <= termin2.Pocetak && termin1.Kraj >= termin2.Kraj)
             {
-                if (termin1.Kraj >= termin2.Kraj)
-                    return true;
+                return true;
+            }
+            if(termin2.Pocetak <= termin1.Pocetak && termin2.Kraj >= termin1.Kraj)
+            {
+                return true;
             }
 
             return false;
         }
+
+        public ZdravstvenaUsluga KonvertujUModel(ZakaziTetminDTO dto)
+        {
+            ZdravstvenaUsluga usluga = new ZdravstvenaUsluga(dto.Termin, -1, dto.IdLekara, dto.IdPacijenta, dto.TipUsluge, dto.IdProstorije, false,
+                "", "");
+            return usluga;
+        }
+
+        public ZakaziTetminDTO ZakaziUslugu(ZakaziTetminDTO usluga)
+        {
+            usluga.ZakazanTermin = true;
+            usluga = DalJeLekarNaOdmoru(usluga);
+            usluga = DalJeLekarImaSlobodanDan(usluga);
+            usluga = DalJeLekarZauzet(usluga);
+            usluga = jelRadnoVremeLekara(usluga);
+            usluga = DalJeProstorijaZauzeta(usluga);
+            if(usluga.ZakazanTermin)
+            {
+                DodajUslugu(KonvertujUModel(usluga));
+            }
+
+            return usluga;
+        }
+
+        public ZakaziTetminDTO DalJeLekarImaSlobodanDan(ZakaziTetminDTO usluga)
+        {
+            if (SlobodniDaniRepozitorijum.GetInstance.DalJeLekarImaSlobodanDan(usluga.IdLekara, usluga.Termin.Pocetak.Date))
+            {
+                usluga.ZakazanTermin = false;
+                usluga.GreskaLekar = "Lekar ima slobodan dan.";
+            }
+            return usluga;
+        }
+
+        public ZakaziTetminDTO DalJeLekarNaOdmoru(ZakaziTetminDTO usluga)
+        {
+            if(GodisnjiOdmorRepozitorijum.GetInstance.DalJeLekarNaOdmoru(usluga.IdLekara,usluga.Termin.Pocetak.Date))
+            {
+                usluga.ZakazanTermin = false;
+                usluga.GreskaLekar = "Lekar je godišnjem odmoru.";
+            }
+            return usluga;
+        }
+
+        public ZakaziTetminDTO DalJeLekarZauzet(ZakaziTetminDTO uslugaDto)
+        {
+            List<ZdravstvenaUsluga> usluge = GetUslugeLekaraZaDan(uslugaDto.IdLekara, uslugaDto.Termin.Pocetak);
+            foreach(ZdravstvenaUsluga usluga in usluge)
+            {
+                if(jesuliPreklopljeniTermini(usluga.Termin,uslugaDto.Termin))
+                {
+                    uslugaDto.GreskaLekar = "Lekar ima zakazan termin u izabranom vremenu.";
+                    uslugaDto.ZakazanTermin = false;
+                    return uslugaDto;
+                }
+            }
+
+            return uslugaDto;
+        }
+
+        public ZakaziTetminDTO DalJeProstorijaZauzeta(ZakaziTetminDTO uslugaDto)
+        {
+            List<ZdravstvenaUsluga> uslugePrestorije = GetSviTerminiProstorijeZaDatum(uslugaDto.IdProstorije, uslugaDto.Termin.Pocetak);
+
+            foreach (ZdravstvenaUsluga usluga in uslugePrestorije)
+            {
+                if (jesuliPreklopljeniTermini(usluga.Termin, uslugaDto.Termin))
+                {
+                    uslugaDto.GreskaProstorija = "Prostorija je zauzeta u izabranom vremenu.";
+                    uslugaDto.ZakazanTermin = false;
+                    return uslugaDto;
+                }
+            }
+
+            return uslugaDto;
+        }
+
+        public ZakaziTetminDTO jelRadnoVremeLekara(ZakaziTetminDTO usluga)
+        {
+       
+            RadnoVreme vreme = LekarRepozitorijum.GetInstance.GetById(usluga.IdLekara).radnoVreme;
+
+            if(vreme.PocetakRadnogVremena > usluga.Termin.Pocetak.Hour || vreme.KrajRadnogVremena < usluga.Termin.Kraj.Hour)
+            {
+                usluga.GreskaRadnoVreme = "Termin nije u granicama radnog vremena lekara";
+                usluga.ZakazanTermin = false;
+            }
+
+            return usluga;
+        }
+
 
     }
 }

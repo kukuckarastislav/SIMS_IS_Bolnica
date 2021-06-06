@@ -38,6 +38,11 @@ namespace Controller
             return ret;
         }
 
+        public ZakaziTetminDTO ZakaziUslugu(ZakaziTetminDTO usluga)
+        {
+            return servis.ZakaziUslugu(usluga);
+        }
+
         internal void DodajKomentarNaUslugu(int id, string text)
         {
             servis.DodajKomentarNaUslugu(id,text);

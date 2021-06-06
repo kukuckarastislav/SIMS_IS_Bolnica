@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DTO;
+using Controller;
 
 namespace Bolnica.view.pacijent
 {
@@ -20,9 +21,12 @@ namespace Bolnica.view.pacijent
     /// </summary>
     public partial class Kalendar : Window
     {
+        ZdravstvenaUslugaKontroler Kontroler;
+        PacijentDTO Pacijent;
         public Kalendar(PacijentDTO Pacijent)
         {
-            InitializeComponent();
+            this.Pacijent = Pacijent;
+            Kontroler = new ZdravstvenaUslugaKontroler();
             InitializeComponent();
             List<string> months = new List<String> { "January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
             cboMonth.ItemsSource = months;
@@ -47,7 +51,13 @@ namespace Bolnica.view.pacijent
             int month = cboMonth.SelectedIndex + 1;
 
             DateTime targetDate = new DateTime(year, month, 1);
+
+            List<DateTime> patiensAppointments = new List<DateTime>();
+            foreach (ZdravstvenaUslugaDTO z in Kontroler.GetTerminiPacijenta(Pacijent.Id))
+                patiensAppointments.Add(z.Termin.Pocetak);
+            Calendar.SetPatiensAppointments(patiensAppointments);
             Calendar.BuildCalendar(targetDate);
+
 
         }
 

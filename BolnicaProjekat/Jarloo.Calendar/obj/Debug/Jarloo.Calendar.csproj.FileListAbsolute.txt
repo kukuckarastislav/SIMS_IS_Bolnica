@@ -1,38 +1,163 @@
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.dll.config
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.pdb
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Xceed.Wpf.AvalonDock.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Xceed.Wpf.DataGrid.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Xceed.Wpf.Toolkit.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\fr\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\hu\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\it\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\ro\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csprojAssemblyReference.cache
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Themes\Generic.g.cs
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\WindowEventSetting.g.cs
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.cache
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.lref
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Resources\AppleScrollViewer.baml
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Resources\SlideButton.baml
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\WindowEventSetting.baml
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.g.resources
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.Properties.Resources.resources
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csproj.GenerateResource.cache
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csproj.CoreCompileInputs.cache
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csproj.CopyComplete
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.dll
-C:\Users\Milica\Desktop\kalendat\MPLite-master\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.pdb
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.pdb
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.xml
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.cache
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.lref
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.g.resources
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.Properties.Resources.resources
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\GenerateResource.read.1.tlog
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\GenerateResource.write.1.tlog
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.dll
+C:\dev\Jarloo.Calendar\trunk\src\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.pdb
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.pdb
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.cache
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.lref
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.g.resources
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.dll
+C:\Users\sdym\Desktop\ПС - Проект\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.pdb
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.pdb
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.cache
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.lref
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.g.resources
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.dll
+C:\Users\Boris Yonchev\Desktop\JarlooCalendar\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.pdb
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.pdb
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.cache
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.lref
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.g.resources
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.dll
+C:\Users\sdym\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.pdb
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Jarloo.Calendar.pdb
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\Microsoft.Expression.Interactions.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\de\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\en\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\es\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\fr\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\it\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ja\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\ko\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.csprojResolveAssemblyReference.cache
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.cache
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar_MarkupCompile.lref
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.g.resources
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.dll
+C:\Users\Te4o\Desktop\Програмни Среди Курсова\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\obj\Debug\Jarloo.Calendar.pdb

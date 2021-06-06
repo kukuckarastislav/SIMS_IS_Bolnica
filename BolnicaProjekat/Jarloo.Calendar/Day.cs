@@ -1,19 +1,14 @@
 ﻿/*
-    Jarloo
-    http://www.jarloo.com
- 
-    This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License  
-    http://creativecommons.org/licenses/by-sa/3.0/ 
-
+    Stoyan Dimitrov
+    
+    May 2016
 */
 
 using System;
 using System.ComponentModel;
-using System.Collections.ObjectModel;
 
-namespace Jarloo.Calendar
+namespace MyCalendar.Calendar
 {
-    using IEvent = MPLite.Event.IEvent;
     public class Day : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -23,14 +18,8 @@ namespace Jarloo.Calendar
         private bool enabled;
         private bool isTargetMonth;
         private bool isToday;
-
-        public ObservableCollection<IEvent> Events { get; set; }
-
-        public Day()
-        {
-            Events = new ObservableCollection<IEvent>();
-        }
-
+        private bool isAppointment;
+  
         public bool IsToday
         {
             get { return isToday; }
@@ -38,6 +27,15 @@ namespace Jarloo.Calendar
             {
                 isToday = value;
                 if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("IsToday"));
+            }
+        }
+        public bool IsAppointment
+        {
+            get { return isAppointment; }
+            set
+            {
+                isAppointment = value;
+                if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("IsAppointment"));
             }
         }
 

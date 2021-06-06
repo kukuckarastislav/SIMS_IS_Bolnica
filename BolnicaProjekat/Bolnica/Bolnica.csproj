@@ -1154,7 +1154,7 @@
     <Content Include="view\sekretar\help\registracija\Prezime.htm" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\kalendat\MyCalendar-master\JarlooCalendar\Jarloo.Calendar\Jarloo.Calendar\MyCalendar.Calendar.csproj">
+    <ProjectReference Include="..\Jarloo.Calendar\MyCalendar.Calendar.csproj">
       <Project>{31c3b4a7-504b-4eff-bacc-c8f2ffe5af6f}</Project>
       <Name>MyCalendar.Calendar</Name>
     </ProjectReference>

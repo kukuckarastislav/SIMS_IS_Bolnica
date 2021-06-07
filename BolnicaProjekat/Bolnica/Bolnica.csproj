@@ -165,6 +165,7 @@
     <Compile Include="DTO\ZakaziTetminDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Interface\IObserver.cs" />
+    <Compile Include="Interface\IStategy.cs" />
     <Compile Include="Interface\ISubject.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
@@ -286,12 +287,6 @@
     </Compile>
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\lekar\0_pocetak\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\lekar\Notifikacije.xaml.cs">
-      <DependentUpon>Notifikacije.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\2_pacijenti\AzuriranjeUsluge.xaml.cs">
       <DependentUpon>AzuriranjeUsluge.xaml</DependentUpon>
@@ -608,14 +603,6 @@
     <Page Include="view\lekar\LekarHome.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="view\lekar\0_pocetak\LoginPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="view\lekar\Notifikacije.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\lekar\2_pacijenti\AzuriranjeUsluge.xaml">
       <SubType>Designer</SubType>
@@ -1123,9 +1110,7 @@
     <Resource Include="images\lekar-icons\notification-icon.png" />
     <Resource Include="images\lekar-icons\prikaz-usluge-icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="view\lekar\4_prostorije\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="images\lekar-icons\pacijent-zensko-icon.png" />
   </ItemGroup>

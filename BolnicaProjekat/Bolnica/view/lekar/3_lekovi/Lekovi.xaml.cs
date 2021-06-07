@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Kontroler;
+using DTO;
 
 namespace Bolnica.view.lekar.lekovi
 {
@@ -26,18 +27,18 @@ namespace Bolnica.view.lekar.lekovi
 
         private view.lekar.GlavniMeni refGlavniMeni;
 
-        public Lekar Lekar;
+        public LekarDTO LekarDTO;
         public ObservableCollection<Lek> odobreniLekoviKolekcija;
         public ObservableCollection<Lek> lekoviZaReviziju;
         public LekoviKontroler lekoviKontrolerObjekat;
-        public Lekovi(Lekar Lekar)
+        public Lekovi(LekarDTO LekarDTO)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
 
             this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
-            this.lekoviZaReviziju = lekoviKontrolerObjekat.GetLekoviZaRevizijuByIdLekara(Lekar.Id);
+            this.lekoviZaReviziju = lekoviKontrolerObjekat.GetLekoviZaRevizijuByIdLekara(LekarDTO.Id);
             this.Odobreni_lekovi.ItemsSource = odobreniLekoviKolekcija;
             this.Lekovi_za_reviziju.ItemsSource = lekoviZaReviziju;
         }
@@ -60,9 +61,9 @@ namespace Bolnica.view.lekar.lekovi
 
         private void GlavniMeniButton(object sender, RoutedEventArgs e)
         {
-            if (this.Lekar != null)
+            if (this.LekarDTO != null)
             {
-                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                refGlavniMeni = new view.lekar.GlavniMeni(LekarDTO);
                 NavigationService.Navigate(refGlavniMeni);
             }
         }
@@ -74,7 +75,7 @@ namespace Bolnica.view.lekar.lekovi
             Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
-                var izmeniLek = new IzmenaLeka(lek, this.Lekar);
+                var izmeniLek = new IzmenaLeka(lek, this.LekarDTO);
                 NavigationService.Navigate(izmeniLek);
             }
 
@@ -85,7 +86,7 @@ namespace Bolnica.view.lekar.lekovi
             Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
-                var odobriLek = new OdobravanjeLeka(lek, this.Lekar);
+                var odobriLek = new OdobravanjeLeka(lek, this.LekarDTO);
                 NavigationService.Navigate(odobriLek);
             }
         }
@@ -95,7 +96,7 @@ namespace Bolnica.view.lekar.lekovi
             Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
-                var odbijLek = new OdbijanjeLeka(lek, this.Lekar);
+                var odbijLek = new OdbijanjeLeka(lek, this.LekarDTO);
                 NavigationService.Navigate(odbijLek);
             }
 

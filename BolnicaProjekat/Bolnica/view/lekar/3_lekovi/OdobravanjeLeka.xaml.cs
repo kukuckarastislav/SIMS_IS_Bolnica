@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Model;
 using Kontroler;
 using System.Collections.ObjectModel;
+using DTO;
 
 namespace Bolnica.view.lekar.lekovi
 {
@@ -27,9 +28,9 @@ namespace Bolnica.view.lekar.lekovi
         public LekoviKontroler lekoviKontrolerObjekat;
         public ObservableCollection<string> KolekcijaAlergeni;
         private Lek lek;
-        private Lekar lekar;
+        private LekarDTO lekar;
         private RevizijaLeka revizija;
-        public OdobravanjeLeka(Lek lek, Lekar lekar)
+        public OdobravanjeLeka(Lek lek, LekarDTO lekar)
         {
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();

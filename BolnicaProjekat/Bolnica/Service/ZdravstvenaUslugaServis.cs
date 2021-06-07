@@ -254,7 +254,7 @@ namespace Servis
             return true;
         }
 
-       public static ObservableCollection<DTORadniKalendar> getUslugeLekara(Lekar l)
+       public ObservableCollection<DTORadniKalendar> getUslugeLekara(LekarDTO l)
         {
             ObservableCollection<DTORadniKalendar> lista = new ObservableCollection<DTORadniKalendar>();
             List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
@@ -286,6 +286,8 @@ namespace Servis
             usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
             return ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
         }
+
+
         public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
         {
             ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(KonvertujUModel(usluga));

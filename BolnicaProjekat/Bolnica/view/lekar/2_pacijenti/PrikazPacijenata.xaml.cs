@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
 using Repozitorijum;
+using DTO;
+
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -29,40 +31,40 @@ namespace Bolnica.view.lekar.pacijenti
         // NEXT - PAGES
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         // KORISNICI
-        public Lekar Lekar;
+        public LekarDTO LekarDTO;
         // KOLEKCIJE
         public ObservableCollection<Pacijent> KolekcijaPacijenata { get; set; }
 
 
-        public PrikazPacijenata(Lekar Lekar)
+        public PrikazPacijenata(LekarDTO LekarDTO)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             InitializeComponent();
             this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
   
         }
 
-        public Pacijent GetSelectedPacijentZaLekar() {
+        public Pacijent GetSelectedPacijentZaLekarDTO() {
             Pacijent pacijent = DataGridPrikazPacijenataZaLekar.SelectedItem as Pacijent;
             return pacijent;
         }
 
         private void MedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            Pacijent IzabraniPacijent = GetSelectedPacijentZaLekar();
-            if ( IzabraniPacijent != null & this.Lekar !=null )
+            Pacijent IzabraniPacijent = GetSelectedPacijentZaLekarDTO();
+            if ( IzabraniPacijent != null & this.LekarDTO !=null )
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
 
       private void GlavniMeniButton(object sender, RoutedEventArgs e)
         {
-            if(this.Lekar!=null)
+            if(this.LekarDTO!=null)
             {
-                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                refGlavniMeni = new view.lekar.GlavniMeni(LekarDTO);
                 NavigationService.Navigate(refGlavniMeni);
             }
         }

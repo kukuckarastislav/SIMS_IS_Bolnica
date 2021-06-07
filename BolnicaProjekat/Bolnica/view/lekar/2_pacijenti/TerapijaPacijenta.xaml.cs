@@ -17,25 +17,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.Model;
+using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for TerapijaPacijenta.xaml
-    /// </summary>
     public partial class TerapijaPacijenta : Page
     {
         public Pacijent IzabraniPacijent { get; set; }
-        public Lekar Lekar { get; set; }
+        public LekarDTO LekarDTO { get; set; }
         public ObservableCollection<DTORecept> ListaRecepti { get; set; }
         public ObservableCollection<string> KolekcijaAlergeni;
         public MedicinskiKarton MedicinskiKarton { get; set; }
         public List<string> Alergeni;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
-        public TerapijaPacijenta(Lekar Lekar, Pacijent IzabraniPacijent)
+        public TerapijaPacijenta(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
         {
             InitializeComponent();
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             this.IzabraniPacijent = IzabraniPacijent;
             ListaRecepti = ReceptServis.GetPacijentovihReceptaDTO(IzabraniPacijent.Id);
             Alergeni = Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(IzabraniPacijent.Id).MedicinskiKarton.Alergeni;
@@ -43,7 +41,7 @@ namespace Bolnica.view.lekar.pacijenti
            //    Recepti = KontrolerRecept.GetPacijentovihRecepta(IzabraniPacijent.Id);
 
             /* Recept(int id, 
-             *        int idLekara, 
+             *        int idLekarDTOa, 
              *        int idPacijenta, 
              *        int idLeka, 
              *        DateTime datumPropisivanja, 
@@ -68,7 +66,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.lekar
 {
@@ -23,18 +24,18 @@ namespace Bolnica.view.lekar
     public partial class FeedBack : Page
     {
         private view.lekar.GlavniMeni refGlavniMeni;
-        private Lekar Lekar;
-        public FeedBack(Lekar Lekar)
+        private LekarDTO LekarDTO;
+        public FeedBack(LekarDTO LekarDTO)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             InitializeComponent();
         }
 
         private void GlavniMeniButton(object sender, RoutedEventArgs e)
         {
-            if (this.Lekar != null)
+            if (this.LekarDTO != null)
             {
-                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                refGlavniMeni = new view.lekar.GlavniMeni(LekarDTO);
                 NavigationService.Navigate(refGlavniMeni);
             }
         }
@@ -42,7 +43,7 @@ namespace Bolnica.view.lekar
         private void btnPosaljiFeedBack_Click(object sender, RoutedEventArgs e)
         {
             FeedbackKontroler kontroler = new FeedbackKontroler();
-            kontroler.DodajFeedbackLekara(Lekar.Id, txtFeedBack.Text);
+            kontroler.DodajFeedbackLekara(LekarDTO.Id, txtFeedBack.Text);
         }
     }
 }

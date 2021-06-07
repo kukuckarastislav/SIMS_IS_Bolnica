@@ -83,6 +83,13 @@ namespace Controller
             return null;
         }
 
+        public ObservableCollection<DTORadniKalendar> getUslugeLekara(LekarDTO l)
+        {
+            return servis.getUslugeLekara(l);
+
+        }
+
+
         public List<ZdravstvenaUsluga> getAppointments(Lekar OdabraniLekar, DateTime datum)
         {
             DateTime pocetak = new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 00);

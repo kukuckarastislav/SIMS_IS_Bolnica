@@ -26,7 +26,7 @@ namespace Bolnica.view.lekar.pacijenti
     public partial class UpucivanjeNaStacionarnoLecenje : Page
     {
 
-        public Lekar Lekar { get; set; }
+        public LekarDTO LekarDTO { get; set; }
         public Pacijent IzabraniPacijent { get; set; }
         public DateTime PocetakHospitalizacije;
         public DateTime ZavrsetakHospitalizacije;
@@ -37,10 +37,10 @@ namespace Bolnica.view.lekar.pacijenti
         private Prostorija selektovanaProstorija = null; 
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public UpucivanjeNaStacionarnoLecenje(Lekar Lekar, Pacijent IzabraniPacijent)
+        public UpucivanjeNaStacionarnoLecenje(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
         {
             InitializeComponent();
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             this.IzabraniPacijent = IzabraniPacijent;
             InicijalizujObjekte();
             UcitajPodatke();
@@ -123,7 +123,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
@@ -211,7 +211,7 @@ namespace Bolnica.view.lekar.pacijenti
             if(selektovanaProstorija != null)
             {
 
-                HospitalizacijaDTO hospitalizacijaDTO = new HospitalizacijaDTO(IzabraniPacijent.Id, Lekar.Id, selektovanaProstorija.Id, PocetakHospitalizacije, ZavrsetakHospitalizacije);
+                HospitalizacijaDTO hospitalizacijaDTO = new HospitalizacijaDTO(IzabraniPacijent.Id, LekarDTO.Id, selektovanaProstorija.Id, PocetakHospitalizacije, ZavrsetakHospitalizacije);
 
                 hospitalizacijaKontrolerObjekat.DodajHospitalizaciju(hospitalizacijaDTO);
             }

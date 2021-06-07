@@ -30,6 +30,25 @@ namespace DTO
 
         }
 
+        public LekarDTO(int id, bool specijalista, string specijalizacija, string ime, string prezime, string korisnickoIme, string email, string telefon, Pol pol, DateTime datumRodjenja, string jmbg, string drzavljanstvo, string adresaStanovanja, string sifra, RadnoVreme radnoVreme)
+        {
+            Id = id;
+            Specijalista = specijalista;
+            Specijalizacija = specijalizacija;
+            Ime = ime;
+            Prezime = prezime;
+            KorisnickoIme = korisnickoIme;
+            Email = email;
+            Telefon = telefon;
+            Pol = pol;
+            DatumRodjenja = datumRodjenja;
+            Jmbg = jmbg;
+            Drzavljanstvo = drzavljanstvo;
+            AdresaStanovanja = adresaStanovanja;
+            Sifra = sifra;
+            this.radnoVreme = radnoVreme;
+        }
+
         public LekarDTO(LekarDTO dto)
         {
             Id = dto.Id;

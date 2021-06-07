@@ -18,13 +18,11 @@ using Kontroler;
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for NacinKoriscenja.xaml
-    /// </summary>
+
     public partial class NacinKoriscenja : Page
     {
         public Pacijent IzabraniPacijent { get; set; }
-        public Lekar Lekar;
+        public LekarDTO LekarDTO;
         private view.lekar.pacijenti.IzdavanjeRecepta refIzdavanjeRecepta;
 
         private DateTime PocetakTerapije;
@@ -38,9 +36,9 @@ namespace Bolnica.view.lekar.pacijenti
         public static ParametriUzimanjaTerapijeDTO dto { get; set; }
 
 
-        public NacinKoriscenja(Lekar Lekar, Pacijent IzabraniPacijent, int idLeka)
+        public NacinKoriscenja(LekarDTO LekarDTO, Pacijent IzabraniPacijent, int idLeka)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             this.IzabraniPacijent = IzabraniPacijent;
             this.idLeka = idLeka;
             InitializeComponent();
@@ -112,7 +110,7 @@ namespace Bolnica.view.lekar.pacijenti
             PodsjetnikKontroler kontroler = new PodsjetnikKontroler();
             kontroler.DodajPodsjetnikZaUzimanjeLijeka(dto, idLeka, IzabraniPacijent.Id);
 
-            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(Lekar, IzabraniPacijent);
+            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO, IzabraniPacijent);
             NavigationService.Navigate(refIzdavanjeRecepta);
 
         }

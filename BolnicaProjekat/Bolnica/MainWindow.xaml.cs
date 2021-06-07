@@ -29,6 +29,7 @@ namespace Bolnica
     public partial class MainWindow : Window
     {
         private PacijentDTO PrijavljeniPacijent;
+
         public MainWindow()
         {
 
@@ -58,8 +59,7 @@ namespace Bolnica
 
         private void Lekar_Home_Click(object sender, RoutedEventArgs e)
         {
-            var lekar_home = new Bolnica.view.lekar.LekarHome(Repozitorijum.LekarRepozitorijum.GetInstance.GetById(1));
-            lekar_home.Show();
+
         }
 
         private void Pacijent_Home_Click(object sender, RoutedEventArgs e)
@@ -90,11 +90,11 @@ namespace Bolnica
                 upravnik_home.Show();
             }
             LekarKontroler lkontroler = new LekarKontroler();
-            Lekar lekar = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Password);
+            LekarDTO lekar = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Password);
             if (lekar != null)
             {
                 App.IdUlogovanogKorisnika = lekar.Id;
-                App.ulogovaniKorisnik = lekar;
+                //App.ulogovaniKorisnik = lekar;
                 var lekar_home = new Bolnica.view.lekar.LekarHome(lekar);
                 lekar_home.Show();
             }
@@ -102,7 +102,7 @@ namespace Bolnica
             PrijavljeniPacijent = pkontroler.PrijavaPacijenta(txbIme.Text, txbLozinka.Password);
             if (PrijavljeniPacijent != null)
             {
-                App.ulogovaniKorisnik = lekar;
+                //App.ulogovaniKorisnik = lekar;
                 App.IdUlogovanogKorisnika = PrijavljeniPacijent.Id;
                 var pacijent_home = new Bolnica.view.pacijent.PacijentHome(PrijavljeniPacijent);
                 pacijent_home.Show();

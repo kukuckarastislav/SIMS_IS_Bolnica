@@ -65,3 +65,15 @@ C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Ca
 C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CopyComplete
 C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.dll
 C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.pdb
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\bin\Debug\MyCalendar.Calendar.dll
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\bin\Debug\MyCalendar.Calendar.pdb
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csprojAssemblyReference.cache
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar_MarkupCompile.cache
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar_MarkupCompile.lref
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.g.resources
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CoreCompileInputs.cache
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CopyComplete
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.dll
+D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.pdb

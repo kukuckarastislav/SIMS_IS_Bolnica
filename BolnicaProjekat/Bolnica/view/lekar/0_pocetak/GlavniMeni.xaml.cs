@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.lekar
 {
@@ -21,54 +22,46 @@ namespace Bolnica.view.lekar
     /// </summary>
     public partial class GlavniMeni : Page
     {
-        // BACK - PAGES
-        private view.lekar.LoginPage refLoginPage;
+
         // NEXT - PAGES
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
-        private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekar;
+        private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekarDTO;
         private view.lekar.lekovi.Lekovi refLekovi;
-        private view.lekar.Notifikacije refNotifikacije;
         private view.lekar.FeedBack refFeedBack;
 
         // KORISNICI
-        public Lekar Lekar;
+        public LekarDTO LekarDTO;
 
-        public GlavniMeni(Lekar Lekar)
+        public GlavniMeni(LekarDTO LekarDTO)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             InitializeComponent();
 
         }
 
         private void RadniKalendarButton(object sender, RoutedEventArgs e)
         {
-            refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(Lekar);
+            refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
             NavigationService.Navigate(refRadniKalendar);
 
         }
 
         private void PacijentiButton(object sender, RoutedEventArgs e)
         {
-            refPrikazPacijenataZaLekar = new view.lekar.pacijenti.PrikazPacijenata(Lekar);
-            NavigationService.Navigate(refPrikazPacijenataZaLekar);
+            refPrikazPacijenataZaLekarDTO = new view.lekar.pacijenti.PrikazPacijenata(LekarDTO);
+            NavigationService.Navigate(refPrikazPacijenataZaLekarDTO);
         }
 
         private void LekoviButton(object sender, RoutedEventArgs e)
         {
-            refLekovi = new view.lekar.lekovi.Lekovi(Lekar);
+            refLekovi = new view.lekar.lekovi.Lekovi(LekarDTO);
             NavigationService.Navigate(refLekovi);
 
         }
 
-        private void NotifikacijeButton(object sender, RoutedEventArgs e)
-        {
-            refNotifikacije = new view.lekar.Notifikacije(Lekar);
-            NavigationService.Navigate(refNotifikacije);
-        }
-
         private void btnFeedback_Click(object sender, RoutedEventArgs e)
         {
-            refFeedBack = new view.lekar.FeedBack(Lekar);
+            refFeedBack = new view.lekar.FeedBack(LekarDTO);
             NavigationService.Navigate(refFeedBack);
         }
     }

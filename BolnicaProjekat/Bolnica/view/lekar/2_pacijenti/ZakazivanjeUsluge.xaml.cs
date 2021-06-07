@@ -15,30 +15,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for ZakazivanjeUsluge.xaml
-    /// </summary>
     public partial class ZakazivanjeUsluge : Page
     {
-
-
         public ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
         public ObservableCollection<Prostorija> KolekcijaSobeZaPregled { get; set; }
         public ObservableCollection<String> KolekcijaIDSobeZaPregled { get; set; }
 
         public DateTime date;
-        public Lekar Lekar { get; set; }
+        public LekarDTO LekarDTO { get; set; }
         public Pacijent IzabraniPacijent { get; set; }
         public ZdravstvenaUsluga KreiranaUsluga { get; set; }
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
 
-        public ZakazivanjeUsluge(Lekar Lekar, Pacijent IzabraniPacijent)
+        public ZakazivanjeUsluge(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             this.IzabraniPacijent = IzabraniPacijent;
             ProstorijeKontrolerObjekat = new ProstorijeKontroler();
 
@@ -69,7 +65,7 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void PotvrdiZakazanuUsluguButton(object sender, RoutedEventArgs e)
         {
-            // Termin termin, int id, int idLekara, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUsluge
+            // Termin termin, int id, int idLekarDTOa, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUsluge
             int pocetakSati = Convert.ToInt32(VremePocetakTermina_Sat.Text);
             int pocetakMinute = Convert.ToInt32(VremePocetakTermina_Minut.Text);
             string pocetakAP = VremePocetakTermina_AM_PM.Text;
@@ -83,7 +79,7 @@ namespace Bolnica.view.lekar.pacijenti
 
             Termin termin = new Termin(pocetak, kraj);
             int idUsluge = Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
-            int idLekara = Lekar.Id;
+            int idLekarDTOa = LekarDTO.Id;
             int idPacijenta = IzabraniPacijent.Id;
             TipUsluge tipUsluge = TipUsluge.Pregled;
             Prostorija prostorija = (Prostorija)ComboBoxProstorija.SelectedItem;
@@ -92,10 +88,9 @@ namespace Bolnica.view.lekar.pacijenti
             string razlogZakazivanja = RazlogZakazivanja.Text;
             string rezultat = " ";
 
-            //Termin termin, int id, int idLekara, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUslug
-            KreiranaUsluga = new ZdravstvenaUsluga(termin, idUsluge, idLekara, idPacijenta, tipUsluge, idProstorije, obavljena, razlogZakazivanja, rezultat);
+            //Termin termin, int id, int idLekarDTOa, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUslug
+            KreiranaUsluga = new ZdravstvenaUsluga(termin, idUsluge, idLekarDTOa, idPacijenta, tipUsluge, idProstorije, obavljena, razlogZakazivanja, rezultat);
             Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(KreiranaUsluga);
-
 
         }
 
@@ -103,7 +98,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

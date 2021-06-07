@@ -15,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kontroler;
+using Controller;
+using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -30,21 +33,30 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.AzuriranjeUsluge refAzuriranjeUsluge;
         private view.lekar.pacijenti.EvidentiranjeUsluge refEvidentiranjeUsluge;
         // LISTE
-        public ObservableCollection<DTORadniKalendar> ListaRadniKalendar;
+        public ObservableCollection<DTORadniKalendar> KolekcijaRadniKalendar;
         // OBJEKTI
+        private ZdravstvenaUslugaKontroler ObjekatZdrastvenaUslugaKontroler;
         public DTORadniKalendar OdabranaUsluga { get; set; }
-        public Lekar Lekar { get; set; }
+        public LekarDTO LekarDTO { get; set; }
 
-        public RadniKalendar(Lekar Lekar)
+        public RadniKalendar(LekarDTO LekarDTO)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             InitializeComponent();
-
-            ListaRadniKalendar = ZdravstvenaUslugaServis.getUslugeLekara(Lekar);
-            this.RadniKalendar_danasnji.ItemsSource = ListaRadniKalendar;
-
+            ObjekatZdrastvenaUslugaKontroler = new ZdravstvenaUslugaKontroler();
+            BindingRadniKalendar();
         }
 
+
+        private void BindingRadniKalendar()
+        {
+            KolekcijaRadniKalendar = new ObservableCollection<DTORadniKalendar>();
+            foreach(DTORadniKalendar dtoRadni in ObjekatZdrastvenaUslugaKontroler.getUslugeLekara(LekarDTO))
+            {
+                KolekcijaRadniKalendar.Add(dtoRadni);
+            }
+            this.RadniKalendar_danasnji.ItemsSource = KolekcijaRadniKalendar;
+        }
 
         private void RadniKalendar_danasnji_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -59,7 +71,7 @@ namespace Bolnica.view.lekar.pacijenti
                 return;
             }
 
-            refBrisanjeUsluge = new view.lekar.pacijenti.BrisanjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
+            refBrisanjeUsluge = new view.lekar.pacijenti.BrisanjeUsluge(LekarDTO, OdabranaUsluga, KolekcijaRadniKalendar);
             NavigationService.Navigate(refBrisanjeUsluge);
         }
 
@@ -70,7 +82,7 @@ namespace Bolnica.view.lekar.pacijenti
                 MessageBox.Show("Odaberite uslugu!");
                 return;
             }
-            refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
+            refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(LekarDTO, OdabranaUsluga, KolekcijaRadniKalendar);
             NavigationService.Navigate(refAzuriranjeUsluge);
         }
 
@@ -81,16 +93,16 @@ namespace Bolnica.view.lekar.pacijenti
                 MessageBox.Show("Odaberite uslugu!");
                 return;
             }
-            refEvidentiranjeUsluge = new view.lekar.pacijenti.EvidentiranjeUsluge(Lekar, OdabranaUsluga, ListaRadniKalendar);
+            refEvidentiranjeUsluge = new view.lekar.pacijenti.EvidentiranjeUsluge(LekarDTO, OdabranaUsluga, KolekcijaRadniKalendar);
             NavigationService.Navigate(refEvidentiranjeUsluge);
 
         }
 
         private void GlavniMeniButton(object sender, RoutedEventArgs e)
         {
-            if (this.Lekar != null)
+            if (this.LekarDTO != null)
             {
-                refGlavniMeni = new view.lekar.GlavniMeni(Lekar);
+                refGlavniMeni = new view.lekar.GlavniMeni(LekarDTO);
                 NavigationService.Navigate(refGlavniMeni);
             }
         }

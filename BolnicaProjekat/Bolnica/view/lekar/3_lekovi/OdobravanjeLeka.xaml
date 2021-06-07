@@ -51,11 +51,11 @@
                     Height="110" 
                     Fill="#810000"
                     Grid.Row="1"
-                    Grid.Column="2" Grid.ColumnSpan="2"/>
+                    Grid.Column="2" />
         <Image  Source="/images/lekar-icons/potvrdi-uslugu-icon.png"
                 Width="70" 
                 Grid.Row="1" 
-                Grid.Column="2" Grid.ColumnSpan="2"/>
+                Grid.Column="2"/>
         <TextBlock  Text="Odobravanje Leka" 
                     VerticalAlignment="Top" HorizontalAlignment="Center" 
                     FontWeight="Bold" 

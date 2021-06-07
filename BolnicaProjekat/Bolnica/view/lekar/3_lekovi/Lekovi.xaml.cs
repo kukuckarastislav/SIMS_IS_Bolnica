@@ -100,5 +100,17 @@ namespace Bolnica.view.lekar.lekovi
             }
 
         }
+
+        private void Izvestaj_Click(object sender, RoutedEventArgs e)
+        {
+
+
+        }
+
+        private void Statistika_Click(object sender, RoutedEventArgs e)
+        {
+            var statistika = new Statistika(this.Lekar);
+            NavigationService.Navigate(statistika);
+        }
     }
 }

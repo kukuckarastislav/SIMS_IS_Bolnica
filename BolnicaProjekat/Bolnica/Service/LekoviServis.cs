@@ -17,6 +17,36 @@ namespace Servis
             lekoviRepozitorijumRef = LekoviRepozitorijum.GetInstance;
         }
 
+        public int BrojOdobrenihLekova()
+        {
+            int brojOdobrenihLekova = 0;
+            List<Lek> lekovi = lekoviRepozitorijumRef.GetAll();
+            foreach(Lek lek in lekovi)
+            {
+                if (lek.Odobren)
+                {
+                    brojOdobrenihLekova++;
+                }
+            }
+
+            return brojOdobrenihLekova;
+        }
+
+        public int BrojNeOdobrenihLekova()
+        {
+            int brojNeOdobrenihLekova = 0;
+            List<Lek> lekovi = lekoviRepozitorijumRef.GetAll();
+            foreach (Lek lek in lekovi)
+            {
+                if (!lek.Odobren)
+                {
+                    brojNeOdobrenihLekova++;
+                }
+            }
+
+            return brojNeOdobrenihLekova;
+        }
+
         public void PosaljiLekoveNaReviziju(ObservableCollection<Lekar> odabraniLekari, Lek lek)
         {
             throw new NotImplementedException();

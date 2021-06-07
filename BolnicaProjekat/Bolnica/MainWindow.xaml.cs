@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
 using System.Text.Json;
+using LiveCharts;
+using LiveCharts.Wpf;
 using Model;
 using DTO;
 using Repozitorijum;

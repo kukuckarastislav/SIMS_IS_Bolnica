@@ -12,53 +12,33 @@
       FontSize="12"
       Title="IzdavanjeRecepta">
 
-    <Grid VerticalAlignment="Center" Name="GlavniMeni_CenterGrid">
+    <Grid VerticalAlignment="Center">
 
         <Grid.ColumnDefinitions>
-            <!-- Prazno mesto - LEVO -->
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="20"/>
-            <!-- Meni - Prazno mesto - LEVO -->
             <ColumnDefinition Width="140"/>
-            <!-- Meni - Dugmici - CENTAR -->
             <ColumnDefinition Width="10"/>
-            <!-- Meni - Prazno mesto - DESNO -->
             <ColumnDefinition Width="140"/>
-            <!-- Prazno mesto - DESNO -->
-
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <!-- [0] PraznoMesto - GORE -->
+            <RowDefinition Height="50"/>
             <RowDefinition Height="80"/>
-            <!-- [1] Profilna slika (1) - GORE -->
-            <RowDefinition Height="80"/>
-            <!-- [2] Profilna slika (2) i Meni (1)- GORE -->
             <RowDefinition Height="30"/>
-            <!-- [3] Meni (2) - GORE -->
             <RowDefinition Height="25"/>
-            <!-- [4] Meni (3) - Button1- CENTAR -->
             <RowDefinition Height="45"/>
-            <!-- [5] Meni (4) - Button2- CENTAR -->
             <RowDefinition Height="45"/>
-            <!-- [6] Meni (5) - Button3- CENTAR -->
             <RowDefinition Height="45"/>
-            <!-- [7] Meni (6) - Button4- CENTAR -->
             <RowDefinition Height="45"/>
-            <!-- [8] Meni (7) - Button5- CENTAR -->
             <RowDefinition Height="45"/>
-            <!-- [9] Meni (8) - PreLogout- DOLE -->
             <RowDefinition Height="45"/>
-            <!-- [10] Meni (9) - LogoutButton- DOLE -->
             <RowDefinition Height="45"/>
-            <!-- [11] Meni (11) - PosleLogout- DOLE -->
             <RowDefinition Height="22"/>
-            <!-- [12] PraznoMesto(1)- DOLE -->
             <RowDefinition Height="23"/>
-            <!-- [13] PraznoMesto(2)- DOLE -->
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="110"/>
         </Grid.RowDefinitions>
 
         <!-- Profilna Slika-->
@@ -80,18 +60,20 @@
                 Foreground="#eeebdd"
                 Grid.Row="4" Grid.RowSpan="1"
                 Grid.Column="1" Grid.ColumnSpan="5"/>
-
         <Image Source="/images/lekar-icons/folder-dark-icon.png"
                 VerticalAlignment="Center" HorizontalAlignment="Center" 
                 Grid.Row="3" Grid.RowSpan="10"
                 Grid.Column="1" Grid.ColumnSpan="5"
                 Margin="-10,10,-10,-10"/>
 
-        <!-- HEADER(start) - BACK TO: Medicinski Karton -->
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Orientation="Horizontal">
-            <Button  Height="36" Width="36" VerticalAlignment="Top" HorizontalAlignment="Left"
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="PrikazMedicinskiKartonButton">
+        <!-- Medicinski Karton - Header: Back Button, Pacijent, JMBG -->
+        <StackPanel     Orientation="Horizontal"
+                        Grid.Column="1" Grid.ColumnSpan="5" 
+                        Grid.Row="5">
+            <Button Height="36" Width="36" 
+                    VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+                    Click="PrikazMedicinskiKartonButton">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

@@ -18,6 +18,17 @@ namespace Kontroler
             lekoviServisObjekat = new LekoviServis();
         }
 
+        public int BrojOdobrenihLekova()
+        {
+            return lekoviServisObjekat.BrojOdobrenihLekova();
+        }
+
+        public int BrojNeOdobrenihLekova()
+        {
+
+            return lekoviServisObjekat.BrojNeOdobrenihLekova();
+        }
+
         public void PosaljiLekoveNaReviziju(ObservableCollection<Lekar> odabraniLekari, Lek lek)
         {
             lekoviServisObjekat.PosaljiLekoveNaReviziju(odabraniLekari, lek);

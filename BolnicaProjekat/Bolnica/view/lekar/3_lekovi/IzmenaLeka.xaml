@@ -14,34 +14,23 @@
 
     <Grid VerticalAlignment="Center">
 
-
         <Grid.ColumnDefinitions>
-            <!-- Prazno mesto - LEVO -->
             <ColumnDefinition Width="35"/>
             <ColumnDefinition Width="20"/>
-            <!-- Meni - Prazno mesto - LEVO -->
             <ColumnDefinition Width="290"/>
-            <!-- Prazno mesto - DESNO -->
-
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="35"/>
         </Grid.ColumnDefinitions>
 
-
         <Grid.RowDefinitions>
-            <!-- [0] PraznoMesto - GORE -->
-            <RowDefinition Height="10"/>
-            <!-- [1] Profilna slika (1) - GORE -->
-            <RowDefinition Height="Auto"/>
-            <!-- [2] Profilna slika (2) i Meni (1)- GORE -->
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="35"/>
-            <!-- [3] Meni (2) - GORE -->
             <RowDefinition Height="25"/>
-            <!-- [4] Meni (3) - Button1- CENTAR -->
             <RowDefinition Height="320"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="60"/>
 
         </Grid.RowDefinitions>
 

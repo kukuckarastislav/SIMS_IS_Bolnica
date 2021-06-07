@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using DTO;
 using Kontroler;
 
@@ -41,6 +42,30 @@ namespace Bolnica.view.pacijent
             foreach (StavkaIzvjestajaDTO s in Nedelja)
                 nedelja.Text += s.NazivLijeka + Environment.NewLine + "(" + s.VrijemeUzimanja.ToString("hh:mm tt") + ")" + Environment.NewLine + Environment.NewLine;
 
+        }
+
+        private void Print_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.IsEnabled = false;
+
+                Print.Visibility = Visibility.Hidden;
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(print, "Invoice");
+
+                }
+
+                Print.Visibility = Visibility.Visible;
+  
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
         }
     }
 }

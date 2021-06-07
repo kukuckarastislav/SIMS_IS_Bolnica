@@ -18,9 +18,6 @@ using Kontroler;
 
 namespace Bolnica.view.lekar.lekovi
 {
-    /// <summary>
-    /// Interaction logic for Lekovi.xaml
-    /// </summary>
     public partial class Lekovi : Page
     {
 
@@ -103,7 +100,8 @@ namespace Bolnica.view.lekar.lekovi
 
         private void Izvestaj_Click(object sender, RoutedEventArgs e)
         {
-
+            var izvestaj = new Izvestaj(Lekar);
+            NavigationService.Navigate(izvestaj);
 
         }
 

@@ -142,6 +142,7 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\DodavanjeObavestenjaDTO.cs" />
     <Compile Include="DTO\FeedbackDTO.cs" />
     <Compile Include="DTO\HospitalizacijaDTO.cs" />
     <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
@@ -255,6 +256,7 @@
     <Compile Include="utils\ValidationBase.cs" />
     <Compile Include="utils\ValidationErrors.cs" />
     <Compile Include="utils\Validator.cs" />
+    <Compile Include="viewmodel\DodavanjeObavestenjaViewModel.cs" />
     <Compile Include="viewmodel\RegistracijaLekaraViewModel.cs" />
     <Compile Include="viewmodel\RegistracijaPacijentaViewModel.cs" />
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">

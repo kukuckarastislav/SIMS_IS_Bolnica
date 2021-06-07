@@ -74,6 +74,13 @@ namespace Bolnica.view.sekretar
         {
             RadnaPovrsina.Content = new view.sekretar.PageZakazaniTermini();
             ResetButtonColor();
+            btnZakayaniTermini.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+        }
+        
+        private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.ZakazivanjeTermina();
+            ResetButtonColor();
             btnZakaziTermin.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
         }
 
@@ -87,6 +94,7 @@ namespace Bolnica.view.sekretar
             btnObavestenja.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
             btnZauzetostProstorija.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
             btnZakaziTermin.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
+            btnZakayaniTermini.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
         }
     }
 }

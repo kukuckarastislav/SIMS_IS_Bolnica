@@ -10,5 +10,17 @@
     "Naslov": "ovde ide tekst",
     "DatumObjave": "2021-06-03T20:25:12.5991234+02:00",
     "Poruka": "Ovde ide teksts"
+  },
+  {
+    "Id": 6,
+    "Naslov": "dsad",
+    "DatumObjave": "2021-06-07T23:12:11.8459114+02:00",
+    "Poruka": "asdasd"
+  },
+  {
+    "Id": 7,
+    "Naslov": "dsa",
+    "DatumObjave": "2021-06-07T23:13:14.0638277+02:00",
+    "Poruka": "asd"
   }
 ]

@@ -132,7 +132,7 @@ namespace Bolnica.view.sekretar
             if (focusedControl is DependencyObject)
             {
                 string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
-                HelpProvider.ShowHelp("Ime");
+                HelpProvider.ShowHelp("RadnoVreme");
 
             }
         }

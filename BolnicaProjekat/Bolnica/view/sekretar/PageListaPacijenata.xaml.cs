@@ -78,9 +78,18 @@ namespace Bolnica.view.sekretar
             if (focusedControl is DependencyObject)
             {
                 string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
-                HelpProvider.ShowHelp("Ime");
+                HelpProvider.ShowHelp("ListaPacijenata");
 
             }
+        }
+
+        private void btnTrazi_Click(object sender, RoutedEventArgs e)
+        {
+            UcitajPodatkePacijenata();
+            if (String.IsNullOrWhiteSpace(tbPretraga.Text)) return;
+
+            KolekcijaPacijenata = new ObservableCollection<PacijentDTO>(KolekcijaPacijenata.Where((dto) =>dto.Jmbg.ToLower().Equals(tbPretraga.Text.ToLower())));
+            this.DataGridPrikazPacijenata.ItemsSource = KolekcijaPacijenata;
         }
     }
 }

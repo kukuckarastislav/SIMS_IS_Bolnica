@@ -56,6 +56,7 @@ namespace Bolnica.view.sekretar
 
         private void OdloziTermin_Click(object sender, RoutedEventArgs e)
         {
+            /*
             DTOUslugaLekar ul = DataGridPrikazTermina.SelectedItem as DTOUslugaLekar;
             if (ul == null) return;
             ZdravstvenaUslugaKontroler zkontroler = new ZdravstvenaUslugaKontroler();
@@ -71,7 +72,7 @@ namespace Bolnica.view.sekretar
             else
             {
                 MessageBox.Show("Nije moguce odloziti uslugu u naredna tri dana");
-            }
+            }*/
         }
     }
 }

@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
 using Bolnica.viewmodel;
+using Bolnica.utils;
 
 namespace Bolnica.view.sekretar.registracija
 {
@@ -28,10 +29,20 @@ namespace Bolnica.view.sekretar.registracija
         public RegistracijaLekara()
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
             this.rbrMusko.IsChecked = true;
             this.inputDatum.SelectedDate = DateTime.Now;
         }
 
-       
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("RegistracijaLekara");
+
+            }
+        }
     }
 }

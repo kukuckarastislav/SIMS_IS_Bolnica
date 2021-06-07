@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Bolnica.utils;
+using Kontroler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +25,36 @@ namespace Bolnica.view.sekretar
         public PocetnaStranica()
         {
             InitializeComponent();
+            if (App.prikaziHelp)
+                cbPomoc.IsChecked = true;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
 
+            }
+        }
+
+        private void OcenaAplikacije_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PageOcenaAplikacije());
+        }
+
+        private void cbPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            App.prikaziHelp = (bool)cbPomoc.IsChecked;
+            if(App.prikaziHelp)
+            {
+                App.vidljivostPomoci = Visibility.Visible;
+            }else
+            {
+                App.vidljivostPomoci = Visibility.Hidden;
+            }
         }
     }
 }

@@ -38,6 +38,11 @@ namespace Controller
             return ret;
         }
 
+        public ZakaziTetminDTO ZakaziUslugu(ZakaziTetminDTO usluga)
+        {
+            return servis.ZakaziUslugu(usluga);
+        }
+
         internal void DodajKomentarNaUslugu(int id, string text)
         {
             servis.DodajKomentarNaUslugu(id,text);
@@ -46,6 +51,11 @@ namespace Controller
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
         {
             return servis.GetProsliTerminiPacijenta(id);
+        }
+
+        public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
+        {
+            servis.OtkaziUslugu(usluga);
         }
 
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
@@ -105,9 +115,13 @@ namespace Controller
             return servis.GetAktuelniPreglediPacijenta(id);
         }
 
-        public ObservableCollection<ZdravstvenaUslugaDTO> getAllDto()
+        public List<ZakazaniTerminiDTO> getAllDto()
         {
             return servis.getAllDto();
+        }
+        public List<ZakazaniTerminiDTO> getAllDto(DateTime datumPretrage)
+        {
+            return servis.getAllDtoZaDatum(datumPretrage);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliPreglediPacijenta(int id)

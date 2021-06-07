@@ -8,7 +8,7 @@
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": -1,
+    "IdProstorije": 1,
     "Obavljena": false,
     "RazlogZakazivanja": "yhdjhdhk",
     "RezultatUsluge": " ovo treba biti anamnezaa"
@@ -22,7 +22,7 @@
     "IdLekara": 2,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 7,
+    "IdProstorije": 2,
     "Obavljena": false,
     "RazlogZakazivanja": "we",
     "RezultatUsluge": " i ovooooooooooo"
@@ -36,7 +36,7 @@
     "IdLekara": 2,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 2,
     "Obavljena": false,
     "RazlogZakazivanja": "dasd",
     "RezultatUsluge": " "
@@ -50,7 +50,7 @@
     "IdLekara": 2,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 1,
     "Obavljena": false,
     "RazlogZakazivanja": "dasd",
     "RezultatUsluge": " "
@@ -64,7 +64,7 @@
     "IdLekara": 2,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 3,
     "Obavljena": false,
     "RazlogZakazivanja": "erer",
     "RezultatUsluge": " "
@@ -78,7 +78,7 @@
     "IdLekara": 2,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 4,
     "Obavljena": false,
     "RazlogZakazivanja": "we",
     "RezultatUsluge": " "
@@ -92,7 +92,7 @@
     "IdLekara": 2,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 5,
     "Obavljena": false,
     "RazlogZakazivanja": "e",
     "RezultatUsluge": " "
@@ -106,7 +106,7 @@
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 10,
     "Obavljena": false,
     "RazlogZakazivanja": "erer",
     "RezultatUsluge": " Pera u odlicnom ste stanju"
@@ -120,23 +120,65 @@
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 7,
     "Obavljena": false,
     "RazlogZakazivanja": "erer",
     "RezultatUsluge": " "
   },
   {
     "Termin": {
-      "Pocetak": "2021-05-30T10:00:00",
-      "Kraj": "2021-05-30T10:30:00"
+      "Pocetak": "2021-05-20T10:00:00",
+      "Kraj": "2021-05-20T10:30:00"
     },
-    "Id": 12,
-    "IdLekara": 2,
+    "Id": 10,
+    "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 8,
     "Obavljena": false,
-    "RazlogZakazivanja": "uputrazlog",
+    "RazlogZakazivanja": "erer",
     "RezultatUsluge": " "
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-06T09:00:00",
+      "Kraj": "2021-06-06T09:30:00"
+    },
+    "Id": 11,
+    "IdLekara": 1,
+    "IdPacijenta": 2,
+    "TipUsluge": 1,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-11T10:00:00",
+      "Kraj": "2021-06-11T14:00:00"
+    },
+    "Id": 12,
+    "IdLekara": 10,
+    "IdPacijenta": 2,
+    "TipUsluge": 0,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-11T11:30:00",
+      "Kraj": "2021-06-11T13:00:00"
+    },
+    "Id": 13,
+    "IdLekara": 10,
+    "IdPacijenta": 2,
+    "TipUsluge": 0,
+    "IdProstorije": 2,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
   }
 ]

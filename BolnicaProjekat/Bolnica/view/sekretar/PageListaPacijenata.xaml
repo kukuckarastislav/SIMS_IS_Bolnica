@@ -27,6 +27,7 @@
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
 
     </Grid>
 </Page>

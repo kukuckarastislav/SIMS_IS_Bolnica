@@ -18,6 +18,7 @@
         <DatePicker HorizontalAlignment="Left" Margin="144,250,0,0" VerticalAlignment="Top" Height="35" Width="118"/>
         <DatePicker HorizontalAlignment="Left" Margin="144,301,0,0" VerticalAlignment="Top"/>
         <Button Background="White" Content="Kreiraj izveštaj" HorizontalAlignment="Left" Width="100px" Height="40px" VerticalAlignment="Top" Margin="64,398,0,0" />
+        <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
 
     </Grid>
 </Page>

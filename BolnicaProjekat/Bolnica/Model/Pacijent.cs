@@ -61,5 +61,10 @@ namespace Model
         [JsonInclude]
         public bool LogickiObrisan { get; set; }
 
+        public override string ToString()
+        {
+            return Ime + " " + Prezime;
+        }
+
     }
 }

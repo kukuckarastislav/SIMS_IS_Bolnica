@@ -22,5 +22,17 @@
     "Tekst": "Aplikacija je dobra",
     "IdKorisnika": 1,
     "VrstaKorisnika": "LEKAR"
+  },
+  {
+    "Id": 5,
+    "Tekst": "Sve je super. Svaka cast!!!!!!!!!!",
+    "IdKorisnika": 1,
+    "VrstaKorisnika": "SEKRETAR"
+  },
+  {
+    "Id": 6,
+    "Tekst": "OK",
+    "IdKorisnika": 1,
+    "VrstaKorisnika": "SEKRETAR"
   }
 ]

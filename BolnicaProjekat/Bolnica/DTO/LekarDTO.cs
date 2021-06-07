@@ -23,7 +23,7 @@ namespace DTO
         public string Drzavljanstvo { get; set; }
         public string AdresaStanovanja { get; set; }
         public string Sifra { get; set; }
-
+        public RadnoVreme radnoVreme { get; set; }
 
         public LekarDTO()
         {
@@ -46,6 +46,27 @@ namespace DTO
             Drzavljanstvo = dto.Drzavljanstvo;
             AdresaStanovanja = dto.AdresaStanovanja;
             Sifra = dto.Sifra;
+            radnoVreme = dto.radnoVreme;
+        }
+
+        public override string ToString()
+        {
+            return Ime + " " + Prezime + " - " + KorisnickoIme;
+        }
+
+        public String RadnoVremeIspis
+        {
+            get
+            {
+                String pocetak = radnoVreme.PocetakRadnogVremena + "";
+                String kraj = radnoVreme.KrajRadnogVremena + "";
+                if (radnoVreme.PocetakRadnogVremena < 10)
+                    pocetak = "0" + radnoVreme.PocetakRadnogVremena;
+                if (radnoVreme.KrajRadnogVremena < 10)
+                    kraj = "0" + radnoVreme.KrajRadnogVremena;
+
+                return pocetak + ":00" + " - " + kraj + ":00";
+            }
         }
     }
 }

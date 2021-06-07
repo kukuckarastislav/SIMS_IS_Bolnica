@@ -28,6 +28,7 @@ namespace Bolnica.view.sekretar
         public PageLekarIzmena(LekarDTO dto)
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
             lekarDto = dto;
             ucitajPodatkeLekara();
         }
@@ -192,6 +193,17 @@ namespace Bolnica.view.sekretar
                 return false;
             }
             return true;
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("IzmenaLekara");
+
+            }
         }
     }
 }

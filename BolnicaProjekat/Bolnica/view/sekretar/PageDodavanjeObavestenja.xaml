@@ -9,15 +9,16 @@
       Title="PageDodavanjeObavestenja">
 
     <Grid Background="#ccffbd">
-        <Button Content="Dodaj obaveštenje" HorizontalAlignment="Left" Margin="623,609,0,0" VerticalAlignment="Top" Width="150px" Height="40px" Background="White" Click="DodajObavestenje_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="94,80,0,0" TextWrapping="Wrap" Text="Naslov:" VerticalAlignment="Top" FontSize="17px"/>
-        <TextBlock HorizontalAlignment="Left" Margin="94,169,0,0" TextWrapping="Wrap" Text="Tekst obaveštenja:" VerticalAlignment="Top" FontSize="17px"/>
-        <TextBox Name="tbNaslov" HorizontalAlignment="Left" Height="23" Margin="172,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="tbPoruka" HorizontalAlignment="Left" Height="249" Margin="94,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="455"  
+        <Button Content="Dodaj obaveštenje" HorizontalAlignment="Left" Margin="399,590,0,0" VerticalAlignment="Top" Width="150px" Height="40px" Background="White" Click="DodajObavestenje_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="94,80,0,0" TextWrapping="Wrap" Text="Naslov obaveštenja:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="94,180,0,0" TextWrapping="Wrap" Text="Tekst obaveštenja:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBox Name="tbNaslov" HorizontalAlignment="Left" Height="23" Margin="283,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <TextBox Name="tbPoruka" HorizontalAlignment="Left" Height="320" Margin="94,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="455"  
                  AcceptsReturn="True"
                 VerticalScrollBarVisibility="Visible" RenderTransformOrigin="1.707,3.409"
 
                  />
+        <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White" Click="btnPomoc_Click"/>
 
     </Grid>
 </Page>

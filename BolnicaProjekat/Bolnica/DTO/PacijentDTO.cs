@@ -21,6 +21,8 @@ namespace DTO
         public Pol Pol { get; set; }
         public string KorisnickoIme { get; set; }
 
+        public bool Gost { get; set; }
+
         public PacijentDTO(int id, string ime, string prezime, string email, string telefon, string jmbg,string adresaStanovanja, string drzavljanstvo,Pol pol,DateTime datumRodjenja ,string korisnickoIme)
         {
             Id = id;
@@ -53,6 +55,7 @@ namespace DTO
             DatumRodjenja = noviPodaci.DatumRodjenja;
             Drzavljanstvo = noviPodaci.Drzavljanstvo;
             KorisnickoIme = noviPodaci.KorisnickoIme;
+            Gost = noviPodaci.Gost;
         }
 
         public override string ToString()

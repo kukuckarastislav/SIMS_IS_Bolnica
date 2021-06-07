@@ -20,7 +20,11 @@
         <TextBlock HorizontalAlignment="Left" Margin="174,252,0,0" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" FontSize="20px" />
         <TextBlock HorizontalAlignment="Left" Margin="196,308,0,0" TextWrapping="Wrap" Text="Pol:" VerticalAlignment="Top" FontSize="20px" RenderTransformOrigin="0.465,-0.159"/>
         <TextBlock HorizontalAlignment="Left" Margin="159,373,0,0" TextWrapping="Wrap" Text="Telefon:" VerticalAlignment="Top" FontSize="20px" RenderTransformOrigin="0.524,1.624"/>
-        <CheckBox Content="Hitna registracija" HorizontalAlignment="Left" Margin="244,89,0,0" VerticalAlignment="Top" IsChecked="{Binding CurrentPacijent.PacijentGost, Mode=TwoWay}"/>
+        <CheckBox Content="Hitna registracija" HorizontalAlignment="Left" Margin="244,89,0,0" VerticalAlignment="Top" IsChecked="{Binding CurrentPacijent.PacijentGost, Mode=TwoWay}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
         <TextBlock HorizontalAlignment="Left" Margin="62,444,0,0" TextWrapping="Wrap" Text="Adresa stanovanja:" VerticalAlignment="Top" FontSize="20px"/>
         <TextBox Text="{Binding CurrentPacijent.Ime, Mode=TwoWay}" Name="inputIme" HorizontalAlignment="Left" Height="23" Margin="243,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="inputPrezime" HorizontalAlignment="Left" Height="23" Margin="242,195,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.Prezime, Mode=TwoWay}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.504,0.345"/>

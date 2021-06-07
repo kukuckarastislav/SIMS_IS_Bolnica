@@ -394,6 +394,9 @@
     <Compile Include="view\sekretar\PageDodavanjeObavestenja.xaml.cs">
       <DependentUpon>PageDodavanjeObavestenja.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageGostujuciKorisnici.xaml.cs">
+      <DependentUpon>PageGostujuciKorisnici.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PageIzmenaPacijenta.xaml.cs">
       <DependentUpon>PageIzmenaPacijenta.xaml</DependentUpon>
     </Compile>
@@ -435,6 +438,9 @@
     </Compile>
     <Compile Include="view\sekretar\registracija\PageRegistracijaPacijentaxaml.xaml.cs">
       <DependentUpon>PageRegistracijaPacijentaxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\registracija\PageRegistrujGosta.xaml.cs">
+      <DependentUpon>PageRegistrujGosta.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\registracija\RegistracijaLekara.xaml.cs">
       <DependentUpon>RegistracijaLekara.xaml</DependentUpon>
@@ -751,6 +757,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\PageGostujuciKorisnici.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PageIzmenaPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -804,6 +814,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\sekretar\registracija\PageRegistracijaPacijentaxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\registracija\PageRegistrujGosta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

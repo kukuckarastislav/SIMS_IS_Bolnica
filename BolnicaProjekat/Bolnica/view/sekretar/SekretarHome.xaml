@@ -14,6 +14,7 @@
                     <Button Click="PocetnaStranica_Click" Margin="0 100 0 0" Background="#7eca9c" Height="50" Name="btnPocetnaStranica">Pocetna stranica</Button>
                     <Button Click="Registracija_Click" Background="#7eca9c" Height="50" Name="btnRegistracijaPacijenta" >Registracija pacijenata</Button>
                     <Button Click="RegistracijaLekara_Click" Background="#7eca9c" Height="50" Name="btnRegistracijaLekara" >Registracija lekara</Button>
+                    <Button Click="ListGosti_Click" Background="#7eca9c" Height="50" Name="btnListaGostiju" >Gostujući pacijenti</Button>
                     <Button Click="ListPacijenti_Click" Background="#7eca9c" Height="50" Name="btnListaPacijenata" >Lista pacijenata</Button>
                     <Button Click="ListLekara_Click" Background="#7eca9c" Height="50" Name="btnListaLekara" >Lista lekara</Button>
                     <Button Click="ZakaziTermin_Click" Background="#7eca9c" Height="50" Name="btnZakaziTermin" >Zakaži termin</Button>

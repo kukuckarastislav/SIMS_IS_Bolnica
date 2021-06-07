@@ -29,6 +29,7 @@ namespace Bolnica.view.sekretar.registracija
             btnPomoc.Visibility = App.vidljivostPomoci;
             rbMusko.IsChecked = true;
             inputDatumRodjenja.SelectedDate = DateTime.Now;
+
         }
 
         private void Registruj_Pacijenta(object sender, RoutedEventArgs e)
@@ -44,6 +45,32 @@ namespace Bolnica.view.sekretar.registracija
                 HelpProvider.ShowHelp("RegistracijaPacijenta");
 
             }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            inputAdresa.IsEnabled = false;
+            inputDatumRodjenja.IsEnabled = false;
+            inputDrzavljanstvo.IsEnabled = false;
+            inputEmail.IsEnabled = false;
+            inputKorisnickoIme.IsEnabled = false;
+            inputLozinka.IsEnabled = false;
+            inputPonovljenaLozinka.IsEnabled = false;
+            inputTelefon.IsEnabled = false;
+            
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            inputAdresa.IsEnabled = true;
+            inputDatumRodjenja.IsEnabled = true;
+            inputDrzavljanstvo.IsEnabled = true;
+            inputEmail.IsEnabled = true;
+            inputKorisnickoIme.IsEnabled = true;
+            inputLozinka.IsEnabled = true;
+            inputPonovljenaLozinka.IsEnabled = true;
+            inputTelefon.IsEnabled = true;
+
         }
     }
 }

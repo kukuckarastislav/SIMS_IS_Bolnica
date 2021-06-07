@@ -51,6 +51,15 @@ namespace Bolnica.view.sekretar
             ResetButtonColor();
             btnListaPacijenata.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
         }
+
+        private void ListGosti_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.sekretar.PageGostujuciKorisnici();
+            ResetButtonColor();
+            btnListaGostiju.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            
+        }
+
         private void ListLekara_Click(object sender, RoutedEventArgs e)
         {
             RadnaPovrsina.Content = new view.sekretar.PageLekari();
@@ -95,6 +104,7 @@ namespace Bolnica.view.sekretar
             btnZauzetostProstorija.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
             btnZakaziTermin.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
             btnZakayaniTermini.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
+            btnListaGostiju.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#7eca9c"));
         }
     }
 }

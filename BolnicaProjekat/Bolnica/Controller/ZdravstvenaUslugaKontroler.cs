@@ -53,6 +53,11 @@ namespace Controller
             return servis.GetProsliTerminiPacijenta(id);
         }
 
+        public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
+        {
+            servis.OtkaziUslugu(usluga);
+        }
+
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
             servis.OtkaziUslugu(usluga);

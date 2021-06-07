@@ -26,6 +26,7 @@ namespace Bolnica.view.sekretar.registracija
         public PageRegistracijaPacijentaxaml()
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
             rbMusko.IsChecked = true;
             inputDatumRodjenja.SelectedDate = DateTime.Now;
         }
@@ -34,5 +35,15 @@ namespace Bolnica.view.sekretar.registracija
         {
         }
 
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("RegistracijaPacijenta");
+
+            }
+        }
     }
 }

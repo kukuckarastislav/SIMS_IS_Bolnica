@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Bolnica.utils;
 using DTO;
 using Kontroler;
 
@@ -28,6 +29,9 @@ namespace Bolnica.view.sekretar
         public PageMedicinskiKarton(PacijentDTO pacijent)
         {
             InitializeComponent();
+
+            btnPomoc.Visibility = App.vidljivostPomoci;
+
             this.pacijent = pacijent;
             lista = new ObservableCollection<string>();
             this.tbIme.Text = pacijent.Ime;
@@ -63,6 +67,17 @@ namespace Bolnica.view.sekretar
             PacijentKontroler kontroler = new PacijentKontroler();
             kontroler.ObrisiAlergen(pacijent.Id, alergen);
             UcitajAlergene();
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
+
+            }
         }
     }
 }

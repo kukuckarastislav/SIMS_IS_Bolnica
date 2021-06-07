@@ -245,6 +245,7 @@
     <Compile Include="Threads\MedicationConsumption.cs" />
     <Compile Include="Threads\UserSuspension.cs" />
     <Compile Include="utils\BindableBase.cs" />
+    <Compile Include="utils\HelpProvider.cs" />
     <Compile Include="utils\MyICommand.cs" />
     <Compile Include="utils\ValidationBase.cs" />
     <Compile Include="utils\ValidationErrors.cs" />
@@ -374,6 +375,9 @@
     <Compile Include="view\pacijent\TrenutnaTerapija.xaml.cs">
       <DependentUpon>TrenutnaTerapija.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\HelpViewer.xaml.cs">
+      <DependentUpon>HelpViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
       <DependentUpon>KartonPacijenta.xaml</DependentUpon>
     </Compile>
@@ -400,6 +404,9 @@
     </Compile>
     <Compile Include="view\sekretar\PageObavestenja.xaml.cs">
       <DependentUpon>PageObavestenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageOcenaAplikacije.xaml.cs">
+      <DependentUpon>PageOcenaAplikacije.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
       <DependentUpon>PagePacijenti.xaml</DependentUpon>
@@ -718,6 +725,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\HelpViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\KartonPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -751,6 +762,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\PageObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageOcenaAplikacije.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1143,11 +1158,17 @@
     <Resource Include="images\medicine11.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="view\sekretar\help\RegistracijaLekara.htm" />
+    <Content Include="view\sekretar\help\RegistracijaPacijenta.htm" />
     <Resource Include="images\lekar-icons\feedback-icon.png" />
-    <Content Include="view\sekretar\help\registracija\Ime.htm" />
-    <Content Include="view\sekretar\help\registracija\Indeks.htm" />
-    <Content Include="view\sekretar\help\registracija\index.htm" />
-    <Content Include="view\sekretar\help\registracija\Prezime.htm" />
+    <Content Include="view\sekretar\help\DodavanjeObavestenja.htm" />
+    <Content Include="view\sekretar\help\Ime.htm" />
+    <Content Include="view\sekretar\help\Indeks.htm" />
+    <Content Include="view\sekretar\help\index.htm" />
+    <Content Include="view\sekretar\help\IzmenaLekara.htm" />
+    <Content Include="view\sekretar\help\IzmenaPacijenta.htm" />
+    <Content Include="view\sekretar\help\Obavestenja.htm" />
+    <Content Include="view\sekretar\help\Prezime.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

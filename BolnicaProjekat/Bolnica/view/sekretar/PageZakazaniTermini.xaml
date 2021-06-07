@@ -26,8 +26,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Zakazi termin" HorizontalAlignment="Left" Width="150px" Height="40px" VerticalAlignment="Top" Margin="69,51,0,0" Background="White" Click="ZakaziTermin_Click"/>
-        <Button Content="Obrisi termin" HorizontalAlignment="Left"  Width="150px" Height="40px" VerticalAlignment="Top" Margin="252,51,0,0" Background="White" />
-        <Button Content="Odlozi termin" HorizontalAlignment="Left"  Width="150px" Height="40px" VerticalAlignment="Top" Margin="427,51,0,0" Background="White" />
+        <Button Content="Obrisi termin" HorizontalAlignment="Left"  Width="150px" Height="40px" VerticalAlignment="Top" Margin="252,51,0,0" Background="White" Click="OtkaziTermin_Click"/>
+        <Button Content="Odlozi termin" HorizontalAlignment="Left"  Width="150px" Height="40px" VerticalAlignment="Top" Margin="427,51,0,0" Background="White" Click="OdloziTermin_Click"/>
         <DatePicker Name="inputDatumPretrage" HorizontalAlignment="Left" Margin="69,194,0,0" VerticalAlignment="Top" Width="150" SelectedDateChanged="inputDatumPretrage_SelectedDateChanged"/>
+        <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
     </Grid>
 </Page>

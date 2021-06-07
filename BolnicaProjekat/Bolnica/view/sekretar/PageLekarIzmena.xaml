@@ -38,6 +38,7 @@
         <TextBlock x:Name="tbErrDatumRodjenja" HorizontalAlignment="Left" Margin="618,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
         <TextBlock x:Name="tbErrDrzavljanstvo" HorizontalAlignment="Left" Margin="618,354,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
         <Button Content="Odustani" HorizontalAlignment="Left" Margin="618,583,0,0" VerticalAlignment="Top" Width="120" Height="40" Background="White" Click="Odustani_Click"/>
+        <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
 
     </Grid>
 </Page>

@@ -117,6 +117,7 @@
         <TextBlock x:Name="tbErrProstorije" HorizontalAlignment="Left" Margin="221,480,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
         <TextBlock HorizontalAlignment="Left" Margin="20,189,0,0" TextWrapping="Wrap" Text="Radno vreme lekara:" VerticalAlignment="Top" FontSize="20px"/>
         <TextBlock Name="tbRadnoVreme" HorizontalAlignment="Left" Margin="221,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="20px"/>
+        <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
 
     </Grid>
 </Page>

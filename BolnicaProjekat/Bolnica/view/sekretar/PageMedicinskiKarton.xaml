@@ -4,11 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      xmlns:data="clr-namespace:Bolnica"
       mc:Ignorable="d" 
       d:DesignHeight="708" d:DesignWidth="874"
       Title="PageMedicinskiKarton">
 
     <Grid Background="#ccffbd">
+        <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White" Click="btnPomoc_Click"/>
         <Button Content="Dodaj alergen" HorizontalAlignment="Left" Margin="412,241,0,0" VerticalAlignment="Top" Width="100" Height="40" RenderTransformOrigin="0.396,0.26" Background="White" Click="DodajAlergen_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="178,208,0,0" TextWrapping="Wrap" Text="Naziv alergena" VerticalAlignment="Top" FontSize="17px" />
         <TextBox Name="textBoxNaziv" HorizontalAlignment="Left" Height="35" Margin="178,246,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="182" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>

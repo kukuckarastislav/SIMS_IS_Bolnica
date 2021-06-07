@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using Bolnica.view.sekretar;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,5 +17,18 @@ namespace Bolnica
     public partial class App : Application
     {
         public static Korisnik ulogovaniKorisnik;
+        public static int IdUlogovanogKorisnika;
+        public static bool prikaziHelp = true;
+        //public static Visibility vidljivostPomoci = Visibility.Hidden;
+        public static Visibility vidljivostPomoci = Visibility.Visible;
+        public static SekretarHome stranicaSekretara;
+
+        private String someText = "default";
+ 
+       public String SomeText
+       {
+           get { return this.someText; }
+           set { this.someText = value; }
+       }
     }
 }

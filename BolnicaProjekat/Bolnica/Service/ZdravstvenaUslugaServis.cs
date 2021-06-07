@@ -286,9 +286,21 @@ namespace Servis
             usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
             return ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
         }
+        public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
+        {
+            ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(KonvertujUModel(usluga));
+        }
+
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(usluga);
+        }
+
+        public ZdravstvenaUsluga KonvertujUModel(ZakazaniTerminiDTO dto)
+        {
+            ZdravstvenaUsluga usluga = new ZdravstvenaUsluga(dto.Termin, dto.Id, dto.Lekar.Id, dto.Pacijent.Id, dto.TipUsluge, dto.Prostorija.Id,
+                false, "", "");
+            return usluga;
         }
 
         public ZdravstvenaUsluga OdloziUslugu(ZdravstvenaUsluga usluga)
@@ -407,6 +419,7 @@ namespace Servis
 
         public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
         {
+            
             ZdravstvenaUsluga uslugaKojaSeOdlaze = ZdravstvenaUslugaRepozitorijum.GetInstance.GetUslugaZaTermin(lekar, usluga.Termin.Pocetak);
             ZdravstvenaUsluga odlozenaUsluga = OdloziTerminRadiHitnogTermina(lekar, usluga);
             if(uslugaKojaSeOdlaze!=null)OtkaziUslugu(uslugaKojaSeOdlaze);

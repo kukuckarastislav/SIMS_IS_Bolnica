@@ -17,6 +17,7 @@ using Model;
 using Kontroler;
 using Bolnica.Controller;
 using DTO;
+using Bolnica.utils;
 
 namespace Bolnica.view.sekretar
 {
@@ -29,6 +30,7 @@ namespace Bolnica.view.sekretar
         public PageObavestenja()
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
             Obavestenja = new ObservableCollection<ObavestenjeDTO>();
             ObavestenjeKontroler kontorler = new ObavestenjeKontroler();
             Obavestenja = kontorler.GetAllObavestenja();
@@ -51,6 +53,17 @@ namespace Bolnica.view.sekretar
         {
             var pageObavestenja = new PageDodavanjeObavestenja();
             NavigationService.Navigate(pageObavestenja);
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Obavestenja");
+
+            }
         }
     }
 }

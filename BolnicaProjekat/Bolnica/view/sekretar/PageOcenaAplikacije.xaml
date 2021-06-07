@@ -1,0 +1,23 @@
+﻿<Page x:Class="Bolnica.view.sekretar.PageOcenaAplikacije"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="PageOcenaAplikacije">
+
+    <Grid Background="#ccffbd">
+        <TextBlock HorizontalAlignment="Left" Margin="191,189,0,0" TextWrapping="Wrap" Text="Unesite komentar" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBox HorizontalAlignment="Left" Height="193" Margin="191,237,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="404" Name="tbKomentar"
+                 AcceptsReturn="True"
+                VerticalScrollBarVisibility="Visible"
+                 
+                 
+                 />
+        <Button Content="Prihvati" HorizontalAlignment="Left" Margin="495,507,0,0" VerticalAlignment="Top" Width="100px" Height="30px" Background="White" Click="DodajKomentar_Click"/>
+        <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
+
+    </Grid>
+</Page>

@@ -71,16 +71,21 @@ namespace Bolnica
         private void Prijava_Click(object sender, RoutedEventArgs e)
         {
             SekretarKontroler skontroler = new SekretarKontroler();
-            Korisnik k = skontroler.PrijavaSekretara(txbIme.Text, txbLozinka.Password);
-            if (k != null)
+            Sekretar s = skontroler.PrijavaSekretara(txbIme.Text, txbLozinka.Password);
+            if (s != null)
             {
+                App.IdUlogovanogKorisnika = s.Id;
+                App.ulogovaniKorisnik = s;
                 var sekretar_home = new Bolnica.view.sekretar.SekretarHome();
+                App.stranicaSekretara = sekretar_home;
                 sekretar_home.Show();
             }
             UpravnikKontroler ukontroler = new UpravnikKontroler();
-            k = ukontroler.PrijavaUpravnika(txbIme.Text, txbLozinka.Password);
-            if (k != null)
+            Upravnik u = ukontroler.PrijavaUpravnika(txbIme.Text, txbLozinka.Password);
+            if (u != null)
             {
+                App.IdUlogovanogKorisnika = u.Id;
+                App.ulogovaniKorisnik = u;
                 var upravnik_home = new Bolnica.view.upravnik.UpravnikHome();
                 upravnik_home.Show();
             }
@@ -88,6 +93,8 @@ namespace Bolnica
             Lekar lekar = lkontroler.PrijavaLekara(txbIme.Text, txbLozinka.Password);
             if (lekar != null)
             {
+                App.IdUlogovanogKorisnika = lekar.Id;
+                App.ulogovaniKorisnik = lekar;
                 var lekar_home = new Bolnica.view.lekar.LekarHome(lekar);
                 lekar_home.Show();
             }
@@ -95,6 +102,8 @@ namespace Bolnica
             PrijavljeniPacijent = pkontroler.PrijavaPacijenta(txbIme.Text, txbLozinka.Password);
             if (PrijavljeniPacijent != null)
             {
+                App.ulogovaniKorisnik = lekar;
+                App.IdUlogovanogKorisnika = PrijavljeniPacijent.Id;
                 var pacijent_home = new Bolnica.view.pacijent.PacijentHome(PrijavljeniPacijent);
                 pacijent_home.Show();
             }

@@ -1,4 +1,5 @@
-﻿using Controller;
+﻿using Bolnica.utils;
+using Controller;
 using DTO;
 using Kontroler;
 using Model;
@@ -31,7 +32,7 @@ namespace Bolnica.view.sekretar
         public ZakazivanjeTermina()
         {
             InitializeComponent();
-
+            btnPomoc.Visibility = App.vidljivostPomoci;
             UcitajLekare();
             UcitajPacijente();
             UcitajProstorije();
@@ -240,6 +241,17 @@ namespace Bolnica.view.sekretar
                 LekarDTO dto = cmbLekari.SelectedItem as LekarDTO;
 
                 tbRadnoVreme.Text = dto.RadnoVremeIspis;
+            }
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
+
             }
         }
     }

@@ -94,6 +94,19 @@ namespace Repozitorijum
             return ret;
         }
 
+
+        public Feedback GetFeedBackBySekretarId(int id)
+        {
+            foreach (Feedback z in lista)
+            {
+                if (z.IdKorisnika == id && z.VrstaKorisnika.Equals("SEKRETAR"))
+                {
+                    return z;
+                }
+            }
+            return null;
+        }
+
         public int getNewId()
         {
             int id = 1;

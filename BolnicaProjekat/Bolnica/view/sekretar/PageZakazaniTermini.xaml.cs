@@ -1,4 +1,5 @@
-﻿using Controller;
+﻿using Bolnica.utils;
+using Controller;
 using DTO;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace Bolnica.view.sekretar
         public PageZakazaniTermini()
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
             inputDatumPretrage.SelectedDate = DateTime.Now;
             UcitajTermine((DateTime)inputDatumPretrage.SelectedDate);
         }
@@ -38,7 +40,15 @@ namespace Bolnica.view.sekretar
         }
         private void OtkaziTermin_Click(object sender, RoutedEventArgs e)
         {
-            
+            ZakazaniTerminiDTO dto = tableTermini.SelectedItem as ZakazaniTerminiDTO;
+            if (dto == null) return;
+            ZdravstvenaUslugaKontroler kontroler = new ZdravstvenaUslugaKontroler();
+            kontroler.OtkaziUslugu(dto);
+            MessageBox.Show("Termin je uspešno otkazan.");
+            if (inputDatumPretrage.SelectedDate != null)
+                UcitajTermine((DateTime)inputDatumPretrage.SelectedDate);
+            else
+                UcitajTermine(DateTime.Now);
         }
 
         private void UcitajTermine(DateTime datumUcitavanja)
@@ -57,6 +67,24 @@ namespace Bolnica.view.sekretar
         {
             if(inputDatumPretrage.SelectedDate!=null)
                 UcitajTermine((DateTime)inputDatumPretrage.SelectedDate);
+        }
+
+        private void OdloziTermin_Click(object sender, RoutedEventArgs e)
+        {
+            ZakazaniTerminiDTO dto = tableTermini.SelectedItem as ZakazaniTerminiDTO;
+            if (dto == null) return;
+            MessageBox.Show("Nije moguće odložiti termin u naredna tri dana.");
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
+
+            }
         }
     }
 }

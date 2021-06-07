@@ -18,6 +18,7 @@ using Model;
 using Controller;
 using System.Collections.ObjectModel;
 using Bolnica.DTO;
+using Bolnica.utils;
 
 namespace Bolnica.view.sekretar
 {
@@ -33,7 +34,7 @@ namespace Bolnica.view.sekretar
         public PageRadnoVreme(LekarDTO dto)
         {
             InitializeComponent();
-
+            btnPomoc.Visibility = App.vidljivostPomoci;
             lekarDto = dto;
             datumOdmoraPocetak.SelectedDate = DateTime.Now;
             datumOdmoraKraj.SelectedDate = DateTime.Now;
@@ -123,6 +124,17 @@ namespace Bolnica.view.sekretar
             SlobodniDaniKontroler kontroler = new SlobodniDaniKontroler();
             kontroler.ObrisiSlobodanDan(lekarDto.Id, (DateTime)datum);
             LoadSlobodniDani();
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
+
+            }
         }
     }
 }

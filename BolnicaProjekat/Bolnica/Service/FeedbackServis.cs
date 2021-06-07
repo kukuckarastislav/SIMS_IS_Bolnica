@@ -50,6 +50,14 @@ namespace Servis
             repozitorijum.DodajFeedback(NoviFeedback);
         }
 
+        public bool JelSekretarDaoFeedback(int idSekretara)
+        {
+            Feedback fb = FeedbackRepozitorijum.GetInstance.GetFeedBackBySekretarId(idSekretara);
+            if (fb != null) return true;
+
+            return false;
+        }
+
     }
 
 }

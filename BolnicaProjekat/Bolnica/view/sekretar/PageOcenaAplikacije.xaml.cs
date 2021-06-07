@@ -1,4 +1,5 @@
 ﻿using Bolnica.utils;
+using Kontroler;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,14 +18,38 @@ using System.Windows.Shapes;
 namespace Bolnica.view.sekretar
 {
     /// <summary>
-    /// Interaction logic for ZauzetostProstorija.xaml
+    /// Interaction logic for PageOcenaAplikacije.xaml
     /// </summary>
-    public partial class ZauzetostProstorija : Page
+    public partial class PageOcenaAplikacije : Page
     {
-        public ZauzetostProstorija()
+        public PageOcenaAplikacije()
         {
             InitializeComponent();
             btnPomoc.Visibility = App.vidljivostPomoci;
+        }
+
+        private void DodajKomentar_Click(object sender, RoutedEventArgs e)
+        {
+            if (ValidirajUnos())
+            {
+                FeedbackKontroler kontroler = new FeedbackKontroler();
+                kontroler.DodajFeedbackSekretara(App.IdUlogovanogKorisnika, tbKomentar.Text);
+                MessageBox.Show("Uspešno ste dodali komentar.");
+            }
+            else
+            {
+                MessageBox.Show("Niste napisali komentar.");
+            }
+        }
+
+        private bool ValidirajUnos()
+        {
+            if(String.IsNullOrWhiteSpace(tbKomentar.Text))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void btnPomoc_Click(object sender, RoutedEventArgs e)

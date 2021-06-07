@@ -29,6 +29,11 @@ namespace Kontroler
             servis.DodajFeedbackSekretara(idSekretara, text);
         }
 
+        public bool JelSekretarDaoFeedback(int idSekretara)
+        {
+            return servis.JelSekretarDaoFeedback(idSekretara);
+        }
+
         public void DodajFeedbackUpravnika(int idUpravnika, String text)
         {
             servis.DodajFeedbackUpravnika(idUpravnika, text);

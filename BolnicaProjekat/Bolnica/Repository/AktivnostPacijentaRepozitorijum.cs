@@ -7,17 +7,17 @@ using Model;
 
 namespace Repozitorijum
 {
-    public class KorisnickaAktivnostRepozitorijum
+    public class AktivnostPacijentaRepozitorijum
     {
         private const string imeFajla = "korisnickaAktivnost.json";
-        private static KorisnickaAktivnostRepozitorijum instance = null;
-        public static KorisnickaAktivnostRepozitorijum GetInstance
+        private static AktivnostPacijentaRepozitorijum instance = null;
+        public static AktivnostPacijentaRepozitorijum GetInstance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new KorisnickaAktivnostRepozitorijum();
+                    instance = new AktivnostPacijentaRepozitorijum();
                 }
                 return instance;
             }
@@ -27,7 +27,7 @@ namespace Repozitorijum
             }
 
         }
-        public KorisnickaAktivnostRepozitorijum()
+        public AktivnostPacijentaRepozitorijum()
         {
             loadData();
         }

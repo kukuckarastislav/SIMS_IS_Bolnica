@@ -119,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActivityEvaluation\DoctorActivityEvaluation.cs" />
+    <Compile Include="ActivityEvaluation\PatientActivityEvaluation.cs" />
+    <Compile Include="ActivityEvaluation\PatientReschedulingEvaluation.cs" />
+    <Compile Include="ActivityEvaluation\PatientSchedulingEvaluation.cs" />
     <Compile Include="Controller\AnketaKontroler.cs" />
     <Compile Include="Controller\FeedbackKontroler.cs" />
     <Compile Include="Controller\GodisnjiOdmorKontroler.cs" />
@@ -201,12 +205,13 @@
     <Compile Include="Model\Upravnik.cs" />
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
+    <Compile Include="Repository\AktivnostLekaraRepozitorijum.cs" />
     <Compile Include="Repository\AnketaRepozitorijum.cs" />
     <Compile Include="Repository\FeedbackRepozitorijum.cs" />
     <Compile Include="Repository\GodisnjiOdmorRepozitorijum.cs" />
     <Compile Include="Repository\HospitalizacijaRepozitorijum.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
-    <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
+    <Compile Include="Repository\AktivnostPacijentaRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
     <Compile Include="Repository\LekoviRepozitorijum.cs" />
     <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />

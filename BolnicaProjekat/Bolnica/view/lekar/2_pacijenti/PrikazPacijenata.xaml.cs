@@ -50,19 +50,19 @@ namespace Bolnica.view.lekar.pacijenti
             return pacijent;
         }
 
-        private void MedicinskiKartonButton(object sender, RoutedEventArgs e)
+        private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             Pacijent IzabraniPacijent = GetSelectedPacijentZaLekarDTO();
-            if ( IzabraniPacijent != null & this.LekarDTO !=null )
+            if (IzabraniPacijent != null & this.LekarDTO != null)
             {
                 refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
 
-      private void GlavniMeniButton(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            if(this.LekarDTO!=null)
+            if (this.LekarDTO != null)
             {
                 refGlavniMeni = new view.lekar.GlavniMeni(LekarDTO);
                 NavigationService.Navigate(refGlavniMeni);

@@ -1183,6 +1183,7 @@
     <Resource Include="images\medicine11.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="images\lekar-icons\big-folder-dark-icon.png" />
     <Content Include="view\sekretar\help\RegistracijaLekara.htm" />
     <Content Include="view\sekretar\help\RegistracijaPacijenta.htm" />
     <Resource Include="images\lekar-icons\feedback-icon.png" />

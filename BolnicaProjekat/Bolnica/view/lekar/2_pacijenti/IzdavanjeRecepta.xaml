@@ -25,9 +25,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="80"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="45"/>
             <RowDefinition Height="45"/>
@@ -38,41 +38,42 @@
             <RowDefinition Height="45"/>
             <RowDefinition Height="22"/>
             <RowDefinition Height="23"/>
-            <RowDefinition Height="110"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <!-- Profilna Slika-->
-        <Ellipse Width="110" Height="110" Fill="#810000"
-            Canvas.Left="135" Canvas.Top="25"
-            Grid.Row="1" Grid.RowSpan="3"
-            Grid.Column="2" Grid.ColumnSpan="3"/>
+        <Ellipse    Width="110" Height="110" Fill="#810000"
+                    Canvas.Left="135" Canvas.Top="25"
+                    Grid.Row="1"
+                    Grid.Column="2" Grid.ColumnSpan="3"/>
         <Image Source="/images/lekar-icons/izdavanje-recepta-icon.png" Width="75"
                 VerticalAlignment="Center" HorizontalAlignment="Center" 
-                Grid.Row="1" Grid.RowSpan="3"
-                Grid.Column="2" Grid.ColumnSpan="3"
-                Margin="0,0,0,5"/>
+                Grid.Row="1"
+                Grid.Column="2" Grid.ColumnSpan="3"/>
 
         <!-- Medicinski Karton -->
         <TextBlock Text="Izdavanje recepta" 
                 VerticalAlignment="Top" HorizontalAlignment="Center" 
                 FontWeight="Bold" 
-                FontSize="18"
+                FontSize="25"
                 Foreground="#eeebdd"
-                Grid.Row="4" Grid.RowSpan="1"
+                Grid.Row="2" Grid.RowSpan="1"
                 Grid.Column="1" Grid.ColumnSpan="5"/>
+
         <Image Source="/images/lekar-icons/folder-dark-icon.png"
                 VerticalAlignment="Center" HorizontalAlignment="Center" 
                 Grid.Row="3" Grid.RowSpan="10"
-                Grid.Column="1" Grid.ColumnSpan="5"
-                Margin="-10,10,-10,-10"/>
+                Grid.Column="1" Grid.ColumnSpan="5"/>
 
         <!-- Medicinski Karton - Header: Back Button, Pacijent, JMBG -->
         <StackPanel     Orientation="Horizontal"
                         Grid.Column="1" Grid.ColumnSpan="5" 
                         Grid.Row="5">
-            <Button Height="36" Width="36" 
-                    VerticalAlignment="Top" HorizontalAlignment="Left"
-                    Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
+            <Button  Height="36" Width="36" 
+                     VerticalAlignment="Top" 
+                     HorizontalAlignment="Left"
+                     Background="#eeebdd"
+                     Margin="10,-10,0,0"
                     Click="PrikazMedicinskiKartonButton">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -84,9 +85,9 @@
                     <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Osnovni podaci</TextBlock>
                 </StackPanel>
             </Button>
-            <StackPanel Orientation="Horizontal">
-                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Content="Medicinski karton"/>
-                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Foreground="#eeebdd" Content="Pacijent:" Margin="40,0,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="0,-5,0,0">
+                <Label FontSize="13"   FontWeight="SemiBold"  FontStyle="Italic" Content="Medicinski karton"/>
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Foreground="#eeebdd" Content="Pacijent:" Margin="13,0,0,0"/>
                 <TextBlock x:Name="headerIme"           FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
                 <TextBlock x:Name="headerPrezime"       FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
             </StackPanel>
@@ -125,18 +126,19 @@
 
 
                 <Button x:Name="NacinKorisnenjaButton"
-                IsEnabled="True"
-                Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,20,0,35"
-                Click="NacinKorisnenjaButton_Click" HorizontalAlignment="Left" Grid.RowSpan="2" Width="141">
+                        IsEnabled="True"
+                        Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom" 
+                        Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,20,0,35"
+                        HorizontalAlignment="Left" Grid.RowSpan="2" Width="141"
+                        Click="NacinKorisnenjaButton_Click" >
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"/>
                         </Style>
                     </Button.Resources>
                     <StackPanel Orientation="Horizontal"  Width="140">
-                        <!--Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" -->
-                        <TextBlock Padding="2" FontSize="11" VerticalAlignment="Center" FontWeight="SemiBold">Način koriščenja</TextBlock>
+                        <Image Source="/images/lekar-icons/podesavanje-icon.png" Width="35"/>
+                        <TextBlock Padding="2" FontWeight="Bold" FontSize="12" VerticalAlignment="Center" >Način koriščenja</TextBlock>
                     </StackPanel>
                 </Button>
                 
@@ -169,7 +171,7 @@
             </Button.Resources>
             <StackPanel Orientation="Horizontal"  Width="140">
                 <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" />
-                <TextBlock Padding="2" FontSize="11" VerticalAlignment="Center" FontWeight="SemiBold">Izdavanje recepta</TextBlock>
+                <TextBlock Padding="2" FontSize="12" VerticalAlignment="Center" FontWeight="Bold">Izdavanje recepta</TextBlock>
             </StackPanel>
         </Button>
 

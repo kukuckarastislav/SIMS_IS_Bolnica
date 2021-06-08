@@ -48,7 +48,7 @@
         <TextBlock  Text="Brisanje usluge" 
                     VerticalAlignment="Top" HorizontalAlignment="Center" 
                     FontWeight="Bold" 
-                    FontSize="18"
+                    FontSize="25"
                     Foreground="#eeebdd"
                     Grid.Row="2"
                     Grid.Column="1" Grid.ColumnSpan="3"/>

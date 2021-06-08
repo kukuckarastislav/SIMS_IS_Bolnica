@@ -11,195 +11,218 @@
       Margin="-55,0,0,0" FontSize="12"
       Title="UpucivanjeNaStacionarnoLecenje">
 
-
+    
     <Grid VerticalAlignment="Center">
 
-
         <Grid.ColumnDefinitions>
-            <!-- Prazno mesto - LEVO -->
-            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="20"/>
-            <!-- Meni - Prazno mesto - LEVO -->
-            <ColumnDefinition Width="290"/>
-            <!-- Prazno mesto - DESNO -->
-
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="30"/>
         </Grid.ColumnDefinitions>
 
-
         <Grid.RowDefinitions>
-            <!-- [0] PraznoMesto - GORE -->
-            <RowDefinition Height="10"/>
-            <!-- [1] Profilna slika (1) - GORE -->
-            <RowDefinition Height="Auto"/>
-            <!-- [2] Profilna slika (2) i Meni (1)- GORE -->
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="35"/>
-            <!-- [3] Meni (2) - GORE -->
             <RowDefinition Height="25"/>
-            <!-- [4] Meni (3) - Button1- CENTAR -->
-            <RowDefinition Height="320"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="20"/>
-
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="110"/>
         </Grid.RowDefinitions>
 
 
         <!-- Profilna Slika-->
-        <Ellipse    Width="110" 
-                    Height="110" 
-                    Fill="#810000"
+        <Ellipse    Width="110" Height="110" Fill="#810000"
+                    Canvas.Left="135" Canvas.Top="25"
                     Grid.Row="1"
-                    Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Image  Source="/images/lekar-icons/hospital-bed-icon.png"
-                Width="80" 
-                Grid.Row="1" 
-                Grid.Column="2" Grid.ColumnSpan="2"/>
+                    Grid.Column="2" Grid.ColumnSpan="3"/>
+        <Image  Source="/images/lekar-icons/hospital-bed-icon.png" Width="75"
+                VerticalAlignment="Center" HorizontalAlignment="Center" 
+                Grid.Row="1"
+                Grid.Column="2" Grid.ColumnSpan="3"/>
+
+        <!-- Medicinski Karton -->
         <TextBlock  Text="Upućivanje na stacionarno lečenje" 
-                    VerticalAlignment="Top" HorizontalAlignment="Center" 
-                    FontWeight="Bold" 
-                    FontSize="18"
-                    Foreground="#eeebdd"
-                    Grid.Row="2"
-                    Grid.Column="1" Grid.ColumnSpan="3"/>
+                VerticalAlignment="Top" HorizontalAlignment="Center" 
+                FontWeight="Bold" 
+                FontSize="25"
+                TextWrapping="Wrap"
+                TextAlignment="Center"
+                Foreground="#eeebdd"
+                Grid.Row="2" Grid.RowSpan="2"
+                Margin="0,0,0,-10"
+                Grid.Column="1" Grid.ColumnSpan="5"/>
 
-        <!-- Odabrana Usluga -->
+        <Image Source="/images/lekar-icons/big-folder-dark-icon.png"
+                VerticalAlignment="Center" HorizontalAlignment="Center" 
+                Grid.Row="4" Grid.RowSpan="10"
+               Margin="-25,25,-25,-20"
+                Grid.Column="1" Grid.ColumnSpan="5"/>
 
-        <TextBlock      x:Name="ImePacijenta"
-                        VerticalAlignment="Top" 
-                        HorizontalAlignment="Center" 
-                        FontWeight="Bold" 
-                        FontSize="18"
-                        Foreground="#eeebdd"
-                        Margin="0,-10,0,0"
-                        Grid.Row="3"
-                        Grid.Column="1" 
-                        Grid.ColumnSpan="3"/>
+  
 
-        <Image      Source="/images/lekar-icons/folder-dark-icon.png"
-                    Margin="-10,-40,-10,-10"
-                    Grid.Row="3" Grid.RowSpan="3"
-                    Grid.Column="1" Grid.ColumnSpan="3"/>
 
-        <StackPanel     Grid.Row="4" 
-                        Grid.RowSpan="3"
-                        Grid.Column="1" 
-                        Grid.ColumnSpan="3"
-                        Margin="0,-5,0,0">
+        <!-- HEADER(start) - BACK TO: Medicinski Karton -->
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="5" Orientation="Horizontal">
 
-            <TextBlock  Text="Trenutno stanje:" 
+            <Button  Height="36" Width="36" 
+                     VerticalAlignment="Top" 
+                     HorizontalAlignment="Left"
+                     Background="#eeebdd"
+                     Margin="10,-10,0,0"
+                Click="PrikazMedicinskiKartonButton">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" Width="140">
+                    <Image Source="/images/lekar-icons/back-icon.png" Width="25" Margin="3,5,10,5"/>
+                    <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Osnovni podaci</TextBlock>
+                </StackPanel>
+            </Button>
+            <StackPanel Orientation="Horizontal" Margin="0,-5,0,0">
+                <Label FontSize="13"   FontWeight="SemiBold"  FontStyle="Italic" Content="Medicinski karton"/>
+                <Label FontSize="10"   FontWeight="SemiBold"  FontStyle="Italic" Foreground="#eeebdd" Content="Pacijent:" Margin="13,0,0,0"/>
+                <TextBlock x:Name="headerIme"           FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+                <TextBlock x:Name="headerPrezime"       FontSize="12"   FontWeight="SemiBold" FontStyle="Italic" Foreground="#eeebdd"  Margin="2,3,0,0" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5" Orientation="Horizontal">
+            <Label     Content="JMBG:"         FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="25,20,0,0" />
+            <TextBlock x:Name="headerJMBG"   FontSize="10"  FontWeight="SemiBold"  FontStyle="Italic"  Foreground="DarkRed" Margin="0,20,0,0" Padding="5"/>
+        </StackPanel>
+        <!-- HEADER(end) - BACK TO: Medicinski Karton -->
+
+
+
+        <StackPanel Grid.Row="6" Grid.RowSpan="8" Grid.Column="2" Grid.ColumnSpan="3" 
+                    Orientation="Vertical" Margin="-15,-20,0,0">
+
+            <StackPanel Orientation="Horizontal" Height="120">
+
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock  Text="Trenutno stanje:" 
                         VerticalAlignment="Top" 
                         HorizontalAlignment="left" 
-                        FontSize="15"
+                        FontSize="13"
                         FontWeight="Bold"
                         TextDecorations="Underline"
                         Foreground="#eeebdd"/>
 
-            <StackPanel Orientation="Horizontal">
-                
-                <TextBlock  Text="Hospitalizacija:" 
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock  Text="Hospitalizacija:" 
                             VerticalAlignment="Top" 
                             HorizontalAlignment="left" 
                             FontWeight="Bold" 
                             Foreground="#eeebdd"/>
 
-                <TextBlock  x:Name="lblHospitalizacija"
+                        <TextBlock  x:Name="lblHospitalizacija"
                             VerticalAlignment="Top" 
                             HorizontalAlignment="Left" 
                             Foreground="Black"/>
 
-            </StackPanel>
+                    </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
 
-                <TextBlock  Text="Prostorija:" 
+                        <TextBlock  Text="Prostorija:" 
                         VerticalAlignment="Top" 
                         HorizontalAlignment="left" 
                         FontWeight="Bold" 
                         Foreground="#eeebdd"/>
 
-                <TextBlock  x:Name="lblProstorija"
+                        <TextBlock  x:Name="lblProstorija"
                         VerticalAlignment="Top" 
                         HorizontalAlignment="left" 
                         Foreground="Black"/>
 
-            </StackPanel>
+                    </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
 
-                <TextBlock  Text="Početka hospitalizacije:"
+                        <TextBlock  Text="Početka hospitalizacije:"
                                 VerticalAlignment="Top"
                                 HorizontalAlignment="left" 
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                <TextBlock  x:Name="lblPocetkaHospitalizacije"
+                        <TextBlock  x:Name="lblPocetkaHospitalizacije"
                                 VerticalAlignment="Top" 
                                 HorizontalAlignment="left" 
                                 Foreground="Black"/>
-            </StackPanel>
+                    </StackPanel>
 
 
-            <StackPanel Orientation="Horizontal">
-                <TextBlock  Text="Završetka hospitalizacije:" 
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock  Text="Završetka hospitalizacije:" 
                                 VerticalAlignment="Top" 
                                 HorizontalAlignment="left" 
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                <TextBlock  x:Name="lblZavrsetkaHostpitalizacije"
+                        <TextBlock  x:Name="lblZavrsetkaHostpitalizacije"
                                 VerticalAlignment="Top" 
                                 HorizontalAlignment="left" 
                                 Foreground="Black"/>
 
-            </StackPanel>
 
-            <StackPanel Orientation="Horizontal" >
-
-                <StackPanel Orientation="Vertical">
+                    </StackPanel>
 
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="5,0,0,0">
+                <Rectangle Fill="#eeebdd" Width="2" Height="100" VerticalAlignment="Top" Margin="10"/>
+
+                <StackPanel Orientation="Vertical">
+
+                    <StackPanel Orientation="Vertical" Width="160">
+
+                        <TextBlock  Text="Ažurirano stanje:" 
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                FontSize="13"
+                                FontWeight="Bold"
+                                TextDecorations="Underline"
+                                Margin="0,15,0,0"
+                                Foreground="#eeebdd"/>
+
+                        <TextBlock      x:Name="txtAzuriranoStanje" 
+                                    Margin="0,0,0,0"
+                                    FontSize="11"
+                                    FontWeight="SemiBold" 
+                                    Foreground="#eeebdd"
+                                    TextWrapping="Wrap"/>
+
+
+                    </StackPanel >
 
                 </StackPanel>
 
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
 
-                <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" Margin="0,5" Height="199">
 
                     <TextBlock  Text="Ažuriranja stanja:" 
                                 VerticalAlignment="Top" 
                                 HorizontalAlignment="left" 
-                                FontSize="15"
+                                FontSize="13"
                                 FontWeight="Bold"
                                 TextDecorations="Underline"
                                 Foreground="#eeebdd"/>
-
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Bolesnička soba:  " 
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"/>
-                        <ComboBox x:Name="cmbBolesnickeSobe" 
-                          Width="120" 
-                          HorizontalAlignment="Left"
-                          DropDownClosed="cmbBolesnickeSobe_DropDownClosed">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding BrojSprat}"/>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                        </ComboBox>
-
-                    </StackPanel>
-
 
                     <StackPanel Orientation="Horizontal">
 
@@ -212,8 +235,8 @@
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                            <Viewbox Height="130" 
-                             Width="150" 
+                            <Viewbox Height="110" Margin="17,0"
+                             Width="110" 
                              HorizontalAlignment="Left">
 
                                 <Calendar   x:Name="kalPocetakHospitalizacije"
@@ -288,8 +311,8 @@
                                 FontWeight="Bold" 
                                 Foreground="#eeebdd"/>
 
-                            <Viewbox Height="130" 
-                             Width="150" 
+                            <Viewbox Height="110" 
+                             Width="110" 
                              HorizontalAlignment="Left">
 
                                 <Calendar   x:Name="kalZavrsetakHospitalizacije"
@@ -341,7 +364,7 @@
                                     <ComboBoxItem >22</ComboBoxItem>
                                     <ComboBoxItem >23</ComboBoxItem>
                                 </ComboBox>
-                                
+
                                 <ComboBox x:Name="cmbZavrsetakHospitalizacije_Min"
                                   Width="45" 
                                   Background="#32ccff" 
@@ -359,59 +382,44 @@
 
                     </StackPanel>
 
+                    <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+
+                        <TextBlock Text="Bolesnička soba:  " 
+                            VerticalAlignment="Top" HorizontalAlignment="left" 
+                            FontWeight="Bold" 
+                            Foreground="#eeebdd"
+                            Grid.Row="4" Grid.RowSpan="1"
+                            Grid.Column="1" Grid.ColumnSpan="5"/>
+                        <ComboBox x:Name="cmbBolesnickeSobe" 
+                          Width="120" 
+                          HorizontalAlignment="Left"
+                          DropDownClosed="cmbBolesnickeSobe_DropDownClosed">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BrojSprat}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+
+                    </StackPanel>
 
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Margin="17,0,0,0">
-
-                    
-                    <TextBlock      Text="Razlog zakazivanja:" 
-                                    FontWeight="Bold" 
-                                    Foreground="#eeebdd"/>
-
-                    <TextBox        x:Name="RazlogZakazivanja"
-                                    IsEnabled="False"
-                                    MinLines="4"
-                                    MaxLines="4" 
-                                    TextWrapping="Wrap"/>
-
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-
-                <StackPanel Orientation="Vertical" Width="160">
-
-                    <TextBlock  Text="Ažurirano stanje:" 
-                                VerticalAlignment="Top" 
-                                HorizontalAlignment="left" 
-                                FontSize="15"
-                                FontWeight="Bold"
-                                TextDecorations="Underline"
-                                Foreground="#eeebdd"/>
-
-                    <TextBlock      x:Name="txtAzuriranoStanje" 
-                                    Margin="0,0,0,0"
-                                    FontSize="11"
-                                    FontWeight="SemiBold" 
-                                    Foreground="#eeebdd"
-                                    TextWrapping="Wrap"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
 
 
-                </StackPanel >
-
-                <StackPanel Orientation="Vertical" 
+                <StackPanel Orientation="Horizontal" 
  
-                            Width="150"
-                            Margin="20,0,0,0"
+                            Width="300"
+                            Margin="0,0,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
                     <Button     x:Name="btnPotvrdiHospitalizaciju"
                                 Background="#eeebdd" 
-                                Margin="0,5,0,0"
+                                Margin="20,0,10,0"
                                 Height="35"
+
                                 IsEnabled="False"
                                 Click="btnPotvrdiHospitalizaciju_Click">
 
@@ -433,7 +441,7 @@
                     </Button>
 
                     <Button     Background="#eeebdd" 
-                                Margin="0,5,0,0"
+                                Margin="10,0,0,0"
                                 Width="100"
                                 Height="35"
                                 HorizontalAlignment="Right"
@@ -462,6 +470,10 @@
             </StackPanel>
 
         </StackPanel>
+
+           
+
+
 
     </Grid>
 </Page>

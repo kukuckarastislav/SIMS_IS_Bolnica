@@ -44,17 +44,27 @@ namespace Bolnica.view.lekar.lekovi
         {
             if (LekoviZaRevizijuTab.IsSelected)
             {
-                OdobravanjeLeka.Visibility = Visibility.Visible;
-                OdbijanjeLeka.Visibility = Visibility.Visible;
-                IzmenaLeka.Visibility = Visibility.Visible;
+                PrikaziDugmad();
             }
             if (OdobreniLekoviTab.IsSelected)
             {
-                OdobravanjeLeka.Visibility = Visibility.Collapsed;
-                OdbijanjeLeka.Visibility = Visibility.Collapsed;
-                IzmenaLeka.Visibility = Visibility.Collapsed;
+                SakriDugmad();
             }
         }
+
+        private void PrikaziDugmad()
+        {
+            OdobravanjeLeka.Visibility = Visibility.Visible;
+            OdbijanjeLeka.Visibility = Visibility.Visible;
+            IzmenaLeka.Visibility = Visibility.Visible;
+        }
+        private void SakriDugmad()
+        {
+            OdobravanjeLeka.Visibility = Visibility.Collapsed;
+            OdbijanjeLeka.Visibility = Visibility.Collapsed;
+            IzmenaLeka.Visibility = Visibility.Collapsed;
+        }
+
 
         private void GlavniMeniButton(object sender, RoutedEventArgs e)
         {

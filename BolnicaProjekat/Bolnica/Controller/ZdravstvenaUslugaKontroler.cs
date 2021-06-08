@@ -83,20 +83,23 @@ namespace Controller
             return null;
         }
 
-        public List<DTORadniKalendar> DanasnjiRadniKalendarLekara(LekarDTO l)
+// Lekar - Radni Kalendar
+
+        public List<RadniKalendarDTO> DanasnjiRadniKalendarLekara(LekarDTO l)
         {
             return servis.DanasnjiRadniKalendarLekara(l);
         }
 
-        public List<DTORadniKalendar> NedeljniRadniKalendarLekara(LekarDTO l)
+        public List<RadniKalendarDTO> NedeljniRadniKalendarLekara(LekarDTO l)
         {
             return servis.NedeljniRadniKalendarLekara(l);
         }
-        public List<DTORadniKalendar> MesecniRadniKalendarLekara(LekarDTO l)
+        public List<RadniKalendarDTO> MesecniRadniKalendarLekara(LekarDTO l)
         {
             return servis.MesecniRadniKalendarLekara(l);
-        }
 
+        }
+// --------------------
 
         public List<ZdravstvenaUsluga> getAppointments(Lekar OdabraniLekar, DateTime datum)
         {

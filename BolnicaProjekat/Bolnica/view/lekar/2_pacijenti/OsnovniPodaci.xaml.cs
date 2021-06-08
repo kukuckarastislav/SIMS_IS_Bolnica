@@ -26,7 +26,7 @@ namespace Bolnica.view.lekar.pacijenti
         public LekarDTO LekarDTO;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public OsnovniPodaci(Pacijent IzabraniPacijent)
+        public OsnovniPodaci(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
         {
             this.LekarDTO = LekarDTO;
             this.IzabraniPacijent = IzabraniPacijent;

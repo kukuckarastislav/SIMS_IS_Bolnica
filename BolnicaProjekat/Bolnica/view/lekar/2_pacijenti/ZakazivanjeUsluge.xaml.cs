@@ -24,7 +24,6 @@ namespace Bolnica.view.lekar.pacijenti
         public ProstorijeKontroler ProstorijeKontrolerObjekat { get; set; }
         public ObservableCollection<Prostorija> KolekcijaSobeZaPregled { get; set; }
         public ObservableCollection<String> KolekcijaIDSobeZaPregled { get; set; }
-
         public DateTime date;
         public LekarDTO LekarDTO { get; set; }
         public Pacijent IzabraniPacijent { get; set; }
@@ -91,6 +90,12 @@ namespace Bolnica.view.lekar.pacijenti
             //Termin termin, int id, int idLekarDTOa, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUslug
             KreiranaUsluga = new ZdravstvenaUsluga(termin, idUsluge, idLekarDTOa, idPacijenta, tipUsluge, idProstorije, obavljena, razlogZakazivanja, rezultat);
             Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(KreiranaUsluga);
+
+            if (IzabraniPacijent != null)
+            {
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
+                NavigationService.Navigate(refPrikazMedicinskiKarton);
+            }
 
         }
 

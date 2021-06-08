@@ -25,12 +25,12 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
 
         public LekarDTO LekarDTO { get; set; }
-        public DTORadniKalendar OdabranaUsluga { get; set; }
-        public DTORadniKalendar AzuriranaUsluga { get; set; }
+        public RadniKalendarDTO OdabranaUsluga { get; set; }
+        public RadniKalendarDTO AzuriranaUsluga { get; set; }
         public DateTime AzuriranPocetak { get; set; }
         public DateTime AzuriranKraj { get; set; }
 
-        public AzuriranjeUsluge(LekarDTO LekarDTO, DTORadniKalendar OdabranaUsluga)
+        public AzuriranjeUsluge(LekarDTO LekarDTO, RadniKalendarDTO OdabranaUsluga)
         {
             InitializeComponent();
             this.OdabranaUsluga = OdabranaUsluga;

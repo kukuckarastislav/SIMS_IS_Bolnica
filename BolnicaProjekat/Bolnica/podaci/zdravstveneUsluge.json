@@ -57,8 +57,8 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-05-20T10:00:00",
-      "Kraj": "2021-05-20T10:30:00"
+      "Pocetak": "2021-06-09T08:00:00",
+      "Kraj": "2021-06-09T08:30:00"
     },
     "Id": 9,
     "IdLekara": 1,
@@ -127,8 +127,8 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-08T02:19:00",
-      "Kraj": "2021-06-08T02:49:00"
+      "Pocetak": "2021-06-08T01:00:00",
+      "Kraj": "2021-06-08T01:30:00"
     },
     "Id": 14,
     "IdLekara": 1,
@@ -136,35 +136,7 @@
     "TipUsluge": 1,
     "IdProstorije": 6,
     "Obavljena": true,
-    "RazlogZakazivanja": "sdf",
-    "RezultatUsluge": " anamneza"
-  },
-  {
-    "Termin": {
-      "Pocetak": "2021-06-08T02:25:00",
-      "Kraj": "2021-06-08T02:55:00"
-    },
-    "Id": 15,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 6,
-    "Obavljena": true,
-    "RazlogZakazivanja": "ovo nece biti narandzasta",
-    "RezultatUsluge": " anamneza"
-  },
-  {
-    "Termin": {
-      "Pocetak": "2021-06-08T02:34:00",
-      "Kraj": "2021-06-08T03:00:00"
-    },
-    "Id": 16,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 6,
-    "Obavljena": true,
-    "RazlogZakazivanja": "OVO NECE BITI TAMNO",
-    "RezultatUsluge": " evidencija"
+    "RazlogZakazivanja": "ads",
+    "RezultatUsluge": " hfggh"
   }
 ]

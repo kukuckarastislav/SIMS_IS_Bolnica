@@ -183,7 +183,7 @@
     <Compile Include="Interface\ISubject.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
-    <Compile Include="Model\DTORadniKalendar.cs" />
+    <Compile Include="Model\RadniKalendarDTO.cs" />
     <Compile Include="Model\DTORecept.cs" />
     <Compile Include="Model\DTOUslugaLekar.cs" />
     <Compile Include="Model\Feedback.cs" />

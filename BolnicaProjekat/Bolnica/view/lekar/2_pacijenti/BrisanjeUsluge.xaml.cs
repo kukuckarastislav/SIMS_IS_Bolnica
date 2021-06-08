@@ -26,21 +26,26 @@ namespace Bolnica.view.lekar.pacijenti
     {
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         public LekarDTO LekarDTO { get; set; }
-        public DTORadniKalendar OdabranaUsluga { get; set; }
+        public RadniKalendarDTO OdabranaUsluga { get; set; }
 
 
-        public BrisanjeUsluge(LekarDTO LekarDTO, DTORadniKalendar OdabranaUsluga)
+        public BrisanjeUsluge(LekarDTO LekarDTO, RadniKalendarDTO OdabranaUsluga)
         {
             InitializeComponent();
             this.OdabranaUsluga = OdabranaUsluga;
             this.LekarDTO = LekarDTO;
+            UcitajPodatke();
+        }
 
+        private void UcitajPodatke()
+        {
             ImePacijenta.Text = "Pacijent: " + OdabranaUsluga.ImePacijenta.ToString();
             TipUsluge.Text = OdabranaUsluga.Usluga.TipUsluge.ToString();
             Prostorija.Text = OdabranaUsluga.NazivProstorije.ToString();
             VremePocetkaUsluge.Text = OdabranaUsluga.Usluga.Termin.Pocetak.ToString("MM/dd/yyyy HH:mm:ss");
             VremeZavrsetkaUsluge.Text = OdabranaUsluga.Usluga.Termin.Kraj.ToString("MM/dd/yyyy HH:mm:ss");
             RazlogZakazivanja.Text = OdabranaUsluga.Usluga.RazlogZakazivanja.ToString();
+
         }
 
         private void OdustaniButton(object sender, RoutedEventArgs e)

@@ -33,12 +33,12 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.AzuriranjeUsluge refAzuriranjeUsluge;
         private view.lekar.pacijenti.EvidentiranjeUsluge refEvidentiranjeUsluge;
         // Kolekcije
-        private ObservableCollection<DTORadniKalendar> KolekcijaDanasnjiRadniKalendar;
-        private ObservableCollection<DTORadniKalendar> KolekcijaNedeljniRadniKalendar;
-        private ObservableCollection<DTORadniKalendar> KolekcijaMesecniRadniKalendar;
+        private ObservableCollection<RadniKalendarDTO> KolekcijaDanasnjiRadniKalendar;
+        private ObservableCollection<RadniKalendarDTO> KolekcijaNedeljniRadniKalendar;
+        private ObservableCollection<RadniKalendarDTO> KolekcijaMesecniRadniKalendar;
         // OBJEKTI
         private ZdravstvenaUslugaKontroler ObjekatZdrastvenaUslugaKontroler;
-        public DTORadniKalendar OdabranaUsluga { get; set; }
+        public RadniKalendarDTO OdabranaUsluga { get; set; }
         public LekarDTO LekarDTO { get; set; }
 
         public RadniKalendar(LekarDTO LekarDTO)
@@ -47,6 +47,14 @@ namespace Bolnica.view.lekar.pacijenti
             InitializeComponent();
             ObjekatZdrastvenaUslugaKontroler = new ZdravstvenaUslugaKontroler();
             BindingRadniKalendar();
+        }
+
+
+        private void PokaziDugmad()
+        {
+            AzuriranjeUsluge.Visibility = Visibility.Visible;
+            BrisanjeUsluge.Visibility = Visibility.Visible;
+            EvidentiranjeUsluge.Visibility = Visibility.Visible;
         }
 
 
@@ -59,8 +67,8 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void BindingDanasnjiRadniKalendar()
         {
-            KolekcijaDanasnjiRadniKalendar = new ObservableCollection<DTORadniKalendar>();
-            foreach (DTORadniKalendar dtoRadni in ObjekatZdrastvenaUslugaKontroler.DanasnjiRadniKalendarLekara(LekarDTO))
+            KolekcijaDanasnjiRadniKalendar = new ObservableCollection<RadniKalendarDTO>();
+            foreach (RadniKalendarDTO dtoRadni in ObjekatZdrastvenaUslugaKontroler.DanasnjiRadniKalendarLekara(LekarDTO))
             {
                 KolekcijaDanasnjiRadniKalendar.Add(dtoRadni);
             }
@@ -69,8 +77,8 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void BindingNedeljniRadniKalendar()
         {
-            KolekcijaNedeljniRadniKalendar = new ObservableCollection<DTORadniKalendar>();
-            foreach (DTORadniKalendar dtoRadni in ObjekatZdrastvenaUslugaKontroler.NedeljniRadniKalendarLekara(LekarDTO))
+            KolekcijaNedeljniRadniKalendar = new ObservableCollection<RadniKalendarDTO>();
+            foreach (RadniKalendarDTO dtoRadni in ObjekatZdrastvenaUslugaKontroler.NedeljniRadniKalendarLekara(LekarDTO))
             {
                 KolekcijaNedeljniRadniKalendar.Add(dtoRadni);
             }
@@ -78,8 +86,8 @@ namespace Bolnica.view.lekar.pacijenti
         }
         private void BindingMesecniRadniKalendar()
         {
-            KolekcijaMesecniRadniKalendar = new ObservableCollection<DTORadniKalendar>();
-            foreach (DTORadniKalendar dtoRadni in ObjekatZdrastvenaUslugaKontroler.MesecniRadniKalendarLekara(LekarDTO))
+            KolekcijaMesecniRadniKalendar = new ObservableCollection<RadniKalendarDTO>();
+            foreach (RadniKalendarDTO dtoRadni in ObjekatZdrastvenaUslugaKontroler.MesecniRadniKalendarLekara(LekarDTO))
             {
                 KolekcijaMesecniRadniKalendar.Add(dtoRadni);
             }
@@ -114,18 +122,37 @@ namespace Bolnica.view.lekar.pacijenti
         }
 
         private void RadniKalendar_danasnji_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+
         {
-            if (OdabranaUsluga != null) OdabranaUsluga = RadniKalendar_danasnji.SelectedItem as DTORadniKalendar;
+            OdabranaUsluga = (RadniKalendarDTO)RadniKalendar_danasnji.SelectedItem;
+            if (OdabranaUsluga != null) 
+            {
+                OdabranaUsluga = RadniKalendar_danasnji.SelectedItem as RadniKalendarDTO;
+                PokaziDugmad();
+            }
+
         }
 
         private void RadniKalendar_nedeljni_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (OdabranaUsluga != null) OdabranaUsluga = RadniKalendar_nedeljni.SelectedItem as DTORadniKalendar;
+            OdabranaUsluga = (RadniKalendarDTO)RadniKalendar_nedeljni.SelectedItem;
+            if (OdabranaUsluga != null)
+            {
+                OdabranaUsluga = RadniKalendar_nedeljni.SelectedItem as RadniKalendarDTO;
+                PokaziDugmad();
+            }
+
         }
 
         private void RadniKalendar_mesecni_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (OdabranaUsluga != null) OdabranaUsluga = RadniKalendar_mesecni.SelectedItem as DTORadniKalendar;
+            OdabranaUsluga = (RadniKalendarDTO)RadniKalendar_mesecni.SelectedItem;
+            if (OdabranaUsluga != null)
+            {
+                OdabranaUsluga = RadniKalendar_mesecni.SelectedItem as RadniKalendarDTO;
+                PokaziDugmad();
+            }
+
         }
 
         private void Back_Click(object sender, RoutedEventArgs e)

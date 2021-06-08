@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class DTORadniKalendar
+    public class RadniKalendarDTO
     {
         public Pacijent Pacijent { get; set; }
         public Prostorija Prostorija { get; set; }
         public ZdravstvenaUsluga Usluga { get; set; }
-        public DTORadniKalendar(ZdravstvenaUsluga usluga, Pacijent pacijent, Prostorija prostorija)
+        public RadniKalendarDTO(ZdravstvenaUsluga usluga, Pacijent pacijent, Prostorija prostorija)
         {
             Usluga = usluga;
             Pacijent = pacijent;

@@ -95,7 +95,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refOsnovniPodaci = new view.lekar.pacijenti.OsnovniPodaci(IzabraniPacijent);
+                refOsnovniPodaci = new view.lekar.pacijenti.OsnovniPodaci(LekarDTO, IzabraniPacijent);
                 NavigationService.Navigate(refOsnovniPodaci);
             }
         }

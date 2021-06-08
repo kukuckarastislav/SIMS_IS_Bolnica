@@ -182,7 +182,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Vreme termina: "/>
                                     <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:dd/MM/yyyy}}"/>
-                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd"> -</TextBlock>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text=" Od "/>
                                     <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:0:HH:mm}}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
@@ -226,8 +226,8 @@
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Vreme termina: "/>
                                     <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:dd/MM/yyyy}}"/>
-                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd"> -</TextBlock>
-                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Kraj, StringFormat={}{0:dd/MM/yyyy}}"/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text=" Od "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:0:HH:mm}}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Pacijent: "/>
@@ -275,6 +275,7 @@
                         Background="#eeebdd" 
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        Visibility="Hidden"
                         Click="BrisanjeUsluge_Click">
                 
                 <Button.Resources>
@@ -298,6 +299,7 @@
                         Background="#eeebdd" 
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        Visibility="Hidden"
                         Click="EvidentiranjeUsluge_Click">
                 
                 <Button.Resources>
@@ -320,6 +322,7 @@
                         Background="#eeebdd" 
                         BorderThickness="1" 
                         BorderBrush="Black"
+                        Visibility="Hidden"
                         Click="AzuriranjeUsluge_Click">
                 
                 <Button.Resources>

@@ -191,7 +191,7 @@ namespace Repozitorijum
                     Usluge.RemoveAt(i);
                     break;
                 }
-                i++;
+                i++; 
             }
             SaveData();
             return usluga;

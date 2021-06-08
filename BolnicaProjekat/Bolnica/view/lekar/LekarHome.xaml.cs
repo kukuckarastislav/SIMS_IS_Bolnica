@@ -72,18 +72,9 @@ namespace Bolnica.view.lekar
 
         private void main_frame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            Type pageType = e.Content.GetType();
-
-            if (pageType == typeof(RadniKalendar) || pageType == typeof(PrikazPacijenata) || pageType == typeof(Lekovi))
-            {
-                menu_items_panel.Visibility = System.Windows.Visibility.Visible;
-            }
-            else
-            {
-                menu_items_panel.Visibility = System.Windows.Visibility.Hidden;
-            }
-
-
+         
+            menu_items_panel.Visibility = System.Windows.Visibility.Hidden;
+     
         }
 
         private void close_button_Click(object sender, RoutedEventArgs e)

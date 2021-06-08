@@ -26,15 +26,13 @@ namespace Bolnica.view.lekar.pacijenti
     {
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         public LekarDTO LekarDTO { get; set; }
-        public ObservableCollection<DTORadniKalendar> ListaRadniKalendar { get; set; }
         public DTORadniKalendar OdabranaUsluga { get; set; }
 
 
-        public BrisanjeUsluge(LekarDTO LekarDTO, DTORadniKalendar OdabranaUsluga, ObservableCollection<DTORadniKalendar> ListaRadniKalendar)
+        public BrisanjeUsluge(LekarDTO LekarDTO, DTORadniKalendar OdabranaUsluga)
         {
             InitializeComponent();
             this.OdabranaUsluga = OdabranaUsluga;
-            this.ListaRadniKalendar = ListaRadniKalendar;
             this.LekarDTO = LekarDTO;
 
             ImePacijenta.Text = "Pacijent: " + OdabranaUsluga.ImePacijenta.ToString();
@@ -57,7 +55,6 @@ namespace Bolnica.view.lekar.pacijenti
         private void PotvrdiBrisanje(object sender, RoutedEventArgs e)
         {
             Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(OdabranaUsluga.Usluga);
-            ListaRadniKalendar.Remove(OdabranaUsluga);
             refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
             NavigationService.Navigate(refRadniKalendar);
 

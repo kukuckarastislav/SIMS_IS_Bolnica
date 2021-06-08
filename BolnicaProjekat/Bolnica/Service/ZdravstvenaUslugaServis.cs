@@ -254,9 +254,10 @@ namespace Servis
             return true;
         }
 
-       public ObservableCollection<DTORadniKalendar> getUslugeLekara(LekarDTO l)
+
+       public List<DTORadniKalendar> RadniKalendarLekara(LekarDTO l)
         {
-            ObservableCollection<DTORadniKalendar> lista = new ObservableCollection<DTORadniKalendar>();
+            List<DTORadniKalendar> lista = new List<DTORadniKalendar>();
             List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
             foreach(ZdravstvenaUsluga zu in usluge)
             {
@@ -266,6 +267,44 @@ namespace Servis
             return lista;
 
         }
+
+        public List<DTORadniKalendar> DanasnjiRadniKalendarLekara(LekarDTO l)
+        {
+            int brojDanaUnazad = 1;
+            return FiltrirajRadniKalendarLekara(l, brojDanaUnazad);
+        }
+
+        public List<DTORadniKalendar> NedeljniRadniKalendarLekara(LekarDTO l)
+        {
+            int brojDanaUnazad = 7;
+            return FiltrirajRadniKalendarLekara(l, brojDanaUnazad);
+        }
+
+        public List<DTORadniKalendar> MesecniRadniKalendarLekara(LekarDTO l)
+        {
+            int brojDanaUnazad = 31;
+            return FiltrirajRadniKalendarLekara(l, brojDanaUnazad);
+        }
+
+
+        public List<DTORadniKalendar> FiltrirajRadniKalendarLekara(LekarDTO l, int brojDanaUnazad)
+        {
+            List<DTORadniKalendar> lista = RadniKalendarLekara(l);
+            List<DTORadniKalendar> filtriranaLista = new List<DTORadniKalendar>();
+
+            foreach (DTORadniKalendar dto in lista)
+            {
+                DateTime pocetakUsluge = dto.Usluga.Termin.Pocetak;
+                DateTime granicnoVreme = pocetakUsluge.AddDays(brojDanaUnazad);
+                if (granicnoVreme > DateTime.Now)
+                {
+                    filtriranaLista.Add(dto);
+                }
+            }
+
+            return filtriranaLista;
+        }
+
 
 
 

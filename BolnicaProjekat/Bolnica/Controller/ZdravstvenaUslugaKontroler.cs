@@ -83,10 +83,18 @@ namespace Controller
             return null;
         }
 
-        public ObservableCollection<DTORadniKalendar> getUslugeLekara(LekarDTO l)
+        public List<DTORadniKalendar> DanasnjiRadniKalendarLekara(LekarDTO l)
         {
-            return servis.getUslugeLekara(l);
+            return servis.DanasnjiRadniKalendarLekara(l);
+        }
 
+        public List<DTORadniKalendar> NedeljniRadniKalendarLekara(LekarDTO l)
+        {
+            return servis.NedeljniRadniKalendarLekara(l);
+        }
+        public List<DTORadniKalendar> MesecniRadniKalendarLekara(LekarDTO l)
+        {
+            return servis.MesecniRadniKalendarLekara(l);
         }
 
 

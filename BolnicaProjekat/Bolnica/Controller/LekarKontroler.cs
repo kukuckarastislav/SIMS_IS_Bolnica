@@ -58,8 +58,15 @@ namespace Kontroler
 
         public LekarDTO PrijavaLekara(String korisnickoIme, String lozinka)
         {
-            Lekar l = lekarServis.PrijaviLekara(korisnickoIme, lozinka);
-            LekarDTO ret = new LekarDTO(l.Id, l.Specijalista, l.Specijalizacija, l.Ime, l.Prezime, l.KorisnickoIme, l.Email, l.Telefon, l.Pol, l.DatumRodjenja, l.Jmbg, l.Drzavljanstvo, l.AdresaStanovanja, l.Sifra, l.radnoVreme);
+            LekarDTO ret = null;
+            if ((korisnickoIme != null) && (lozinka != null))
+            {
+                Lekar l = lekarServis.PrijaviLekara(korisnickoIme, lozinka);
+                if (l != null)
+                {
+                    ret = new LekarDTO(l.Id, l.Specijalista, l.Specijalizacija, l.Ime, l.Prezime, l.KorisnickoIme, l.Email, l.Telefon, l.Pol, l.DatumRodjenja, l.Jmbg, l.Drzavljanstvo, l.AdresaStanovanja, l.Sifra, l.radnoVreme);
+                }
+            }
             return ret;
         }
 

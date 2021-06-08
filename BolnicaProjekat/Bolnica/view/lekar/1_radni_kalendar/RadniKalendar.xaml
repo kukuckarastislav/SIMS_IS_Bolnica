@@ -39,6 +39,10 @@
                 </Setter>
             </Style>
 
+ 
+            
+            
+
         </ResourceDictionary>
 
 
@@ -104,11 +108,12 @@
                             Background="#810000">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <StackPanel Orientation="Horizontal" >
+
+                            <StackPanel Orientation="Vertical" x:Name="BGstack" Background="#810000" Width="300">
+                                <StackPanel Orientation="Horizontal">
                                     <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Vreme termina: "/>
                                     <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:HH:mm}}"/>
-                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd"> - </TextBlock>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd"> -</TextBlock>
                                     <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Kraj, StringFormat={}{0:HH:mm}}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
@@ -128,13 +133,107 @@
                                     <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.RazlogZakazivanja}"/>
                                 </StackPanel>
                             </StackPanel>
+                            
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Path=DataContext.Usluga.Obavljena,RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                    <Setter Property="Background" TargetName="BGstack" Value="#630000">
+                                    </Setter>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </TabItem>
-            
-            <TabItem Header="Nedeljni" Style="{DynamicResource TabItemStyle1}" />
-            <TabItem Header="Mesečni" Style="{DynamicResource TabItemStyle1}" />
+
+            <TabItem Header="Nedeljni" Style="{DynamicResource TabItemStyle1}" >
+                <ListBox    x:Name="RadniKalendar_nedeljni" 
+                            Margin="5"
+                            MouseDoubleClick="RadniKalendar_nedeljni_MouseDoubleClick" 
+                            Background="#810000">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel Orientation="Vertical" x:Name="BGstack" Background="#810000" Width="300">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Vreme termina: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:dd/MM/yyyy}}"/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd"> -</TextBlock>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:0:HH:mm}}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Pacijent: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding ImePacijenta}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Prostorija: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding NazivProstorije}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Tip Usluge: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.TipUsluge}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Razlog Zakazivanja: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.RazlogZakazivanja}"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Path=DataContext.Usluga.Obavljena,RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                    <Setter Property="Background" TargetName="BGstack" Value="#630000">
+                                    </Setter>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </TabItem>
+            <TabItem Header="Mesečni" Style="{DynamicResource TabItemStyle1}"  >
+                <ListBox    x:Name="RadniKalendar_mesecni" 
+                            Margin="5"
+                            MouseDoubleClick="RadniKalendar_mesecni_MouseDoubleClick"
+                            Background="#810000">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <StackPanel Orientation="Vertical" x:Name="BGstack" Background="#810000" Width="300">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Vreme termina: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Pocetak, StringFormat={}{0:dd/MM/yyyy}}"/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd"> -</TextBlock>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.Termin.Kraj, StringFormat={}{0:dd/MM/yyyy}}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Pacijent: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding ImePacijenta}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Prostorija: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding NazivProstorije}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Tip Usluge: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.TipUsluge}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontWeight="SemiBold" Foreground="#eeebdd" Text="Razlog Zakazivanja: "/>
+                                    <TextBlock FontWeight="Bold" Foreground="#eeebdd" Text="{Binding Usluga.RazlogZakazivanja}"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Path=DataContext.Usluga.Obavljena,RelativeSource={RelativeSource TemplatedParent}}" Value="True">
+                                    <Setter Property="Background" TargetName="BGstack" Value="#630000">
+                                    </Setter>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </TabItem>
         </TabControl>
 
 

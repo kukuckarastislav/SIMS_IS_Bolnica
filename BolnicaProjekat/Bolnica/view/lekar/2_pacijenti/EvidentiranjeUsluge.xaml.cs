@@ -26,14 +26,12 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         public LekarDTO LekarDTO { get; set; }
         public string RezultatUsluge { get; set; }
-        public ObservableCollection<DTORadniKalendar> ListaRadniKalendar { get; set; }
         public DTORadniKalendar OdabranaUsluga { get; set; }
 
-        public EvidentiranjeUsluge(LekarDTO LekarDTO, DTORadniKalendar OdabranaUsluga, ObservableCollection<DTORadniKalendar> ListaRadniKalendar)
+        public EvidentiranjeUsluge(LekarDTO LekarDTO, DTORadniKalendar OdabranaUsluga)
         {
             InitializeComponent();
             this.OdabranaUsluga = OdabranaUsluga;
-            this.ListaRadniKalendar = ListaRadniKalendar;
             this.LekarDTO = LekarDTO;
             this.RezultatUsluge = RezultatUsluge;
 
@@ -59,8 +57,8 @@ namespace Bolnica.view.lekar.pacijenti
         private void EvidentirajUslugu(object sender, RoutedEventArgs e)
         {
             RezultatUsluge = Anamneza.Text;
+            OdabranaUsluga.Usluga.Obavljena = true;
             Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.EvidentirajUslugu(OdabranaUsluga.Usluga,RezultatUsluge);
-            ListaRadniKalendar.Remove(OdabranaUsluga);
             refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
             NavigationService.Navigate(refRadniKalendar);
 

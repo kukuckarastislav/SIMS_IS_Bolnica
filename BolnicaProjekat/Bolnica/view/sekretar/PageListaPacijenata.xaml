@@ -11,7 +11,7 @@
     <Grid Background="#ccffbd">
         <Button Content="Izmeni podatke pacijenta" HorizontalAlignment="Left" Margin="73,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White" Click="IzmeniPacijenta_Click" />
         <Button Content="Obrisi pacijenta" HorizontalAlignment="Left" Margin="253,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White" Click="ObrisiPacijenta_Click" />
-        <Button Content="Pregled medicinskog kartona" HorizontalAlignment="Left" Margin="432,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White" Click="OtvoriMedicinskiKarton_Click" />
+        <Button Content="Pregled medicinskog kartona" HorizontalAlignment="Left" Margin="432,34,0,0" VerticalAlignment="Top" Width="165" Height="40" Background="White" Click="OtvoriMedicinskiKarton_Click" />
         <DataGrid HorizontalAlignment="Left" Height="425" Margin="73,218,0,0" VerticalAlignment="Top" Width="717"
                    Background="White" x:Name="DataGridPrikazPacijenata"
                   ItemsSource="{Binding Path=KolekcijaPacijenata}"
@@ -28,6 +28,9 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,186,0,0" TextWrapping="Wrap" Text="Pretraga po JMBG:" VerticalAlignment="Top" FontSize="15px"/>
+        <TextBox Name="tbPretraga" HorizontalAlignment="Left" Height="23" Margin="201,186,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnTrazi" Content="Traži" HorizontalAlignment="Left" Margin="328,188,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="-0.005,1.156" Click="btnTrazi_Click" Background="White"/>
 
     </Grid>
 </Page>

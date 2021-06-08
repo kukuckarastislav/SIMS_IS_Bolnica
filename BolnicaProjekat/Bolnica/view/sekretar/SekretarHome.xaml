@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bolnica.view.sekretar"
+        ResizeMode="NoResize"
+        Closing="Window_Closing"
         mc:Ignorable="d"
         Title="SekretarHome" FontFamily="Century Gothic" Height="768" Width="1024">
     <Grid>
@@ -14,9 +16,11 @@
                     <Button Click="PocetnaStranica_Click" Margin="0 100 0 0" Background="#7eca9c" Height="50" Name="btnPocetnaStranica">Pocetna stranica</Button>
                     <Button Click="Registracija_Click" Background="#7eca9c" Height="50" Name="btnRegistracijaPacijenta" >Registracija pacijenata</Button>
                     <Button Click="RegistracijaLekara_Click" Background="#7eca9c" Height="50" Name="btnRegistracijaLekara" >Registracija lekara</Button>
+                    <Button Click="ListGosti_Click" Background="#7eca9c" Height="50" Name="btnListaGostiju" >Gostujući pacijenti</Button>
                     <Button Click="ListPacijenti_Click" Background="#7eca9c" Height="50" Name="btnListaPacijenata" >Lista pacijenata</Button>
                     <Button Click="ListLekara_Click" Background="#7eca9c" Height="50" Name="btnListaLekara" >Lista lekara</Button>
-                    <Button Click="ZakazaniTermini_Click" Background="#7eca9c" Height="50" Name="btnZakaziTermin" >Zakazani termini</Button>
+                    <Button Click="ZakaziTermin_Click" Background="#7eca9c" Height="50" Name="btnZakaziTermin" >Zakaži termin</Button>
+                    <Button Click="ZakazaniTermini_Click" Background="#7eca9c" Height="50" Name="btnZakayaniTermini" >Zakazani termini</Button>
                     <Button Click="ListObavestenja_Click" Background="#7eca9c" Height="50" Name="btnObavestenja" >Obavestenja</Button>
                     <Button Click="ZauzetostProstorija_Click" Background="#7eca9c" Height="50" Name="btnZauzetostProstorija" >Zauzetost prostorija</Button>
                 </StackPanel>

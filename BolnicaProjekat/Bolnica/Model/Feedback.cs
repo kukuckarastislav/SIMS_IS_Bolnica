@@ -12,13 +12,15 @@ namespace Model
         public String Tekst { get; set; }
         public int IdKorisnika { get; set; }
         public String VrstaKorisnika { get; set; }
+        public DateTime DatumSlanja { get; set; }
 
-        public Feedback(int id, string tekst, int idKorisnika, string vrstaKorisnika)
+        public Feedback(int id, string tekst, int idKorisnika, string vrstaKorisnika, DateTime datum)
         {
             Id = id;
             Tekst = tekst;
             IdKorisnika = idKorisnika;
             VrstaKorisnika = vrstaKorisnika;
+            DatumSlanja = datum;
         }
     }
 }

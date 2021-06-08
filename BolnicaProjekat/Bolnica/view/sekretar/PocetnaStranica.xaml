@@ -12,7 +12,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="506,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="55" Width="233" FontSize="35px"><Run Text="Zdravo Bolnica"/><LineBreak/><Run/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="94,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="169" FontSize="20px"><Run Text="Dobrodošli"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
         <Button Background="white" Content="Moj nalog" HorizontalAlignment="Left" Margin="94,236,0,0" VerticalAlignment="Top" Width="120px" Height="30px" Click="Button_Click"/>
-        <Button Background="white" Content="Odjavi me" HorizontalAlignment="Left" Margin="94,290,0,0" VerticalAlignment="Top" Width="120px" Height="30px"  />
+        <Button Background="white" Content="Odjavi me" HorizontalAlignment="Left" Margin="94,290,0,0" VerticalAlignment="Top" Width="120px" Height="30px" Click="Odjava_Click" />
         <Button Background="white" Content="Oceni aplikaciju" HorizontalAlignment="Left" Margin="94,348,0,0" VerticalAlignment="Top" Width="120px" Height="30px" Click="OcenaAplikacije_Click" />
         <TextBlock HorizontalAlignment="Left" Margin="94,410,0,0" TextWrapping="Wrap" Text="Da li želite pomoć u radu sa aplikacijum: " VerticalAlignment="Top" FontSize="15px"/>
         <CheckBox Click="cbPomoc_Click" x:Name="cbPomoc" Content="" HorizontalAlignment="Left" Margin="369,415,0,0" VerticalAlignment="Top"/>

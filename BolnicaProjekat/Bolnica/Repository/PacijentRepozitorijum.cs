@@ -112,6 +112,7 @@ namespace Repozitorijum
             pacijent.DatumRodjenja = noviPodaci.DatumRodjenja;
             pacijent.Email = noviPodaci.Email;
             pacijent.AdresaStanovanja = noviPodaci.AdresaStanovanja;
+            pacijent.PacijentGost = false;
             SaveData();
         }
 

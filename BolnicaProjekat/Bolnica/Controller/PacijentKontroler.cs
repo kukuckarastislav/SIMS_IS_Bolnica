@@ -52,6 +52,10 @@ namespace Kontroler
         {
             return pacijentServis.GetPacijentiDTO();
         }
+        public ObservableCollection<PacijentDTO> GetGostiPacijentiDto()
+        {
+            return pacijentServis.GetGostujuciPacijentiDto();
+        }
 
         public void SaveData()
         {

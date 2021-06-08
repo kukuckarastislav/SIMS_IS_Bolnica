@@ -53,3 +53,14 @@ D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\S
 D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CopyComplete
 D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.dll
 D:\FTN\6. semestar\SIMS - Specifikacija i modeliranje softvera\GitHub\Projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.pdb
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\bin\Debug\MyCalendar.Calendar.dll
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\bin\Debug\MyCalendar.Calendar.pdb
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar_MarkupCompile.cache
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar_MarkupCompile.lref
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.g.resources
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CoreCompileInputs.cache
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CopyComplete
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.dll
+C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.pdb

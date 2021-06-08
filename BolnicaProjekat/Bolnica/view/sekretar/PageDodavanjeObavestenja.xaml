@@ -4,21 +4,28 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      xmlns:viewmodel="clr-namespace:Bolnica.viewmodel"
+      xmlns:data="clr-namespace:DTO"
       mc:Ignorable="d" 
       d:DesignHeight="708" d:DesignWidth="874"
       Title="PageDodavanjeObavestenja">
 
+    <Page.DataContext>
+        <viewmodel:DodavanjeObavestenjaViewModel/>
+    </Page.DataContext>
     <Grid Background="#ccffbd">
-        <Button Content="Dodaj obaveštenje" HorizontalAlignment="Left" Margin="399,590,0,0" VerticalAlignment="Top" Width="150px" Height="40px" Background="White" Click="DodajObavestenje_Click"/>
+        <Button Content="Dodaj obaveštenje" HorizontalAlignment="Left" Margin="399,590,0,0" VerticalAlignment="Top" Width="150px" Height="40px" Background="White" Command="{Binding AddObavestenjeCommand}"/>
         <TextBlock HorizontalAlignment="Left" Margin="94,80,0,0" TextWrapping="Wrap" Text="Naslov obaveštenja:" VerticalAlignment="Top" FontSize="20px"/>
         <TextBlock HorizontalAlignment="Left" Margin="94,180,0,0" TextWrapping="Wrap" Text="Tekst obaveštenja:" VerticalAlignment="Top" FontSize="20px"/>
-        <TextBox Name="tbNaslov" HorizontalAlignment="Left" Height="23" Margin="283,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
-        <TextBox Name="tbPoruka" HorizontalAlignment="Left" Height="320" Margin="94,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="455"  
+        <TextBox Name="tbNaslov" HorizontalAlignment="Left" Height="23" Margin="283,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding CurrentObavestenje.Naslov, Mode=TwoWay}"/>
+        <TextBox Name="tbPoruka" HorizontalAlignment="Left" Height="302" Margin="94,222,0,0" TextWrapping="Wrap" Text="{Binding CurrentObavestenje.Poruka, Mode=TwoWay}" VerticalAlignment="Top" Width="455"  
                  AcceptsReturn="True"
                 VerticalScrollBarVisibility="Visible" RenderTransformOrigin="1.707,3.409"
 
                  />
         <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White" Click="btnPomoc_Click"/>
+        <TextBlock x:Name="tbErrNaslov" HorizontalAlignment="Left" Margin="283,111,0,0" TextWrapping="Wrap" Text="{Binding CurrentObavestenje.ValidationErrors[Naslov]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrPoruka" HorizontalAlignment="Left" Margin="335,529,0,0" TextWrapping="Wrap" Text="{Binding CurrentObavestenje.ValidationErrors[Poruka]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
 
     </Grid>
 </Page>

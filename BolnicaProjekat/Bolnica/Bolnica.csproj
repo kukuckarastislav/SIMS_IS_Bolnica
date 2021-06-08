@@ -127,6 +127,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -156,8 +171,10 @@
     <Compile Include="Controller\TerminProstorijeKontroler.cs" />
     <Compile Include="Controller\UpravnikKontroler.cs" />
     <Compile Include="Controller\ZdravstvenaUslugaKontroler.cs" />
+    <Compile Include="DTO\DodavanjeObavestenjaDTO.cs" />
     <Compile Include="DTO\FeedbackDTO.cs" />
     <Compile Include="DTO\HospitalizacijaDTO.cs" />
+    <Compile Include="DTO\IzvestajDto.cs" />
     <Compile Include="DTO\LekarRevizijaLekaDTO.cs" />
     <Compile Include="DTO\ObavestenjeDTO.cs" />
     <Compile Include="DTO\OcenaDTO.cs" />
@@ -262,6 +279,8 @@
     <Compile Include="Service\TerminProstorijeServis.cs" />
     <Compile Include="Service\ZdravstvenaUslugaServis.cs" />
     <Compile Include="Service\UpravnikServis.cs" />
+    <Compile Include="Template\KreatorIzvestaja.cs" />
+    <Compile Include="Template\KreatorIzvestajaProstorije.cs" />
     <Compile Include="Threads\MedicationConsumption.cs" />
     <Compile Include="Threads\UserSuspension.cs" />
     <Compile Include="utils\BindableBase.cs" />
@@ -270,6 +289,7 @@
     <Compile Include="utils\ValidationBase.cs" />
     <Compile Include="utils\ValidationErrors.cs" />
     <Compile Include="utils\Validator.cs" />
+    <Compile Include="viewmodel\DodavanjeObavestenjaViewModel.cs" />
     <Compile Include="viewmodel\RegistracijaLekaraViewModel.cs" />
     <Compile Include="viewmodel\RegistracijaPacijentaViewModel.cs" />
     <Compile Include="view\lekar\0_pocetak\GlavniMeni.xaml.cs">
@@ -407,6 +427,9 @@
     <Compile Include="view\sekretar\PageDodavanjeObavestenja.xaml.cs">
       <DependentUpon>PageDodavanjeObavestenja.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\PageGostujuciKorisnici.xaml.cs">
+      <DependentUpon>PageGostujuciKorisnici.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\PageIzmenaPacijenta.xaml.cs">
       <DependentUpon>PageIzmenaPacijenta.xaml</DependentUpon>
     </Compile>
@@ -449,6 +472,9 @@
     <Compile Include="view\sekretar\registracija\PageRegistracijaPacijentaxaml.xaml.cs">
       <DependentUpon>PageRegistracijaPacijentaxaml.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\registracija\PageRegistrujGosta.xaml.cs">
+      <DependentUpon>PageRegistrujGosta.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\registracija\RegistracijaLekara.xaml.cs">
       <DependentUpon>RegistracijaLekara.xaml</DependentUpon>
     </Compile>
@@ -466,6 +492,45 @@
     </Compile>
     <Compile Include="view\sekretar\WindowZakazivanjeTermina.xaml.cs">
       <DependentUpon>WindowZakazivanjeTermina.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\PageZT1.xaml.cs">
+      <DependentUpon>PageZT1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\PageZT2.xaml.cs">
+      <DependentUpon>PageZT2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\PageZT3.xaml.cs">
+      <DependentUpon>PageZT3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardGosti.xaml.cs">
+      <DependentUpon>WizardGosti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardIzvestaj.xaml.cs">
+      <DependentUpon>WizardIzvestaj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardKraj.xaml.cs">
+      <DependentUpon>WizardKraj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardLekari.xaml.cs">
+      <DependentUpon>WizardLekari.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardObavestenja.xaml.cs">
+      <DependentUpon>WizardObavestenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardPacijenti.xaml.cs">
+      <DependentUpon>WizardPacijenti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardPocetna.xaml.cs">
+      <DependentUpon>WizardPocetna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardRL.xaml.cs">
+      <DependentUpon>WizardRL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardRP.xaml.cs">
+      <DependentUpon>WizardRP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardTermini.xaml.cs">
+      <DependentUpon>WizardTermini.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\ZakazaniTermini.xaml.cs">
       <DependentUpon>ZakazaniTermini.xaml</DependentUpon>
@@ -767,6 +832,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\PageGostujuciKorisnici.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\PageIzmenaPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -823,6 +892,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\registracija\PageRegistrujGosta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\registracija\RegistracijaLekara.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -844,6 +917,58 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\WindowZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\PageZT1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\PageZT2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\PageZT3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardGosti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardIzvestaj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardKraj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardLekari.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardPacijenti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardPocetna.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardRL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardRP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardTermini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

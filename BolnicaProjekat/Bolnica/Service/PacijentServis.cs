@@ -85,11 +85,26 @@ namespace Servis
 
             return dtoPacijenti;
         }
+        public ObservableCollection<PacijentDTO> GetGostujuciPacijentiDto()
+        {
+
+            ObservableCollection<PacijentDTO> dtoPacijenti = GetPacijentiDTO();
+            ObservableCollection<PacijentDTO> gostujuciPacijenti = new ObservableCollection<PacijentDTO>();
+            foreach (PacijentDTO pacijent in dtoPacijenti)
+            {
+                if(pacijent.Gost)
+                    gostujuciPacijenti.Add(pacijent);
+            }
+
+            return gostujuciPacijenti;
+        }
 
         public PacijentDTO KonvertujPacijentaUPacijentDTO(Pacijent pacijent)
         {
-            return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg, pacijent.AdresaStanovanja,
-                pacijent.Drzavljanstvo, pacijent.Pol, pacijent.DatumRodjenja, pacijent.KorisnickoIme);
+            PacijentDTO dto = new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg,pacijent.AdresaStanovanja,
+                pacijent.Drzavljanstvo,pacijent.Pol,pacijent.DatumRodjenja,pacijent.KorisnickoIme);
+            dto.Gost = pacijent.PacijentGost;
+            return dto;
         }
 
         public List<string> GetAlergeniPacijenta(int id)

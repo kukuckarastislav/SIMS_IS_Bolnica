@@ -1,0 +1,127 @@
+﻿<Page x:Class="Bolnica.view.sekretar.wizard.PageZT1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar.wizard"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="PageZT1">
+
+    <Grid Background="#ccffbd">
+        <Button Content="Zakazi termin" HorizontalAlignment="Left" Width="100px" Height="40px" VerticalAlignment="Top" Margin="650,612,0,0" Background="White" />
+        <ComboBox HorizontalAlignment="Left" Margin="221,129,0,0" VerticalAlignment="Top" Width="147" RenderTransformOrigin="0.582,0.054" Name="cmbLekari" />
+        <ComboBox HorizontalAlignment="Left" Margin="221,256,0,0" VerticalAlignment="Top" Width="147" Name="cmbPacijenti"/>
+        <TextBlock HorizontalAlignment="Left" Margin="77,125,0,0" TextWrapping="Wrap" Text="Odabir lekara:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,252,0,0" TextWrapping="Wrap" Text="Odabir pacijenta:" VerticalAlignment="Top" RenderTransformOrigin="0.561,-3.108" FontSize="20px"/>
+        <DatePicker HorizontalAlignment="Left" Margin="221,394,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.539,-0.043" Name="datumTermina"/>
+        <ComboBox Name="cbPocetakSati" HorizontalAlignment="Left" Margin="221,550,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.464,0.804" BorderBrush="White">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem  Name="cbi0">00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi1">01</ComboBoxItem>
+            <ComboBoxItem  Name="cbi2">02</ComboBoxItem>
+            <ComboBoxItem  Name="cbi3">03</ComboBoxItem>
+            <ComboBoxItem  Name="cbi4">04</ComboBoxItem>
+            <ComboBoxItem  Name="cbi5">05</ComboBoxItem>
+            <ComboBoxItem  Name="cbi6">06</ComboBoxItem>
+            <ComboBoxItem  Name="cbi7">07</ComboBoxItem>
+            <ComboBoxItem  Name="cbi8">08</ComboBoxItem>
+            <ComboBoxItem  Name="cbi9">09</ComboBoxItem>
+            <ComboBoxItem  Name="cbi10">10</ComboBoxItem>
+            <ComboBoxItem  Name="cbi11">11</ComboBoxItem>
+            <ComboBoxItem  Name="cbi12">12</ComboBoxItem>
+            <ComboBoxItem  Name="cbi13">13</ComboBoxItem>
+            <ComboBoxItem  Name="cbi14">14</ComboBoxItem>
+            <ComboBoxItem  Name="cbi15">15</ComboBoxItem>
+            <ComboBoxItem  Name="cbi16">16</ComboBoxItem>
+            <ComboBoxItem  Name="cbi17">17</ComboBoxItem>
+            <ComboBoxItem  Name="cbi18">18</ComboBoxItem>
+            <ComboBoxItem  Name="cbi19">19</ComboBoxItem>
+            <ComboBoxItem  Name="cbi20">20</ComboBoxItem>
+            <ComboBoxItem  Name="cbi21">21</ComboBoxItem>
+            <ComboBoxItem  Name="cbi22">22</ComboBoxItem>
+            <ComboBoxItem  Name="cbi23">23</ComboBoxItem>
+        </ComboBox>
+        <ComboBox Name="cbKrajSati" HorizontalAlignment="Left" Margin="221,594,0,0" VerticalAlignment="Top" Width="56" BorderBrush="White">
+            <ComboBoxItem  Name="cb2i0">00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i1">01</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i2">02</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i3">03</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i4">04</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i5">05</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i6">06</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i7">07</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i8">08</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i9">09</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i10">10</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i11">11</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i12">12</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i13">13</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i14">14</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i15">15</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i16">16</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i17">17</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i18">18</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i19">19</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i20">20</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i21">21</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i22">22</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i23">23</ComboBoxItem>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="68,546,0,0" TextWrapping="Wrap" Text="Vreme pocetka:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="57,590,0,0" TextWrapping="Wrap" Text="Vreme završetka:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="67,389,0,0" TextWrapping="Wrap" Text="Datum termina:" VerticalAlignment="Top" FontSize="20px"/>
+        <RadioButton Name="rbPregled" Content="Pregled" HorizontalAlignment="Left" Margin="221,323,0,0" VerticalAlignment="Top" FontSize="15px"/>
+        <RadioButton Name="rbOperacija" Content="Operacija" HorizontalAlignment="Left" Margin="221,347,0,0" VerticalAlignment="Top" FontSize="15px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="95,326,0,0" TextWrapping="Wrap" Text="Tip termina:" VerticalAlignment="Top" FontSize="20px"/>
+        <CheckBox Content="Hitno zakazivanje" HorizontalAlignment="Left" Margin="221,77,0,0" VerticalAlignment="Top" Name="cbHitnoZakazivanje" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <ComboBox x:Name="cbPocetaMinuti" HorizontalAlignment="Left" Margin="289,550,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.464,0.804" BorderBrush="White">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <ComboBoxItem  Name="cbi00">00</ComboBoxItem>
+            <ComboBoxItem  Name="cbi30">30</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="cbKrajMinuti" HorizontalAlignment="Left" Margin="289,594,0,0" VerticalAlignment="Top" Width="56" BorderBrush="White">
+            <ComboBoxItem  Name="cb2i00">00</ComboBoxItem>
+            <ComboBoxItem  Name="cb2i30">30</ComboBoxItem>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="235,523,0,0" TextWrapping="Wrap" Text="Sati" VerticalAlignment="Top" FontSize="17px" RenderTransformOrigin="0.808,0.549"/>
+        <TextBlock HorizontalAlignment="Left" Margin="296,523,0,0" TextWrapping="Wrap" Text="Minuti" VerticalAlignment="Top" FontSize="17px"/>
+        <TextBlock x:Name="tbErrLekar" HorizontalAlignment="Left" Margin="221,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrPacijent" HorizontalAlignment="Left" Margin="221,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrDatumTermina" HorizontalAlignment="Left" Margin="221,422,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrTermin" HorizontalAlignment="Left" Margin="221,630,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock HorizontalAlignment="Left" Margin="45,448,0,0" TextWrapping="Wrap" Text="Odabir prostorije:" VerticalAlignment="Top" FontSize="20px"/>
+        <ComboBox HorizontalAlignment="Left" Margin="221,452,0,0" VerticalAlignment="Top" Width="147" RenderTransformOrigin="0.582,0.054" x:Name="cmbProstorije" BorderBrush="White">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+        </ComboBox>
+        <TextBlock x:Name="tbErrProstorije" HorizontalAlignment="Left" Margin="221,480,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
+        <TextBlock HorizontalAlignment="Left" Margin="20,189,0,0" TextWrapping="Wrap" Text="Radno vreme lekara:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock Name="tbRadnoVreme" HorizontalAlignment="Left" Margin="221,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="20px"/>
+        <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
+        <Button Background="white" Content="Sledeca stranica" HorizontalAlignment="Left" Margin="744,503,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnSledeca" Click="btnSledeca_Click"/>
+        <Button Background="white" Content="Zatvori wizard" HorizontalAlignment="Left" Margin="610,503,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnZatvori" Click="btnZatvori_Click"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="318" Margin="505,156,0,0" Stroke="Black" VerticalAlignment="Top" Width="336"/>
+        <TextBlock HorizontalAlignment="Left" Margin="519,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="274" Width="308"><Run Text=" Trenutno se nalazimo na stranici Zaka"/><Run Text="ži termin. "/><LineBreak/><Run Text="Ovde možete izršiti zakazivanje pregleda i operacija."/><LineBreak/><Run Text="Da bi ste to izvršili potrebno je da popunite sve tražene podatke, odnosno odaberete lekara, odaberete pacijenta, odaberete tip termina, datum za koji se termin zakazuje, odaberete prostoriju u kojij se termin zakazuje, kao i vreme početka i završetka termina."/><LineBreak/><Run Text="Ukoliko su svi podaci uneti ispravno, klikom na dugme Zakaži termin možete izvršiti zakazivanje ternima."/><LineBreak/><Run Text="U slučaju da podaci nisu ispravno uneti ili da je lekar zauzet, ili je prostorija zauzeta za određeni period"/><LineBreak/><Run Text="ispisaće vam se poruka greške. Kad ispravite greške onda možete izvršiti zakazivanje termina."/><LineBreak/><Run/><LineBreak/><Run Text="Na sledećoj stranici videćete primer zakazivanja termina."/></TextBlock>
+        <Button Background="white" Content="Prethodna stranica" HorizontalAlignment="Left" Margin="474,503,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnPrethodna" Click="btnPrethodna_Click"/>
+
+    </Grid>
+</Page>

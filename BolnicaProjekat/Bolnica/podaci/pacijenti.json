@@ -129,7 +129,7 @@
     "PacijentGost": false,
     "Hospitalizovan": false,
     "SpamUser": false,
-    "LogickiObrisan": false,
+    "LogickiObrisan": true,
     "KorisnickoIme": "jokajovanovic",
     "Sifra": "sifra",
     "Ime": "Jovana",
@@ -141,5 +141,37 @@
     "Jmbg": "1255463443241",
     "Drzavljanstvo": "ima",
     "AdresaStanovanja": "adsesda"
+  },
+  {
+    "MedicinskiKarton": {
+      "IdPacijent": 6,
+      "Osiguran": false,
+      "ZdravstvenaUsluga": null,
+      "Terapija": {
+        "Id": 0,
+        "Naziv": null,
+        "DatumPocetka": "0001-01-01T00:00:00",
+        "DatumZavrsetka": "0001-01-01T00:00:00",
+        "Anamneza": null
+      },
+      "Alergeni": []
+    },
+    "Ocene": [],
+    "Id": 6,
+    "PacijentGost": true,
+    "Hospitalizovan": false,
+    "SpamUser": false,
+    "LogickiObrisan": true,
+    "KorisnickoIme": "1255463443241",
+    "Sifra": "1255463443241",
+    "Ime": "Jovana",
+    "Prezime": "Petrovic",
+    "Pol": 1,
+    "Email": "jovana@gmail.com",
+    "Telefon": "523431432",
+    "DatumRodjenja": "2021-06-07T00:00:00",
+    "Jmbg": "1255463443241",
+    "Drzavljanstvo": "ima",
+    "AdresaStanovanja": "adresa nova"
   }
 ]

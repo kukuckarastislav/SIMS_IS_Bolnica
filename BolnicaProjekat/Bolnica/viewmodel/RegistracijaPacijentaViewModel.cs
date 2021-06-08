@@ -36,6 +36,11 @@ namespace Bolnica.viewmodel
             CurrentPacijent.Validate();
             if (CurrentPacijent.IsValid)
             {
+                if(CurrentPacijent.PacijentGost)
+                {
+                    CurrentPacijent.KorisnickoIme = CurrentPacijent.Jmbg;
+                    CurrentPacijent.Sifra = CurrentPacijent.Sifra;
+                }
                 PacijentKontroler kontroler = new PacijentKontroler();
                 kontroler.DodajPacijenta(CurrentPacijent);
                 MessageBox.Show("Pacijent je uspešno dodat.");

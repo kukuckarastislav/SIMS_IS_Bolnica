@@ -20,12 +20,16 @@
         <TextBlock HorizontalAlignment="Left" Margin="174,252,0,0" TextWrapping="Wrap" Text="JMBG:" VerticalAlignment="Top" FontSize="20px" />
         <TextBlock HorizontalAlignment="Left" Margin="196,308,0,0" TextWrapping="Wrap" Text="Pol:" VerticalAlignment="Top" FontSize="20px" RenderTransformOrigin="0.465,-0.159"/>
         <TextBlock HorizontalAlignment="Left" Margin="159,373,0,0" TextWrapping="Wrap" Text="Telefon:" VerticalAlignment="Top" FontSize="20px" RenderTransformOrigin="0.524,1.624"/>
-        <CheckBox Content="Hitna registracija" HorizontalAlignment="Left" Margin="244,89,0,0" VerticalAlignment="Top" IsChecked="{Binding CurrentPacijent.PacijentGost, Mode=TwoWay}"/>
+        <CheckBox Content="Hitna registracija" HorizontalAlignment="Left" Margin="244,89,0,0" VerticalAlignment="Top" IsChecked="{Binding CurrentPacijent.PacijentGost, Mode=TwoWay}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" >
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.4" ScaleY="1.4" />
+            </CheckBox.LayoutTransform>
+        </CheckBox>
         <TextBlock HorizontalAlignment="Left" Margin="62,444,0,0" TextWrapping="Wrap" Text="Adresa stanovanja:" VerticalAlignment="Top" FontSize="20px"/>
         <TextBox Text="{Binding CurrentPacijent.Ime, Mode=TwoWay}" Name="inputIme" HorizontalAlignment="Left" Height="23" Margin="243,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="inputPrezime" HorizontalAlignment="Left" Height="23" Margin="242,195,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.Prezime, Mode=TwoWay}" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.504,0.345"/>
         <TextBox Name="inputJmbg" HorizontalAlignment="Left" Height="23" Margin="242,256,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.Jmbg, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="inputTelefon" HorizontalAlignment="Left" Height="30" Margin="242,376,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.Telefon, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="inputTelefon" HorizontalAlignment="Left" Height="23" Margin="242,376,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.Telefon, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
         <TextBox Name="inputAdresa" HorizontalAlignment="Left" Height="23" Margin="243,448,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.AdresaStanovanja, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="492,312,0,0" TextWrapping="Wrap" Text="Korisničko ime:" VerticalAlignment="Top" FontSize="20px"/>
         <TextBlock HorizontalAlignment="Left" Margin="554,388,0,0" TextWrapping="Wrap" Text="Lozinka:" VerticalAlignment="Top" FontSize="20px"/>
@@ -43,7 +47,7 @@
         <TextBlock Name="tbErrIme" HorizontalAlignment="Left" Margin="244,165,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[Ime]}" VerticalAlignment="Top" FontSize="15px" Width="214" Foreground="DarkRed" />
         <TextBlock Name="tbErrPrezime" HorizontalAlignment="Left" Margin="242,223,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[Prezime]}" VerticalAlignment="Top" FontSize="15px" Width="216" Foreground="DarkRed" />
         <TextBlock Name="tbErrJMBG" HorizontalAlignment="Left" Margin="242,284,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[Jmbg]}" VerticalAlignment="Top" FontSize="15px" Width="216" Foreground="DarkRed" />
-        <TextBlock Name="tbErrTelefon" HorizontalAlignment="Left" Margin="242,411,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[Telefon]}" VerticalAlignment="Top" FontSize="15px" Width="216" Foreground="DarkRed" />
+        <TextBlock Name="tbErrTelefon" HorizontalAlignment="Left" Margin="242,404,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[Telefon]}" VerticalAlignment="Top" FontSize="15px" Width="216" Foreground="DarkRed" />
         <TextBlock Name="tbErrAdresa" HorizontalAlignment="Left" Margin="242,476,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[AdresaStanovanja]}" VerticalAlignment="Top" FontSize="15px" Width="216" Foreground="DarkRed" />
         <TextBlock x:Name="tbErrKorisnickoIme" HorizontalAlignment="Left" Margin="644,340,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[KorisnickoIme]}" VerticalAlignment="Top" FontSize="15px" Width="173" Foreground="DarkRed" />
         <TextBlock x:Name="tbErrEmail" HorizontalAlignment="Left" Margin="644,165,0,0" TextWrapping="Wrap" Text="{Binding CurrentPacijent.ValidationErrors[Email]}" VerticalAlignment="Top" FontSize="15px" Width="173" Foreground="DarkRed" />

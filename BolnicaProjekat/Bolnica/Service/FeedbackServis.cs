@@ -22,7 +22,7 @@ namespace Servis
         {
             vrsteKorisnika = "PACIJENT";
             int id = repozitorijum.getNewId();
-            Feedback NoviFeedback = new Feedback(id,text,idPacijenta,vrsteKorisnika);
+            Feedback NoviFeedback = new Feedback(id,text,idPacijenta,vrsteKorisnika,DateTime.Now);
             repozitorijum.DodajFeedback(NoviFeedback);
         }
 
@@ -30,7 +30,7 @@ namespace Servis
         {
             vrsteKorisnika = "LEKAR";
             int id = repozitorijum.getNewId();
-            Feedback NoviFeedback = new Feedback(id, text, idLekara, vrsteKorisnika);
+            Feedback NoviFeedback = new Feedback(id, text, idLekara, vrsteKorisnika, DateTime.Now);
             repozitorijum.DodajFeedback(NoviFeedback);
         }
 
@@ -38,7 +38,7 @@ namespace Servis
         {
             vrsteKorisnika = "SEKRETAR";
             int id = repozitorijum.getNewId();
-            Feedback NoviFeedback = new Feedback(id, text, idSekretar, vrsteKorisnika);
+            Feedback NoviFeedback = new Feedback(id, text, idSekretar, vrsteKorisnika, DateTime.Now);
             repozitorijum.DodajFeedback(NoviFeedback);
         }
 
@@ -46,7 +46,7 @@ namespace Servis
         {
             vrsteKorisnika = "UPRAVNIK";
             int id = repozitorijum.getNewId();
-            Feedback NoviFeedback = new Feedback(id, text, idUpravik, vrsteKorisnika);
+            Feedback NoviFeedback = new Feedback(id, text, idUpravik, vrsteKorisnika, DateTime.Now);
             repozitorijum.DodajFeedback(NoviFeedback);
         }
 

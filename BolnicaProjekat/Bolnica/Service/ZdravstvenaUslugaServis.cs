@@ -8,13 +8,16 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Media;
 using Bolnica.Repository;
+using Bolnica.Template;
 using DTO;
 using Model;
 using Org.BouncyCastle.Security;
 using Repository;
 using Repozitorijum;
+
 
 namespace Servis
 {
@@ -558,6 +561,15 @@ namespace Servis
             }
 
             return usluga;
+        }
+
+        public IzvestajDto procenatZauzetosti(int idProstorije,Termin termin)
+        {
+            
+            List<ZdravstvenaUsluga> terminiProstorije = GetSviTerminiProstorije(idProstorije);
+            KreatorIzvestajaProstorije kreatorIzvestaja = new KreatorIzvestajaProstorije(terminiProstorije, termin);
+
+            return kreatorIzvestaja.KreirajIzvestaj();
         }
 
 

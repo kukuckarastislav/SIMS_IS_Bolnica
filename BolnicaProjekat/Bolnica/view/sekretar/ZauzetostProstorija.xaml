@@ -4,21 +4,34 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.sekretar"
+      xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       mc:Ignorable="d" 
+      
       d:DesignHeight="708" d:DesignWidth="874"
       Title="ZauzetostProstorija">
 
     <Grid Background="#ccffbd">
+
+
+
         <TextBlock FontSize="35px" HorizontalAlignment="Left" Margin="193,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="84" Width="477"><Run Text="Izveštaj o zauz"/><Run Text="etosti prostorija"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="64,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Odabir prostorije"/>
         <TextBlock HorizontalAlignment="Left" Margin="64,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Odabir datuma"/>
-        <ComboBox HorizontalAlignment="Left" Margin="251,136,0,0" VerticalAlignment="Top" Width="103" Height="35"/>
+        <ComboBox HorizontalAlignment="Left" Margin="251,136,0,0" VerticalAlignment="Top" Width="103" Height="27" Name="cmbProstorije"/>
         <TextBlock HorizontalAlignment="Left" Margin="91,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Od:"/>
         <TextBlock HorizontalAlignment="Left" Margin="91,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Do:"/>
-        <DatePicker HorizontalAlignment="Left" Margin="144,250,0,0" VerticalAlignment="Top" Height="35" Width="118"/>
-        <DatePicker HorizontalAlignment="Left" Margin="144,301,0,0" VerticalAlignment="Top"/>
-        <Button Background="White" Content="Kreiraj izveštaj" HorizontalAlignment="Left" Width="100px" Height="40px" VerticalAlignment="Top" Margin="64,398,0,0" />
+        <DatePicker HorizontalAlignment="Left" Margin="144,250,0,0" VerticalAlignment="Top" Height="35" Width="118" Name="inputDatumPocetka"/>
+        <DatePicker HorizontalAlignment="Left" Margin="144,301,0,0" VerticalAlignment="Top" Width="118" Name="inputDatumKraja"/>
+        <Button Background="White" Content="Kreiraj izveštaj" HorizontalAlignment="Left" Width="100px" Height="40px" VerticalAlignment="Top" Margin="64,398,0,0" Name="btnKreirajIzvestaj" Click="btnKreirajIzvestaj_Click"/>
         <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="215" Margin="528,200,0,0" Stroke="Black" VerticalAlignment="Top" Width="272" Name="pozadina"/>
+        <lvc:PieChart LegendLocation="Bottom" Hoverable="False" Name="pieChart" Margin="528,200,47.6,265">
 
+        </lvc:PieChart>
+        <TextBlock HorizontalAlignment="Left" Margin="528,443,0,0" TextWrapping="Wrap" Text="Datum najveće zauzetosti:" VerticalAlignment="Top" Width="190" FontSize="15px" Name="tbNaslov" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Left" Margin="705,443,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="96" FontSize="15px" Name="tbDatum"/>
+        <TextBlock x:Name="tbErrDatum" HorizontalAlignment="Left" Margin="144,329,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="173" Foreground="DarkRed" />
+        <TextBlock x:Name="tbErrProstorije" HorizontalAlignment="Left" Margin="251,168,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="15px" Width="173" Foreground="DarkRed" />
     </Grid>
 </Page>

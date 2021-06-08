@@ -8,7 +8,7 @@
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 1,
+    "IdProstorije": 2,
     "Obavljena": false,
     "RazlogZakazivanja": "yhdjhdhk",
     "RezultatUsluge": " ovo treba biti anamnezaa"
@@ -50,7 +50,7 @@
     "IdLekara": 2,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 1,
+    "IdProstorije": 2,
     "Obavljena": false,
     "RazlogZakazivanja": "dasd",
     "RezultatUsluge": " "
@@ -155,8 +155,8 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-11T10:00:00",
-      "Kraj": "2021-06-11T14:00:00"
+      "Pocetak": "2021-05-11T10:00:00",
+      "Kraj": "2021-05-11T14:00:00"
     },
     "Id": 12,
     "IdLekara": 10,
@@ -169,14 +169,84 @@
   },
   {
     "Termin": {
+      "Pocetak": "2021-06-11T10:00:00",
+      "Kraj": "2021-06-11T11:30:00"
+    },
+    "Id": 13,
+    "IdLekara": 9,
+    "IdPacijenta": 1,
+    "TipUsluge": 0,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
       "Pocetak": "2021-06-11T11:30:00",
       "Kraj": "2021-06-11T13:00:00"
     },
-    "Id": 13,
+    "Id": 14,
     "IdLekara": 10,
     "IdPacijenta": 2,
     "TipUsluge": 0,
-    "IdProstorije": 2,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-08T10:00:00",
+      "Kraj": "2021-06-08T14:00:00"
+    },
+    "Id": 15,
+    "IdLekara": 1,
+    "IdPacijenta": 4,
+    "TipUsluge": 0,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-09T10:00:00",
+      "Kraj": "2021-06-09T14:00:00"
+    },
+    "Id": 16,
+    "IdLekara": 1,
+    "IdPacijenta": 4,
+    "TipUsluge": 0,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-10T10:00:00",
+      "Kraj": "2021-06-10T14:00:00"
+    },
+    "Id": 17,
+    "IdLekara": 1,
+    "IdPacijenta": 4,
+    "TipUsluge": 0,
+    "IdProstorije": 1,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-08T09:00:00",
+      "Kraj": "2021-06-08T09:30:00"
+    },
+    "Id": 18,
+    "IdLekara": 1,
+    "IdPacijenta": 2,
+    "TipUsluge": 1,
+    "IdProstorije": 1,
     "Obavljena": false,
     "RazlogZakazivanja": "",
     "RezultatUsluge": ""

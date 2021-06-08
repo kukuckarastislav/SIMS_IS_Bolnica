@@ -37,7 +37,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="515,230,0,0" TextWrapping="Wrap" Text="Dodaj slobodan dan" VerticalAlignment="Top" FontSize="20px"/>
         <DatePicker HorizontalAlignment="Left" Margin="515,289,0,0" VerticalAlignment="Top" Name="datumSlobodnogDana" RenderTransformOrigin="0.474,-2.409" Width="122"/>
         <Button Content="Dodaj dan" HorizontalAlignment="Left" Margin="654,284,0,0" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="-1.536,0.24" Click="DodajSlobodanDan_Click" Background="White"/>
-        <ComboBox HorizontalAlignment="Left" Margin="246,102,0,0" VerticalAlignment="Top" Width="120" Name="cmbPocetakRadnogVremena" Background="White" BorderBrush="White" Foreground="Black">
+        <ComboBox HorizontalAlignment="Left" Margin="246,156,0,0" VerticalAlignment="Top" Width="120" Name="cmbPocetakRadnogVremena" Background="White" BorderBrush="White" Foreground="Black">
             <ComboBoxItem  Name="cbi0">00:00</ComboBoxItem>
             <ComboBoxItem  Name="cbi1">01:00</ComboBoxItem>
             <ComboBoxItem  Name="cbi2">02:00</ComboBoxItem>
@@ -63,7 +63,7 @@
             <ComboBoxItem  Name="cbi22">22:00</ComboBoxItem>
             <ComboBoxItem  Name="cbi23">23:00</ComboBoxItem>
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="517,102,0,0" VerticalAlignment="Top" Width="120" Name="cmbKrajRadnogVremena" BorderBrush="White">
+        <ComboBox HorizontalAlignment="Left" Margin="517,156,0,0" VerticalAlignment="Top" Width="120" Name="cmbKrajRadnogVremena" BorderBrush="White">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -95,9 +95,10 @@
             <ComboBoxItem  Name="cb2i23">23:00</ComboBoxItem>
             <ComboBoxItem  Name="cb2i24">24:00</ComboBoxItem>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="140,70,0,0" TextWrapping="Wrap" Text="Pocetak radnog vremena:" VerticalAlignment="Top" FontSize="20px"/>
-        <TextBlock HorizontalAlignment="Left" Margin="433,70,0,0" TextWrapping="Wrap" Text="Kraj radnog vremena:" VerticalAlignment="Top" FontSize="20px"/>
-        <Button Content="Imeni radno vreme" HorizontalAlignment="Left" Margin="654,94,0,0" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="-1.536,0.24" Click="IzmeniRadnoVreme_Click" Background="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="140,124,0,0" TextWrapping="Wrap" Text="Pocetak radnog vremena:" VerticalAlignment="Top" FontSize="20px"/>
+        <TextBlock HorizontalAlignment="Left" Margin="433,124,0,0" TextWrapping="Wrap" Text="Kraj radnog vremena:" VerticalAlignment="Top" FontSize="20px"/>
+        <Button Content="Imeni radno vreme" HorizontalAlignment="Left" Margin="654,148,0,0" VerticalAlignment="Top" Width="120" Height="30" RenderTransformOrigin="-1.536,0.24" Click="IzmeniRadnoVreme_Click" Background="White"/>
+        <Button Click="btnPomoc_Click" x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
 
     </Grid>
 </Page>

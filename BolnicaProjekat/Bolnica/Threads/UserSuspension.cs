@@ -11,14 +11,14 @@ namespace Threads
     {
         private List<IObserver> _observers;
 
-        private KorisnickaAktivnostRepozitorijum _repository;
+        private AktivnostPacijentaRepozitorijum _repository;
         private readonly TimeSpan SuspensionPeriod = new TimeSpan(14, 0, 0, 0, 0);
         public int Patientid { get; set; }
 
         public UserSuspension()
         {
             _observers = new List<IObserver>();
-            _repository = KorisnickaAktivnostRepozitorijum.GetInstance;
+            _repository = AktivnostPacijentaRepozitorijum.GetInstance;
         }
 
         public void Notify()

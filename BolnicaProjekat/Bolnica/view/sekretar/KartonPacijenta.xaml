@@ -19,6 +19,7 @@
         </ListView>
         <Button Content="Obrisi alergen" HorizontalAlignment="Left" Margin="260,573,0,0" VerticalAlignment="Top" Width="100" Height="40" Background="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="177,289,0,0" TextWrapping="Wrap" Text="Alergeni" VerticalAlignment="Top"/>
+        <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White" />
 
 
     </Grid>

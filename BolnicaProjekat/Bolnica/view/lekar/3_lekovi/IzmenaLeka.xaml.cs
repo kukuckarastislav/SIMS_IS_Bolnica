@@ -14,13 +14,11 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
 using Kontroler;
+using DTO;
 using System.Collections.ObjectModel;
 
 namespace Bolnica.view.lekar.lekovi
 {
-    /// <summary>
-    /// Interaction logic for IzmenaLeka.xaml
-    /// </summary>
     public partial class IzmenaLeka : Page
     {
 
@@ -29,9 +27,9 @@ namespace Bolnica.view.lekar.lekovi
         public ObservableCollection<string> KolekcijaAlergeni;
         private Lek lek;
         private RevizijaLeka revizija;
-        private Lekar lekar;
+        private LekarDTO lekar;
 
-        public IzmenaLeka(Lek lek, Lekar lekar)
+        public IzmenaLeka(Lek lek, LekarDTO lekar)
         {
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();

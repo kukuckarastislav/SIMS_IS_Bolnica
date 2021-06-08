@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Model;
 using Servis;
+using DTO;
 
 namespace Kontroler
 {
@@ -84,6 +85,11 @@ namespace Kontroler
         {
             // TODO: implement
             return null;
+        }
+
+        public List<ProstorijaDTO> GetProstorijeDTO()
+        {
+            return ProstorijeServisObjekat.GetProstorijeDTO();
         }
 
         public ObservableCollection<Prostorija> getProstorijeTipObservable(TipProstorije tipProstorije)

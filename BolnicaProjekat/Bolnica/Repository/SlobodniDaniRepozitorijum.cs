@@ -141,5 +141,34 @@ namespace Repository
             }
 
         }
+
+        public bool DalJeLekarImaSlobodanDan(int idLekara, DateTime datum)
+        {
+            SlobodniDani dani = GetDaniLekara(idLekara);
+            if(dani!=null)
+            {
+                foreach(DateTime dan in dani.Dani)
+                {
+                    if(dan.Date.Equals(datum.Date))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+
+        public SlobodniDani GetDaniLekara(int idLekara)
+        {
+            foreach (SlobodniDani dani in slobodniDani)
+            {
+                if (dani.LekarId == idLekara)
+                {
+                    return dani;
+                }
+            }
+            return null;
+        }
     }
 }

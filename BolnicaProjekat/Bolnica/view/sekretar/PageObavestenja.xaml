@@ -17,7 +17,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Naslov" Width="120" DisplayMemberBinding="{Binding Naslov}" />
-                    <GridViewColumn Header="Datum" Width="70" DisplayMemberBinding="{Binding DatumObjave}" />
+                    <GridViewColumn Header="Datum" Width="63" DisplayMemberBinding="{Binding DatumObjave}" />
                     <GridViewColumn Header="Poruka" Width="360" DisplayMemberBinding="{Binding Poruka}" />
                 </GridView>
             </ListView.View>
@@ -25,6 +25,7 @@
         <Button Content="Dodaj obavestenje" HorizontalAlignment="Left" Width="150px" Height="40px" Background="White" VerticalAlignment="Top" Margin="106,78,0,0" Click="DodajObavestenje_Click" ToolTip="Dugme za otvaranje dijaloga dodavanja novog obavestenja."/>
         <Button Content="Obrisi obavestenje" HorizontalAlignment="Left" Width="150px" Height="40px" Background="White" VerticalAlignment="Top" Margin="291,78,0,0" Click="ObrisiObavestenje_Click" ToolTip="Dugme za brisanje obavestenja izabranog u tabeli obavestenja."/>
         <TextBlock HorizontalAlignment="Left" Margin="106,195,0,0" TextWrapping="Wrap" Text="Trenutno vazeca obavestenja" VerticalAlignment="Top" FontSize="17px" />
+        <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White" Click="btnPomoc_Click"/>
 
     </Grid>
 </Page>

@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.lekar.lekovi
 {
@@ -28,10 +29,10 @@ namespace Bolnica.view.lekar.lekovi
         public LekoviKontroler lekoviKontrolerObjekat;
         public ObservableCollection<string> KolekcijaAlergeni;
         private Lek lek;
-        private Lekar lekar;
+        private LekarDTO lekar;
         private RevizijaLeka revizija;
 
-        public OdbijanjeLeka(Lek lek, Lekar lekar)
+        public OdbijanjeLeka(Lek lek, LekarDTO lekar)
         {
             InitializeComponent();
             this.lek = lek;

@@ -90,6 +90,19 @@ namespace Bolnica.Repository
             return godisnjiOdmori;
         }
 
+        public List<GodisnjiOdmor> GetOdmoriLekara(int idLekara)
+        {
+            List<GodisnjiOdmor> lista = new List<GodisnjiOdmor>();
+            foreach(GodisnjiOdmor odmor in godisnjiOdmori)
+            {
+                if(odmor.LekarId == idLekara)
+                {
+                    lista.Add(odmor);
+                }
+            }
+            return lista;
+        }
+
         public void obrisiGodisnjiOdmor(int id)
         {
             foreach(GodisnjiOdmor odmor in godisnjiOdmori)
@@ -101,6 +114,19 @@ namespace Bolnica.Repository
                     break;
                 }
             }
+        }
+
+        public bool DalJeLekarNaOdmoru(int idLekara, DateTime dan)
+        {
+            List<GodisnjiOdmor> lista = GetOdmoriLekara(idLekara);
+            foreach(GodisnjiOdmor odmor in lista)
+            {
+                if(odmor.Period.Pocetak.Date<= dan.Date && odmor.Period.Kraj.Date>=dan.Date)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

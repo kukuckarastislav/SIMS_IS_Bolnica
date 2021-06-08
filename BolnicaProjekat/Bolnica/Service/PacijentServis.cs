@@ -95,7 +95,7 @@ namespace Servis
         public PacijentDTO KonvertujPacijentaUPacijentDTO(Pacijent pacijent)
         {
             return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg,pacijent.AdresaStanovanja,
-                pacijent.Drzavljanstvo,pacijent.Pol,pacijent.DatumRodjenja);
+                pacijent.Drzavljanstvo,pacijent.Pol,pacijent.DatumRodjenja,pacijent.KorisnickoIme);
         }
 
         public List<string> GetAlergeniPacijenta(int id)

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Bolnica.Controller;
+using Bolnica.utils;
 using Kontroler;
 using Model;
 
@@ -26,6 +27,7 @@ namespace Bolnica.view.sekretar
         public PageDodavanjeObavestenja()
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
         }
 
         private void DodajObavestenje_Click(object sender, RoutedEventArgs e)
@@ -33,9 +35,20 @@ namespace Bolnica.view.sekretar
             ObavestenjeKontroler kontroler = new ObavestenjeKontroler();
             Obavestenje ret = kontroler.DodajObavestenje(tbNaslov.Text, tbPoruka.Text);
             if (ret == null)
-                MessageBox.Show("Podaci nisu oneti.");
+                MessageBox.Show("Podaci za naslov i tekst obavestenja nisu uneti.");
             else
                 MessageBox.Show("Obavestenje je uspesno dodato.");
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("DodavanjeObavestenja");
+
+            }
         }
     }
 }

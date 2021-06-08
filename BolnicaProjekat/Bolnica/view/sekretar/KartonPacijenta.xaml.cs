@@ -26,6 +26,11 @@ namespace Bolnica.view.sekretar
         {
             InitializeComponent();
             this.pacijent = pacijent;
+            if(App.prikaziHelp == false)
+            {
+                btnPomoc.Visibility = Visibility.Hidden;
+            }
+            
        /*     if(pacijent.MedicinskiKarton.Alergeni == null)
             {
                 pacijent.MedicinskiKarton.Alergeni = " ";

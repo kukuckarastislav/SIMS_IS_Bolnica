@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bolnica.utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,18 @@ namespace Bolnica.view.sekretar
         public ZauzetostProstorija()
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
+
+            }
         }
     }
 }

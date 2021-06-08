@@ -32,14 +32,14 @@ namespace Bolnica.view.lekar.pacijenti
         public ObservableCollection<string> KolekcijaAlergeniPacijenta;
         public LekoviKontroler lekoviKontrolerObjekat;
         public Lek OdabraniLek { get; set; }
-        public Lekar Lekar;
+        public LekarDTO LekarDTO;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         private view.lekar.pacijenti.NacinKoriscenja refNacinKoriscenja;
 
         private ParametriUzimanjaTerapijeDTO dto;
-        public IzdavanjeRecepta(Lekar Lekar, Pacijent IzabraniPacijent)
+        public IzdavanjeRecepta(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             this.IzabraniPacijent = IzabraniPacijent;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
@@ -82,11 +82,11 @@ namespace Bolnica.view.lekar.pacijenti
             string nacin_koriscenja = NacinKorsicenja.Text;
             Kontroler.ReceptKontroler ReceptKontroler = new Kontroler.ReceptKontroler();
             int idRec = ReceptKontroler.GetAll().Count + 1;
-            int idLekar = Lekar.Id;
+            int idLekarDTO = LekarDTO.Id;
             int idPac = IzabraniPacijent.Id;
             int idLeka = OdabraniLek.Id;
 
-            Recept r = new Recept(idRec, idLekar, idPac, idLeka, DatumPropisivanja, DatumPropisivanja, false, nacin_koriscenja);
+            Recept r = new Recept(idRec, idLekarDTO, idPac, idLeka, DatumPropisivanja, DatumPropisivanja, false, nacin_koriscenja);
 
 
            // Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
@@ -101,7 +101,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
@@ -144,7 +144,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (OdabraniLek != null)
             {
-                refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(Lekar, IzabraniPacijent, OdabraniLek.Id);
+                refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(LekarDTO, IzabraniPacijent, OdabraniLek.Id);
                 NavigationService.Navigate(refNacinKoriscenja);
                 dto = NacinKoriscenja.dto;
             }

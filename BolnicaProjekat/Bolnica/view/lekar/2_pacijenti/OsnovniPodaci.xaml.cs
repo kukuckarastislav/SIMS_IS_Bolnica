@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -22,12 +23,12 @@ namespace Bolnica.view.lekar.pacijenti
     public partial class OsnovniPodaci : Page
     {
         public Pacijent IzabraniPacijent { get; set; }
-        public Lekar Lekar;
+        public LekarDTO LekarDTO;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
         public OsnovniPodaci(Pacijent IzabraniPacijent)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             this.IzabraniPacijent = IzabraniPacijent;
 
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (IzabraniPacijent != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(Lekar,IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO,IzabraniPacijent);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

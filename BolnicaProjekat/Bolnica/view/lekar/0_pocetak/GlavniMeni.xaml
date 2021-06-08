@@ -10,50 +10,29 @@
       Background="#630000"
       Margin="-55,0,0,0"
       Title="GlavniMeni">
-    <Grid VerticalAlignment="Center" Name="GlavniMeni_CenterGrid">
+    <Grid VerticalAlignment="Top" Name="GlavniMeni_CenterGrid">
 
         <Grid.ColumnDefinitions>
-            <!-- Prazno mesto - LEVO -->
             <ColumnDefinition Width="80"/>
-            <!-- Meni - Prazno mesto - LEVO -->
             <ColumnDefinition Width="60"/>
-            <!-- Meni - Dugmici - CENTAR -->
             <ColumnDefinition Width="120"/>
-            <!-- Meni - Prazno mesto - DESNO -->
             <ColumnDefinition Width="60"/>
-            <!-- Prazno mesto - DESNO -->
             <ColumnDefinition Width="80"/>
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
-            <!-- [0] PraznoMesto - GORE -->
+            <RowDefinition Height="50"/>
             <RowDefinition Height="80"/>
-            <!-- [1] Profilna slika (1) - GORE -->
-            <RowDefinition Height="80"/>
-            <!-- [2] Profilna slika (2) i Meni (1)- GORE -->
-            <RowDefinition Height="30"/>
-            <!-- [3] Meni (2) - GORE -->
+            <RowDefinition Height="35"/>
             <RowDefinition Height="45"/>
-            <!-- [4] Meni (3) - Button1- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [5] Meni (4) - Button2- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [6] Meni (5) - Button3- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [7] Meni (6) - Button4- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [8] Meni (7) - Button5- CENTAR -->
-            <RowDefinition Height="45"/>
-            <!-- [9] Meni (8) - PreLogout- DOLE -->
-            <RowDefinition Height="45"/>
-            <!-- [10] Meni (9) - LogoutButton- DOLE -->
-            <RowDefinition Height="45"/>
-            <!-- [11] Meni (11) - PosleLogout- DOLE -->
-            <RowDefinition Height="15"/>
-            <!-- [12] PraznoMesto(1)- DOLE -->
-            <RowDefinition Height="*"/>
-            <!-- [13] PraznoMesto(2)- DOLE -->
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
         <!-- Meni Background -->
@@ -62,129 +41,100 @@
                    Grid.Row="2" Grid.RowSpan="11"/>
 
         <!-- Profilna Slika-->
-        <Ellipse Width="110" Height="110" Fill="#eeebdd"
-            Canvas.Left="135" Canvas.Top="25"
-            Grid.Row="1" Grid.RowSpan="2"
-            Grid.Column="2" Grid.ColumnSpan="1"/>
-        <Image Source="/images/zdravo-bolnica.png" Width="50"
+        <Ellipse    Width="110" Height="110" Fill="#eeebdd"
+                    Canvas.Left="135" Canvas.Top="25"
+                    Grid.Row="1" Grid.RowSpan="2"
+                    Grid.Column="2" Grid.ColumnSpan="1"/>
+        <Image  Source="/images/zdravo-bolnica.png" Width="50"
                 VerticalAlignment="Top" HorizontalAlignment="Left" Margin="12"
                 Grid.Row="1" Grid.RowSpan="2"
                 Grid.Column="2" Grid.ColumnSpan="1"/>
-        <Image Source="/images/doctor-male-to-right.png" Width="97"
+        <Image  Source="/images/doctor-male-to-right.png" Width="97"
                 VerticalAlignment="Center" HorizontalAlignment="Center" 
                 Grid.Row="1" Grid.RowSpan="2"
                 Grid.Column="2" Grid.ColumnSpan="1"/>
 
         <!-- Meni -->
-        <TextBlock Text="Glavni meni" 
-                VerticalAlignment="Center" HorizontalAlignment="Center" 
-                FontWeight="Bold" 
-                FontSize="18"
-                Foreground="#eeebdd"
-                Grid.Row="3" Grid.RowSpan="1"
-                Grid.Column="2" Grid.ColumnSpan="1"/>
-        <!-- Meni - Button1 - Radni Kalendar -->
-        <Button Grid.Column="2" Grid.Row="4" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="RadniKalendarButton">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold"> Radni kalendar</TextBlock>
+        <TextBlock  Text="Glavni meni" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center" 
+                    FontWeight="Bold" 
+                    FontSize="25"
+                    Foreground="#eeebdd"
+                    Grid.Row="3" Grid.RowSpan="1"
+                    Grid.Column="1" Grid.ColumnSpan="3"/>
+            <!-- Meni - Button1 - Radni Kalendar -->
+            <Button Grid.Column="1" Grid.ColumnSpan="3"
+                        Grid.Row="5"  
+                        Background="#eeebdd" 
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="RadniKalendarButton">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="200">
+                    <Image Source="/images/lekar-icons/radni-kalendar-icon.png" Width="65" />
+                <TextBlock FontSize="18" FontWeight="Bold" TextWrapping="Wrap"
+                                   Padding="2" VerticalAlignment="Center" Text="Radni kalendar"/>
             </StackPanel>
-        </Button>
-        <!-- Meni - Button2 - Pacijenti -->
-        <Button Grid.Column="2" Grid.Row="5" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="PacijentiButton">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="25" />
-                <TextBlock Padding="2"  VerticalAlignment="Center" FontWeight="SemiBold"> Pacijenti</TextBlock>
-            </StackPanel>
-        </Button>
-        <!-- Meni - Button3 - Lekovi -->
-        <Button Grid.Column="2" Grid.Row="6" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="LekoviButton" >
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/lekovi-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Lekovi</TextBlock>
-            </StackPanel>
-        </Button>
-        <!-- Meni - Button4 - Prostorije -->
-        <Button Grid.Column="2" Grid.Row="7" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                IsEnabled="False">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/prostorije-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Text="Prostorije"/>
-            </StackPanel>
-        </Button>
-        <!-- Meni - Button5 - Forum -->
-        <Button Grid.Column="2" Grid.Row="8" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                IsEnabled="false">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/forum-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Forum</TextBlock>
-            </StackPanel>
-        </Button>
-        <!-- Meni - Button6 - Notifikacije -->
-        <Button Grid.Column="2" Grid.Row="9" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                IsEnabled="False"
-                Click="NotifikacijeButton">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/notification-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Notifikacija</TextBlock>
-            </StackPanel>
-        </Button>
+            </Button>
+            <!-- Meni - Button2 - Pacijenti -->
+            <Button Grid.Column="1" Grid.ColumnSpan="3"
+                        Grid.Row="7"  
+                        Background="#eeebdd" 
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="PacijentiButton">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="200">
+                <Image Source="/images/lekar-icons/pacijenti-icon.png" Width="65" />
+                <TextBlock FontSize="18" FontWeight="Bold" TextWrapping="Wrap"
+                                   Padding="2" VerticalAlignment="Center" Text="Lista pacijenata"/>
+                </StackPanel>
+            </Button>
+            <!-- Meni - Button3 - Lekovi -->
+            <Button Grid.Column="1" Grid.ColumnSpan="3"
+                        Grid.Row="9"  
+                        Background="#eeebdd" 
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="LekoviButton" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="200">
+                    <Image Source="/images/lekar-icons/lekovi-icon.png" Width="65" />
+                    <TextBlock FontSize="18" FontWeight="Bold" TextWrapping="Wrap"
+                                           Padding="2" VerticalAlignment="Center" Text="Lista lekova"/>
+                </StackPanel>
+            </Button>
 
-        <!-- Meni - Button7 - Feedback -->
-        <Button x:Name="btnFeedback"
-                Grid.Column="2" Grid.Row="10" Height="35" VerticalAlignment="Bottom" 
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                IsEnabled="True"
-                Click="btnFeedback_Click">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/images/lekar-icons/feedback-icon.png" Width="25" />
-                <TextBlock Padding="2" VerticalAlignment="Center" FontWeight="SemiBold">Feedback</TextBlock>
-            </StackPanel>
-        </Button>
+            <!-- Meni - Button4 - Feedback -->
+            <Button Grid.Column="1" Grid.ColumnSpan="3"
+                        Grid.Row="11"  
+                        Background="#eeebdd" 
+                        BorderThickness="1" 
+                        BorderBrush="Black"
+                        Click="btnFeedback_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="230">
+                    <Image Source="/images/lekar-icons/feedback-icon.png" Width="65" Margin="15,0,0,0"/>
+                    <TextBlock FontSize="18" FontWeight="Bold" TextWrapping="Wrap" Width="143"
+                                       Padding="2" VerticalAlignment="Center" Text="Slanje povratnih informacijna"/>
+                </StackPanel>
+            </Button>
 
 
     </Grid>

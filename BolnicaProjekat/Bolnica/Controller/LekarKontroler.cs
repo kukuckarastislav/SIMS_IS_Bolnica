@@ -25,22 +25,16 @@ namespace Kontroler
         {
             lekarServis.DodajLekara(podaciLekara);
         }
-      
-         public LekarDTO AzurirajLekara(LekarDTO lekar)
-         {
-             return lekarServis.AzurirajLekara(lekar);
+
+        public LekarDTO AzurirajLekara(LekarDTO lekar)
+        {
+            return lekarServis.AzurirajLekara(lekar);
         }
-      
-         public LekarDTO ObrisiLekara(LekarDTO lekar)
-         {
+
+        public LekarDTO ObrisiLekara(LekarDTO lekar)
+        {
             return lekarServis.ObrisiLekara(lekar);
-         }
-      
-      public List<Lekar> GetAll()
-      {
-         // TODO: implement
-         return null;
-      }
+        }
 
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
@@ -62,13 +56,19 @@ namespace Kontroler
             return null;
         }
 
-        public Lekar PrijavaLekara(String korisnickoIme, String lozinka)
+        public LekarDTO PrijavaLekara(String korisnickoIme, String lozinka)
         {
-            return lekarServis.PrijaviLekara(korisnickoIme, lozinka);
+            LekarDTO ret = null;
+            if ((korisnickoIme != null) && (lozinka != null))
+            {
+                Lekar l = lekarServis.PrijaviLekara(korisnickoIme, lozinka);
+                if (l != null)
+                {
+                    ret = new LekarDTO(l.Id, l.Specijalista, l.Specijalizacija, l.Ime, l.Prezime, l.KorisnickoIme, l.Email, l.Telefon, l.Pol, l.DatumRodjenja, l.Jmbg, l.Drzavljanstvo, l.AdresaStanovanja, l.Sifra, l.radnoVreme);
+                }
+            }
+            return ret;
         }
-
-
-
 
         public ObservableCollection<LekarRevizijaLekaDTO> GetLekariDTOzaComboBox()
         {

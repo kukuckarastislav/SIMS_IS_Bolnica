@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using DTO;
 using Model;
 using Kontroler;
+using Bolnica.utils;
 
 namespace Bolnica.view.sekretar
 {
@@ -28,6 +29,7 @@ namespace Bolnica.view.sekretar
         public PageListaPacijenata()
         {
             InitializeComponent();
+            btnPomoc.Visibility = App.vidljivostPomoci;
             UcitajPodatkePacijenata();
         }
 
@@ -68,6 +70,17 @@ namespace Bolnica.view.sekretar
             PacijentKontroler kontorler = new PacijentKontroler();
             KolekcijaPacijenata = kontorler.GetPacijentiDto();
             this.DataGridPrikazPacijenata.ItemsSource = KolekcijaPacijenata;
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
+
+            }
         }
     }
 }

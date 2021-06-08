@@ -19,8 +19,9 @@ namespace DTO
         public string AdresaStanovanja { get; set; }
         public string Drzavljanstvo { get; set; }
         public Pol Pol { get; set; }
+        public string KorisnickoIme { get; set; }
 
-        public PacijentDTO(int id, string ime, string prezime, string email, string telefon, string jmbg,string adresaStanovanja, string drzavljanstvo,Pol pol,DateTime datumRodjenja)
+        public PacijentDTO(int id, string ime, string prezime, string email, string telefon, string jmbg,string adresaStanovanja, string drzavljanstvo,Pol pol,DateTime datumRodjenja ,string korisnickoIme)
         {
             Id = id;
             Ime = ime;
@@ -32,6 +33,7 @@ namespace DTO
             Pol = pol;
             DatumRodjenja = datumRodjenja;
             Drzavljanstvo = drzavljanstvo;
+            KorisnickoIme = korisnickoIme;
         }
         public PacijentDTO()
         {
@@ -50,6 +52,12 @@ namespace DTO
             Pol = noviPodaci.Pol;
             DatumRodjenja = noviPodaci.DatumRodjenja;
             Drzavljanstvo = noviPodaci.Drzavljanstvo;
+            KorisnickoIme = noviPodaci.KorisnickoIme;
+        }
+
+        public override string ToString()
+        {
+            return Ime + " " + Prezime + " - " + Jmbg;
         }
     }
 }

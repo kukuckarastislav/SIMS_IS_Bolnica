@@ -133,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ActivityEvaluation\DoctorActivityEvaluation.cs" />
+    <Compile Include="ActivityEvaluation\PatientActivityEvaluation.cs" />
+    <Compile Include="ActivityEvaluation\PatientReschedulingEvaluation.cs" />
+    <Compile Include="ActivityEvaluation\PatientSchedulingEvaluation.cs" />
     <Compile Include="Controller\AnketaKontroler.cs" />
     <Compile Include="Controller\FeedbackKontroler.cs" />
     <Compile Include="Controller\GodisnjiOdmorKontroler.cs" />
@@ -164,14 +168,18 @@
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
+    <Compile Include="DTO\ProstorijaDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="DTO\RegistracijaLekaraDTO.cs" />
     <Compile Include="DTO\RegistracijaPacijentaDTO.cs" />
     <Compile Include="DTO\SlobodniDaniDTO.cs" />
     <Compile Include="DTO\StavkaIzvjestajaDTO.cs" />
     <Compile Include="DTO\TerminProstorijeDTO.cs" />
+    <Compile Include="DTO\ZakazaniTerminiDTO.cs" />
+    <Compile Include="DTO\ZakaziTetminDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Interface\IObserver.cs" />
+    <Compile Include="Interface\IStategy.cs" />
     <Compile Include="Interface\ISubject.cs" />
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
@@ -215,12 +223,13 @@
     <Compile Include="Model\Upravnik.cs" />
     <Compile Include="Model\VrijednostOcjene.cs" />
     <Compile Include="Model\ZdravstvenaUsluga.cs" />
+    <Compile Include="Repository\AktivnostLekaraRepozitorijum.cs" />
     <Compile Include="Repository\AnketaRepozitorijum.cs" />
     <Compile Include="Repository\FeedbackRepozitorijum.cs" />
     <Compile Include="Repository\GodisnjiOdmorRepozitorijum.cs" />
     <Compile Include="Repository\HospitalizacijaRepozitorijum.cs" />
     <Compile Include="Repository\InventariRepozitorijum.cs" />
-    <Compile Include="Repository\KorisnickaAktivnostRepozitorijum.cs" />
+    <Compile Include="Repository\AktivnostPacijentaRepozitorijum.cs" />
     <Compile Include="Repository\LekarRepozitorijum.cs" />
     <Compile Include="Repository\LekoviRepozitorijum.cs" />
     <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />
@@ -256,6 +265,7 @@
     <Compile Include="Threads\MedicationConsumption.cs" />
     <Compile Include="Threads\UserSuspension.cs" />
     <Compile Include="utils\BindableBase.cs" />
+    <Compile Include="utils\HelpProvider.cs" />
     <Compile Include="utils\MyICommand.cs" />
     <Compile Include="utils\ValidationBase.cs" />
     <Compile Include="utils\ValidationErrors.cs" />
@@ -297,12 +307,6 @@
     </Compile>
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\lekar\0_pocetak\LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="view\lekar\Notifikacije.xaml.cs">
-      <DependentUpon>Notifikacije.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\2_pacijenti\AzuriranjeUsluge.xaml.cs">
       <DependentUpon>AzuriranjeUsluge.xaml</DependentUpon>
@@ -394,6 +398,9 @@
     <Compile Include="view\pacijent\TrenutnaTerapija.xaml.cs">
       <DependentUpon>TrenutnaTerapija.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\HelpViewer.xaml.cs">
+      <DependentUpon>HelpViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\KartonPacijenta.xaml.cs">
       <DependentUpon>KartonPacijenta.xaml</DependentUpon>
     </Compile>
@@ -420,6 +427,9 @@
     </Compile>
     <Compile Include="view\sekretar\PageObavestenja.xaml.cs">
       <DependentUpon>PageObavestenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\PageOcenaAplikacije.xaml.cs">
+      <DependentUpon>PageOcenaAplikacije.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\sekretar\PagePacijenti.xaml.cs">
       <DependentUpon>PagePacijenti.xaml</DependentUpon>
@@ -622,14 +632,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\lekar\0_pocetak\LoginPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="view\lekar\Notifikacije.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="view\lekar\2_pacijenti\AzuriranjeUsluge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -750,6 +752,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\sekretar\HelpViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\sekretar\KartonPacijenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -783,6 +789,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\PageObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\PageOcenaAplikacije.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1128,9 +1138,7 @@
     <Resource Include="images\lekar-icons\notification-icon.png" />
     <Resource Include="images\lekar-icons\prikaz-usluge-icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="view\lekar\4_prostorije\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="images\lekar-icons\pacijent-zensko-icon.png" />
   </ItemGroup>
@@ -1175,6 +1183,8 @@
     <Resource Include="images\medicine11.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="view\sekretar\help\RegistracijaLekara.htm" />
+    <Content Include="view\sekretar\help\RegistracijaPacijenta.htm" />
     <Resource Include="images\lekar-icons\feedback-icon.png" />
     <Resource Include="images\lekar-icons\folder.png" />
     <Resource Include="images\lekar-icons\printer-icon.png" />
@@ -1183,6 +1193,14 @@
     <Content Include="view\sekretar\help\registracija\Indeks.htm" />
     <Content Include="view\sekretar\help\registracija\index.htm" />
     <Content Include="view\sekretar\help\registracija\Prezime.htm" />
+    <Content Include="view\sekretar\help\DodavanjeObavestenja.htm" />
+    <Content Include="view\sekretar\help\Ime.htm" />
+    <Content Include="view\sekretar\help\Indeks.htm" />
+    <Content Include="view\sekretar\help\index.htm" />
+    <Content Include="view\sekretar\help\IzmenaLekara.htm" />
+    <Content Include="view\sekretar\help\IzmenaPacijenta.htm" />
+    <Content Include="view\sekretar\help\Obavestenja.htm" />
+    <Content Include="view\sekretar\help\Prezime.htm" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jarloo.Calendar\MyCalendar.Calendar.csproj">

@@ -29,52 +29,7 @@ namespace Model
 
         public List<int> IdZdravstveneUsluge { get; set; }      // ovo tu je neka greska treba obrisati ovu listu 
 
-       // public System.Collections.ArrayList TerminiZauzetosti { get; set; }
-        /*
-        /// <pdGenerated>default getter</pdGenerated>
-        public System.Collections.ArrayList GetTerminiZauzetosti()
-        {
-            if (TerminiZauzetosti == null)
-                TerminiZauzetosti = new System.Collections.ArrayList();
-            return TerminiZauzetosti;
-        }
-
-        /// <pdGenerated>default setter</pdGenerated>
-        public void SetTerminiZauzetosti(System.Collections.ArrayList newTerminiZauzetosti)
-        {
-            RemoveAllTerminiZauzetosti();
-            foreach (Termin oTermin in newTerminiZauzetosti)
-                AddTerminiZauzetosti(oTermin);
-        }
-
-        /// <pdGenerated>default Add</pdGenerated>
-        public void AddTerminiZauzetosti(Termin newTermin)
-        {
-            if (newTermin == null)
-                return;
-            if (this.terminiZauzetosti == null)
-                this.terminiZauzetosti = new System.Collections.ArrayList();
-            if (!this.terminiZauzetosti.Contains(newTermin))
-                this.terminiZauzetosti.Add(newTermin);
-        }
-
-        /// <pdGenerated>default Remove</pdGenerated>
-        public void RemoveTerminiZauzetosti(Termin oldTermin)
-        {
-            if (oldTermin == null)
-                return;
-            if (this.terminiZauzetosti != null)
-                if (this.terminiZauzetosti.Contains(oldTermin))
-                    this.terminiZauzetosti.Remove(oldTermin);
-        }
-
-        /// <pdGenerated>default removeAll</pdGenerated>
-        public void RemoveAllTerminiZauzetosti()
-        {
-            if (terminiZauzetosti != null)
-                terminiZauzetosti.Clear();
-        }
-        */
+      
         public int Id { get; set; }
         public TipProstorije TipProstorije { get; set; }
         public string Broj { get; set; }
@@ -97,5 +52,10 @@ namespace Model
 
         public int IdInventar { get; set; }
 
+
+        public override string ToString()
+        {
+            return BrojSprat;
+        }
     }
 }

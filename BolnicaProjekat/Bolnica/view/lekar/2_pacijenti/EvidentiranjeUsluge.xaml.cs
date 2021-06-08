@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -23,17 +24,15 @@ namespace Bolnica.view.lekar.pacijenti
     public partial class EvidentiranjeUsluge : Page
     {
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
-        public Lekar Lekar { get; set; }
+        public LekarDTO LekarDTO { get; set; }
         public string RezultatUsluge { get; set; }
-        public ObservableCollection<DTORadniKalendar> ListaRadniKalendar { get; set; }
         public DTORadniKalendar OdabranaUsluga { get; set; }
 
-        public EvidentiranjeUsluge(Lekar Lekar, DTORadniKalendar OdabranaUsluga, ObservableCollection<DTORadniKalendar> ListaRadniKalendar)
+        public EvidentiranjeUsluge(LekarDTO LekarDTO, DTORadniKalendar OdabranaUsluga)
         {
             InitializeComponent();
             this.OdabranaUsluga = OdabranaUsluga;
-            this.ListaRadniKalendar = ListaRadniKalendar;
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             this.RezultatUsluge = RezultatUsluge;
 
             ImePacijenta.Text = "Pacijent: " + OdabranaUsluga.ImePacijenta.ToString();
@@ -58,18 +57,18 @@ namespace Bolnica.view.lekar.pacijenti
         private void EvidentirajUslugu(object sender, RoutedEventArgs e)
         {
             RezultatUsluge = Anamneza.Text;
+            OdabranaUsluga.Usluga.Obavljena = true;
             Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.EvidentirajUslugu(OdabranaUsluga.Usluga,RezultatUsluge);
-            ListaRadniKalendar.Remove(OdabranaUsluga);
-            refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(Lekar);
+            refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
             NavigationService.Navigate(refRadniKalendar);
 
         }
 
         private void OdustaniButton(object sender, RoutedEventArgs e)
         {
-            if (this.Lekar != null)
+            if (this.LekarDTO != null)
             {
-                refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(Lekar);
+                refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
                 NavigationService.Navigate(refRadniKalendar);
             }
         }

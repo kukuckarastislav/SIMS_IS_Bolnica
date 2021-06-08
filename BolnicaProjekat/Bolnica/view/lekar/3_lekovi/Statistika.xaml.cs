@@ -17,6 +17,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using Kontroler;
 using Model;
+using DTO;
 
 namespace Bolnica.view.lekar.lekovi
 {
@@ -24,11 +25,11 @@ namespace Bolnica.view.lekar.lekovi
     public partial class Statistika : Page
     {
         private LekoviKontroler RefLekoviKontroler;
-        private Lekar Lekar;
-        public Statistika(Lekar Lekar)
+        private LekarDTO LekarDTO;
+        public Statistika(LekarDTO LekarDTO)
         {
             InitializeComponent();
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             RefLekoviKontroler = new LekoviKontroler();
             ChartValues<int> values = new ChartValues<int>();
             double brojOdobrenihLekova = RefLekoviKontroler.BrojOdobrenihLekova();
@@ -51,7 +52,7 @@ namespace Bolnica.view.lekar.lekovi
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            var refLekovi = new view.lekar.lekovi.Lekovi(Lekar);
+            var refLekovi = new view.lekar.lekovi.Lekovi(LekarDTO);
             NavigationService.Navigate(refLekovi);
         }
     }

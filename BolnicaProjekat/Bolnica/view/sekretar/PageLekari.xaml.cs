@@ -1,4 +1,5 @@
-﻿using DTO;
+﻿using Bolnica.utils;
+using DTO;
 using Kontroler;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Bolnica.view.sekretar
         public PageLekari()
         {
             InitializeComponent();
-
+            btnPomoc.Visibility = App.vidljivostPomoci;
             LekarKontroler kontroler = new LekarKontroler();
             PrikazaniLekari = kontroler.getAllNeobrisaniLekari();
             this.DataGridPrikazLekara.ItemsSource = PrikazaniLekari;
@@ -58,6 +59,17 @@ namespace Bolnica.view.sekretar
             if (lekar == null) return;
             var page = new PageRadnoVreme(lekar);
             NavigationService.Navigate(page);
+        }
+
+        private void btnPomoc_Click(object sender, RoutedEventArgs e)
+        {
+            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+            if (focusedControl is DependencyObject)
+            {
+                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+                HelpProvider.ShowHelp("Ime");
+
+            }
         }
     }
 }

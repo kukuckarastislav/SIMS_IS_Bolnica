@@ -110,7 +110,7 @@ namespace Servis
         public List<StavkaIzvjestajaDTO> GetPodsjetnikAktuelneSedmice(int idPacijenta)
         {
             List<StavkaIzvjestajaDTO> ret = new List<StavkaIzvjestajaDTO>();
-            foreach(Podsjetnik p in GetPodsjetnikPacijenta(idPacijenta))
+            foreach(Podsjetnik p in Repozitorijum.GetPodsjetnikByPatientId(idPacijenta))
             {
                 if((DateTime.Compare(p.VrijemePojavljivanja, GetPocetakIzvjestaja()) >= 0) &&
                     (DateTime.Compare(p.VrijemePojavljivanja, GetPocetakIzvjestaja().AddDays(7)) <= 0) && p.JePodsjetnikZaLijekove)

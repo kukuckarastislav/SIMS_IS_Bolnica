@@ -15,17 +15,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.lekar.lekovi
 {
     public partial class Izvestaj : Page
     {
-        public Lekar Lekar;
+        public LekarDTO LekarDTO;
         public ObservableCollection<Lek> odobreniLekoviKolekcija;
         public LekoviKontroler lekoviKontrolerObjekat;
-        public Izvestaj(Lekar Lekar)
+        public Izvestaj(LekarDTO LekarDTO)
         {
-            this.Lekar = Lekar;
+            this.LekarDTO = LekarDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
             this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
@@ -36,7 +37,7 @@ namespace Bolnica.view.lekar.lekovi
 
         private void Stampaj_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Lekar != null)
+            if (this.LekarDTO != null)
             {
                 try
                 {
@@ -71,9 +72,9 @@ namespace Bolnica.view.lekar.lekovi
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            if (this.Lekar != null)
+            if (this.LekarDTO != null)
             {
-                var refLekovi = new view.lekar.lekovi.Lekovi(Lekar);
+                var refLekovi = new view.lekar.lekovi.Lekovi(LekarDTO);
                 NavigationService.Navigate(refLekovi);
             }
 

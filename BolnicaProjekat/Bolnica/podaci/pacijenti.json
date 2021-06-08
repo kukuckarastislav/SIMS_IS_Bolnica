@@ -14,7 +14,7 @@
     "PacijentGost": false,
     "Hospitalizovan": false,
     "SpamUser": true,
-    "LogickiObrisan": true,
+    "LogickiObrisan": false,
     "KorisnickoIme": "peraperic",
     "Sifra": "pera",
     "Ime": "Pera",

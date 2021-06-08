@@ -30,17 +30,17 @@ namespace Bolnica.view.lekar.pacijenti
         public ObservableCollection<LekarDTO> KolekcijaLekarDTO { get; set; }
         public DateTime date;
         public LekarDTO LekarDTO { get; set; }
-        public Pacijent IzabraniPacijent { get; set; }
+        public PacijentDTO PacijentDTO { get; set; }
         public ZdravstvenaUsluga KreiranaUsluga { get; set; }
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
 
 
-        public UpucivanjePacijent(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
+        public UpucivanjePacijent(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
             InitializeComponent();
             this.LekarDTO = LekarDTO;
-            this.IzabraniPacijent = IzabraniPacijent;
+            this.PacijentDTO = PacijentDTO;
             this.LekarKontrolerObjekat = new LekarKontroler();
 
             InicijalizujObjekte();
@@ -52,7 +52,12 @@ namespace Bolnica.view.lekar.pacijenti
             ProstorijeKontrolerObjekat = new ProstorijeKontroler();
             KolekcijaSobeZaPregled = ProstorijeKontrolerObjekat.getProstorijeTipObservable(TipProstorije.SobaZaPreglede);
             KolekcijaIDSobeZaPregled = new ObservableCollection<String>();
-            KolekcijaLekarDTO = LekarKontrolerObjekat.getAllDto();
+            KolekcijaLekarDTO = new ObservableCollection<LekarDTO>();
+
+            foreach(LekarDTO LekarDTO in LekarKontrolerObjekat.GetAllDTO())
+            {
+                KolekcijaLekarDTO.Add(LekarDTO);
+            }
 
             foreach (Prostorija s in KolekcijaSobeZaPregled)
             {
@@ -65,9 +70,9 @@ namespace Bolnica.view.lekar.pacijenti
             this.ComboBoxProstorija.ItemsSource = KolekcijaSobeZaPregled;
             this.ComboBoxLekar.ItemsSource = KolekcijaLekarDTO;
 
-            headerIme.Text = IzabraniPacijent.Ime;
-            headerPrezime.Text = IzabraniPacijent.Prezime;
-            headerJMBG.Text = IzabraniPacijent.Jmbg;
+            headerIme.Text = PacijentDTO.Ime;
+            headerPrezime.Text = PacijentDTO.Prezime;
+            headerJMBG.Text = PacijentDTO.Jmbg;
         }
 
 
@@ -101,7 +106,7 @@ namespace Bolnica.view.lekar.pacijenti
             Termin termin = new Termin(pocetak, kraj);
             int idUsluge = Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
             int idLekarDTOa = ((LekarDTO)ComboBoxLekar.SelectedItem).Id;
-            int idPacijenta = IzabraniPacijent.Id;
+            int idPacijenta = PacijentDTO.Id;
             TipUsluge tipUsluge = TipUsluge.Pregled;
             Prostorija prostorija = (Prostorija)ComboBoxProstorija.SelectedItem;
             int idProstorije = prostorija.Id;
@@ -118,9 +123,9 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

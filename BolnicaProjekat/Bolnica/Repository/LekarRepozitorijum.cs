@@ -1,9 +1,3 @@
-/***********************************************************************PacijentRepozitorijum
- * Module:  LekarRepozitorijum.cs
- * Author:  Rastislav
- * Purpose: Definition of the Class Repozitorijum.LekarRepozitorijum
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using Model;
@@ -20,6 +14,9 @@ namespace Repozitorijum
     {
         private const string imeFajla = "lekari.json";
         private static LekarRepozitorijum instance = null;
+
+        public List<Lekar> Lekari { get; set; }
+
         public static LekarRepozitorijum GetInstance
         {
             get
@@ -34,26 +31,20 @@ namespace Repozitorijum
             {
                 instance = value;
             }
-
         }
 
         public LekarRepozitorijum()
         {
-            loadData();
-            //Lekari = new ObservableCollection<Model.Lekar>();
+            LoadData();
         }
 
-        public List<Model.Lekar> Lekari { get; set; }
-
-
-        private void loadData()
+        private void LoadData()
         {
             try
             {
                 if (Lekari == null)
                 {
-
-                    List<Model.Lekar> p = JsonSerializer.Deserialize<List<Model.Lekar>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<Lekar> p = JsonSerializer.Deserialize<List<Lekar>>(File.ReadAllText("../../podaci/" + imeFajla));
                     Lekari = p;
                 }
             }
@@ -74,12 +65,13 @@ namespace Repozitorijum
         }
 
 
-        public Model.Lekar DodajLekara(Lekar lekar)
+        public Lekar DodajLekara(Lekar lekar)
         {
-            //loadData();
-
             if (!this.Lekari.Contains(lekar))
+            {
                 this.Lekari.Add(lekar);
+            }
+
 
             SaveData();
             return lekar;
@@ -121,12 +113,12 @@ namespace Repozitorijum
             }
             SaveData();
         }
-      
+
         public void ObrisiLekara(LekarDTO dto)
         {
-            foreach(Lekar lekar in Lekari)
+            foreach (Lekar lekar in Lekari)
             {
-                if(lekar.Id == dto.Id)
+                if (lekar.Id == dto.Id)
                 {
                     lekar.LogickiObrisan = true;
                     break;
@@ -134,25 +126,25 @@ namespace Repozitorijum
             }
             SaveData();
         }
-      
-      public List<Lekar> GetAll()
-      {
-         return Lekari;
-      }
+
+        public List<Lekar> GetAll()
+        {
+            return Lekari;
+        }
 
         public ObservableCollection<Model.Lekar> GetAllObs()
         {
             ObservableCollection<Lekar> obsLekari = new ObservableCollection<Lekar>();
-            foreach(Lekar lekar in Lekari)
+            foreach (Lekar lekar in Lekari)
             {
                 obsLekari.Add(lekar);
             }
             return obsLekari;
         }
 
-        public Model.Lekar GetById(long id)
+        public Lekar GetById(long id)
         {
-            loadData();
+            LoadData();
             foreach (Lekar l in Lekari)
             {
                 if (l.Id == id)
@@ -171,9 +163,9 @@ namespace Repozitorijum
 
         public RadnoVreme getRadnoVremeLekara(int id)
         {
-            foreach(Lekar lekar in Lekari)
+            foreach (Lekar lekar in Lekari)
             {
-                if(lekar.Id == id)
+                if (lekar.Id == id)
                 {
                     return lekar.radnoVreme;
                 }

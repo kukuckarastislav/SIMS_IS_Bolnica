@@ -302,7 +302,7 @@
     <Compile Include="view\lekar\3_lekovi\Statistika.xaml.cs">
       <DependentUpon>Statistika.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\lekar\FeedBack.xaml.cs">
+    <Compile Include="view\lekar\4_feedback\FeedBack.xaml.cs">
       <DependentUpon>FeedBack.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\LekarHome.xaml.cs">
@@ -627,7 +627,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\lekar\FeedBack.xaml">
+    <Page Include="view\lekar\4_feedback\FeedBack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

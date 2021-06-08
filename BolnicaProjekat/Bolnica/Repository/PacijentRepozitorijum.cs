@@ -1,13 +1,6 @@
-/***********************************************************************
- * Module:  PacijentRepozitorijum.cs
- * Author:  Rastislav
- * Purpose: Definition of the Class Repozitorijum.PacijentRepozitorijum
- ***********************************************************************/
-
 using System;
 using System.IO;
 using System.Collections.Generic;
-using Model;
 using System.Text.Json;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -17,10 +10,12 @@ using DTO;
 
 namespace Repozitorijum
 {
-   public class PacijentRepozitorijum
-   {
+    public class PacijentRepozitorijum
+    {
         private const string imeFajla = "pacijenti.json";
         private static PacijentRepozitorijum instance = null;
+        public List<Pacijent> pacijenti;
+
         public static PacijentRepozitorijum GetInstance
         {
             get
@@ -39,26 +34,23 @@ namespace Repozitorijum
         }
         public PacijentRepozitorijum()
         {
-            loadData();
+            LoadData();
         }
 
-        public ObservableCollection<Model.Pacijent> pacijenti;
-
-
-        private void loadData()
+        private void LoadData()
         {
             try
             {
                 if (pacijenti == null)
                 {
-                    
-                    ObservableCollection<Model.Pacijent> p = JsonSerializer.Deserialize<ObservableCollection<Model.Pacijent>>(File.ReadAllText("../../podaci/"+imeFajla));
+
+                    List<Pacijent> p = JsonSerializer.Deserialize<List<Pacijent>>(File.ReadAllText("../../podaci/" + imeFajla));
                     pacijenti = p;
                 }
             }
             catch (Exception e)
             {
-                pacijenti = new ObservableCollection<Model.Pacijent>();
+                pacijenti = new List<Pacijent>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -69,7 +61,6 @@ namespace Repozitorijum
             {
                 if (pacijent.KorisnickoIme.Equals(korisnickoIme)) return true;
             }
-
             return false;
         }
 
@@ -92,10 +83,10 @@ namespace Repozitorijum
             string json = JsonSerializer.Serialize(pacijenti, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
-        public Model.Pacijent DodajPacijenta(Model.Pacijent pacijent)
-       {
-            loadData();
-            
+        public Pacijent DodajPacijenta(Pacijent pacijent)
+        {
+            LoadData();
+
             if (!this.pacijenti.Contains(pacijent))
                 this.pacijenti.Add(pacijent);
 
@@ -130,7 +121,6 @@ namespace Repozitorijum
             return pacijent;
         }
 
-        //logicko brisanje
         public void ObrisiPacijenta(PacijentDTO pacijentZaBrisanje)
         {
             foreach (Pacijent pacijent in pacijenti)
@@ -142,15 +132,15 @@ namespace Repozitorijum
             }
             SaveData();
         }
-      
-      public ObservableCollection<Model.Pacijent> GetAll()
-      {
-         loadData();
-         return pacijenti;
-      }
-        public ObservableCollection<Pacijent> GetNeobrisaniPacijenti()
+
+        public List<Pacijent> GetAll()
         {
-            ObservableCollection<Pacijent> neobrisaniPacijenti = new ObservableCollection<Pacijent>();
+            LoadData();
+            return pacijenti;
+        }
+        public List<Pacijent> GetNeobrisaniPacijenti()
+        {
+            List<Pacijent> neobrisaniPacijenti = new List<Pacijent>();
             foreach (Pacijent pacijent in pacijenti)
             {
                 if (!pacijent.LogickiObrisan) neobrisaniPacijenti.Add(pacijent);
@@ -159,15 +149,15 @@ namespace Repozitorijum
             return neobrisaniPacijenti;
         }
 
-        public Model.Pacijent GetById(int id)
-      {
-         foreach(Pacijent p in pacijenti)
+        public Pacijent GetById(int id)
+        {
+            foreach (Pacijent p in pacijenti)
             {
                 if (p.Id == id)
                     return p;
-            }        
-         return null;
-      }
+            }
+            return null;
+        }
 
         public List<string> GetAlergeniPacijenta(int id)
         {
@@ -214,7 +204,7 @@ namespace Repozitorijum
 
         public bool DaLiImaAlergen(List<string> alergeni, string alergen)
         {
-            foreach(string a in alergeni)
+            foreach (string a in alergeni)
             {
                 if (a.Equals(alergen)) return true;
             }
@@ -233,7 +223,6 @@ namespace Repozitorijum
             }
             return false;
         }
-
 
     }
 }

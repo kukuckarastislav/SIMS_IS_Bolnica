@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Servis;
 using DTO;
 
 
@@ -25,26 +26,29 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class IzdavanjeRecepta : Page
     {
-        public Pacijent IzabraniPacijent { get; set; }
+        public PacijentDTO PacijentDTO { get; set; }
         public ObservableCollection<Recept> Recepti { get; set; }
         public ObservableCollection<Lek> odobreniLekoviKolekcija;
         public ObservableCollection<string> KolekcijaAlergeniLeka;
         public ObservableCollection<string> KolekcijaAlergeniPacijenta;
         public LekoviKontroler lekoviKontrolerObjekat;
+
+        public PacijentKontroler PacijentKontrolerObjekat;
         public Lek OdabraniLek { get; set; }
         public LekarDTO LekarDTO;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         private view.lekar.pacijenti.NacinKoriscenja refNacinKoriscenja;
 
         private ParametriUzimanjaTerapijeDTO dto;
-        public IzdavanjeRecepta(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
+        public IzdavanjeRecepta(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
             this.LekarDTO = LekarDTO;
-            this.IzabraniPacijent = IzabraniPacijent;
+            this.PacijentDTO = PacijentDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
             this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
             this.ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
+            PacijentKontrolerObjekat = new PacijentKontroler();
 
             KolekcijaAlergeniLeka = new ObservableCollection<string>();
             KolekcijaAlergeniPacijenta = new ObservableCollection<string>();
@@ -59,11 +63,14 @@ namespace Bolnica.view.lekar.pacijenti
         {
 
             ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
-            headerIme.Text = IzabraniPacijent.Ime;
-            headerPrezime.Text = IzabraniPacijent.Prezime;
-            headerJMBG.Text = IzabraniPacijent.Jmbg;
+            headerIme.Text = PacijentDTO.Ime;
+            headerPrezime.Text = PacijentDTO.Prezime;
+            headerJMBG.Text = PacijentDTO.Jmbg;
 
-            foreach (string alergen in IzabraniPacijent.MedicinskiKarton.Alergeni)
+            int idPacijenta = PacijentDTO.Id;
+            
+
+            foreach (string alergen in PacijentKontrolerObjekat.GetAlergeniPacijenta(idPacijenta))
             {
                 KolekcijaAlergeniPacijenta.Add(alergen);
             }
@@ -83,7 +90,7 @@ namespace Bolnica.view.lekar.pacijenti
             Kontroler.ReceptKontroler ReceptKontroler = new Kontroler.ReceptKontroler();
             int idRec = ReceptKontroler.GetAll().Count + 1;
             int idLekarDTO = LekarDTO.Id;
-            int idPac = IzabraniPacijent.Id;
+            int idPac = PacijentDTO.Id;
             int idLeka = OdabraniLek.Id;
 
             Recept r = new Recept(idRec, idLekarDTO, idPac, idLeka, DatumPropisivanja, DatumPropisivanja, false, nacin_koriscenja);
@@ -99,9 +106,9 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
@@ -144,7 +151,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (OdabraniLek != null)
             {
-                refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(LekarDTO, IzabraniPacijent, OdabraniLek.Id);
+                refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(LekarDTO, PacijentDTO, OdabraniLek.Id);
                 NavigationService.Navigate(refNacinKoriscenja);
                 dto = NacinKoriscenja.dto;
             }

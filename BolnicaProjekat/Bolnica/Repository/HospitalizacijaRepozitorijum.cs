@@ -18,6 +18,7 @@ namespace Repozitorijum
 
         private const string imeFajla = "hospitalizacija.json";
         private static HospitalizacijaRepozitorijum instance = null;
+        public ObservableCollection<Hospitalizacija> hospitalizacije;
 
         public static HospitalizacijaRepozitorijum GetInstance
         {
@@ -38,12 +39,12 @@ namespace Repozitorijum
 
         public HospitalizacijaRepozitorijum()
         {
-            loadData();
+            LoadData();
         }
 
-        public ObservableCollection<Hospitalizacija> hospitalizacije;
 
-        private void loadData()
+
+        private void LoadData()
         {
             try
             {
@@ -73,7 +74,7 @@ namespace Repozitorijum
 
         public Hospitalizacija DodajHospitalizaciju(Hospitalizacija hospitalizacija)
         {
-            loadData();
+            LoadData();
 
             if (!this.hospitalizacije.Contains(hospitalizacija))
                 this.hospitalizacije.Add(hospitalizacija);
@@ -100,13 +101,13 @@ namespace Repozitorijum
 
         public ObservableCollection<Hospitalizacija> GetAll()
         {
-            loadData();
+            LoadData();
             return hospitalizacije;
         }
 
         public Hospitalizacija GetHospitalizacijaById(int id)
         {
-            loadData();
+            LoadData();
             foreach (Hospitalizacija h in hospitalizacije)
             {
                 if (h.Id == id)
@@ -119,7 +120,7 @@ namespace Repozitorijum
 
         public List<Hospitalizacija> GetHospitalizacijeByPatientId(int id)
         {
-            loadData();
+            LoadData();
             List<Hospitalizacija> ret = new List<Hospitalizacija>();
             foreach (Hospitalizacija h in hospitalizacije)
             {
@@ -133,7 +134,7 @@ namespace Repozitorijum
 
         public int GetFirstFitID()
         {
-            loadData();
+            LoadData();
             int najveciID = 0;
             foreach (Hospitalizacija hospitalizacija in hospitalizacije)
             {
@@ -147,16 +148,6 @@ namespace Repozitorijum
 
 
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

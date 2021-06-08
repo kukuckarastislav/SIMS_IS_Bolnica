@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using DTO;
 using System.Collections.ObjectModel;
-using Controller;
+using Kontroler;
 
 namespace Bolnica.view.pacijent
 {

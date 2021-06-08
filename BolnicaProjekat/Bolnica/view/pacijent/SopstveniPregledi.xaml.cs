@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
-using Controller;
+using Kontroler;
 using DTO;
 using Model;
 

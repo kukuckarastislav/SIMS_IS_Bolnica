@@ -21,7 +21,22 @@ namespace DTO
         public Pol Pol { get; set; }
         public string KorisnickoIme { get; set; }
 
-        public PacijentDTO(int id, string ime, string prezime, string email, string telefon, string jmbg,string adresaStanovanja, string drzavljanstvo,Pol pol,DateTime datumRodjenja ,string korisnickoIme)
+        public PacijentDTO()
+        {
+
+        }
+
+        public PacijentDTO  (int id, 
+                            string ime, 
+                            string prezime, 
+                            string email, 
+                            string telefon, 
+                            string jmbg,
+                            string adresaStanovanja, 
+                            string drzavljanstvo,
+                            Pol pol,
+                            DateTime datumRodjenja ,
+                            string korisnickoIme)
         {
             Id = id;
             Ime = ime;
@@ -35,10 +50,7 @@ namespace DTO
             Drzavljanstvo = drzavljanstvo;
             KorisnickoIme = korisnickoIme;
         }
-        public PacijentDTO()
-        {
 
-        }
 
         public PacijentDTO(PacijentDTO noviPodaci)
         {

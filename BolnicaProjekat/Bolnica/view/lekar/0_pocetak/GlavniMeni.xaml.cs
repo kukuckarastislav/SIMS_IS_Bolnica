@@ -17,12 +17,8 @@ using DTO;
 
 namespace Bolnica.view.lekar
 {
-    /// <summary>
-    /// Interaction logic for GlavniMeni.xaml
-    /// </summary>
     public partial class GlavniMeni : Page
     {
-
         // NEXT - PAGES
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekarDTO;
@@ -36,14 +32,12 @@ namespace Bolnica.view.lekar
         {
             this.LekarDTO = LekarDTO;
             InitializeComponent();
-
         }
 
         private void RadniKalendarButton(object sender, RoutedEventArgs e)
         {
             refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
             NavigationService.Navigate(refRadniKalendar);
-
         }
 
         private void PacijentiButton(object sender, RoutedEventArgs e)
@@ -56,7 +50,6 @@ namespace Bolnica.view.lekar
         {
             refLekovi = new view.lekar.lekovi.Lekovi(LekarDTO);
             NavigationService.Navigate(refLekovi);
-
         }
 
         private void btnFeedback_Click(object sender, RoutedEventArgs e)

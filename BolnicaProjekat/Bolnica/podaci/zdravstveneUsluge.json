@@ -138,5 +138,19 @@
     "Obavljena": true,
     "RazlogZakazivanja": "ads",
     "RezultatUsluge": " hfggh"
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-09T15:05:00",
+      "Kraj": "2021-06-09T15:35:00"
+    },
+    "Id": 15,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": 6,
+    "Obavljena": false,
+    "RazlogZakazivanja": "asd",
+    "RezultatUsluge": " "
   }
 ]

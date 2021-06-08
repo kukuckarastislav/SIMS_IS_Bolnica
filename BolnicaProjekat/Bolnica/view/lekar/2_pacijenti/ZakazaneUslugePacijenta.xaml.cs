@@ -20,28 +20,28 @@ namespace Bolnica.view.lekar.pacijenti
 
     public partial class ZakazaneUslugePacijenta : Page
     {
-        public Pacijent IzabraniPacijent { get; set; }
+        public PacijentDTO PacijentDTO { get; set; }
         public LekarDTO LekarDTO;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public ZakazaneUslugePacijenta(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
+        public ZakazaneUslugePacijenta(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
             this.LekarDTO = LekarDTO;
-            this.IzabraniPacijent = IzabraniPacijent;
+            this.PacijentDTO = PacijentDTO;
            
 
             InitializeComponent();
 
-            headerIme.Text = IzabraniPacijent.Ime;
-            headerPrezime.Text = IzabraniPacijent.Prezime;
-            headerJMBG.Text = IzabraniPacijent.Jmbg;
+            headerIme.Text = PacijentDTO.Ime;
+            headerPrezime.Text = PacijentDTO.Prezime;
+            headerJMBG.Text = PacijentDTO.Jmbg;
         }
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO,IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO,PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

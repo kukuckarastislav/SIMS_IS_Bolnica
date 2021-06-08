@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kontroler;
 using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
@@ -31,7 +32,7 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.UpucivanjePacijent refUpucivanjePacijenta;
         private view.lekar.pacijenti.UpucivanjeNaStacionarnoLecenje refUpucivanjeNaStacionarnoLecenje;
         // KORISNICI
-        public Pacijent IzabraniPacijent { get; set; }
+        public PacijentDTO PacijentDTO { get; set; }
         public LekarDTO LekarDTO;
 
         // KOLEKCIJE
@@ -40,20 +41,20 @@ namespace Bolnica.view.lekar.pacijenti
 
 
 
-        public PrikazMedicinskiKarton(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
+        public PrikazMedicinskiKarton(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
-            this.IzabraniPacijent = IzabraniPacijent;
+            this.PacijentDTO = PacijentDTO;
             this.LekarDTO = LekarDTO;
 
             InitializeComponent();
 
-            headerIme.Text = IzabraniPacijent.Ime;
-            headerPrezime.Text = IzabraniPacijent.Prezime;
-            headerJMBG.Text = IzabraniPacijent.Jmbg;
+            headerIme.Text = PacijentDTO.Ime;
+            headerPrezime.Text = PacijentDTO.Prezime;
+            headerJMBG.Text = PacijentDTO.Jmbg;
 
         }
 
-        public Pacijent GetIzabraniPacijenta { get; set; }
+        public Pacijent GetPacijentDTOa { get; set; }
 
 
         private void listaPregledaPacijenta_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -65,7 +66,7 @@ namespace Bolnica.view.lekar.pacijenti
         private void BrisanjePregleda(object sender, RoutedEventArgs e)
         {
             
-          //  this.IzabraniPacijent.MedicinskiKarton.GetPregled().Remove(listaPregledaPacijenta.SelectedItem as Pregled);
+          //  this.PacijentDTO.MedicinskiKarton.GetPregled().Remove(listaPregledaPacijenta.SelectedItem as Pregled);
                 
         }
 
@@ -74,18 +75,18 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void IzdavanjeReceptaButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO,IzabraniPacijent);
+                refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO,PacijentDTO);
                 NavigationService.Navigate(refIzdavanjeRecepta);
             }
         }
 
         private void ZakazivanjeUslugeButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refZakazivanjeUsluge = new view.lekar.pacijenti.ZakazivanjeUsluge(LekarDTO,IzabraniPacijent);
+                refZakazivanjeUsluge = new view.lekar.pacijenti.ZakazivanjeUsluge(LekarDTO,PacijentDTO);
                 NavigationService.Navigate(refZakazivanjeUsluge);
             }
 
@@ -93,18 +94,18 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void OsnovniPodaciButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refOsnovniPodaci = new view.lekar.pacijenti.OsnovniPodaci(LekarDTO, IzabraniPacijent);
+                refOsnovniPodaci = new view.lekar.pacijenti.OsnovniPodaci(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refOsnovniPodaci);
             }
         }
 
         private void TerapijaButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refTerapijaPacijenta = new view.lekar.pacijenti.TerapijaPacijenta(LekarDTO,IzabraniPacijent);
+                refTerapijaPacijenta = new view.lekar.pacijenti.TerapijaPacijenta(LekarDTO,PacijentDTO);
                 NavigationService.Navigate(refTerapijaPacijenta);
             }
 
@@ -112,9 +113,9 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void ZakazaneUslugePacijentaButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refZakazaneUslugePacijenta = new view.lekar.pacijenti.ZakazaneUslugePacijenta(LekarDTO,IzabraniPacijent);
+                refZakazaneUslugePacijenta = new view.lekar.pacijenti.ZakazaneUslugePacijenta(LekarDTO,PacijentDTO);
                 NavigationService.Navigate(refZakazaneUslugePacijenta);
             }
         }
@@ -128,18 +129,18 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void UpucivanjeButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refUpucivanjePacijenta = new view.lekar.pacijenti.UpucivanjePacijent(LekarDTO, IzabraniPacijent);
+                refUpucivanjePacijenta = new view.lekar.pacijenti.UpucivanjePacijent(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refUpucivanjePacijenta);
             }
         }
 
         private void UpucivanjeHospitalizacijaButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refUpucivanjeNaStacionarnoLecenje = new view.lekar.pacijenti.UpucivanjeNaStacionarnoLecenje(LekarDTO, IzabraniPacijent);
+                refUpucivanjeNaStacionarnoLecenje = new view.lekar.pacijenti.UpucivanjeNaStacionarnoLecenje(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refUpucivanjeNaStacionarnoLecenje);
             }
         }

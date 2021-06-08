@@ -1,5 +1,5 @@
 ﻿using Bolnica.utils;
-using Controller;
+using Kontroler;
 using DTO;
 using System;
 using System.Collections.Generic;

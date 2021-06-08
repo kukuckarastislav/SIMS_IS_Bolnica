@@ -17,11 +17,11 @@ namespace Servis
     public class LekarServis
     {
 
-        public Repozitorijum.LekarRepozitorijum lekarRepozitorijumRef;
+        public Repozitorijum.LekarRepozitorijum LekarRepozitorijumRef;
 
         public LekarServis()
         {
-            lekarRepozitorijumRef = LekarRepozitorijum.GetInstance;
+            LekarRepozitorijumRef = LekarRepozitorijum.GetInstance;
         }
         public void DodajLekara(RegistracijaLekaraDTO podaciLekara)
         {
@@ -43,13 +43,13 @@ namespace Servis
       
         public LekarDTO AzurirajLekara(LekarDTO lekar)
         {
-            LekarRepozitorijum.GetInstance.AzurirajLekara(lekar);
+            LekarRepozitorijumRef.AzurirajLekara(lekar);
             return lekar;
         }
       
         public LekarDTO ObrisiLekara(LekarDTO dto)
          {
-            LekarRepozitorijum.GetInstance.ObrisiLekara(dto);
+            LekarRepozitorijumRef.ObrisiLekara(dto);
             return dto;
         }
       
@@ -59,14 +59,14 @@ namespace Servis
          return null;
       }
 
-        public ObservableCollection<Model.Lekar> GetAllObs()
+        public ObservableCollection<Lekar> GetAllObs()
         {
-            return LekarRepozitorijum.GetInstance.GetAllObs();
+            return LekarRepozitorijumRef.GetAllObs();
         }
-        public ObservableCollection<LekarDTO> GetAllDto()
+        public List<LekarDTO> GetAllDTO()
         {
-            ObservableCollection<LekarDTO> lekariDto = new ObservableCollection<LekarDTO>();
-            ObservableCollection<Lekar> sviLekari = LekarRepozitorijum.GetInstance.GetAllObs();
+            List<LekarDTO> lekariDto = new List<LekarDTO>();
+            List<Lekar> sviLekari = LekarRepozitorijumRef.GetAll();
             foreach(Lekar lekar in sviLekari)
             {
                 LekarDTO noviDto = new LekarDTO();
@@ -117,14 +117,14 @@ namespace Servis
 
         public bool ProveriPostojanjeLekara(string korisnickoIme)
         {
-            return LekarRepozitorijum.GetInstance.ProveriPostojanjeLekara(korisnickoIme);
+            return LekarRepozitorijumRef.ProveriPostojanjeLekara(korisnickoIme);
         }
 
         public Lekar PrijaviLekara(string korisnickoIme, string lozinka)
         {
             if (ProveriPostojanjeLekara(korisnickoIme))
             {
-                return LekarRepozitorijum.GetInstance.GetByImeLozinka(korisnickoIme, lozinka);
+                return LekarRepozitorijumRef.GetByImeLozinka(korisnickoIme, lozinka);
             }
 
             return null;
@@ -139,7 +139,7 @@ namespace Servis
         public ObservableCollection<LekarRevizijaLekaDTO> GetLekariDTOzaComboBox()
         {
             ObservableCollection<LekarRevizijaLekaDTO> obsLekarRevizijaLekaDTO = new ObservableCollection<LekarRevizijaLekaDTO>();
-            List<Lekar> Lekari = lekarRepozitorijumRef.GetAll();
+            List<Lekar> Lekari = LekarRepozitorijumRef.GetAll();
 
             foreach(Lekar lekar in Lekari)
             {

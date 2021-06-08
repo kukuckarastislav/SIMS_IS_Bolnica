@@ -10,67 +10,72 @@ using DTO;
 using Model;
 using Servis;
 
-namespace Controller
+namespace Kontroler
 {
-    class ZdravstvenaUslugaKontroler
+    public class ZdravstvenaUslugaKontroler
     {
-        private ZdravstvenaUslugaServis servis;
-        private NotifikacijeServis notifikacijaServis;
+        private ZdravstvenaUslugaServis ZdrastvenaUslugaServisObjekat;
+        private NotifikacijeServis NotifikacijaServisObjekat;
 
         public ZdravstvenaUslugaKontroler()
         {
-            servis = new ZdravstvenaUslugaServis();
-            notifikacijaServis = new NotifikacijeServis();
+            ZdrastvenaUslugaServisObjekat = new ZdravstvenaUslugaServis();
+            NotifikacijaServisObjekat = new NotifikacijeServis();
         }
 
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
-            ZdravstvenaUsluga ret = servis.DodajUslugu(usluga);
-            notifikacijaServis.ZakaziTermin(usluga);
+            ZdravstvenaUsluga ret = ZdrastvenaUslugaServisObjekat.DodajUslugu(usluga);
+            NotifikacijaServisObjekat.ZakaziTermin(usluga);
             return ret;
+        }
+
+        public ZdravstvenaUsluga AzurirajVremeUsluga(ZdravstvenaUsluga usluga, DateTime pocetak, DateTime kraj)
+        {
+            return ZdrastvenaUslugaServisObjekat.AzurirajVremeUsluga(usluga, pocetak, kraj);
         }
 
         public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar,ZdravstvenaUsluga usluga)
         {
-            notifikacijaServis.ZakaziTermin(usluga);
-            ZdravstvenaUsluga ret = servis.HitnoDodajUslugu(lekar, usluga);
-            if(ret!=null)notifikacijaServis.OtkaziTermin(ret);
+            NotifikacijaServisObjekat.ZakaziTermin(usluga);
+            ZdravstvenaUsluga ret = ZdrastvenaUslugaServisObjekat.HitnoDodajUslugu(lekar, usluga);
+            if(ret!=null)NotifikacijaServisObjekat.OtkaziTermin(ret);
             return ret;
         }
 
         public ZakaziTetminDTO ZakaziUslugu(ZakaziTetminDTO usluga)
         {
-            return servis.ZakaziUslugu(usluga);
+            return ZdrastvenaUslugaServisObjekat.ZakaziUslugu(usluga);
         }
 
         internal void DodajKomentarNaUslugu(int id, string text)
         {
-            servis.DodajKomentarNaUslugu(id,text);
+            ZdrastvenaUslugaServisObjekat.DodajKomentarNaUslugu(id,text);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
         {
-            return servis.GetProsliTerminiPacijenta(id);
+            return ZdrastvenaUslugaServisObjekat.GetProsliTerminiPacijenta(id);
         }
 
         public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
         {
-            servis.OtkaziUslugu(usluga);
+            ZdrastvenaUslugaServisObjekat.OtkaziUslugu(usluga);
         }
 
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
-            servis.OtkaziUslugu(usluga);
+            ZdrastvenaUslugaServisObjekat.OtkaziUslugu(usluga);
         }
 
         public ObservableCollection<ZdravstvenaUslugaDTO> GetTerminiPacijenta(int id)
         {
-            return servis.GetTerminiPacijenta(id);
+            return ZdrastvenaUslugaServisObjekat.GetTerminiPacijenta(id);
         }
 
         public DTOUslugaLekar OdloziUslugu(DTOUslugaLekar ul)
         {
-            ZdravstvenaUsluga usluga = servis.OdloziUslugu(ul.Usluga);
+            ZdravstvenaUsluga usluga = ZdrastvenaUslugaServisObjekat.OdloziUslugu(ul.Usluga);
             if (usluga != null)
             {
                 OtkaziUslugu(ul.Usluga);
@@ -87,16 +92,16 @@ namespace Controller
 
         public List<RadniKalendarDTO> DanasnjiRadniKalendarLekara(LekarDTO l)
         {
-            return servis.DanasnjiRadniKalendarLekara(l);
+            return ZdrastvenaUslugaServisObjekat.DanasnjiRadniKalendarLekara(l);
         }
 
         public List<RadniKalendarDTO> NedeljniRadniKalendarLekara(LekarDTO l)
         {
-            return servis.NedeljniRadniKalendarLekara(l);
+            return ZdrastvenaUslugaServisObjekat.NedeljniRadniKalendarLekara(l);
         }
         public List<RadniKalendarDTO> MesecniRadniKalendarLekara(LekarDTO l)
         {
-            return servis.MesecniRadniKalendarLekara(l);
+            return ZdrastvenaUslugaServisObjekat.MesecniRadniKalendarLekara(l);
 
         }
 // --------------------
@@ -115,46 +120,46 @@ namespace Controller
 
         public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)
         {
-            return servis.GetSviTerminiZaDatum(lekar,datum);
+            return ZdrastvenaUslugaServisObjekat.GetSviTerminiZaDatum(lekar,datum);
         }
 
         public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga Pregled,DateTime NoviPocetak)
         {
-            return servis.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
+            return ZdrastvenaUslugaServisObjekat.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelniTerminiPacijenta(int id)
         {
-            return servis.GetAktuelniTerminiPacijenta(id);
+            return ZdrastvenaUslugaServisObjekat.GetAktuelniTerminiPacijenta(id);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelniPreglediPacijenta(int id)
         {
-            return servis.GetAktuelniPreglediPacijenta(id);
+            return ZdrastvenaUslugaServisObjekat.GetAktuelniPreglediPacijenta(id);
         }
 
         public List<ZakazaniTerminiDTO> getAllDto()
         {
-            return servis.getAllDto();
+            return ZdrastvenaUslugaServisObjekat.getAllDto();
         }
         public List<ZakazaniTerminiDTO> getAllDto(DateTime datumPretrage)
         {
-            return servis.getAllDtoZaDatum(datumPretrage);
+            return ZdrastvenaUslugaServisObjekat.getAllDtoZaDatum(datumPretrage);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliPreglediPacijenta(int id)
         {
-            return servis.GetProsliPreglediPacijenta(id);
+            return ZdrastvenaUslugaServisObjekat.GetProsliPreglediPacijenta(id);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetAktuelneOperacijePacijenta(int id)
         {
-            return servis.GetAktuelneOperacijePacijenta(id);
+            return ZdrastvenaUslugaServisObjekat.GetAktuelneOperacijePacijenta(id);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsleOperacijePacijenta(int id)
         {
-            return servis.GetProsleOperacijePacijenta(id);
+            return ZdrastvenaUslugaServisObjekat.GetProsleOperacijePacijenta(id);
         }
     }
 }

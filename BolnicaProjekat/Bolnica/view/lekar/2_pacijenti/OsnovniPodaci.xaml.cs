@@ -22,40 +22,34 @@ namespace Bolnica.view.lekar.pacijenti
     /// </summary>
     public partial class OsnovniPodaci : Page
     {
-        public Pacijent IzabraniPacijent { get; set; }
+        public PacijentDTO PacijentDTO { get; set; }
         public LekarDTO LekarDTO;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public OsnovniPodaci(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
+        public OsnovniPodaci(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
             this.LekarDTO = LekarDTO;
-            this.IzabraniPacijent = IzabraniPacijent;
-
+            this.PacijentDTO = PacijentDTO;
             InitializeComponent();
-
-
-
-            headerIme.Text = IzabraniPacijent.Ime;
-            headerPrezime.Text = IzabraniPacijent.Prezime;
-            headerJMBG.Text = IzabraniPacijent.Jmbg;
-
-
-            ime.Text = IzabraniPacijent.Ime;
-            prezime.Text = IzabraniPacijent.Prezime;
-            pol.Text = IzabraniPacijent.Pol.ToString();
-            adresa.Text = IzabraniPacijent.AdresaStanovanja;
-            email.Text = IzabraniPacijent.Email;
-            jmbg.Text = IzabraniPacijent.Jmbg;
-            telefon.Text = IzabraniPacijent.Telefon;
-            korisnickoime.Text = IzabraniPacijent.KorisnickoIme;
+            headerIme.Text = PacijentDTO.Ime;
+            headerPrezime.Text = PacijentDTO.Prezime;
+            headerJMBG.Text = PacijentDTO.Jmbg;
+            ime.Text = PacijentDTO.Ime;
+            prezime.Text = PacijentDTO.Prezime;
+            pol.Text = PacijentDTO.Pol.ToString();
+            adresa.Text = PacijentDTO.AdresaStanovanja;
+            email.Text = PacijentDTO.Email;
+            jmbg.Text = PacijentDTO.Jmbg;
+            telefon.Text = PacijentDTO.Telefon;
+            korisnickoime.Text = PacijentDTO.KorisnickoIme;
 
         }
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO,IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO,PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DTO;
+using Kontroler;
 
 namespace Bolnica.view.lekar.pacijenti
 {
@@ -29,6 +30,7 @@ namespace Bolnica.view.lekar.pacijenti
         public RadniKalendarDTO AzuriranaUsluga { get; set; }
         public DateTime AzuriranPocetak { get; set; }
         public DateTime AzuriranKraj { get; set; }
+        public ZdravstvenaUslugaKontroler ZdravstvenaUslugaKontrolerObjekat { get; set; }
 
         public AzuriranjeUsluge(LekarDTO LekarDTO, RadniKalendarDTO OdabranaUsluga)
         {
@@ -57,7 +59,7 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void PotvrdiAzuriranjeButton(object sender, RoutedEventArgs e)
         {
-            Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.AzurirajVremeUsluga(OdabranaUsluga.Usluga, AzuriranPocetak, AzuriranKraj);
+            ZdravstvenaUslugaKontrolerObjekat.AzurirajVremeUsluga(OdabranaUsluga.Usluga, AzuriranPocetak, AzuriranKraj);
             refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
             NavigationService.Navigate(refRadniKalendar);
         }
@@ -94,8 +96,8 @@ namespace Bolnica.view.lekar.pacijenti
         {
             this.AzuriranPocetak = azuriran_pocetak;
             this.AzuriranKraj = azuriran_kraj;
-            return  azuriran_pocetak.ToString("MM / dd / yyyy") + "\n" 
-                    + "Od "+ azuriran_pocetak.ToString("HH:mm:ss") + "\n" 
+            return azuriran_pocetak.ToString("MM / dd / yyyy") + "\n"
+                    + "Od " + azuriran_pocetak.ToString("HH:mm:ss") + "\n"
                     + "Do " + azuriran_kraj.ToString("HH:mm:ss");
         }
 
@@ -127,9 +129,6 @@ namespace Bolnica.view.lekar.pacijenti
                 IspisiAzuriranoVreme();
             }
             return;
-
         }
-
-
     }
 }

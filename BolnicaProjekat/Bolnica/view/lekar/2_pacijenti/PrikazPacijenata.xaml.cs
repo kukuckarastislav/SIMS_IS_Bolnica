@@ -14,45 +14,41 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
-using Repozitorijum;
+using Kontroler;
 using DTO;
 
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for PrikazPacijenata.xaml
-    /// </summary>
+
     public partial class PrikazPacijenata : Page
     {
-
-        // BACK - PAGES
         private view.lekar.GlavniMeni refGlavniMeni;
-        // NEXT - PAGES
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
-        // KORISNICI
+        private PacijentKontroler ObjekatPacijentKontroler;
         public LekarDTO LekarDTO;
-        // KOLEKCIJE
-        public ObservableCollection<Pacijent> KolekcijaPacijenata { get; set; }
+        public ObservableCollection<PacijentDTO> KolekcijaPacijenata { get; set; }
 
 
         public PrikazPacijenata(LekarDTO LekarDTO)
         {
-            this.LekarDTO = LekarDTO;
-            KolekcijaPacijenata = PacijentRepozitorijum.GetInstance.GetAll();
             InitializeComponent();
+            this.LekarDTO = LekarDTO;
+            ObjekatPacijentKontroler = new PacijentKontroler();
+            KolekcijaPacijenata = ObjekatPacijentKontroler.GetPacijentiDto();
             this.DataGridPrikazPacijenataZaLekar.ItemsSource = KolekcijaPacijenata;
-  
+
         }
 
-        public Pacijent GetSelectedPacijentZaLekarDTO() {
-            Pacijent pacijent = DataGridPrikazPacijenataZaLekar.SelectedItem as Pacijent;
+        public PacijentDTO GetSelectedPacijentZaLekarDTO()
+        {
+            PacijentDTO pacijent = DataGridPrikazPacijenataZaLekar.SelectedItem as PacijentDTO;
             return pacijent;
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            Pacijent IzabraniPacijent = GetSelectedPacijentZaLekarDTO();
+            PacijentDTO IzabraniPacijent = GetSelectedPacijentZaLekarDTO();
             if (IzabraniPacijent != null & this.LekarDTO != null)
             {
                 refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);

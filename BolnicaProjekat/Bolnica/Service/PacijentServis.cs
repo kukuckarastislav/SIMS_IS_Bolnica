@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  PacijentServis.cs
- * Author:  Mihajlo
- * Purpose: Definition of the Class Servis.PacijentServis
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,8 +12,8 @@ using System.Collections;
 
 namespace Servis
 {
-   class PacijentServis : IObserver
-   {
+    class PacijentServis : IObserver
+    {
         public Repozitorijum.PacijentRepozitorijum pacijentRepozitorijum;
         public void DodajPacijenta(RegistracijaPacijentaDTO podaciPacijenta)
         {
@@ -37,13 +31,13 @@ namespace Servis
         {
             Pol pol = Pol.Zensko;
             if (podaciPacijenta.Musko) pol = Pol.Musko;
-            Pacijent pacijent = new Pacijent(new MedicinskiKarton(podaciPacijenta.Id,false, null,new Terapija(), new List<string>()), new ArrayList(),podaciPacijenta.Id,podaciPacijenta.pacijentGost,false,false,false,
-                podaciPacijenta.KorisnickoIme,podaciPacijenta.Sifra,podaciPacijenta.Ime,podaciPacijenta.Prezime,pol,
-                podaciPacijenta.Email,podaciPacijenta.Telefon,podaciPacijenta.DatumRodjenja,podaciPacijenta.Jmbg,podaciPacijenta.Drzavljanstvo,podaciPacijenta.AdresaStanovanja);
+            Pacijent pacijent = new Pacijent(new MedicinskiKarton(podaciPacijenta.Id, false, null, new Terapija(), new List<string>()), new ArrayList(), podaciPacijenta.Id, podaciPacijenta.pacijentGost, false, false, false,
+                podaciPacijenta.KorisnickoIme, podaciPacijenta.Sifra, podaciPacijenta.Ime, podaciPacijenta.Prezime, pol,
+                podaciPacijenta.Email, podaciPacijenta.Telefon, podaciPacijenta.DatumRodjenja, podaciPacijenta.Jmbg, podaciPacijenta.Drzavljanstvo, podaciPacijenta.AdresaStanovanja);
             return pacijent;
         }
 
-        public Model.Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
+        public Pacijent AzurirajPacijenta(Model.Pacijent pacijent)
         {
             PacijentRepozitorijum.GetInstance.AzurirajPacijenta(pacijent);
             return pacijent;
@@ -74,17 +68,17 @@ namespace Servis
             return null;
         }
 
-        public ObservableCollection<Model.Pacijent> GetAll()
+        public List<Pacijent> GetAll()
         {
             return PacijentRepozitorijum.GetInstance.GetAll();
         }
 
-        public ObservableCollection<PacijentDTO> GetPacijentiDto()
+        public ObservableCollection<PacijentDTO> GetPacijentiDTO()
         {
-            ObservableCollection<Pacijent> sviPacijenti = PacijentRepozitorijum.GetInstance.GetNeobrisaniPacijenti();
+            List<Pacijent> sviPacijenti = PacijentRepozitorijum.GetInstance.GetNeobrisaniPacijenti();
             ObservableCollection<PacijentDTO> dtoPacijenti = new ObservableCollection<PacijentDTO>();
 
-            foreach(Pacijent pacijent in sviPacijenti)
+            foreach (Pacijent pacijent in sviPacijenti)
             {
                 dtoPacijenti.Add(KonvertujPacijentaUPacijentDTO(pacijent));
             }
@@ -94,8 +88,8 @@ namespace Servis
 
         public PacijentDTO KonvertujPacijentaUPacijentDTO(Pacijent pacijent)
         {
-            return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg,pacijent.AdresaStanovanja,
-                pacijent.Drzavljanstvo,pacijent.Pol,pacijent.DatumRodjenja,pacijent.KorisnickoIme);
+            return new PacijentDTO(pacijent.Id, pacijent.Ime, pacijent.Prezime, pacijent.Email, pacijent.Telefon, pacijent.Jmbg, pacijent.AdresaStanovanja,
+                pacijent.Drzavljanstvo, pacijent.Pol, pacijent.DatumRodjenja, pacijent.KorisnickoIme);
         }
 
         public List<string> GetAlergeniPacijenta(int id)
@@ -130,7 +124,7 @@ namespace Servis
 
         public void Update(ISubject subject)
         {
-            if(subject is UserSuspension userSuspension)
+            if (subject is UserSuspension userSuspension)
             {
                 Pacijent p = PacijentRepozitorijum.GetInstance.GetById(userSuspension.Patientid);
                 p.SpamUser = false;

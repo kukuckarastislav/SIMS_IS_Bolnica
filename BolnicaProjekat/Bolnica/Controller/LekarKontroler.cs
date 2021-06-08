@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  LekarKontroler.cs
- * Author:  Mihajlo
- * Purpose: Definition of the Class Kontroler.LekarKontroler
- ***********************************************************************/
-
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,13 +30,13 @@ namespace Kontroler
             return lekarServis.ObrisiLekara(lekar);
         }
 
-        public ObservableCollection<Model.Lekar> GetAllObs()
+        public ObservableCollection<Lekar> GetAllObs()
         {
             return lekarServis.GetAllObs();
         }
-        public ObservableCollection<LekarDTO> getAllDto()
+        public List<LekarDTO> GetAllDTO()
         {
-            return lekarServis.GetAllDto();
+            return lekarServis.GetAllDTO();
         }
 
         public ObservableCollection<LekarDTO> getAllNeobrisaniLekari()

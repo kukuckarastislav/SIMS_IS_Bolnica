@@ -27,33 +27,33 @@ namespace Bolnica.view.lekar.pacijenti
     {
 
         public LekarDTO LekarDTO { get; set; }
-        public Pacijent IzabraniPacijent { get; set; }
+        public PacijentDTO PacijentDTO { get; set; }
         public DateTime PocetakHospitalizacije;
         public DateTime ZavrsetakHospitalizacije;
         public ObservableCollection<Prostorija> BolesnickeSobe;
-        public HospitalizacijaKontroler hospitalizacijaKontrolerObjekat;
+        public HospitalizacijaKontroler HospitalizacijaKontrolerObjekat;
         public DateTime AzuriranPocetak { get; set; }
         public DateTime AzuriranKraj { get; set; }
         private Prostorija selektovanaProstorija = null; 
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
-        public UpucivanjeNaStacionarnoLecenje(LekarDTO LekarDTO, Pacijent IzabraniPacijent)
+        public UpucivanjeNaStacionarnoLecenje(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
             InitializeComponent();
             this.LekarDTO = LekarDTO;
-            this.IzabraniPacijent = IzabraniPacijent;
+            this.PacijentDTO = PacijentDTO;
             InicijalizujObjekte();
             UcitajPodatke();
         }
 
         public void InicijalizujObjekte()
         {
-            hospitalizacijaKontrolerObjekat = new HospitalizacijaKontroler();
+            HospitalizacijaKontrolerObjekat = new HospitalizacijaKontroler();
             BolesnickeSobe = new ObservableCollection<Prostorija>();
         }
         public void UcitajPodatke()
         {
-            lblHospitalizacija.Text = (IzabraniPacijent.Hospitalizovan) ? "Da" : "Ne";
+            lblHospitalizacija.Text = "N\\A";
             lblProstorija.Text = "N\\A";
             lblPocetkaHospitalizacije.Text = "N\\A";
             lblZavrsetkaHostpitalizacije.Text = "N\\A";
@@ -61,6 +61,7 @@ namespace Bolnica.view.lekar.pacijenti
 
             KreirajIspravanKalendar();
         }
+
 
         private void KreirajIspravanKalendar()
         {
@@ -78,7 +79,7 @@ namespace Bolnica.view.lekar.pacijenti
             string vremeHospitalizacije = (NapraviStringAzuriranoVreme(PocetakHospitalizacije, ZavrsetakHospitalizacije));
             MessageBox.Show(Convert.ToString(PocetakHospitalizacije));
             MessageBox.Show(Convert.ToString(ZavrsetakHospitalizacije));
-            BolesnickeSobe = hospitalizacijaKontrolerObjekat.getBolesnickeSobeZaHospitalizacijuUIntevalu(PocetakHospitalizacije, ZavrsetakHospitalizacije);
+            BolesnickeSobe = HospitalizacijaKontrolerObjekat.getBolesnickeSobeZaHospitalizacijuUIntevalu(PocetakHospitalizacije, ZavrsetakHospitalizacije);
             cmbBolesnickeSobe.ItemsSource = BolesnickeSobe;
             txtAzuriranoStanje.Text = "Hospitalizacija: " + "\n" + vremeHospitalizacije + "\n";
 
@@ -121,9 +122,9 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
-            if (IzabraniPacijent != null)
+            if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, IzabraniPacijent);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
@@ -211,9 +212,9 @@ namespace Bolnica.view.lekar.pacijenti
             if(selektovanaProstorija != null)
             {
 
-                HospitalizacijaDTO hospitalizacijaDTO = new HospitalizacijaDTO(IzabraniPacijent.Id, LekarDTO.Id, selektovanaProstorija.Id, PocetakHospitalizacije, ZavrsetakHospitalizacije);
+                HospitalizacijaDTO hospitalizacijaDTO = new HospitalizacijaDTO(PacijentDTO.Id, LekarDTO.Id, selektovanaProstorija.Id, PocetakHospitalizacije, ZavrsetakHospitalizacije);
 
-                hospitalizacijaKontrolerObjekat.DodajHospitalizaciju(hospitalizacijaDTO);
+                HospitalizacijaKontrolerObjekat.DodajHospitalizaciju(hospitalizacijaDTO);
             }
         }
     }

@@ -41,7 +41,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-            <!-- Profilna Slika-->
+        <!-- Profilna Slika-->
         <Ellipse Width="110" Height="110" Fill="#810000"
                     Canvas.Left="135" Canvas.Top="25"
                     Grid.Row="1"
@@ -111,7 +111,9 @@
                     Foreground="#eeebdd"
                     Grid.Row="4" Grid.RowSpan="1"
                 Grid.Column="1" Grid.ColumnSpan="5"/>
+                
                 <RadioButton IsChecked="True" Content="Pregled"    VerticalAlignment="Center" HorizontalAlignment="Left"   Name="rbPregled"/>
+                
                 <RadioButton IsEnabled="False" Content="Operacija" VerticalAlignment="Center" HorizontalAlignment="Left"  Name="rbOperacija"/>
 
                 <TextBlock Text="Prostorija:" 
@@ -120,6 +122,7 @@
                     Foreground="#eeebdd"
                     Grid.Row="4" Grid.RowSpan="1"
                     Grid.Column="1" Grid.ColumnSpan="5"/>
+                
                 <ComboBox x:Name="ComboBoxProstorija" 
                           ItemsSource="{Binding KolekcijaSobaZaPregled}" 
                           Width="120" 
@@ -130,81 +133,159 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
+                
                 <TextBlock Text="Dan usluge:" Margin="0,5,0,0"
                     VerticalAlignment="Top" HorizontalAlignment="left" 
                     FontWeight="Bold" 
                     Foreground="#eeebdd"
                     Grid.Row="4" Grid.RowSpan="1"
                     Grid.Column="1" Grid.ColumnSpan="5"/>
-                <DatePicker x:Name="datum" Grid.Row="3" Grid.Column="2"  SelectedDateChanged="datum_SelectedDateChanged"/>
-                <TextBlock Text="Početak usluge:" Margin="0,0,0,0" Padding="2"
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    />
+         
+                <DatePicker  x:Name="KalendarDanUsluge"
+                             Grid.Row="3" Grid.Column="2"  
+                             SelectedDateChanged="KalendarDanUsluge_SelectedDateChanged"/>
+                <TextBlock  Text="Početak usluge:" 
+                            Padding="2"
+                            VerticalAlignment="Top" 
+                            HorizontalAlignment="Left"
+                            FontWeight="Bold" 
+                            Foreground="#eeebdd"/>
 
-                <StackPanel Name="VremePocetakTermina" Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Left">
+                    <ComboBox x:Name="ComboBoxVremeUsluge_Sat"  
+                              MaxDropDownHeight="44"
+                              Height="22" Width="45">
+                        <ComboBoxItem Content="01" />
+                        <ComboBoxItem Content="02" />
+                        <ComboBoxItem Content="03" />
+                        <ComboBoxItem Content="04" />
+                        <ComboBoxItem Content="05" />
+                        <ComboBoxItem Content="06" />
+                        <ComboBoxItem IsSelected="True" Content="07"/>
+                        <ComboBoxItem Content="08" />
+                        <ComboBoxItem Content="09" />
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="11" />
+                        <ComboBoxItem Content="12" />
+                        <ComboBoxItem Content="13" />
+                        <ComboBoxItem Content="14" />
+                        <ComboBoxItem Content="15" />
+                        <ComboBoxItem Content="16" />
+                        <ComboBoxItem Content="17" />
+                        <ComboBoxItem Content="18" />
+                        <ComboBoxItem Content="19" />
+                        <ComboBoxItem Content="20" />
+                        <ComboBoxItem Content="21" />
+                        <ComboBoxItem Content="22" />
+                        <ComboBoxItem Content="23" />
+                    </ComboBox>
+                    <TextBlock  Text="h"
+                                Padding="2"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
+                    <ComboBox x:Name="ComboBoxVremeUsluge_Minut"
+                              MaxDropDownHeight="44"
+                              Height="22" Width="45">
+                        <ComboBoxItem Content="00" IsSelected="True"/>
+                        <ComboBoxItem Content="05"/>
+                        <ComboBoxItem Content="10"/>
+                        <ComboBoxItem Content="15"/>
+                        <ComboBoxItem Content="20"/>
+                        <ComboBoxItem Content="25"/>
+                        <ComboBoxItem Content="30"/>
+                        <ComboBoxItem Content="35"/>
+                        <ComboBoxItem Content="40" />
+                        <ComboBoxItem Content="45" />
+                        <ComboBoxItem Content="50" />
+                        <ComboBoxItem Content="55" />
+                    </ComboBox>
+                    <TextBlock  Text="min"
+                                Padding="2"
+                                VerticalAlignment="Top" 
+                                HorizontalAlignment="left" 
+                                FontWeight="Bold" 
+                                Foreground="#eeebdd"/>
 
-                    <ComboBox x:Name="VremePocetakTermina_Sat" Width="45" Background="#32ccff">
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >1</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >2</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >3</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >4</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >5</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >6</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" IsSelected="True">7</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >8</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >9</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >10</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >11</ComboBoxItem>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" >12</ComboBoxItem>
-                    </ComboBox>
-                    <ComboBox x:Name="VremePocetakTermina_Minut"  Width="45" Background="#32ccff">
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="00" IsSelected="True"/>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="30" />
-                    </ComboBox>
-                    <ComboBox x:Name="VremePocetakTermina_AM_PM"  Width="45" Background="#32ccff">
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="AM" IsSelected="True"/>
-                        <ComboBoxItem RenderTransformOrigin="0.478,-3.78" Margin="22,0,724,0" Content="PM" />
-                    </ComboBox>
 
                 </StackPanel>
-                
-                <TextBlock Text="                          (Usluga traje 30min)" Margin="0,0,0,0" Padding="2"
-                        VerticalAlignment="Top" HorizontalAlignment="left" 
+
+                <TextBlock  Text="(Usluga traje 30min)" 
+                            Margin="55,0,0,0"
+                            Padding="2"
+                            VerticalAlignment="Top" 
+                            HorizontalAlignment="Left" 
+                            FontWeight="Bold" 
+                            Foreground="DarkRed"
+                            FontSize="8"
+                            Grid.Row="4" Grid.RowSpan="1"
+                            Grid.Column="1" Grid.ColumnSpan="5"/>
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="4" 
+                    Grid.ColumnSpan="1"
+                    Grid.Row="6" Grid.RowSpan="4" 
+                    Margin="10,0,5,0">
+            <TextBlock  Text="Razlog zakazivanja:" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="left" 
+                        FontWeight="Bold" 
+                        Foreground="#eeebdd"
+                        Grid.Row="4" Grid.RowSpan="1"
+                        Grid.Column="1" Grid.ColumnSpan="5"
+                        Margin="0,0,0,2"/>
+            <TextBox x:Name="RazlogZakazivanja" 
+                     Height="50"  
+                     MaxLines="3" 
+                     MinLines="3" 
+                     TextWrapping="Wrap"/>
+            <CheckBox   x:Name="CmbHitnoZakazivanje"
+                        Content="Hitno zakazivanje"
+                        FontWeight="Bold" 
+                        Foreground="#eeebdd"  
+                        Margin="0,42,0,0" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top"
+                        Checked="CmbHitnoZakazivanje_Checked" 
+                        Unchecked="CmbHitnoZakazivanje_Unchecked"/>
+            <TextBlock  Text="(Usluga je odmah aktuelna)" 
+                        Padding="2"
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top" 
                         FontWeight="Bold" 
                         Foreground="DarkRed"
-                        FontSize="8"
-                        Grid.Row="4" Grid.RowSpan="1"
-                        Grid.Column="1" Grid.ColumnSpan="5"/>
+                        FontSize="8"/>
+            <Button     Height="36" 
+                VerticalAlignment="Top"
+                Background="#eeebdd" 
+                BorderThickness="1" 
+                BorderBrush="Black" 
+ 
+                Click="PotvrdiZakazanuUsluguButton">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <StackPanel Orientation="Horizontal"  Width="140">
+                    <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" />
+                    <TextBlock Padding="2" 
+                               FontSize="11" 
+                               VerticalAlignment="Center" 
+                               FontWeight="SemiBold"
+                               TextWrapping="Wrap"
+                               Width="90">Zakazivanje usluge</TextBlock>
+                </StackPanel>
+            </Button>
 
 
 
-            </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="6" Grid.RowSpan="3" Grid.Column="4" Grid.ColumnSpan="1" Margin="10,10,5,0">
-            <TextBlock Text="Razlog zakazivanja:" 
-                    VerticalAlignment="Top" HorizontalAlignment="left" 
-                    FontWeight="Bold" 
-                    Foreground="#eeebdd"
-                    Grid.Row="4" Grid.RowSpan="1"
-                    Grid.Column="1" Grid.ColumnSpan="5"
-                    Margin="0,0,0,2"/>
-            <TextBox x:Name="RazlogZakazivanja"  MaxLines="3" MinLines="3" TextWrapping="Wrap"/>
-        </StackPanel>
         
-        <Button Grid.Column="4" Grid.Row="9"  Height="36" VerticalAlignment="Bottom" Click="PotvrdiZakazanuUsluguButton"
-                Background="#eeebdd" BorderThickness="1" BorderBrush="Black" Margin="0,0,0,-10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-            <StackPanel Orientation="Horizontal"  Width="140">
-                <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Width="35" />
-                <TextBlock Padding="2" FontSize="11" VerticalAlignment="Center" FontWeight="SemiBold">Zakazivanje usluge</TextBlock>
-            </StackPanel>
-        </Button>
     </Grid>
 </Page>

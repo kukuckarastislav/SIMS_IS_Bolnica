@@ -21,7 +21,7 @@ namespace Bolnica.view.lekar.pacijenti
 
     public partial class NacinKoriscenja : Page
     {
-        public Pacijent IzabraniPacijent { get; set; }
+        public PacijentDTO PacijentDTO { get; set; }
         public LekarDTO LekarDTO;
         private view.lekar.pacijenti.IzdavanjeRecepta refIzdavanjeRecepta;
 
@@ -36,10 +36,10 @@ namespace Bolnica.view.lekar.pacijenti
         public static ParametriUzimanjaTerapijeDTO dto { get; set; }
 
 
-        public NacinKoriscenja(LekarDTO LekarDTO, Pacijent IzabraniPacijent, int idLeka)
+        public NacinKoriscenja(LekarDTO LekarDTO, PacijentDTO PacijentDTO, int idLeka)
         {
             this.LekarDTO = LekarDTO;
-            this.IzabraniPacijent = IzabraniPacijent;
+            this.PacijentDTO = PacijentDTO;
             this.idLeka = idLeka;
             InitializeComponent();
             KreirajIspravanKalendar();
@@ -108,9 +108,9 @@ namespace Bolnica.view.lekar.pacijenti
 
             dto = new ParametriUzimanjaTerapijeDTO(PocetakTerapije, KrajTerapije, VremenskiRazmak, PocetakTerapijeUSatima, DnevniBrojUzimanja);
             PodsjetnikKontroler kontroler = new PodsjetnikKontroler();
-            kontroler.DodajPodsjetnikZaUzimanjeLijeka(dto, idLeka, IzabraniPacijent.Id);
+            kontroler.DodajPodsjetnikZaUzimanjeLijeka(dto, idLeka, PacijentDTO.Id);
 
-            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO, IzabraniPacijent);
+            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO, PacijentDTO);
             NavigationService.Navigate(refIzdavanjeRecepta);
 
         }

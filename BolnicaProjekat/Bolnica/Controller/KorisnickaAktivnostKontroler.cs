@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Servis;
 using Model;
 
-namespace Controller
+namespace Kontroler
 {
     class KorisnickaAktivnostKontroler
     {

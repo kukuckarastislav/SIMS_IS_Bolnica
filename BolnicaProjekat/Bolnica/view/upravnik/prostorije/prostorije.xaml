@@ -8,21 +8,21 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="prostorije">
 
-    <Grid Background="White">
+    <Grid Style="{DynamicResource GridStyle}">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
                 <StackPanel>
-                    <Label Margin="10 0 0 0" FontSize="24">Prostorije</Label>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24">Prostorije</TextBlock>
                 </StackPanel>
                 <StackPanel Height="60" HorizontalAlignment="Center"  Orientation="Horizontal">
-                    <Button Width="100" Margin="30 10" Click="Dodaj_Prostoriju">Dodaj</Button>
-                    <Button Width="100" Margin="30 10" Click="Izmeni_Prostoriju">Izmeni</Button>
-                    <Button Width="100" Margin="30 10" Click="Obrisi_Prostoriju">Obrisi</Button>
-                    <Button Width="100" Margin="30 10" Click="Termini_Prostorije">Termini</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Width="100" Margin="30 10" Click="Dodaj_Prostoriju">Dodaj</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Width="100" Margin="30 10" Click="Izmeni_Prostoriju">Izmeni</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Width="100" Margin="30 10" Click="Obrisi_Prostoriju">Obrisi</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Width="100" Margin="30 10" Click="Termini_Prostorije">Termini</Button>
                 </StackPanel>
             </StackPanel>
             
-            <Grid DockPanel.Dock="Bottom" Background="White">
+            <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition />
@@ -35,7 +35,7 @@
                     <RowDefinition />
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Background="White" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
                     <Button x:Name="Btn_P_prosotrija" Background="White" Width="100" Margin="5 25 0 0" Click="Btn_prikazi_prosotrije">Prostorije</Button>
                     <Button x:Name="Btn_P_op_s" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_op_sale">Operacione Sale</Button>
                     <Button x:Name="Btn_P_sobPreg" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_sobe_za_pregled">Sobe za pregled</Button>
@@ -46,7 +46,6 @@
                 <Frame x:Name="PovrsinaPrikazRaznihProstorija" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
-                       Background="white"
                        ></Frame>
 
             </Grid>

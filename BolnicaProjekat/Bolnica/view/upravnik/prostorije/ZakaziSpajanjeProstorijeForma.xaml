@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="ZakaziSpajanjeProstorijeForma" Height="1000" Width="800">
 
-    <Grid>
+    <Grid Style="{DynamicResource GridStyle}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
@@ -43,10 +43,10 @@
                     <RowDefinition />
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Prostorija" VerticalAlignment="Center" FontSize="18" Grid.Row="0" Grid.Column="0" ></TextBlock>
-                <TextBlock x:Name="txtBrojProstorijeA" Grid.Row="1" Grid.Column="0" FontSize="18" Text="Broj " VerticalAlignment="Center"></TextBlock>
-                <TextBlock x:Name="txtSpratProstorijeA" Grid.Row="2" Grid.Column="0" FontSize="18" Text="Sprat " VerticalAlignment="Center"></TextBlock>
-                <TextBlock x:Name="txtPovrsinaProstorijeA" Grid.Row="3" Grid.Column="0" FontSize="18" Text="Povrsina " VerticalAlignment="Center"></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" Text="Prostorija" VerticalAlignment="Center" FontSize="18" Grid.Row="0" Grid.Column="0" ></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtBrojProstorijeA" Grid.Row="1" Grid.Column="0" FontSize="18" Text="Broj " VerticalAlignment="Center"></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtSpratProstorijeA" Grid.Row="2" Grid.Column="0" FontSize="18" Text="Sprat " VerticalAlignment="Center"></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtPovrsinaProstorijeA" Grid.Row="3" Grid.Column="0" FontSize="18" Text="Povrsina " VerticalAlignment="Center"></TextBlock>
 
                 <ComboBox x:Name="comboProstorija" ItemsSource="{Binding KolekcijaProstorija}" Grid.Column="1" Grid.Row="0" Height="20" Width="160" 
                  HorizontalAlignment="Left" DropDownClosed="comboProstorija_DropDownClosed">
@@ -56,10 +56,10 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                
-                <TextBlock x:Name="txtBrojProstorijeB" Grid.Row="1" Grid.Column="1" FontSize="18" Text="Broj " VerticalAlignment="Center"></TextBlock>
-                <TextBlock x:Name="txtSpratProstorijeB" Grid.Row="2" Grid.Column="1" FontSize="18" Text="Sprat " VerticalAlignment="Center"></TextBlock>
-                <TextBlock x:Name="txtPovrsinaProstorijeB" Grid.Row="3" Grid.Column="1" FontSize="18" Text="Povrsina " VerticalAlignment="Center"></TextBlock>
+
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtBrojProstorijeB" Grid.Row="1" Grid.Column="1" FontSize="18" Text="Broj " VerticalAlignment="Center"></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtSpratProstorijeB" Grid.Row="2" Grid.Column="1" FontSize="18" Text="Sprat " VerticalAlignment="Center"></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtPovrsinaProstorijeB" Grid.Row="3" Grid.Column="1" FontSize="18" Text="Povrsina " VerticalAlignment="Center"></TextBlock>
 
             </Grid>
 
@@ -78,11 +78,11 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="0" Grid.Column="0">Broj Prostorije</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="1" Grid.Column="0">Sprat Prostorije</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="2" Grid.Column="0">Povrsina Prostorije</TextBlock>
 
                 <TextBox x:Name="inputBroj" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
@@ -100,6 +100,7 @@
             <TextBlock Grid.Row="3" Grid.Column="1" Text="Zauzeti Termini" VerticalAlignment="Bottom" Margin="0 10"></TextBlock>
 
             <DataGrid x:Name="DataGridPrikazTerminaZauzetosti" 
+                      Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                 Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Grid.ColumnSpan="3"
                           ItemsSource="{Binding Path=KolekcijaZauzetihTermina}" 
                           IsReadOnly="True"
@@ -112,7 +113,7 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <TextBlock Grid.Row="6" Grid.Column="1" Text="Pocetak Premestanja" VerticalAlignment="Center" Margin="10"></TextBlock>
+            <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="6" Grid.Column="1" Text="Pocetak Premestanja" VerticalAlignment="Center" Margin="10"></TextBlock>
             <DatePicker x:Name="DatePickerPocetak" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Margin="10"/>
             <Grid Grid.Column="3" Grid.Row="6">
                 <Grid.ColumnDefinitions>
@@ -166,7 +167,7 @@
             </Grid>
 
 
-            <TextBlock Grid.Row="7" Grid.Column="1" Text="Kraj Premestanja" VerticalAlignment="Center" Margin="10"></TextBlock>
+            <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="7" Grid.Column="1" Text="Kraj Premestanja" VerticalAlignment="Center" Margin="10"></TextBlock>
             <DatePicker x:Name="DatePickerKraj" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Margin="10"/>
             <Grid Grid.Column="3" Grid.Row="7">
                 <Grid.ColumnDefinitions>
@@ -219,8 +220,8 @@
                 </ComboBox>
             </Grid>
 
-            <Button x:Name="btn_odustani" Grid.Column="1" Grid.Row="8" Height="40" Width="100" HorizontalAlignment="Right" Click="btn_odustani_Click">Odustani</Button>
-            <Button x:Name="btn_potvrdi" Grid.Column="3" Grid.Row="8" Height="40" Width="100" HorizontalAlignment="Left" Click="btn_potvrdi_Click">Potvrdi</Button>
+            <Button Style="{DynamicResource BTNSSS}" x:Name="btn_odustani" Grid.Column="1" Grid.Row="8" Height="40" Width="100" HorizontalAlignment="Right" Click="btn_odustani_Click">Odustani</Button>
+            <Button Style="{DynamicResource BTNSSS}" x:Name="btn_potvrdi" Grid.Column="3" Grid.Row="8" Height="40" Width="100" HorizontalAlignment="Left" Click="btn_potvrdi_Click">Potvrdi</Button>
 
 
         </Grid>

@@ -37,7 +37,8 @@ namespace Bolnica.view.upravnik.Magacin
 
             inventariKontrolerObjekat = new InventariKontroler();
             lOpremeDTO = inventariKontrolerObjekat.GetOpremaByNaprednaPretraga(parametriPretrage);
-            DataGridPrikazOpremeNapredno.ItemsSource = lOpremeDTO;
+            DataGridPrikazOpremeNapredno.ItemsSource = lOpremeDTO; 
+
         }
 
         public void azurirajPrikaz()

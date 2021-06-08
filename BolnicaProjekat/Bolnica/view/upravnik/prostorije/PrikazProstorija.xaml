@@ -11,6 +11,7 @@
     <Grid>
         <DataGrid x:Name="DataGridPrikazProstorija" 
                           ItemsSource="{Binding Path=KolekcijaProstorija}" 
+                  Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                           IsReadOnly="False"
                           SelectionMode="Single" 
                           AutoGenerateColumns="False"

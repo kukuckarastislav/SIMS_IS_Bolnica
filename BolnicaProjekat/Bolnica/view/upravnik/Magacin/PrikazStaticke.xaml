@@ -10,6 +10,7 @@
 
     <Grid>
         <DataGrid x:Name="DataGridPrikazStatickeOpreme" 
+                  Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                   SelectionChanged="DataGridPrikazStatickeOpreme_SelectionChanged"
                           ItemsSource="{Binding Path=KolekcijaOpreme}" 
                           IsReadOnly="False"

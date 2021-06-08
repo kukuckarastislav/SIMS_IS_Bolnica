@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="NaprednaPretragaPrikazForma" Height="720" Width="1000">
     <Grid>
-        <Grid Background="White">
+        <Grid Style="{DynamicResource GridStyle}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition />
@@ -26,7 +26,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Grid Background="White" Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" >
+            <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="60" />
@@ -49,8 +49,8 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Naziv"></TextBlock>
-                    <TextBox x:Name="inputNaziv" Width="120" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"></TextBox>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Naziv"></TextBlock>
+                    <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputNaziv" Width="120" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"></TextBox>
                 </Grid>
                 
                 <Grid Grid.Row="1" Grid.Column="0">
@@ -61,8 +61,8 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Sifra"></TextBlock>
-                    <TextBox x:Name="inputSifra" Width="120" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"></TextBox>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Sifra"></TextBlock>
+                    <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputSifra" Width="120" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1"></TextBox>
                 </Grid>
 
                 <Grid Grid.Row="2" Grid.Column="0">
@@ -75,10 +75,10 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Cena od"></TextBlock>
-                    <TextBox x:Name="inputCenaOd" Width="60" Height="22" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Text="0"></TextBox>
-                    <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="do"></TextBlock>
-                    <TextBox x:Name="inputCenaDo" Width="60" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" Text="1000000"></TextBox>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Cena od"></TextBlock>
+                    <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputCenaOd" Width="60" Height="22" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Text="0"></TextBox>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="do"></TextBlock>
+                    <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputCenaDo" Width="60" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" Text="1000000"></TextBox>
                 </Grid>
 
                 <Grid Grid.Row="3" Grid.Column="0">
@@ -91,30 +91,30 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Kolicina od"></TextBlock>
-                    <TextBox x:Name="inputKolicinaOd" Width="60" Height="22" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Text="0"></TextBox>
-                    <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="do"></TextBlock>
-                    <TextBox x:Name="inputKolicinaDo" Width="60" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" Text="1000"></TextBox>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Kolicina od"></TextBlock>
+                    <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputKolicinaOd" Width="60" Height="22" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Text="0"></TextBox>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="do"></TextBlock>
+                    <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputKolicinaDo" Width="60" Height="22" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="3" Text="1000"></TextBox>
                 </Grid>
 
 
-                <CheckBox IsChecked="True" x:Name="checkMagacin" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Magacin"></CheckBox>
-                <CheckBox x:Name="checkBolnicka" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Bolnicka"></CheckBox>
-                <CheckBox x:Name="checkBolesnickaSoba" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="BolesnickaSoba"></CheckBox>
-                <CheckBox x:Name="checkOpracionaSala" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="OpracionaSala"></CheckBox>
-                <CheckBox x:Name="checkSobaZaPreglede" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="SobaZaPreglede"></CheckBox>
+                <CheckBox Style="{DynamicResource CheckBoxStyle}" IsChecked="True" x:Name="checkMagacin" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Magacin"></CheckBox>
+                <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="checkBolnicka" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Bolnicka"></CheckBox>
+                <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="checkBolesnickaSoba" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="BolesnickaSoba"></CheckBox>
+                <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="checkOpracionaSala" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="OpracionaSala"></CheckBox>
+                <CheckBox Style="{DynamicResource CheckBoxStyle}" x:Name="checkSobaZaPreglede" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Content="SobaZaPreglede"></CheckBox>
 
-                <CheckBox IsChecked="True" x:Name="checkStaticka" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Staticka"></CheckBox>
-                <CheckBox IsChecked="True" x:Name="checkDinamicka" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Dinamicka"></CheckBox>
+                <CheckBox Style="{DynamicResource CheckBoxStyle}" IsChecked="True" x:Name="checkStaticka" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Staticka"></CheckBox>
+                <CheckBox Style="{DynamicResource CheckBoxStyle}" IsChecked="True" x:Name="checkDinamicka" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Dinamicka"></CheckBox>
 
-                <Button Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" Width="100" Click="Pretraga_click">Pretraga</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" Width="100" Click="Pretraga_click">Pretraga</Button>
                 
             </Grid>
-            
-            
 
 
-            <DataGrid x:Name="DataGridPrikazOpremeNapredno" 
+
+
+            <DataGrid x:Name="DataGridPrikazOpremeNapredno" Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                 Grid.Column="1" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2"
                           ItemsSource="{Binding Path=KolekcijaOpreme}" 
                           IsReadOnly="True"
@@ -122,16 +122,19 @@
                           AutoGenerateColumns="False"
                           SelectedItem="{Binding Path=SelectedCustomer, Mode=TwoWay}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="0.7*" />
+                    <DataGridTextColumn Header="Naziv" Binding="{Binding Naziv}" Width="0.7*">
+                    </DataGridTextColumn>
                     <DataGridTextColumn Header="Sifra" Binding="{Binding Sifra}" Width="0.5*" />
                     <DataGridTextColumn Header="Tip Opreme" Binding="{Binding TipOpreme}" Width="0.5*" />
                     <DataGridTextColumn Header="Cena" Binding="{Binding Cena}" Width="0.5*" />
                     <DataGridTextColumn Header="Kolicina" Binding="{Binding Kolicina}" Width="0.5*" />
                     <DataGridTextColumn Header="lokacija" Binding="{Binding BrojSpratProstorije}" Width="0.7*" />
+                    
+                    
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Button Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Width="100" Height="40" Click="Nazad_Click">Nazad</Button>
+            <Button Style="{DynamicResource BTNSSS}" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2" Width="100" Height="40" Click="Nazad_Click">Nazad</Button>
             
         </Grid>
     </Grid>

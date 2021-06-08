@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Bolnica.view.upravnik.Magacin"
         mc:Ignorable="d"
         Title="DodajOpremuUMagForma" Height="750" Width="800">
-    <Grid>
-        <DockPanel Background="White">
+    <Grid Style="{DynamicResource GridStyle}">
+        <DockPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -30,38 +30,38 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="1" Grid.Column="1">Naziv</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="2" Grid.Column="1">Sifra</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="3" Grid.Column="1">Kolicina</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="4" Grid.Column="1">Jedinicna Cena</TextBlock>
 
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="5" Grid.Column="1">Tip Opreme</TextBlock>
 
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="6" Grid.Column="1">Opis</TextBlock>
 
-                <TextBox x:Name="inputNaziv" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputNaziv" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="1" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputSifra" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputSifra" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="2" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputKolicina" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputKolicina" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="3" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputCena" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputCena" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="4" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputTip" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputTip" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="5" Grid.Column="2" Width="160" IsEnabled="False" IsReadOnly="True">Tip</TextBox>
 
 
-                <TextBox x:Name="inputOpis" 
+                <TextBox x:Name="inputOpis" Style="{DynamicResource TextBoxStyle}"
                          TextWrapping="Wrap"
                         AcceptsReturn="True"
                         VerticalScrollBarVisibility="Visible"
@@ -69,9 +69,9 @@
 
 
 
-                <Button  Grid.Row="10" Grid.Column="1" Width="120" Height="50" Click="close_win">Odustani</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="10" Grid.Column="1" Width="120" Height="50" Click="close_win">Odustani</Button>
 
-                <Button  Grid.Row="10" Grid.Column="2" Width="120" Height="50" Click="Potvrdi_btn">Potvrdi</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="10" Grid.Column="2" Width="120" Height="50" Click="Potvrdi_btn">Potvrdi</Button>
 
 
 

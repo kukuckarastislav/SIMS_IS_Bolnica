@@ -7,21 +7,21 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LekoviPage">
-    <Grid Background="White">
+    <Grid Style="{DynamicResource GridStyle}">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
                 <StackPanel>
-                    <Label Margin="10 0 0 0" FontSize="24" Content="Lekovi"/>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24">Lekovi</TextBlock>
                 </StackPanel>
                 <StackPanel Height="60" HorizontalAlignment="Center" Orientation="Horizontal">
-                    <Button Width="100" Margin="30 10" Click="Dodaj_lek_click" x:Name="btn_dodaj_lek" Content="Dodaj novi lek"/>
-                    <Button Width="100" Margin="30 10" Click="btn_obrisi_lek_Click" x:Name="btn_obrisi_lek" Content="Obrisi lek"/>
-                    <Button Width="100" Margin="30 10" Click="btn_izmeni_lek_Click" x:Name="btn_izmeni_lek" Content="Izmeni lek"/>
+                    <Button Style="{DynamicResource BTNSSS}" Width="100" Margin="30 10" Click="Dodaj_lek_click" x:Name="btn_dodaj_lek" Content="Dodaj novi lek"/>
+                    <Button Style="{DynamicResource BTNSSS}" Width="100" Margin="30 10" Click="btn_obrisi_lek_Click" x:Name="btn_obrisi_lek" Content="Obrisi lek"/>
+                    <Button Style="{DynamicResource BTNSSS}" Width="100" Margin="30 10" Click="btn_izmeni_lek_Click" x:Name="btn_izmeni_lek" Content="Izmeni lek"/>
                    <!-- <Button Width="100" Margin="30 10" Click="btn_revizija_leka_Click" x:Name="btn_revizija_lek" Content="Posalji na reviziju"/> -->
                 </StackPanel>
             </StackPanel>
 
-            <Grid DockPanel.Dock="Bottom" Background="White">
+            <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition />
@@ -34,7 +34,7 @@
                     <RowDefinition />
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Background="White" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
                     <Button x:Name="Btn_prikaz_odobrene" Background="White" Width="109" Margin="5 25 0 0" Click="Btn_prikazi_odobrene">Odobreni lekovi</Button>
                     <Button x:Name="Btn_prikaz_neodobrene" Background="White" Width="118" Margin="0 25 0 0" Click="Btn_prikazi_neodobrene">Neodobreni lekovi</Button>
                 </StackPanel>

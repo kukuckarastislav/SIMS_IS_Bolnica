@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view.upravnik.prostorije"
         mc:Ignorable="d"
         Title="PrikazTerminaProstorija" Height="700" Width="800">
-    <Grid>
+    <Grid Style="{DynamicResource GridStyle}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
@@ -26,17 +26,18 @@
                 <RowDefinition  Height="30"/>
 
             </Grid.RowDefinitions>
-            <TextBlock x:Name="nazivProstorije" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="15" FontSize="18" VerticalAlignment="Center" Text="Prostorija"></TextBlock>
+            <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="nazivProstorije" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="15" FontSize="18" VerticalAlignment="Center" Text="Prostorija"></TextBlock>
 
             <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3" Orientation="Horizontal">
-                <Button Margin="50 0 30 0" Width="100" Height="40" Click="Zakazi_Termin" HorizontalAlignment="Center" Content="Zakazi"></Button>
-                <Button Margin="30 0 30 0" Width="100" Height="40" Click="Spajanje_click" Content="Spajanje" ></Button>
-                <Button Margin="30 0 30 0" Width="100" Height="40" Click="Razdvajanje_click" Content="Razdvajanje"></Button>
-                <Button Margin="30 0 50 0" Width="100" Height="40" Click="Otkazi_Termin" HorizontalAlignment="Center">Otkazi</Button>
+                <Button Style="{DynamicResource BTNSSS}" Margin="50 0 30 0" Width="100" Height="40" Click="Zakazi_Termin" HorizontalAlignment="Center" Content="Zakazi"></Button>
+                <Button Style="{DynamicResource BTNSSS}" Margin="30 0 30 0" Width="100" Height="40" Click="Spajanje_click" Content="Spajanje" ></Button>
+                <Button Style="{DynamicResource BTNSSS}" Margin="30 0 30 0" Width="100" Height="40" Click="Razdvajanje_click" Content="Razdvajanje"></Button>
+                <Button Style="{DynamicResource BTNSSS}" Margin="30 0 50 0" Width="100" Height="40" Click="Otkazi_Termin" HorizontalAlignment="Center">Otkazi</Button>
             </StackPanel>
 
 
             <DataGrid x:Name="DataGridPrikazZauzetihTermina" 
+                      Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                 Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3"
                           ItemsSource="{Binding Path=KolekcijaTermina}" 
                           IsReadOnly="True"
@@ -49,7 +50,7 @@
                     <DataGridTextColumn Header="Tip Termina" Binding="{Binding TipTermina}" Width="0.5*" />
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Width="100" Height="40" Click="btn_nazad">Nazad</Button>
+            <Button Style="{DynamicResource BTNSSS}" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" Width="100" Height="40" Click="btn_nazad">Nazad</Button>
         </Grid>
     </Grid>
 </Window>

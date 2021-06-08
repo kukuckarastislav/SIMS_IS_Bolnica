@@ -58,5 +58,10 @@ namespace Bolnica.view.upravnik
         {
             RadnaPovrsina.Content = new view.upravnik.Ocene.OcenePage();
         }
+
+        private void Podesavanje_Click(object sender, RoutedEventArgs e)
+        {
+            RadnaPovrsina.Content = new view.upravnik.Podesavanje.PodesavanjePage();
+        }
     }
 }

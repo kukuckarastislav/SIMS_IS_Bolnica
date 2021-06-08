@@ -8,11 +8,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InventariPage">
 
-    <Grid Background="White">
+    <Grid Style="{DynamicResource GridStyle}">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
                 <StackPanel>
-                    <Label Margin="10 0 0 0" FontSize="24">Inventari</Label>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24">Inventari</TextBlock>
                 </StackPanel>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -24,7 +24,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="80"/>
                     </Grid.RowDefinitions>
-                        <Grid Background="White" Grid.Column="1" Grid.Row="0">
+                        <Grid Grid.Column="1" Grid.Row="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="120" />
                                 <ColumnDefinition />
@@ -33,8 +33,8 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Label Grid.Column="0" Grid.Row="0" Content="Tip Prostorije:" VerticalContentAlignment="Center"/>
-                            <Label Grid.Column="0" Grid.Row="1" Content="Prostorije:" VerticalContentAlignment="Center" />
+                            <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="0" Text="Tip Prostorije:" />
+                            <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" Text="Prostorije:" />
 
                         <ComboBox x:Name="comboTipProstorije" Grid.Column="1" Grid.Row="0" Height="22" Width="120" HorizontalAlignment="Left" DropDownClosed="comboTipProstorije_DropDownClosed">
                             <ComboBoxItem Content="Bolnicka" IsSelected="True" />
@@ -51,15 +51,15 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                         </Grid>
-                        <Button x:Name="btn_preraspodela" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Width="100" Margin="20 40 0 0" Click="Preraspodela_click">Preraspodeli</Button>
-                        <Button Visibility="Collapsed" x:Name="btn_termin" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Width="100" Margin="30 40 20 0" Click="Termini_click">Termini</Button>
+                    <Button Style="{DynamicResource BTNSSS}" x:Name="btn_preraspodela" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left" Width="100" Margin="20 40 0 0" Click="Preraspodela_click">Preraspodeli</Button>
+                    <Button Visibility="Collapsed" x:Name="btn_termin" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" Width="100" Margin="30 40 20 0" Click="Termini_click">Termini</Button>
                 </Grid>
                     
                     
                 
             </StackPanel>
 
-            <Grid DockPanel.Dock="Bottom" Background="White">
+            <Grid DockPanel.Dock="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition />
@@ -72,7 +72,7 @@
                     <RowDefinition />
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Background="White" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" Style="{DynamicResource StackPanelStyle}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
                     <Button x:Name="Btn_prikaz_staticku" Background="White" Width="100" Margin="5 25 0 0" Click="Btn_prikazi_staticku">Staticka</Button>
                     <Button x:Name="Btn_prikaz_dinamicku" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_dinamicku">Dinamicka</Button>
                     <Button Visibility="Hidden" x:Name="Btn_prikaz_lekovi" Background="White" Width="100" Margin="0 25 0 0" Click="Btn_prikazi_lekovi">Lekovi</Button>
@@ -82,7 +82,6 @@
                 <Frame x:Name="PovrsinaPrikazInventara" 
                        NavigationUIVisibility="Hidden"
                        Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="2"
-                       Background="White"
                        ></Frame>
 
             </Grid>

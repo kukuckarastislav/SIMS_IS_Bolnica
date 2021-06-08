@@ -10,6 +10,7 @@
 
     <Grid>
         <DataGrid x:Name="DataGridPrikazSobaZaPregled" 
+                  Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                           ItemsSource="{Binding Path=KolekcijaSobeZaPregled}" 
                           IsReadOnly="False"
                           SelectionMode="Single" 

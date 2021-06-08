@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Bolnica.view.upravnik.Lekovi"
         mc:Ignorable="d"
         Title="OdabirLekara" Height="384.658" Width="435.069">
-    <Grid>
+    <Grid Style="{DynamicResource GridStyle}">
         <ListView SelectionMode="Multiple" ItemsSource="{Binding Lekari}" x:Name="listaLekara" Margin="-1,0,1,0" RenderTransformOrigin="0.5,0.5" Height="300" VerticalAlignment="Top" >
             <ListView.RenderTransform>
                 <TransformGroup>
@@ -23,9 +23,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Margin="66,307,243,12" Click="Odustani_Button_Click">Odustani
+        <Button Style="{DynamicResource BTNSSS}" Margin="66,307,243,12" Click="Odustani_Button_Click">Odustani
         </Button>
-        <Button Margin="226,307,83,12" Click="Posalji_Button_Click">Posalji
+        <Button Style="{DynamicResource BTNSSS}" Margin="226,307,83,12" Click="Posalji_Button_Click">Posalji
         </Button>
 
     </Grid>

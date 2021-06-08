@@ -530,6 +530,9 @@
     <Compile Include="view\upravnik\Ocene\OcenePage.xaml.cs">
       <DependentUpon>OcenePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\Podesavanje\PodesavanjePage.xaml.cs">
+      <DependentUpon>PodesavanjePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\prostorije\DodajBolesnickuProstorijuForma.xaml.cs">
       <DependentUpon>DodajBolesnickuProstorijuForma.xaml</DependentUpon>
     </Compile>
@@ -925,6 +928,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\upravnik\Ocene\OcenePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Podesavanje\PodesavanjePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="OdabirTermina" Height="650" Width="700">
 
-    <Grid>
+    <Grid Style="{DynamicResource GridStyle}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
@@ -27,8 +27,8 @@
                 <RowDefinition  Height="30"/>
 
             </Grid.RowDefinitions>
-            <TextBlock x:Name="nazivProstorije1" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="15" FontSize="18" VerticalAlignment="Center"></TextBlock>
-            <Grid Background="White" Grid.Column="3" Grid.Row="1">
+            <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="nazivProstorije1" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Margin="15" FontSize="18" VerticalAlignment="Center"></TextBlock>
+            <Grid Grid.Column="3" Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120" />
                     <ColumnDefinition />
@@ -37,8 +37,8 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Tip Prostorije:" VerticalAlignment="Center"></TextBlock>
-                <TextBlock x:Name="txtProstorija" Grid.Row="1" Grid.Column="0" Text="Prostorija:" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="0" Text="Tip Prostorije:" VerticalAlignment="Center"></TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtProstorija" Grid.Row="1" Grid.Column="0" Text="Prostorija:" VerticalAlignment="Center"></TextBlock>
                 
                 
                 <ComboBox x:Name="comboTipProstorije" Grid.Column="1" Grid.Row="0" Height="22" Width="120" HorizontalAlignment="Left" DropDownClosed="comboTipProstorije_DropDownClosed">
@@ -58,18 +58,11 @@
                 </ComboBox>
             </Grid>
 
-            <Button Grid.Row="2" Grid.Column="1" Width="100" Height="40" Click="Zakazi_click">Zakazi</Button>
-            <Button Grid.Row="2" Grid.Column="3" Width="100" Height="40" Click="Otkazi_click">Otkazi</Button>
-            <!--
-            <Frame x:Name="PovrsinaPrikazTermina" 
-                       NavigationUIVisibility="Hidden"
-                       Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Grid.ColumnSpan="3"
-                       Background="blue"
-                       ></Frame>
-            -->
-            
-            
-            <DataGrid x:Name="DataGridPrikazZauzetihTermina" 
+            <Button Style="{DynamicResource BTNSSS}" Grid.Row="2" Grid.Column="1" Width="100" Height="40" Click="Zakazi_click">Zakazi</Button>
+            <Button Style="{DynamicResource BTNSSS}" Grid.Row="2" Grid.Column="3" Width="100" Height="40" Click="Otkazi_click">Otkazi</Button>
+
+
+            <DataGrid x:Name="DataGridPrikazZauzetihTermina" Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                 Grid.Column="1" Grid.Row="3" Grid.RowSpan="3" Grid.ColumnSpan="3"
                           ItemsSource="{Binding Path=KolekcijaTermina}" 
                           IsReadOnly="True"
@@ -82,8 +75,8 @@
 
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Grid.Column="1" Grid.Row="6" Width="100" Height="40" Click="btn_nazad">Nazad</Button>
-            <Button Grid.Column="3" Grid.Row="6" Width="100" Height="40" Click="btn_preraspodela">Preraspodela</Button>
+            <Button Style="{DynamicResource BTNSSS}" Grid.Column="1" Grid.Row="6" Width="100" Height="40" Click="btn_nazad">Nazad</Button>
+            <Button Style="{DynamicResource BTNSSS}" Grid.Column="3" Grid.Row="6" Width="100" Height="40" Click="btn_preraspodela">Preraspodela</Button>
         </Grid>
     </Grid>
 

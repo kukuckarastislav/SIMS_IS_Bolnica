@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Bolnica.view.upravnik.prostorije"
         mc:Ignorable="d"
         Title="DodajProstorijuForma" Height="450" Width="800">
-    <Grid>
-        <DockPanel Background="White">
+    <Grid Style="{DynamicResource GridStyle}">
+        <DockPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
@@ -25,11 +25,11 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="1" Grid.Column="1">Broj Prostorije</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="2" Grid.Column="1">Sprat Prostorije</TextBlock>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="3" Grid.Column="1">Povrsina Prostorije</TextBlock>
 
                 <TextBox x:Name="inputIDprostorije" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" 
@@ -42,9 +42,9 @@
                            Grid.Row="3" Grid.Column="2" Width="160"></TextBox>
 
 
-                <Button  Grid.Row="5" Grid.Column="1" Margin="40 15 40 0" Click="close_win">Odustani</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="5" Grid.Column="1" Margin="40 15 40 0" Click="close_win">Odustani</Button>
 
-                <Button  Grid.Row="5" Grid.Column="2" Margin="40 15 40 0" Click="Potvrdi_btn">Potvrdi</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="5" Grid.Column="2" Margin="40 15 40 0" Click="Potvrdi_btn">Potvrdi</Button>
 
             </Grid>
             

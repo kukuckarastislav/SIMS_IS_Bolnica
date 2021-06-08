@@ -10,6 +10,7 @@
 
     <Grid>
         <DataGrid x:Name="DataGridPrikazOdobrenihLekova" 
+                  Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                   SelectionChanged="DataGridPrikazOdobrenihLekova_SelectionChanged"
                           ItemsSource="{Binding Path=KolekcijaLekovi}" 
                           IsReadOnly="False"

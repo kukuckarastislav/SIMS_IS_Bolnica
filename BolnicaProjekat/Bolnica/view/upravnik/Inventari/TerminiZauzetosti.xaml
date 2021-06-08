@@ -9,7 +9,7 @@
       Title="TerminiZauzetosti">
 
     <Grid>
-        <DataGrid x:Name="DataGridPrikazStatickeOpreme" 
+        <DataGrid x:Name="DataGridPrikazStatickeOpreme" Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                   SelectionChanged="DataGridPrikazStatickeOpreme_SelectionChanged"
                           ItemsSource="{Binding Path=KolekcijaTermina}" 
                           IsReadOnly="False"

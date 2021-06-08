@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Bolnica.view.upravnik.Lekovi"
         mc:Ignorable="d"
         Title="DodajLek" Height="950" Width="1200">
-    <Grid>
-        <DockPanel Background="White">
+    <Grid Style="{DynamicResource GridStyle}">
+        <DockPanel>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120"/>
@@ -37,16 +37,16 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="1" Grid.Column="1">Naziv</TextBlock>
-                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="2" Grid.Column="1">Sifra</TextBlock>
-                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="3" Grid.Column="1">Kolicina</TextBlock>
-                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="4" Grid.Column="1">Jedinicna Cena</TextBlock>
 
-                <TextBlock VerticalAlignment="Bottom" Margin="0 10" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Bottom" Margin="0 10" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="5" Grid.Column="1">Opis</TextBlock>
 
                 <TextBox x:Name="inputNaziv" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
@@ -85,9 +85,10 @@
                     </Grid.RowDefinitions>
                     <TextBox x:Name="inputAlergen" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="0" Grid.Column="0" Width="160"></TextBox>
-                    <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" VerticalAlignment="Top" Width="60" Height="23" Click="Dodaj_alergen_click">Dodaj</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" VerticalAlignment="Top" Width="60" Height="23" Click="Dodaj_alergen_click">Dodaj</Button>
 
                     <DataGrid x:Name="DataGridPrikazAlergena" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2"
+                              Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                           ItemsSource="{Binding Path=KolekcijaAlergeni}" 
                           IsReadOnly="False"
                           SelectionMode="Single" 
@@ -97,7 +98,7 @@
                             <DataGridTextColumn Header="Naziv Alergena" Binding="{Binding}" Width="0.7*" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" VerticalAlignment="Center" Width="60" Height="23" Click="Ukloni_alergen_click">Ukloni</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" VerticalAlignment="Center" Width="60" Height="23" Click="Ukloni_alergen_click">Ukloni</Button>
                 </Grid>
 
 
@@ -131,9 +132,10 @@
                         
                     </ComboBox>
 
-                    <Button Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0" VerticalAlignment="Top" Width="60" Height="23" Click="Dodaj_lekara_click">Dodaj</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0" VerticalAlignment="Top" Width="60" Height="23" Click="Dodaj_lekara_click">Dodaj</Button>
 
                     <DataGrid x:Name="DataGridPrikazLekara" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3"
+                              Style="{DynamicResource DataGridStyle}" RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle}"
                     SelectionChanged="DataGridPrikazLekara_SelectionChanged"
                           ItemsSource="{Binding Path=KolekcijaLekaraDataGrid}" 
                           IsReadOnly="False"
@@ -146,11 +148,11 @@
                             <DataGridTextColumn Header="Status Revizije" Binding="{Binding StatusRevizije}" Width="0.7*" />
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="60" Height="23" Click="Ukloni_lekara_click">Ukloni</Button>
+                    <Button Style="{DynamicResource BTNSSS}" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Width="60" Height="23" Click="Ukloni_lekara_click">Ukloni</Button>
                 </Grid>
 
 
-                <TextBlock x:Name="txtLekar" Text="Poruke Lekaru" VerticalAlignment="Bottom" Margin="0 10" HorizontalAlignment="Left" FontSize="16" 
+                <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtLekar" Text="Poruke Lekaru" VerticalAlignment="Bottom" Margin="0 10" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="5" Grid.Column="4"></TextBlock>
 
                 <TextBox x:Name="inputPoruka" 
@@ -160,11 +162,11 @@
                          Grid.Row="6" Grid.Column="4" Grid.RowSpan="2" Grid.ColumnSpan="2">Opis ...
                 </TextBox>
 
-                <Button Grid.Row="8" Grid.Column="5" HorizontalAlignment="Right" Margin="0 5 0 0" VerticalAlignment="Top" Width="60" Height="23" Click="Sacuvaj_poruku_click">Sacuvaj</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="8" Grid.Column="5" HorizontalAlignment="Right" Margin="0 5 0 0" VerticalAlignment="Top" Width="60" Height="23" Click="Sacuvaj_poruku_click">Sacuvaj</Button>
 
-                <Button  Grid.Row="14" Grid.Column="2" Width="120" Height="50" Click="odustani_Click" HorizontalAlignment="Right">Odustani</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="14" Grid.Column="2" Width="120" Height="50" Click="odustani_Click" HorizontalAlignment="Right">Odustani</Button>
 
-                <Button  Grid.Row="14" Grid.Column="4" Width="120" Height="50" HorizontalAlignment="Left" Click="Potvrdi_click">Potvrdi</Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="14" Grid.Column="4" Width="120" Height="50" HorizontalAlignment="Left" Click="Potvrdi_click">Potvrdi</Button>
 
 
 

@@ -22,75 +22,118 @@ namespace Bolnica.view.sekretar
         public SekretarHome()
         {
             InitializeComponent();
-            RadnaPovrsina.Content = new view.sekretar.PocetnaStranica();
-            btnPocetnaStranica.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if(App.jelPrvoPokretanjeAplikacije)
+                RadnaPovrsina.Content = new view.sekretar.wizard.WizardPocetna();
+            else
+                RadnaPovrsina.Content = new view.sekretar.PocetnaStranica();
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                btnPocetnaStranica.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
+            App.glavniProzor.Visibility = Visibility.Hidden;
+            App.stranicaSekretara = this;
+        }
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.glavniProzor.Visibility = Visibility.Visible;
+            App.glavniProzor.resetLogin();
+            App.jelPrvoPokretanjeAplikacije = false;
         }
 
         private void PocetnaStranica_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.PocetnaStranica();
-            ResetButtonColor();
-            btnPocetnaStranica.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.PocetnaStranica();
+                ResetButtonColor();
+                btnPocetnaStranica.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
         private void Registracija_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.registracija.PageRegistracijaPacijentaxaml();
-            ResetButtonColor();
-            btnRegistracijaPacijenta.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.registracija.PageRegistracijaPacijentaxaml();
+                ResetButtonColor();
+                btnRegistracijaPacijenta.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
         private void RegistracijaLekara_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.registracija.RegistracijaLekara();
-            ResetButtonColor();
-            btnRegistracijaLekara.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.registracija.RegistracijaLekara();
+                ResetButtonColor();
+                btnRegistracijaLekara.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
 
         private void ListPacijenti_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.PageListaPacijenata();
-            ResetButtonColor();
-            btnListaPacijenata.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.PageListaPacijenata();
+                ResetButtonColor();
+                btnListaPacijenata.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
 
         private void ListGosti_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.PageGostujuciKorisnici();
-            ResetButtonColor();
-            btnListaGostiju.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
-            
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.PageGostujuciKorisnici();
+                ResetButtonColor();
+                btnListaGostiju.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
 
         private void ListLekara_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.PageLekari();
-            ResetButtonColor();
-            btnListaLekara.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.PageLekari();
+                ResetButtonColor();
+                btnListaLekara.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
         private void ListObavestenja_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.PageObavestenja();
-            ResetButtonColor();
-            btnObavestenja.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.PageObavestenja();
+                ResetButtonColor();
+                btnObavestenja.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
         private void ZauzetostProstorija_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.ZauzetostProstorija();
-            ResetButtonColor();
-            btnZauzetostProstorija.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.ZauzetostProstorija();
+                ResetButtonColor();
+                btnZauzetostProstorija.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
 
         private void ZakazaniTermini_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.PageZakazaniTermini();
-            ResetButtonColor();
-            btnZakayaniTermini.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.PageZakazaniTermini();
+                ResetButtonColor();
+                btnZakayaniTermini.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
         
         private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.sekretar.ZakazivanjeTermina();
-            ResetButtonColor();
-            btnZakaziTermin.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            if (!App.jelPrvoPokretanjeAplikacije)
+            {
+                RadnaPovrsina.Content = new view.sekretar.ZakazivanjeTermina();
+                ResetButtonColor();
+                btnZakaziTermin.Background = (SolidColorBrush)(new BrushConverter().ConvertFrom("#ccffbd"));
+            }
         }
 
         private void ResetButtonColor()

@@ -23,12 +23,7 @@ namespace Bolnica
         public static Visibility vidljivostPomoci = Visibility.Visible;
         public static SekretarHome stranicaSekretara;
 
-        private String someText = "default";
- 
-       public String SomeText
-       {
-           get { return this.someText; }
-           set { this.someText = value; }
-       }
+        public static bool jelPrvoPokretanjeAplikacije = true;
+        public static MainWindow glavniProzor;
     }
 }

@@ -31,7 +31,7 @@ namespace Bolnica
         private PacijentDTO PrijavljeniPacijent;
         public MainWindow()
         {
-
+            App.glavniProzor = this;
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -108,6 +108,12 @@ namespace Bolnica
                 pacijent_home.Show();
             }
 
+        }
+
+        public void resetLogin()
+        {
+            txbIme.Text = "";
+            txbLozinka.Password = "";
         }
 
     }

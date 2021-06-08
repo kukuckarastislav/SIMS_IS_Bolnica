@@ -1,0 +1,29 @@
+﻿<Page x:Class="Bolnica.view.sekretar.wizard.WizardIzvestaj"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar.wizard"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="WizardIzvestaj">
+
+    <Grid Background="#ccffbd">
+        <TextBlock FontSize="35px" HorizontalAlignment="Left" Margin="193,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="84" Width="477"><Run Text="Izveštaj o zauz"/><Run Text="etosti prostorija"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="64,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Odabir prostorije"/>
+        <TextBlock HorizontalAlignment="Left" Margin="64,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Odabir datuma"/>
+        <ComboBox HorizontalAlignment="Left" Margin="251,136,0,0" VerticalAlignment="Top" Width="103" Height="30"/>
+        <TextBlock HorizontalAlignment="Left" Margin="91,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Od:"/>
+        <TextBlock HorizontalAlignment="Left" Margin="91,301,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="35" Width="198" FontSize="20px" Text="Do:"/>
+        <DatePicker HorizontalAlignment="Left" Margin="144,250,0,0" VerticalAlignment="Top" Height="25" Width="118"/>
+        <DatePicker HorizontalAlignment="Left" Margin="144,301,0,0" VerticalAlignment="Top" Width="118"/>
+        <Button Background="White" Content="Kreiraj izveštaj" HorizontalAlignment="Left" Width="100px" Height="40px" VerticalAlignment="Top" Margin="64,398,0,0" />
+        <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
+        <Button Background="white" Content="Sledeca stranica" HorizontalAlignment="Left" Margin="508,629,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnSledeca" Click="btnSledeca_Click"/>
+        <Button Background="white" Content="Zatvori wizard" HorizontalAlignment="Left" Margin="356,629,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnZatvori" Click="btnZatvori_Click"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="118" Margin="81,506,0,0" Stroke="Black" VerticalAlignment="Top" Width="699"/>
+        <TextBlock HorizontalAlignment="Left" Margin="93,518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="95" Width="679"><Run Text=" Trenutno se nalazimo na stranici "/><Run Text="Zauzetost prostorija"/><Run Text=". Ovde mo"/><Run Text="žete "/><Run Text="videti "/><Run Text="izeštaj o zauzetosti neke prostorije. Da bi ste videli izveštaj potrebno je da u checkbox-u odaberete naziv prostorije, odaberete datume za vremenski period za koji se posmatra zau"/><Run Text="z"/><Run Text="etost prostorije."/><Run Text=" Nakon što ste to uradili potrebno je kliknuti na dugme kreiraj izveštaj, nakon čega će biti prikazan grafik i podaci o zauzetosti prostorije."/></TextBlock>
+        <Button Background="white" Content="Prethodna stranica" HorizontalAlignment="Left" Margin="203,629,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnPrethodna" Click="btnPrethodna_Click"/>
+
+    </Grid>
+</Page>

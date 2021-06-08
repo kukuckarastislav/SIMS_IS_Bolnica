@@ -1,0 +1,20 @@
+﻿<Page x:Class="Bolnica.view.sekretar.wizard.WizardKraj"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar.wizard"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="WizardKraj">
+
+    <Grid Background="#ccffbd">
+        <TextBlock HorizontalAlignment="Left" Margin="288,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="295" FontSize="35px"><Run Text="Završetak wizarda"/><LineBreak/><Run/></TextBlock>
+        <Button Background="white" Content="Početak wizarda" HorizontalAlignment="Left" Margin="520,471,0,0" VerticalAlignment="Top" Width="120px" Height="30px" Name="btnSledeca" Click="btnSledeca_Click"/>
+        <Button Background="white" Content="Zatvori wizard" HorizontalAlignment="Left" Margin="356,471,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnZatvori" Click="btnZatvori_Click"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="100,220,0,0" Stroke="Black" VerticalAlignment="Top" Width="699"/>
+        <TextBlock FontSize="15px" HorizontalAlignment="Left" Margin="126,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="121" Width="657"><Run Text="Završili ste rad sa wizardom. Imali ste priliku da pogledate koje sve mogućnosti pruža aplikacija"/><Run Text="."/><LineBreak/><Run Text="Ukoliko želite da ponovo prođete kroz wizard to možete učiniti klikom na dugme Početak wizarda."/><LineBreak/><Run/><LineBreak/><Run Text="Ukoliko nemate nameru da radite sa wizardom i "/><Run Text="želite da "/><Run Text="počnete rad u aplikaciji kliknite na dugme Zatvori wizard."/></TextBlock>
+        <Button Background="white" Content="Prethodna stranica" HorizontalAlignment="Left" Margin="191,471,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnPrethodna" Click="btnPrethodna_Click"/>
+
+    </Grid>
+</Page>

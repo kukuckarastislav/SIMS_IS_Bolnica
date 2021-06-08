@@ -1,0 +1,25 @@
+﻿<Page x:Class="Bolnica.view.sekretar.wizard.WizardPocetna"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar.wizard"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="WizardPocetna">
+
+    <Grid Background="#ccffbd">
+        <TextBlock HorizontalAlignment="Left" Margin="524,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="241" FontSize="35px"><Run Text="Zdravo Bolnica"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="100,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="174" FontSize="20px"><Run Text="Dobrodošli"/><LineBreak/><Run/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <Button Background="white" Content="Moj nalog" HorizontalAlignment="Left" Margin="100,195,0,0" VerticalAlignment="Top" Width="123" Height="29" />
+        <Button Background="white" Content="Odjavi me" HorizontalAlignment="Left" Margin="100,247,0,0" VerticalAlignment="Top" Width="123" Height="29" />
+        <Button Background="white" Content="Oceni aplikaciju" HorizontalAlignment="Left" Margin="100,304,0,0" VerticalAlignment="Top" Width="123" Height="28" />
+        <TextBlock HorizontalAlignment="Left" Margin="100,364,0,0" TextWrapping="Wrap" Text="Da li želite pomoć u radu sa aplikacijum: " VerticalAlignment="Top" FontSize="15px" Height="19" Width="278"/>
+        <CheckBox x:Name="cbPomoc" Content="" HorizontalAlignment="Left" Margin="383,367,0,0" VerticalAlignment="Top" Height="15" Width="19"/>
+        <Button Background="white" Content="Sledeca stranica" HorizontalAlignment="Left" Margin="516,608,0,0" VerticalAlignment="Top" Width="120px" Height="30px" Name="btnSledeca" Click="btnSledeca_Click"/>
+        <Button Background="white" Content="Zatvori wizard" HorizontalAlignment="Left" Margin="364,608,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnZatvori" Click="btnZatvori_Click"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="89,424,0,0" Stroke="Black" VerticalAlignment="Top" Width="699"/>
+        <TextBlock HorizontalAlignment="Left" Margin="100,435,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="140" Width="679"><Run Text="Dobrod"/><Run Text="ošli u wizard za rad sa aplikacijom. Kroz ovaj wizard ćemo vam prikazati"/><Run Text=" koje mogućnosti nudi aplikacija."/><LineBreak/><Run Text=" Trenutno se nalazimo na početnoj stranici. Ovde se nalate tri dugmeta. Dugme za prikazivanje podataka vašeg naloga. Dugme za odjavu iz aplikacije, i dugme za ocenivanj rada aplikacije. Ukoliko želite da uključite pomoć u radu sa aplikacijom možete označiti to u odgovarajućem polju ispod dugmića. "/><LineBreak/><Run/><LineBreak/><Run Text="Za prelazak na sledeću stranicu kliknite na dugme Sledeća stranica, ili ako želite da završite sa wizardom kliknite na dogme Zatvori wizard."/></TextBlock>
+
+    </Grid>
+</Page>

@@ -1,0 +1,42 @@
+﻿<Page x:Class="Bolnica.view.sekretar.wizard.WizardPacijenti"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Bolnica.view.sekretar.wizard"
+      mc:Ignorable="d" 
+      d:DesignHeight="708" d:DesignWidth="874"
+      Title="WizardPacijenti">
+
+    <Grid Background="#ccffbd">
+        <Button Content="Izmeni podatke pacijenta" HorizontalAlignment="Left" Margin="73,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White" />
+        <Button Content="Obrisi pacijenta" HorizontalAlignment="Left" Margin="253,34,0,0" VerticalAlignment="Top" Width="150" Height="40" Background="White"/>
+        <Button Content="Pregled medicinskog kartona" HorizontalAlignment="Left" Margin="432,34,0,0" VerticalAlignment="Top" Width="165" Height="40" Background="White" />
+        <DataGrid HorizontalAlignment="Left" Height="301" Margin="90,182,0,0" VerticalAlignment="Top" Width="717"
+                   Background="White" x:Name="DataGridPrikazPacijenata"
+                  
+                  IsReadOnly="True"
+                  SelectionMode="Single" 
+                  AutoGenerateColumns="False" 
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="JMBG" Width="*" />
+                <DataGridTextColumn Header="Ime" Width="*" />
+                <DataGridTextColumn Header="Prezime" Width="*" />
+                <DataGridTextColumn Header="Telefon" Width="*" />
+                <DataGridTextColumn Header="Email" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnPomoc" Content="Pomoć" HorizontalAlignment="Left" Margin="726,58,0,0" VerticalAlignment="Top" Width="74" Height="25px" Background="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="90,149,0,0" TextWrapping="Wrap" Text="Pretraga po JMBG:" VerticalAlignment="Top" FontSize="15px"/>
+        <TextBox Name="tbPretraga" HorizontalAlignment="Left" Height="23" Margin="218,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnTrazi" Content="Traži" HorizontalAlignment="Left" Margin="345,152,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="-0.005,1.156" Background="White"/>
+        
+        <Button Background="white" Content="Sledeca stranica" HorizontalAlignment="Left" Margin="511,629,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnSledeca" Click="btnSledeca_Click"/>
+        <Button Background="white" Content="Zatvori wizard" HorizontalAlignment="Left" Margin="359,629,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnZatvori" Click="btnZatvori_Click"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="118" Margin="84,506,0,0" Stroke="Black" VerticalAlignment="Top" Width="699"/>
+        <TextBlock HorizontalAlignment="Left" Margin="95,518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="95" Width="679"><Run Text=" Trenutno se nalazimo na stranici "/><Run Text="Lista"/><Run Text=" pacijenata"/><Run Text=". Ovde mo"/><Run Text="žete "/><Run Text="videti listu "/><Run Text="registrovanih"/><Run Text=" pacijenata"/><Run Text=","/><Run Text=" možete "/><Run Text="izvršiti"/><Run Text=" "/><Run Text="izmene podataka "/><Run Text="pacijenta"/><Run Text=", obrisati pacijenta, ili videti medicinski karton pacijenta"/><Run Text="."/><Run Text="Ove operacije se obavljaju klikom na neko dugme koje se nalazi na vrhu stranice."/><Run Text="U tabeli se nalaze svi trenutno registrovani pacijenti."/><Run Text=" "/><Run Text="Tu se takođe nalazi dugme za pretragu. Ukoliko unesete jmbg u određeno polje i kliknete na dugme traži biće vam prikazan pacijent sa traženim jmbg-om."/></TextBlock>
+        <Button Background="white" Content="Prethodna stranica" HorizontalAlignment="Left" Margin="206,629,0,0" VerticalAlignment="Top" Width="120px" Height="30px" x:Name="btnPrethodna" Click="btnPrethodna_Click"/>
+
+    </Grid>
+</Page>

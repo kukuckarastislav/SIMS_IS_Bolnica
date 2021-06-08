@@ -460,6 +460,45 @@
     <Compile Include="view\sekretar\WindowZakazivanjeTermina.xaml.cs">
       <DependentUpon>WindowZakazivanjeTermina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\sekretar\wizard\PageZT1.xaml.cs">
+      <DependentUpon>PageZT1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\PageZT2.xaml.cs">
+      <DependentUpon>PageZT2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\PageZT3.xaml.cs">
+      <DependentUpon>PageZT3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardGosti.xaml.cs">
+      <DependentUpon>WizardGosti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardIzvestaj.xaml.cs">
+      <DependentUpon>WizardIzvestaj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardKraj.xaml.cs">
+      <DependentUpon>WizardKraj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardLekari.xaml.cs">
+      <DependentUpon>WizardLekari.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardObavestenja.xaml.cs">
+      <DependentUpon>WizardObavestenja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardPacijenti.xaml.cs">
+      <DependentUpon>WizardPacijenti.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardPocetna.xaml.cs">
+      <DependentUpon>WizardPocetna.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardRL.xaml.cs">
+      <DependentUpon>WizardRL.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardRP.xaml.cs">
+      <DependentUpon>WizardRP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\sekretar\wizard\WizardTermini.xaml.cs">
+      <DependentUpon>WizardTermini.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\sekretar\ZakazaniTermini.xaml.cs">
       <DependentUpon>ZakazaniTermini.xaml</DependentUpon>
     </Compile>
@@ -842,6 +881,58 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\sekretar\WindowZakazivanjeTermina.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\PageZT1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\PageZT2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\PageZT3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardGosti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardIzvestaj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardKraj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardLekari.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardObavestenja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardPacijenti.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardPocetna.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardRL.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardRP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\sekretar\wizard\WizardTermini.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

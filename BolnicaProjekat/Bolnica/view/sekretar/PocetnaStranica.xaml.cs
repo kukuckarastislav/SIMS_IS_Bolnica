@@ -56,5 +56,12 @@ namespace Bolnica.view.sekretar
                 App.vidljivostPomoci = Visibility.Hidden;
             }
         }
+
+        private void Odjava_Click(object sender, RoutedEventArgs e)
+        {
+            App.glavniProzor.Visibility = Visibility.Visible;
+            App.glavniProzor.resetLogin();
+            App.stranicaSekretara.Close();
+        }
     }
 }

@@ -88,7 +88,7 @@ namespace Kontroler
             return null;
         }
 
-// Lekar - Radni Kalendar
+        #region Radni kalendar lekara - Kontroler
 
         public List<RadniKalendarDTO> DanasnjiRadniKalendarLekara(LekarDTO l)
         {
@@ -104,7 +104,8 @@ namespace Kontroler
             return ZdrastvenaUslugaServisObjekat.MesecniRadniKalendarLekara(l);
 
         }
-// --------------------
+
+        #endregion
 
         public List<ZdravstvenaUsluga> getAppointments(Lekar OdabraniLekar, DateTime datum)
         {

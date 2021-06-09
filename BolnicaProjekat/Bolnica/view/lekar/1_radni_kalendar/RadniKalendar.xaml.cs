@@ -33,9 +33,9 @@ namespace Bolnica.view.lekar.pacijenti
         private view.lekar.pacijenti.AzuriranjeUsluge refAzuriranjeUsluge;
         private view.lekar.pacijenti.EvidentiranjeUsluge refEvidentiranjeUsluge;
         // Kolekcije
-        private ObservableCollection<RadniKalendarDTO> KolekcijaDanasnjiRadniKalendar;
-        private ObservableCollection<RadniKalendarDTO> KolekcijaNedeljniRadniKalendar;
-        private ObservableCollection<RadniKalendarDTO> KolekcijaMesecniRadniKalendar;
+        public ObservableCollection<RadniKalendarDTO> KolekcijaDanasnjiRadniKalendar { get; set; }
+        public ObservableCollection<RadniKalendarDTO> KolekcijaNedeljniRadniKalendar { get; set; }
+        public ObservableCollection<RadniKalendarDTO> KolekcijaMesecniRadniKalendar { get; set; }
         // OBJEKTI
         private ZdravstvenaUslugaKontroler ObjekatZdrastvenaUslugaKontroler;
         public RadniKalendarDTO OdabranaUsluga { get; set; }
@@ -43,10 +43,14 @@ namespace Bolnica.view.lekar.pacijenti
 
         public RadniKalendar(LekarDTO LekarDTO)
         {
-            this.LekarDTO = LekarDTO;
             InitializeComponent();
+            this.LekarDTO = LekarDTO;
             ObjekatZdrastvenaUslugaKontroler = new ZdravstvenaUslugaKontroler();
             BindingRadniKalendar();
+            MessageBox.Show("INSTANCIRANJE - RADNI KALENDAR PAGE");
+            this.RadniKalendar_danasnji.Items.Refresh();
+            this.RadniKalendar_nedeljni.Items.Refresh();
+            this.RadniKalendar_mesecni.Items.Refresh();
         }
 
 
@@ -58,14 +62,14 @@ namespace Bolnica.view.lekar.pacijenti
         }
 
 
-        private void BindingRadniKalendar()
+        public void BindingRadniKalendar()
         {
             BindingDanasnjiRadniKalendar();
             BindingNedeljniRadniKalendar();
             BindingMesecniRadniKalendar();
         }
 
-        private void BindingDanasnjiRadniKalendar()
+        public void BindingDanasnjiRadniKalendar()
         {
             KolekcijaDanasnjiRadniKalendar = new ObservableCollection<RadniKalendarDTO>();
             foreach (RadniKalendarDTO dtoRadni in ObjekatZdrastvenaUslugaKontroler.DanasnjiRadniKalendarLekara(LekarDTO))
@@ -75,7 +79,7 @@ namespace Bolnica.view.lekar.pacijenti
             this.RadniKalendar_danasnji.ItemsSource = KolekcijaDanasnjiRadniKalendar;
         }
 
-        private void BindingNedeljniRadniKalendar()
+        public void BindingNedeljniRadniKalendar()
         {
             KolekcijaNedeljniRadniKalendar = new ObservableCollection<RadniKalendarDTO>();
             foreach (RadniKalendarDTO dtoRadni in ObjekatZdrastvenaUslugaKontroler.NedeljniRadniKalendarLekara(LekarDTO))
@@ -84,7 +88,7 @@ namespace Bolnica.view.lekar.pacijenti
             }
             this.RadniKalendar_nedeljni.ItemsSource = KolekcijaNedeljniRadniKalendar;
         }
-        private void BindingMesecniRadniKalendar()
+        public void BindingMesecniRadniKalendar()
         {
             KolekcijaMesecniRadniKalendar = new ObservableCollection<RadniKalendarDTO>();
             foreach (RadniKalendarDTO dtoRadni in ObjekatZdrastvenaUslugaKontroler.MesecniRadniKalendarLekara(LekarDTO))
@@ -125,7 +129,7 @@ namespace Bolnica.view.lekar.pacijenti
 
         {
             OdabranaUsluga = (RadniKalendarDTO)RadniKalendar_danasnji.SelectedItem;
-            if (OdabranaUsluga != null) 
+            if (OdabranaUsluga != null)
             {
                 OdabranaUsluga = RadniKalendar_danasnji.SelectedItem as RadniKalendarDTO;
                 PokaziDugmad();
@@ -163,5 +167,7 @@ namespace Bolnica.view.lekar.pacijenti
                 NavigationService.Navigate(refGlavniMeni);
             }
         }
+
+
     }
 }

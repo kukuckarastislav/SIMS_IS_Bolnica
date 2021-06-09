@@ -46,6 +46,10 @@ namespace Bolnica.view.lekar.pacijenti
             {
                 Potvrdi.IsEnabled = false;
             }
+            else
+            {
+                Potvrdi.IsEnabled = true;
+            }
 
             if (OdabranaUsluga.Usluga.RezultatUsluge != null)
             {

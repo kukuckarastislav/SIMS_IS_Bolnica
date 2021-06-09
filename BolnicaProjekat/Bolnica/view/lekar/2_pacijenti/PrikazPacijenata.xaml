@@ -37,8 +37,8 @@
         </Grid.RowDefinitions>
 
         <Button x:Name="Potvrdi"
-                Height="70" Width="55"
-                Margin="0,-42,0,0"
+                Height="90" Width="55"
+                Margin="0,-22,0,0"
                 Grid.Column="1" Grid.ColumnSpan="3"
                 Grid.Row="1" Grid.RowSpan="1"
                 HorizontalAlignment="Right"
@@ -51,7 +51,7 @@
             </Button.Resources>
             <StackPanel Orientation="Vertical" Width="52" >
                 <Image Source="/images/lekar-icons/potvrdi-uslugu-icon.png" Margin="5"  Width="40" Height="40"/>
-                <TextBlock TextWrapping="Wrap" Text="  Izveštaj" FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="65"/>
+                <TextBlock TextAlignment="Center" TextWrapping="Wrap" Text="Potvrdi izbor" FontSize="11" Padding="2" VerticalAlignment="Center" FontWeight="SemiBold" Width="45"/>
             </StackPanel>
         </Button>
 
@@ -98,7 +98,8 @@
                     Grid.Column="1" Grid.ColumnSpan="3"
                     FontSize="14"
                     FontWeight="Bold"
-                    HorizontalContentAlignment="Right"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
                     Grid.Row="4" Grid.RowSpan="3"
                     Margin="0,-20,0,0"
                     IsReadOnly="True" 
@@ -106,10 +107,35 @@
                     SelectionMode="Single"
                     ItemsSource="{Binding Path=KolekcijaPacijenata}"
                     MinRowHeight="20"
+                    RowBackground="#630000"
                     Background="#630000">
+
+            <DataGrid.RowHeaderStyle>
+                <Style>
+                    <Setter Property="Control.Background" Value="#630000"/>
+                    <Setter Property="Control.Background" Value="White"/>
+                </Style>
+            </DataGrid.RowHeaderStyle>
+
+
             <DataGrid.Columns>
 
-                <DataGridTextColumn Header="  Ime" Binding="{Binding Ime}" Width="*">
+                <DataGridTextColumn Header="  Ime" Binding="{Binding Ime}" Width="70">
+                    <DataGridColumn.HeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <Setter Property="Background" Value="#810000"/>
+                        <Setter Property="Foreground" Value="#eeebdd"/>
+                    </Style>
+                </DataGridColumn.HeaderStyle>
+                <DataGridColumn.CellStyle>
+                    <Style TargetType="DataGridCell">
+                        <Setter Property="Background" Value="#630000"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </DataGridColumn.CellStyle>
+            </DataGridTextColumn>
+                <DataGridTextColumn Header="  Prezime" Binding="{Binding Prezime}"  Width="*">
                 <DataGridColumn.HeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="#810000"/>
@@ -123,9 +149,9 @@
                         <Setter Property="FontWeight" Value="Bold"/>
                     </Style>
                 </DataGridColumn.CellStyle>
+            </DataGridTextColumn>
 
-            </DataGridTextColumn>
-                <DataGridTextColumn Header="  Prezime" Binding="{Binding Prezime}"  Width="80">
+                <DataGridTextColumn Header="  Pol" Binding="{Binding Pol}"  Width="60">
                 <DataGridColumn.HeaderStyle>
                     <Style TargetType="DataGridColumnHeader">
                         <Setter Property="Background" Value="#810000"/>
@@ -140,31 +166,21 @@
                     </Style>
                 </DataGridColumn.CellStyle>
             </DataGridTextColumn>
+        
+                <DataGridTextColumn Header="Datum rodjenja" Binding="{Binding DatumRodjenja,  StringFormat='yyyy-MM-dd'}" Width="105">
 
-                <DataGridTextColumn Header="  Pol" Binding="{Binding Pol}"  Width="65">
-                <DataGridColumn.HeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#810000"/>
-                        <Setter Property="Foreground" Value="#eeebdd"/>
-                    </Style>
-                </DataGridColumn.HeaderStyle>
-                <DataGridColumn.CellStyle>
-                    <Style TargetType="DataGridCell">
-                        <Setter Property="Background" Value="#630000"/>
-                        <Setter Property="Foreground" Value="White"/>
-                        <Setter Property="FontWeight" Value="Bold"/>
-                    </Style>
-                </DataGridColumn.CellStyle>
-            </DataGridTextColumn>
-                
-                <DataGridTextColumn Header="Hospitalizovan" Binding="{Binding Hospitalizovan}" Width="100">
-                <DataGridColumn.HeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <Setter Property="Background" Value="#810000"/>
-                        <Setter Property="Foreground" Value="#eeebdd"/>
-                    </Style>
-                </DataGridColumn.HeaderStyle>
-                <DataGridColumn.CellStyle>
+
+
+
+
+
+                    <DataGridColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#810000"/>
+                            <Setter Property="Foreground" Value="#eeebdd"/>
+                        </Style>
+                    </DataGridColumn.HeaderStyle>
+                    <DataGridColumn.CellStyle>
                     <Style TargetType="DataGridCell">
                         <Setter Property="Background" Value="#630000"/>
                         <Setter Property="Foreground" Value="White"/>

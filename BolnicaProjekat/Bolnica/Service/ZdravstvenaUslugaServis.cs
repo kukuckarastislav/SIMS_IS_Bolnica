@@ -263,9 +263,8 @@ namespace Servis
             return true;
         }
 
-// Lekar - Radni Kalendar
-
-       public List<RadniKalendarDTO> RadniKalendarLekara(LekarDTO l)
+        #region Radni kalendar lekara - Servis
+        public List<RadniKalendarDTO> RadniKalendarLekara(LekarDTO l)
         {
             List<RadniKalendarDTO> lista = new List<RadniKalendarDTO>();
             List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
@@ -304,8 +303,10 @@ namespace Servis
             foreach (RadniKalendarDTO dto in lista)
             {
                 DateTime pocetakUsluge = dto.Usluga.Termin.Pocetak;
-                DateTime granicnoVreme = DateTime.Now.AddDays(brojDanaUnapred);
-                if (pocetakUsluge < granicnoVreme)
+                         DateTime tacnoVreme = DateTime.Now;
+                         DateTime gornjaGranica = tacnoVreme.AddDays(brojDanaUnapred);
+                         DateTime donjaGranica = tacnoVreme.AddDays(-1);
+                if ((donjaGranica < pocetakUsluge) && (pocetakUsluge < gornjaGranica))
                 {
                     filtriranaLista.Add(dto);
                 }
@@ -313,7 +314,7 @@ namespace Servis
 
             return filtriranaLista;
         }
-// ---------------
+        #endregion
 
         public static ObservableCollection<DTOUslugaLekar> getUslugePacijenta(Pacijent p)
         {

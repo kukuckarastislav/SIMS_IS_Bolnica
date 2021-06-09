@@ -259,13 +259,15 @@
                         FontWeight="Bold" 
                         Foreground="DarkRed"
                         FontSize="8"/>
-            <Button     Height="36" 
+            <Button     
+                x:Name="Potvrdi"
+                Height="36" 
                 VerticalAlignment="Top"
                 Background="#eeebdd" 
                 BorderThickness="1" 
                 BorderBrush="Black" 
  
-                Click="PotvrdiZakazanuUsluguButton">
+                Click="Potvrdi_Click">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"/>

@@ -204,6 +204,7 @@ namespace Repozitorijum
             {
                 if (z.Id == usluga.Id)
                 {
+                    z.Obavljena = true;
                     z.RezultatUsluge = anamneza;
                     break;
                 }

@@ -203,8 +203,8 @@
     <Compile Include="Model\Aktivnost.cs" />
     <Compile Include="Model\Bolnica.cs" />
     <Compile Include="DTO\RadniKalendarDTO.cs" />
-    <Compile Include="Model\DTORecept.cs" />
-    <Compile Include="Model\DTOUslugaLekar.cs" />
+    <Compile Include="DTO\DTORecept.cs" />
+    <Compile Include="DTO\DTOUslugaLekar.cs" />
     <Compile Include="Model\Feedback.cs" />
     <Compile Include="Model\GodisnjiOdmor.cs" />
     <Compile Include="Model\Hospitalizacija.cs" />
@@ -331,13 +331,13 @@
     <Compile Include="view\lekar\LekarHome.xaml.cs">
       <DependentUpon>LekarHome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\lekar\2_pacijenti\AzuriranjeUsluge.xaml.cs">
+    <Compile Include="view\lekar\1_radni_kalendar\AzuriranjeUsluge.xaml.cs">
       <DependentUpon>AzuriranjeUsluge.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\lekar\2_pacijenti\BrisanjeUsluge.xaml.cs">
+    <Compile Include="view\lekar\1_radni_kalendar\BrisanjeUsluge.xaml.cs">
       <DependentUpon>BrisanjeUsluge.xaml</DependentUpon>
     </Compile>
-    <Compile Include="view\lekar\2_pacijenti\EvidentiranjeUsluge.xaml.cs">
+    <Compile Include="view\lekar\1_radni_kalendar\EvidentiranjeUsluge.xaml.cs">
       <DependentUpon>EvidentiranjeUsluge.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\lekar\2_pacijenti\IzdavanjeRecepta.xaml.cs">
@@ -706,15 +706,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="view\lekar\2_pacijenti\AzuriranjeUsluge.xaml">
+    <Page Include="view\lekar\1_radni_kalendar\AzuriranjeUsluge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\lekar\2_pacijenti\BrisanjeUsluge.xaml">
+    <Page Include="view\lekar\1_radni_kalendar\BrisanjeUsluge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="view\lekar\2_pacijenti\EvidentiranjeUsluge.xaml">
+    <Page Include="view\lekar\1_radni_kalendar\EvidentiranjeUsluge.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

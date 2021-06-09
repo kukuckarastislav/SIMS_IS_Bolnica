@@ -48,6 +48,8 @@ namespace Bolnica.view.upravnik.Podesavanje
             txtJezik.Text = "Jezik";
             txtPodesavanje.Text = "Podesavanje";
             txtTema.Text = "Tema";
+            btnEng.Content = "Engleski";
+            btnSrb.Content = "Srpski";
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
         }
 
@@ -57,6 +59,8 @@ namespace Bolnica.view.upravnik.Podesavanje
             txtJezik.Text = "Language";
             txtPodesavanje.Text = "Settings";
             txtTema.Text = "Them";
+            btnEng.Content = "English";
+            btnSrb.Content = "Serbian";
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
         }
     }

@@ -12,7 +12,7 @@
     <Grid Style="{DynamicResource GridStyle}">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                <TextBlock x:Name="txtPodesavanje" Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24" Text="{}"></TextBlock>
+                <TextBlock x:Name="txtPodesavanje" Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24" Text="Podesavanje"></TextBlock>
             </StackPanel>
 
             <Grid DockPanel.Dock="Bottom" Style="{DynamicResource GridStyle}">
@@ -30,7 +30,7 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <TextBlock x:Name="txtTema" Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Text="Tema" FontSize="16"></TextBlock>
+                <TextBlock Text="Tema" x:Name="txtTema" Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16"></TextBlock>
                 
                 <Button Click="White_click" Grid.Column="1" Margin="20" Grid.Row="1" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Image Source="/images/SS1.jpg" />
@@ -39,9 +39,9 @@
                     <Image Source="/images/SS2.jpg" />
                 </Button>
 
-                <TextBlock x:Name="txtJezik" Text="{x:Static p:Resources.PodesavanjeTxtJezik}" Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16"></TextBlock>
-                <Button Style="{DynamicResource BTNSSS}" Click="SRB_click" Grid.Row="3" Grid.Column="1" Margin="20 0 0 0" Width="80" HorizontalAlignment="Left" Height="40" Content="SRB"></Button>
-                <Button Style="{DynamicResource BTNSSS}" Click="ENG_click" Grid.Row="3" Grid.Column="1" Margin="0 0 20 0" Width="80" HorizontalAlignment="Right" Height="40" Content="ENG"></Button>
+                <TextBlock Text="Jezik" x:Name="txtJezik" Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16"></TextBlock>
+                <Button x:Name="btnSrb" Style="{DynamicResource BTNSSS}" Click="SRB_click" Grid.Row="3" Grid.Column="1" Margin="20 0 0 0" Width="80" HorizontalAlignment="Left" Height="40" Content="Srpski"></Button>
+                <Button x:Name="btnEng" Style="{DynamicResource BTNSSS}" Click="ENG_click" Grid.Row="3" Grid.Column="1" Margin="0 0 20 0" Width="80" HorizontalAlignment="Right" Height="40" Content="Engleski"></Button>
             </Grid>
         </DockPanel>
     </Grid>

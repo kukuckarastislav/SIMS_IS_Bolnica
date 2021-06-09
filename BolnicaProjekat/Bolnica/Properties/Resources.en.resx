@@ -120,6 +120,9 @@
   <data name="PodesavanjeTxtJezik" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="PodesavanjeTxtTema" xml:space="preserve">
+    <value>Them</value>
+  </data>
   <data name="testStr" xml:space="preserve">
     <value>ENGLESKI1</value>
   </data>

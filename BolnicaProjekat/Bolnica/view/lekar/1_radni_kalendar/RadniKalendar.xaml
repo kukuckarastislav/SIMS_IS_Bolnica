@@ -125,8 +125,9 @@
                 </Style>
             </TabControl.Resources>
             <!-- Tab1 - Današnji-->
-            <TabItem Header="Današnji" Style="{DynamicResource TabItemStyle1}" >
+            <TabItem x:Name="DanasnjiTab" Header="Današnji" Style="{DynamicResource TabItemStyle1}" >
                 <ListBox    x:Name="RadniKalendar_danasnji" 
+                            ItemsSource="{Binding KolekcijaDanasnjiRadniKalendar}" 
                             Margin="5"
                             MouseDoubleClick="RadniKalendar_danasnji_MouseDoubleClick"
                             Background="#810000">
@@ -170,10 +171,11 @@
                 </ListBox>
             </TabItem>
 
-            <TabItem Header="Nedeljni" Style="{DynamicResource TabItemStyle1}" >
+            <TabItem x:Name="NedeljniTab" Header="Nedeljni" Style="{DynamicResource TabItemStyle1}" >
                 <ListBox    x:Name="RadniKalendar_nedeljni" 
                             Margin="5"
                             MouseDoubleClick="RadniKalendar_nedeljni_MouseDoubleClick" 
+                            ItemsSource="{Binding KolekcijaNedeljniRadniKalendar}" 
                             Background="#810000">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -214,10 +216,11 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </TabItem>
-            <TabItem Header="Mesečni" Style="{DynamicResource TabItemStyle1}"  >
+            <TabItem x:Name="MesecniTab" Header="Mesečni" Style="{DynamicResource TabItemStyle1}"  >
                 <ListBox    x:Name="RadniKalendar_mesecni" 
                             Margin="5"
                             MouseDoubleClick="RadniKalendar_mesecni_MouseDoubleClick"
+                            ItemsSource="{Binding KolekcijaMesecniRadniKalendar}" 
                             Background="#810000">
                     <ListBox.ItemTemplate>
                         <DataTemplate>

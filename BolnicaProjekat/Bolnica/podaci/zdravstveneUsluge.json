@@ -15,48 +15,6 @@
   },
   {
     "Termin": {
-      "Pocetak": "0001-01-01T08:00:00",
-      "Kraj": "0001-01-01T08:30:00"
-    },
-    "Id": 3,
-    "IdLekara": 2,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 2,
-    "Obavljena": false,
-    "RazlogZakazivanja": "we",
-    "RezultatUsluge": " i ovooooooooooo"
-  },
-  {
-    "Termin": {
-      "Pocetak": "0001-01-01T20:30:00",
-      "Kraj": "0001-01-01T21:00:00"
-    },
-    "Id": 4,
-    "IdLekara": 2,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 2,
-    "Obavljena": false,
-    "RazlogZakazivanja": "dasd",
-    "RezultatUsluge": " "
-  },
-  {
-    "Termin": {
-      "Pocetak": "0001-01-01T20:30:00",
-      "Kraj": "0001-01-01T21:00:00"
-    },
-    "Id": 5,
-    "IdLekara": 2,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 2,
-    "Obavljena": false,
-    "RazlogZakazivanja": "dasd",
-    "RezultatUsluge": " "
-  },
-  {
-    "Termin": {
       "Pocetak": "2021-05-05T10:00:00",
       "Kraj": "2021-05-05T10:30:00"
     },
@@ -99,45 +57,17 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-09T08:00:00",
-      "Kraj": "2021-06-09T08:30:00"
+      "Pocetak": "2021-06-09T07:00:00",
+      "Kraj": "2021-06-09T07:30:00"
     },
     "Id": 9,
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
     "IdProstorije": 10,
-    "Obavljena": false,
+    "Obavljena": true,
     "RazlogZakazivanja": "erer",
-    "RezultatUsluge": " Pera u odlicnom ste stanju"
-  },
-  {
-    "Termin": {
-      "Pocetak": "2021-05-20T10:00:00",
-      "Kraj": "2021-05-20T10:30:00"
-    },
-    "Id": 10,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 7,
-    "Obavljena": false,
-    "RazlogZakazivanja": "erer",
-    "RezultatUsluge": " "
-  },
-  {
-    "Termin": {
-      "Pocetak": "2021-05-20T10:00:00",
-      "Kraj": "2021-05-20T10:30:00"
-    },
-    "Id": 10,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 8,
-    "Obavljena": false,
-    "RazlogZakazivanja": "erer",
-    "RezultatUsluge": " "
+    "RezultatUsluge": " Pera u odlicnom ste stanju. 1112"
   },
   {
     "Termin": {
@@ -219,23 +149,9 @@
     "IdPacijenta": 4,
     "TipUsluge": 0,
     "IdProstorije": 1,
-    "Obavljena": false,
+    "Obavljena": true,
     "RazlogZakazivanja": "",
-    "RezultatUsluge": ""
-  },
-  {
-    "Termin": {
-      "Pocetak": "2021-06-10T10:00:00",
-      "Kraj": "2021-06-10T14:00:00"
-    },
-    "Id": 17,
-    "IdLekara": 1,
-    "IdPacijenta": 4,
-    "TipUsluge": 0,
-    "IdProstorije": 1,
-    "Obavljena": false,
-    "RazlogZakazivanja": "",
-    "RezultatUsluge": ""
+    "RezultatUsluge": "Sve je u redu, da da"
   },
   {
     "Termin": {
@@ -267,16 +183,16 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-09T15:05:00",
-      "Kraj": "2021-06-09T15:35:00"
+      "Pocetak": "2021-06-11T08:05:00",
+      "Kraj": "2021-06-11T08:35:00"
     },
-    "Id": 20,
+    "Id": 22,
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 6,
+    "IdProstorije": 7,
     "Obavljena": false,
-    "RazlogZakazivanja": "asd",
+    "RazlogZakazivanja": "nedeljni i mesecni",
     "RezultatUsluge": " "
   }
 ]

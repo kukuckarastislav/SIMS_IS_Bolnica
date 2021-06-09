@@ -15,7 +15,7 @@
       {
         "IdLekara": 1,
         "StatusRevizije": 1,
-        "Poruka": "Cao Rasti"
+        "Poruka": "Cao hehe"
       },
       {
         "IdLekara": 2,
@@ -68,7 +68,7 @@
     "Revizije": [
       {
         "IdLekara": 1,
-        "StatusRevizije": -1,
+        "StatusRevizije": 1,
         "Poruka": "ne valja ti lek"
       },
       {

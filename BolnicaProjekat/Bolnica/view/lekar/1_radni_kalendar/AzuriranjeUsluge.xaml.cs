@@ -36,6 +36,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             InitializeComponent();
             this.OdabranaUsluga = OdabranaUsluga;
+            ZdravstvenaUslugaKontrolerObjekat = new ZdravstvenaUslugaKontroler();
             this.LekarDTO = LekarDTO;
             UcitajPodatke();
         }
@@ -53,25 +54,20 @@ namespace Bolnica.view.lekar.pacijenti
 
         private void KreirajIspravanKalendar()
         {
-            CalendarDateRange proslost = new CalendarDateRange(DateTime.MinValue, DateTime.Today);
+            DateTime prethodniDan = DateTime.Now.AddDays(-1);
+            CalendarDateRange proslost = new CalendarDateRange(DateTime.MinValue, prethodniDan);
             kalPomeriDanUsluge.BlackoutDates.Add(proslost);
+            kalPomeriDanUsluge.SelectedDate = DateTime.Today;
         }
 
-        private void PotvrdiAzuriranjeButton(object sender, RoutedEventArgs e)
+        private void PotvrdiAzuriranje_Click(object sender, RoutedEventArgs e)
         {
             ZdravstvenaUslugaKontrolerObjekat.AzurirajVremeUsluga(OdabranaUsluga.Usluga, AzuriranPocetak, AzuriranKraj);
             refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
             NavigationService.Navigate(refRadniKalendar);
         }
 
-        private void OdustaniButton(object sender, RoutedEventArgs e)
-        {
-            if (this.LekarDTO != null)
-            {
-                refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
-                NavigationService.Navigate(refRadniKalendar);
-            }
-        }
+
 
         private void IspisiAzuriranoVreme()
         {
@@ -79,16 +75,20 @@ namespace Bolnica.view.lekar.pacijenti
             int minute = Convert.ToInt32(VremePocetakTermina_Minut.Text);
             DateTime datum = kalPomeriDanUsluge.SelectedDate.Value;
             DateTime azuriran_pocetak = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute, 0);
-            DateTime azuriran_kraj = new DateTime();
+            DateTime azuriran_kraj = azuriran_pocetak.AddMinutes(30);
+            /*
             if (minute != 30)
             {
-                azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute + 30, 0);
+                DateTime pom = new DateTime(datum.Year, datum.Month, datum.Day, sati, minute + 30, 0);
+                azuriran_kraj = pom;
             }
             else
             {
-                azuriran_kraj = new DateTime(datum.Year, datum.Month, datum.Day, sati + 1, minute - 30, 0);
-            }
+                DateTime pom = new DateTime(datum.Year, datum.Month, datum.Day, sati + 1, minute - 30, 0);
+                azuriran_kraj = pom;
+            }*/
             AzuriranoVreme.Text = (NapraviStringAzuriranoVreme(azuriran_pocetak, azuriran_kraj));
+
 
         }
 
@@ -129,6 +129,15 @@ namespace Bolnica.view.lekar.pacijenti
                 IspisiAzuriranoVreme();
             }
             return;
+        }
+
+        private void Odustani_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.LekarDTO != null)
+            {
+                refRadniKalendar = new view.lekar.pacijenti.RadniKalendar(LekarDTO);
+                NavigationService.Navigate(refRadniKalendar);
+            }
         }
     }
 }

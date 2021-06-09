@@ -124,5 +124,14 @@
     "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
     "Procitan": false,
     "JePodsjetnikZaLijekove": true
+  },
+  {
+    "Id": 15,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "0001-01-01T07:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false,
+    "JePodsjetnikZaLijekove": true
   }
 ]

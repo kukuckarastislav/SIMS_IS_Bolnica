@@ -42,6 +42,10 @@ namespace Bolnica.view.lekar.pacijenti
             headerIme.Text = PacijentDTO.Ime;
             headerPrezime.Text = PacijentDTO.Prezime;
             headerJMBG.Text = PacijentDTO.Jmbg;
+
+            Potvrdi.IsEnabled = false;
+
+
             KalendarDanUsluge.SelectedDate = DateTime.Today;
             KreirajIspravanKalendar();
         }
@@ -49,16 +53,22 @@ namespace Bolnica.view.lekar.pacijenti
         private void KreirajIspravanKalendar()
         {
             KalendarDanUsluge.DisplayDateStart = DateTime.Today;
+            Potvrdi.IsEnabled = SveJePopunjen();
+
         }
 
 
         private void CmbHitnoZakazivanje_Checked(object sender, RoutedEventArgs e)
         {
+
+            VremeUsluge = DateTime.Now;
+            KalendarDanUsluge.SelectedDate = DateTime.Today;
+            ComboBoxVremeUsluge_Sat.Text = Convert.ToString(VremeUsluge.Hour);
+            ComboBoxVremeUsluge_Minut.Text = Convert.ToString(VremeUsluge.Minute - VremeUsluge.Minute % 5);
             KalendarDanUsluge.IsEnabled = false;
             ComboBoxVremeUsluge_Sat.IsEnabled = false;
             ComboBoxVremeUsluge_Minut.IsEnabled = false;
-            VremeUsluge = DateTime.Now;
-            KalendarDanUsluge.SelectedDate = DateTime.Today;
+            Potvrdi.IsEnabled = SveJePopunjen();
         }
 
         private void CmbHitnoZakazivanje_Unchecked(object sender, RoutedEventArgs e)
@@ -66,12 +76,29 @@ namespace Bolnica.view.lekar.pacijenti
             KalendarDanUsluge.IsEnabled = true;
             ComboBoxVremeUsluge_Sat.IsEnabled = true;
             ComboBoxVremeUsluge_Minut.IsEnabled = true;
-            
+            Potvrdi.IsEnabled = SveJePopunjen();
+
+        }
+
+
+        private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
+        {
+            if (PacijentDTO != null)
+            {
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
+                NavigationService.Navigate(refPrikazMedicinskiKarton);
+            }
         }
 
 
 
-        private void PotvrdiZakazanuUsluguButton(object sender, RoutedEventArgs e)
+        private void KalendarDanUsluge_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            VremeUsluge = KalendarDanUsluge.SelectedDate.Value;
+            Potvrdi.IsEnabled = SveJePopunjen();
+        }
+
+        private void Potvrdi_Click(object sender, RoutedEventArgs e)
         {
             // Termin termin, int id, int idLekarDTOa, int idPacijenta,TipUsluge tipUsluge, int idProstorije, bool obavljena, string razlogZakazivanja, string rezultatUsluge
             int pocetakSati = Convert.ToInt32(ComboBoxVremeUsluge_Sat.Text);
@@ -101,23 +128,21 @@ namespace Bolnica.view.lekar.pacijenti
                 refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
-
         }
 
-        private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
+
+        private bool SveJePopunjen()
         {
-            if (PacijentDTO != null)
+            if (ComboBoxVremeUsluge_Sat.SelectedItem != null &&
+                ComboBoxVremeUsluge_Minut.SelectedItem != null &&
+                KalendarDanUsluge.SelectedDate != null &&
+                ComboBoxProstorija.SelectedItem != null )
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
-                NavigationService.Navigate(refPrikazMedicinskiKarton);
+                return true;
             }
+            return false;
         }
 
 
-
-        private void KalendarDanUsluge_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-            VremeUsluge = KalendarDanUsluge.SelectedDate.Value;
-        }
     }
 }

@@ -15,10 +15,12 @@ namespace Kontroler
     {
         private LekoviCRUDServis lekoviCRUDServis;
         private LekarServis lekarServis;
+        private LekoviRevizijaServis lekoviRevizijaServis;
         public LekoviKontroler()
         {
             lekoviCRUDServis = new LekoviCRUDServis();
             lekarServis = new LekarServis();
+            lekoviRevizijaServis = new LekoviRevizijaServis();
         }
 
         public int BrojOdobrenihLekova()
@@ -64,7 +66,6 @@ namespace Kontroler
             lekoviCRUDServis.AzurirajLek(lek);
         }
 
-
         public List<LekDTO> GetLekoviZaRevizijuByIdLekara(int idLekara)
         {
             return lekarServis.GetLekoviZaRevizijuByIdLekara(idLekara);
@@ -83,6 +84,21 @@ namespace Kontroler
             return lekarServis.LekarOdobravaLek(idLeka, revizija);
         }
 
+
+        public RevizijaLeka GetRevizijaLekaByIdLekara(int idLeka, int idLekara)
+        {
+            return lekarServis.GetRevizijaLekaByIdLekara(idLeka, idLekara);
+        }
+
+        public bool JeOdobrenLek(int idLeka)
+        {
+            return lekoviRevizijaServis.JeOdobrenLek(idLeka);
+        }
+
+        public bool PostojiLekarURevizijiLeka(int idLekara, int idLeka)
+        {
+            return lekoviRevizijaServis.PostojiLekarURevizijiLeka(idLekara, idLeka);
+        }
 
     }
 }

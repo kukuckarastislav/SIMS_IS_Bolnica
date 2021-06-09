@@ -102,9 +102,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
 
             VremenskiRazmak = Convert.ToInt32(cmbSaRazmakomOd.Text);
-            MessageBox.Show(VremenskiRazmak.ToString());
             PocetakTerapijeUSatima = Convert.ToInt32(cmbPocetakTerapije_Sat.Text);
-            MessageBox.Show(PocetakTerapijeUSatima.ToString());
 
             dto = new ParametriUzimanjaTerapijeDTO(PocetakTerapije, KrajTerapije, VremenskiRazmak, PocetakTerapijeUSatima, DnevniBrojUzimanja);
             PodsjetnikKontroler kontroler = new PodsjetnikKontroler();

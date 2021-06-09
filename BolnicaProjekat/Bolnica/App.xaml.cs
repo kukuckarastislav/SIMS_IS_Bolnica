@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Kontroler;
 
 namespace Bolnica
 {
@@ -25,5 +26,6 @@ namespace Bolnica
 
         public static bool jelPrvoPokretanjeAplikacije = true;
         public static MainWindow glavniProzor;
+        public static LekoviKontroler kontrolerLekova = new LekoviKontroler();
     }
 }

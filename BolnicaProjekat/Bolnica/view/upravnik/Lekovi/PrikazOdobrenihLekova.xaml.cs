@@ -26,7 +26,7 @@ namespace Bolnica.view.upravnik.Lekovi
     public partial class PrikazOdobrenihLekova : Page
     {
         public ObservableCollection<LekDTO> KolekcijaLekovi { get; set; }
-        public Lek OdabraniLek { get; set; }
+        public LekDTO OdabraniLek { get; set; }
 
         public LekoviKontroler lekoviKontrolerObjekat;
         public PrikazOdobrenihLekova()
@@ -34,6 +34,7 @@ namespace Bolnica.view.upravnik.Lekovi
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
             List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            KolekcijaLekovi = new ObservableCollection<LekDTO>();
             foreach (LekDTO lek in lekoviLista)
             {
                 KolekcijaLekovi.Add(lek);
@@ -52,14 +53,14 @@ namespace Bolnica.view.upravnik.Lekovi
             this.DataGridPrikazOdobrenihLekova.ItemsSource = KolekcijaLekovi;
         }
 
-        public Lek GetSelectedLek()
+        public LekDTO GetSelectedLek()
         {
-            return (DataGridPrikazOdobrenihLekova.SelectedItem as Lek);
+            return (DataGridPrikazOdobrenihLekova.SelectedItem as LekDTO);
         }
 
         private void DataGridPrikazOdobrenihLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            OdabraniLek = DataGridPrikazOdobrenihLekova.SelectedItem as Lek;
+            OdabraniLek = DataGridPrikazOdobrenihLekova.SelectedItem as LekDTO;
         }
 
     }

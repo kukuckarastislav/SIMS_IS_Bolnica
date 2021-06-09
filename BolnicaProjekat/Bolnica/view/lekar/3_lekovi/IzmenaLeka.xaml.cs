@@ -25,17 +25,18 @@ namespace Bolnica.view.lekar.lekovi
 
         public LekoviKontroler lekoviKontrolerObjekat;
         public ObservableCollection<string> KolekcijaAlergeni;
-        private Lek lek;
+        private LekDTO lek;
         private RevizijaLeka revizija;
         private LekarDTO lekar;
 
-        public IzmenaLeka(Lek lek, LekarDTO lekar)
+        public IzmenaLeka(LekDTO lek, LekarDTO lekar)
         {
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
             this.lek = lek;
             KolekcijaAlergeni = new ObservableCollection<string>();
-            RevizijaLeka tempRevizija= lek.GetRevizijaLekaByIdLekara(lekar.Id);
+
+            RevizijaLeka tempRevizija = lekoviKontrolerObjekat.GetRevizijaLekaByIdLekara(lek.Id, lekar.Id);  //lek.GetRevizijaLekaByIdLekara(lekar.Id);
             revizija = new RevizijaLeka(tempRevizija.IdLekara, tempRevizija.StatusRevizije, tempRevizija.Poruka);
             this.lekar = lekar;
 
@@ -56,7 +57,7 @@ namespace Bolnica.view.lekar.lekovi
             AzurirajPrikazAlergena();
 
             inputPoruka.Text = revizija.Poruka;
-            if (lek.JeOdobren())
+            if (App.kontrolerLekova.JeOdobrenLek(lek.Id))
             {
                 statusLeka.Text = "Odobren";
             }
@@ -111,7 +112,7 @@ namespace Bolnica.view.lekar.lekovi
             }
             revizija.Poruka = inputPoruka.Text;
 
-            LekDTO dto = new LekDTO(lek.Id, inputSifra.Text, inputNaziv.Text, lek.Odobren, inputOpis.Text, lek.Kolicina, Convert.ToDouble(inputCena.Text), alergeni, null);
+            LekDTO dto = new LekDTO(lek.Id, inputSifra.Text, inputNaziv.Text, lek.Odobren, inputOpis.Text, lek.Kolicina, Convert.ToDouble(inputCena.Text), alergeni,lek.Revizije);
 
             lekoviKontrolerObjekat.IzmenaLekaByLekar(dto, revizija);
 

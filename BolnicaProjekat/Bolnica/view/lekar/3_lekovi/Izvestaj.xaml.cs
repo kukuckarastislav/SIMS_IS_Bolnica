@@ -28,6 +28,7 @@ namespace Bolnica.view.lekar.lekovi
         {
             this.LekarDTO = LekarDTO;
             InitializeComponent();
+            this.odobreniLekoviKolekcija = new ObservableCollection<LekDTO>();
             lekoviKontrolerObjekat = new LekoviKontroler();
             List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
             foreach (LekDTO lek in lekoviLista)

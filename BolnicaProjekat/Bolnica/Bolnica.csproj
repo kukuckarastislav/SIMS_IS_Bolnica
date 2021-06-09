@@ -199,6 +199,7 @@
     <Compile Include="DTO\ZakaziTetminDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
     <Compile Include="Interface\ILekoviCRUD.cs" />
+    <Compile Include="Interface\ILekoviRevizija.cs" />
     <Compile Include="Interface\IObserver.cs" />
     <Compile Include="Interface\IStategy.cs" />
     <Compile Include="Interface\ISubject.cs" />
@@ -273,6 +274,7 @@
     <Compile Include="Service\KorisnickaAktivnostServis.cs" />
     <Compile Include="Service\LekarServis.cs" />
     <Compile Include="Service\LekoviCRUDServis.cs" />
+    <Compile Include="Service\LekoviRevizijaServis.cs" />
     <Compile Include="Service\NotifikacijeServis.cs" />
     <Compile Include="Service\ObavestenjeServis.cs" />
     <Compile Include="Service\PacijentServis.cs" />

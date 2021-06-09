@@ -25,7 +25,7 @@ namespace Bolnica.view.upravnik.Lekovi
     public partial class PrikazNeodobrenihLekova : Page
     {
         public ObservableCollection<LekDTO> KolekcijaLekovi { get; set; }
-        public Lek OdabraniLek { get; set; }
+        public LekDTO OdabraniLek { get; set; }
 
         public LekoviKontroler lekoviKontrolerObjekat;
         public PrikazNeodobrenihLekova()
@@ -52,14 +52,14 @@ namespace Bolnica.view.upravnik.Lekovi
             this.DataGridPrikazNeodobrenihLekova.ItemsSource = KolekcijaLekovi;
         }
 
-        public Lek GetSelectedLek()
+        public LekDTO GetSelectedLek()
         {
-            return (DataGridPrikazNeodobrenihLekova.SelectedItem as Lek);
+            return (DataGridPrikazNeodobrenihLekova.SelectedItem as LekDTO);
         }
 
         private void DataGridPrikazNeodobrenihLekova_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            OdabraniLek = DataGridPrikazNeodobrenihLekova.SelectedItem as Lek;
+            OdabraniLek = DataGridPrikazNeodobrenihLekova.SelectedItem as LekDTO;
         }
     }
 }

@@ -33,9 +33,13 @@ namespace Bolnica.view.lekar.lekovi
             this.LekarDTO = LekarDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
+            
             List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            List<LekDTO> odobreniLekovi = lekoviKontrolerObjekat.GetOdobreniLekovi();
             LekarKontroler lekarKontroler = new LekarKontroler();
-            foreach(LekDTO lek in lekoviLista)
+            odobreniLekoviKolekcija = new ObservableCollection<LekDTO>();
+            lekoviZaReviziju= new ObservableCollection<LekDTO>();
+            foreach (LekDTO lek in lekoviLista)
             {
                 this.odobreniLekoviKolekcija.Add(lek);
             }
@@ -86,7 +90,7 @@ namespace Bolnica.view.lekar.lekovi
 
         private void IzmenaLeka_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
+            LekDTO lek = (LekDTO)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
                 var izmeniLek = new IzmenaLeka(lek, this.LekarDTO);
@@ -97,7 +101,7 @@ namespace Bolnica.view.lekar.lekovi
 
         private void OdobravanjeLeka_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
+            LekDTO lek = (LekDTO)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
                 var odobriLek = new OdobravanjeLeka(lek, this.LekarDTO);
@@ -107,7 +111,7 @@ namespace Bolnica.view.lekar.lekovi
 
         private void OdbijanjeLeka_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = (Lek)Lekovi_za_reviziju.SelectedItem;
+            LekDTO lek = (LekDTO)Lekovi_za_reviziju.SelectedItem;
             if (lek != null)
             {
                 var odbijLek = new OdbijanjeLeka(lek, this.LekarDTO);

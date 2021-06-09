@@ -31,11 +31,11 @@ namespace Bolnica.view.upravnik.Lekovi
         public List<RevizijaLeka> RevizijeLekara;
         public PrikazNeodobrenihLekova refPrikazNeodobrenihLekova;
         public PrikazOdobrenihLekova refPrikazOdobrenihLekova;
-        public Lek lek;
+        public LekDTO lek;
 
         public IzmeniLek(PrikazNeodobrenihLekova refPrikazNeodobrenihLekova,
                         PrikazOdobrenihLekova refPrikazOdobrenihLekova,
-                        Lek lek)
+                        LekDTO lek)
         {
             InitializeComponent();
 
@@ -66,14 +66,12 @@ namespace Bolnica.view.upravnik.Lekovi
 
             foreach(LekarRevizijaLekaDTO lekar in KolekcijaLekaraCombo)
             {
-                if (lek.PostojiLekarURevizijiByID(lekar.IdLekara))
+                if (lekoviKontrolerObjekat.PostojiLekarURevizijiLeka(lekar.IdLekara, lek.Id))
                 {
-                    // nov lekar??
                     KolekcijaLekaraDataGrid.Add(lekar);
                 }
             }
             AzurirajPrikazDataGridLekari();
-            
             
             foreach(string alergen in lek.Alergeni)
             {
@@ -88,10 +86,8 @@ namespace Bolnica.view.upravnik.Lekovi
                 {
                     lekarDTO.SetStatusRevizije(revizija.StatusRevizije);
                 }
-
             }
             AzurirajPrikazDataGridLekari();
-
         }
 
         private void odustani_Click(object sender, RoutedEventArgs e)
@@ -118,7 +114,7 @@ namespace Bolnica.view.upravnik.Lekovi
                     }
                 }
             }
-            LekDTO dto = new LekDTO(lek.Id, inputSifra.Text, inputSifra.Text, lek.Odobren, inputOpis.Text, Convert.ToInt32(inputKolicina.Text), Convert.ToDouble(inputCena.Text), alergeni, RevizijeLekara);
+            LekDTO dto = new LekDTO(lek.Id, inputSifra.Text, inputNaziv.Text, lek.Odobren, inputOpis.Text, Convert.ToInt32(inputKolicina.Text), Convert.ToDouble(inputCena.Text), alergeni, RevizijeLekara);
             lekoviKontrolerObjekat.IzmeniLek(dto);
 
             if (refPrikazNeodobrenihLekova != null) refPrikazNeodobrenihLekova.AzurirajPrikaz();

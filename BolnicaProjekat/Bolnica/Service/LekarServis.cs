@@ -194,5 +194,12 @@ namespace Servis
             return lekoviNaRevizijiLekaru;
         }
 
+        public RevizijaLeka GetRevizijaLekaByIdLekara(int idLeka, int idLekara)
+        {
+            Lek lek = LekoviRepozitorijum.GetInstance.GetLekById(idLeka);
+            RevizijaLeka revizija = lek.GetRevizijaLekaByIdLekara(idLekara);
+            return revizija;
+        }
+
     }
 }

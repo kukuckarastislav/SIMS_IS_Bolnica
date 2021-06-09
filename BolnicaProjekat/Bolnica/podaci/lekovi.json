@@ -82,5 +82,53 @@
         "Poruka": "Poruka ..."
       }
     ]
+  },
+  {
+    "Id": 4,
+    "Sifra": "rrrrrr",
+    "Naziv": "rrrrrr",
+    "Odobren": true,
+    "Opis": "Opis ...dasdasda",
+    "Kolicina": 1000,
+    "Cena": 200000,
+    "Alergeni": [
+      "dsa"
+    ],
+    "Revizije": [
+      {
+        "IdLekara": 1,
+        "StatusRevizije": 1,
+        "Poruka": "Poruka ..."
+      },
+      {
+        "IdLekara": 2,
+        "StatusRevizije": 1,
+        "Poruka": "Poruka ..."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Sifra": "ydgayisgdais",
+    "Naziv": "ydgayisgdais",
+    "Odobren": false,
+    "Opis": "sadasdasdas",
+    "Kolicina": 676767,
+    "Cena": 88888,
+    "Alergeni": [
+      "asdas"
+    ],
+    "Revizije": [
+      {
+        "IdLekara": 1,
+        "StatusRevizije": 0,
+        "Poruka": "LASLO EEEEEEEEEE"
+      },
+      {
+        "IdLekara": 2,
+        "StatusRevizije": 0,
+        "Poruka": "Poruka ..."
+      }
+    ]
   }
 ]

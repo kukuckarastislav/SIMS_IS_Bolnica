@@ -34,7 +34,7 @@ namespace Bolnica.view.lekar.pacijenti
         public LekoviKontroler lekoviKontrolerObjekat;
 
         public PacijentKontroler PacijentKontrolerObjekat;
-        public Lek OdabraniLek { get; set; }
+        public LekDTO OdabraniLek { get; set; }
         public LekarDTO LekarDTO;
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         private view.lekar.pacijenti.NacinKoriscenja refNacinKoriscenja;
@@ -46,7 +46,7 @@ namespace Bolnica.view.lekar.pacijenti
             this.PacijentDTO = PacijentDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
-
+            odobreniLekoviKolekcija = new ObservableCollection<LekDTO>();
             List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
             foreach (LekDTO lek in lekoviLista)
             {
@@ -90,7 +90,7 @@ namespace Bolnica.view.lekar.pacijenti
             DateTime DatumPropisivanja = new DateTime(DateTime.Now.Year,DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
 
-            OdabraniLek = ComboBoxLek.SelectedItem as Lek;
+            OdabraniLek = ComboBoxLek.SelectedItem as LekDTO;
             string nacin_koriscenja = NacinKorsicenja.Text;
             Kontroler.ReceptKontroler ReceptKontroler = new Kontroler.ReceptKontroler();
             int idRec = ReceptKontroler.GetAll().Count + 1;
@@ -122,7 +122,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (ComboBoxLek.SelectedItem != null)
             {
-                OdabraniLek = (Lek)ComboBoxLek.SelectedItem;
+                OdabraniLek = (LekDTO)ComboBoxLek.SelectedItem;
                 DataGridAlergeniLeka.Visibility = Visibility.Visible;
                 foreach (string alergen in OdabraniLek.Alergeni)
                 {

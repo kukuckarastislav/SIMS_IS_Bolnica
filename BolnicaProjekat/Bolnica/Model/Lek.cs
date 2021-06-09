@@ -56,11 +56,10 @@ namespace Model
                 if(revizija.StatusRevizije == 1)
                 {
                     broj_odobrenja++;
-                    MessageBox.Show("opet");
                 }
             }
             Odobren = broj_odobrenja >= 2;
-            MessageBox.Show(Convert.ToString(broj_odobrenja));
+            
             return Odobren;
         }
 

@@ -27,17 +27,17 @@ namespace Bolnica.view.lekar.lekovi
 
         public LekoviKontroler lekoviKontrolerObjekat;
         public ObservableCollection<string> KolekcijaAlergeni;
-        private Lek lek;
+        private LekDTO lek;
         private LekarDTO lekar;
         private RevizijaLeka revizija;
-        public OdobravanjeLeka(Lek lek, LekarDTO lekar)
+        public OdobravanjeLeka(LekDTO lek, LekarDTO lekar)
         {
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
             KolekcijaAlergeni = new ObservableCollection<string>();
             this.lek = lek;
             this.lekar = lekar;
-            RevizijaLeka tempRevizija = lek.GetRevizijaLekaByIdLekara(lekar.Id);
+            RevizijaLeka tempRevizija = App.kontrolerLekova.GetRevizijaLekaByIdLekara(lek.Id,lekar.Id);
             revizija = new RevizijaLeka(tempRevizija.IdLekara, tempRevizija.StatusRevizije, tempRevizija.Poruka);
 
             UcitajPodatke();
@@ -57,7 +57,7 @@ namespace Bolnica.view.lekar.lekovi
             AzurirajPrikazAlergena();
 
             inputPoruka.Text = revizija.Poruka;
-            if (lek.JeOdobren())
+            if (App.kontrolerLekova.JeOdobrenLek(lek.Id))
             {
                 statusLeka.Text = "Odobren";
             }

@@ -25,7 +25,7 @@ namespace Bolnica.view.upravnik.Lekovi
     {
         private Lekovi.PrikazOdobrenihLekova refPrikazOdobrenihlekova;
         private Lekovi.PrikazNeodobrenihLekova refPrikazNeodobrenihlekova;
-        private Lek OdabraniLek;
+        private LekDTO OdabraniLek;
         private LekoviKontroler lekoviKontrolerObjekat;
         private int aktivnaGrupa = 0;  // odobreni
         public LekoviPage()
@@ -81,7 +81,7 @@ namespace Bolnica.view.upravnik.Lekovi
 
         private void btn_izmeni_lek_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = null;
+            LekDTO lek = null;
             if (aktivnaGrupa == 0) lek = refPrikazOdobrenihlekova.GetSelectedLek();
             else if (aktivnaGrupa == 1) lek = refPrikazNeodobrenihlekova.GetSelectedLek();
 
@@ -97,7 +97,7 @@ namespace Bolnica.view.upravnik.Lekovi
 
         private void btn_obrisi_lek_Click(object sender, RoutedEventArgs e)
         {
-            Lek lek = null;
+            LekDTO lek = null;
             if (aktivnaGrupa == 0) lek = refPrikazOdobrenihlekova.GetSelectedLek();
             else if (aktivnaGrupa == 1) lek = refPrikazNeodobrenihlekova.GetSelectedLek();
 

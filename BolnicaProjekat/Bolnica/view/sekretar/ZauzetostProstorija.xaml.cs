@@ -34,7 +34,7 @@ namespace Bolnica.view.sekretar
         {
             InitializeComponent();
             btnPomoc.Visibility = App.vidljivostPomoci;
-
+            pozadina.Visibility = Visibility.Hidden;
             chartPolje = this.pieChart;
             UcitajProstorije();
             inputDatumKraja.SelectedDate = DateTime.Now;
@@ -58,7 +58,7 @@ namespace Bolnica.view.sekretar
             if (focusedControl is DependencyObject)
             {
                 string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
-                HelpProvider.ShowHelp("Ime");
+                HelpProvider.ShowHelp("Izvestaj");
 
             }
         }

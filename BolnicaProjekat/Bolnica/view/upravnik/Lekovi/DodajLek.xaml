@@ -83,7 +83,7 @@
                         <RowDefinition />
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
-                    <TextBox x:Name="inputAlergen" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                    <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputAlergen" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="0" Grid.Column="0" Width="160"></TextBox>
                     <Button Style="{DynamicResource BTNSSS}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Margin="5 0 0 0" VerticalAlignment="Top" Width="60" Height="23" Click="Dodaj_alergen_click">Dodaj</Button>
 

@@ -109,18 +109,6 @@
   },
   {
     "IdZdravstveneUsluge": null,
-    "Id": 10,
-    "TipProstorije": 0,
-    "Broj": "5",
-    "Sprat": 4,
-    "Povrsina": 90,
-    "BrojKreveta": 0,
-    "BrojSlobodnihKreveta": 0,
-    "BrojSprat": "5/4",
-    "IdInventar": 10
-  },
-  {
-    "IdZdravstveneUsluge": null,
     "Id": 11,
     "TipProstorije": 1,
     "Broj": "B9",

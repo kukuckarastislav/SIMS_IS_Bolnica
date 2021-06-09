@@ -52,10 +52,41 @@ namespace Bolnica.view.upravnik.Magacin
 
             parametriPretrage.PretragaNaziv = inputNaziv.Text;
             parametriPretrage.PretragaSifra = inputSifra.Text;
-            parametriPretrage.CenaOd = Convert.ToDouble(inputCenaOd.Text);
-            parametriPretrage.CenaDo= Convert.ToDouble(inputCenaDo.Text);
-            parametriPretrage.KolicinaOd = Convert.ToInt32(inputKolicinaOd.Text);
-            parametriPretrage.KolicinaDo = Convert.ToInt32(inputKolicinaDo.Text);
+            try
+            {
+                parametriPretrage.CenaOd = Convert.ToDouble(inputCenaOd.Text);
+                parametriPretrage.CenaDo = Convert.ToDouble(inputCenaDo.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Molimo vas unesite broj za pretragu cene");
+                return;
+            }
+
+            try
+            {
+                parametriPretrage.KolicinaOd = Convert.ToInt32(inputKolicinaOd.Text);
+                parametriPretrage.KolicinaDo = Convert.ToInt32(inputKolicinaDo.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Molimo vas unesite broj za pretragu Kolicine");
+                return;
+            }
+            
+            if(parametriPretrage.KolicinaOd > parametriPretrage.KolicinaDo)
+            {
+                MessageBox.Show("Kolicina od je veca od kolicine do");
+                return;
+            }
+
+            if (parametriPretrage.CenaOd > parametriPretrage.CenaDo)
+            {
+                MessageBox.Show("Cena od je veca od cene do");
+                return;
+            }
+
+
             parametriPretrage.CheckMagacin = Convert.ToBoolean(checkMagacin.IsChecked);
             parametriPretrage.CheckBolnicka = Convert.ToBoolean(checkBolnicka.IsChecked);
             parametriPretrage.CheckBolesnickaSoba = Convert.ToBoolean(checkBolesnickaSoba.IsChecked);

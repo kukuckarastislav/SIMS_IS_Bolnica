@@ -19,7 +19,7 @@
         "Naziv": "Krevet",
         "Tip": 0,
         "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 31,
+        "Kolicina": 37,
         "Cena": 12000,
         "IdInventar": 0
       },
@@ -69,7 +69,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 12,
+        "Kolicina": 7,
         "Cena": 125,
         "IdInventar": 0
       },
@@ -136,7 +136,7 @@
         "Naziv": "Makaze",
         "Tip": 1,
         "Opis": "Medicinske makaze",
-        "Kolicina": 10,
+        "Kolicina": 15,
         "Cena": 125,
         "IdInventar": 0
       },
@@ -425,23 +425,6 @@
     "Id": 9,
     "IdProstorije": 9,
     "LOprema": [],
-    "LLekovi": []
-  },
-  {
-    "Id": 10,
-    "IdProstorije": 10,
-    "LOprema": [
-      {
-        "Id": -1,
-        "Sifra": "kr9VETR",
-        "Naziv": "Krevet",
-        "Tip": 0,
-        "Opis": "Krevet za oporavak pacijenata koji boluju",
-        "Kolicina": 6,
-        "Cena": 12000,
-        "IdInventar": 0
-      }
-    ],
     "LLekovi": []
   },
   {

@@ -119,6 +119,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -150,7 +152,9 @@
                     <ComboBoxItem Content="23" />
                 </ComboBox>
 
-                <ComboBox x:Name="comboMinutiPocetak" Grid.Column="1" Grid.Row="0" Height="24" Width="50" HorizontalAlignment="Center">
+                <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">sati</TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center">minuta</TextBlock>
+                <ComboBox x:Name="comboMinutiPocetak" Grid.Column="2" Grid.Row="0" Height="24" Width="50" HorizontalAlignment="Center">
                     <ComboBoxItem Content="0" IsSelected="True" />
                     <ComboBoxItem Content="5" />
                     <ComboBoxItem Content="10" />
@@ -171,6 +175,8 @@
             <DatePicker x:Name="DatePickerKraj" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Margin="10"/>
             <Grid Grid.Column="3" Grid.Row="7">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
@@ -204,7 +210,10 @@
                     <ComboBoxItem Content="23" />
                 </ComboBox>
 
-                <ComboBox x:Name="comboMinutiKraj" Grid.Column="1" Grid.Row="0" Height="24" Width="50" HorizontalAlignment="Center">
+                <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">sati</TextBlock>
+                <TextBlock Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center">minuta</TextBlock>
+
+                <ComboBox x:Name="comboMinutiKraj" Grid.Column="2" Grid.Row="0" Height="24" Width="50" HorizontalAlignment="Center">
                     <ComboBoxItem Content="0" IsSelected="True" />
                     <ComboBoxItem Content="5" />
                     <ComboBoxItem Content="10" />

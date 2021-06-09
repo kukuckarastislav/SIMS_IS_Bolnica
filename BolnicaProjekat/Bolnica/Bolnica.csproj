@@ -185,7 +185,6 @@
     <Compile Include="DTO\PacijentDTO.cs" />
     <Compile Include="DTO\ParametriNaprednePretrageDTO.cs" />
     <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
-    <Compile Include="DTO\PodesavanjaDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\ProstorijaDTO.cs" />
     <Compile Include="DTO\RadLekaraDTO.cs" />
@@ -257,7 +256,6 @@
     <Compile Include="Repository\NotifikacijaRepozitorijum.cs" />
     <Compile Include="Repository\ObavestenjeRepozitorijum.cs" />
     <Compile Include="Repository\PacijentRepozitorijum.cs" />
-    <Compile Include="Repository\PodesavanjaRepozitorijum.cs" />
     <Compile Include="Repository\PodsjetnikRepozitorijum.cs" />
     <Compile Include="Repository\ProstorijeRepozitorijum.cs" />
     <Compile Include="Repository\ReceptRepozitorijum.cs" />

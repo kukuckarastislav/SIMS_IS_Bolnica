@@ -79,8 +79,6 @@ namespace Bolnica
             {
                 App.IdUlogovanogKorisnika = s.Id;
                 App.ulogovaniKorisnik = s;
-                App.jelPrvoPokretanjeAplikacije = !PodesavanjaRepozitorijum.GetInstance.jelBioUlogovan(s.Id);
-                PodesavanjaRepozitorijum.GetInstance.ukljuciUlogovanje(s.Id);
                 var sekretar_home = new Bolnica.view.sekretar.SekretarHome();
                 App.stranicaSekretara = sekretar_home;
                 sekretar_home.Show();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
+using DTO;
 using Model;
 
 namespace Repozitorijum
@@ -75,6 +76,26 @@ namespace Repozitorijum
             return lek;
         }
 
+        public void AzurirajLek(LekDTO izmenjeniLek)
+        {
+            loadData();
+            foreach (Lek lek in lekovi)
+            {
+                if (lek.Id == izmenjeniLek.Id)
+                {
+                    lek.Naziv = izmenjeniLek.Naziv;
+                    lek.Sifra = izmenjeniLek.Sifra;
+                    lek.Kolicina = izmenjeniLek.Kolicina;
+                    lek.Cena = izmenjeniLek.Cena;
+                    lek.Opis = izmenjeniLek.Opis;
+                    lek.Revizije = izmenjeniLek.Revizije;
+                    lek.Alergeni = izmenjeniLek.Alergeni;
+                    break;
+                }
+            }
+            SaveData();
+        }
+
         public Lek ObrisiLek(Lek stariLek)
         {
             loadData();
@@ -88,6 +109,20 @@ namespace Repozitorijum
             }
             SaveData();
             return stariLek;
+        }
+
+        public void ObrisiLek(LekDTO stariLek)
+        {
+            loadData();
+            foreach (Lek lek in lekovi)
+            {
+                if (lek.Id == stariLek.Id)
+                {
+                    lekovi.Remove(lek);
+                    break;
+                }
+            }
+            SaveData();
         }
 
 

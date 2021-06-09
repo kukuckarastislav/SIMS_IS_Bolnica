@@ -25,17 +25,24 @@ namespace Bolnica.view.lekar.lekovi
         private view.lekar.GlavniMeni refGlavniMeni;
 
         public LekarDTO LekarDTO;
-        public ObservableCollection<Lek> odobreniLekoviKolekcija;
-        public ObservableCollection<Lek> lekoviZaReviziju;
+        public ObservableCollection<LekDTO> odobreniLekoviKolekcija;
+        public ObservableCollection<LekDTO> lekoviZaReviziju;
         public LekoviKontroler lekoviKontrolerObjekat;
         public Lekovi(LekarDTO LekarDTO)
         {
             this.LekarDTO = LekarDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
-
-            this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
-            this.lekoviZaReviziju = lekoviKontrolerObjekat.GetLekoviZaRevizijuByIdLekara(LekarDTO.Id);
+            List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            LekarKontroler lekarKontroler = new LekarKontroler();
+            foreach(LekDTO lek in lekoviLista)
+            {
+                this.odobreniLekoviKolekcija.Add(lek);
+            }
+            foreach (LekDTO lek in lekarKontroler.GetLekoviZaRevizijuByIdLekara(LekarDTO.Id))
+            {
+                this.lekoviZaReviziju.Add(lek);
+            }
             this.Odobreni_lekovi.ItemsSource = odobreniLekoviKolekcija;
             this.Lekovi_za_reviziju.ItemsSource = lekoviZaReviziju;
         }

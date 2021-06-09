@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.Service;
+using DTO;
 using Model;
 using Servis;
 
@@ -11,109 +13,74 @@ namespace Kontroler
 {
     public class LekoviKontroler
     {
-        private LekoviServis lekoviServisObjekat;
-
+        private LekoviCRUDServis lekoviCRUDServis;
+        private LekarServis lekarServis;
         public LekoviKontroler()
         {
-            lekoviServisObjekat = new LekoviServis();
+            lekoviCRUDServis = new LekoviCRUDServis();
+            lekarServis = new LekarServis();
         }
 
         public int BrojOdobrenihLekova()
         {
-            return lekoviServisObjekat.BrojOdobrenihLekova();
+            return lekoviCRUDServis.GetOdobreniLekovi().Count();
         }
 
         public int BrojNeOdobrenihLekova()
         {
 
-            return lekoviServisObjekat.BrojNeOdobrenihLekova();
+            return lekoviCRUDServis.GetNeodobreniLekovi().Count();
         }
 
         public void PosaljiLekoveNaReviziju(ObservableCollection<Lekar> odabraniLekari, Lek lek)
         {
-            lekoviServisObjekat.PosaljiLekoveNaReviziju(odabraniLekari, lek);
+            //lekoviServisObjekat.PosaljiLekoveNaReviziju(odabraniLekari, lek);
         }
 
-        public ObservableCollection<Lek> GetOdobreniLekovi()
+        public List<LekDTO> GetOdobreniLekovi()
         {
-            return lekoviServisObjekat.GetOdobreniLekovi();
-        }
-
-        public ObservableCollection<Lek> GetNeOdobreniLekovi()
-        {
-            return lekoviServisObjekat.GetNeodobreniLekovi();
-        }
-
-        public void ObrisiLek(Lek lek)
-        {
-            lekoviServisObjekat.ObrisiLek(lek);
-        }
-
-        public bool DodajLek(string naziv,
-                            string sifra,
-                            int kolicina,
-                            double cena,
-                            string opis,
-                            List<RevizijaLeka> revizijeLekara,
-                            List<string> alergeni
-                            )
-        {
-            return lekoviServisObjekat.DodajLek(naziv,
-                                               sifra,
-                                               kolicina,
-                                               cena,
-                                               opis,
-                                               revizijeLekara,
-                                               alergeni
-                                               );
-
-        }
-
-        public bool IzmeniLek(int idLeka,
-                            string naziv,
-                            string sifra,
-                            int kolicina,
-                            double cena,
-                            string opis,
-                            List<RevizijaLeka> revizijeLekara,
-                            List<string> alergeni
-                            )
-        {
-            return lekoviServisObjekat.IzmeniLek(idLeka,
-                                                   naziv,
-                                                   sifra,
-                                                   kolicina,
-                                                   cena,
-                                                   opis,
-                                                   revizijeLekara,
-                                                   alergeni);
-
+            return lekoviCRUDServis.GetOdobreniLekovi();
         }
 
 
-        public ObservableCollection<Lek> GetLekoviZaRevizijuByIdLekara(int idLekara)
+
+        public List<LekDTO> GetNeOdobreniLekovi()
         {
-            return lekoviServisObjekat.GetLekoviZaRevizijuByIdLekara(idLekara);
+            return lekoviCRUDServis.GetNeodobreniLekovi();
+        }
+
+        public void ObrisiLek(LekDTO lek)
+        {
+            lekoviCRUDServis.ObrisiLek(lek);
+        }
+
+        public void DodajLek(LekDTO lek)
+        {
+            lekoviCRUDServis.DodajLek(lek);
+        }
+
+        public void IzmeniLek(LekDTO lek)
+        {
+            lekoviCRUDServis.AzurirajLek(lek);
         }
 
 
-        public bool IzmenaLekaByLekar(int IdLeka,
-                                    string naziv,
-                                    string sifra,
-                                    double cena,
-                                    string opis,
-                                    RevizijaLeka revizija,
-                                    List<string> alergeni
-                                    )
+        public List<LekDTO> GetLekoviZaRevizijuByIdLekara(int idLekara)
+        {
+            return lekarServis.GetLekoviZaRevizijuByIdLekara(idLekara);
+        }
+
+
+        public bool IzmenaLekaByLekar(LekDTO dto, RevizijaLeka revizija)
         {
 
-            return lekoviServisObjekat.IzmenaLekaByLekar(IdLeka, naziv, sifra, cena, opis, revizija, alergeni);
+            return lekarServis.IzmenaLekaByLekar(dto, revizija);
         }
 
 
         public bool LekarOdobravaLek(int idLeka, RevizijaLeka revizija)
         {
-            return lekoviServisObjekat.LekarOdobravaLek(idLeka, revizija);
+            return lekarServis.LekarOdobravaLek(idLeka, revizija);
         }
 
 

@@ -22,14 +22,18 @@ namespace Bolnica.view.lekar.lekovi
     public partial class Izvestaj : Page
     {
         public LekarDTO LekarDTO;
-        public ObservableCollection<Lek> odobreniLekoviKolekcija;
+        public ObservableCollection<LekDTO> odobreniLekoviKolekcija;
         public LekoviKontroler lekoviKontrolerObjekat;
         public Izvestaj(LekarDTO LekarDTO)
         {
             this.LekarDTO = LekarDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
-            this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            foreach (LekDTO lek in lekoviLista)
+            {
+                this.odobreniLekoviKolekcija.Add(lek);
+            }
             this.Odobreni_lekovi.ItemsSource = odobreniLekoviKolekcija;
 
         }

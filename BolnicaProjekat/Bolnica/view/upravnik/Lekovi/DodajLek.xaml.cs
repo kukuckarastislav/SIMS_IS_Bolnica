@@ -68,14 +68,8 @@ namespace Bolnica.view.upravnik.Lekovi
             {
                 alergeni.Add(alergen);
             }
-
-            lekoviKontrolerObjekat.DodajLek(inputNaziv.Text,
-                                            inputSifra.Text,
-                                            Convert.ToInt32(inputKolicina.Text),
-                                            Convert.ToDouble(inputCena.Text),
-                                            inputOpis.Text,
-                                            RevizijeLekara,
-                                            alergeni);
+            LekDTO dto = new LekDTO(-1, inputSifra.Text, inputSifra.Text, false, inputOpis.Text, Convert.ToInt32(inputKolicina.Text), Convert.ToDouble(inputCena.Text), alergeni, RevizijeLekara);
+            lekoviKontrolerObjekat.DodajLek(dto);
 
 
             if(refPrikazNeodobrenihLekova != null) refPrikazNeodobrenihLekova.AzurirajPrikaz();

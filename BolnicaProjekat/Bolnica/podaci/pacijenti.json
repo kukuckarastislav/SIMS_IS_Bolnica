@@ -173,5 +173,37 @@
     "Jmbg": "1255463443241",
     "Drzavljanstvo": "ima",
     "AdresaStanovanja": "adresa nova"
+  },
+  {
+    "MedicinskiKarton": {
+      "IdPacijent": 7,
+      "Osiguran": false,
+      "ZdravstvenaUsluga": null,
+      "Terapija": {
+        "Id": 0,
+        "Naziv": null,
+        "DatumPocetka": "0001-01-01T00:00:00",
+        "DatumZavrsetka": "0001-01-01T00:00:00",
+        "Anamneza": null
+      },
+      "Alergeni": []
+    },
+    "Ocene": [],
+    "Id": 7,
+    "PacijentGost": true,
+    "Hospitalizovan": false,
+    "SpamUser": false,
+    "LogickiObrisan": false,
+    "KorisnickoIme": "1534236432156",
+    "Sifra": "1534236432156",
+    "Ime": "Pera",
+    "Prezime": "Peric",
+    "Pol": 0,
+    "Email": null,
+    "Telefon": null,
+    "DatumRodjenja": "0001-01-01T00:00:00",
+    "Jmbg": "1534236432156",
+    "Drzavljanstvo": null,
+    "AdresaStanovanja": null
   }
 ]

@@ -69,6 +69,10 @@ namespace Kontroler
             return lekarServis.GetLekariDTOzaComboBox();
         }
 
+        public List<LekDTO> GetLekoviZaRevizijuByIdLekara(int idLekara)
+        {
+            return lekarServis.GetLekoviZaRevizijuByIdLekara(idLekara);
+        }
 
     }
 }

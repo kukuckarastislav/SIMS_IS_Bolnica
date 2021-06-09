@@ -149,5 +149,50 @@ namespace Servis
             return obsLekarRevizijaLekaDTO;
         }
 
+        public bool LekarOdobravaLek(int idLeka, RevizijaLeka revizija)
+        {
+            Lek lek = LekoviRepozitorijum.GetInstance.GetLekById(idLeka);
+            lek.IzmeniRevizijuLekar(revizija);
+            LekoviRepozitorijum.GetInstance.AzurirajLek(lek);
+
+            return true;
+        }
+
+        public bool IzmenaLekaByLekar(LekDTO dto, RevizijaLeka revizija)
+        {
+            Lek lek = LekoviRepozitorijum.GetInstance.GetLekById(dto.Id);
+            lek.Naziv = dto.Naziv;
+            lek.Sifra = dto.Sifra;
+            lek.Cena = dto.Cena;
+            lek.Opis = dto.Opis;
+            lek.IzmeniRevizijuLekar(revizija);
+            lek.Alergeni = dto.Alergeni;
+
+            LekoviRepozitorijum.GetInstance.AzurirajLek(lek);
+
+            return true;
+        }
+
+        public List<LekDTO> GetLekoviZaRevizijuByIdLekara(int idLekara)
+        {
+            List<LekDTO> lekoviNaRevizijiLekaru = new List<LekDTO>();
+            List<Lek> lekovi = LekoviRepozitorijum.GetInstance.GetAll();
+
+            foreach (Lek lek in lekovi)
+            {
+                foreach (RevizijaLeka revizija in lek.Revizije)
+                {
+                    if (revizija.IdLekara == idLekara)
+                    {
+                        lekoviNaRevizijiLekaru.Add(new LekDTO(lek.Id,lek.Sifra,lek.Naziv,lek.Odobren,lek.Opis,lek.Kolicina,lek.Cena,
+                            lek.Alergeni,lek.Revizije));
+                        break;
+                    }
+                }
+            }
+
+            return lekoviNaRevizijiLekaru;
+        }
+
     }
 }

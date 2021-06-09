@@ -28,7 +28,7 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public PacijentDTO PacijentDTO { get; set; }
         public ObservableCollection<Recept> Recepti { get; set; }
-        public ObservableCollection<Lek> odobreniLekoviKolekcija;
+        public ObservableCollection<LekDTO> odobreniLekoviKolekcija;
         public ObservableCollection<string> KolekcijaAlergeniLeka;
         public ObservableCollection<string> KolekcijaAlergeniPacijenta;
         public LekoviKontroler lekoviKontrolerObjekat;
@@ -46,7 +46,12 @@ namespace Bolnica.view.lekar.pacijenti
             this.PacijentDTO = PacijentDTO;
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
-            this.odobreniLekoviKolekcija = lekoviKontrolerObjekat.GetOdobreniLekovi();
+
+            List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            foreach (LekDTO lek in lekoviLista)
+            {
+                this.odobreniLekoviKolekcija.Add(lek);
+            }
             this.ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
             PacijentKontrolerObjekat = new PacijentKontroler();
 

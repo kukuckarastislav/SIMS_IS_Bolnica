@@ -118,16 +118,8 @@ namespace Bolnica.view.upravnik.Lekovi
                     }
                 }
             }
-
-            lekoviKontrolerObjekat.IzmeniLek(lek.Id,
-                                            inputNaziv.Text,
-                                            inputSifra.Text,
-                                            Convert.ToInt32(inputKolicina.Text),
-                                            Convert.ToDouble(inputCena.Text),
-                                            inputOpis.Text,
-                                            RevizijeLekara,
-                                            alergeni
-                                            );
+            LekDTO dto = new LekDTO(lek.Id, inputSifra.Text, inputSifra.Text, lek.Odobren, inputOpis.Text, Convert.ToInt32(inputKolicina.Text), Convert.ToDouble(inputCena.Text), alergeni, RevizijeLekara);
+            lekoviKontrolerObjekat.IzmeniLek(dto);
 
             if (refPrikazNeodobrenihLekova != null) refPrikazNeodobrenihLekova.AzurirajPrikaz();
             if (refPrikazOdobrenihLekova != null) refPrikazOdobrenihLekova.AzurirajPrikaz();

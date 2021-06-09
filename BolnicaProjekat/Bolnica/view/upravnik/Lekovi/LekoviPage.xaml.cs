@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Model;
 using Kontroler;
+using DTO;
 
 namespace Bolnica.view.upravnik.Lekovi
 {
@@ -109,7 +110,8 @@ namespace Bolnica.view.upravnik.Lekovi
                 var rezultat = MessageBox.Show("Zelite da obrisete lek " + lek.Naziv, "Brisanje Leka", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (rezultat == MessageBoxResult.Yes)
                 {
-                    lekoviKontrolerObjekat.ObrisiLek(lek);
+                    LekDTO dto = new LekDTO(lek.Id, lek.Sifra, lek.Naziv, lek.Odobren, lek.Opis, lek.Kolicina, lek.Cena, lek.Alergeni, lek.Revizije);
+                    lekoviKontrolerObjekat.ObrisiLek(dto);
                 }
             }
 

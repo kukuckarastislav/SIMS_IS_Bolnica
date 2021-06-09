@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 using Kontroler;
 using Model;
 
@@ -24,7 +25,7 @@ namespace Bolnica.view.upravnik.Lekovi
     /// 
     public partial class PrikazOdobrenihLekova : Page
     {
-        public ObservableCollection<Lek> KolekcijaLekovi { get; set; }
+        public ObservableCollection<LekDTO> KolekcijaLekovi { get; set; }
         public Lek OdabraniLek { get; set; }
 
         public LekoviKontroler lekoviKontrolerObjekat;
@@ -32,13 +33,22 @@ namespace Bolnica.view.upravnik.Lekovi
         {
             InitializeComponent();
             lekoviKontrolerObjekat = new LekoviKontroler();
-            KolekcijaLekovi = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            foreach (LekDTO lek in lekoviLista)
+            {
+                KolekcijaLekovi.Add(lek);
+            }
             this.DataGridPrikazOdobrenihLekova.ItemsSource = KolekcijaLekovi;
         }
 
         public void AzurirajPrikaz()
         {
-            KolekcijaLekovi = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            KolekcijaLekovi = new ObservableCollection<LekDTO>();
+            List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            foreach (LekDTO lek in lekoviLista)
+            {
+                KolekcijaLekovi.Add(lek);
+            }
             this.DataGridPrikazOdobrenihLekova.ItemsSource = KolekcijaLekovi;
         }
 

@@ -111,14 +111,9 @@ namespace Bolnica.view.lekar.lekovi
             }
             revizija.Poruka = inputPoruka.Text;
 
-            lekoviKontrolerObjekat.IzmenaLekaByLekar(lek.Id,
-                                            inputNaziv.Text,
-                                            inputSifra.Text,
-                                            Convert.ToDouble(inputCena.Text),
-                                            inputOpis.Text,
-                                            revizija,
-                                            alergeni
-                                            );
+            LekDTO dto = new LekDTO(lek.Id, inputSifra.Text, inputNaziv.Text, lek.Odobren, inputOpis.Text, lek.Kolicina, Convert.ToDouble(inputCena.Text), alergeni, null);
+
+            lekoviKontrolerObjekat.IzmenaLekaByLekar(dto, revizija);
 
             if (this.lekar != null)
             {

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bolnica.Service;
 using Model;
 using Servis;
 
@@ -12,21 +13,22 @@ namespace Kontroler
     public class LekoviKontroler
     {
         private LekoviServis lekoviServisObjekat;
-
+        private LekoviCRUDServis lekoviCRUDServis;
         public LekoviKontroler()
         {
             lekoviServisObjekat = new LekoviServis();
+            lekoviCRUDServis = new LekoviCRUDServis();
         }
 
         public int BrojOdobrenihLekova()
         {
-            return lekoviServisObjekat.BrojOdobrenihLekova();
+            return lekoviCRUDServis.GetOdobreniLekovi().Count();
         }
 
         public int BrojNeOdobrenihLekova()
         {
 
-            return lekoviServisObjekat.BrojNeOdobrenihLekova();
+            return lekoviCRUDServis.GetNeodobreniLekovi().Count();
         }
 
         public void PosaljiLekoveNaReviziju(ObservableCollection<Lekar> odabraniLekari, Lek lek)

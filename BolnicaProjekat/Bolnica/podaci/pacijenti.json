@@ -13,7 +13,7 @@
     "Id": 1,
     "PacijentGost": false,
     "Hospitalizovan": false,
-    "SpamUser": true,
+    "SpamUser": false,
     "LogickiObrisan": false,
     "KorisnickoIme": "peraperic",
     "Sifra": "pera",

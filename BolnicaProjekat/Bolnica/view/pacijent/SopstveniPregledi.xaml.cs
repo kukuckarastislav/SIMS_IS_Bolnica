@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using Kontroler;
 using DTO;
-using Model;
+
 
 namespace Bolnica.view.pacijent
 {
@@ -59,7 +59,7 @@ namespace Bolnica.view.pacijent
                 return;
             }
 
-           // Repozitorijum.ZdravstvenaUslugaRepozitorijum.GetInstance.ObrisiUslugu(odabraniPregled);
+            Kontroler.OtkaziZdravstvenuUslugu(odabraniPregled);
             PreglediPacijenta.Remove(odabraniPregled);
         }
 
@@ -79,7 +79,7 @@ namespace Bolnica.view.pacijent
         }
         private void zakazi_novi_pregled(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.RaspoloziviPregledi();
+            var varr = new view.pacijent.RaspoloziviPregledi(Pacijent);
             varr.Show();
         }
 

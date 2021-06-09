@@ -1,7 +1,6 @@
 ﻿using DTO;
 using System.Threading;
 using System.Windows;
-using Kontroler;
 using System.Windows.Input;
 using Servis;
 using Threads;
@@ -27,9 +26,6 @@ namespace Bolnica.view.pacijent
             jmbg.Text = p.Jmbg;
             telefon.Text = p.Telefon;
 
-            broj_notifikacija.Text = Repozitorijum.NotifikacijaRepozitorijum.GetInstance.GetByPatientId(p.Id).Count.ToString();
-            PodsjetnikKontroler Kontroler = new PodsjetnikKontroler();
-            broj_podsjetnika.Text = Kontroler.GetBrojNeprocitanihPodsjetnika(p.Id);
             Pacijent = p;
 
             MedicationConsumption = new MedicationConsumption();
@@ -52,44 +48,44 @@ namespace Bolnica.view.pacijent
 
         private void prikazi_preglede(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.RaspoloziviPregledi();
+            var varr = new RaspoloziviPregledi(Pacijent);
             varr.ShowDialog();
         }
 
         private void prikazi_vlastite_preglede(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.SopstveniPregledi(Pacijent);
+            var varr = new SopstveniPregledi(Pacijent);
             varr.ShowDialog();
 
         }
         private void prikazi_notifikacije(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.NotifikacijePacijent();
+            var varr = new NotifikacijePacijent(Pacijent);
             varr.ShowDialog();
         }
 
         private void prikazi_ocjene(object sender, RoutedEventArgs e)
         {
-            var varr=new view.pacijent.Ocjene(Pacijent);
+            var varr=new Ocjene(Pacijent);
             varr.ShowDialog();
         }
 
         private void prikazi_podsjetnik(object sender, RoutedEventArgs e)
         {
-            var varr=new view.pacijent.PodsjetnikPacijenta(Pacijent);
+            var varr=new PodsjetnikPacijenta(Pacijent);
             varr.ShowDialog();
         }
 
         private void prikazi_istoriju_bolesti(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.IstorijaBolesti(Pacijent);
+            var varr = new IstorijaBolesti(Pacijent);
             varr.ShowDialog();
 
         }
 
         private void prikazi_trenutnu_terapiju(object sender, RoutedEventArgs e)
         {
-            var varr = new view.pacijent.TrenutnaTerapija(Pacijent);
+            var varr = new TrenutnaTerapija(Pacijent);
             varr.ShowDialog();
         }
 

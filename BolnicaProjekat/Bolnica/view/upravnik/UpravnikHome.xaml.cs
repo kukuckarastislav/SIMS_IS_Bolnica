@@ -63,5 +63,17 @@ namespace Bolnica.view.upravnik
         {
             RadnaPovrsina.Content = new view.upravnik.Podesavanje.PodesavanjePage();
         }
+
+        private void Odjavi_se_click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Izvestaj_Click(object sender, RoutedEventArgs e)
+        {
+            //RadnaPovrsina.Content = new view.upravnik.Podesavanje.PodesavanjePage();
+            var izvestaj = new view.upravnik.Izvestaj.IzvestajRadaLekaraWin();
+            izvestaj.Show();
+        }
     }
 }

@@ -12,7 +12,5 @@ namespace Model
    {
       Operacija,
       Pregled,
-      PreraspodelaInventara,
-      Renoviranje
    }
 }

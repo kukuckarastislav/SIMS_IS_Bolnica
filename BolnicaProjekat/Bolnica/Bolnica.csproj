@@ -186,6 +186,7 @@
     <Compile Include="DTO\ParametriUzimanjaTerapijeDTO.cs" />
     <Compile Include="DTO\PodsjetnikParametriDTO.cs" />
     <Compile Include="DTO\ProstorijaDTO.cs" />
+    <Compile Include="DTO\RadLekaraDTO.cs" />
     <Compile Include="DTO\ReceptDTO.cs" />
     <Compile Include="DTO\RegistracijaLekaraDTO.cs" />
     <Compile Include="DTO\RegistracijaPacijentaDTO.cs" />
@@ -558,6 +559,9 @@
     </Compile>
     <Compile Include="view\upravnik\Inventari\ZakazivanjeTerminaForma.xaml.cs">
       <DependentUpon>ZakazivanjeTerminaForma.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\upravnik\Izvestaj\IzvestajRadaLekaraWin.xaml.cs">
+      <DependentUpon>IzvestajRadaLekaraWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\upravnik\Lekovi\DodajLek.xaml.cs">
       <DependentUpon>DodajLek.xaml</DependentUpon>
@@ -1008,6 +1012,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="view\upravnik\Izvestaj\IzvestajRadaLekaraWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="view\upravnik\Lekovi\DodajLek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1316,6 +1324,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\lekar-icons\big-folder-dark-icon.png" />
+    <Resource Include="images\SS1.JPG" />
+    <Resource Include="images\SS2.JPG" />
     <Content Include="view\sekretar\help\RegistracijaLekara.htm" />
     <Content Include="view\sekretar\help\RegistracijaPacijenta.htm" />
     <Resource Include="images\lekar-icons\feedback-icon.png" />

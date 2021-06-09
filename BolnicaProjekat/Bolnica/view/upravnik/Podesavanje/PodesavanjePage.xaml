@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.upravnik.Podesavanje"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="800" d:DesignWidth="800"
       Title="PodesavanjePage">
 
     <Grid Style="{DynamicResource GridStyle}">
@@ -17,19 +17,30 @@
             <Grid DockPanel.Dock="Bottom" Style="{DynamicResource GridStyle}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="300"/>
                     <ColumnDefinition />
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="100"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="180"/>
                     <RowDefinition Height="50"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <Button Style="{DynamicResource BTNSSS}" Click="White_click" Grid.Column="1" Grid.Row="1" Height="120" Width="200">Tema1</Button>
-                <Button Style="{DynamicResource BTNSSS}" Click="Black_click" Grid.Column="2" Grid.Row="1" Height="120" Width="200">Tema2</Button>
+                <TextBlock Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Text="Tema" FontSize="16"></TextBlock>
+                
+                <Button Click="White_click" Grid.Column="1" Margin="20" Grid.Row="1" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Image Source="/images/SS1.jpg" />
+                </Button>
+                <Button HorizontalAlignment="Left" Margin="20" Click="Black_click" Grid.Column="2" Grid.Row="1" Height="110" Width="200" VerticalAlignment="Top">
+                    <Image Source="/images/SS2.jpg" />
+                </Button>
+
+                <TextBlock Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Text="Jezik" FontSize="16"></TextBlock>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="3" Grid.Column="1" Margin="20 0 0 0" Width="80" HorizontalAlignment="Left" Height="40" Content="SRB"></Button>
+                <Button Style="{DynamicResource BTNSSS}" Grid.Row="3" Grid.Column="1" Margin="0 0 20 0" Width="80" HorizontalAlignment="Right" Height="40" Content="ENG"></Button>
             </Grid>
         </DockPanel>
     </Grid>

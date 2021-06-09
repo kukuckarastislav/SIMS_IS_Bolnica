@@ -27,13 +27,13 @@ namespace Bolnica.view.upravnik.Podesavanje
 
         private void White_click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.ColorMode = "Black";
+            Properties.Settings.Default.ColorMode = "Light";
             Properties.Settings.Default.Save();
         }
 
         private void Black_click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.ColorMode = "Light";
+            Properties.Settings.Default.ColorMode = "Black";
             Properties.Settings.Default.Save();
         }
     }

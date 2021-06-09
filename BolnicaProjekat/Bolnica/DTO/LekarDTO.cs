@@ -68,6 +68,11 @@ namespace DTO
             radnoVreme = dto.radnoVreme;
         }
 
+        public string ImePrezime()
+        {
+            return Ime + " " + Prezime;
+        }
+
         public override string ToString()
         {
             return Ime + " " + Prezime + " - " + KorisnickoIme;

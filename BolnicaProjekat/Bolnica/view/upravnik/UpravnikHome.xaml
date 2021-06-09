@@ -19,7 +19,9 @@
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Magacin_Click">Magacin</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Lekovi_Click">Lekovi</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Ocene_Click">Ocene</Button>
-                    <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 280 0 0" Click="Podesavanje_Click">Podesavanje</Button>
+                    <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Izvestaj_Click">Izvestaj</Button>
+                    <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 240 0 2" Click="Podesavanje_Click">Podesavanje</Button>
+                    <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2 0 0" Click="Odjavi_se_click">Odjavi se</Button>
                 </StackPanel>
             </Grid>
             <DockPanel DockPanel.Dock="Right">

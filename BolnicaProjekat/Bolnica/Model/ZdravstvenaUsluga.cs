@@ -44,10 +44,19 @@ namespace Model
             RezultatUsluge = rezultatUsluge;
         }
 
-       // public ZdravstvenaUsluga(Termin termin, int id)
-      //  {
-        //    this.termin = termin;
-       //     IdLekara = id;
-      //  }
+
+        public string GetTipUslugeStr()
+        {
+            string tipUslugeStr = "";
+            if(TipUsluge == TipUsluge.Operacija)
+            {
+                tipUslugeStr = "Operacija";
+            }else if(TipUsluge == TipUsluge.Pregled)
+            {
+                tipUslugeStr = "Pregled";
+            }
+
+            return tipUslugeStr;
+        }
     }
 }

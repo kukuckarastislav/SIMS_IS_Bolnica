@@ -161,5 +161,11 @@ namespace Kontroler
         {
             return ZdrastvenaUslugaServisObjekat.GetProsleOperacijePacijenta(id);
         }
+
+        public List<RadLekaraDTO> GetKolekcijaTerminaRadaDTO(int idLekara, DateTime pocetak, DateTime kraj)
+        {
+            return ZdrastvenaUslugaServisObjekat.GetKolekcijaTerminaRadaDTO(idLekara, pocetak, kraj);
+        }
+
     }
 }

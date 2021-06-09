@@ -142,6 +142,9 @@ namespace Repozitorijum
             return obsLekari;
         }
 
+
+
+
         public Lekar GetById(long id)
         {
             LoadData();

@@ -12,7 +12,7 @@
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Vertical">
                 <StackPanel>
-                    <Label Margin="10 0 0 0" FontSize="24">Ocene</Label>
+                    <TextBlock Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24">Ocene</TextBlock>
                 </StackPanel>
             </StackPanel>
 

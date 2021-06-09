@@ -105,7 +105,7 @@
                     <Setter Property="Foreground" Value="White"></Setter>
                    <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter> -->
                     <Setter Property="BorderBrush" Value="#1DB954"></Setter>
-                    <Setter Property="Background" Value="#282828"></Setter>
+                    <Setter Property="Background" Value="#1DB954"></Setter>
 
                 </DataTrigger>
 

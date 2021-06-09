@@ -617,6 +617,20 @@ namespace Servis
             return kreatorIzvestaja.KreirajIzvestaj();
         }
 
+        public List<RadLekaraDTO> GetKolekcijaTerminaRadaDTO(int idLekara, DateTime pocetak, DateTime kraj)
+        {
+            List<RadLekaraDTO> kolekcijaTerminaRada = new List<RadLekaraDTO>();
+            List<ZdravstvenaUsluga> zdravstveneUslugeLekara = ZdrastvenaUslugaRepozitorijumRef.getTerminiBylekarId(idLekara);
+            foreach(ZdravstvenaUsluga zdravstvenaUsluga in zdravstveneUslugeLekara)
+            {
+                if(zdravstvenaUsluga.Termin.Pocetak > pocetak && zdravstvenaUsluga.Termin.Pocetak < kraj)
+                {
+                    kolekcijaTerminaRada.Add(new RadLekaraDTO(zdravstvenaUsluga.Termin.Pocetak, zdravstvenaUsluga.Termin.Kraj, zdravstvenaUsluga.GetTipUslugeStr()));
+                }
+            }
+            return kolekcijaTerminaRada;
+        }
+
 
     }
 }

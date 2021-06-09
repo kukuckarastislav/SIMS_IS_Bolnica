@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Bolnica.view.upravnik.Podesavanje"
+      xmlns:p="clr-namespace:Bolnica.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="800"
       Title="PodesavanjePage">
@@ -11,7 +12,7 @@
     <Grid Style="{DynamicResource GridStyle}">
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                <TextBlock Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24">Podesavanje</TextBlock>
+                <TextBlock x:Name="txtPodesavanje" Style="{DynamicResource TextBlockStyle}" Margin="10 0 0 0" FontSize="24" Text="{}"></TextBlock>
             </StackPanel>
 
             <Grid DockPanel.Dock="Bottom" Style="{DynamicResource GridStyle}">
@@ -29,7 +30,7 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <TextBlock Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Text="Tema" FontSize="16"></TextBlock>
+                <TextBlock x:Name="txtTema" Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Text="Tema" FontSize="16"></TextBlock>
                 
                 <Button Click="White_click" Grid.Column="1" Margin="20" Grid.Row="1" Height="110" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <Image Source="/images/SS1.jpg" />
@@ -38,9 +39,9 @@
                     <Image Source="/images/SS2.jpg" />
                 </Button>
 
-                <TextBlock Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" Text="Jezik" FontSize="16"></TextBlock>
-                <Button Style="{DynamicResource BTNSSS}" Grid.Row="3" Grid.Column="1" Margin="20 0 0 0" Width="80" HorizontalAlignment="Left" Height="40" Content="SRB"></Button>
-                <Button Style="{DynamicResource BTNSSS}" Grid.Row="3" Grid.Column="1" Margin="0 0 20 0" Width="80" HorizontalAlignment="Right" Height="40" Content="ENG"></Button>
+                <TextBlock x:Name="txtJezik" Text="{x:Static p:Resources.PodesavanjeTxtJezik}" Margin="20 0 0 0" Style="{DynamicResource TextBlockStyle}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Bottom" FontSize="16"></TextBlock>
+                <Button Style="{DynamicResource BTNSSS}" Click="SRB_click" Grid.Row="3" Grid.Column="1" Margin="20 0 0 0" Width="80" HorizontalAlignment="Left" Height="40" Content="SRB"></Button>
+                <Button Style="{DynamicResource BTNSSS}" Click="ENG_click" Grid.Row="3" Grid.Column="1" Margin="0 0 20 0" Width="80" HorizontalAlignment="Right" Height="40" Content="ENG"></Button>
             </Grid>
         </DockPanel>
     </Grid>

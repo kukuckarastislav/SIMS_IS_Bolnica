@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Threading;
 using Kontroler;
 using Servis;
+using DTO;
 
 namespace Bolnica.view.upravnik
 {
@@ -30,6 +31,8 @@ namespace Bolnica.view.upravnik
             preraspodelaInventaraThread = new Thread(new ThreadStart(terminProstorijeServisObjekat.ThreadPreraspodelaInventara));
             preraspodelaInventaraThread.IsBackground = true;
             preraspodelaInventaraThread.Start();
+
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
 
             RadnaPovrsina.Content = new view.upravnik.prostorije.Prostorije();
         }
@@ -61,7 +64,8 @@ namespace Bolnica.view.upravnik
 
         private void Podesavanje_Click(object sender, RoutedEventArgs e)
         {
-            RadnaPovrsina.Content = new view.upravnik.Podesavanje.PodesavanjePage();
+            LokalDTO lok = new LokalDTO(btnProstorije,btnInventar,btnMagacin,btnLekovi,btnOcene,btnIzvestaj,btnPodesavanje, btnOdjaviSe);
+            RadnaPovrsina.Content = new view.upravnik.Podesavanje.PodesavanjePage(lok);
         }
 
         private void Odjavi_se_click(object sender, RoutedEventArgs e)

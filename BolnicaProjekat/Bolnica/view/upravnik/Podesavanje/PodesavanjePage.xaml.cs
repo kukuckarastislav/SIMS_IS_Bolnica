@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DTO;
 
 namespace Bolnica.view.upravnik.Podesavanje
 {
@@ -20,9 +21,13 @@ namespace Bolnica.view.upravnik.Podesavanje
     /// </summary>
     public partial class PodesavanjePage : Page
     {
-        public PodesavanjePage()
+
+        private LokalDTO lok;
+
+        public PodesavanjePage(LokalDTO lok)
         {
             InitializeComponent();
+            this.lok = lok;
         }
 
         private void White_click(object sender, RoutedEventArgs e)
@@ -35,6 +40,24 @@ namespace Bolnica.view.upravnik.Podesavanje
         {
             Properties.Settings.Default.ColorMode = "Black";
             Properties.Settings.Default.Save();
+        }
+
+        private void SRB_click(object sender, RoutedEventArgs e)
+        {
+            lok.setSrb();
+            txtJezik.Text = "Jezik";
+            txtPodesavanje.Text = "Podesavanje";
+            txtTema.Text = "Tema";
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("sr");
+        }
+
+        private void ENG_click(object sender, RoutedEventArgs e)
+        {
+            lok.setEng();
+            txtJezik.Text = "Language";
+            txtPodesavanje.Text = "Settings";
+            txtTema.Text = "Them";
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
         }
     }
 }

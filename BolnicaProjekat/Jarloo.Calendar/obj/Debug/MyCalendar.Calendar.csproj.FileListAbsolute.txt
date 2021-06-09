@@ -67,10 +67,10 @@ C:\Users\Mihajlo\Desktop\sims projekat\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Ca
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\bin\Debug\MyCalendar.Calendar.dll
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\bin\Debug\MyCalendar.Calendar.pdb
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csprojAssemblyReference.cache
-D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar_MarkupCompile.cache
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar_MarkupCompile.lref
+D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\Themes\Generic.baml
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.g.resources
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CoreCompileInputs.cache
 D:\RA\RASTISLAV\SIMS\SIMS_IS_Bolnica\SIMS_IS_Bolnica\BolnicaProjekat\Jarloo.Calendar\obj\Debug\MyCalendar.Calendar.csproj.CopyComplete

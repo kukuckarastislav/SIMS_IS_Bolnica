@@ -49,22 +49,22 @@
                 <TextBlock Style="{DynamicResource TextBlockStyle}" VerticalAlignment="Bottom" Margin="0 10" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="5" Grid.Column="1">Opis</TextBlock>
 
-                <TextBox x:Name="inputNaziv" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputNaziv" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="1" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputSifra" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputSifra" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="2" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputKolicina" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputKolicina" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="3" Grid.Column="2" Width="160"></TextBox>
 
-                <TextBox x:Name="inputCena" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputCena" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="4" Grid.Column="2" Width="160"></TextBox>
 
-                
 
 
-                <TextBox x:Name="inputOpis" 
+
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputOpis" 
                          TextWrapping="Wrap"
                         AcceptsReturn="True"
                         VerticalScrollBarVisibility="Visible"
@@ -155,7 +155,7 @@
                 <TextBlock Style="{DynamicResource TextBlockStyle}" x:Name="txtLekar" Text="Poruke Lekaru" VerticalAlignment="Bottom" Margin="0 10" HorizontalAlignment="Left" FontSize="16" 
                            Grid.Row="5" Grid.Column="4"></TextBlock>
 
-                <TextBox x:Name="inputPoruka" 
+                <TextBox Style="{DynamicResource TextBoxStyle}" x:Name="inputPoruka" 
                          TextWrapping="Wrap"
                         AcceptsReturn="True"
                         VerticalScrollBarVisibility="Visible"

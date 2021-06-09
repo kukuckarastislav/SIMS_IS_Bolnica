@@ -8,10 +8,10 @@
         
         <Style TargetType="{x:Type Grid}" x:Key="GridStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#181818"/>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="White"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -19,10 +19,10 @@
 
         <Style TargetType="{x:Type Grid}" x:Key="GlavniMeniStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static Properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#1DB954"/>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static Properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="#008fe8"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -31,10 +31,10 @@
 
         <Style TargetType="{x:Type StackPanel}" x:Key="StackPanelStyle">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#181818"/>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="White"/>
                 </DataTrigger>
             </Style.Triggers>
@@ -44,14 +44,14 @@
         <Style TargetType="{x:Type Button}" x:Key="BTNSSS">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#1DB954"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                     <Setter Property="FontWeight" Value="SemiBold"></Setter>
                     <Setter Property="BorderBrush" Value="#006600"></Setter>
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="#008fe8"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                     <Setter Property="FontWeight" Value="SemiBold"></Setter>
@@ -65,14 +65,14 @@
         <Style TargetType="{x:Type TextBox}" x:Key="TextBoxStyle">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#282828"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                    <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter> -->
                     <Setter Property="BorderBrush" Value="#1DB954"></Setter>
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="White"></Setter>
                     <Setter Property="Foreground" Value="Black"></Setter>
                     <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter> -->
@@ -85,12 +85,12 @@
         <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockStyle">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Foreground" Value="White"></Setter>
                    <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter> -->
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Foreground" Value="Black"></Setter>
                     <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter>  -->
                 </DataTrigger>
@@ -101,7 +101,7 @@
         <Style TargetType="{x:Type CheckBox}" x:Key="CheckBoxStyle">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Foreground" Value="White"></Setter>
                    <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter> -->
                     <Setter Property="BorderBrush" Value="#1DB954"></Setter>
@@ -109,7 +109,7 @@
 
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Foreground" Value="Black"></Setter>
                     <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter>    -->
                     <Setter Property="BorderBrush" Value="#008fe8"></Setter>
@@ -123,14 +123,14 @@
         <Style TargetType="{x:Type ComboBox}" x:Key="ComboBoxStyle">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#1DB954"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                     <Setter Property="BorderBrush" Value="#1DB954"></Setter>
 
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="#008fe8"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                     <Setter Property="BorderBrush" Value="#008fe8"></Setter>
@@ -143,7 +143,7 @@
         <Style TargetType="{x:Type DataGrid}" x:Key="DataGridStyle">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#282828"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                    <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter> -->
@@ -151,7 +151,7 @@
                     <Setter Property="RowBackground" Value="#282828"></Setter>
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="LightGray"></Setter>
                     <Setter Property="Foreground" Value="Black"></Setter>
                     <!-- <Setter Property="FontWeight" Value="SemiBold"></Setter> -->
@@ -168,14 +168,14 @@
         <Style TargetType="{x:Type DataGridColumnHeader}" x:Key="DataGridColumnHeaderStyle">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#1DB954"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                     <Setter Property="FontWeight" Value="SemiBold"></Setter>
                     <Setter Property="BorderBrush" Value="#1DB954"></Setter>
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="#008fe8"></Setter>
                     <Setter Property="Foreground" Value="Black"></Setter>
                     <Setter Property="FontWeight" Value="SemiBold"></Setter>
@@ -190,14 +190,14 @@
         <Style TargetType="{x:Type DataGridRowHeader}" x:Key="DataGridRowHeaderStyle">
             <Style.Triggers>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Black">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Black">
                     <Setter Property="Background" Value="#282828"></Setter>
                     <Setter Property="Foreground" Value="White"></Setter>
                     <Setter Property="FontWeight" Value="SemiBold"></Setter>
                     <Setter Property="BorderBrush" Value="#1DB954"></Setter>
                 </DataTrigger>
 
-                <DataTrigger Binding="{Binding Source={x:Static properties:Settings.Default}, Path=ColorMode}" Value="Light">
+                <DataTrigger Binding="{Binding Source={x:Static properties.Default}, Path=ColorMode}" Value="Light">
                     <Setter Property="Background" Value="#282828"></Setter>
                     <Setter Property="Foreground" Value="Black"></Setter>
                     <Setter Property="FontWeight" Value="SemiBold"></Setter>

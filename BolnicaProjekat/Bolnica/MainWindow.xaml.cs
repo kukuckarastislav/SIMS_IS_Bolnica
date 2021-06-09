@@ -21,7 +21,7 @@ using Model;
 using DTO;
 using Repozitorijum;
 using Kontroler;
-
+using Bolnica.Repository;
 
 namespace Bolnica
 {
@@ -44,6 +44,7 @@ namespace Bolnica
             //Upravnik u = new Upravnik(new RadnoVreme(9, 17), RadniStatus.Aktivan, 1);
             //UpravnikRepozitorijum.GetInstance.Upravnici.Add(u);
             //UpravnikRepozitorijum.GetInstance.SaveData();
+            
         }
 
         private void Sekretar_Home_Click(object sender, RoutedEventArgs e)
@@ -78,6 +79,8 @@ namespace Bolnica
             {
                 App.IdUlogovanogKorisnika = s.Id;
                 App.ulogovaniKorisnik = s;
+                App.jelPrvoPokretanjeAplikacije = !PodesavanjaRepozitorijum.GetInstance.jelBioUlogovan(s.Id);
+                PodesavanjaRepozitorijum.GetInstance.ukljuciUlogovanje(s.Id);
                 var sekretar_home = new Bolnica.view.sekretar.SekretarHome();
                 App.stranicaSekretara = sekretar_home;
                 sekretar_home.Show();

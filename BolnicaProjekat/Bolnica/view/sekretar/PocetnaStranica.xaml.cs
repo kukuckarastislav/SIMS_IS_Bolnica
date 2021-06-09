@@ -31,13 +31,7 @@ namespace Bolnica.view.sekretar
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
-            if (focusedControl is DependencyObject)
-            {
-                string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
-                HelpProvider.ShowHelp("Ime");
-
-            }
+            NavigationService.Navigate(new PageKorisnickiNalog());
         }
 
         private void OcenaAplikacije_Click(object sender, RoutedEventArgs e)

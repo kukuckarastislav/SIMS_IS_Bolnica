@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 using Model;
+using DTO;
 
 namespace Bolnica.view.pacijent
 {
@@ -13,11 +12,11 @@ namespace Bolnica.view.pacijent
         private Notifikacija KliknutaNotifijacija;
         private Controller.NotifikacijaKontroler Kontroler;
 
-        public NotifikacijePacijent()
+        public NotifikacijePacijent(PacijentDTO Pacijent)
         {
 
             Kontroler = new Controller.NotifikacijaKontroler();
-            Notifikacije = Kontroler.GetNotifikacijePacijenta(1);
+            Notifikacije = Kontroler.GetNotifikacijePacijenta(Pacijent.Id);
 
             InitializeComponent();
             this.listaNotifikacija.ItemsSource = Notifikacije;

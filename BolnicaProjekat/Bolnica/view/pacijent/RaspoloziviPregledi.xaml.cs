@@ -1,4 +1,4 @@
-﻿using Model;
+﻿
 using System;
 using System.Collections.ObjectModel;
 using System.Windows;
@@ -12,25 +12,31 @@ namespace Bolnica.view.pacijent
     public partial class RaspoloziviPregledi : Window
     {
         private ObservableCollection<ZdravstvenaUslugaDTO> Pregledi;
+        private ObservableCollection<LekarDTO> listaLekari;
+
         private ZdravstvenaUslugaDTO OdabraniPregled;
         private DateTime OdabraniDatum;
-        private Lekar OdabraniLekar;
+        private LekarDTO OdabraniLekar;
 
-        private ObservableCollection<Lekar> listaLekari;
+        private PacijentDTO Pacijent;
+
         ZdravstvenaUslugaKontroler KontrolerZU;
         KorisnickaAktivnostKontroler KontrolerKA;
+        LekarKontroler KontrolerLK;
 
 
-        public RaspoloziviPregledi()
+        public RaspoloziviPregledi(PacijentDTO Pacijent)
         {
             InitializeComponent();
             KontrolerZU = new ZdravstvenaUslugaKontroler();
             KontrolerKA = new KorisnickaAktivnostKontroler();
+            KontrolerLK = new LekarKontroler();
 
             this.listaPregleda.ItemsSource = Pregledi;
+            this.Pacijent = Pacijent;
 
             OdabraniDatum = DateTime.Now;
-            listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
+            listaLekari = KontrolerLK.getAllNeobrisaniLekari();
             this.ComboBoxLekari.ItemsSource = listaLekari;
         }
 
@@ -45,10 +51,10 @@ namespace Bolnica.view.pacijent
                 MessageBox.Show("Niste odabrali pregled");
 
           
-            if (!KontrolerKA.JeSpamUser(1))
+            if (!KontrolerKA.JeSpamUser(Pacijent.Id))
             {
-                OdabraniPregled.IdPacijenta = 1;
-                KontrolerKA.DodajKorisnickuAktivnostZakazivanja(1);
+                OdabraniPregled.IdPacijenta = Pacijent.Id;
+                KontrolerKA.DodajKorisnickuAktivnostZakazivanja(Pacijent.Id);
                 Pregledi.Remove(OdabraniPregled);
             }
             else
@@ -84,7 +90,7 @@ namespace Bolnica.view.pacijent
             DateTime pocetak = new DateTime(OdabraniDatum.Year, OdabraniDatum.Month, OdabraniDatum.Day, pocetakSati, pocetakMinute, 00);
             DateTime kraj = new DateTime(OdabraniDatum.Year, OdabraniDatum.Month, OdabraniDatum.Day, krajSati, krajkMinute, 00);
 
-            OdabraniLekar = ComboBoxLekari.SelectedItem as Lekar;
+            OdabraniLekar = ComboBoxLekari.SelectedItem as LekarDTO;
 
             int prioritet = 0;
             if (Lekar.IsChecked == true)

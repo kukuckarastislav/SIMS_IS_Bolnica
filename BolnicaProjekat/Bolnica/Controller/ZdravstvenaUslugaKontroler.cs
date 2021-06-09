@@ -58,6 +58,11 @@ namespace Kontroler
             return ZdrastvenaUslugaServisObjekat.GetProsliTerminiPacijenta(id);
         }
 
+        internal void OtkaziZdravstvenuUslugu(ZdravstvenaUslugaDTO odabraniPregled)
+        {
+            ZdrastvenaUslugaServisObjekat.OtkaziZdravstvenuUslugu(odabraniPregled);
+        }
+
         public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
         {
             ZdrastvenaUslugaServisObjekat.OtkaziUslugu(usluga);
@@ -114,9 +119,9 @@ namespace Kontroler
             return ZdravstvenaUslugaServis.GetSlobodniTerminiLekara(OdabraniLekar,pocetak,kraj); 
         }
 
-        public ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+        public ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTermini(LekarDTO OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
         {
-            return ZdravstvenaUslugaServis.GetSlobodniTerminiDTO(OdabraniLekar, pocetak, kraj, prioritet);
+            return ZdravstvenaUslugaServis.GetSlobodniTerminiDTO(OdabraniLekar.Id, pocetak, kraj, prioritet);
         }
 
         public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)

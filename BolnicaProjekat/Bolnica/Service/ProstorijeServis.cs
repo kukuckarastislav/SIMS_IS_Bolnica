@@ -21,23 +21,13 @@ namespace Servis
             InventariRepozitorijumRef = InventariRepozitorijum.GetInstance;
         }
 
-        public Prostorija DodajProstoriju(TipProstorije tipProstorije, string broj, int sprat, double povrsina)
+        public Prostorija DodajProstoriju(ProstorijaDTO prostorijaDTO)
         {
             int idNoveProstorije = ProstorijeRepozitorijumRef.GetFirstFitID();
             int idNovInventar = InventariRepozitorijumRef.GetFirstFitID();
             Inventar noviInventar = new Inventar(idNovInventar, idNoveProstorije, new List<Oprema>(), new List<Lek>());
             InventariRepozitorijumRef.DodajInventar(noviInventar);
-            Prostorija novaProstorija = new Prostorija(null, idNoveProstorije, tipProstorije, broj, sprat, povrsina, 0, 0, idNovInventar);
-            return ProstorijeRepozitorijumRef.DodajProstoriju(novaProstorija);
-        }
-
-        public Prostorija DodajProstoriju(TipProstorije tipProstorije, string broj, int sprat, double povrsina, int brojKreveta, int brojSlobodnihKreveta)
-        {
-            int idNoveProstorije = ProstorijeRepozitorijumRef.GetFirstFitID();
-            int idNovInventar = InventariRepozitorijumRef.GetFirstFitID();
-            Inventar noviInventar = new Inventar(idNovInventar, idNoveProstorije, new List<Oprema>(), new List<Lek>());
-            InventariRepozitorijumRef.DodajInventar(noviInventar);
-            Prostorija novaProstorija = new Prostorija(null, idNoveProstorije, tipProstorije, broj, sprat, povrsina, brojKreveta, brojSlobodnihKreveta, idNovInventar);
+            Prostorija novaProstorija = new Prostorija(null, idNoveProstorije, prostorijaDTO.TipProstorije, prostorijaDTO.Broj, prostorijaDTO.Sprat, prostorijaDTO.Povrsina, prostorijaDTO.BrojKreveta, prostorijaDTO.BrojSlobodnihKreveta, idNovInventar);
             return ProstorijeRepozitorijumRef.DodajProstoriju(novaProstorija);
         }
 
@@ -49,30 +39,14 @@ namespace Servis
             return ProstorijeRepozitorijumRef.ObrisiProstoriju(delProstorija);
         }
 
-        public Prostorija AzurirajProstoriju(Prostorija editProstorija,
-                                             string broj,
-                                             int sprat,
-                                             double povrsina)
+        public Prostorija AzurirajProstoriju(ProstorijaDTO editProstorijaDTO)
         {
-            editProstorija.Broj = broj;
-            editProstorija.Sprat = sprat;
-            editProstorija.Povrsina = povrsina;
-            return ProstorijeRepozitorijumRef.AzurirajProstoriju(editProstorija);
-        }
-
-        public Prostorija AzurirajProstoriju(Prostorija editProstorija,
-                                             string broj,
-                                             int sprat,
-                                             double povrsina,
-                                             int brKreveta,
-                                             int brSlobodnihKreveta)
-        {
-            editProstorija.Broj = broj;
-            editProstorija.Sprat = sprat;
-            editProstorija.Povrsina = povrsina;
-            editProstorija.BrojKreveta = brKreveta;
-            editProstorija.BrojSlobodnihKreveta = brSlobodnihKreveta;
-
+            Prostorija editProstorija = GetProstorijaById(editProstorijaDTO.Id);
+            editProstorija.Broj = editProstorijaDTO.Broj;
+            editProstorija.Sprat = editProstorijaDTO.Sprat;
+            editProstorija.Povrsina = editProstorijaDTO.Povrsina;
+            editProstorija.BrojKreveta = editProstorijaDTO.BrojKreveta;
+            editProstorija.BrojSlobodnihKreveta = editProstorijaDTO.BrojSlobodnihKreveta;
             return ProstorijeRepozitorijumRef.AzurirajProstoriju(editProstorija);
         }
 
@@ -117,8 +91,10 @@ namespace Servis
         public bool NapraviDveProstorijeRazdvajanjemJedne(TerminProstorije terminProstorije)
         {
             TransformacijaProstorijeParametri tpp = terminProstorije.TransformacijaProstorijeParam;
-            DodajProstoriju(tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
-            DodajProstoriju(tpp.TipProstorijeB, tpp.BrojB, tpp.SpratB, tpp.PovrsinaB);
+            ProstorijaDTO prostorijaDTOA = new ProstorijaDTO(-1, tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
+            DodajProstoriju(prostorijaDTOA);
+            ProstorijaDTO prostorijaDTOB = new ProstorijaDTO(-1, tpp.TipProstorijeB, tpp.BrojB, tpp.SpratB, tpp.PovrsinaB);
+            DodajProstoriju(prostorijaDTOB);
             return true;
         }
 
@@ -132,7 +108,8 @@ namespace Servis
         public bool NapraviJednuProstorijuSpajanjemDve(TerminProstorije terminProstorije)
         {
             TransformacijaProstorijeParametri tpp = terminProstorije.TransformacijaProstorijeParam;
-            DodajProstoriju(tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
+            ProstorijaDTO prostorijaDTOA = new ProstorijaDTO(-1, tpp.TipProstorijeA, tpp.BrojA, tpp.SpratA, tpp.PovrsinaA);
+            DodajProstoriju(prostorijaDTOA);
             return true;
         }
 

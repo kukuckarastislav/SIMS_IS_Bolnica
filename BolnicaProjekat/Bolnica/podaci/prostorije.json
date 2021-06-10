@@ -161,7 +161,7 @@
     "TipProstorije": 1,
     "Broj": "BOL99",
     "Sprat": 66,
-    "Povrsina": 100,
+    "Povrsina": 120,
     "BrojKreveta": 2,
     "BrojSlobodnihKreveta": 2,
     "BrojSprat": "BOL99/66",
@@ -178,5 +178,29 @@
     "BrojSlobodnihKreveta": 0,
     "BrojSprat": "R-75/12",
     "IdInventar": 19
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 20,
+    "TipProstorije": 0,
+    "Broj": "TESTsoba3322",
+    "Sprat": 12345,
+    "Povrsina": 6789,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "TESTsoba3322/12345",
+    "IdInventar": 20
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 21,
+    "TipProstorije": 2,
+    "Broj": "OPER",
+    "Sprat": 10,
+    "Povrsina": 120,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "OPER/10",
+    "IdInventar": 21
   }
 ]

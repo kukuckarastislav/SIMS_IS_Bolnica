@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Kontroler;
+using DTO;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -79,18 +80,13 @@ namespace Bolnica.view.upravnik.prostorije
 
             if(editProstorija == null) 
             {
-                ProstorijeKontrolerObjekat.DodajProstoriju(tipProstorije,
-                                                           Convert.ToString(inputIDprostorije.Text), // ovo je broj
-                                                           Convert.ToInt32(inputSprat.Text),
-                                                           Convert.ToDouble(inputPovrsina.Text));
+                ProstorijaDTO prostorijaDTO = new ProstorijaDTO(-1, tipProstorije, Convert.ToString(inputIDprostorije.Text), Convert.ToInt32(inputSprat.Text), Convert.ToDouble(inputPovrsina.Text));
+                ProstorijeKontrolerObjekat.DodajProstoriju(prostorijaDTO);
             }
             else
             {
-                // editujemo postojecu
-                ProstorijeKontrolerObjekat.AzurirajProstoriju(editProstorija,
-                                                              Convert.ToString(inputIDprostorije.Text), // ovo je broj
-                                                              Convert.ToInt32(inputSprat.Text),
-                                                              Convert.ToDouble(inputPovrsina.Text));
+                ProstorijaDTO editProstorijaDTO = new ProstorijaDTO(editProstorija.Id, tipProstorije, Convert.ToString(inputIDprostorije.Text), Convert.ToInt32(inputSprat.Text), Convert.ToDouble(inputPovrsina.Text));
+                ProstorijeKontrolerObjekat.AzurirajProstoriju(editProstorijaDTO);
 
 
             }

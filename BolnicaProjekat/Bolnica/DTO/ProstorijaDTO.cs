@@ -16,6 +16,18 @@ namespace DTO
             Broj = broj;
             Sprat = sprat;
             Povrsina = povrsina;
+            BrojKreveta = 0;
+            BrojSlobodnihKreveta = 0;
+        }
+        public ProstorijaDTO(int id, TipProstorije tipProstorije, string broj, int sprat, double povrsina, int brojKreveta, int brojSlobodnihKreveta)
+        {
+            Id = id;
+            TipProstorije = tipProstorije;
+            Broj = broj;
+            Sprat = sprat;
+            Povrsina = povrsina;
+            BrojKreveta = brojKreveta;
+            BrojSlobodnihKreveta = brojSlobodnihKreveta;
         }
         public ProstorijaDTO()
         {
@@ -26,6 +38,9 @@ namespace DTO
         public string Broj { get; set; }
         public int Sprat { get; set; }
         public double Povrsina { get; set; }
+        public int BrojKreveta { get; set; }
+        public int BrojSlobodnihKreveta { get; set; }
+
 
         private string brojSprat;
         public string BrojSprat

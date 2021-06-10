@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Model;
 using Kontroler;
+using DTO;
 
 namespace Bolnica.view.upravnik.prostorije
 {
@@ -58,27 +59,15 @@ namespace Bolnica.view.upravnik.prostorije
 
         private void Potvrdi_btn(object sender, RoutedEventArgs e)
         {
-
             if (editBolesnickaSoba == null)
             {
-                MessageBox.Show("2");
-                ProstorijeKontrolerObjekat.DodajProstoriju(tipProstorije,
-                                                          Convert.ToString(inputIDprostorije.Text), // ovo je broj
-                                                          Convert.ToInt32(inputSprat.Text),
-                                                          Convert.ToDouble(inputPovrsina.Text),
-                                                          Convert.ToInt32(inputBrKreveta.Text),
-                                                          Convert.ToInt32(inputBrSlobKreveta.Text));
+                ProstorijaDTO prostorijaDTO = new ProstorijaDTO(-1, tipProstorije, Convert.ToString(inputIDprostorije.Text), Convert.ToInt32(inputSprat.Text), Convert.ToDouble(inputPovrsina.Text), Convert.ToInt32(inputBrKreveta.Text), Convert.ToInt32(inputBrSlobKreveta.Text));
+                ProstorijeKontrolerObjekat.DodajProstoriju(prostorijaDTO);
             }
             else
             {
-                // editujemo postojecu
-
-                ProstorijeKontrolerObjekat.AzurirajProstoriju(editBolesnickaSoba,
-                                                             Convert.ToString(inputIDprostorije.Text), // ovo je broj
-                                                             Convert.ToInt32(inputSprat.Text),
-                                                             Convert.ToDouble(inputPovrsina.Text),
-                                                             Convert.ToInt32(inputBrKreveta.Text),
-                                                             Convert.ToInt32(inputBrSlobKreveta.Text));
+                ProstorijaDTO prostorijaDTO = new ProstorijaDTO(editBolesnickaSoba.Id, tipProstorije, Convert.ToString(inputIDprostorije.Text), Convert.ToInt32(inputSprat.Text), Convert.ToDouble(inputPovrsina.Text), Convert.ToInt32(inputBrKreveta.Text), Convert.ToInt32(inputBrSlobKreveta.Text));
+                ProstorijeKontrolerObjekat.AzurirajProstoriju(prostorijaDTO);
             }
 
 

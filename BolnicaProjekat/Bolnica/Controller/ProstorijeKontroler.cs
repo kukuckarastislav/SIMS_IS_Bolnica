@@ -23,13 +23,9 @@ namespace Kontroler
             ProstorijeServisObjekat = new ProstorijeServis();
         }
 
-        public Prostorija DodajProstoriju(TipProstorije tipProstorije, string broj, int sprat, double povrsina)
+        public Prostorija DodajProstoriju(ProstorijaDTO prostorijaDTO)
         {
-            return ProstorijeServisObjekat.DodajProstoriju(tipProstorije, broj, sprat, povrsina);
-        }
-        public Prostorija DodajProstoriju(TipProstorije tipProstorije, string broj, int sprat, double povrsina, int brKreveta, int brSlobKreveta)
-        {
-            return ProstorijeServisObjekat.DodajProstoriju(tipProstorije, broj, sprat, povrsina, brKreveta, brSlobKreveta);
+            return ProstorijeServisObjekat.DodajProstoriju(prostorijaDTO);
         }
 
         public Prostorija ObrisiProstoriju(Prostorija delProstorija)
@@ -37,33 +33,10 @@ namespace Kontroler
             return ProstorijeServisObjekat.ObrisiProstoriju(delProstorija);
         }
 
-        public Prostorija AzurirajProstoriju(Prostorija editProstorija,
-                                             string broj,
-                                             int sprat,
-                                             double povrsina)
+        public Prostorija AzurirajProstoriju(ProstorijaDTO editProstorijaDTO)
         {
-            return ProstorijeServisObjekat.AzurirajProstoriju(editProstorija,
-                                                              broj,
-                                                              sprat,
-                                                              povrsina);
+            return ProstorijeServisObjekat.AzurirajProstoriju(editProstorijaDTO);
         }
-
-        public Prostorija AzurirajProstoriju(Prostorija editProstorija,
-                                             string broj,
-                                             int sprat,
-                                             double povrsina,
-                                             int brKreveta,
-                                             int brSlobodnihKreveta)
-        {
-            return ProstorijeServisObjekat.AzurirajProstoriju(editProstorija,
-                                                  broj,
-                                                  sprat,
-                                                  povrsina,
-                                                  brKreveta,
-                                                  brSlobodnihKreveta);
-        }
-
-
 
         public Prostorija GetProstorijaById(int id)
         {

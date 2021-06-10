@@ -1,7 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using DTO;
-using Kontroler;
+
 
 namespace Bolnica.view.pacijent
 {
@@ -9,7 +10,7 @@ namespace Bolnica.view.pacijent
     public partial class Ocjene : Window
     {
         private PacijentDTO Pacijent;
-        private ObservableCollection<OcenaDTO> ListaOcene;
+        private ObservableCollection<OcenaDTO> KolekcijaOcjene;
         private Controller.AnketaKontroler Kontroler;
         private ObservableCollection<LekarDTO> listaLekari;
 
@@ -19,13 +20,20 @@ namespace Bolnica.view.pacijent
             this.Pacijent = Pacijent;
             InitializeComponent();
 
-            ListaOcene = Kontroler.GetSveOceneLekara();
-            this.listaOcjena.ItemsSource = ListaOcene;
+            KolekcijaOcjene = KonvertujUKolekciju(Kontroler.GetSveOceneLekara());
+            this.listaOcjena.ItemsSource = KolekcijaOcjene;
 
-            LekarKontroler k = new LekarKontroler();
+            Kontroler.LekarKontroler k = new Kontroler.LekarKontroler();
             listaLekari = k.getAllNeobrisaniLekari();
             this.ComboBoxLekari.ItemsSource = listaLekari;
-    }
+        }
+
+        private ObservableCollection<OcenaDTO> KonvertujUKolekciju(List<OcenaDTO> lista)
+        {
+            ObservableCollection<OcenaDTO> ret = new ObservableCollection<OcenaDTO>();
+            foreach (OcenaDTO o in lista) ret.Add(o);
+            return ret;
+        }
 
         private void prikazi_ocene_lekara(object sender, RoutedEventArgs e)
         {
@@ -33,8 +41,8 @@ namespace Bolnica.view.pacijent
 
             if (OdabraniLekar != null)
             {
-                ListaOcene = Kontroler.GetOceneOdabranogLekara(OdabraniLekar.Id);
-                this.listaOcjena.ItemsSource = ListaOcene;
+                KolekcijaOcjene = KonvertujUKolekciju(Kontroler.GetOceneOdabranogLekara(OdabraniLekar.Id));
+                this.listaOcjena.ItemsSource = KolekcijaOcjene;
             }
             else
             {
@@ -44,20 +52,20 @@ namespace Bolnica.view.pacijent
 
         private void MenuItem_Click_ocene_lekara(object sender, RoutedEventArgs e)
         {
-            ListaOcene = Kontroler.GetSveOceneLekara();
-            this.listaOcjena.ItemsSource = ListaOcene;
+            KolekcijaOcjene = KonvertujUKolekciju(Kontroler.GetSveOceneLekara());
+            this.listaOcjena.ItemsSource = KolekcijaOcjene;
         }
 
         private void MenuItem_Click_ocene_bolnice(object sender, RoutedEventArgs e)
         {
-            ListaOcene = Kontroler.GetSveOceneBolnice();
-            this.listaOcjena.ItemsSource = ListaOcene;
+            KolekcijaOcjene = KonvertujUKolekciju(Kontroler.GetSveOceneBolnice());
+            this.listaOcjena.ItemsSource = KolekcijaOcjene;
         }
 
         private void MenuItem_Click_moje_ocene(object sender, RoutedEventArgs e)
         {
-            ListaOcene = Kontroler.GetSveOcenePacijenta(Pacijent.Id);
-            this.listaOcjena.ItemsSource = ListaOcene;
+            KolekcijaOcjene = KonvertujUKolekciju(Kontroler.GetSveOcenePacijenta(Pacijent.Id));
+            this.listaOcjena.ItemsSource = KolekcijaOcjene;
         }
     }
 }

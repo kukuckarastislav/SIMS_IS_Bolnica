@@ -38,8 +38,15 @@ namespace Bolnica.view.upravnik.Ocene
             ComboLekar.ItemsSource = KolekcijaLekaraCombo;
 
             AnketaKontrolerObjekat = new Controller.AnketaKontroler();
-            KolekcijaOcena = AnketaKontrolerObjekat.GetSveOceneLekara();
+            KolekcijaOcena = KonvertujUKolekciju(AnketaKontrolerObjekat.GetSveOceneLekara());
             DataGridOcene.ItemsSource = KolekcijaOcena;
+        }
+
+        private ObservableCollection<OcenaDTO> KonvertujUKolekciju(List<OcenaDTO> lista)
+        {
+            ObservableCollection<OcenaDTO> ret = new ObservableCollection<OcenaDTO>();
+            foreach (OcenaDTO o in lista) ret.Add(o);
+            return ret;
         }
 
         private void comboLekar_DropDownClosed(object sender, EventArgs e)
@@ -48,7 +55,7 @@ namespace Bolnica.view.upravnik.Ocene
             LekarRevizijaLekaDTO lekar = (LekarRevizijaLekaDTO)ComboLekar.SelectedItem;
             if(lekar != null)
             {
-                KolekcijaOcena = AnketaKontrolerObjekat.GetOceneOdabranogLekara(lekar.IdLekara);
+                KolekcijaOcena = KonvertujUKolekciju(AnketaKontrolerObjekat.GetOceneOdabranogLekara(lekar.IdLekara));
                 DataGridOcene.ItemsSource = KolekcijaOcena;
 
                 double prosecnaOcena = 0.0;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using Model;
@@ -32,7 +31,7 @@ namespace Repozitorijum
             loadData();
         }
 
-        public ObservableCollection<Model.Aktivnost> aktivnosti;
+        public List<Aktivnost> aktivnosti;
 
 
         private void loadData()
@@ -42,13 +41,13 @@ namespace Repozitorijum
                 if (aktivnosti == null)
                 {
 
-                    ObservableCollection<Model.Aktivnost> p = JsonSerializer.Deserialize<ObservableCollection<Model.Aktivnost>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<Model.Aktivnost> p = JsonSerializer.Deserialize<List<Model.Aktivnost>>(File.ReadAllText("../../podaci/" + imeFajla));
                     aktivnosti = p;
                 }
             }
             catch (Exception e)
             {
-                aktivnosti = new ObservableCollection<Model.Aktivnost>();
+                aktivnosti = new List<Aktivnost>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -63,7 +62,7 @@ namespace Repozitorijum
             string json = JsonSerializer.Serialize(aktivnosti, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
-        public Model.Aktivnost DodajAktivnost(Model.Aktivnost aktivnost)
+        public Aktivnost DodajAktivnost(Model.Aktivnost aktivnost)
         {
             loadData();
 
@@ -75,16 +74,16 @@ namespace Repozitorijum
         }
 
 
-        public ObservableCollection<Model.Aktivnost> GetAll()
+        public List<Aktivnost> GetAll()
         {
             loadData();
             return aktivnosti;
         }
 
-        public ObservableCollection<Model.Aktivnost> GetPatientActivityById(int id)
+        public List<Aktivnost> GetPatientActivityById(int id)
         {
             loadData();
-            ObservableCollection<Model.Aktivnost> ret = new ObservableCollection<Model.Aktivnost>();
+            List<Model.Aktivnost> ret = new List<Model.Aktivnost>();
             foreach (Aktivnost z in aktivnosti)
             {
                 if (z.IdPacijenta == id)
@@ -124,7 +123,7 @@ namespace Repozitorijum
         internal List<Aktivnost> GetAllSuspenzije()
         {
             loadData();
-            List<Model.Aktivnost> ret = new List<Model.Aktivnost>();
+            List<Aktivnost> ret = new List<Aktivnost>();
             foreach (Aktivnost z in aktivnosti)
             {
                 if (z.Vrsta.Equals("TRENUTNA SUSPENZIJA"))

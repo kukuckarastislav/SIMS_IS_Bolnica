@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using Model;
@@ -32,7 +31,7 @@ namespace Repozitorijum
             loadData();
         }
 
-        public ObservableCollection<Model.Ocena> ocene;
+        public List<Ocena> ocene;
 
 
         private void loadData()
@@ -42,13 +41,13 @@ namespace Repozitorijum
                 if (ocene == null)
                 {
 
-                    ObservableCollection<Model.Ocena> p = JsonSerializer.Deserialize<ObservableCollection<Model.Ocena>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<Ocena> p = JsonSerializer.Deserialize<List<Ocena>>(File.ReadAllText("../../podaci/" + imeFajla));
                     ocene = p;
                 }
             }
             catch (Exception e)
             {
-                ocene = new ObservableCollection<Model.Ocena>();
+                ocene = new List<Ocena>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -62,7 +61,7 @@ namespace Repozitorijum
             string json = JsonSerializer.Serialize(ocene, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
-        public Model.Ocena DodajOcenu(Model.Ocena ocena)
+        public Ocena DodajOcenu(Model.Ocena ocena)
         {
             loadData();
 
@@ -74,16 +73,16 @@ namespace Repozitorijum
         }
 
 
-        public ObservableCollection<Model.Ocena> GetAll()
+        public List<Ocena> GetAll()
         {
             loadData();
             return ocene;
         }
 
-        public ObservableCollection<Model.Ocena> GetOceneByPatientId(int id)
+        public List<Ocena> GetOceneByPatientId(int id)
         {
             loadData();
-            ObservableCollection<Model.Ocena> ret = new ObservableCollection<Model.Ocena>();
+            List<Ocena> ret = new List<Ocena>();
             foreach (Ocena z in ocene)
             {
                 if (z.IdPacijenta == id)
@@ -94,10 +93,10 @@ namespace Repozitorijum
             return ret;
         }
 
-        public ObservableCollection<Model.Ocena> GetOceneByLekarId(int id)
+        public List<Ocena> GetOceneByLekarId(int id)
         {
             loadData();
-            ObservableCollection<Model.Ocena> ret = new ObservableCollection<Model.Ocena>();
+            List<Model.Ocena> ret = new List<Ocena>();
             foreach (Ocena z in ocene)
             {
                 if (z.IdLekara == id)

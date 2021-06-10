@@ -3,7 +3,6 @@ using Repozitorijum;
 using Model;
 using DTO;
 using System.Collections.ObjectModel;
-using System.Threading;
 using System.Collections.Generic;
 using Interface;
 using Threads;

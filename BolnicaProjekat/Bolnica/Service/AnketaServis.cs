@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using DTO;
 using Model;
 using Repozitorijum;
@@ -9,23 +8,33 @@ namespace Servis
 {
     class AnketaServis
     {
+        AnketaRepozitorijum _AnketaRepozitorijum;
+        PacijentRepozitorijum _PacijentRepozitorijum;
+        LekarRepozitorijum _LekarRepozitorijim;
+
+        public AnketaServis()
+        {
+            _AnketaRepozitorijum = AnketaRepozitorijum.GetInstance;
+            _PacijentRepozitorijum = PacijentRepozitorijum.GetInstance;
+            _LekarRepozitorijim = LekarRepozitorijum.GetInstance;
+        }
 
         public Ocena DodajOcenuBolnice(int idPacijenta,string text,int ocjena)
         {
             int id = AnketaRepozitorijum.GetInstance.GetAll().Count;
-            return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(0-id-1,text,ocjena,idPacijenta,-1,DateTime.Now)); //sve ocjene za bolnicu ce imati negativan id
+            return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(0-id-1,text,ocjena,idPacijenta,-1,DateTime.Now));
         }
 
         public Ocena DodajOcenuLekara(ZdravstvenaUslugaDTO pregled, int idPacijenta, string text,int ocjena)
         {
             int id = AnketaRepozitorijum.GetInstance.GetAll().Count;
             int idLekara = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(pregled.IdLekara).Id;
-            return AnketaRepozitorijum.GetInstance.DodajOcenu(new Ocena(id + 1, text, ocjena, idPacijenta,idLekara, DateTime.Now)); //sve ocjene za bolnicu ce imati negativan id
+            return _AnketaRepozitorijum.DodajOcenu(new Ocena(id + 1, text, ocjena, idPacijenta,idLekara, DateTime.Now));
         }
 
-        public ObservableCollection<OcenaDTO> GetSveOceneLekara()
+        public List<OcenaDTO> GetSveOceneLekara()
         {
-            ObservableCollection<Ocena> ocene = new ObservableCollection<Ocena>();
+            List<Ocena> ocene = new List<Ocena>();
 
             foreach (Ocena o in AnketaRepozitorijum.GetInstance.GetAll())
             {
@@ -36,39 +45,38 @@ namespace Servis
             return KonvertujModelDTO(ocene);
         }
 
-        internal ObservableCollection<OcenaDTO> GetOcenePacijenta(int id)
+        public List<OcenaDTO> GetOcenePacijenta(int id)
         {
-            return KonvertujModelDTO(AnketaRepozitorijum.GetInstance.GetOceneByPatientId(id));
+            return KonvertujModelDTO(_AnketaRepozitorijum.GetOceneByPatientId(id));
         }
 
-        internal ObservableCollection<OcenaDTO> GetOceneOdabranogLekara(int id)
+        public List<OcenaDTO> GetOceneOdabranogLekara(int id)
         {
-            return KonvertujModelDTO(AnketaRepozitorijum.GetInstance.GetOceneByLekarId(id));
+            return KonvertujModelDTO(_AnketaRepozitorijum.GetOceneByLekarId(id));
         }
 
-        public ObservableCollection<OcenaDTO> GetSveOceneBolnice()
+        public List<OcenaDTO> GetSveOceneBolnice()
         {
-            ObservableCollection<Ocena> ocene = new ObservableCollection<Ocena>();
+            List<Ocena> ocene = new List<Ocena>();
 
-            foreach(Ocena o in AnketaRepozitorijum.GetInstance.GetAll())
+            foreach(Ocena o in _AnketaRepozitorijum.GetAll())
             {
                 if (o.Id < 0)
                     ocene.Add(o);
             }
-
             return KonvertujModelDTO(ocene);
         }
 
-        public ObservableCollection<OcenaDTO> KonvertujModelDTO(ObservableCollection<Ocena> ocene)
+        public List<OcenaDTO> KonvertujModelDTO(List<Ocena> ocene)
         {
-            ObservableCollection<OcenaDTO> OceneDTO = new ObservableCollection<OcenaDTO>();
+            List<OcenaDTO> OceneDTO = new List<OcenaDTO>();
             foreach (Ocena o in ocene)
             {
                 String NazivLekara;
                 bool OcenaBolnice;
                 if (o.IdLekara > 0)
                 {
-                    NazivLekara = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(o.IdLekara).Ime + " " + Repozitorijum.LekarRepozitorijum.GetInstance.GetById(o.IdLekara).Prezime;
+                    NazivLekara = _LekarRepozitorijim.GetById(o.IdLekara).Ime + " " + _LekarRepozitorijim.GetById(o.IdLekara).Prezime;
                     OcenaBolnice = false;
                 }
                 else
@@ -76,7 +84,7 @@ namespace Servis
                     NazivLekara = "Zdravo bolnica";
                     OcenaBolnice = true;
                 }
-                String NazivAutora = Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(o.IdPacijenta).Ime + " " + Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(o.IdPacijenta).Prezime;
+                String NazivAutora = _PacijentRepozitorijum.GetById(o.IdPacijenta).Ime + " " + _PacijentRepozitorijum.GetById(o.IdPacijenta).Prezime;
                 OceneDTO.Add(new OcenaDTO(o.Id, o.Komentar, o.Vrednost, o.IdPacijenta, o.IdLekara, o.Datum, NazivLekara, NazivAutora, OcenaBolnice));
             }
             return OceneDTO;
@@ -85,10 +93,9 @@ namespace Servis
         public double GetProsecnaOcena(int idLekara)
         {
             int Suma = 0;
-            ObservableCollection<Ocena> oceneLekara = AnketaRepozitorijum.GetInstance.GetOceneByLekarId(idLekara);
+            List<Ocena> oceneLekara = _AnketaRepozitorijum.GetOceneByLekarId(idLekara);
             foreach (Ocena o in oceneLekara)
                 Suma += o.Vrednost;
-
             return Convert.ToDouble(Suma/oceneLekara.Count);
         }
     }

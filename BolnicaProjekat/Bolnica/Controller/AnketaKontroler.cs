@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Servis;
 using Model;
-using System.Collections.ObjectModel;
 using DTO;
 
 namespace Bolnica.Controller
@@ -29,22 +24,22 @@ namespace Bolnica.Controller
             return servis.DodajOcenuLekara(pregled,idPacijenta, text,ocjena);
         }
 
-        public ObservableCollection<OcenaDTO> GetSveOceneLekara()
+        public List<OcenaDTO> GetSveOceneLekara()
         {
             return servis.GetSveOceneLekara();
         }
 
-        public ObservableCollection<OcenaDTO> GetSveOceneBolnice()
+        public List<OcenaDTO> GetSveOceneBolnice()
         {
             return servis.GetSveOceneBolnice();
         }
 
-        internal ObservableCollection<OcenaDTO> GetOceneOdabranogLekara(int id)
+        public List<OcenaDTO> GetOceneOdabranogLekara(int id)
         {
             return servis.GetOceneOdabranogLekara(id);
         }
 
-        internal ObservableCollection<OcenaDTO> GetSveOcenePacijenta(int id)
+        public List<OcenaDTO> GetSveOcenePacijenta(int id)
         {
             return servis.GetOcenePacijenta(id);
         }

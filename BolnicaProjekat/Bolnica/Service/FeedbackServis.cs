@@ -15,7 +15,7 @@ namespace Servis
 
         public FeedbackServis()
         {
-            repozitorijum = new FeedbackRepozitorijum();
+            repozitorijum = FeedbackRepozitorijum.GetInstance;
         }
 
         internal void DodajFeedbackPacijenta(int idPacijenta, string text)

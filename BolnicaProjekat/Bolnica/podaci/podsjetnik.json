@@ -48,7 +48,7 @@
     "Id": 6,
     "IdPacijenta": 1,
     "VrijemePojavljivanja": "2021-06-10T03:00:00",
-    "Vidljiv": false,
+    "Vidljiv": true,
     "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
     "Procitan": false,
     "JePodsjetnikZaLijekove": true

@@ -13,14 +13,14 @@
                     <Border Margin="10 10 10 0" Width="60" Height="60" Background="White" CornerRadius="450">
                         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="upravnik" />
                     </Border>
-                    <TextBlock VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="White" Text="Ime" />
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 40 0 2" Click="Prostorije_Click">Rad sa Prostorijama</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Inventari_Click">Inventari</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Magacin_Click">Magacin</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Lekovi_Click">Lekovi</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Ocene_Click">Ocene</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2" Click="Izvestaj_Click">Izvestaj</Button>
-                    <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 240 0 2" Click="Podesavanje_Click">Podesavanje</Button>
+                    <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 240 0 2" Click="FeedBack_Click">FeedBack</Button>
+                    <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2 0 2" Click="Podesavanje_Click">Podesavanje</Button>
                     <Button Style="{DynamicResource BTNSSS}" FontWeight="Bold" Height="30" BorderThickness="2" Margin="0 2 0 0" Click="Odjavi_se_click">Odjavi se</Button>
                 </StackPanel>
             </Grid>

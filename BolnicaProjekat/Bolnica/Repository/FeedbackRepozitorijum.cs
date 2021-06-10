@@ -27,7 +27,7 @@ namespace Repozitorijum
             }
 
         }
-        public FeedbackRepozitorijum()
+        private FeedbackRepozitorijum()
         {
             loadData();
         }
@@ -65,10 +65,7 @@ namespace Repozitorijum
         public Feedback DodajFeedback(Feedback feedback)
         {
             loadData();
-
-            if (!this.lista.Contains(feedback))
-                this.lista.Add(feedback);
-
+            lista.Add(feedback);
             SaveData();
             return feedback;
         }
@@ -109,11 +106,16 @@ namespace Repozitorijum
 
         public int getNewId()
         {
-            int id = 1;
-            if (lista.Count == 0)
-                return id;
-
-            return lista.ElementAt(lista.Count - 1).Id + 1;
+            loadData();
+            int najveciID = 0;
+            foreach (Feedback z in lista)
+            {
+                if (z.Id > najveciID)
+                {
+                    najveciID = z.Id;
+                }
+            }
+            return najveciID + 1;
         }
     }
 }

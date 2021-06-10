@@ -75,5 +75,11 @@ namespace Bolnica.view.upravnik
             var izvestaj = new view.upravnik.Izvestaj.IzvestajRadaLekaraWin();
             izvestaj.Show();
         }
+
+        private void FeedBack_Click(object sender, RoutedEventArgs e)
+        {
+            var feedback = new view.upravnik.Podesavanje.FeedBackForma();
+            feedback.Show();
+        }
     }
 }

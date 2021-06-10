@@ -606,6 +606,9 @@
     <Compile Include="view\upravnik\Ocene\OcenePage.xaml.cs">
       <DependentUpon>OcenePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\upravnik\Podesavanje\FeedBackForma.xaml.cs">
+      <DependentUpon>FeedBackForma.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\upravnik\Podesavanje\PodesavanjePage.xaml.cs">
       <DependentUpon>PodesavanjePage.xaml</DependentUpon>
     </Compile>
@@ -1068,6 +1071,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="view\upravnik\Ocene\OcenePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\upravnik\Podesavanje\FeedBackForma.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

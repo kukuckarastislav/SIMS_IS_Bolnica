@@ -1,9 +1,23 @@
 [
   {
     "Id": 1,
-    "Tekst": "Sve je super",
+    "Tekst": "Super aplikacija :)",
     "IdKorisnika": 1,
-    "VrstaKorisnika": "SEKRETAR",
-    "DatumSlanja": "2021-06-08T22:33:28.0294367+02:00"
+    "VrstaKorisnika": "UPRAVNIK",
+    "DatumSlanja": "2021-06-10T05:59:16.1784284+02:00"
+  },
+  {
+    "Id": 2,
+    "Tekst": "Opaa napredujete",
+    "IdKorisnika": 1,
+    "VrstaKorisnika": "UPRAVNIK",
+    "DatumSlanja": "2021-06-10T05:59:31.4017738+02:00"
+  },
+  {
+    "Id": 3,
+    "Tekst": "Ohoho",
+    "IdKorisnika": 1,
+    "VrstaKorisnika": "LEKAR",
+    "DatumSlanja": "2021-06-10T05:59:58.35679+02:00"
   }
 ]

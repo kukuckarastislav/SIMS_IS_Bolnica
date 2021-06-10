@@ -197,6 +197,9 @@
     <Compile Include="DTO\ZakazaniTerminiDTO.cs" />
     <Compile Include="DTO\ZakaziTetminDTO.cs" />
     <Compile Include="DTO\ZdravstvenaUslugaDTO.cs" />
+    <Compile Include="Factory\BazaFactory.cs" />
+    <Compile Include="Factory\JSONBaza.cs" />
+    <Compile Include="Interface\IBaza.cs" />
     <Compile Include="Interface\ILekoviCRUD.cs" />
     <Compile Include="Interface\ILekoviRevizija.cs" />
     <Compile Include="Interface\IObserver.cs" />

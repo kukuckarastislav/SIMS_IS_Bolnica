@@ -166,5 +166,17 @@
     "BrojSlobodnihKreveta": 2,
     "BrojSprat": "BOL99/66",
     "IdInventar": 18
+  },
+  {
+    "IdZdravstveneUsluge": null,
+    "Id": 19,
+    "TipProstorije": 0,
+    "Broj": "R-75",
+    "Sprat": 19,
+    "Povrsina": 40,
+    "BrojKreveta": 0,
+    "BrojSlobodnihKreveta": 0,
+    "BrojSprat": "R-75/19",
+    "IdInventar": 19
   }
 ]

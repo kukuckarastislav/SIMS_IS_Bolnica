@@ -77,8 +77,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="68,546,0,0" TextWrapping="Wrap" Text="Vreme pocetka:" VerticalAlignment="Top" FontSize="20px"/>
         <TextBlock HorizontalAlignment="Left" Margin="57,590,0,0" TextWrapping="Wrap" Text="Vreme završetka:" VerticalAlignment="Top" FontSize="20px"/>
         <TextBlock HorizontalAlignment="Left" Margin="67,389,0,0" TextWrapping="Wrap" Text="Datum termina:" VerticalAlignment="Top" FontSize="20px"/>
-        <RadioButton Name="rbPregled" Content="Pregled" HorizontalAlignment="Left" Margin="221,323,0,0" VerticalAlignment="Top" FontSize="15px"/>
-        <RadioButton Name="rbOperacija" Content="Operacija" HorizontalAlignment="Left" Margin="221,347,0,0" VerticalAlignment="Top" FontSize="15px"/>
+        <RadioButton Checked="rbPregled_Checked" Name="rbPregled" Content="Pregled" HorizontalAlignment="Left" Margin="221,323,0,0" VerticalAlignment="Top" FontSize="15px"/>
+        <RadioButton Checked="rbOperacija_Checked" Name="rbOperacija" Content="Operacija" HorizontalAlignment="Left" Margin="221,347,0,0" VerticalAlignment="Top" FontSize="15px"/>
         <TextBlock HorizontalAlignment="Left" Margin="95,326,0,0" TextWrapping="Wrap" Text="Tip termina:" VerticalAlignment="Top" FontSize="20px"/>
         <CheckBox Content="Hitno zakazivanje" HorizontalAlignment="Left" Margin="221,77,0,0" VerticalAlignment="Top" Name="cbHitnoZakazivanje" Checked="cbHitnoZakazivanje_Checked" Unchecked="cbHitnoZakazivanje_Unchecked">
             <CheckBox.LayoutTransform>

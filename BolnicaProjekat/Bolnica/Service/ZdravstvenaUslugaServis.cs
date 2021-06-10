@@ -367,6 +367,34 @@ namespace Servis
             }
             return null;
         }
+
+        public bool OdloziUslugu(ZakazaniTerminiDTO dto)
+        {
+            DateTime datumPocetka = dto.Termin.Pocetak;
+            DateTime datumKraja = dto.Termin.Kraj;
+            for (int i = 1; i < maxBrojDanaOdlaganja; i++)
+            {
+                datumPocetka = datumPocetka.AddDays(1);
+                datumKraja = datumKraja.AddDays(1);
+
+                ZakaziTetminDTO usluga = new ZakaziTetminDTO(new Termin(datumPocetka,datumKraja), dto.Id, dto.Lekar.Id, dto.Pacijent.Id, dto.TipUsluge, dto.Prostorija.Id);
+                usluga.ZakazanTermin = true;
+                usluga = DalJeLekarNaOdmoru(usluga);
+                usluga = DalJeLekarImaSlobodanDan(usluga);
+                usluga = DalJeLekarZauzet(usluga);
+                usluga = jelRadnoVremeLekara(usluga);
+                usluga = DalJeProstorijaZauzeta(usluga);
+                usluga = DalProstorijaImaRezervaciju(usluga);
+                if(usluga.ZakazanTermin)
+                {
+                    DodajUslugu(KonvertujUModel(usluga));
+                    OtkaziUslugu(dto);
+                    return true;
+                }    
+            }
+
+            return false;
+        }
         public ObservableCollection<ZdravstvenaUslugaDTO> GetTerminiPacijenta(int id)
         {
             return KonverujModelDTO(ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(id));
@@ -533,6 +561,51 @@ namespace Servis
             usluga = jelRadnoVremeLekara(usluga);
             usluga = DalJeProstorijaZauzeta(usluga);
             usluga = DalProstorijaImaRezervaciju(usluga);
+            if (usluga.ZakazanTermin)
+            {
+                DodajUslugu(KonvertujUModel(usluga));
+            }
+
+            return usluga;
+        }
+
+        public void OtkaziUslugePrestorijeZaPeriod(int idProstorije, Termin peroid)
+        {
+            List<ZdravstvenaUsluga> uslugePrestorije = GetSviTerminiProstorijeZaDatum(idProstorije, peroid.Pocetak);
+
+            foreach (ZdravstvenaUsluga usluga in uslugePrestorije)
+            {
+                if (jesuliPreklopljeniTermini(usluga.Termin, peroid))
+                {
+                    OtkaziUslugu(new ZdravstvenaUsluga(usluga.Termin, usluga.Id, usluga.IdLekara, usluga.IdPacijenta, usluga.TipUsluge, usluga.IdProstorije, false, "", ""));
+                    NotifikacijeServis servis = new NotifikacijeServis();
+                    servis.OtkaziTermin(new ZdravstvenaUsluga(usluga.Termin, usluga.Id, usluga.IdLekara, usluga.IdPacijenta, usluga.TipUsluge, usluga.IdProstorije, false, "", ""));
+                }
+            }
+        }
+
+        public ZakaziTetminDTO HitnoZakaziUslugu(ZakaziTetminDTO usluga)
+        {
+            usluga.ZakazanTermin = true;
+            usluga = DalProstorijaImaRezervaciju(usluga);
+            if(usluga.ZakazanTermin==false)
+            {
+                return usluga;
+            }
+            usluga = DalJeLekarNaOdmoru(usluga);
+            usluga = DalJeLekarImaSlobodanDan(usluga);
+            usluga = jelRadnoVremeLekara(usluga);
+            if (usluga.ZakazanTermin == false)
+            {
+                return usluga;
+            }
+            usluga = DalJeProstorijaZauzeta(usluga);
+            if (usluga.ZakazanTermin == false)
+            {
+                OtkaziUslugePrestorijeZaPeriod(usluga.IdProstorije, usluga.Termin);
+            }
+            usluga.ZakazanTermin = true;
+            usluga.GreskaProstorija = null;
             if (usluga.ZakazanTermin)
             {
                 DodajUslugu(KonvertujUModel(usluga));

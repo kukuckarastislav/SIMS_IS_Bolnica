@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "Id": 1,
+    "Pocetak": "2021-06-14T10:00:00",
+    "Kraj": "2021-06-18T10:00:00",
+    "IdProstorije1": 6,
+    "IdProstorije2": -1,
+    "IdZdravstveneUsluge": -1,
+    "tipTerminaProstorije": 3,
+    "PreraspodelaIzvrsena": false,
+    "ListaTransferOpreme": [],
+    "TransformacijaProstorijeParam": null
+  },
+  {
+    "Id": 2,
+    "Pocetak": "2021-06-27T10:00:00",
+    "Kraj": "2021-06-30T10:00:00",
+    "IdProstorije1": 6,
+    "IdProstorije2": 7,
+    "IdZdravstveneUsluge": -1,
+    "tipTerminaProstorije": 5,
+    "PreraspodelaIzvrsena": false,
+    "ListaTransferOpreme": [],
+    "TransformacijaProstorijeParam": {
+      "TipProstorijeA": 3,
+      "BrojA": "4",
+      "SpratA": 1,
+      "PovrsinaA": 140,
+      "TipProstorijeB": 3,
+      "BrojB": "",
+      "SpratB": 0,
+      "PovrsinaB": 0
+    }
+  }
+]

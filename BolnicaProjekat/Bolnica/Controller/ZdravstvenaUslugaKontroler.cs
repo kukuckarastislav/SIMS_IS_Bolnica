@@ -45,7 +45,22 @@ namespace Kontroler
 
         public ZakaziTetminDTO ZakaziUslugu(ZakaziTetminDTO usluga)
         {
-            return ZdrastvenaUslugaServisObjekat.ZakaziUslugu(usluga);
+            ZakaziTetminDTO ret = ZdrastvenaUslugaServisObjekat.ZakaziUslugu(usluga);
+            if (usluga.ZakazanTermin == true) {
+                NotifikacijaServisObjekat.ZakaziTermin(new ZdravstvenaUsluga(usluga.Termin, usluga.Id, usluga.IdLekara, usluga.IdPacijenta, usluga.TipUsluge, usluga.IdProstorije,
+                    false, "", ""));
+            }
+            return ret;
+        }
+        public ZakaziTetminDTO HitnoZakaziUslugu(ZakaziTetminDTO usluga)
+        {
+            ZakaziTetminDTO ret = ZdrastvenaUslugaServisObjekat.HitnoZakaziUslugu(usluga);
+            if (usluga.ZakazanTermin == true)
+            {
+                NotifikacijaServisObjekat.ZakaziTermin(new ZdravstvenaUsluga(usluga.Termin, usluga.Id, usluga.IdLekara, usluga.IdPacijenta, usluga.TipUsluge, usluga.IdProstorije,
+                    false, "", ""));
+            }
+            return ret;
         }
 
         internal void DodajKomentarNaUslugu(int id, string text)
@@ -171,6 +186,17 @@ namespace Kontroler
         public List<RadLekaraDTO> GetKolekcijaTerminaRadaDTO(int idLekara, DateTime pocetak, DateTime kraj)
         {
             return ZdrastvenaUslugaServisObjekat.GetKolekcijaTerminaRadaDTO(idLekara, pocetak, kraj);
+        }
+
+        public bool OdloziUslugu(ZakazaniTerminiDTO dto)
+        {
+            bool dalDaNotifikuje = ZdrastvenaUslugaServisObjekat.OdloziUslugu(dto);
+            if(dalDaNotifikuje)
+            {
+                NotifikacijaServisObjekat.ZakaziTermin(new ZdravstvenaUsluga(dto.Termin, dto.Id, dto.Lekar.Id, dto.Pacijent.Id, dto.TipUsluge, dto.Prostorija.Id,
+                    false, "", ""));
+            }
+            return dalDaNotifikuje;
         }
 
     }

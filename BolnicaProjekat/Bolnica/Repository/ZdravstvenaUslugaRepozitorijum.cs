@@ -183,15 +183,13 @@ namespace Repozitorijum
 
         public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
         {
-            int i = 0;
             foreach (ZdravstvenaUsluga z in Usluge)
             {
                 if (z.Id == usluga.Id)
                 {
-                    Usluge.RemoveAt(i);
+                    Usluge.Remove(z);
                     break;
                 }
-                i++; 
             }
             SaveData();
             return usluga;

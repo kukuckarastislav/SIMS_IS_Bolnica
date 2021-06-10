@@ -183,16 +183,44 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-11T08:05:00",
-      "Kraj": "2021-06-11T08:35:00"
+      "Pocetak": "2021-06-15T10:00:00",
+      "Kraj": "2021-06-15T10:30:00"
     },
-    "Id": 22,
+    "Id": 23,
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
-    "IdProstorije": 7,
+    "IdProstorije": 1,
     "Obavljena": false,
-    "RazlogZakazivanja": "nedeljni i mesecni",
-    "RezultatUsluge": " "
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-21T13:00:00",
+      "Kraj": "2021-06-21T13:30:00"
+    },
+    "Id": 24,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": 6,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-11T08:00:00",
+      "Kraj": "2021-06-11T08:30:00"
+    },
+    "Id": 27,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 1,
+    "IdProstorije": 6,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
   }
 ]

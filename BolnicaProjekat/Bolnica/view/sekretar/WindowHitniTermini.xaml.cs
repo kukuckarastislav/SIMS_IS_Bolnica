@@ -60,7 +60,7 @@ namespace Bolnica.view.sekretar
 
 
         private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
-        {
+        {/*
             if (Pregledi == null) return;
             Lekar odabraniLekar = this.ComboBoxLekari.SelectedItem as Lekar;
             if (odabraniLekar == null) return;
@@ -76,16 +76,16 @@ namespace Bolnica.view.sekretar
             ZdravstvenaUsluga novau = zkontroler.HitnoDodajUslugu(odabraniLekar, usluga);
             
             MessageBox.Show("Termin je uspesno zauzet.");
-            this.Close();
+            this.Close();*/
         }
 
         private void Odustani_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
 
         private void ComboBoxLekari_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {/*
             Pregledi = new ObservableCollection<ZdravstvenaUsluga>();
             Lekar odabraniLekar = this.ComboBoxLekari.SelectedItem as Lekar;
             if (odabraniLekar == null) return;
@@ -96,7 +96,7 @@ namespace Bolnica.view.sekretar
             {
                 Pregledi.Add(usluga);
             }
-            this.listaPregleda.ItemsSource = Pregledi;
+            this.listaPregleda.ItemsSource = Pregledi;*/
         }
     }
 }

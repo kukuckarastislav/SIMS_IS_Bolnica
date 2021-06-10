@@ -73,7 +73,17 @@ namespace Bolnica.view.sekretar
         {
             ZakazaniTerminiDTO dto = tableTermini.SelectedItem as ZakazaniTerminiDTO;
             if (dto == null) return;
-            MessageBox.Show("Nije moguće odložiti termin u naredna tri dana.");
+            ZdravstvenaUslugaKontroler kontroler = new ZdravstvenaUslugaKontroler();
+            if (kontroler.OdloziUslugu(dto))
+            {
+                if (inputDatumPretrage.SelectedDate != null)
+                    UcitajTermine((DateTime)inputDatumPretrage.SelectedDate);
+                MessageBox.Show("Termin je odložen.");
+            }
+            else
+            {
+                MessageBox.Show("Nije moguće odložiti termin u naredna tri dana.");
+            }
         }
 
         private void btnPomoc_Click(object sender, RoutedEventArgs e)

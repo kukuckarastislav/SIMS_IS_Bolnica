@@ -54,11 +54,24 @@ namespace Bolnica.view.sekretar
         }
         private void UcitajProstorije()
         {
+            
             ObservableCollection<ProstorijaDTO> prostorije = new ObservableCollection<ProstorijaDTO>();
             ProstorijeKontroler kontroler = new ProstorijeKontroler();
-            foreach(ProstorijaDTO dto in kontroler.GetProstorijeDTO())
+            if (rbPregled.IsChecked==true)
             {
-                prostorije.Add(dto);
+                foreach (ProstorijaDTO dto in kontroler.GetProstorijeDTO())
+                {
+                    if(dto.TipProstorije==TipProstorije.SobaZaPreglede)
+                        prostorije.Add(dto);
+                }
+            }
+            else
+            {
+                foreach (ProstorijaDTO dto in kontroler.GetProstorijeDTO())
+                {
+                    if (dto.TipProstorije == TipProstorije.OpracionaSala)
+                        prostorije.Add(dto);
+                }
             }
             cmbProstorije.ItemsSource = prostorije;
         }
@@ -67,14 +80,12 @@ namespace Bolnica.view.sekretar
         {
             datumTermina.IsEnabled = false;
             datumTermina.SelectedDate = DateTime.Now;
-            cmbProstorije.IsEnabled = false;
         }
 
         private void cbHitnoZakazivanje_Unchecked(object sender, RoutedEventArgs e)
         {
-            datumTermina.IsEnabled = true;
             datumTermina.SelectedDate = DateTime.Now;
-            cmbProstorije.IsEnabled = true;
+            datumTermina.IsEnabled = true;
         }
 
         private void ZakaziTermin_Click(object sender, RoutedEventArgs e)
@@ -84,7 +95,14 @@ namespace Bolnica.view.sekretar
             if (ValidirajUnos())
             {
                 ZakaziTetminDTO dto = GetPodaciZakazivanja();
-                dto = kontroler.ZakaziUslugu(dto);
+                if (cbHitnoZakazivanje.IsChecked == true)
+                {
+                    dto = kontroler.HitnoZakaziUslugu(dto);
+                }
+                else
+                {
+                    dto = kontroler.ZakaziUslugu(dto);
+                }
                 if(dto.ZakazanTermin)
                 {
                     MessageBox.Show("Termin je uspešno zakazan.");
@@ -253,6 +271,16 @@ namespace Bolnica.view.sekretar
                 HelpProvider.ShowHelp("ZakaziTermin");
 
             }
+        }
+
+        private void rbPregled_Checked(object sender, RoutedEventArgs e)
+        {
+            UcitajProstorije();
+        }
+
+        private void rbOperacija_Checked(object sender, RoutedEventArgs e)
+        {
+            UcitajProstorije();
         }
     }
 }

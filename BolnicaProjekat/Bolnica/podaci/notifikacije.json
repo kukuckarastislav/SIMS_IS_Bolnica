@@ -169,5 +169,50 @@
     "PacijentProcitao": false,
     "LekarProcitao": false,
     "Opis": "Zakazan vam je pregled, dana 6/10/2021, sa pocetkom u 8:00 AM."
+  },
+  {
+    "Id": 20,
+    "IdZdravstveneUsluge": 0,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazana vam je operacija,  dana 6/24/2021, sa pocetkom u 9:00 AM."
+  },
+  {
+    "Id": 21,
+    "IdZdravstveneUsluge": 0,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazan vam je pregled, dana 6/24/2021, sa pocetkom u 9:00 AM."
+  },
+  {
+    "Id": 22,
+    "IdZdravstveneUsluge": 0,
+    "IdPacijenta": 2,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazana vam je operacija,  dana 7/1/2021, sa pocetkom u 11:00 AM."
+  },
+  {
+    "Id": 23,
+    "IdZdravstveneUsluge": 0,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazana vam je operacija,  dana 7/2/2021, sa pocetkom u 9:00 AM."
+  },
+  {
+    "Id": 24,
+    "IdZdravstveneUsluge": 0,
+    "IdPacijenta": 1,
+    "IdLekara": 1,
+    "PacijentProcitao": false,
+    "LekarProcitao": false,
+    "Opis": "Zakazana vam je operacija,  dana 6/24/2021, sa pocetkom u 12:30 PM."
   }
 ]

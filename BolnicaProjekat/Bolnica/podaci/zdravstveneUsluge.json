@@ -306,5 +306,33 @@
     "Obavljena": false,
     "RazlogZakazivanja": "ads",
     "RezultatUsluge": " "
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-07-02T09:00:00",
+      "Kraj": "2021-07-02T10:00:00"
+    },
+    "Id": 36,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 0,
+    "IdProstorije": 21,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
+  },
+  {
+    "Termin": {
+      "Pocetak": "2021-06-24T12:30:00",
+      "Kraj": "2021-06-24T14:00:00"
+    },
+    "Id": 37,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "TipUsluge": 0,
+    "IdProstorije": 21,
+    "Obavljena": false,
+    "RazlogZakazivanja": "",
+    "RezultatUsluge": ""
   }
 ]

@@ -64,6 +64,15 @@ namespace Bolnica.view.upravnik.prostorije
 
         private void btn_potvrdi_Click(object sender, RoutedEventArgs e)
         {
+            int spratA = Convert.ToInt32(inputSpratA.Text);
+            int spratB = Convert.ToInt32(inputSpratB.Text);
+            if (spratA != spratB)
+            {
+                MessageBox.Show("Razdvajanje prostorije se mora odigrati na istom spratu");
+                return;
+            }
+
+
             if (DatePickerPocetak.SelectedDate == null)
             {
                 MessageBox.Show("Niste uneli Pocetak termina");

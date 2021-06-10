@@ -14,6 +14,8 @@ namespace Kontroler
 {
     public class ZdravstvenaUslugaKontroler
     {
+        private CRUDTerminiServisLekar servirLekar;
+        private CRUDTerminiServisPacijent servisPacijent;
 
 
         #region - Polja - ZdrastvenaUslugaKontroler
@@ -30,7 +32,7 @@ namespace Kontroler
         #endregion
 
         #region - Metode - Zdrastvena usluga(model) - Dodaj, HitnoDodaj, AzurirajVreme, Obrisi, Evidentiraj
-        public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
+        public void DodajUslugu(ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUsluga ret = ZdrastvenaUslugaServisObjekat.DodajUslugu(usluga);
             NotifikacijaServisObjekat.ZakaziTermin(usluga);
@@ -95,7 +97,7 @@ namespace Kontroler
 
         internal void OtkaziZdravstvenuUslugu(ZdravstvenaUslugaDTO odabraniPregled)
         {
-            ZdrastvenaUslugaServisObjekat.OtkaziZdravstvenuUslugu(odabraniPregled);
+           // ZdrastvenaUslugaServisObjekat.OtkaziZdravstvenuUslugu(odabraniPregled);
         }
 
         public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
@@ -111,21 +113,6 @@ namespace Kontroler
         public ObservableCollection<ZdravstvenaUslugaDTO> GetTerminiPacijenta(int id)
         {
             return ZdrastvenaUslugaServisObjekat.GetTerminiPacijenta(id);
-        }
-
-        public DTOUslugaLekar OdloziUslugu(DTOUslugaLekar ul)
-        {
-            ZdravstvenaUsluga usluga = ZdrastvenaUslugaServisObjekat.OdloziUslugu(ul.Usluga);
-            if (usluga != null)
-            {
-                OtkaziUslugu(ul.Usluga);
-                usluga.IdPacijenta = ul.Usluga.IdPacijenta;
-                ul.Usluga = usluga;
-                DodajUslugu(usluga);
-
-                return new DTOUslugaLekar(usluga, ul.Lekar);
-            }
-            return null;
         }
 
         #region Radni kalendar lekara - Kontroler
@@ -151,12 +138,12 @@ namespace Kontroler
         {
             DateTime pocetak = new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 00);
             DateTime kraj = new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 00);
-            return ZdravstvenaUslugaServis.GetSlobodniTerminiLekara(OdabraniLekar, pocetak, kraj);
+            return ZdrastvenaUslugaServisObjekat.GetSlobodniTerminiLekara(OdabraniLekar, pocetak, kraj);
         }
 
         public ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTermini(LekarDTO OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
         {
-            return ZdravstvenaUslugaServis.GetSlobodniTerminiDTO(OdabraniLekar.Id, pocetak, kraj, prioritet);
+            return ZdrastvenaUslugaServisObjekat.GetSlobodniTerminiDTO(OdabraniLekar.Id, pocetak, kraj, prioritet);
         }
 
         public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)

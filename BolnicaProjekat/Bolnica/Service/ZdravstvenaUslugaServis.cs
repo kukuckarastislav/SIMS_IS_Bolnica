@@ -9,6 +9,7 @@ using DTO;
 using Model;
 using Repository;
 using Repozitorijum;
+using Bolnica.Interface;
 
 
 namespace Servis
@@ -33,11 +34,7 @@ namespace Servis
         #endregion
 
         #region - Metode - Zdrastvena usluga(model) - Dodaj, HitnoDodaj, AzurirajVreme, Obrisi, Evidentiraj
-        public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
-        {
-            usluga.Id = ZdrastvenaUslugaRepozitorijumRef.getNewId();
-            return ZdrastvenaUslugaRepozitorijumRef.DodajUslugu(usluga);
-        }
+
 
         public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
         {
@@ -56,14 +53,8 @@ namespace Servis
             return uslugaKojaSeOdlaze;
         }
 
-        public ZdravstvenaUsluga AzurirajVremeUsluga(ZdravstvenaUsluga usluga, DateTime pocetak, DateTime kraj)
-        {
-            return ZdrastvenaUslugaRepozitorijumRef.AzurirajVremeUsluga(usluga, pocetak, kraj);
-        }
-        public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
-        {
-            return ZdrastvenaUslugaRepozitorijumRef.ObrisiUslugu(usluga);;
-        }
+
+
 
         public ZdravstvenaUsluga EvidentirajUslugu(ZdravstvenaUsluga usluga, string anamneza)
         {
@@ -72,51 +63,12 @@ namespace Servis
         #endregion
 
 
-        public static ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
-        {
-            return Konvertuj(GetSlobodniTermini(idLekara, pocetak, kraj, prioritet));
-        }
-
-
-        private static ObservableCollection<ZdravstvenaUslugaDTO> Konvertuj(List<ZdravstvenaUsluga> prosliTermini)
-        {
-            ObservableCollection<ZdravstvenaUslugaDTO> ret = new ObservableCollection<ZdravstvenaUslugaDTO>();
-            foreach (ZdravstvenaUsluga u in prosliTermini)
-            {
-                ret.Add(new ZdravstvenaUslugaDTO(u.Termin, u.Id, u.IdPacijenta, u.IdLekara,
-                      " Uri LAslo",
-                        u.TipUsluge, u.IdProstorije, u.RazlogZakazivanja, u.RezultatUsluge));
-            }
-            return ret;
-        }
 
 
 
 
-        public static List<ZdravstvenaUsluga> GetSlobodniTermini(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
 
-        {
-            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
-            Lekar lekar = LekarRepozitorijum.GetInstance.GetById(idLekara);
-
-            pregledi = GetSlobodniTerminiLekara(lekar, pocetak, kraj);
-
-            if (pregledi.Count == 0 && prioritet == 0)
-            {
-                pregledi = GetPriblizniTerminiPoVremenu(pocetak, kraj);
-            }
-            else if (pregledi.Count == 0 && prioritet == 1)
-            {
-                pregledi = GetPriblizniTerminiPoLekaru(lekar, pocetak, kraj);
-            }
-            return pregledi;
-        }
-
-        internal void OtkaziZdravstvenuUslugu(ZdravstvenaUslugaDTO odabraniPregled)
-        {
-            ZdravstvenaUsluga z = ZdrastvenaUslugaRepozitorijumRef.getTerminById(odabraniPregled.Id);
-            ZdrastvenaUslugaRepozitorijumRef.ObrisiUslugu(z);
-        }
+       
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
         {
@@ -196,7 +148,7 @@ namespace Servis
             return KonverujModelDTO(prosliTermini);
         }
 
-        public static List<ZdravstvenaUsluga> GetSlobodniTerminiLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        public List<ZdravstvenaUsluga> GetSlobodniTerminiLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
             Termin radnoVreme = GetRadnoVremeLekara(OdabraniLekar, pocetak, kraj);
@@ -226,7 +178,7 @@ namespace Servis
 
             return false;
         }
-        public static Termin GetRadnoVremeLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        public Termin GetRadnoVremeLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
         {
             int krajSati = OdabraniLekar.radnoVreme.KrajRadnogVremena;
             int pocetakSati = OdabraniLekar.radnoVreme.PocetakRadnogVremena;
@@ -237,31 +189,7 @@ namespace Servis
             return new Termin(new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetakSati, 0, 0),
                                 new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, krajSati, 0, 0));
         }
-        public static List<ZdravstvenaUsluga> GetPriblizniTerminiPoVremenu(DateTime pocetak, DateTime kraj)
-        {
-            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
-            List<ZdravstvenaUsluga> pomocna = new List<ZdravstvenaUsluga>();
 
-            foreach (Lekar lekar in Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs())
-            {
-                pomocna = GetSlobodniTerminiLekara(lekar, pocetak, kraj);
-                pregledi.AddRange(pomocna);
-            }
-            return pregledi;
-        }
-        public static List<ZdravstvenaUsluga> GetPriblizniTerminiPoLekaru(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
-        {
-            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
-
-            int krajSati = Convert.ToInt32(OdabraniLekar.radnoVreme.KrajRadnogVremena);
-            int pocetakSati = Convert.ToInt32(OdabraniLekar.radnoVreme.PocetakRadnogVremena);
-
-            DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetakSati, 0, 0); //posto sam stavila d=DateTime u construktor pa ne mogu samo int
-            DateTime krajkRadnogVremena_ = new DateTime(kraj.Year, kraj.Month, kraj.Day, krajSati, 0, 0);
-
-            pregledi = GetSlobodniTerminiLekara(OdabraniLekar, pocetakRadnogVremena, krajkRadnogVremena_);
-            return pregledi;
-        }
 
         public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga pregled, DateTime noviPocetak)
         {
@@ -759,4 +687,182 @@ namespace Servis
             return ZdrastvenaUslugaRepozitorijumRef.getNewId();
         }
     }
+
+
+    public class CRUDTerminiServisPacijent: IStategy
+    {
+        public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
+        ZdravstvenaUslugaRepozitorijum _Repozitorijum;
+        public CRUDTerminiServisPacijent()
+        {
+            _Repozitorijum = ZdravstvenaUslugaRepozitorijum.GetInstance ;
+        }
+
+        public void AzuriranjeTermina(ZdravstvenaUslugaDTO usluga)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BrisanjeTermina(ZdravstvenaUslugaDTO usluga)
+        {
+            ZdravstvenaUsluga u = _Repozitorijum.getTerminById(usluga.Id);
+            _Repozitorijum.ObrisiUslugu(u);
+        }
+
+        public void ZakazivanjeTermina(ZdravstvenaUslugaDTO usluga)
+        {
+            ZdravstvenaUsluga u = Konvertuj(usluga);
+            _Repozitorijum.DodajUslugu(u);
+        }
+
+        private ZdravstvenaUsluga Konvertuj(ZdravstvenaUslugaDTO usluga)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<ZdravstvenaUslugaDTO> GetSlobodniTermini(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
+        {
+            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
+            Lekar lekar = LekarRepozitorijum.GetInstance.GetById(idLekara);
+
+            pregledi = GetSlobodniTerminiLekara(lekar, pocetak, kraj);
+
+            if (pregledi.Count == 0 && prioritet == 0)
+            {
+                pregledi = GetPriblizniTerminiPoVremenu(pocetak, kraj);
+            }
+            else if (pregledi.Count == 0 && prioritet == 1)
+            {
+                pregledi = GetPriblizniTerminiPoLekaru(lekar, pocetak, kraj);
+            }
+            return pregledi;
+
+        }
+
+        public List<ZdravstvenaUsluga> GetPriblizniTerminiPoVremenu(DateTime pocetak, DateTime kraj)
+        {
+            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
+            List<ZdravstvenaUsluga> pomocna = new List<ZdravstvenaUsluga>();
+
+            foreach (Lekar lekar in Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs())
+            {
+                pomocna = GetSlobodniTerminiLekara(lekar, pocetak, kraj);
+                pregledi.AddRange(pomocna);
+            }
+            return pregledi;
+        }
+        public List<ZdravstvenaUsluga> GetPriblizniTerminiPoLekaru(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        {
+            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
+
+            int krajSati = Convert.ToInt32(OdabraniLekar.radnoVreme.KrajRadnogVremena);
+            int pocetakSati = Convert.ToInt32(OdabraniLekar.radnoVreme.PocetakRadnogVremena);
+
+            DateTime pocetakRadnogVremena = new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetakSati, 0, 0); //posto sam stavila d=DateTime u construktor pa ne mogu samo int
+            DateTime krajkRadnogVremena_ = new DateTime(kraj.Year, kraj.Month, kraj.Day, krajSati, 0, 0);
+
+            pregledi = GetSlobodniTerminiLekara(OdabraniLekar, pocetakRadnogVremena, krajkRadnogVremena_);
+            return pregledi;
+        }
+
+        public List<ZdravstvenaUsluga> GetSlobodniTerminiLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        {
+            List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
+            Termin radnoVreme = GetRadnoVremeLekara(OdabraniLekar, pocetak, kraj);
+
+            while (radnoVreme.Pocetak + trajanjePregleda <= radnoVreme.Kraj)
+            {
+                ZdravstvenaUsluga pregled = new ZdravstvenaUsluga(new Termin(radnoVreme.Pocetak, radnoVreme.Pocetak + trajanjePregleda), 1, OdabraniLekar.Id, -1, TipUsluge.Pregled, -1, false, "", "");
+
+                if (!JeTerminZauzet(OdabraniLekar, pregled))
+                {
+                    pregledi.Add(pregled);
+                }
+                radnoVreme.Pocetak += trajanjePregleda;
+            }
+
+            return pregledi;
+        }
+
+        public Termin GetRadnoVremeLekara(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj)
+        {
+            int krajSati = OdabraniLekar.radnoVreme.KrajRadnogVremena;
+            int pocetakSati = OdabraniLekar.radnoVreme.PocetakRadnogVremena;
+
+            if (pocetak.Hour > pocetakSati) pocetakSati = pocetak.Hour;
+            if (kraj.Hour < krajSati) krajSati = kraj.Hour;
+
+            return new Termin(new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, pocetakSati, 0, 0),
+                                new DateTime(pocetak.Year, pocetak.Month, pocetak.Day, krajSati, 0, 0));
+        }
+
+        public static bool JeTerminZauzet(Lekar OdabraniLekar, ZdravstvenaUsluga pregled)
+        {
+
+            List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(OdabraniLekar.Id);
+
+            foreach (ZdravstvenaUsluga termin in terminiLekara)
+            {
+                if (termin.Termin.Pocetak.Equals(pregled.Termin.Pocetak)) return true;
+            }
+
+            return false;
+        }
+
+        public List<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
+        {
+            return Konvertuj(GetSlobodniTermini(idLekara, pocetak, kraj, prioritet));
+        }
+
+        private List<ZdravstvenaUslugaDTO> Konvertuj(List<ZdravstvenaUslugaDTO> zdravstvenaUslugaDTOs)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class CRUDTerminiServisLekar : IStategy
+    {
+        public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
+        ZdravstvenaUslugaRepozitorijum _Repozitorijum;
+        public CRUDTerminiServisLekar()
+        {
+            _Repozitorijum = ZdravstvenaUslugaRepozitorijum.GetInstance;
+        }
+
+
+        public void AzuriranjeTermina(ZdravstvenaUsluga z, DateTime pocetak, DateTime kraj)
+        {
+     
+            _Repozitorijum.AzurirajVremeUsluga(z, pocetak, kraj);
+     
+        }
+
+        public void AzuriranjeTermina()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BrisanjeTermina(ZdravstvenaUsluga usluga)
+        {
+         usluga.Id = _Repozitorijum.getNewId();
+        _Repozitorijum.DodajUslugu(usluga);
+        }
+
+        public void BrisanjeTermina()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ZakazivanjeTermina()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+
+
+
+
+}
 }

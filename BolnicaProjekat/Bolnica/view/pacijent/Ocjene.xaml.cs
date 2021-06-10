@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
-using Model;
 using DTO;
+using Kontroler;
 
 namespace Bolnica.view.pacijent
 {
@@ -11,22 +11,26 @@ namespace Bolnica.view.pacijent
         private PacijentDTO Pacijent;
         private ObservableCollection<OcenaDTO> ListaOcene;
         private Controller.AnketaKontroler Kontroler;
-        private ObservableCollection<Lekar> listaLekari;
+        private ObservableCollection<LekarDTO> listaLekari;
 
         public Ocjene(PacijentDTO Pacijent)
         {
             Kontroler = new Controller.AnketaKontroler();
             this.Pacijent = Pacijent;
             InitializeComponent();
+
             ListaOcene = Kontroler.GetSveOceneLekara();
             this.listaOcjena.ItemsSource = ListaOcene;
-            listaLekari = Repozitorijum.LekarRepozitorijum.GetInstance.GetAllObs();
+
+            LekarKontroler k = new LekarKontroler();
+            listaLekari = k.getAllNeobrisaniLekari();
             this.ComboBoxLekari.ItemsSource = listaLekari;
     }
 
         private void prikazi_ocene_lekara(object sender, RoutedEventArgs e)
         {
-            Lekar OdabraniLekar = ComboBoxLekari.SelectedItem as Lekar;
+            LekarDTO OdabraniLekar = ComboBoxLekari.SelectedItem as LekarDTO;
+
             if (OdabraniLekar != null)
             {
                 ListaOcene = Kontroler.GetOceneOdabranogLekara(OdabraniLekar.Id);

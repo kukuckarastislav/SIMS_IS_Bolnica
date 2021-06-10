@@ -42,14 +42,14 @@ namespace Servis
             int reshedulingCount = reschedulingEvaluation.CountOccurencesForRequestedPeriod(IdPacijenta, posmatrajPomjeranje);
 
             if (shedulingCount > 3 || reshedulingCount > 3)
-                return false;
+                return true;
 
-            return true;
+            return false;
         }
 
         public void PosaljiUpozorenje(int idPacijenta)
         {
-            int id = NotifikacijaRepozitorijum.GetInstance.GetAll().Count;
+            int id = _NotifikacijeRepozitorijum.GetAll().Count;
             NotifikacijaRepozitorijum.GetInstance.DodajNotifikaciju(new Notifikacija(id + 1, -1, idPacijenta, -1, false, false,
                                                                      " Upozoravamo vas da cete biti bannovani ako uradite jos jedno pomjeranje ili zakazivanje termina!"));
         }

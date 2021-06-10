@@ -1,20 +1,12 @@
-/***********************************************************************
- * Module:  TerminiServis.cs
- * Author:  lacik
- * Purpose: Definition of the Class Servis.TerminiServis
- ***********************************************************************/
 
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows;
-using System.Windows.Media;
 using Bolnica.Repository;
 using Bolnica.Template;
 using DTO;
 using Model;
-using Org.BouncyCastle.Security;
 using Repository;
 using Repozitorijum;
 
@@ -36,9 +28,9 @@ namespace Servis
 
         }
 
-        internal static ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(Lekar odabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+        public static ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
         {
-            return Konvertuj(GetSlobodniTermini(odabraniLekar,pocetak,kraj,prioritet));
+            return Konvertuj(GetSlobodniTermini(idLekara,pocetak,kraj,prioritet));
         }
 
         private static ObservableCollection<ZdravstvenaUslugaDTO> Konvertuj(List<ZdravstvenaUsluga> prosliTermini)
@@ -47,7 +39,7 @@ namespace Servis
             foreach (ZdravstvenaUsluga u in prosliTermini)
             {
                 ret.Add(new ZdravstvenaUslugaDTO(u.Termin, u.Id, u.IdPacijenta, u.IdLekara,
-                     "Laslo ",
+                      " Uri LAslo",
                         u.TipUsluge, u.IdProstorije, u.RazlogZakazivanja, u.RezultatUsluge));
             }
             return ret;
@@ -60,11 +52,13 @@ namespace Servis
 
 
 
-        public static List<ZdravstvenaUsluga> GetSlobodniTermini(Lekar OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
+        public static List<ZdravstvenaUsluga> GetSlobodniTermini(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
 
         {
             List<ZdravstvenaUsluga> pregledi = new List<ZdravstvenaUsluga>();
-            pregledi = GetSlobodniTerminiLekara(OdabraniLekar, pocetak, kraj);
+            Lekar lekar = LekarRepozitorijum.GetInstance.GetById(idLekara);
+
+            pregledi = GetSlobodniTerminiLekara(lekar, pocetak, kraj);
 
             if (pregledi.Count == 0 && prioritet == 0)
             {
@@ -72,9 +66,15 @@ namespace Servis
             }
             else if (pregledi.Count == 0 && prioritet == 1)
             {
-                pregledi = GetPriblizniTerminiPoLekaru(OdabraniLekar, pocetak, kraj);
+                pregledi = GetPriblizniTerminiPoLekaru(lekar, pocetak, kraj);
             }
             return pregledi;
+        }
+
+        internal void OtkaziZdravstvenuUslugu(ZdravstvenaUslugaDTO odabraniPregled)
+        {
+            ZdravstvenaUsluga z = ZdrastvenaUslugaRepozitorijumRef.getTerminById(odabraniPregled.Id);
+            ZdrastvenaUslugaRepozitorijumRef.ObrisiUslugu(z);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
@@ -240,8 +240,6 @@ namespace Servis
                     }
                 }
             }
-
-            //provjera poklapanja sati, ako je izabrao recimo 4 i 15 zaokruzi na 4, ako je posle 30 zaokruzi na 5, ima smisla
             bool afterHalf = false;
 
             if (noviPocetak.Minute > 30)

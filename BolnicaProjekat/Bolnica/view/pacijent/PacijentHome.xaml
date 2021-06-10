@@ -56,13 +56,11 @@
             </Button>
             <Button Foreground="Orange" Background="White" Click="prikazi_vlastite_preglede" Margin="138,76,10,12" Content="Termini" FontFamily="Arial" FontSize="20" Grid.ColumnSpan="2" Grid.Column="3" ToolTip="Klikom na ovo dugme otvarate prozor koji prikazuje vase preglede"/>
 
-            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,155,60,146" Content="Notifikacije" FontFamily="Arial" FontSize="20"  Grid.Row="1" Click="prikazi_notifikacije"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,159,60,142" Content="Notifikacije" FontFamily="Arial" FontSize="20"  Grid.Row="1" Click="prikazi_notifikacije"/>
 
             <Image Source="/images/call.png" Margin="273,0,39,-110" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4"/>
 
             <Image Source="/images/mm.png" Margin="-46,97,112,187" RenderTransformOrigin="0.45,0.414" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Image Source="/images/poruka2.png" Margin="184,184,38,91" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
-            <TextBlock  x:Name="broj_notifikacija" Margin="226,202,62,99" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Serif" FontSize="29" Foreground="Orange" />
 
             <Image Source="/images/folder1.png" Margin="53,43,-226,-100" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="3" Grid.Column="3" Grid.Row="1"/>
 
@@ -78,14 +76,12 @@
             <TextBlock x:Name="telefon" Margin="81,287,-161,14" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2" RenderTransformOrigin="0.524,1.313"/>
             <TextBlock x:Name="email" Margin="82,318,-161,-17" Grid.Column="4" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
             <TextBlock x:Name="korisnickoime" Margin="107,89,67,212" Grid.Column="3" Grid.Row="1" FontSize="20" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,353,60,-52" Content="Ocjene" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_ocjene"/>
-            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,248,60,53" Content="Podsjetnik" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_podsjetnik"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,279,60,22" Content="Ocjene" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_ocjene"/>
+            <Button Foreground="White" Background="Orange" BorderBrush="Transparent" BorderThickness="0" Margin="34,219,60,82" Content="Podsjetnik" FontFamily="Arial" FontSize="20" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikazi_podsjetnik"/>
             <Button Foreground="Orange" Background="White" Margin="137,26,-145,259" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="4" Content="Istorija bolesti" Grid.ColumnSpan="2" Grid.Row="1" Click="prikazi_istoriju_bolesti" ToolTip="Klikom na ovo dugme dobijate uvid u istoriju svojih bolesti"/>
             <Button Foreground="Orange" Background="White" Margin="3,97,-164,327" RenderTransformOrigin="0.125,2.436" FontFamily="Arial" FontSize="20" Grid.Column="5" Content="Trenutna terapija" Grid.RowSpan="2" Click="prikazi_trenutnu_terapiju" ToolTip="Klikom na ovo dugme dobijate uvid u svoju terapiju i trenutno stanje"/>
-            <Image Source="/Bolnica;component/images/poruka.png" Margin="12,276,206,-5" RenderTransformOrigin="0.45,0.414" Grid.Row="1"/>
-            <TextBlock  x:Name="broj_podsjetnika" Margin="56,299,231,0" RenderTransformOrigin="0.45,0.414" Grid.Row="1" FontFamily="Serif" FontSize="29" Foreground="Orange" />
             <Button Name="kalendar" Click="kalendar_Click"
-                    Foreground="Gray" Background="White"  Margin="121,383,109,-81" Content="Prikazi kalendar" FontFamily="Arial" FontSize="20" Grid.Column="1" ToolTip="Klikom na ovo dugme otvarate prozor koji prikazuje kalendar" Grid.Row="1" Grid.ColumnSpan="3"/>
+                    Foreground="Gray" Background="White"  Margin="12,43,121,70" Content="Prikazi kalendar" FontFamily="Arial" FontSize="16" Grid.Column="2" ToolTip="Klikom na ovo dugme otvarate prozor koji prikazuje kalendar" Grid.ColumnSpan="2"/>
 
 
         </Grid>

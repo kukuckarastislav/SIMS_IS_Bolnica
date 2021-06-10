@@ -263,5 +263,21 @@ namespace Repozitorijum
             return Usluge.ElementAt(Usluge.Count - 1).Id + 1;
         }
 
+
+
+
+        public List<ZdravstvenaUsluga> GetZdravstveneUslugeUProstoriji(int idProstorije)
+        {
+            List<ZdravstvenaUsluga> zdravstveneUslugeUProstoriji = new List<ZdravstvenaUsluga>();
+            foreach(ZdravstvenaUsluga zu in getAll())
+            {
+                if(zu.IdProstorije == idProstorije)
+                {
+                    zdravstveneUslugeUProstoriji.Add(zu);
+                }
+            }
+            return zdravstveneUslugeUProstoriji;
+        }
+
     }
 }

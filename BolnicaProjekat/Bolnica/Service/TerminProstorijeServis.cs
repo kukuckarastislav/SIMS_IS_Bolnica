@@ -56,7 +56,7 @@ namespace Servis
         {
             ObservableCollection<Termin> obsTerminiZauzetosti = new ObservableCollection<Termin>();
             List<TerminProstorije> terminiProstorija = TerminProstorijeRepozitorijumRef.GetTerminiProstorijeAll();
-
+            
             foreach (TerminProstorije tp in terminiProstorija)
             {
                 if (tp.IdProstorije1 == idProstorije || tp.IdProstorije2 == idProstorije)
@@ -64,9 +64,14 @@ namespace Servis
                     obsTerminiZauzetosti.Add(new Termin(tp.Pocetak, tp.Kraj));
                 }
             }
-
+            foreach (ZdravstvenaUsluga zu in ZdravstvenaUslugaRepozitorijum.GetInstance.GetZdravstveneUslugeUProstoriji(idProstorije))
+            {
+                if (zu.IdProstorije == idProstorije)
+                {
+                    obsTerminiZauzetosti.Add(new Termin(zu.Termin.Pocetak, zu.Termin.Kraj));
+                }
+            }
             sortirajTermine(obsTerminiZauzetosti);
-            // obsTerminiZauzetosti.Add(new Termin(new DateTime(2021, 4, 28), new DateTime(2021, 4, 29)));
             return obsTerminiZauzetosti;
         }
 
@@ -240,8 +245,6 @@ namespace Servis
 
         public TerminProstorije OtkaziTerminProstorije(TerminProstorije terminProstorije)
         {
-            // dodati logiku za zdravstvenu uslugu mozda??? ili notifikacije ?? nem pojma videcemo :D
-
             TerminProstorijeRepozitorijumRef.OtkaziTerminProstorije(terminProstorije);
             return terminProstorije;
         }
@@ -261,7 +264,6 @@ namespace Servis
                     obsTransferOpreme.Add(top);
                 }
             }
-
             return obsTransferOpreme;
         }
 
@@ -281,7 +283,6 @@ namespace Servis
             {
                 if (inventar1.RazlikaUKoliciniOpreme(transferOpreme) < 0)
                 {
-                    // nije u redu
                     return null;
                 }
             }
@@ -289,7 +290,6 @@ namespace Servis
             {
                 if (inventar2.RazlikaUKoliciniOpreme(transferOpreme) < 0)
                 {
-                    // nije u redu
                     return null;
                 }
             }
@@ -324,12 +324,18 @@ namespace Servis
         {
             ObservableCollection<TerminProstorijeDTO> obsTerminProstorijeDTO = new ObservableCollection<TerminProstorijeDTO>();
             List<TerminProstorije> terminiProstorije = TerminProstorijeRepozitorijumRef.GetTerminiProstorijeAll();
-
             foreach(TerminProstorije tp in terminiProstorije)
             {
                 if(tp.IdProstorije1 == prostorija.Id || tp.IdProstorije2 == prostorija.Id)
                 {
                     obsTerminProstorijeDTO.Add(new TerminProstorijeDTO(tp));
+                }
+            }
+            foreach(ZdravstvenaUsluga zu in ZdravstvenaUslugaRepozitorijum.GetInstance.GetZdravstveneUslugeUProstoriji(prostorija.Id))
+            {
+                if(zu.IdProstorije == prostorija.Id)
+                {
+                    obsTerminProstorijeDTO.Add(new TerminProstorijeDTO(zu.Termin.Pocetak, zu.Termin.Kraj, zu.GetTipUslugeStr()));
                 }
             }
 
@@ -413,9 +419,7 @@ namespace Servis
                     {
                         if (tp.Kraj < DateTime.Now)
                         {
-                            // prosao je termin i mozemo obrisati
                             TerminProstorijeRepozitorijumRef.OtkaziTerminProstorije(tp);  // oprezno
-                            //MessageBox.Show("obrisan je termin ");
                             i = -1;
                         }
                     }

@@ -18,11 +18,17 @@ namespace DTO
         public TerminProstorijeDTO(TerminProstorije terminProstorijeRef)
         {
             this.terminProstorijeRef = terminProstorijeRef;
-
             Pocetak = terminProstorijeRef.Pocetak;
             Kraj = terminProstorijeRef.Kraj;
-            TipTermina = DajNazivTipaTermina(terminProstorijeRef.tipTerminaProstorije);
-            
+            TipTermina = DajNazivTipaTermina(terminProstorijeRef.tipTerminaProstorije);   
+        }
+
+        public TerminProstorijeDTO(DateTime pocetak, DateTime kraj, string tipTermina)
+        {
+            Pocetak = pocetak;
+            Kraj = kraj;
+            TipTermina = tipTermina;
+            this.terminProstorijeRef = terminProstorijeRef;
         }
 
         private string DajNazivTipaTermina(TipTerminaProstorije tipTerminaProstorije)

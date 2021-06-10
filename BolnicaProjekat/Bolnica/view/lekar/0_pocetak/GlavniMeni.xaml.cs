@@ -30,6 +30,20 @@ namespace Bolnica.view.lekar
         {
             this.LekarDTO = LekarDTO;
             InitializeComponent();
+            IspisiKorisnika();
+        }
+
+        private void IspisiKorisnika()
+        {
+            Korisnik.Text = LekarDTO.ImePrezime();
+            if (LekarDTO.Specijalista)
+            {
+                Specijalizacija.Text = LekarDTO.Specijalizacija;
+            }
+            else
+            {
+                Specijalizacija.Text = "(nema specijalizaciju)";
+            }
         }
 
         private void RadniKalendarButton(object sender, RoutedEventArgs e)

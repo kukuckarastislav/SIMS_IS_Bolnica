@@ -48,7 +48,7 @@
     "Id": 6,
     "IdPacijenta": 1,
     "VrijemePojavljivanja": "2021-06-10T03:00:00",
-    "Vidljiv": false,
+    "Vidljiv": true,
     "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
     "Procitan": false,
     "JePodsjetnikZaLijekove": true
@@ -138,7 +138,7 @@
     "Id": 16,
     "IdPacijenta": 1,
     "VrijemePojavljivanja": "2021-06-10T09:00:00",
-    "Vidljiv": false,
+    "Vidljiv": true,
     "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
     "Procitan": false,
     "JePodsjetnikZaLijekove": true
@@ -201,6 +201,60 @@
     "Id": 23,
     "IdPacijenta": 1,
     "VrijemePojavljivanja": "2021-06-16T09:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false,
+    "JePodsjetnikZaLijekove": true
+  },
+  {
+    "Id": 24,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "0001-01-01T07:00:00",
+    "Vidljiv": true,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false,
+    "JePodsjetnikZaLijekove": true
+  },
+  {
+    "Id": 25,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "0001-01-01T15:00:00",
+    "Vidljiv": true,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false,
+    "JePodsjetnikZaLijekove": true
+  },
+  {
+    "Id": 26,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-11T07:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false,
+    "JePodsjetnikZaLijekove": true
+  },
+  {
+    "Id": 27,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-11T15:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false,
+    "JePodsjetnikZaLijekove": true
+  },
+  {
+    "Id": 28,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-12T07:00:00",
+    "Vidljiv": false,
+    "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
+    "Procitan": false,
+    "JePodsjetnikZaLijekove": true
+  },
+  {
+    "Id": 29,
+    "IdPacijenta": 1,
+    "VrijemePojavljivanja": "2021-06-12T15:00:00",
     "Vidljiv": false,
     "Tekst": "Podsjecamo vas da je vrijeme da uzmete vas lijek Brufen",
     "Procitan": false,

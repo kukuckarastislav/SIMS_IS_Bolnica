@@ -53,10 +53,6 @@ namespace Bolnica.view.lekar.pacijenti
         }
         public void UcitajPodatke()
         {
-            lblHospitalizacija.Text = "N\\A";
-            lblProstorija.Text = "N\\A";
-            lblPocetkaHospitalizacije.Text = "N\\A";
-            lblZavrsetkaHostpitalizacije.Text = "N\\A";
             cmbBolesnickeSobe.ItemsSource = BolesnickeSobe;
 
             KreirajIspravanKalendar();

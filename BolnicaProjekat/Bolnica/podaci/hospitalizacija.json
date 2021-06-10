@@ -14,5 +14,13 @@
     "IdProstorije": 8,
     "PocetakHospitalizacije": "2021-06-09T07:00:00",
     "KrajHospitalizacije": "2021-06-27T11:00:00"
+  },
+  {
+    "Id": 3,
+    "IdLekara": 1,
+    "IdPacijenta": 1,
+    "IdProstorije": 11,
+    "PocetakHospitalizacije": "2021-06-11T09:00:00",
+    "KrajHospitalizacije": "2021-06-12T09:30:00"
   }
 ]

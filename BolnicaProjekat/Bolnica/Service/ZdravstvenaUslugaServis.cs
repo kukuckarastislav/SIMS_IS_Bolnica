@@ -69,6 +69,7 @@ namespace Servis
         }
         #endregion
 
+
         public static ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
         {
             return Konvertuj(GetSlobodniTermini(idLekara, pocetak, kraj, prioritet));

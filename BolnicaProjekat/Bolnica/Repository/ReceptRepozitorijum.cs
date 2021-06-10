@@ -37,7 +37,7 @@ namespace Repozitorijum
             loadData();
         }
 
-        public ObservableCollection<Recept> recepti;
+        public List<Recept> recepti;
 
         private void loadData()
         {
@@ -46,13 +46,14 @@ namespace Repozitorijum
                 if (recepti == null)
                 {
 
-                    ObservableCollection<Recept> p = JsonSerializer.Deserialize<ObservableCollection<Recept>>(File.ReadAllText("../../podaci/" + imeFajla));
+                    List<Recept> p = JsonSerializer.Deserialize<List<Recept>>(File.ReadAllText("../../podaci/" + imeFajla));
                     recepti = p;
                 }
             }
             catch (Exception e)
             {
-                recepti = new ObservableCollection<Recept>();
+                recepti = new List<Recept>();
+                recepti = new List<Recept>();
                 Console.WriteLine(e.ToString());
             }
         }
@@ -94,7 +95,7 @@ namespace Repozitorijum
             return recept;
         }
 
-        public ObservableCollection<Recept> GetAll()
+        public List<Recept> GetAll()
         {
             loadData();
             return recepti;
@@ -125,6 +126,15 @@ namespace Repozitorijum
                 }
             }
             return ret;
+        }
+
+        public int getNewId()
+        {
+            int id = 1;
+            if (recepti.Count == 0)
+                return id;
+
+            return recepti.ElementAt(recepti.Count - 1).Id + 1;
         }
 
 

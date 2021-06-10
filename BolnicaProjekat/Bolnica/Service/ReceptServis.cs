@@ -2,38 +2,48 @@
 using DTO;
 using Model;
 using Repozitorijum;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Servis
 {
     public class ReceptServis
     {
-        private PacijentRepozitorijum refPacijentRepozitorijum;
-        private LekarRepozitorijum refLekarRepozitorijum;
-        private LekoviRepozitorijum refLekoviRepozitorijum;
+        private PacijentRepozitorijum PacijentRepozitorijumRef;
+        private LekarRepozitorijum LekarRepozitorijumRef;
+        private LekoviRepozitorijum LekoviRepozitorijumRef;
+        private ReceptRepozitorijum ReceptRepozitorijumRef;
 
 
-        public static Recept DodajRecept(Recept recept)
+        public ReceptServis()
         {
-            return Repozitorijum.ReceptRepozitorijum.GetInstance.DodajRecept(recept);
+            ReceptRepozitorijumRef = ReceptRepozitorijum.GetInstance;
+            LekoviRepozitorijumRef = LekoviRepozitorijum.GetInstance;
+            LekarRepozitorijumRef = LekarRepozitorijum.GetInstance;
+            PacijentRepozitorijumRef = PacijentRepozitorijum.GetInstance;
+        }
+
+        public Recept DodajRecept(ReceptDTO recept)
+        {
+            return ReceptRepozitorijumRef.DodajRecept(KonvertujDTOModel(recept));
+        }
+
+        private Recept KonvertujDTOModel(ReceptDTO recept)
+        {
+            int id= ReceptRepozitorijumRef.getNewId();
+            return new Recept(id,recept.Id, recept.IdPacijenta,recept.IdLeka,recept.DatumPropisivanja,recept.DatumIsteka,false,recept.OpisKoriscenja);
+        }
+
+        public Recept ObrisiRecept(Recept recept)
+        {
+            return ReceptRepozitorijumRef.ObrisiRecept(recept);
 
         }
 
-        public static Recept ObrisiRecept(Recept recept)
+        public List<Recept> GetPacijentovihRecepta(int pacId)
         {
-            return Repozitorijum.ReceptRepozitorijum.GetInstance.ObrisiRecept(recept);
-
-        }
-
-        public static ObservableCollection<Recept> GetPacijentovihRecepta(int pacId)
-        {
-            ObservableCollection<Recept> ret = new ObservableCollection<Recept>();
-            ObservableCollection<Recept> recepti = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll();
+            List<Recept> ret = new List<Recept>();
+            List<Recept> recepti = ReceptRepozitorijumRef.GetAll();
             foreach(Recept r in recepti)
             {
                 if (r.IdPacijenta == pacId)
@@ -50,63 +60,34 @@ namespace Servis
 
             foreach (var r in GetPacijentovihRecepta(id))
             {
-                Lek lek = LekoviRepozitorijum.GetInstance.GetLekById(r.IdLeka);
-                ret.Add(new ReceptDTO(1, r.IdLekara, LekarRepozitorijum.GetInstance.GetById(r.IdLekara).Ime + " " + LekarRepozitorijum.GetInstance.GetById(r.IdLekara).Ime,
-                    r.IdPacijenta, r.IdLeka, lek.Naziv, r.DatumPropisivanja, r.DatumIsteka, r.OpisKoriscenja, lek.Cena, lek.Kolicina));//ovo nema smisla stv ali ajde za ispis
+                Lek lek = LekoviRepozitorijumRef.GetLekById(r.IdLeka);
+                ret.Add(new ReceptDTO(1, r.IdLekara, LekarRepozitorijumRef.GetById(r.IdLekara).Ime + " " + LekarRepozitorijumRef.GetById(r.IdLekara).Prezime,
+                    r.IdPacijenta, r.IdLeka, lek.Naziv, r.DatumPropisivanja, r.DatumIsteka, r.OpisKoriscenja, lek.Cena, lek.Kolicina));
             }
             return ret;
         }
 
-        public static ObservableCollection<DTORecept> GetPacijentovihReceptaDTO(int pacId)
+        public List<DTORecept> GetPacijentovihReceptaDTO(int pacId)
         {
-            ObservableCollection<DTORecept> ret = new ObservableCollection<DTORecept>();
-            ObservableCollection<Recept> recepti = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll();
-            Pacijent pac = Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(pacId);
+            List<DTORecept> ret = new List<DTORecept>();
+            List<Recept> recepti = ReceptRepozitorijumRef.GetAll();
+            Pacijent pac = PacijentRepozitorijumRef.GetById(pacId);
             
             foreach (Recept r in recepti)
             {
                 if (r.IdPacijenta == pacId)
                 {
-                    Lek lek = Repozitorijum.LekoviRepozitorijum.GetInstance.GetLekById(r.IdLeka);
-                    Lekar lekar = Repozitorijum.LekarRepozitorijum.GetInstance.GetById(r.IdLekara);
-
-                    ret.Add(new DTORecept(r,pac,lek,lekar));
+                    Lek lek = LekoviRepozitorijumRef.GetLekById(r.IdLeka);
+                    Lekar lekar = LekarRepozitorijumRef.GetById(r.IdLekara);
+                    ret.Add(new DTORecept(r, pac, lek, lekar));
                 }
             }
             return ret;
         }
 
-        public static ObservableCollection<Recept> GetLekarovihRecepta(int lekarId)
+        public List<Recept> GetAll()
         {
-            ObservableCollection<Recept> ret = new ObservableCollection<Recept>();
-            ObservableCollection<Recept> recepti = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll();
-            foreach (Recept r in recepti)
-            {
-                if (r.IdLekara == lekarId)
-                {
-                    ret.Add(r);
-                }
-            }
-            return ret;
-        }
-
-        public static ObservableCollection<Recept> GetRecepataOdredjenogLeka(int lekId)
-        {
-            ObservableCollection<Recept> ret = new ObservableCollection<Recept>();
-            ObservableCollection<Recept> recepti = Repozitorijum.ReceptRepozitorijum.GetInstance.GetAll();
-            foreach (Recept r in recepti)
-            {
-                if (r.IdLeka == lekId)
-                {
-                    ret.Add(r);
-                }
-            }
-            return ret;
-        }
-
-        public static ObservableCollection<Recept> GetAll()
-        {
-            return ReceptRepozitorijum.GetInstance.GetAll();
+            return ReceptRepozitorijumRef.GetAll();
         }
 
 

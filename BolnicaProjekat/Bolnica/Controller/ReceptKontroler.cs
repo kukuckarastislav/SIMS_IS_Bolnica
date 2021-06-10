@@ -13,52 +13,41 @@ namespace Kontroler
 {
     public class ReceptKontroler
     {
-        private ReceptServis servis;
+        private ReceptServis ReceptServisObjekat;
 
         public ReceptKontroler()
         {
-            servis = new ReceptServis();
-        }
-        public ObservableCollection<Recept> GetPacijentovihRecepta(int pacId)
-        {
-            return ReceptServis.GetPacijentovihRecepta(pacId);
+            ReceptServisObjekat = new ReceptServis();
         }
 
-        public ObservableCollection<Recept> GetLekarovihRecepta(int lekarId)
+        public List<Recept> GetLekarovihRecepta(int lekarId)
         {
-            return ReceptServis.GetPacijentovihRecepta(lekarId);
+            return ReceptServisObjekat.GetPacijentovihRecepta(lekarId);
         }
 
-        internal List<ReceptDTO> getReceptiPacijentaDTO(int id)
+        public List<ReceptDTO> getReceptiPacijentaDTO(int id)
         {
-            return servis.GetReceptiPacijentaDTO(id);
+            return ReceptServisObjekat.GetReceptiPacijentaDTO(id);
         }
 
-        public ObservableCollection<Recept> GetRecepataOdredjenogLeka(int lekId)
+        public List<Recept> GetRecepataOdredjenogLeka(int lekId)
         {
-            return ReceptServis.GetPacijentovihRecepta(lekId);
+            return ReceptServisObjekat.GetPacijentovihRecepta(lekId);
         }
         public void ObrisiRecept(Recept recept)
         {
-            ReceptServis.ObrisiRecept(recept);
+            ReceptServisObjekat.ObrisiRecept(recept);
         }
 
-        public void DodajRecept(Recept recept)
+        public void DodajRecept(ReceptDTO recept)
         {
-            ReceptServis.DodajRecept(recept);
+            ReceptServisObjekat.DodajRecept(recept);
         }
 
-        public ObservableCollection<Recept> GetAll()
+        public List<Recept> GetAll()
         {
-            return ReceptServis.GetAll();
+            return ReceptServisObjekat.GetAll();
         }
 
-        /*
-        public ObservableCollection<Recept> GetPacijentovihRecepta(int pacId)
-        public ObservableCollection<Recept> GetLekarovihRecepta(int lekarId)
-        public ObservableCollection<Recept> GetRecepataOdredjenogLeka(int lekId)
-        public Recept DodajRecept(Recept recept)
-        public Recept ObrisiRecept(Recept recept)
-        */
     }
 }

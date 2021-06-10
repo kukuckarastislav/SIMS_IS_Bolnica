@@ -25,17 +25,25 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public PacijentDTO PacijentDTO { get; set; }
         public LekarDTO LekarDTO { get; set; }
-        public ObservableCollection<DTORecept> ListaRecepti { get; set; }
+        public ObservableCollection<ReceptDTO> KolekcijaRecepti { get; set; }
         public ObservableCollection<string> KolekcijaAlergeni;
         public MedicinskiKarton MedicinskiKarton { get; set; }
         public List<string> Alergeni;
+
+        private ReceptKontroler ReceptKontrolerObjekat;
+
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
         public TerapijaPacijenta(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
             InitializeComponent();
             this.LekarDTO = LekarDTO;
             this.PacijentDTO = PacijentDTO;
-            ListaRecepti = ReceptServis.GetPacijentovihReceptaDTO(PacijentDTO.Id);
+
+            ReceptKontrolerObjekat = new ReceptKontroler();
+            List<ReceptDTO> ListaRecepti = ReceptKontrolerObjekat.getReceptiPacijentaDTO(PacijentDTO.Id);
+            KolekcijaRecepti = new ObservableCollection<ReceptDTO>();
+
+            foreach (ReceptDTO v in ListaRecepti) KolekcijaRecepti.Add(v);
             Alergeni = Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(PacijentDTO.Id).MedicinskiKarton.Alergeni;
 
            //    Recepti = KontrolerRecept.GetPacijentovihRecepta(PacijentDTO.Id);

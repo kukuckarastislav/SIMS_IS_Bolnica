@@ -1,9 +1,9 @@
 [
   {
     "Id": 1,
-    "Tekst": "Sve je super",
+    "Tekst": "DRUGI FEEDBACK",
     "IdKorisnika": 1,
-    "VrstaKorisnika": "SEKRETAR",
-    "DatumSlanja": "2021-06-08T22:33:28.0294367+02:00"
+    "VrstaKorisnika": "LEKAR",
+    "DatumSlanja": "2021-06-10T05:57:06.1582575+02:00"
   }
 ]

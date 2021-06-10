@@ -21,23 +21,15 @@ using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for RadniKalendar.xaml
-    /// </summary>
+
     public partial class RadniKalendar : Page
     {
-        // BACK - PAGES
-        private view.lekar.GlavniMeni refGlavniMeni;
-        // NEXT - PAGES
-        private view.lekar.pacijenti.BrisanjeUsluge refBrisanjeUsluge;
-        private view.lekar.pacijenti.AzuriranjeUsluge refAzuriranjeUsluge;
-        private view.lekar.pacijenti.EvidentiranjeUsluge refEvidentiranjeUsluge;
-        // Kolekcije
+
+
         public ObservableCollection<RadniKalendarDTO> KolekcijaDanasnjiRadniKalendar { get; set; }
         public ObservableCollection<RadniKalendarDTO> KolekcijaNedeljniRadniKalendar { get; set; }
         public ObservableCollection<RadniKalendarDTO> KolekcijaMesecniRadniKalendar { get; set; }
-        // OBJEKTI
-        private ZdravstvenaUslugaKontroler ObjekatZdrastvenaUslugaKontroler;
+        private ZdravstvenaUslugaKontroler ObjekatZdrastvenaUslugaKontroler { get; set; }
         public RadniKalendarDTO OdabranaUsluga { get; set; }
         public LekarDTO LekarDTO { get; set; }
 
@@ -47,7 +39,6 @@ namespace Bolnica.view.lekar.pacijenti
             this.LekarDTO = LekarDTO;
             ObjekatZdrastvenaUslugaKontroler = new ZdravstvenaUslugaKontroler();
             BindingRadniKalendar();
-            MessageBox.Show("INSTANCIRANJE - RADNI KALENDAR PAGE");
             this.RadniKalendar_danasnji.Items.Refresh();
             this.RadniKalendar_nedeljni.Items.Refresh();
             this.RadniKalendar_mesecni.Items.Refresh();

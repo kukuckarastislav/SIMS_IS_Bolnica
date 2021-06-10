@@ -23,8 +23,6 @@ namespace Bolnica.view.lekar.pacijenti
     {
         public PacijentDTO PacijentDTO { get; set; }
         public LekarDTO LekarDTO;
-        private view.lekar.pacijenti.IzdavanjeRecepta refIzdavanjeRecepta;
-
         private DateTime PocetakTerapije;
         private DateTime KrajTerapije;
         private int VremenskiRazmak;
@@ -45,23 +43,11 @@ namespace Bolnica.view.lekar.pacijenti
             KreirajIspravanKalendar();
         }
 
-
-
         private void KreirajIspravanKalendar()
         {
             CalendarDateRange proslost = new CalendarDateRange(DateTime.MinValue, DateTime.Today);
             kalPocetakTerapije.BlackoutDates.Add(proslost);
             kalKrajTerapije.BlackoutDates.Add(proslost);
-        }
-
-        private void PotvrdiButton(object sender, RoutedEventArgs e)
-        {
-
-
-        }
-        private void OdustaniButton(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void rdbJednoDnevno_Checked(object sender, RoutedEventArgs e)
@@ -77,6 +63,7 @@ namespace Bolnica.view.lekar.pacijenti
         private void rdTriPutaDnevno_Checked(object sender, RoutedEventArgs e)
         {
             DnevniBrojUzimanja = 3;
+
         }
 
         private void kalPocetakTerapije_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
@@ -98,9 +85,8 @@ namespace Bolnica.view.lekar.pacijenti
                                                 0, 0, 0);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void PotvrdiButton(object sender, RoutedEventArgs e)
         {
-
             VremenskiRazmak = Convert.ToInt32(cmbSaRazmakomOd.Text);
             PocetakTerapijeUSatima = Convert.ToInt32(cmbPocetakTerapije_Sat.Text);
 
@@ -108,9 +94,17 @@ namespace Bolnica.view.lekar.pacijenti
             PodsjetnikKontroler kontroler = new PodsjetnikKontroler();
             kontroler.DodajPodsjetnikZaUzimanjeLijeka(dto, idLeka, PacijentDTO.Id);
 
-            refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO, PacijentDTO);
+            var refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO, PacijentDTO);
             NavigationService.Navigate(refIzdavanjeRecepta);
 
         }
+
+        private void OdustaniButton(object sender, RoutedEventArgs e)
+        {
+            var refIzdavanjeRecepta = new view.lekar.pacijenti.IzdavanjeRecepta(LekarDTO, PacijentDTO);
+            NavigationService.Navigate(refIzdavanjeRecepta);
+        }
+
+
     }
 }

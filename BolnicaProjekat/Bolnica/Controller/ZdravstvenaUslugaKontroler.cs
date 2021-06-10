@@ -65,7 +65,8 @@ namespace Kontroler
         public ZakaziTetminDTO ZakaziUslugu(ZakaziTetminDTO usluga)
         {
             ZakaziTetminDTO ret = ZdrastvenaUslugaServisObjekat.ZakaziUslugu(usluga);
-            if (usluga.ZakazanTermin == true) {
+            if (usluga.ZakazanTermin == true)
+            {
                 NotifikacijaServisObjekat.ZakaziTermin(new ZdravstvenaUsluga(usluga.Termin, usluga.Id, usluga.IdLekara, usluga.IdPacijenta, usluga.TipUsluge, usluga.IdProstorije,
                     false, "", ""));
             }
@@ -84,7 +85,7 @@ namespace Kontroler
 
         internal void DodajKomentarNaUslugu(int id, string text)
         {
-            ZdrastvenaUslugaServisObjekat.DodajKomentarNaUslugu(id,text);
+            ZdrastvenaUslugaServisObjekat.DodajKomentarNaUslugu(id, text);
         }
 
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
@@ -101,12 +102,12 @@ namespace Kontroler
         {
             ZdrastvenaUslugaServisObjekat.OtkaziUslugu(usluga);
         }
-
+        
         public void OtkaziUslugu(ZdravstvenaUsluga usluga)
         {
             ZdrastvenaUslugaServisObjekat.OtkaziUslugu(usluga);
         }
-
+        
         public ObservableCollection<ZdravstvenaUslugaDTO> GetTerminiPacijenta(int id)
         {
             return ZdrastvenaUslugaServisObjekat.GetTerminiPacijenta(id);
@@ -150,7 +151,7 @@ namespace Kontroler
         {
             DateTime pocetak = new DateTime(datum.Year, datum.Month, datum.Day, 0, 0, 00);
             DateTime kraj = new DateTime(datum.Year, datum.Month, datum.Day, 23, 59, 00);
-            return ZdravstvenaUslugaServis.GetSlobodniTerminiLekara(OdabraniLekar,pocetak,kraj); 
+            return ZdravstvenaUslugaServis.GetSlobodniTerminiLekara(OdabraniLekar, pocetak, kraj);
         }
 
         public ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTermini(LekarDTO OdabraniLekar, DateTime pocetak, DateTime kraj, int prioritet)
@@ -160,10 +161,10 @@ namespace Kontroler
 
         public List<ZdravstvenaUsluga> GetSviTerminiZaDatum(Lekar lekar, DateTime datum)
         {
-            return ZdrastvenaUslugaServisObjekat.GetSviTerminiZaDatum(lekar,datum);
+            return ZdrastvenaUslugaServisObjekat.GetSviTerminiZaDatum(lekar, datum);
         }
 
-        public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga Pregled,DateTime NoviPocetak)
+        public bool PomjeranjeTerminaMoguce(ZdravstvenaUsluga Pregled, DateTime NoviPocetak)
         {
             return ZdrastvenaUslugaServisObjekat.PomjeranjeTerminaMoguce(Pregled, NoviPocetak);
         }
@@ -210,7 +211,7 @@ namespace Kontroler
         public bool OdloziUslugu(ZakazaniTerminiDTO dto)
         {
             bool dalDaNotifikuje = ZdrastvenaUslugaServisObjekat.OdloziUslugu(dto);
-            if(dalDaNotifikuje)
+            if (dalDaNotifikuje)
             {
                 NotifikacijaServisObjekat.ZakaziTermin(new ZdravstvenaUsluga(dto.Termin, dto.Id, dto.Lekar.Id, dto.Pacijent.Id, dto.TipUsluge, dto.Prostorija.Id,
                     false, "", ""));
@@ -220,3 +221,4 @@ namespace Kontroler
 
     }
 }
+ 

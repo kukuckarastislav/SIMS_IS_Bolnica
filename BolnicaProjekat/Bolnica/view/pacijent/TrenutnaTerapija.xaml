@@ -16,7 +16,7 @@
             <ColumnDefinition Width="524*"/>
             <ColumnDefinition Width="253*"/>
         </Grid.ColumnDefinitions>
-        <ListView ItemsSource="{Binding Lista}" x:Name="listaRecepti" Margin="2,3,188,0" RenderTransformOrigin="0.5,0.5" Height="282" VerticalAlignment="Top" SelectionChanged="listaRecepti_SelectionChanged">
+        <ListView ItemsSource="{Binding Lista}" x:Name="listaRecepti" Margin="224,0" RenderTransformOrigin="0.5,0.5" Height="419" VerticalAlignment="Top" SelectionChanged="listaRecepti_SelectionChanged" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Setter Property="Height" Value="45" />
@@ -31,11 +31,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Margin="364,10,238,201" Content="Stanje pacijenta: " FontSize="22" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="anamneza" Margin="364,126,48,0" FontSize="16" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-        <Label Margin="364,52,238,159" Content="Hospitalizovan:" FontSize="18" FontFamily="Arial" Foreground="DarkBlue" Grid.ColumnSpan="2"/>
-        <Label Margin="364,84,0,159" Content="Trenutna dijagnoza:" FontSize="18" FontFamily="Arial" Foreground="DarkBlue"/>
-        <Button Name="prikaz_recept" Foreground="White" Background="#0061a5" BorderBrush="Transparent" BorderThickness="0" Margin="175,1,188,104" Content="Prikazi recept" FontFamily="Arial" FontSize="16" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikaz_recept_Click"/>
+        <Button Name="prikaz_recept" Foreground="White" Background="#0061a5" BorderBrush="Transparent" BorderThickness="0" Margin="57,72,30,33" Content="Prikazi recept" FontFamily="Arial" FontSize="16" RenderTransformOrigin="1.449,-0.502" Grid.Row="1" Click="prikaz_recept_Click" Grid.Column="1"/>
 
     </Grid>
 </Window>

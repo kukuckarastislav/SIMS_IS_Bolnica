@@ -54,7 +54,7 @@ namespace Bolnica.view.lekar.pacijenti
             KolekcijaIDSobeZaPregled = new ObservableCollection<String>();
             KolekcijaLekarDTO = new ObservableCollection<LekarDTO>();
 
-            foreach(LekarDTO LekarDTO in LekarKontrolerObjekat.GetAllDTO())
+            foreach (LekarDTO LekarDTO in LekarKontrolerObjekat.GetAllDTO())
             {
                 KolekcijaLekarDTO.Add(LekarDTO);
             }
@@ -98,7 +98,6 @@ namespace Bolnica.view.lekar.pacijenti
                 pocetakSati += 12;
 
 
-            date = datum.SelectedDate.Value;
             DateTime pocetak = new DateTime(date.Year, date.Month, date.Day, pocetakSati, pocetakMinute, 0);
             TimeSpan trajanje = new TimeSpan(0, 0, 30, 0);
             DateTime kraj = pocetak + trajanje;

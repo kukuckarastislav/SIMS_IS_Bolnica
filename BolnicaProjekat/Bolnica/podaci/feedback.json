@@ -12,12 +12,5 @@
     "IdKorisnika": 1,
     "VrstaKorisnika": "UPRAVNIK",
     "DatumSlanja": "2021-06-10T05:59:31.4017738+02:00"
-  },
-  {
-    "Id": 3,
-    "Tekst": "Ohoho",
-    "IdKorisnika": 1,
-    "VrstaKorisnika": "LEKAR",
-    "DatumSlanja": "2021-06-10T05:59:58.35679+02:00"
   }
 ]

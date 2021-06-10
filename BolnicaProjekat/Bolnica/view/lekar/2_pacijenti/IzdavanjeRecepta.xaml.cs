@@ -21,91 +21,107 @@ using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for IzdavanjeRecepta.xaml
-    /// </summary>
     public partial class IzdavanjeRecepta : Page
     {
         public PacijentDTO PacijentDTO { get; set; }
-        public ObservableCollection<Recept> Recepti { get; set; }
         public ObservableCollection<LekDTO> odobreniLekoviKolekcija;
         public ObservableCollection<string> KolekcijaAlergeniLeka;
         public ObservableCollection<string> KolekcijaAlergeniPacijenta;
-        public LekoviKontroler lekoviKontrolerObjekat;
 
+        public LekoviKontroler LekoviKontrolerObjekat;
         public PacijentKontroler PacijentKontrolerObjekat;
-        public LekDTO OdabraniLek { get; set; }
-        public LekarDTO LekarDTO;
-        private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
-        private view.lekar.pacijenti.NacinKoriscenja refNacinKoriscenja;
+        public ReceptKontroler ReceptKontrolerObjekat;
 
+        public LekDTO OdabraniLek { get; set; }
+        public LekarDTO LekarDTO { get; set; }
         private ParametriUzimanjaTerapijeDTO dto;
         public IzdavanjeRecepta(LekarDTO LekarDTO, PacijentDTO PacijentDTO)
         {
             this.LekarDTO = LekarDTO;
             this.PacijentDTO = PacijentDTO;
             InitializeComponent();
-            lekoviKontrolerObjekat = new LekoviKontroler();
+            KreirajKolekcije();
+            KreirajKonrtolere();
+            UcitajPodatke();
+
+        }
+
+
+        private void KreirajKolekcije()
+        {
+            KolekcijaAlergeniLeka = new ObservableCollection<string>();
             odobreniLekoviKolekcija = new ObservableCollection<LekDTO>();
-            List<LekDTO> lekoviLista = lekoviKontrolerObjekat.GetOdobreniLekovi();
+            KolekcijaAlergeniPacijenta = new ObservableCollection<string>();
+        }
+
+        private void KreirajKonrtolere()
+        {
+            LekoviKontrolerObjekat = new LekoviKontroler();
+            ReceptKontrolerObjekat = new ReceptKontroler();
+            PacijentKontrolerObjekat = new PacijentKontroler();
+        }
+        private void UcitajPodatke()
+        {
+            UcitajOdobreneLekove();
+            UcitajAlergenePacijenta();
+            UcitajHeader();
+            UcitajDataGridove();
+        }
+
+        private void UcitajHeader()
+        {
+            headerIme.Text = PacijentDTO.Ime;
+            headerPrezime.Text = PacijentDTO.Prezime;
+            headerJMBG.Text = PacijentDTO.Jmbg;
+        }
+
+        private void UcitajAlergenePacijenta()
+        {
+            int idPacijenta = PacijentDTO.Id;
+            foreach (string alergen in PacijentKontrolerObjekat.GetAlergeniPacijenta(idPacijenta))
+            {
+                KolekcijaAlergeniPacijenta.Add(alergen);
+            }
+            DataGridAlergeniPacijenta.ItemsSource = KolekcijaAlergeniPacijenta;
+
+        }
+
+        private void UcitajOdobreneLekove()
+        {
+            List<LekDTO> lekoviLista = LekoviKontrolerObjekat.GetOdobreniLekovi();
             foreach (LekDTO lek in lekoviLista)
             {
                 this.odobreniLekoviKolekcija.Add(lek);
             }
             this.ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
-            PacijentKontrolerObjekat = new PacijentKontroler();
-
-            KolekcijaAlergeniLeka = new ObservableCollection<string>();
-            KolekcijaAlergeniPacijenta = new ObservableCollection<string>();
-            DataGridAlergeniLeka.Visibility = Visibility.Hidden;
-            DataGridAlergeniPacijenta.Visibility = Visibility.Visible;
-
-
-            UcitajPodatke();
         }
 
-        private void UcitajPodatke()
+        private void UcitajDataGridove()
         {
-
-            ComboBoxLek.ItemsSource = odobreniLekoviKolekcija;
-            headerIme.Text = PacijentDTO.Ime;
-            headerPrezime.Text = PacijentDTO.Prezime;
-            headerJMBG.Text = PacijentDTO.Jmbg;
-
-            int idPacijenta = PacijentDTO.Id;
-            
-
-            foreach (string alergen in PacijentKontrolerObjekat.GetAlergeniPacijenta(idPacijenta))
-            {
-                KolekcijaAlergeniPacijenta.Add(alergen);
-            }
-
-            DataGridAlergeniPacijenta.ItemsSource = KolekcijaAlergeniPacijenta;
-
+            DataGridAlergeniLeka.Visibility = Visibility.Hidden;
+            DataGridAlergeniPacijenta.Visibility = Visibility.Visible;
         }
 
         private void IzdavanjeReceptaButton(object sender, RoutedEventArgs e)
         {
 
-            DateTime DatumPropisivanja = new DateTime(DateTime.Now.Year,DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-
-
+            DateTime DatumPropisivanja = new DateTime();
+            DateTime DatumIsteka = new DateTime();
+            DatumPropisivanja = DateTime.Now;
+            DatumIsteka = datum_isteka.SelectedDate.Value;
             OdabraniLek = ComboBoxLek.SelectedItem as LekDTO;
-            string nacin_koriscenja = NacinKorsicenja.Text;
-            Kontroler.ReceptKontroler ReceptKontroler = new Kontroler.ReceptKontroler();
-            int idRec = ReceptKontroler.GetAll().Count + 1;
+            int idRec = ReceptKontrolerObjekat.GetAll().Count + 1;
             int idLekarDTO = LekarDTO.Id;
             int idPac = PacijentDTO.Id;
             int idLeka = OdabraniLek.Id;
+            string imePrezimeLekara = LekarDTO.ImePrezime();
+            string nazivLeka = OdabraniLek.Naziv;
+            string komentar = Komentar.Text;
+            double cenaLeka = OdabraniLek.Cena;
+            int kolicinaLeka = OdabraniLek.Kolicina;
+            ReceptDTO r = new ReceptDTO(idRec, idLekarDTO, imePrezimeLekara, idPac, idLeka, nazivLeka, DatumPropisivanja, DatumIsteka, komentar, cenaLeka, kolicinaLeka);
 
-            Recept r = new Recept(idRec, idLekarDTO, idPac, idLeka, DatumPropisivanja, DatumPropisivanja, false, nacin_koriscenja);
-
-
-           // Recept r = new Recept(2,2,1,2, DatumPropisivanja, DatumPropisivanja,false,"po zelji");
-           // Servis.NotifikacijeServis.ReceptNotifikacija(r,vrijemeUzimanja);
-            ReceptKontroler.DodajRecept(r);
-            //Recepti = new ObservableCollection<Recept>();
-
+            ReceptKontrolerObjekat.DodajRecept(r);
 
         }
 
@@ -113,7 +129,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
+                var refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }
@@ -156,7 +172,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (OdabraniLek != null)
             {
-                refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(LekarDTO, PacijentDTO, OdabraniLek.Id);
+                var refNacinKoriscenja = new view.lekar.pacijenti.NacinKoriscenja(LekarDTO, PacijentDTO, OdabraniLek.Id);
                 NavigationService.Navigate(refNacinKoriscenja);
                 dto = NacinKoriscenja.dto;
             }

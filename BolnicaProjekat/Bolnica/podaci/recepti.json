@@ -78,5 +78,15 @@
     "DatumIsteka": "2021-05-30T19:34:29",
     "OslobodjenOdParticipacije": false,
     "OpisKoriscenja": "Komentar: "
+  },
+  {
+    "Id": 9,
+    "IdLekara": 9,
+    "IdPacijenta": 1,
+    "IdLeka": 1,
+    "DatumPropisivanja": "2021-06-10T09:59:43.2854713+02:00",
+    "DatumIsteka": "2021-06-19T00:00:00",
+    "OslobodjenOdParticipacije": false,
+    "OpisKoriscenja": ""
   }
 ]

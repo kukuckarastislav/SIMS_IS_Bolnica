@@ -108,9 +108,9 @@
                     Grid.Row="4" Grid.RowSpan="1"
                 Grid.Column="1" Grid.ColumnSpan="5"/>
 
-                <RadioButton IsChecked="True" Content="Pregled"    VerticalAlignment="Center" HorizontalAlignment="Left"   Name="rbPregled"/>
+                <RadioButton  Content="Pregled"    VerticalAlignment="Center" HorizontalAlignment="Left"   Name="rbPregled" Checked="rbPregled_Checked"/>
 
-                <RadioButton IsEnabled="False" Content="Operacija" VerticalAlignment="Center" HorizontalAlignment="Left"  Name="rbOperacija"/>
+                <RadioButton  Content="Operacija" VerticalAlignment="Center" HorizontalAlignment="Left"  Name="rbOperacija" Checked="rbOperacija_Checked"/>
 
                 <TextBlock Text="Prostorija:" 
                     VerticalAlignment="Top" HorizontalAlignment="left" 

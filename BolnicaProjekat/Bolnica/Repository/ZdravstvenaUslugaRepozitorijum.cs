@@ -11,8 +11,14 @@ namespace Repozitorijum
     public class ZdravstvenaUslugaRepozitorijum
     {
 
+
+        #region - Polja - ZdrastvenaUslugaRepozitorijum
         private const string imeFajla = "zdravstveneUsluge.json";
         private static ZdravstvenaUslugaRepozitorijum instance = null;
+        public List<ZdravstvenaUsluga> Usluge { get; set; }
+        #endregion
+
+        #region - Singleton - ZdrastvenaUslugaRepozitorijum
         public static ZdravstvenaUslugaRepozitorijum GetInstance
         {
             get
@@ -29,26 +35,25 @@ namespace Repozitorijum
             }
 
         }
+        #endregion
 
-        public List<ZdravstvenaUsluga> Usluge { get; set; }
-
+        #region - Konstruktor - ZdrastvenaUslugaRepozitorijum
         public ZdravstvenaUslugaRepozitorijum()
         {
-           
             if (Usluge == null)
             {
-
-                loadData();
+                LoadData();
             }
         }
+        #endregion
 
-        private void loadData()
+        #region - Metode - LoadData, SaveData - ZdrastvenaUslugaRepozitorijum
+        private void LoadData()
         {
             try
             {
                 if (Usluge == null)
                 {
-
                     List<ZdravstvenaUsluga> u = JsonSerializer.Deserialize<List<ZdravstvenaUsluga>>(File.ReadAllText("../../podaci/" + imeFajla));
                     Usluge = u;
                 }
@@ -59,18 +64,6 @@ namespace Repozitorijum
                 Console.WriteLine(e.ToString());
             }
         }
-
-        public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
-        {
-            loadData();
-
-            if (!this.Usluge.Contains(usluga))
-                this.Usluge.Add(usluga);
-
-            SaveData();
-            return usluga;
-        }
-
         public void SaveData()
         {
             var format = new JsonSerializerOptions
@@ -80,109 +73,42 @@ namespace Repozitorijum
             string json = JsonSerializer.Serialize(Usluge, format);
             File.WriteAllText("../../podaci/" + imeFajla, json);
         }
+        #endregion
 
-
-        public List<ZdravstvenaUsluga> getTerminiBylekarId(int id)
+        #region - Metode - Zdrastvena usluga(model) - Dodaj, AzurirajVreme, Obrisi, Evidentiraj
+        public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
-            loadData();
-            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
-           
-            foreach (ZdravstvenaUsluga u in Usluge)
-            {
-                if(u.IdLekara == id)
-                {
-                    usluge.Add(u);
-                }
+            LoadData();
 
-            }
-            
-            return usluge;
+            if (!this.Usluge.Contains(usluga))
+                this.Usluge.Add(usluga);
+
+            SaveData();
+            return usluga;
         }
 
-        public List<ZdravstvenaUsluga> GetUslugeByProstorijaId(int id)
+        public ZdravstvenaUsluga AzurirajVremeUsluga(ZdravstvenaUsluga usluga, DateTime pocetak, DateTime kraj)
         {
-            // metodu dodao rastislav, 20/4/2021 7:30
-            loadData();
-            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+            LoadData();
 
-            foreach (ZdravstvenaUsluga u in Usluge)
-            {
-                if (u.IdProstorije == id)
-                {
-                    usluge.Add(u);
-                }
-
-            }
-
-            return usluge;
-        }
-
-        public List<ZdravstvenaUsluga> getTerminiByLekarAndDatum(int id, DateTime datum)
-        {
-            loadData();
-            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
-
-            foreach (ZdravstvenaUsluga u in Usluge)
-            {
-                if (u.IdLekara == id && u.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
-                {
-                    usluge.Add(u);
-                }
-
-            }
-
-            return usluge;
-        }
-
-        public List<ZdravstvenaUsluga> getAll()
-        {
-            return Usluge;
-        }
-
-        public List<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
-        {
-            loadData();
-            List<ZdravstvenaUsluga> ret = new List<ZdravstvenaUsluga>();
-            foreach(ZdravstvenaUsluga z in Usluge)
-            {
-                if (z.IdPacijenta == id)
-                { 
-                    ret.Add(z);
-                }
-            }
-            return ret;
-        }
-
-        public ZdravstvenaUsluga getTerminById(int id)
-        {
-            loadData();
+            int i = 0;
             foreach (ZdravstvenaUsluga z in Usluge)
             {
-                if (z.Id == id)
+                if (z.Id == usluga.Id)
                 {
-                    return z;
+                    z.Termin.Pocetak = pocetak;
+                    z.Termin.Kraj = kraj;
+                    break;
                 }
+                i++;
             }
-            return null;
+            SaveData();
+            return usluga;
         }
-
-        public List<ZdravstvenaUsluga> GetTerminByLekarId(int id)
-        {
-            loadData();
-            List<ZdravstvenaUsluga> ret = new List<ZdravstvenaUsluga>();
-            foreach (ZdravstvenaUsluga z in Usluge)
-            {
-                if (z.IdLekara == id)
-                {
-                    ret.Add(z);
-                }
-            }
-            return ret;
-        }
-
-
         public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
         {
+            LoadData();
+
             int i = 0;
             foreach (ZdravstvenaUsluga z in Usluge)
             {
@@ -191,7 +117,7 @@ namespace Repozitorijum
                     Usluge.RemoveAt(i);
                     break;
                 }
-                i++; 
+                i++;
             }
             SaveData();
             return usluga;
@@ -214,23 +140,102 @@ namespace Repozitorijum
             return usluga;
         }
 
-        public ZdravstvenaUsluga AzurirajVremeUsluga(ZdravstvenaUsluga usluga, DateTime pocetak, DateTime kraj)
+        #endregion
+
+        public List<ZdravstvenaUsluga> getTerminiBylekarId(int id)
         {
-            int i = 0;
+            LoadData();
+            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+
+            foreach (ZdravstvenaUsluga u in Usluge)
+            {
+                if (u.IdLekara == id)
+                {
+                    usluge.Add(u);
+                }
+
+            }
+
+            return usluge;
+        }
+
+        public List<ZdravstvenaUsluga> GetUslugeByProstorijaId(int id)
+        {
+            LoadData();
+            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga u in Usluge)
+            {
+                if (u.IdProstorije == id)
+                {
+                    usluge.Add(u);
+                }
+            }
+            return usluge;
+        }
+
+        public List<ZdravstvenaUsluga> getTerminiByLekarAndDatum(int id, DateTime datum)
+        {
+            LoadData();
+            List<ZdravstvenaUsluga> usluge = new List<ZdravstvenaUsluga>();
+
+            foreach (ZdravstvenaUsluga u in Usluge)
+            {
+                if (u.IdLekara == id && u.Termin.Pocetak.ToShortDateString().Equals(datum.ToShortDateString()))
+                {
+                    usluge.Add(u);
+                }
+
+            }
+
+            return usluge;
+        }
+
+        public List<ZdravstvenaUsluga> getAll()
+        {
+            return Usluge;
+        }
+
+        public List<ZdravstvenaUsluga> getTerminiByPacijentId(int id)
+        {
+            LoadData();
+            List<ZdravstvenaUsluga> ret = new List<ZdravstvenaUsluga>();
             foreach (ZdravstvenaUsluga z in Usluge)
             {
-                if (z.Id == usluga.Id)
+                if (z.IdPacijenta == id)
                 {
-                    z.Termin.Pocetak = pocetak;
-                    z.Termin.Kraj = kraj;
-                    break;
+                    ret.Add(z);
                 }
-                i++;
             }
-            SaveData();
-            return usluga;
-
+            return ret;
         }
+
+        public ZdravstvenaUsluga getTerminById(int id)
+        {
+            LoadData();
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.Id == id)
+                {
+                    return z;
+                }
+            }
+            return null;
+        }
+
+        public List<ZdravstvenaUsluga> GetTerminByLekarId(int id)
+        {
+            LoadData();
+            List<ZdravstvenaUsluga> ret = new List<ZdravstvenaUsluga>();
+            foreach (ZdravstvenaUsluga z in Usluge)
+            {
+                if (z.IdLekara == id)
+                {
+                    ret.Add(z);
+                }
+            }
+            return ret;
+        }
+
         public ZdravstvenaUsluga AzurirajUslugu(ZdravstvenaUsluga usluga)
         {
             SaveData();
@@ -257,7 +262,7 @@ namespace Repozitorijum
             int id = 1;
             if (Usluge.Count == 0)
                 return id;
-            
+
             return Usluge.ElementAt(Usluge.Count - 1).Id + 1;
         }
 

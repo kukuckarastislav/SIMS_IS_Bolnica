@@ -53,14 +53,12 @@ namespace Bolnica.view.lekar.pacijenti
             this.RadniKalendar_mesecni.Items.Refresh();
         }
 
-
         private void PokaziDugmad()
         {
             AzuriranjeUsluge.Visibility = Visibility.Visible;
             BrisanjeUsluge.Visibility = Visibility.Visible;
             EvidentiranjeUsluge.Visibility = Visibility.Visible;
         }
-
 
         public void BindingRadniKalendar()
         {
@@ -102,8 +100,8 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (OdabranaUsluga != null)
             {
-                refBrisanjeUsluge = new view.lekar.pacijenti.BrisanjeUsluge(LekarDTO, OdabranaUsluga);
-                NavigationService.Navigate(refBrisanjeUsluge);
+                var nextBrisanjeUsluge = new view.lekar.pacijenti.BrisanjeUsluge(LekarDTO, OdabranaUsluga);
+                NavigationService.Navigate(nextBrisanjeUsluge);
             }
         }
 
@@ -111,8 +109,8 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (OdabranaUsluga != null)
             {
-                refAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(LekarDTO, OdabranaUsluga);
-                NavigationService.Navigate(refAzuriranjeUsluge);
+                var nextAzuriranjeUsluge = new view.lekar.pacijenti.AzuriranjeUsluge(LekarDTO, OdabranaUsluga);
+                NavigationService.Navigate(nextAzuriranjeUsluge);
             }
         }
 
@@ -120,8 +118,8 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (OdabranaUsluga != null)
             {
-                refEvidentiranjeUsluge = new view.lekar.pacijenti.EvidentiranjeUsluge(LekarDTO, OdabranaUsluga);
-                NavigationService.Navigate(refEvidentiranjeUsluge);
+                var nextEvidentiranjeUsluge = new view.lekar.pacijenti.EvidentiranjeUsluge(LekarDTO, OdabranaUsluga);
+                NavigationService.Navigate(nextEvidentiranjeUsluge);
             }
         }
 
@@ -163,11 +161,10 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (this.LekarDTO != null)
             {
-                refGlavniMeni = new view.lekar.GlavniMeni(LekarDTO);
-                NavigationService.Navigate(refGlavniMeni);
+                var backGlavniMeni = new view.lekar.GlavniMeni(LekarDTO);
+                NavigationService.Navigate(backGlavniMeni);
             }
         }
-
 
     }
 }

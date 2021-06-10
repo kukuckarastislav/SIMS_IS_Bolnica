@@ -43,9 +43,6 @@ namespace Bolnica.view.lekar.pacijenti
             headerPrezime.Text = PacijentDTO.Prezime;
             headerJMBG.Text = PacijentDTO.Jmbg;
 
-            Potvrdi.IsEnabled = false;
-
-
             KalendarDanUsluge.SelectedDate = DateTime.Today;
             KreirajIspravanKalendar();
         }
@@ -53,33 +50,45 @@ namespace Bolnica.view.lekar.pacijenti
         private void KreirajIspravanKalendar()
         {
             KalendarDanUsluge.DisplayDateStart = DateTime.Today;
-            Potvrdi.IsEnabled = SveJePopunjen();
 
+            SveJePopunjen();
         }
 
+        private void ComboBoxProstorija_DropDownClosed(object sender, EventArgs e)
+        {
+
+            SveJePopunjen();
+        }
 
         private void CmbHitnoZakazivanje_Checked(object sender, RoutedEventArgs e)
         {
-
             VremeUsluge = DateTime.Now;
             KalendarDanUsluge.SelectedDate = DateTime.Today;
             ComboBoxVremeUsluge_Sat.Text = Convert.ToString(VremeUsluge.Hour);
             ComboBoxVremeUsluge_Minut.Text = Convert.ToString(VremeUsluge.Minute - VremeUsluge.Minute % 5);
-            KalendarDanUsluge.IsEnabled = false;
+
             ComboBoxVremeUsluge_Sat.IsEnabled = false;
             ComboBoxVremeUsluge_Minut.IsEnabled = false;
-            Potvrdi.IsEnabled = SveJePopunjen();
+            KalendarDanUsluge.IsEnabled = false;
+
+            SveJePopunjen();
+ 
         }
 
         private void CmbHitnoZakazivanje_Unchecked(object sender, RoutedEventArgs e)
         {
             KalendarDanUsluge.IsEnabled = true;
+            KalendarDanUsluge.SelectedDate = DateTime.Today;
+            ComboBoxVremeUsluge_Sat.Text = Convert.ToString(VremeUsluge.Hour);
+            ComboBoxVremeUsluge_Minut.Text = Convert.ToString(VremeUsluge.Minute - VremeUsluge.Minute % 5);
+
             ComboBoxVremeUsluge_Sat.IsEnabled = true;
             ComboBoxVremeUsluge_Minut.IsEnabled = true;
-            Potvrdi.IsEnabled = SveJePopunjen();
+            KalendarDanUsluge.IsEnabled = true;
+
+            SveJePopunjen();
 
         }
-
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {
@@ -90,12 +99,29 @@ namespace Bolnica.view.lekar.pacijenti
             }
         }
 
-
-
         private void KalendarDanUsluge_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             VremeUsluge = KalendarDanUsluge.SelectedDate.Value;
-            Potvrdi.IsEnabled = SveJePopunjen();
+
+            SveJePopunjen();
+
+        }
+
+        private void IspisiZakazanoVreme()
+        {
+            int sati = Convert.ToInt32(ComboBoxVremeUsluge_Sat.Text);
+            int minute = Convert.ToInt32(ComboBoxVremeUsluge_Minut.Text);
+            VremeUsluge = KalendarDanUsluge.SelectedDate.Value;
+            DateTime pocetak = new DateTime(VremeUsluge.Year, VremeUsluge.Month, VremeUsluge.Day, sati, minute, 0);
+            DateTime kraj = pocetak.AddMinutes(30);
+            AzuriranoVreme.Text = (NapraviStringAzuriranoVreme(pocetak, kraj));
+        }
+
+        private string NapraviStringAzuriranoVreme(DateTime azuriran_pocetak, DateTime azuriran_kraj)
+        {
+            return azuriran_pocetak.ToString("MM / dd / yyyy") + "\n"
+                    + "Od " + azuriran_pocetak.ToString("HH:mm:ss") + "\n"
+                    + "Do " + azuriran_kraj.ToString("HH:mm:ss");
         }
 
         private void Potvrdi_Click(object sender, RoutedEventArgs e)
@@ -130,19 +156,16 @@ namespace Bolnica.view.lekar.pacijenti
             }
         }
 
-
-        private bool SveJePopunjen()
+        private void SveJePopunjen()
         {
-            if (ComboBoxVremeUsluge_Sat.SelectedItem != null &&
-                ComboBoxVremeUsluge_Minut.SelectedItem != null &&
-                KalendarDanUsluge.SelectedDate != null &&
-                ComboBoxProstorija.SelectedItem != null )
+            Potvrdi.IsEnabled = false;
+            if (KalendarDanUsluge.SelectedDate != null &&
+                ComboBoxProstorija.SelectedItem != null)
             {
-                return true;
+                IspisiZakazanoVreme();
+                Potvrdi.IsEnabled = true;
             }
-            return false;
+
         }
-
-
     }
 }

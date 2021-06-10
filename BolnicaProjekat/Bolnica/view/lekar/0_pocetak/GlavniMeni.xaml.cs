@@ -19,13 +19,11 @@ namespace Bolnica.view.lekar
 {
     public partial class GlavniMeni : Page
     {
-        // NEXT - PAGES
         private view.lekar.pacijenti.RadniKalendar refRadniKalendar;
         private view.lekar.pacijenti.PrikazPacijenata refPrikazPacijenataZaLekarDTO;
         private view.lekar.lekovi.Lekovi refLekovi;
         private view.lekar.FeedBack refFeedBack;
 
-        // KORISNICI
         public LekarDTO LekarDTO;
 
         public GlavniMeni(LekarDTO LekarDTO)

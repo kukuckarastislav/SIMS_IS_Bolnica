@@ -183,12 +183,12 @@
     "IdZdravstveneUsluge": null,
     "Id": 20,
     "TipProstorije": 0,
-    "Broj": "TESTsoba3322",
+    "Broj": "TESTsoba3321",
     "Sprat": 12345,
     "Povrsina": 6789,
     "BrojKreveta": 0,
     "BrojSlobodnihKreveta": 0,
-    "BrojSprat": "TESTsoba3322/12345",
+    "BrojSprat": "TESTsoba3321/12345",
     "IdInventar": 20
   },
   {

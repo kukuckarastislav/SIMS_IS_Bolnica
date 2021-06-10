@@ -22,6 +22,8 @@ namespace Servis
         public const int maxBrojDanaOdlaganja = 3;
         #endregion
 
+
+
         #region - Konstruktor - ZdrastvenaUslugaServis 
         public ZdravstvenaUslugaServis()
         {
@@ -752,6 +754,9 @@ namespace Servis
             return kolekcijaTerminaRada;
         }
 
-
+        public int getNewId()
+        {
+            return ZdrastvenaUslugaRepozitorijumRef.getNewId();
+        }
     }
 }

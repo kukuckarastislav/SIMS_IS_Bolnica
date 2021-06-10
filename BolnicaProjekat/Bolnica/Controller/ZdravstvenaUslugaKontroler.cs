@@ -219,6 +219,11 @@ namespace Kontroler
             return dalDaNotifikuje;
         }
 
+        public int getNewId()
+        {
+            return ZdrastvenaUslugaServisObjekat.getNewId();
+        }
+
     }
 }
  

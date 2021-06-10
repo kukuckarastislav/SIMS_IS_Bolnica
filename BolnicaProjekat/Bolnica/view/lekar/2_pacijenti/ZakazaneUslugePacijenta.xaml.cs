@@ -28,7 +28,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             this.LekarDTO = LekarDTO;
             this.PacijentDTO = PacijentDTO;
-           
+
 
             InitializeComponent();
 
@@ -41,7 +41,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO,PacijentDTO);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

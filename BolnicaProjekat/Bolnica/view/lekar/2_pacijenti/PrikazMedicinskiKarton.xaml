@@ -139,7 +139,8 @@
                 Grid.Row="8" Height="36" 
                 VerticalAlignment="Bottom" 
                 Background="#eeebdd" BorderThickness="1" BorderBrush="Black"
-                Click="ZakazaneUslugePacijentaButton">
+                Click="ZakazaneUslugePacijentaButton"
+                IsEnabled="False">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"/>

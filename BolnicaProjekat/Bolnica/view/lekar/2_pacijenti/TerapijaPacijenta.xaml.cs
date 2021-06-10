@@ -46,26 +46,9 @@ namespace Bolnica.view.lekar.pacijenti
             foreach (ReceptDTO v in ListaRecepti) KolekcijaRecepti.Add(v);
             Alergeni = Repozitorijum.PacijentRepozitorijum.GetInstance.GetById(PacijentDTO.Id).MedicinskiKarton.Alergeni;
 
-           //    Recepti = KontrolerRecept.GetPacijentovihRecepta(PacijentDTO.Id);
-
-            /* Recept(int id, 
-             *        int idLekarDTOa, 
-             *        int idPacijenta, 
-             *        int idLeka, 
-             *        DateTime datumPropisivanja, 
-             *        DateTime datumIsteka,
-             *        bool oslobodjenOdParticipacije, 
-             *        string opisKoriscenja)
-             */
             this.DataGridRecepti.ItemsSource = ListaRecepti;
             this.DataGridPrikazAlergena.ItemsSource = Alergeni;
         }
-
-        private void AzurirajPrikazAlergena()
-        {
-            DataGridPrikazAlergena.ItemsSource = KolekcijaAlergeni;
-        }
-
 
         private void PrikazMedicinskiKartonButton(object sender, RoutedEventArgs e)
         {

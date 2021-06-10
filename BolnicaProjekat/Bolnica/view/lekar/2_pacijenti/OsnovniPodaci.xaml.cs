@@ -17,9 +17,6 @@ using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for OsnovniPodaci.xaml
-    /// </summary>
     public partial class OsnovniPodaci : Page
     {
         public PacijentDTO PacijentDTO { get; set; }
@@ -49,7 +46,7 @@ namespace Bolnica.view.lekar.pacijenti
         {
             if (PacijentDTO != null)
             {
-                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO,PacijentDTO);
+                refPrikazMedicinskiKarton = new view.lekar.pacijenti.PrikazMedicinskiKarton(LekarDTO, PacijentDTO);
                 NavigationService.Navigate(refPrikazMedicinskiKarton);
             }
         }

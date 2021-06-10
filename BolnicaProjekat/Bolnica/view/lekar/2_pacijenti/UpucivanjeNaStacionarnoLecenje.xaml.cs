@@ -20,20 +20,22 @@ using DTO;
 
 namespace Bolnica.view.lekar.pacijenti
 {
-    /// <summary>
-    /// Interaction logic for UpucivanjeNaStacionarnoLecenje.xaml
-    /// </summary>
+
     public partial class UpucivanjeNaStacionarnoLecenje : Page
     {
 
         public LekarDTO LekarDTO { get; set; }
         public PacijentDTO PacijentDTO { get; set; }
+
         public DateTime PocetakHospitalizacije;
         public DateTime ZavrsetakHospitalizacije;
+
         public ObservableCollection<Prostorija> BolesnickeSobe;
         public HospitalizacijaKontroler HospitalizacijaKontrolerObjekat;
+
         public DateTime AzuriranPocetak { get; set; }
         public DateTime AzuriranKraj { get; set; }
+
         private Prostorija selektovanaProstorija = null; 
         private view.lekar.pacijenti.PrikazMedicinskiKarton refPrikazMedicinskiKarton;
 
@@ -66,8 +68,6 @@ namespace Bolnica.view.lekar.pacijenti
             kalZavrsetakHospitalizacije.BlackoutDates.Add(proslost);
         }
 
-
-
         private void IspisiAzuriranoStanje()
         {
             PocetakHospitalizacije = IzracunajPocetakHospitalizacije();
@@ -80,7 +80,6 @@ namespace Bolnica.view.lekar.pacijenti
             txtAzuriranoStanje.Text = "Hospitalizacija: " + "\n" + vremeHospitalizacije + "\n";
 
         }
-
 
         private DateTime IzracunajPocetakHospitalizacije()
         {

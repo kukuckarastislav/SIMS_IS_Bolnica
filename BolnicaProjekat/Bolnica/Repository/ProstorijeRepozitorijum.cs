@@ -11,15 +11,15 @@ using Model;
 using System.Text.Json;
 using System.Collections.ObjectModel;
 using System.Windows;
+using Interface;
+using Factory;
 
 namespace Repozitorijum
 {
     public class ProstorijeRepozitorijum
     {
-        private const string imeFajla = "prostorije.json";
-
-        public List<Prostorija> lProstorije;
-
+        public IBaza Baza { get; set; }
+        private List<Prostorija> lProstorije;
         private static ProstorijeRepozitorijum instance = null;
         public static ProstorijeRepozitorijum GetInstance
         {
@@ -39,39 +39,23 @@ namespace Repozitorijum
 
         private ProstorijeRepozitorijum()
         {
+            Baza = BazaFactory.GetBaza("Default");
             UcitajPodatke();
         }
 
         private void UcitajPodatke()
         {
-            try
+            if(lProstorije == null)
             {
-                if (lProstorije == null)    // dal je ovo potrebno ?
-                {
-
-                    List<Prostorija> p = JsonSerializer.Deserialize<List<Prostorija>>(File.ReadAllText("../../podaci/" + imeFajla));
-                    lProstorije = p;
-
-                }
-            }
-            catch (Exception e)
-            {
-
-                lProstorije = new List<Prostorija>();
-                Console.WriteLine(e.ToString());
+                lProstorije = Baza.UcitajPodatke();
             }
         }
 
         private void SacuvajPodatke()
         {
-            var format = new JsonSerializerOptions
-            {
-                WriteIndented = true,
-            };
-            string json = JsonSerializer.Serialize(lProstorije, format);
-            File.WriteAllText("../../podaci/" + imeFajla, json);
+            Baza.SacuvajPodatke(lProstorije);
         }
-
+        
         public int GetFirstFitID()
         {
             UcitajPodatke();
@@ -89,84 +73,68 @@ namespace Repozitorijum
         public Prostorija DodajProstoriju(Prostorija novaProstorija)
         {
             UcitajPodatke();
-            //generisati novi id?
-            int firstFitID = GetFirstFitID();
-            novaProstorija.Id = firstFitID;
+            novaProstorija.Id = GetFirstFitID();
             lProstorije.Add(novaProstorija);
             SacuvajPodatke();
             return novaProstorija;
         }
 
-
-
-
         public Prostorija ObrisiProstoriju(Prostorija prostorija)
         {
-            Prostorija retVal = null;
+            Prostorija staraProstorija = null;
             foreach(Prostorija p in lProstorije)
             {
                 if(p.Id == prostorija.Id)
                 {
                     lProstorije.Remove(p);
-                    retVal = p;
+                    staraProstorija = p;
                     break;
                 }
             }
-
             SacuvajPodatke();
-
-            return retVal;
+            return staraProstorija;
         }
 
-        public Prostorija ObrisiProstorijuByID(int id)
+        public Prostorija ObrisiProstorijuByID(int idProstorije)
         {
-            Prostorija retVal = null;
+            Prostorija staraProstorija = null;
             foreach (Prostorija p in lProstorije)
             {
-                if (p.Id == id)
+                if (p.Id == idProstorije)
                 {
                     lProstorije.Remove(p);
-                    retVal = p;
+                    staraProstorija = p;
                     break;
                 }
             }
-
             SacuvajPodatke();
-
-            return retVal;
+            return staraProstorija;
         }
-
 
         public Prostorija AzurirajProstoriju(Prostorija editProstorija)
         {
             SacuvajPodatke();
             return editProstorija;
         }
-
       
         public Prostorija GetProstorijaById(int id)
         {
+            Prostorija prostorija = null;
             foreach (Prostorija p in lProstorije)
             {
                 if (p.Id == id)
                 {
-                    return p;
+                    prostorija = p;
+                    break;
                 }
             }
-
-            return null;
+            return prostorija;
         }
-
-      
 
         public List<Prostorija> GetProstorijeAll()
         {
             UcitajPodatke();
             return lProstorije;
         }
-
-
-
-
     }
 }

@@ -534,7 +534,8 @@ namespace Servis
             usluga = DalJeLekarZauzet(usluga);
             usluga = jelRadnoVremeLekara(usluga);
             usluga = DalJeProstorijaZauzeta(usluga);
-            if(usluga.ZakazanTermin)
+            usluga = DalProstorijaImaRezervaciju(usluga);
+            if (usluga.ZakazanTermin)
             {
                 DodajUslugu(KonvertujUModel(usluga));
             }
@@ -589,6 +590,34 @@ namespace Servis
                     uslugaDto.GreskaProstorija = "Prostorija je zauzeta u izabranom vremenu.";
                     uslugaDto.ZakazanTermin = false;
                     return uslugaDto;
+                }
+            }
+
+            return uslugaDto;
+        }
+
+        public ZakaziTetminDTO DalProstorijaImaRezervaciju(ZakaziTetminDTO uslugaDto)
+        {
+            List<TerminProstorije> uslugePrestorije = TerminProstorijeRepozitorijum.GetInstance.GetByIdProstorije(uslugaDto.IdProstorije);
+            foreach (TerminProstorije termin in uslugePrestorije) 
+            {
+                if (termin.tipTerminaProstorije == TipTerminaProstorije.Renoviranje)
+                {
+                    if (jesuliPreklopljeniTermini(new Termin(termin.Pocetak, termin.Kraj), uslugaDto.Termin))
+                    {
+                        uslugaDto.GreskaProstorija = "Prostorija je na renovaciji.";
+                        uslugaDto.ZakazanTermin = false;
+                        return uslugaDto;
+                    }
+                }
+                else
+                {
+                    if(termin.Pocetak<uslugaDto.Termin.Pocetak)
+                    {
+                        uslugaDto.GreskaProstorija = "Prostorija je na spajanju.";
+                        uslugaDto.ZakazanTermin = false;
+                        return uslugaDto;
+                    }
                 }
             }
 

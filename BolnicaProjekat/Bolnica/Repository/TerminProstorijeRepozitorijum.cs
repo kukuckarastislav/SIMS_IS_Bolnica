@@ -109,5 +109,17 @@ namespace Repozitorijum
             return terminProstorije;
         }
 
+        public List<TerminProstorije> GetByIdProstorije(int idProstorije)
+        {
+            List<TerminProstorije> ret = new List<TerminProstorije>();
+            foreach (TerminProstorije tp in lTerminProstorije)
+            {
+                if (tp.IdProstorije1 == idProstorije || tp.IdProstorije2 == idProstorije)
+                {
+                    ret.Add(tp);
+                }
+            }
+            return ret;
+        }
     }
 }

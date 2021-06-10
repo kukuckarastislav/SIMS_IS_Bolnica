@@ -16,7 +16,6 @@ namespace Kontroler
     public class ProstorijeKontroler
     {
 
-
         private Servis.ProstorijeServis ProstorijeServisObjekat { get; set; }
 
         public ProstorijeKontroler()
@@ -33,17 +32,9 @@ namespace Kontroler
             return ProstorijeServisObjekat.DodajProstoriju(tipProstorije, broj, sprat, povrsina, brKreveta, brSlobKreveta);
         }
 
-
-
         public Prostorija ObrisiProstoriju(Prostorija delProstorija)
         {
             return ProstorijeServisObjekat.ObrisiProstoriju(delProstorija);
-        }
-
-        public Prostorija AzurirajProstoriju()
-        {
-            // TODO: implement
-            return null;
         }
 
         public Prostorija AzurirajProstoriju(Prostorija editProstorija,
@@ -51,7 +42,6 @@ namespace Kontroler
                                              int sprat,
                                              double povrsina)
         {
-            // TODO: implement
             return ProstorijeServisObjekat.AzurirajProstoriju(editProstorija,
                                                               broj,
                                                               sprat,
@@ -80,13 +70,6 @@ namespace Kontroler
             return ProstorijeServisObjekat.GetProstorijaById(id);
         }
 
-
-        public List<Prostorija> GetProstorijeAll()
-        {
-            // TODO: implement
-            return null;
-        }
-
         public List<ProstorijaDTO> GetProstorijeDTO()
         {
             return ProstorijeServisObjekat.GetProstorijeDTO();
@@ -94,14 +77,12 @@ namespace Kontroler
 
         public ObservableCollection<Prostorija> getProstorijeTipObservable(TipProstorije tipProstorije)
         {
-            return ProstorijeServisObjekat.getProstorijeTipObservable(tipProstorije);
+            ObservableCollection<Prostorija> prostorijeTipa = new ObservableCollection<Prostorija>();
+            foreach(Prostorija prostorija in ProstorijeServisObjekat.getProstorijeTip(tipProstorije))
+            {
+                prostorijeTipa.Add(prostorija);
+            }
+            return prostorijeTipa;
         }
-        public ObservableCollection<Prostorija> getBolesnickeSobeZaHospitalizaciju()
-        {
-            //TODO: ovo resiti?
-            return new ObservableCollection<Prostorija>();
-            //return ProstorijeServisObjekat.getBolesnickeSobeZaHospitalizaciju();
-        }
-
     }
 }

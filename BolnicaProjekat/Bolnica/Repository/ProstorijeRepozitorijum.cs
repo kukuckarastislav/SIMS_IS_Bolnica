@@ -1,9 +1,3 @@
-/***********************************************************************
- * Module:  ProstorijeRepozitorijum.cs
- * Author:  lacik
- * Purpose: Definition of the Class Repozitorijum.ProstorijeRepozitorijum
- ***********************************************************************/
-
 using System;
 using System.IO;
 using System.Collections.Generic;

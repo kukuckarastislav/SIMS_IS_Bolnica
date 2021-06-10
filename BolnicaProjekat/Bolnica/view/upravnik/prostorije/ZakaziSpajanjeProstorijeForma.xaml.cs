@@ -64,7 +64,14 @@ namespace Bolnica.view.upravnik.prostorije
 
         private void btn_potvrdi_Click(object sender, RoutedEventArgs e)
         {
-            if(prostorija.Id == prostorijaB.Id)
+
+            if(prostorijaB.Sprat != prostorija.Sprat)
+            {
+                MessageBox.Show("Spajanje prostorija se moze odigrati samo na istom spratu");
+                return;
+            }
+
+            if (prostorija.Id == prostorijaB.Id)
             {
                 MessageBox.Show("Ne mozete spojiti jednu prostoriju u jednu prostoriju");
                 return;

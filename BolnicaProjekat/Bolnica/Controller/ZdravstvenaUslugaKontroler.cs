@@ -14,19 +14,34 @@ namespace Kontroler
 {
     public class ZdravstvenaUslugaKontroler
     {
+
+
+        #region - Polja - ZdrastvenaUslugaKontroler
         private ZdravstvenaUslugaServis ZdrastvenaUslugaServisObjekat;
         private NotifikacijeServis NotifikacijaServisObjekat;
+        #endregion
 
+        #region - Konstruktor - ZdrastvenaUslugaKontroler 
         public ZdravstvenaUslugaKontroler()
         {
             ZdrastvenaUslugaServisObjekat = new ZdravstvenaUslugaServis();
             NotifikacijaServisObjekat = new NotifikacijeServis();
         }
+        #endregion
 
+        #region - Metode - Zdrastvena usluga(model) - Dodaj, HitnoDodaj, AzurirajVreme, Obrisi, Evidentiraj
         public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
         {
             ZdravstvenaUsluga ret = ZdrastvenaUslugaServisObjekat.DodajUslugu(usluga);
             NotifikacijaServisObjekat.ZakaziTermin(usluga);
+            return ret;
+        }
+
+        public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
+        {
+            NotifikacijaServisObjekat.ZakaziTermin(usluga);
+            ZdravstvenaUsluga ret = ZdrastvenaUslugaServisObjekat.HitnoDodajUslugu(lekar, usluga);
+            if (ret != null) NotifikacijaServisObjekat.OtkaziTermin(ret);
             return ret;
         }
 
@@ -35,13 +50,17 @@ namespace Kontroler
             return ZdrastvenaUslugaServisObjekat.AzurirajVremeUsluga(usluga, pocetak, kraj);
         }
 
-        public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar,ZdravstvenaUsluga usluga)
+        public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
         {
-            NotifikacijaServisObjekat.ZakaziTermin(usluga);
-            ZdravstvenaUsluga ret = ZdrastvenaUslugaServisObjekat.HitnoDodajUslugu(lekar, usluga);
-            if(ret!=null)NotifikacijaServisObjekat.OtkaziTermin(ret);
-            return ret;
+            return ZdrastvenaUslugaServisObjekat.ObrisiUslugu(usluga);
         }
+
+        public ZdravstvenaUsluga EvidentirajUslugu(ZdravstvenaUsluga usluga, string anamneza)
+        {
+            return ZdrastvenaUslugaServisObjekat.EvidentirajUslugu(usluga, anamneza);
+        }
+        #endregion
+
 
         public ZakaziTetminDTO ZakaziUslugu(ZakaziTetminDTO usluga)
         {

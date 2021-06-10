@@ -172,11 +172,11 @@
     "Id": 19,
     "TipProstorije": 0,
     "Broj": "R-75",
-    "Sprat": 19,
+    "Sprat": 12,
     "Povrsina": 40,
     "BrojKreveta": 0,
     "BrojSlobodnihKreveta": 0,
-    "BrojSprat": "R-75/19",
+    "BrojSprat": "R-75/12",
     "IdInventar": 19
   }
 ]

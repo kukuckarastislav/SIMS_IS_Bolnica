@@ -15,23 +15,65 @@ namespace Servis
 {
     public class ZdravstvenaUslugaServis
     {
+        #region - Polja - ZdrastvenaUslugaServis
         public LekarRepozitorijum LekarRepozitorijumRef;
         public ZdravstvenaUslugaRepozitorijum ZdrastvenaUslugaRepozitorijumRef;
-
         public static TimeSpan trajanjePregleda = new TimeSpan(0, 0, 30, 0, 0);
         public const int maxBrojDanaOdlaganja = 3;
+        #endregion
+
+        #region - Konstruktor - ZdrastvenaUslugaServis 
         public ZdravstvenaUslugaServis()
         {
             ZdrastvenaUslugaRepozitorijumRef = new ZdravstvenaUslugaRepozitorijum();
             LekarRepozitorijumRef = new LekarRepozitorijum();
-
-
         }
+        #endregion
+
+        #region - Metode - Zdrastvena usluga(model) - Dodaj, HitnoDodaj, AzurirajVreme, Obrisi, Evidentiraj
+        public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
+        {
+            usluga.Id = ZdrastvenaUslugaRepozitorijumRef.getNewId();
+            return ZdrastvenaUslugaRepozitorijumRef.DodajUslugu(usluga);
+        }
+
+        public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
+        {
+            ZdravstvenaUsluga uslugaKojaSeOdlaze = ZdrastvenaUslugaRepozitorijumRef.GetUslugaZaTermin(lekar, usluga.Termin.Pocetak);
+            ZdravstvenaUsluga odlozenaUsluga = OdloziTerminRadiHitnogTermina(lekar, usluga);
+            if (uslugaKojaSeOdlaze != null) OtkaziUslugu(uslugaKojaSeOdlaze);
+            if (odlozenaUsluga != null)
+            {
+                odlozenaUsluga.IdPacijenta = uslugaKojaSeOdlaze.IdPacijenta;
+                odlozenaUsluga.IdLekara = usluga.IdLekara;
+                odlozenaUsluga.Id = ZdrastvenaUslugaRepozitorijumRef.getNewId();
+                DodajUslugu(odlozenaUsluga);
+            }
+            DodajUslugu(usluga);
+
+            return uslugaKojaSeOdlaze;
+        }
+
+        public ZdravstvenaUsluga AzurirajVremeUsluga(ZdravstvenaUsluga usluga, DateTime pocetak, DateTime kraj)
+        {
+            return ZdrastvenaUslugaRepozitorijumRef.AzurirajVremeUsluga(usluga, pocetak, kraj);
+        }
+        public ZdravstvenaUsluga ObrisiUslugu(ZdravstvenaUsluga usluga)
+        {
+            return ZdrastvenaUslugaRepozitorijumRef.ObrisiUslugu(usluga);;
+        }
+
+        public ZdravstvenaUsluga EvidentirajUslugu(ZdravstvenaUsluga usluga, string anamneza)
+        {
+            return ZdrastvenaUslugaRepozitorijumRef.EvidentirajUslugu(usluga, anamneza);
+        }
+        #endregion
 
         public static ObservableCollection<ZdravstvenaUslugaDTO> GetSlobodniTerminiDTO(int idLekara, DateTime pocetak, DateTime kraj, int prioritet)
         {
-            return Konvertuj(GetSlobodniTermini(idLekara,pocetak,kraj,prioritet));
+            return Konvertuj(GetSlobodniTermini(idLekara, pocetak, kraj, prioritet));
         }
+
 
         private static ObservableCollection<ZdravstvenaUslugaDTO> Konvertuj(List<ZdravstvenaUsluga> prosliTermini)
         {
@@ -45,10 +87,6 @@ namespace Servis
             return ret;
         }
 
-        public ZdravstvenaUsluga AzurirajVremeUsluga(ZdravstvenaUsluga usluga, DateTime pocetak, DateTime kraj)
-        {
-            return ZdrastvenaUslugaRepozitorijumRef.AzurirajVremeUsluga(usluga,pocetak,kraj);
-        }
 
 
 
@@ -80,7 +118,7 @@ namespace Servis
         internal ObservableCollection<ZdravstvenaUslugaDTO> GetProsliTerminiPacijenta(int id)
         {
             List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
-            foreach(ZdravstvenaUsluga u in ZdrastvenaUslugaRepozitorijumRef.getTerminiByPacijentId(id))
+            foreach (ZdravstvenaUsluga u in ZdrastvenaUslugaRepozitorijumRef.getTerminiByPacijentId(id))
             {
                 if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) <= 0)
                     prosliTermini.Add(u);
@@ -94,7 +132,7 @@ namespace Servis
             foreach (ZdravstvenaUsluga u in prosliTermini)
             {
                 ret.Add(new ZdravstvenaUslugaDTO(u.Termin, u.Id, u.IdPacijenta, u.IdLekara,
-                    LekarRepozitorijumRef.GetById(u.IdLekara).Ime+" "+ LekarRepozitorijumRef.GetById(u.IdLekara).Prezime,
+                    LekarRepozitorijumRef.GetById(u.IdLekara).Ime + " " + LekarRepozitorijumRef.GetById(u.IdLekara).Prezime,
                         u.TipUsluge, u.IdProstorije, u.RazlogZakazivanja, u.RezultatUsluge));
             }
             return ret;
@@ -116,7 +154,7 @@ namespace Servis
             List<ZdravstvenaUsluga> prosliTermini = new List<ZdravstvenaUsluga>();
             foreach (ZdravstvenaUsluga u in ZdrastvenaUslugaRepozitorijumRef.getTerminiByPacijentId(id))
             {
-                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) >= 0 && u.TipUsluge==TipUsluge.Pregled)
+                if (DateTime.Compare(u.Termin.Kraj, DateTime.Now) >= 0 && u.TipUsluge == TipUsluge.Pregled)
                     prosliTermini.Add(u);
             }
             return KonverujModelDTO(prosliTermini);
@@ -173,7 +211,8 @@ namespace Servis
 
             return pregledi;
         }
-        public static bool JeTerminZauzet(Lekar OdabraniLekar, ZdravstvenaUsluga pregled) {
+        public static bool JeTerminZauzet(Lekar OdabraniLekar, ZdravstvenaUsluga pregled)
+        {
 
             List<ZdravstvenaUsluga> terminiLekara = ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiBylekarId(OdabraniLekar.Id);
 
@@ -265,8 +304,8 @@ namespace Servis
         public List<RadniKalendarDTO> RadniKalendarLekara(LekarDTO l)
         {
             List<RadniKalendarDTO> lista = new List<RadniKalendarDTO>();
-            List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(l.Id);
-            foreach(ZdravstvenaUsluga zdravstvenaUsluga in usluge)
+            List<ZdravstvenaUsluga> usluge = ZdrastvenaUslugaRepozitorijumRef.GetTerminByLekarId(l.Id);
+            foreach (ZdravstvenaUsluga zdravstvenaUsluga in usluge)
             {
                 Pacijent pacijent = PacijentRepozitorijum.GetInstance.GetById(zdravstvenaUsluga.IdPacijenta);
                 Prostorija prostorija = ProstorijeRepozitorijum.GetInstance.GetProstorijaById(zdravstvenaUsluga.IdProstorije);
@@ -301,9 +340,9 @@ namespace Servis
             foreach (RadniKalendarDTO dto in lista)
             {
                 DateTime pocetakUsluge = dto.Usluga.Termin.Pocetak;
-                         DateTime tacnoVreme = DateTime.Now;
-                         DateTime gornjaGranica = tacnoVreme.AddDays(brojDanaUnapred);
-                         DateTime donjaGranica = tacnoVreme.AddDays(-1);
+                DateTime tacnoVreme = DateTime.Now;
+                DateTime gornjaGranica = tacnoVreme.AddDays(brojDanaUnapred);
+                DateTime donjaGranica = tacnoVreme.AddDays(-1);
                 if ((donjaGranica < pocetakUsluge) && (pocetakUsluge < gornjaGranica))
                 {
                     filtriranaLista.Add(dto);
@@ -326,11 +365,7 @@ namespace Servis
             return lista;
         }
 
-        public ZdravstvenaUsluga DodajUslugu(ZdravstvenaUsluga usluga)
-        {
-            usluga.Id = ZdravstvenaUslugaRepozitorijum.GetInstance.getNewId();
-            return ZdravstvenaUslugaRepozitorijum.GetInstance.DodajUslugu(usluga);
-        }
+
 
 
         public void OtkaziUslugu(ZakazaniTerminiDTO usluga)
@@ -400,15 +435,15 @@ namespace Servis
             return KonverujModelDTO(ZdravstvenaUslugaRepozitorijum.GetInstance.getTerminiByPacijentId(id));
         }
 
-        public void AzurirajVremeUsluga(RadniKalendarDTO usluga, DateTime pocetak, DateTime kraj) 
+        public void AzurirajVremeUsluga(RadniKalendarDTO usluga, DateTime pocetak, DateTime kraj)
         {
             RadniKalendarDTO odabranaUsluga = usluga;
             odabranaUsluga.Usluga.Termin.Pocetak = pocetak;
             odabranaUsluga.Usluga.Termin.Kraj = kraj;
-                  
+
         }
 
-        public void DodajKomentarNaUslugu(int idUsluge,String text)
+        public void DodajKomentarNaUslugu(int idUsluge, String text)
         {
             ZdravstvenaUsluga u = ZdrastvenaUslugaRepozitorijumRef.getTerminById(idUsluge);
             u.RazlogZakazivanja = text;
@@ -462,7 +497,7 @@ namespace Servis
         {
             List<ZakazaniTerminiDTO> uslugeDto = new List<ZakazaniTerminiDTO>();
 
-            foreach(ZdravstvenaUsluga usluga in ZdrastvenaUslugaRepozitorijumRef.getAll())
+            foreach (ZdravstvenaUsluga usluga in ZdrastvenaUslugaRepozitorijumRef.getAll())
             {
                 ZakazaniTerminiDTO uslugaDto = new ZakazaniTerminiDTO();
                 uslugaDto.Id = usluga.Id;
@@ -483,7 +518,7 @@ namespace Servis
             List<ZakazaniTerminiDTO> odabraneUsluge = new List<ZakazaniTerminiDTO>();
             foreach (ZakazaniTerminiDTO dto in uslugeDto)
             {
-                if(dto.Termin.Pocetak.Date.Equals(datumPretrage))
+                if (dto.Termin.Pocetak.Date.Equals(datumPretrage))
                 {
                     odabraneUsluge.Add(dto);
                 }
@@ -492,23 +527,7 @@ namespace Servis
             return odabraneUsluge;
         }
 
-        public ZdravstvenaUsluga HitnoDodajUslugu(Lekar lekar, ZdravstvenaUsluga usluga)
-        {
-            
-            ZdravstvenaUsluga uslugaKojaSeOdlaze = ZdravstvenaUslugaRepozitorijum.GetInstance.GetUslugaZaTermin(lekar, usluga.Termin.Pocetak);
-            ZdravstvenaUsluga odlozenaUsluga = OdloziTerminRadiHitnogTermina(lekar, usluga);
-            if(uslugaKojaSeOdlaze!=null)OtkaziUslugu(uslugaKojaSeOdlaze);
-            if (odlozenaUsluga != null)
-            {
-                odlozenaUsluga.IdPacijenta = uslugaKojaSeOdlaze.IdPacijenta;
-                odlozenaUsluga.IdLekara = usluga.IdLekara;
-                odlozenaUsluga.Id = ZdrastvenaUslugaRepozitorijumRef.getNewId();
-                DodajUslugu(odlozenaUsluga);
-            }
-            DodajUslugu(usluga);
 
-            return uslugaKojaSeOdlaze;
-        }
 
         public ZdravstvenaUsluga OdloziTerminRadiHitnogTermina(Lekar lekar, ZdravstvenaUsluga usluga)
         {
@@ -521,9 +540,9 @@ namespace Servis
         {
             List<ZdravstvenaUsluga> usluge = ZdravstvenaUslugaRepozitorijum.GetInstance.GetTerminByLekarId(idLekara);
             List<ZdravstvenaUsluga> uslugeZaDatum = new List<ZdravstvenaUsluga>();
-            foreach(ZdravstvenaUsluga usluga in usluge)
+            foreach (ZdravstvenaUsluga usluga in usluge)
             {
-                if(usluga.Termin.Pocetak.Date.Equals(datum))
+                if (usluga.Termin.Pocetak.Date.Equals(datum))
                 {
                     uslugeZaDatum.Add(usluga);
                 }
@@ -533,11 +552,11 @@ namespace Servis
 
         public bool jesuliPreklopljeniTermini(Termin termin1, Termin termin2)
         {
-            if(termin1.Pocetak <= termin2.Pocetak && termin1.Kraj >= termin2.Kraj)
+            if (termin1.Pocetak <= termin2.Pocetak && termin1.Kraj >= termin2.Kraj)
             {
                 return true;
             }
-            if(termin2.Pocetak <= termin1.Pocetak && termin2.Kraj >= termin1.Kraj)
+            if (termin2.Pocetak <= termin1.Pocetak && termin2.Kraj >= termin1.Kraj)
             {
                 return true;
             }
@@ -626,7 +645,7 @@ namespace Servis
 
         public ZakaziTetminDTO DalJeLekarNaOdmoru(ZakaziTetminDTO usluga)
         {
-            if(GodisnjiOdmorRepozitorijum.GetInstance.DalJeLekarNaOdmoru(usluga.IdLekara,usluga.Termin.Pocetak.Date))
+            if (GodisnjiOdmorRepozitorijum.GetInstance.DalJeLekarNaOdmoru(usluga.IdLekara, usluga.Termin.Pocetak.Date))
             {
                 usluga.ZakazanTermin = false;
                 usluga.GreskaLekar = "Lekar je godišnjem odmoru.";
@@ -637,9 +656,9 @@ namespace Servis
         public ZakaziTetminDTO DalJeLekarZauzet(ZakaziTetminDTO uslugaDto)
         {
             List<ZdravstvenaUsluga> usluge = GetUslugeLekaraZaDan(uslugaDto.IdLekara, uslugaDto.Termin.Pocetak);
-            foreach(ZdravstvenaUsluga usluga in usluge)
+            foreach (ZdravstvenaUsluga usluga in usluge)
             {
-                if(jesuliPreklopljeniTermini(usluga.Termin,uslugaDto.Termin))
+                if (jesuliPreklopljeniTermini(usluga.Termin, uslugaDto.Termin))
                 {
                     uslugaDto.GreskaLekar = "Lekar ima zakazan termin u izabranom vremenu.";
                     uslugaDto.ZakazanTermin = false;
@@ -697,10 +716,10 @@ namespace Servis
 
         public ZakaziTetminDTO jelRadnoVremeLekara(ZakaziTetminDTO usluga)
         {
-       
+
             RadnoVreme vreme = LekarRepozitorijum.GetInstance.GetById(usluga.IdLekara).radnoVreme;
 
-            if(vreme.PocetakRadnogVremena > usluga.Termin.Pocetak.Hour || vreme.KrajRadnogVremena < usluga.Termin.Kraj.Hour)
+            if (vreme.PocetakRadnogVremena > usluga.Termin.Pocetak.Hour || vreme.KrajRadnogVremena < usluga.Termin.Kraj.Hour)
             {
                 usluga.GreskaRadnoVreme = "Termin nije u granicama radnog vremena lekara";
                 usluga.ZakazanTermin = false;
@@ -709,9 +728,9 @@ namespace Servis
             return usluga;
         }
 
-        public IzvestajDto procenatZauzetosti(int idProstorije,Termin termin)
+        public IzvestajDto procenatZauzetosti(int idProstorije, Termin termin)
         {
-            
+
             List<ZdravstvenaUsluga> terminiProstorije = GetSviTerminiProstorije(idProstorije);
             KreatorIzvestajaProstorije kreatorIzvestaja = new KreatorIzvestajaProstorije(terminiProstorije, termin);
 
@@ -722,9 +741,9 @@ namespace Servis
         {
             List<RadLekaraDTO> kolekcijaTerminaRada = new List<RadLekaraDTO>();
             List<ZdravstvenaUsluga> zdravstveneUslugeLekara = ZdrastvenaUslugaRepozitorijumRef.getTerminiBylekarId(idLekara);
-            foreach(ZdravstvenaUsluga zdravstvenaUsluga in zdravstveneUslugeLekara)
+            foreach (ZdravstvenaUsluga zdravstvenaUsluga in zdravstveneUslugeLekara)
             {
-                if(zdravstvenaUsluga.Termin.Pocetak > pocetak && zdravstvenaUsluga.Termin.Pocetak < kraj)
+                if (zdravstvenaUsluga.Termin.Pocetak > pocetak && zdravstvenaUsluga.Termin.Pocetak < kraj)
                 {
                     kolekcijaTerminaRada.Add(new RadLekaraDTO(zdravstvenaUsluga.Termin.Pocetak, zdravstvenaUsluga.Termin.Kraj, zdravstvenaUsluga.GetTipUslugeStr()));
                 }

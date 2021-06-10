@@ -57,20 +57,6 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-09T07:00:00",
-      "Kraj": "2021-06-09T07:30:00"
-    },
-    "Id": 9,
-    "IdLekara": 1,
-    "IdPacijenta": 1,
-    "TipUsluge": 1,
-    "IdProstorije": 10,
-    "Obavljena": true,
-    "RazlogZakazivanja": "erer",
-    "RezultatUsluge": " Pera u odlicnom ste stanju. 1112"
-  },
-  {
-    "Termin": {
       "Pocetak": "2021-06-06T09:00:00",
       "Kraj": "2021-06-06T09:30:00"
     },
@@ -141,20 +127,6 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-09T10:00:00",
-      "Kraj": "2021-06-09T14:00:00"
-    },
-    "Id": 16,
-    "IdLekara": 1,
-    "IdPacijenta": 4,
-    "TipUsluge": 0,
-    "IdProstorije": 1,
-    "Obavljena": true,
-    "RazlogZakazivanja": "",
-    "RezultatUsluge": "Sve je u redu, da da"
-  },
-  {
-    "Termin": {
       "Pocetak": "2021-06-08T09:00:00",
       "Kraj": "2021-06-08T09:30:00"
     },
@@ -169,8 +141,8 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-08T01:00:00",
-      "Kraj": "2021-06-08T01:30:00"
+      "Pocetak": "2021-06-09T03:25:00",
+      "Kraj": "2021-06-09T03:55:00"
     },
     "Id": 19,
     "IdLekara": 1,
@@ -178,13 +150,13 @@
     "TipUsluge": 1,
     "IdProstorije": 6,
     "Obavljena": true,
-    "RazlogZakazivanja": "ads",
-    "RezultatUsluge": " hfggh"
+    "RazlogZakazivanja": "E",
+    "RezultatUsluge": "asdasd"
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-15T10:00:00",
-      "Kraj": "2021-06-15T10:30:00"
+      "Pocetak": "2021-06-18T07:25:00",
+      "Kraj": "2021-06-18T07:55:00"
     },
     "Id": 23,
     "IdLekara": 1,
@@ -211,16 +183,16 @@
   },
   {
     "Termin": {
-      "Pocetak": "2021-06-11T08:00:00",
-      "Kraj": "2021-06-11T08:30:00"
+      "Pocetak": "2021-06-10T04:40:00",
+      "Kraj": "2021-06-10T05:10:00"
     },
-    "Id": 27,
+    "Id": 25,
     "IdLekara": 1,
     "IdPacijenta": 1,
     "TipUsluge": 1,
     "IdProstorije": 6,
     "Obavljena": false,
     "RazlogZakazivanja": "",
-    "RezultatUsluge": ""
+    "RezultatUsluge": " "
   }
 ]
